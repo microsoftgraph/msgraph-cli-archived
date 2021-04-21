@@ -17,7 +17,7 @@ from knack.util import CLIError
 class AddAccount(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace._body = action
+        namespace.body = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -61,13 +61,16 @@ class AddAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-letter-code, postal-code, state, street'.format(k))
         return d
 
 
-class AddCustomerCurrency(argparse.Action):
+class AddCurrency(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace._body = action
+        namespace.body = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -84,7 +87,7 @@ class AddCustomerCurrency(argparse.Action):
         return d
 
 
-class AddCustomerPaymentMethod(argparse.Action):
+class AddPaymentMethod(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.payment_method = action
@@ -109,10 +112,13 @@ class AddCustomerPaymentMethod(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter payment_method. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
-class AddCustomerPaymentTerm(argparse.Action):
+class AddPaymentTerm(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.payment_term = action
@@ -145,13 +151,17 @@ class AddCustomerPaymentTerm(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter payment_term. All possible keys are: '
+                               'calculate-discount-on-credit-memos, code, discount-date-calculation, discount-percent, '
+                               'display-name, due-date-calculation, last-modified-date-time, id'.format(k))
         return d
 
 
-class AddCustomerPicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreateCustomerPaymentPicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCustomerPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreateCustomerPaymentPicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -175,10 +185,13 @@ class AddCustomerPicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d
 
 
-class AddCustomerShipmentMethod(argparse.Action):
+class AddShipmentMethod(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.shipment_method = action
@@ -203,6 +216,9 @@ class AddCustomerShipmentMethod(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter shipment_method. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -231,13 +247,16 @@ class AddDimensionValues(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter dimension_values. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
-class AddFinancialsCreateEmployeePicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreateEmployeePicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsCreateEmployeePicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreateEmployeePicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -261,6 +280,9 @@ class AddFinancialsCreateEmployeePicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d
 
 
@@ -289,13 +311,16 @@ class AddItemCategory(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter item_category. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
-class AddFinancialsCreateItemPicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreateItemPicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsCreateItemPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreateItemPicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -319,13 +344,16 @@ class AddFinancialsCreateItemPicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d
 
 
-class AddVendorPicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreatePurchaseInvoicePicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddVendorPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreatePurchaseInvoicePicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -349,4 +377,7 @@ class AddVendorPicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d

@@ -12,54 +12,54 @@
 from knack.help_files import helps
 
 
-helps['users'] = """
+helps['users_v1_0'] = '''
     type: group
-    short-summary: users
-"""
+    short-summary: Manage Users
+'''
 
-helps['users delete'] = """
-    type: command
-    short-summary: "Delete entity from users"
-"""
-
-helps['users create-user'] = """
-    type: command
-    short-summary: "Add new entity to users"
-"""
-
-helps['users get-user'] = """
-    type: command
-    short-summary: "Get entity from users by key"
-"""
-
-helps['users list-user'] = """
-    type: command
-    short-summary: "Get entities from users"
-"""
-
-helps['users update-user'] = """
-    type: command
-    short-summary: "Update entity in users"
-"""
-
-helps['users'] = """
+helps['users usersuser'] = """
     type: group
-    short-summary: users
+    short-summary: Manage usersuser with users_v1_0
 """
 
-helps['users delete'] = """
+helps['users usersuser create-user'] = """
     type: command
-    short-summary: "Delete navigation property settings for users"
+    short-summary: "Add new entity to users."
 """
 
-helps['users create-extension'] = """
+helps['users usersuser delete-user'] = """
     type: command
-    short-summary: "Create new navigation property to extensions for users"
+    short-summary: "Delete entity from users."
 """
 
-helps['users create-license-detail'] = """
+helps['users usersuser list-user'] = """
     type: command
-    short-summary: "Create new navigation property to licenseDetails for users"
+    short-summary: "Get entities from users."
+"""
+
+helps['users usersuser show-user'] = """
+    type: command
+    short-summary: "Get entity from users by key."
+"""
+
+helps['users usersuser update-user'] = """
+    type: command
+    short-summary: "Update entity in users."
+"""
+
+helps['users user'] = """
+    type: group
+    short-summary: Manage user with users_v1_0
+"""
+
+helps['users user create-extension'] = """
+    type: command
+    short-summary: "Create new navigation property to extensions for users."
+"""
+
+helps['users user create-license-detail'] = """
+    type: command
+    short-summary: "Create new navigation property to licenseDetails for users."
     parameters:
       - name: --service-plans
         short-summary: "Information about the service plans assigned with the license. Read-only, Not nullable"
@@ -79,194 +79,224 @@ and it has not been activated in the tenant, yet.
             Multiple actions can be specified by using more than one --service-plans argument.
 """
 
-helps['users create-photo'] = """
+helps['users user create-photo'] = """
     type: command
-    short-summary: "Create new navigation property to photos for users"
+    short-summary: "Create new navigation property to photos for users."
 """
 
-helps['users create-ref-created-object'] = """
+helps['users user create-ref-created-object'] = """
     type: command
-    short-summary: "Create new navigation property ref to createdObjects for users"
+    short-summary: "Create new navigation property ref to createdObjects for users."
 """
 
-helps['users create-ref-direct-report'] = """
+helps['users user create-ref-direct-report'] = """
     type: command
-    short-summary: "Create new navigation property ref to directReports for users"
+    short-summary: "Create new navigation property ref to directReports for users."
 """
 
-helps['users create-ref-member-of'] = """
+helps['users user create-ref-member-of'] = """
     type: command
-    short-summary: "Create new navigation property ref to memberOf for users"
+    short-summary: "Create new navigation property ref to memberOf for users."
 """
 
-helps['users create-ref-oauth2-permission-grant'] = """
+helps['users user create-ref-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Create new navigation property ref to oauth2PermissionGrants for users"
+    short-summary: "Create new navigation property ref to oauth2PermissionGrants for users."
 """
 
-helps['users create-ref-owned-device'] = """
+helps['users user create-ref-owned-device'] = """
     type: command
-    short-summary: "Create new navigation property ref to ownedDevices for users"
+    short-summary: "Create new navigation property ref to ownedDevices for users."
 """
 
-helps['users create-ref-owned-object'] = """
+helps['users user create-ref-owned-object'] = """
     type: command
-    short-summary: "Create new navigation property ref to ownedObjects for users"
+    short-summary: "Create new navigation property ref to ownedObjects for users."
 """
 
-helps['users create-ref-registered-device'] = """
+helps['users user create-ref-registered-device'] = """
     type: command
-    short-summary: "Create new navigation property ref to registeredDevices for users"
+    short-summary: "Create new navigation property ref to registeredDevices for users."
 """
 
-helps['users create-ref-transitive-member-of'] = """
+helps['users user create-ref-transitive-member-of'] = """
     type: command
-    short-summary: "Create new navigation property ref to transitiveMemberOf for users"
+    short-summary: "Create new navigation property ref to transitiveMemberOf for users."
 """
 
-helps['users get-extension'] = """
+helps['users user delete-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Delete navigation property extensions for users."
 """
 
-helps['users get-license-detail'] = """
+helps['users user delete-license-detail'] = """
     type: command
-    short-summary: "Get licenseDetails from users"
+    short-summary: "Delete navigation property licenseDetails for users."
 """
 
-helps['users get-manager'] = """
+helps['users user delete-outlook'] = """
     type: command
-    short-summary: "Get manager from users"
+    short-summary: "Delete navigation property outlook for users."
 """
 
-helps['users get-outlook'] = """
+helps['users user delete-photo'] = """
     type: command
-    short-summary: "Get outlook from users"
+    short-summary: "Delete navigation property photos for users And Delete navigation property photo for users."
 """
 
-helps['users get-photo'] = """
+helps['users user delete-ref-manager'] = """
     type: command
-    short-summary: "Get photo from users"
+    short-summary: "Delete ref of navigation property manager for users."
 """
 
-helps['users get-ref-manager'] = """
+helps['users user delete-setting'] = """
     type: command
-    short-summary: "Get ref of manager from users"
+    short-summary: "Delete navigation property settings for users."
 """
 
-helps['users get-setting'] = """
+helps['users user list-created-object'] = """
     type: command
-    short-summary: "Get settings from users"
+    short-summary: "Get createdObjects from users."
 """
 
-helps['users list-created-object'] = """
+helps['users user list-direct-report'] = """
     type: command
-    short-summary: "Get createdObjects from users"
+    short-summary: "Get directReports from users."
 """
 
-helps['users list-direct-report'] = """
+helps['users user list-extension'] = """
     type: command
-    short-summary: "Get directReports from users"
+    short-summary: "Get extensions from users."
 """
 
-helps['users list-extension'] = """
+helps['users user list-license-detail'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Get licenseDetails from users."
 """
 
-helps['users list-license-detail'] = """
+helps['users user list-member-of'] = """
     type: command
-    short-summary: "Get licenseDetails from users"
+    short-summary: "Get memberOf from users."
 """
 
-helps['users list-member-of'] = """
+helps['users user list-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Get memberOf from users"
+    short-summary: "Get oauth2PermissionGrants from users."
 """
 
-helps['users list-oauth2-permission-grant'] = """
+helps['users user list-owned-device'] = """
     type: command
-    short-summary: "Get oauth2PermissionGrants from users"
+    short-summary: "Get ownedDevices from users."
 """
 
-helps['users list-owned-device'] = """
+helps['users user list-owned-object'] = """
     type: command
-    short-summary: "Get ownedDevices from users"
+    short-summary: "Get ownedObjects from users."
 """
 
-helps['users list-owned-object'] = """
+helps['users user list-photo'] = """
     type: command
-    short-summary: "Get ownedObjects from users"
+    short-summary: "Get photos from users."
 """
 
-helps['users list-photo'] = """
+helps['users user list-ref-created-object'] = """
     type: command
-    short-summary: "Get photos from users"
+    short-summary: "Get ref of createdObjects from users."
 """
 
-helps['users list-ref-created-object'] = """
+helps['users user list-ref-direct-report'] = """
     type: command
-    short-summary: "Get ref of createdObjects from users"
+    short-summary: "Get ref of directReports from users."
 """
 
-helps['users list-ref-direct-report'] = """
+helps['users user list-ref-member-of'] = """
     type: command
-    short-summary: "Get ref of directReports from users"
+    short-summary: "Get ref of memberOf from users."
 """
 
-helps['users list-ref-member-of'] = """
+helps['users user list-ref-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Get ref of memberOf from users"
+    short-summary: "Get ref of oauth2PermissionGrants from users."
 """
 
-helps['users list-ref-oauth2-permission-grant'] = """
+helps['users user list-ref-owned-device'] = """
     type: command
-    short-summary: "Get ref of oauth2PermissionGrants from users"
+    short-summary: "Get ref of ownedDevices from users."
 """
 
-helps['users list-ref-owned-device'] = """
+helps['users user list-ref-owned-object'] = """
     type: command
-    short-summary: "Get ref of ownedDevices from users"
+    short-summary: "Get ref of ownedObjects from users."
 """
 
-helps['users list-ref-owned-object'] = """
+helps['users user list-ref-registered-device'] = """
     type: command
-    short-summary: "Get ref of ownedObjects from users"
+    short-summary: "Get ref of registeredDevices from users."
 """
 
-helps['users list-ref-registered-device'] = """
+helps['users user list-ref-transitive-member-of'] = """
     type: command
-    short-summary: "Get ref of registeredDevices from users"
+    short-summary: "Get ref of transitiveMemberOf from users."
 """
 
-helps['users list-ref-transitive-member-of'] = """
+helps['users user list-registered-device'] = """
     type: command
-    short-summary: "Get ref of transitiveMemberOf from users"
+    short-summary: "Get registeredDevices from users."
 """
 
-helps['users list-registered-device'] = """
+helps['users user list-transitive-member-of'] = """
     type: command
-    short-summary: "Get registeredDevices from users"
+    short-summary: "Get transitiveMemberOf from users."
 """
 
-helps['users list-transitive-member-of'] = """
+helps['users user set-ref-manager'] = """
     type: command
-    short-summary: "Get transitiveMemberOf from users"
+    short-summary: "Update the ref of navigation property manager in users."
 """
 
-helps['users set-ref-manager'] = """
+helps['users user show-extension'] = """
     type: command
-    short-summary: "Update the ref of navigation property manager in users"
+    short-summary: "Get extensions from users."
 """
 
-helps['users update-extension'] = """
+helps['users user show-license-detail'] = """
     type: command
-    short-summary: "Update the navigation property extensions in users"
+    short-summary: "Get licenseDetails from users."
 """
 
-helps['users update-license-detail'] = """
+helps['users user show-manager'] = """
     type: command
-    short-summary: "Update the navigation property licenseDetails in users"
+    short-summary: "Get manager from users."
+"""
+
+helps['users user show-outlook'] = """
+    type: command
+    short-summary: "Get outlook from users."
+"""
+
+helps['users user show-photo'] = """
+    type: command
+    short-summary: "Get photos from users And Get photo from users."
+"""
+
+helps['users user show-ref-manager'] = """
+    type: command
+    short-summary: "Get ref of manager from users."
+"""
+
+helps['users user show-setting'] = """
+    type: command
+    short-summary: "Get settings from users."
+"""
+
+helps['users user update-extension'] = """
+    type: command
+    short-summary: "Update the navigation property extensions in users."
+"""
+
+helps['users user update-license-detail'] = """
+    type: command
+    short-summary: "Update the navigation property licenseDetails in users."
     parameters:
       - name: --service-plans
         short-summary: "Information about the service plans assigned with the license. Read-only, Not nullable"
@@ -286,9 +316,9 @@ and it has not been activated in the tenant, yet.
             Multiple actions can be specified by using more than one --service-plans argument.
 """
 
-helps['users update-outlook'] = """
+helps['users user update-outlook'] = """
     type: command
-    short-summary: "Update the navigation property outlook in users"
+    short-summary: "Update the navigation property outlook in users."
     parameters:
       - name: --master-categories
         short-summary: "A list of categories defined for the user."
@@ -302,37 +332,37 @@ the name cannot be changed. Read-only.
             Multiple actions can be specified by using more than one --master-categories argument.
 """
 
-helps['users update-photo'] = """
+helps['users user update-photo'] = """
     type: command
-    short-summary: "Update the navigation property photo in users"
+    short-summary: "Update the navigation property photos in users And Update the navigation property photo in users."
 """
 
-helps['users update-setting'] = """
+helps['users user update-setting'] = """
     type: command
-    short-summary: "Update the navigation property settings in users"
+    short-summary: "Update the navigation property settings in users."
     parameters:
-      - name: --shift-preferences-last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --shift-preferences-last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --shift-preferences-last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --shift-preferences-last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --shift-preferences-last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --shift-preferences-last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -340,77 +370,77 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['users'] = """
+helps['users usersoutlook'] = """
     type: group
-    short-summary: users
+    short-summary: Manage usersoutlook with users_v1_0
 """
 
-helps['users delete'] = """
+helps['users usersoutlook create-master-category'] = """
     type: command
-    short-summary: "Delete navigation property masterCategories for users"
+    short-summary: "Create new navigation property to masterCategories for users."
 """
 
-helps['users create-master-category'] = """
+helps['users usersoutlook delete-master-category'] = """
     type: command
-    short-summary: "Create new navigation property to masterCategories for users"
+    short-summary: "Delete navigation property masterCategories for users."
 """
 
-helps['users get-master-category'] = """
+helps['users usersoutlook list-master-category'] = """
     type: command
-    short-summary: "Get masterCategories from users"
+    short-summary: "Get masterCategories from users."
 """
 
-helps['users list-master-category'] = """
+helps['users usersoutlook show-master-category'] = """
     type: command
-    short-summary: "Get masterCategories from users"
+    short-summary: "Get masterCategories from users."
 """
 
-helps['users update-master-category'] = """
+helps['users usersoutlook update-master-category'] = """
     type: command
-    short-summary: "Update the navigation property masterCategories in users"
+    short-summary: "Update the navigation property masterCategories in users."
 """
 
-helps['users'] = """
+helps['users userssetting'] = """
     type: group
-    short-summary: users
+    short-summary: Manage userssetting with users_v1_0
 """
 
-helps['users delete'] = """
+helps['users userssetting delete-shift-preference'] = """
     type: command
-    short-summary: "Delete navigation property shiftPreferences for users"
+    short-summary: "Delete navigation property shiftPreferences for users."
 """
 
-helps['users get-shift-preference'] = """
+helps['users userssetting show-shift-preference'] = """
     type: command
-    short-summary: "Get shiftPreferences from users"
+    short-summary: "Get shiftPreferences from users."
 """
 
-helps['users update-shift-preference'] = """
+helps['users userssetting update-shift-preference'] = """
     type: command
-    short-summary: "Update the navigation property shiftPreferences in users"
+    short-summary: "Update the navigation property shiftPreferences in users."
     parameters:
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \

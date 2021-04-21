@@ -11,196 +11,196 @@
 
 def cf_financials_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.financials import Financials
+    from azext_financials_beta.vendored_sdks.financials import Financials
     return get_mgmt_service_client(cli_ctx,
                                    Financials,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_financial_financial(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_financial
+def cf_financialsfinancial(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialsfinancials
 
 
 def cf_financial(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial
+    return cf_financials_beta_cl(cli_ctx).financials
 
 
-def cf_financial_company(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company
+def cf_financialscompany(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompanies
 
 
-def cf_financial_company_customer_payment_journal(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_customer_payment_journal
+def cf_financialscompaniescustomerpaymentjournal(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniescustomerpaymentjournals
 
 
-def cf_financial_company_customer_payment_journal_customer_payment(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_customer_payment_journal_customer_payment
+def cf_financialscompaniescustomerpaymentjournalscustomerpayment(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniescustomerpaymentjournalscustomerpayments
 
 
-def cf_financial_company_customer_payment_journal_customer_payment_customer(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_customer_payment_journal_customer_payment_customer
+def cf_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniescustomerpaymentjournalscustomerpaymentscustomer
 
 
-def cf_financial_company_customer_payment(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_customer_payment
+def cf_financialscompaniescustomerpayment(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniescustomerpayments
 
 
-def cf_financial_company_customer_payment_customer(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_customer_payment_customer
+def cf_financialscompaniescustomerpaymentscustomer(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniescustomerpaymentscustomer
 
 
-def cf_financial_company_customer(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_customer
+def cf_financialscompaniescustomer(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniescustomers
 
 
-def cf_financial_company_dimension(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_dimension
+def cf_financialscompaniesdimension(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesdimensions
 
 
-def cf_financial_company_employee(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_employee
+def cf_financialscompaniesemployee(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesemployees
 
 
-def cf_financial_company_general_ledger_entry(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_general_ledger_entry
+def cf_financialscompaniesgeneralledgerentry(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesgeneralledgerentries
 
 
-def cf_financial_company_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_item
+def cf_financialscompaniesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesitems
 
 
-def cf_financial_company_journal_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_journal_line
+def cf_financialscompaniesjournalline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesjournallines
 
 
-def cf_financial_company_journal(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_journal
+def cf_financialscompaniesjournal(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesjournals
 
 
-def cf_financial_company_journal_journal_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_journal_journal_line
+def cf_financialscompaniesjournalsjournalline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesjournalsjournallines
 
 
-def cf_financial_company_purchase_invoice_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_purchase_invoice_line
+def cf_financialscompaniespurchaseinvoiceline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniespurchaseinvoicelines
 
 
-def cf_financial_company_purchase_invoice_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_purchase_invoice_line_item
+def cf_financialscompaniespurchaseinvoicelinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniespurchaseinvoicelinesitem
 
 
-def cf_financial_company_purchase_invoice(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_purchase_invoice
+def cf_financialscompaniespurchaseinvoice(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniespurchaseinvoices
 
 
-def cf_financial_company_purchase_invoice_purchase_invoice_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_purchase_invoice_purchase_invoice_line
+def cf_financialscompaniespurchaseinvoicespurchaseinvoiceline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniespurchaseinvoicespurchaseinvoicelines
 
 
-def cf_financial_company_purchase_invoice_purchase_invoice_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_purchase_invoice_purchase_invoice_line_item
+def cf_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniespurchaseinvoicespurchaseinvoicelinesitem
 
 
-def cf_financial_company_purchase_invoice_vendor(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_purchase_invoice_vendor
+def cf_financialscompaniespurchaseinvoicesvendor(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniespurchaseinvoicesvendor
 
 
-def cf_financial_company_sale_credit_memo_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_credit_memo_line
+def cf_financialscompaniessalescreditmemoline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalescreditmemolines
 
 
-def cf_financial_company_sale_credit_memo_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_credit_memo_line_item
+def cf_financialscompaniessalescreditmemolinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalescreditmemolinesitem
 
 
-def cf_financial_company_sale_credit_memo(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_credit_memo
+def cf_financialscompaniessalescreditmemo(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalescreditmemos
 
 
-def cf_financial_company_sale_credit_memo_customer(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_credit_memo_customer
+def cf_financialscompaniessalescreditmemoscustomer(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalescreditmemoscustomer
 
 
-def cf_financial_company_sale_credit_memo_sale_credit_memo_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_credit_memo_sale_credit_memo_line
+def cf_financialscompaniessalescreditmemossalescreditmemoline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalescreditmemossalescreditmemolines
 
 
-def cf_financial_company_sale_credit_memo_sale_credit_memo_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_credit_memo_sale_credit_memo_line_item
+def cf_financialscompaniessalescreditmemossalescreditmemolinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalescreditmemossalescreditmemolinesitem
 
 
-def cf_financial_company_sale_invoice_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_invoice_line
+def cf_financialscompaniessalesinvoiceline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesinvoicelines
 
 
-def cf_financial_company_sale_invoice_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_invoice_line_item
+def cf_financialscompaniessalesinvoicelinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesinvoicelinesitem
 
 
-def cf_financial_company_sale_invoice(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_invoice
+def cf_financialscompaniessalesinvoice(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesinvoices
 
 
-def cf_financial_company_sale_invoice_customer(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_invoice_customer
+def cf_financialscompaniessalesinvoicescustomer(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesinvoicescustomer
 
 
-def cf_financial_company_sale_invoice_sale_invoice_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_invoice_sale_invoice_line
+def cf_financialscompaniessalesinvoicessalesinvoiceline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesinvoicessalesinvoicelines
 
 
-def cf_financial_company_sale_invoice_sale_invoice_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_invoice_sale_invoice_line_item
+def cf_financialscompaniessalesinvoicessalesinvoicelinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesinvoicessalesinvoicelinesitem
 
 
-def cf_financial_company_sale_order_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_order_line
+def cf_financialscompaniessalesorderline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesorderlines
 
 
-def cf_financial_company_sale_order_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_order_line_item
+def cf_financialscompaniessalesorderlinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesorderlinesitem
 
 
-def cf_financial_company_sale_order(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_order
+def cf_financialscompaniessalesorder(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesorders
 
 
-def cf_financial_company_sale_order_customer(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_order_customer
+def cf_financialscompaniessalesorderscustomer(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesorderscustomer
 
 
-def cf_financial_company_sale_order_sale_order_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_order_sale_order_line
+def cf_financialscompaniessalesorderssalesorderline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesorderssalesorderlines
 
 
-def cf_financial_company_sale_order_sale_order_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_order_sale_order_line_item
+def cf_financialscompaniessalesorderssalesorderlinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesorderssalesorderlinesitem
 
 
-def cf_financial_company_sale_quote_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_quote_line
+def cf_financialscompaniessalesquoteline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesquotelines
 
 
-def cf_financial_company_sale_quote_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_quote_line_item
+def cf_financialscompaniessalesquotelinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesquotelinesitem
 
 
-def cf_financial_company_sale_quote(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_quote
+def cf_financialscompaniessalesquote(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesquotes
 
 
-def cf_financial_company_sale_quote_customer(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_quote_customer
+def cf_financialscompaniessalesquotescustomer(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesquotescustomer
 
 
-def cf_financial_company_sale_quote_sale_quote_line(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_quote_sale_quote_line
+def cf_financialscompaniessalesquotessalesquoteline(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesquotessalesquotelines
 
 
-def cf_financial_company_sale_quote_sale_quote_line_item(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_sale_quote_sale_quote_line_item
+def cf_financialscompaniessalesquotessalesquotelinesitem(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniessalesquotessalesquotelinesitem
 
 
-def cf_financial_company_vendor(cli_ctx, *_):
-    return cf_financials_beta_cl(cli_ctx).financial_company_vendor
+def cf_financialscompaniesvendor(cli_ctx, *_):
+    return cf_financials_beta_cl(cli_ctx).financialscompaniesvendors

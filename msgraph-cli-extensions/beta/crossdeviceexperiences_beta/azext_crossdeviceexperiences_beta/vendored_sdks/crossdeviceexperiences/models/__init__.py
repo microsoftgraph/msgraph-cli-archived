@@ -7,43 +7,43 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfActivityHistoryItem
-    from ._models_py3 import CollectionOfDevice
-    from ._models_py3 import CollectionOfUserActivity
-    from ._models_py3 import MicrosoftGraphActivityHistoryItem
-    from ._models_py3 import MicrosoftGraphAlternativeSecurityId
-    from ._models_py3 import MicrosoftGraphCommand
-    from ._models_py3 import MicrosoftGraphDevice
-    from ._models_py3 import MicrosoftGraphDirectoryObject
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphExtension
-    from ._models_py3 import MicrosoftGraphImageInfo
-    from ._models_py3 import MicrosoftGraphOnPremisesExtensionAttributes
-    from ._models_py3 import MicrosoftGraphPayloadResponse
-    from ._models_py3 import MicrosoftGraphUserActivity
-    from ._models_py3 import MicrosoftGraphVisualInfo
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionofactivityhistoryitem
+    from ._models_py3 import collectionofdevice
+    from ._models_py3 import collectionofuseractivity
+    from ._models_py3 import microsoftgraphactivityhistoryitem
+    from ._models_py3 import microsoftgraphalternativesecurityid
+    from ._models_py3 import microsoftgraphcommand
+    from ._models_py3 import microsoftgraphdevice
+    from ._models_py3 import microsoftgraphdirectoryobject
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphextension
+    from ._models_py3 import microsoftgraphimageinfo
+    from ._models_py3 import microsoftgraphonpremisesextensionattributes
+    from ._models_py3 import microsoftgraphpayloadresponse
+    from ._models_py3 import microsoftgraphuseractivity
+    from ._models_py3 import microsoftgraphvisualinfo
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfActivityHistoryItem  # type: ignore
-    from ._models import CollectionOfDevice  # type: ignore
-    from ._models import CollectionOfUserActivity  # type: ignore
-    from ._models import MicrosoftGraphActivityHistoryItem  # type: ignore
-    from ._models import MicrosoftGraphAlternativeSecurityId  # type: ignore
-    from ._models import MicrosoftGraphCommand  # type: ignore
-    from ._models import MicrosoftGraphDevice  # type: ignore
-    from ._models import MicrosoftGraphDirectoryObject  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphExtension  # type: ignore
-    from ._models import MicrosoftGraphImageInfo  # type: ignore
-    from ._models import MicrosoftGraphOnPremisesExtensionAttributes  # type: ignore
-    from ._models import MicrosoftGraphPayloadResponse  # type: ignore
-    from ._models import MicrosoftGraphUserActivity  # type: ignore
-    from ._models import MicrosoftGraphVisualInfo  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionofactivityhistoryitem  # type: ignore
+    from ._models import collectionofdevice  # type: ignore
+    from ._models import collectionofuseractivity  # type: ignore
+    from ._models import microsoftgraphactivityhistoryitem  # type: ignore
+    from ._models import microsoftgraphalternativesecurityid  # type: ignore
+    from ._models import microsoftgraphcommand  # type: ignore
+    from ._models import microsoftgraphdevice  # type: ignore
+    from ._models import microsoftgraphdirectoryobject  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphextension  # type: ignore
+    from ._models import microsoftgraphimageinfo  # type: ignore
+    from ._models import microsoftgraphonpremisesextensionattributes  # type: ignore
+    from ._models import microsoftgraphpayloadresponse  # type: ignore
+    from ._models import microsoftgraphuseractivity  # type: ignore
+    from ._models import microsoftgraphvisualinfo  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._cross_device_experiences_enums import (
     Enum11,
@@ -56,35 +56,35 @@ from ._cross_device_experiences_enums import (
     Enum6,
     Enum7,
     Enum9,
-    Get2ItemsItem,
-    Get3ItemsItem,
-    Get4ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    Get8ItemsItem,
-    Get9ItemsItem,
-    MicrosoftGraphStatus,
+    Get2itemsitem,
+    Get3itemsitem,
+    Get4itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Get8itemsitem,
+    Get9itemsitem,
+    Microsoftgraphstatus,
 )
 
 __all__ = [
-    'CollectionOfActivityHistoryItem',
-    'CollectionOfDevice',
-    'CollectionOfUserActivity',
-    'MicrosoftGraphActivityHistoryItem',
-    'MicrosoftGraphAlternativeSecurityId',
-    'MicrosoftGraphCommand',
-    'MicrosoftGraphDevice',
-    'MicrosoftGraphDirectoryObject',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphExtension',
-    'MicrosoftGraphImageInfo',
-    'MicrosoftGraphOnPremisesExtensionAttributes',
-    'MicrosoftGraphPayloadResponse',
-    'MicrosoftGraphUserActivity',
-    'MicrosoftGraphVisualInfo',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
+    'collectionofactivityhistoryitem',
+    'collectionofdevice',
+    'collectionofuseractivity',
+    'microsoftgraphactivityhistoryitem',
+    'microsoftgraphalternativesecurityid',
+    'microsoftgraphcommand',
+    'microsoftgraphdevice',
+    'microsoftgraphdirectoryobject',
+    'microsoftgraphentity',
+    'microsoftgraphextension',
+    'microsoftgraphimageinfo',
+    'microsoftgraphonpremisesextensionattributes',
+    'microsoftgraphpayloadresponse',
+    'microsoftgraphuseractivity',
+    'microsoftgraphvisualinfo',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
     'Enum11',
     'Enum12',
     'Enum13',
@@ -95,12 +95,12 @@ __all__ = [
     'Enum6',
     'Enum7',
     'Enum9',
-    'Get2ItemsItem',
-    'Get3ItemsItem',
-    'Get4ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'Get8ItemsItem',
-    'Get9ItemsItem',
-    'MicrosoftGraphStatus',
+    'Get2itemsitem',
+    'Get3itemsitem',
+    'Get4itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Get8itemsitem',
+    'Get9itemsitem',
+    'Microsoftgraphstatus',
 ]

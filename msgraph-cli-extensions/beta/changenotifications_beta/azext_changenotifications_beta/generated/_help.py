@@ -12,32 +12,37 @@
 from knack.help_files import helps
 
 
-helps['changenotifications'] = """
+helps['changenotifications_beta'] = '''
     type: group
-    short-summary: changenotifications
+    short-summary: Manage Change Notifications
+'''
+
+helps['changenotifications subscriptionssubscription'] = """
+    type: group
+    short-summary: Manage subscriptionssubscription with changenotifications_beta
 """
 
-helps['changenotifications delete'] = """
+helps['changenotifications subscriptionssubscription create-subscription'] = """
     type: command
-    short-summary: "Delete entity from subscriptions"
+    short-summary: "Add new entity to subscriptions."
 """
 
-helps['changenotifications create-subscription'] = """
+helps['changenotifications subscriptionssubscription delete-subscription'] = """
     type: command
-    short-summary: "Add new entity to subscriptions"
+    short-summary: "Delete entity from subscriptions."
 """
 
-helps['changenotifications get-subscription'] = """
+helps['changenotifications subscriptionssubscription list-subscription'] = """
     type: command
-    short-summary: "Get entity from subscriptions by key"
+    short-summary: "Get entities from subscriptions."
 """
 
-helps['changenotifications list-subscription'] = """
+helps['changenotifications subscriptionssubscription show-subscription'] = """
     type: command
-    short-summary: "Get entities from subscriptions"
+    short-summary: "Get entity from subscriptions by key."
 """
 
-helps['changenotifications update-subscription'] = """
+helps['changenotifications subscriptionssubscription update-subscription'] = """
     type: command
-    short-summary: "Update entity in subscriptions"
+    short-summary: "Update entity in subscriptions."
 """

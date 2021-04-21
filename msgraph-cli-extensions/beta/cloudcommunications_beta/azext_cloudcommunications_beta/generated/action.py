@@ -37,6 +37,9 @@ class AddPresences(argparse._AppendAction):
                 d['availability'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter presences. All possible keys are: '
+                               'activity, availability, id'.format(k))
         return d
 
 
@@ -63,6 +66,9 @@ class AddChatInfo(argparse.Action):
                 d['reply_chain_message_id'] = v[0]
             elif kl == 'thread-id':
                 d['thread_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter chat_info. All possible keys are: '
+                               'message-id, reply-chain-message-id, thread-id'.format(k))
         return d
 
 
@@ -89,6 +95,10 @@ class AddMeetingCapability(argparse.Action):
                 d['allow_anonymous_users_to_start_meeting'] = v[0]
             elif kl == 'auto-admitted-users':
                 d['auto_admitted_users'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter meeting_capability. All possible keys '
+                               'are: allow-anonymous-users-to-dial-out, allow-anonymous-users-to-start-meeting, '
+                               'auto-admitted-users'.format(k))
         return d
 
 
@@ -115,42 +125,9 @@ class AddResultInfo(argparse.Action):
                 d['message'] = v[0]
             elif kl == 'subcode':
                 d['subcode'] = v[0]
-        return d
-
-
-class AddCommunicationsTargets(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCommunicationsTargets, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'endpoint-type':
-                d['endpoint_type'] = v[0]
-            elif kl == 'replaces-call-id':
-                d['replaces_call_id'] = v[0]
-            elif kl == 'display-name-identity-user-display-name':
-                d['display_name_identity_user_display_name'] = v[0]
-            elif kl == 'id-identity-user-id':
-                d['id_identity_user_id'] = v[0]
-            elif kl == 'display-name-identity-device-display-name':
-                d['display_name_identity_device_display_name'] = v[0]
-            elif kl == 'id-identity-device-id':
-                d['id_identity_device_id'] = v[0]
-            elif kl == 'display-name-identity-application-display-name':
-                d['display_name_identity_application_display_name'] = v[0]
-            elif kl == 'id-identity-application-id':
-                d['id_identity_application_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter result_info. All possible keys are: code, '
+                               'message, subcode'.format(k))
         return d
 
 
@@ -175,6 +152,9 @@ class AddToneInfo(argparse.Action):
                 d['sequence_id'] = v[0]
             elif kl == 'tone':
                 d['tone'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter tone_info. All possible keys are: '
+                               'sequence-id, tone'.format(k))
         return d
 
 
@@ -199,6 +179,9 @@ class AddTranscription(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'state':
                 d['state'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter transcription. All possible keys are: '
+                               'last-modified-date-time, state'.format(k))
         return d
 
 
@@ -227,13 +210,16 @@ class AddAudioRoutingGroups(argparse._AppendAction):
                 d['sources'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter audio_routing_groups. All possible keys '
+                               'are: receivers, routing-mode, sources, id'.format(k))
         return d
 
 
-class AddOperations(argparse._AppendAction):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddOperations, self).__call__(parser, namespace, action, option_string)
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -247,82 +233,13 @@ class AddOperations(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'client-context':
-                d['client_context'] = v[0]
-            elif kl == 'status':
-                d['status'] = v[0]
-            elif kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'message':
-                d['message'] = v[0]
-            elif kl == 'subcode':
-                d['subcode'] = v[0]
+            if kl == 'display-name':
+                d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
-        return d
-
-
-class AddSourceIdentity(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.source_identity = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-device-display-name':
-                d['display_name_device_display_name'] = v[0]
-            elif kl == 'id-device-id':
-                d['id_device_id'] = v[0]
-            elif kl == 'display-name-application-display-name':
-                d['display_name_application_display_name'] = v[0]
-            elif kl == 'id-application-id':
-                d['id_application_id'] = v[0]
-        return d
-
-
-class AddCommunicationsParticipants(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCommunicationsParticipants, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-device-display-name':
-                d['display_name_device_display_name'] = v[0]
-            elif kl == 'id-device-id':
-                d['id_device_id'] = v[0]
-            elif kl == 'display-name-application-display-name':
-                d['display_name_application_display_name'] = v[0]
-            elif kl == 'id-application-id':
-                d['id_application_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -351,6 +268,9 @@ class AddAudioConferencing(argparse.Action):
                 d['toll_free_number'] = v[0]
             elif kl == 'toll-number':
                 d['toll_number'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter audio_conferencing. All possible keys '
+                               'are: conference-id, dialin-url, toll-free-number, toll-number'.format(k))
         return d
 
 
@@ -375,6 +295,9 @@ class AddJoinInformation(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter join_information. All possible keys are: '
+                               'content, content-type'.format(k))
         return d
 
 
@@ -399,6 +322,9 @@ class AddLobbyBypassSettings(argparse.Action):
                 d['is_dial_in_bypass_enabled'] = v[0]
             elif kl == 'scope':
                 d['scope'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter lobby_bypass_settings. All possible keys '
+                               'are: is-dial-in-bypass-enabled, scope'.format(k))
         return d
 
 
@@ -423,13 +349,16 @@ class AddFailureInfo(argparse.Action):
                 d['reason'] = v[0]
             elif kl == 'stage':
                 d['stage'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter failure_info. All possible keys are: '
+                               'reason, stage'.format(k))
         return d
 
 
-class AddCallerUserAgent(argparse.Action):
+class AddUserAgent(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.caller_user_agent = action
+        namespace.user_agent = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -447,6 +376,9 @@ class AddCallerUserAgent(argparse.Action):
                 d['application_version'] = v[0]
             elif kl == 'header-value':
                 d['header_value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_agent. All possible keys are: '
+                               'application-version, header-value'.format(k))
         return d
 
 
@@ -477,13 +409,16 @@ class AddMediaStreams(argparse._AppendAction):
                 d['server_muted'] = v[0]
             elif kl == 'source-id':
                 d['source_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter media_streams. All possible keys are: '
+                               'direction, label, media-type, server-muted, source-id'.format(k))
         return d
 
 
-class AddQualityMediaQualityList(argparse._AppendAction):
+class AddMediaQualityList(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddQualityMediaQualityList, self).__call__(parser, namespace, action, option_string)
+        super(AddMediaQualityList, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -539,13 +474,23 @@ class AddQualityMediaQualityList(argparse._AppendAction):
                 d['remote_ip_address'] = v[0]
             elif kl == 'remote-port':
                 d['remote_port'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter media_quality_list. All possible keys '
+                               'are: average-inbound-jitter, average-inbound-packet-loss-rate-in-percentage, '
+                               'average-inbound-round-trip-delay, average-outbound-jitter, '
+                               'average-outbound-packet-loss-rate-in-percentage, average-outbound-round-trip-delay, '
+                               'channel-index, inbound-packets, local-ip-address, local-port, maximum-inbound-jitter, '
+                               'maximum-inbound-packet-loss-rate-in-percentage, maximum-inbound-round-trip-delay, '
+                               'maximum-outbound-jitter, maximum-outbound-packet-loss-rate-in-percentage, '
+                               'maximum-outbound-round-trip-delay, media-duration, network-link-speed-in-bytes, '
+                               'outbound-packets, remote-ip-address, remote-port'.format(k))
         return d
 
 
-class AddCloudcommunicationsPlayPromptPrompts(argparse._AppendAction):
+class AddCloudcommunicationsCommunicationscallPlayPromptPrompts(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCloudcommunicationsPlayPromptPrompts, self).__call__(parser, namespace, action, option_string)
+        super(AddCloudcommunicationsCommunicationscallPlayPromptPrompts, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -562,10 +507,10 @@ class AddCloudcommunicationsPlayPromptPrompts(argparse._AppendAction):
         return d
 
 
-class AddCloudcommunicationsRecordPrompts(argparse._AppendAction):
+class AddCloudcommunicationsCommunicationscallRecordPrompts(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCloudcommunicationsRecordPrompts, self).__call__(parser, namespace, action, option_string)
+        super(AddCloudcommunicationsCommunicationscallRecordPrompts, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -599,76 +544,4 @@ class AddPrompts(argparse._AppendAction):
         for k in properties:
             v = properties[k]
             d[k] = v
-        return d
-
-
-class AddCommunicationsCallsTargets(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCommunicationsCallsTargets, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'endpoint-type':
-                d['endpoint_type'] = v[0]
-            elif kl == 'replaces-call-id':
-                d['replaces_call_id'] = v[0]
-            elif kl == 'display-name-identity-user-display-name':
-                d['display_name_identity_user_display_name'] = v[0]
-            elif kl == 'id-identity-user-id':
-                d['id_identity_user_id'] = v[0]
-            elif kl == 'display-name-identity-device-display-name':
-                d['display_name_identity_device_display_name'] = v[0]
-            elif kl == 'id-identity-device-id':
-                d['id_identity_device_id'] = v[0]
-            elif kl == 'display-name-identity-application-display-name':
-                d['display_name_identity_application_display_name'] = v[0]
-            elif kl == 'id-identity-application-id':
-                d['id_identity_application_id'] = v[0]
-        return d
-
-
-class AddCommunicationsCallsParticipantsParticipants(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCommunicationsCallsParticipantsParticipants, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'endpoint-type':
-                d['endpoint_type'] = v[0]
-            elif kl == 'replaces-call-id':
-                d['replaces_call_id'] = v[0]
-            elif kl == 'display-name-identity-user-display-name':
-                d['display_name_identity_user_display_name'] = v[0]
-            elif kl == 'id-identity-user-id':
-                d['id_identity_user_id'] = v[0]
-            elif kl == 'display-name-identity-device-display-name':
-                d['display_name_identity_device_display_name'] = v[0]
-            elif kl == 'id-identity-device-id':
-                d['id_identity_device_id'] = v[0]
-            elif kl == 'display-name-identity-application-display-name':
-                d['display_name_identity_application_display_name'] = v[0]
-            elif kl == 'id-identity-application-id':
-                d['id_identity_application_id'] = v[0]
         return d

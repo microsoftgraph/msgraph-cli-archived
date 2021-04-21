@@ -26,19 +26,19 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
             raise AttributeError(name)
 
 
-class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get1itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
 
-class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get5itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
+
+class Get6itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETEDDATETIME = "deletedDateTime"

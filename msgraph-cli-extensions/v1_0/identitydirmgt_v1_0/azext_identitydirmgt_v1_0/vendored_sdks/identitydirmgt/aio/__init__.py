@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._identity_directory_management_async import IdentityDirectoryManagement
+from ._identity_directory_management import IdentityDirectoryManagement
 __all__ = ['IdentityDirectoryManagement']

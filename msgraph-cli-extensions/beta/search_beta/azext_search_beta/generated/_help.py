@@ -12,112 +12,103 @@
 from knack.help_files import helps
 
 
-helps['search'] = """
+helps['search_beta'] = '''
     type: group
-    short-summary: search
-"""
+    short-summary: Manage Search
+'''
 
-helps['search get-external'] = """
-    type: command
-    short-summary: "Get external"
-"""
-
-helps['search update-external'] = """
-    type: command
-    short-summary: "Update external"
-"""
-
-helps['search'] = """
+helps['search external'] = """
     type: group
-    short-summary: search
+    short-summary: Manage external with search_beta
 """
 
-helps['search delete'] = """
+helps['search external show-external'] = """
     type: command
-    short-summary: "Delete navigation property connections for external"
+    short-summary: "Get external."
 """
 
-helps['search create-connection'] = """
+helps['search external update-external'] = """
     type: command
-    short-summary: "Create new navigation property to connections for external"
+    short-summary: "Update external."
+"""
+
+helps['search external'] = """
+    type: group
+    short-summary: Manage external with search_beta
+"""
+
+helps['search external create-connection'] = """
+    type: command
+    short-summary: "Create new navigation property to connections for external."
     parameters:
       - name: --configuration
         short-summary: "configuration"
         long-summary: |
             Usage: --configuration authorized-apps=XX
 
-      - name: --groups
+      - name: --properties
         long-summary: |
-            Usage: --groups description=XX display-name=XX members=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --groups argument.
-      - name: --schema-properties
-        long-summary: |
-            Usage: --schema-properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \
+            Usage: --properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \
 is-searchable=XX labels=XX name=XX type=XX
 
 
-            Multiple actions can be specified by using more than one --schema-properties argument.
+            Multiple actions can be specified by using more than one --properties argument.
 """
 
-helps['search get-connection'] = """
+helps['search external delete-connection'] = """
     type: command
-    short-summary: "Get connections from external"
+    short-summary: "Delete navigation property connections for external."
 """
 
-helps['search list-connection'] = """
+helps['search external list-connection'] = """
     type: command
-    short-summary: "Get connections from external"
+    short-summary: "Get connections from external."
 """
 
-helps['search update-connection'] = """
+helps['search external show-connection'] = """
     type: command
-    short-summary: "Update the navigation property connections in external"
+    short-summary: "Get connections from external."
+"""
+
+helps['search external update-connection'] = """
+    type: command
+    short-summary: "Update the navigation property connections in external."
     parameters:
       - name: --configuration
         short-summary: "configuration"
         long-summary: |
             Usage: --configuration authorized-apps=XX
 
-      - name: --groups
+      - name: --properties
         long-summary: |
-            Usage: --groups description=XX display-name=XX members=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --groups argument.
-      - name: --schema-properties
-        long-summary: |
-            Usage: --schema-properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \
+            Usage: --properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \
 is-searchable=XX labels=XX name=XX type=XX
 
 
-            Multiple actions can be specified by using more than one --schema-properties argument.
+            Multiple actions can be specified by using more than one --properties argument.
 """
 
-helps['search'] = """
+helps['search searchentity'] = """
     type: group
-    short-summary: search
+    short-summary: Manage searchentity with search_beta
 """
 
-helps['search get-search-entity'] = """
+helps['search searchentity show-search-entity'] = """
     type: command
-    short-summary: "Get search"
+    short-summary: "Get search."
 """
 
-helps['search update-search-entity'] = """
+helps['search searchentity update-search-entity'] = """
     type: command
-    short-summary: "Update search"
+    short-summary: "Update search."
 """
 
-helps['search'] = """
+helps['search search'] = """
     type: group
-    short-summary: search
+    short-summary: Manage search with search_beta
 """
 
-helps['search query'] = """
+helps['search search query'] = """
     type: command
-    short-summary: "Invoke action query"
+    short-summary: "Invoke action query."
 """

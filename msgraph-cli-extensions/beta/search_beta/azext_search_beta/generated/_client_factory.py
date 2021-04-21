@@ -11,23 +11,23 @@
 
 def cf_search_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.search import Search
+    from azext_search_beta.vendored_sdks.search import Search
     return get_mgmt_service_client(cli_ctx,
                                    Search,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_external_external(cli_ctx, *_):
-    return cf_search_beta_cl(cli_ctx).external_external
+def cf_external(cli_ctx, *_):
+    return cf_search_beta_cl(cli_ctx).externalexternal
 
 
 def cf_external(cli_ctx, *_):
     return cf_search_beta_cl(cli_ctx).external
 
 
-def cf_search_search_entity(cli_ctx, *_):
-    return cf_search_beta_cl(cli_ctx).search_search_entity
+def cf_searchentity(cli_ctx, *_):
+    return cf_search_beta_cl(cli_ctx).searchsearchentity
 
 
 def cf_search(cli_ctx, *_):

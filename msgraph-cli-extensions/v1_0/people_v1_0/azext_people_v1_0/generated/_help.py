@@ -12,19 +12,19 @@
 from knack.help_files import helps
 
 
-helps['people'] = """
+helps['people_v1_0'] = '''
     type: group
-    short-summary: people
+    short-summary: Manage People
+'''
+
+helps['people user'] = """
+    type: group
+    short-summary: Manage user with people_v1_0
 """
 
-helps['people delete'] = """
+helps['people user create-person'] = """
     type: command
-    short-summary: "Delete navigation property insights for users"
-"""
-
-helps['people create-person'] = """
-    type: command
-    short-summary: "Create new navigation property to people for users"
+    short-summary: "Create new navigation property to people for users."
     parameters:
       - name: --person-type
         short-summary: "personType"
@@ -63,29 +63,39 @@ Relevance is determined by the user’s communication and collaboration patterns
             Multiple actions can be specified by using more than one --websites argument.
 """
 
-helps['people get-insight'] = """
+helps['people user delete-insight'] = """
     type: command
-    short-summary: "Get insights from users"
+    short-summary: "Delete navigation property insights for users."
 """
 
-helps['people get-person'] = """
+helps['people user delete-person'] = """
     type: command
-    short-summary: "Get people from users"
+    short-summary: "Delete navigation property people for users."
 """
 
-helps['people list-person'] = """
+helps['people user list-person'] = """
     type: command
-    short-summary: "Get people from users"
+    short-summary: "Get people from users."
 """
 
-helps['people update-insight'] = """
+helps['people user show-insight'] = """
     type: command
-    short-summary: "Update the navigation property insights in users"
+    short-summary: "Get insights from users."
 """
 
-helps['people update-person'] = """
+helps['people user show-person'] = """
     type: command
-    short-summary: "Update the navigation property people in users"
+    short-summary: "Get people from users."
+"""
+
+helps['people user update-insight'] = """
+    type: command
+    short-summary: "Update the navigation property insights in users."
+"""
+
+helps['people user update-person'] = """
+    type: command
+    short-summary: "Update the navigation property people in users."
     parameters:
       - name: --person-type
         short-summary: "personType"
@@ -124,19 +134,14 @@ Relevance is determined by the user’s communication and collaboration patterns
             Multiple actions can be specified by using more than one --websites argument.
 """
 
-helps['people'] = """
+helps['people usersinsight'] = """
     type: group
-    short-summary: people
+    short-summary: Manage usersinsight with people_v1_0
 """
 
-helps['people delete'] = """
+helps['people usersinsight create-shared'] = """
     type: command
-    short-summary: "Delete navigation property used for users"
-"""
-
-helps['people create-shared'] = """
-    type: command
-    short-summary: "Create new navigation property to shared for users"
+    short-summary: "Create new navigation property to shared for users."
     parameters:
       - name: --resource-reference
         short-summary: "resourceReference"
@@ -164,27 +169,27 @@ supported IANA Media Mime Types. Note that not all Media Mime Types are supporte
             title: The item's title text.
             type: The item's media type. Can be used for filtering for a specific file based on a specific type. See \
 below for supported types.
-      - name: --last-shared-shared-by
+      - name: --shared-by
         short-summary: "insightIdentity"
         long-summary: |
-            Usage: --last-shared-shared-by address=XX display-name=XX id=XX
+            Usage: --shared-by address=XX display-name=XX id=XX
 
             address: The email address of the user who shared the item.
             display-name: The display name of the user who shared the item.
             id: The id of the user who shared the item.
-      - name: --last-shared-sharing-reference
+      - name: --sharing-reference
         short-summary: "resourceReference"
         long-summary: |
-            Usage: --last-shared-sharing-reference id=XX type=XX web-url=XX
+            Usage: --sharing-reference id=XX type=XX web-url=XX
 
             id: The item's unique identifier.
             type: A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
             web-url: A URL leading to the referenced item.
 """
 
-helps['people create-trending'] = """
+helps['people usersinsight create-trending'] = """
     type: command
-    short-summary: "Create new navigation property to trending for users"
+    short-summary: "Create new navigation property to trending for users."
     parameters:
       - name: --resource-reference
         short-summary: "resourceReference"
@@ -214,9 +219,9 @@ supported IANA Media Mime Types. Note that not all Media Mime Types are supporte
 below for supported types.
 """
 
-helps['people create-used'] = """
+helps['people usersinsight create-used'] = """
     type: command
-    short-summary: "Create new navigation property to used for users"
+    short-summary: "Create new navigation property to used for users."
     parameters:
       - name: --last-used
         short-summary: "usageDetails"
@@ -257,39 +262,54 @@ supported IANA Media Mime Types. Note that not all Media Mime Types are supporte
 below for supported types.
 """
 
-helps['people get-shared'] = """
+helps['people usersinsight delete-shared'] = """
     type: command
-    short-summary: "Get shared from users"
+    short-summary: "Delete navigation property shared for users."
 """
 
-helps['people get-trending'] = """
+helps['people usersinsight delete-trending'] = """
     type: command
-    short-summary: "Get trending from users"
+    short-summary: "Delete navigation property trending for users."
 """
 
-helps['people get-used'] = """
+helps['people usersinsight delete-used'] = """
     type: command
-    short-summary: "Get used from users"
+    short-summary: "Delete navigation property used for users."
 """
 
-helps['people list-shared'] = """
+helps['people usersinsight list-shared'] = """
     type: command
-    short-summary: "Get shared from users"
+    short-summary: "Get shared from users."
 """
 
-helps['people list-trending'] = """
+helps['people usersinsight list-trending'] = """
     type: command
-    short-summary: "Get trending from users"
+    short-summary: "Get trending from users."
 """
 
-helps['people list-used'] = """
+helps['people usersinsight list-used'] = """
     type: command
-    short-summary: "Get used from users"
+    short-summary: "Get used from users."
 """
 
-helps['people update-shared'] = """
+helps['people usersinsight show-shared'] = """
     type: command
-    short-summary: "Update the navigation property shared in users"
+    short-summary: "Get shared from users."
+"""
+
+helps['people usersinsight show-trending'] = """
+    type: command
+    short-summary: "Get trending from users."
+"""
+
+helps['people usersinsight show-used'] = """
+    type: command
+    short-summary: "Get used from users."
+"""
+
+helps['people usersinsight update-shared'] = """
+    type: command
+    short-summary: "Update the navigation property shared in users."
     parameters:
       - name: --resource-reference
         short-summary: "resourceReference"
@@ -317,27 +337,27 @@ supported IANA Media Mime Types. Note that not all Media Mime Types are supporte
             title: The item's title text.
             type: The item's media type. Can be used for filtering for a specific file based on a specific type. See \
 below for supported types.
-      - name: --last-shared-shared-by
+      - name: --shared-by
         short-summary: "insightIdentity"
         long-summary: |
-            Usage: --last-shared-shared-by address=XX display-name=XX id=XX
+            Usage: --shared-by address=XX display-name=XX id=XX
 
             address: The email address of the user who shared the item.
             display-name: The display name of the user who shared the item.
             id: The id of the user who shared the item.
-      - name: --last-shared-sharing-reference
+      - name: --sharing-reference
         short-summary: "resourceReference"
         long-summary: |
-            Usage: --last-shared-sharing-reference id=XX type=XX web-url=XX
+            Usage: --sharing-reference id=XX type=XX web-url=XX
 
             id: The item's unique identifier.
             type: A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
             web-url: A URL leading to the referenced item.
 """
 
-helps['people update-trending'] = """
+helps['people usersinsight update-trending'] = """
     type: command
-    short-summary: "Update the navigation property trending in users"
+    short-summary: "Update the navigation property trending in users."
     parameters:
       - name: --resource-reference
         short-summary: "resourceReference"
@@ -367,9 +387,9 @@ supported IANA Media Mime Types. Note that not all Media Mime Types are supporte
 below for supported types.
 """
 
-helps['people update-used'] = """
+helps['people usersinsight update-used'] = """
     type: command
-    short-summary: "Update the navigation property used in users"
+    short-summary: "Update the navigation property used in users."
     parameters:
       - name: --last-used
         short-summary: "usageDetails"
@@ -410,92 +430,97 @@ supported IANA Media Mime Types. Note that not all Media Mime Types are supporte
 below for supported types.
 """
 
-helps['people'] = """
+helps['people usersinsightsshared'] = """
     type: group
-    short-summary: people
+    short-summary: Manage usersinsightsshared with people_v1_0
 """
 
-helps['people delete'] = """
+helps['people usersinsightsshared delete-ref-last-shared-method'] = """
     type: command
-    short-summary: "Delete ref of navigation property resource for users"
+    short-summary: "Delete ref of navigation property lastSharedMethod for users."
 """
 
-helps['people get-last-shared-method'] = """
+helps['people usersinsightsshared delete-ref-resource'] = """
     type: command
-    short-summary: "Get lastSharedMethod from users"
+    short-summary: "Delete ref of navigation property resource for users."
 """
 
-helps['people get-ref-last-shared-method'] = """
+helps['people usersinsightsshared set-ref-last-shared-method'] = """
     type: command
-    short-summary: "Get ref of lastSharedMethod from users"
+    short-summary: "Update the ref of navigation property lastSharedMethod in users."
 """
 
-helps['people get-ref-resource'] = """
+helps['people usersinsightsshared set-ref-resource'] = """
     type: command
-    short-summary: "Get ref of resource from users"
+    short-summary: "Update the ref of navigation property resource in users."
 """
 
-helps['people get-resource'] = """
+helps['people usersinsightsshared show-last-shared-method'] = """
     type: command
-    short-summary: "Get resource from users"
+    short-summary: "Get lastSharedMethod from users."
 """
 
-helps['people set-ref-last-shared-method'] = """
+helps['people usersinsightsshared show-ref-last-shared-method'] = """
     type: command
-    short-summary: "Update the ref of navigation property lastSharedMethod in users"
+    short-summary: "Get ref of lastSharedMethod from users."
 """
 
-helps['people set-ref-resource'] = """
+helps['people usersinsightsshared show-ref-resource'] = """
     type: command
-    short-summary: "Update the ref of navigation property resource in users"
+    short-summary: "Get ref of resource from users."
 """
 
-helps['people'] = """
+helps['people usersinsightsshared show-resource'] = """
+    type: command
+    short-summary: "Get resource from users."
+"""
+
+helps['people usersinsightstrending'] = """
     type: group
-    short-summary: people
+    short-summary: Manage usersinsightstrending with people_v1_0
 """
 
-helps['people delete'] = """
+helps['people usersinsightstrending delete-ref-resource'] = """
     type: command
-    short-summary: "Delete ref of navigation property resource for users"
+    short-summary: "Delete ref of navigation property resource for users."
 """
 
-helps['people get-ref-resource'] = """
+helps['people usersinsightstrending set-ref-resource'] = """
     type: command
-    short-summary: "Get ref of resource from users"
+    short-summary: "Update the ref of navigation property resource in users."
 """
 
-helps['people get-resource'] = """
+helps['people usersinsightstrending show-ref-resource'] = """
     type: command
-    short-summary: "Get resource from users"
+    short-summary: "Get ref of resource from users."
 """
 
-helps['people set-ref-resource'] = """
+helps['people usersinsightstrending show-resource'] = """
     type: command
-    short-summary: "Update the ref of navigation property resource in users"
+    short-summary: "Get resource from users."
 """
 
-helps['people'] = """
+helps['people usersinsightsused'] = """
     type: group
-    short-summary: people
+    short-summary: Manage usersinsightsused with people_v1_0
 """
 
-helps['people delete'] = """
+helps['people usersinsightsused delete-ref-resource'] = """
     type: command
-    short-summary: "Delete ref of navigation property resource for users"
+    short-summary: "Delete ref of navigation property resource for users."
 """
 
-helps['people get-ref-resource'] = """
+helps['people usersinsightsused set-ref-resource'] = """
     type: command
-    short-summary: "Get ref of resource from users"
+    short-summary: "Update the ref of navigation property resource in users."
 """
 
-helps['people get-resource'] = """
+helps['people usersinsightsused show-ref-resource'] = """
     type: command
-    short-summary: "Get resource from users"
+    short-summary: "Get ref of resource from users."
 """
 
-helps['people set-ref-resource'] = """
+helps['people usersinsightsused show-resource'] = """
     type: command
-    short-summary: "Update the ref of navigation property resource in users"
+    short-summary: "Get resource from users."
 """

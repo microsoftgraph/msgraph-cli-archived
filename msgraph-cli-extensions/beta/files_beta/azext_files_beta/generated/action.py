@@ -14,10 +14,10 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddParentReferenceSharepointIds(argparse.Action):
+class AddSharepointIds(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.parent_reference_sharepoint_ids = action
+        namespace.sharepoint_ids = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -45,13 +45,17 @@ class AddParentReferenceSharepointIds(argparse.Action):
                 d['tenant_id'] = v[0]
             elif kl == 'web-id':
                 d['web_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter sharepoint_ids. All possible keys are: '
+                               'list-id, list-item-id, list-item-unique-id, site-id, site-url, tenant-id, web-id'.
+                               format(k))
         return d
 
 
-class AddLastModifiedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.last_modified_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -69,13 +73,16 @@ class AddLastModifiedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
-class AddListList(argparse.Action):
+class AddList(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.list_list = action
+        namespace.list = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -95,13 +102,16 @@ class AddListList(argparse.Action):
                 d['hidden'] = v[0]
             elif kl == 'template':
                 d['template'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter list. All possible keys are: '
+                               'content-types-enabled, hidden, template'.format(k))
         return d
 
 
-class AddListSubscriptions(argparse._AppendAction):
+class AddSubscriptions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddListSubscriptions, self).__call__(parser, namespace, action, option_string)
+        super(AddSubscriptions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -143,13 +153,19 @@ class AddListSubscriptions(argparse._AppendAction):
                 d['resource'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter subscriptions. All possible keys are: '
+                               'application-id, change-type, client-state, creator-id, encryption-certificate, '
+                               'encryption-certificate-id, expiration-date-time, include-properties, '
+                               'include-resource-data, latest-supported-tls-version, lifecycle-notification-url, '
+                               'notification-url, resource, id'.format(k))
         return d
 
 
-class AddQuotaStoragePlanInformation(argparse.Action):
+class AddStoragePlanInformation(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.quota_storage_plan_information = action
+        namespace.storage_plan_information = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -165,6 +181,9 @@ class AddQuotaStoragePlanInformation(argparse.Action):
             v = properties[k]
             if kl == 'upgrade-available':
                 d['upgrade_available'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter storage_plan_information. All possible '
+                               'keys are: upgrade-available'.format(k))
         return d
 
 
@@ -189,6 +208,9 @@ class AddContentType(argparse.Action):
                 d['id'] = v[0]
             elif kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter content_type. All possible keys are: id, '
+                               'name'.format(k))
         return d
 
 
@@ -210,7 +232,7 @@ class AddVersions(argparse._AppendAction):
             kl = k.lower()
             v = properties[k]
             if kl == 'id-fields-id':
-                d['id_fields_id'] = v[0]
+                d['id'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'publication':
@@ -223,6 +245,10 @@ class AddVersions(argparse._AppendAction):
                 d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter versions. All possible keys are: '
+                               'id-fields-id, last-modified-date-time, publication, application, device, user, id'.
+                               format(k))
         return d
 
 
@@ -249,6 +275,9 @@ class AddDrivesActivitiesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -273,6 +302,9 @@ class AddPublication(argparse.Action):
                 d['level'] = v[0]
             elif kl == 'version-id':
                 d['version_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter publication. All possible keys are: '
+                               'level, version-id'.format(k))
         return d
 
 
@@ -299,6 +331,9 @@ class AddCalculated(argparse.Action):
                 d['formula'] = v[0]
             elif kl == 'output-type':
                 d['output_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter calculated. All possible keys are: '
+                               'format, formula, output-type'.format(k))
         return d
 
 
@@ -325,6 +360,9 @@ class AddChoice(argparse.Action):
                 d['choices'] = v
             elif kl == 'display-as':
                 d['display_as'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter choice. All possible keys are: '
+                               'allow-text-entry, choices, display-as'.format(k))
         return d
 
 
@@ -349,6 +387,9 @@ class AddDateTime(argparse.Action):
                 d['display_as'] = v[0]
             elif kl == 'format':
                 d['format'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter date_time. All possible keys are: '
+                               'display-as, format'.format(k))
         return d
 
 
@@ -373,6 +414,9 @@ class AddDefaultValue(argparse.Action):
                 d['formula'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter default_value. All possible keys are: '
+                               'formula, value'.format(k))
         return d
 
 
@@ -403,6 +447,10 @@ class AddLookup(argparse.Action):
                 d['list_id'] = v[0]
             elif kl == 'primary-lookup-column-id':
                 d['primary_lookup_column_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter lookup. All possible keys are: '
+                               'allow-multiple-values, allow-unlimited-length, column-name, list-id, '
+                               'primary-lookup-column-id'.format(k))
         return d
 
 
@@ -431,6 +479,9 @@ class AddNumber(argparse.Action):
                 d['maximum'] = v[0]
             elif kl == 'minimum':
                 d['minimum'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter number. All possible keys are: '
+                               'decimal-places, display-as, maximum, minimum'.format(k))
         return d
 
 
@@ -457,6 +508,9 @@ class AddPersonOrGroup(argparse.Action):
                 d['choose_from_type'] = v[0]
             elif kl == 'display-as':
                 d['display_as'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter person_or_group. All possible keys are: '
+                               'allow-multiple-selection, choose-from-type, display-as'.format(k))
         return d
 
 
@@ -487,6 +541,10 @@ class AddText(argparse.Action):
                 d['max_length'] = v[0]
             elif kl == 'text-type':
                 d['text_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter text. All possible keys are: '
+                               'allow-multiple-lines, append-changes-to-existing-text, lines-for-editing, max-length, '
+                               'text-type'.format(k))
         return d
 
 
@@ -511,6 +569,9 @@ class AddOrder(argparse.Action):
                 d['default'] = v[0]
             elif kl == 'position':
                 d['position'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter order. All possible keys are: default, '
+                               'position'.format(k))
         return d
 
 
@@ -535,6 +596,9 @@ class AddColumnLinks(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter column_links. All possible keys are: '
+                               'name, id'.format(k))
         return d
 
 
@@ -561,6 +625,9 @@ class AddDrivesListActivitiesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -587,6 +654,9 @@ class AddDrivesListItemsRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -613,13 +683,16 @@ class AddDrivesListItemsActivitiesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
-class AddOnenoteResources(argparse._AppendAction):
+class AddResources(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddOnenoteResources, self).__call__(parser, namespace, action, option_string)
+        super(AddResources, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -641,6 +714,9 @@ class AddOnenoteResources(argparse._AppendAction):
                 d['self_property'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter resources. All possible keys are: '
+                               'content, content-url, self, id'.format(k))
         return d
 
 
@@ -667,6 +743,9 @@ class AddSharesListActivitiesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -693,6 +772,9 @@ class AddSharesListItemsRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -719,6 +801,9 @@ class AddSharesListItemsActivitiesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -745,6 +830,9 @@ class AddSharesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -771,6 +859,9 @@ class AddSharesListitemActivitiesListitemRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -797,6 +888,9 @@ class AddSharesPermissionRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d
 
 
@@ -823,4 +917,7 @@ class AddGrantees(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter grantees. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d

@@ -12,25 +12,25 @@
 from knack.help_files import helps
 
 
-helps['files'] = """
+helps['files_beta'] = '''
     type: group
-    short-summary: files
+    short-summary: Manage Files
+'''
+
+helps['files drivesdrive'] = """
+    type: group
+    short-summary: Manage drivesdrive with files_beta
 """
 
-helps['files delete'] = """
+helps['files drivesdrive create-drive'] = """
     type: command
-    short-summary: "Delete entity from drives"
-"""
-
-helps['files create-drive'] = """
-    type: command
-    short-summary: "Add new entity to drives"
+    short-summary: "Add new entity to drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -40,19 +40,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -67,19 +67,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -108,10 +108,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -122,19 +122,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -149,19 +149,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -176,19 +176,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -199,10 +199,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -245,35 +245,35 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -281,25 +281,30 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files get-drive'] = """
+helps['files drivesdrive delete-drive'] = """
     type: command
-    short-summary: "Get entity from drives by key"
+    short-summary: "Delete entity from drives."
 """
 
-helps['files list-drive'] = """
+helps['files drivesdrive list-drive'] = """
     type: command
-    short-summary: "Get entities from drives"
+    short-summary: "Get entities from drives."
 """
 
-helps['files update-drive'] = """
+helps['files drivesdrive show-drive'] = """
     type: command
-    short-summary: "Update entity in drives"
+    short-summary: "Get entity from drives by key."
+"""
+
+helps['files drivesdrive update-drive'] = """
+    type: command
+    short-summary: "Update entity in drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -309,19 +314,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -336,19 +341,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -377,10 +382,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -391,19 +396,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -418,19 +423,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -445,19 +450,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -468,10 +473,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -514,35 +519,35 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -550,195 +555,225 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files'] = """
+helps['files drive'] = """
     type: group
-    short-summary: files
+    short-summary: Manage drive with files_beta
 """
 
-helps['files delete'] = """
+helps['files drive create-activity'] = """
     type: command
-    short-summary: "Delete navigation property root for drives"
+    short-summary: "Create new navigation property to activities for drives."
 """
 
-helps['files create-activity'] = """
+helps['files drive create-bundle'] = """
     type: command
-    short-summary: "Create new navigation property to activities for drives"
+    short-summary: "Create new navigation property to bundles for drives."
 """
 
-helps['files create-bundle'] = """
+helps['files drive create-following'] = """
     type: command
-    short-summary: "Create new navigation property to bundles for drives"
+    short-summary: "Create new navigation property to following for drives."
 """
 
-helps['files create-following'] = """
+helps['files drive create-item'] = """
     type: command
-    short-summary: "Create new navigation property to following for drives"
+    short-summary: "Create new navigation property to items for drives."
 """
 
-helps['files create-item'] = """
+helps['files drive create-special'] = """
     type: command
-    short-summary: "Create new navigation property to items for drives"
+    short-summary: "Create new navigation property to special for drives."
 """
 
-helps['files create-special'] = """
+helps['files drive delete-activity'] = """
     type: command
-    short-summary: "Create new navigation property to special for drives"
+    short-summary: "Delete navigation property activities for drives."
 """
 
-helps['files get-activity'] = """
+helps['files drive delete-bundle'] = """
     type: command
-    short-summary: "Get activities from drives"
+    short-summary: "Delete navigation property bundles for drives."
 """
 
-helps['files get-bundle'] = """
+helps['files drive delete-following'] = """
     type: command
-    short-summary: "Get bundles from drives"
+    short-summary: "Delete navigation property following for drives."
 """
 
-helps['files get-bundle-content'] = """
+helps['files drive delete-item'] = """
     type: command
-    short-summary: "Get media content for the navigation property bundles from drives"
+    short-summary: "Delete navigation property items for drives."
 """
 
-helps['files get-following'] = """
+helps['files drive delete-list'] = """
     type: command
-    short-summary: "Get following from drives"
+    short-summary: "Delete navigation property list for drives."
 """
 
-helps['files get-following-content'] = """
+helps['files drive delete-root'] = """
     type: command
-    short-summary: "Get media content for the navigation property following from drives"
+    short-summary: "Delete navigation property root for drives."
 """
 
-helps['files get-item'] = """
+helps['files drive delete-special'] = """
     type: command
-    short-summary: "Get items from drives"
+    short-summary: "Delete navigation property special for drives."
 """
 
-helps['files get-item-content'] = """
+helps['files drive list-activity'] = """
     type: command
-    short-summary: "Get media content for the navigation property items from drives"
+    short-summary: "Get activities from drives."
 """
 
-helps['files get-list'] = """
+helps['files drive list-bundle'] = """
     type: command
-    short-summary: "Get list from drives"
+    short-summary: "Get bundles from drives."
 """
 
-helps['files get-root'] = """
+helps['files drive list-following'] = """
     type: command
-    short-summary: "Get root from drives"
+    short-summary: "Get following from drives."
 """
 
-helps['files get-root-content'] = """
+helps['files drive list-item'] = """
     type: command
-    short-summary: "Get media content for the navigation property root from drives"
+    short-summary: "Get items from drives."
 """
 
-helps['files get-special'] = """
+helps['files drive list-special'] = """
     type: command
-    short-summary: "Get special from drives"
+    short-summary: "Get special from drives."
 """
 
-helps['files get-special-content'] = """
+helps['files drive recent'] = """
     type: command
-    short-summary: "Get media content for the navigation property special from drives"
+    short-summary: "Invoke function recent."
 """
 
-helps['files list-activity'] = """
+helps['files drive search'] = """
     type: command
-    short-summary: "Get activities from drives"
+    short-summary: "Invoke function search."
 """
 
-helps['files list-bundle'] = """
+helps['files drive set-bundle-content'] = """
     type: command
-    short-summary: "Get bundles from drives"
+    short-summary: "Update media content for the navigation property bundles in drives."
 """
 
-helps['files list-following'] = """
+helps['files drive set-following-content'] = """
     type: command
-    short-summary: "Get following from drives"
+    short-summary: "Update media content for the navigation property following in drives."
 """
 
-helps['files list-item'] = """
+helps['files drive set-item-content'] = """
     type: command
-    short-summary: "Get items from drives"
+    short-summary: "Update media content for the navigation property items in drives."
 """
 
-helps['files list-special'] = """
+helps['files drive set-root-content'] = """
     type: command
-    short-summary: "Get special from drives"
+    short-summary: "Update media content for the navigation property root in drives."
 """
 
-helps['files recent'] = """
+helps['files drive set-special-content'] = """
     type: command
-    short-summary: "Invoke function recent"
+    short-summary: "Update media content for the navigation property special in drives."
 """
 
-helps['files search'] = """
+helps['files drive shared-with-me'] = """
     type: command
-    short-summary: "Invoke function search"
+    short-summary: "Invoke function sharedWithMe."
 """
 
-helps['files set-bundle-content'] = """
+helps['files drive show-activity'] = """
     type: command
-    short-summary: "Update media content for the navigation property bundles in drives"
+    short-summary: "Get activities from drives."
 """
 
-helps['files set-following-content'] = """
+helps['files drive show-bundle'] = """
     type: command
-    short-summary: "Update media content for the navigation property following in drives"
+    short-summary: "Get bundles from drives."
 """
 
-helps['files set-item-content'] = """
+helps['files drive show-bundle-content'] = """
     type: command
-    short-summary: "Update media content for the navigation property items in drives"
+    short-summary: "Get media content for the navigation property bundles from drives."
 """
 
-helps['files set-root-content'] = """
+helps['files drive show-following'] = """
     type: command
-    short-summary: "Update media content for the navigation property root in drives"
+    short-summary: "Get following from drives."
 """
 
-helps['files set-special-content'] = """
+helps['files drive show-following-content'] = """
     type: command
-    short-summary: "Update media content for the navigation property special in drives"
+    short-summary: "Get media content for the navigation property following from drives."
 """
 
-helps['files shared-with-me'] = """
+helps['files drive show-item'] = """
     type: command
-    short-summary: "Invoke function sharedWithMe"
+    short-summary: "Get items from drives."
 """
 
-helps['files update-activity'] = """
+helps['files drive show-item-content'] = """
     type: command
-    short-summary: "Update the navigation property activities in drives"
+    short-summary: "Get media content for the navigation property items from drives."
 """
 
-helps['files update-bundle'] = """
+helps['files drive show-list'] = """
     type: command
-    short-summary: "Update the navigation property bundles in drives"
+    short-summary: "Get list from drives."
 """
 
-helps['files update-following'] = """
+helps['files drive show-root'] = """
     type: command
-    short-summary: "Update the navigation property following in drives"
+    short-summary: "Get root from drives."
 """
 
-helps['files update-item'] = """
+helps['files drive show-root-content'] = """
     type: command
-    short-summary: "Update the navigation property items in drives"
+    short-summary: "Get media content for the navigation property root from drives."
 """
 
-helps['files update-list'] = """
+helps['files drive show-special'] = """
     type: command
-    short-summary: "Update the navigation property list in drives"
+    short-summary: "Get special from drives."
+"""
+
+helps['files drive show-special-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property special from drives."
+"""
+
+helps['files drive update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in drives."
+"""
+
+helps['files drive update-bundle'] = """
+    type: command
+    short-summary: "Update the navigation property bundles in drives."
+"""
+
+helps['files drive update-following'] = """
+    type: command
+    short-summary: "Update the navigation property following in drives."
+"""
+
+helps['files drive update-item'] = """
+    type: command
+    short-summary: "Update the navigation property items in drives."
+"""
+
+helps['files drive update-list'] = """
+    type: command
+    short-summary: "Update the navigation property list in drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -748,19 +783,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -775,19 +810,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -874,60 +909,65 @@ must make use of the HTTPS protocol.
             Multiple actions can be specified by using more than one --subscriptions argument.
 """
 
-helps['files update-root'] = """
+helps['files drive update-root'] = """
     type: command
-    short-summary: "Update the navigation property root in drives"
+    short-summary: "Update the navigation property root in drives."
 """
 
-helps['files update-special'] = """
+helps['files drive update-special'] = """
     type: command
-    short-summary: "Update the navigation property special in drives"
+    short-summary: "Update the navigation property special in drives."
 """
 
-helps['files'] = """
+helps['files drivesactivity'] = """
     type: group
-    short-summary: files
+    short-summary: Manage drivesactivity with files_beta
 """
 
-helps['files delete'] = """
+helps['files drivesactivity delete-drive-item'] = """
     type: command
-    short-summary: "Delete navigation property listItem for drives"
+    short-summary: "Delete navigation property driveItem for drives."
 """
 
-helps['files get-drive-item'] = """
+helps['files drivesactivity delete-list-item'] = """
     type: command
-    short-summary: "Get driveItem from drives"
+    short-summary: "Delete navigation property listItem for drives."
 """
 
-helps['files get-drive-item-content'] = """
+helps['files drivesactivity set-drive-item-content'] = """
     type: command
-    short-summary: "Get media content for the navigation property driveItem from drives"
+    short-summary: "Update media content for the navigation property driveItem in drives."
 """
 
-helps['files get-list-item'] = """
+helps['files drivesactivity show-drive-item'] = """
     type: command
-    short-summary: "Get listItem from drives"
+    short-summary: "Get driveItem from drives."
 """
 
-helps['files set-drive-item-content'] = """
+helps['files drivesactivity show-drive-item-content'] = """
     type: command
-    short-summary: "Update media content for the navigation property driveItem in drives"
+    short-summary: "Get media content for the navigation property driveItem from drives."
 """
 
-helps['files update-drive-item'] = """
+helps['files drivesactivity show-list-item'] = """
     type: command
-    short-summary: "Update the navigation property driveItem in drives"
+    short-summary: "Get listItem from drives."
 """
 
-helps['files update-list-item'] = """
+helps['files drivesactivity update-drive-item'] = """
     type: command
-    short-summary: "Update the navigation property listItem in drives"
+    short-summary: "Update the navigation property driveItem in drives."
+"""
+
+helps['files drivesactivity update-list-item'] = """
+    type: command
+    short-summary: "Update the navigation property listItem in drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -937,19 +977,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -964,19 +1004,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1029,24 +1069,19 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files'] = """
+helps['files drivesactivitieslistitem'] = """
     type: group
-    short-summary: files
+    short-summary: Manage drivesactivitieslistitem with files_beta
 """
 
-helps['files delete'] = """
+helps['files drivesactivitieslistitem create-activity'] = """
     type: command
-    short-summary: "Delete navigation property fields for drives"
+    short-summary: "Create new navigation property to activities for drives."
 """
 
-helps['files create-activity'] = """
+helps['files drivesactivitieslistitem create-link'] = """
     type: command
-    short-summary: "Create new navigation property to activities for drives"
-"""
-
-helps['files create-link'] = """
-    type: command
-    short-summary: "Invoke action createLink"
+    short-summary: "Invoke action createLink."
     parameters:
       - name: --recipients
         long-summary: |
@@ -1060,9 +1095,9 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files create-version'] = """
+helps['files drivesactivitieslistitem create-version'] = """
     type: command
-    short-summary: "Create new navigation property to versions for drives"
+    short-summary: "Create new navigation property to versions for drives."
     parameters:
       - name: --publication
         short-summary: "publicationFacet"
@@ -1071,28 +1106,28 @@ helps['files create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1100,84 +1135,104 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files get-activity'] = """
+helps['files drivesactivitieslistitem delete-activity'] = """
     type: command
-    short-summary: "Get activities from drives"
+    short-summary: "Delete navigation property activities for drives."
 """
 
-helps['files get-activity-by-interval'] = """
+helps['files drivesactivitieslistitem delete-drive-item'] = """
     type: command
-    short-summary: "Invoke function getActivitiesByInterval"
+    short-summary: "Delete navigation property driveItem for drives."
 """
 
-helps['files get-analytic'] = """
+helps['files drivesactivitieslistitem delete-field'] = """
     type: command
-    short-summary: "Get analytics from drives"
+    short-summary: "Delete navigation property fields for drives."
 """
 
-helps['files get-drive-item'] = """
+helps['files drivesactivitieslistitem delete-ref-analytic'] = """
     type: command
-    short-summary: "Get driveItem from drives"
+    short-summary: "Delete ref of navigation property analytics for drives."
 """
 
-helps['files get-drive-item-content'] = """
+helps['files drivesactivitieslistitem delete-version'] = """
     type: command
-    short-summary: "Get media content for the navigation property driveItem from drives"
+    short-summary: "Delete navigation property versions for drives."
 """
 
-helps['files get-field'] = """
+helps['files drivesactivitieslistitem list-activity'] = """
     type: command
-    short-summary: "Get fields from drives"
+    short-summary: "Get activities from drives."
 """
 
-helps['files get-ref-analytic'] = """
+helps['files drivesactivitieslistitem list-version'] = """
     type: command
-    short-summary: "Get ref of analytics from drives"
+    short-summary: "Get versions from drives."
 """
 
-helps['files get-version'] = """
+helps['files drivesactivitieslistitem set-drive-item-content'] = """
     type: command
-    short-summary: "Get versions from drives"
+    short-summary: "Update media content for the navigation property driveItem in drives."
 """
 
-helps['files list-activity'] = """
+helps['files drivesactivitieslistitem set-ref-analytic'] = """
     type: command
-    short-summary: "Get activities from drives"
+    short-summary: "Update the ref of navigation property analytics in drives."
 """
 
-helps['files list-version'] = """
+helps['files drivesactivitieslistitem show-activity'] = """
     type: command
-    short-summary: "Get versions from drives"
+    short-summary: "Invoke function getActivitiesByInterval And Get activities from drives."
 """
 
-helps['files set-drive-item-content'] = """
+helps['files drivesactivitieslistitem show-analytic'] = """
     type: command
-    short-summary: "Update media content for the navigation property driveItem in drives"
+    short-summary: "Get analytics from drives."
 """
 
-helps['files set-ref-analytic'] = """
+helps['files drivesactivitieslistitem show-drive-item'] = """
     type: command
-    short-summary: "Update the ref of navigation property analytics in drives"
+    short-summary: "Get driveItem from drives."
 """
 
-helps['files update-activity'] = """
+helps['files drivesactivitieslistitem show-drive-item-content'] = """
     type: command
-    short-summary: "Update the navigation property activities in drives"
+    short-summary: "Get media content for the navigation property driveItem from drives."
 """
 
-helps['files update-drive-item'] = """
+helps['files drivesactivitieslistitem show-field'] = """
     type: command
-    short-summary: "Update the navigation property driveItem in drives"
+    short-summary: "Get fields from drives."
 """
 
-helps['files update-field'] = """
+helps['files drivesactivitieslistitem show-ref-analytic'] = """
     type: command
-    short-summary: "Update the navigation property fields in drives"
+    short-summary: "Get ref of analytics from drives."
 """
 
-helps['files update-version'] = """
+helps['files drivesactivitieslistitem show-version'] = """
     type: command
-    short-summary: "Update the navigation property versions in drives"
+    short-summary: "Get versions from drives."
+"""
+
+helps['files drivesactivitieslistitem update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in drives."
+"""
+
+helps['files drivesactivitieslistitem update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in drives."
+"""
+
+helps['files drivesactivitieslistitem update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in drives."
+"""
+
+helps['files drivesactivitieslistitem update-version'] = """
+    type: command
+    short-summary: "Update the navigation property versions in drives."
     parameters:
       - name: --publication
         short-summary: "publicationFacet"
@@ -1186,28 +1241,28 @@ helps['files update-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1215,49 +1270,44 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files'] = """
+helps['files drivesactivitieslistitemversion'] = """
     type: group
-    short-summary: files
+    short-summary: Manage drivesactivitieslistitemversion with files_beta
 """
 
-helps['files delete'] = """
+helps['files drivesactivitieslistitemversion delete-field'] = """
     type: command
-    short-summary: "Delete navigation property fields for drives"
+    short-summary: "Delete navigation property fields for drives."
 """
 
-helps['files get-field'] = """
+helps['files drivesactivitieslistitemversion restore-version'] = """
     type: command
-    short-summary: "Get fields from drives"
+    short-summary: "Invoke action restoreVersion."
 """
 
-helps['files restore-version'] = """
+helps['files drivesactivitieslistitemversion show-field'] = """
     type: command
-    short-summary: "Invoke action restoreVersion"
+    short-summary: "Get fields from drives."
 """
 
-helps['files update-field'] = """
+helps['files drivesactivitieslistitemversion update-field'] = """
     type: command
-    short-summary: "Update the navigation property fields in drives"
+    short-summary: "Update the navigation property fields in drives."
 """
 
-helps['files'] = """
+helps['files driveslist'] = """
     type: group
-    short-summary: files
+    short-summary: Manage driveslist with files_beta
 """
 
-helps['files delete'] = """
+helps['files driveslist create-activity'] = """
     type: command
-    short-summary: "Delete navigation property drive for drives"
+    short-summary: "Create new navigation property to activities for drives."
 """
 
-helps['files create-activity'] = """
+helps['files driveslist create-column'] = """
     type: command
-    short-summary: "Create new navigation property to activities for drives"
-"""
-
-helps['files create-column'] = """
-    type: command
-    short-summary: "Create new navigation property to columns for drives"
+    short-summary: "Create new navigation property to columns for drives."
     parameters:
       - name: --calculated
         short-summary: "calculatedColumn"
@@ -1340,9 +1390,9 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files create-content-type'] = """
+helps['files driveslist create-content-type'] = """
     type: command
-    short-summary: "Create new navigation property to contentTypes for drives"
+    short-summary: "Create new navigation property to contentTypes for drives."
     parameters:
       - name: --order
         short-summary: "contentTypeOrder"
@@ -1360,11 +1410,11 @@ helps['files create-content-type'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --column-links argument.
-      - name: --inherited-from-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --inherited-from-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -1376,15 +1426,15 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files create-item'] = """
+helps['files driveslist create-item'] = """
     type: command
-    short-summary: "Create new navigation property to items for drives"
+    short-summary: "Create new navigation property to items for drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -1394,19 +1444,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1421,19 +1471,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1486,74 +1536,104 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files create-subscription'] = """
+helps['files driveslist create-subscription'] = """
     type: command
-    short-summary: "Create new navigation property to subscriptions for drives"
+    short-summary: "Create new navigation property to subscriptions for drives."
 """
 
-helps['files get-activity'] = """
+helps['files driveslist delete-activity'] = """
     type: command
-    short-summary: "Get activities from drives"
+    short-summary: "Delete navigation property activities for drives."
 """
 
-helps['files get-column'] = """
+helps['files driveslist delete-column'] = """
     type: command
-    short-summary: "Get columns from drives"
+    short-summary: "Delete navigation property columns for drives."
 """
 
-helps['files get-content-type'] = """
+helps['files driveslist delete-content-type'] = """
     type: command
-    short-summary: "Get contentTypes from drives"
+    short-summary: "Delete navigation property contentTypes for drives."
 """
 
-helps['files get-drive'] = """
+helps['files driveslist delete-drive'] = """
     type: command
-    short-summary: "Get drive from drives"
+    short-summary: "Delete navigation property drive for drives."
 """
 
-helps['files get-item'] = """
+helps['files driveslist delete-item'] = """
     type: command
-    short-summary: "Get items from drives"
+    short-summary: "Delete navigation property items for drives."
 """
 
-helps['files get-subscription'] = """
+helps['files driveslist delete-subscription'] = """
     type: command
-    short-summary: "Get subscriptions from drives"
+    short-summary: "Delete navigation property subscriptions for drives."
 """
 
-helps['files list-activity'] = """
+helps['files driveslist list-activity'] = """
     type: command
-    short-summary: "Get activities from drives"
+    short-summary: "Get activities from drives."
 """
 
-helps['files list-column'] = """
+helps['files driveslist list-column'] = """
     type: command
-    short-summary: "Get columns from drives"
+    short-summary: "Get columns from drives."
 """
 
-helps['files list-content-type'] = """
+helps['files driveslist list-content-type'] = """
     type: command
-    short-summary: "Get contentTypes from drives"
+    short-summary: "Get contentTypes from drives."
 """
 
-helps['files list-item'] = """
+helps['files driveslist list-item'] = """
     type: command
-    short-summary: "Get items from drives"
+    short-summary: "Get items from drives."
 """
 
-helps['files list-subscription'] = """
+helps['files driveslist list-subscription'] = """
     type: command
-    short-summary: "Get subscriptions from drives"
+    short-summary: "Get subscriptions from drives."
 """
 
-helps['files update-activity'] = """
+helps['files driveslist show-activity'] = """
     type: command
-    short-summary: "Update the navigation property activities in drives"
+    short-summary: "Get activities from drives."
 """
 
-helps['files update-column'] = """
+helps['files driveslist show-column'] = """
     type: command
-    short-summary: "Update the navigation property columns in drives"
+    short-summary: "Get columns from drives."
+"""
+
+helps['files driveslist show-content-type'] = """
+    type: command
+    short-summary: "Get contentTypes from drives."
+"""
+
+helps['files driveslist show-drive'] = """
+    type: command
+    short-summary: "Get drive from drives."
+"""
+
+helps['files driveslist show-item'] = """
+    type: command
+    short-summary: "Get items from drives."
+"""
+
+helps['files driveslist show-subscription'] = """
+    type: command
+    short-summary: "Get subscriptions from drives."
+"""
+
+helps['files driveslist update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in drives."
+"""
+
+helps['files driveslist update-column'] = """
+    type: command
+    short-summary: "Update the navigation property columns in drives."
     parameters:
       - name: --calculated
         short-summary: "calculatedColumn"
@@ -1636,9 +1716,9 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files update-content-type'] = """
+helps['files driveslist update-content-type'] = """
     type: command
-    short-summary: "Update the navigation property contentTypes in drives"
+    short-summary: "Update the navigation property contentTypes in drives."
     parameters:
       - name: --order
         short-summary: "contentTypeOrder"
@@ -1656,11 +1736,11 @@ helps['files update-content-type'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --column-links argument.
-      - name: --inherited-from-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --inherited-from-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -1672,15 +1752,15 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files update-drive'] = """
+helps['files driveslist update-drive'] = """
     type: command
-    short-summary: "Update the navigation property drive in drives"
+    short-summary: "Update the navigation property drive in drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -1690,19 +1770,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1717,19 +1797,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1758,10 +1838,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -1772,19 +1852,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1799,19 +1879,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1826,19 +1906,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -1849,10 +1929,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -1895,35 +1975,35 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1931,15 +2011,15 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files update-item'] = """
+helps['files driveslist update-item'] = """
     type: command
-    short-summary: "Update the navigation property items in drives"
+    short-summary: "Update the navigation property items in drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -1949,19 +2029,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1976,19 +2056,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2041,55 +2121,60 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files update-subscription'] = """
+helps['files driveslist update-subscription'] = """
     type: command
-    short-summary: "Update the navigation property subscriptions in drives"
+    short-summary: "Update the navigation property subscriptions in drives."
 """
 
-helps['files'] = """
+helps['files driveslistactivity'] = """
     type: group
-    short-summary: files
+    short-summary: Manage driveslistactivity with files_beta
 """
 
-helps['files delete'] = """
+helps['files driveslistactivity delete-drive-item'] = """
     type: command
-    short-summary: "Delete navigation property listItem for drives"
+    short-summary: "Delete navigation property driveItem for drives."
 """
 
-helps['files get-drive-item'] = """
+helps['files driveslistactivity delete-list-item'] = """
     type: command
-    short-summary: "Get driveItem from drives"
+    short-summary: "Delete navigation property listItem for drives."
 """
 
-helps['files get-drive-item-content'] = """
+helps['files driveslistactivity set-drive-item-content'] = """
     type: command
-    short-summary: "Get media content for the navigation property driveItem from drives"
+    short-summary: "Update media content for the navigation property driveItem in drives."
 """
 
-helps['files get-list-item'] = """
+helps['files driveslistactivity show-drive-item'] = """
     type: command
-    short-summary: "Get listItem from drives"
+    short-summary: "Get driveItem from drives."
 """
 
-helps['files set-drive-item-content'] = """
+helps['files driveslistactivity show-drive-item-content'] = """
     type: command
-    short-summary: "Update media content for the navigation property driveItem in drives"
+    short-summary: "Get media content for the navigation property driveItem from drives."
 """
 
-helps['files update-drive-item'] = """
+helps['files driveslistactivity show-list-item'] = """
     type: command
-    short-summary: "Update the navigation property driveItem in drives"
+    short-summary: "Get listItem from drives."
 """
 
-helps['files update-list-item'] = """
+helps['files driveslistactivity update-drive-item'] = """
     type: command
-    short-summary: "Update the navigation property listItem in drives"
+    short-summary: "Update the navigation property driveItem in drives."
+"""
+
+helps['files driveslistactivity update-list-item'] = """
+    type: command
+    short-summary: "Update the navigation property listItem in drives."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -2099,19 +2184,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2126,19 +2211,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2191,24 +2276,19 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files'] = """
+helps['files driveslistactivitieslistitem'] = """
     type: group
-    short-summary: files
+    short-summary: Manage driveslistactivitieslistitem with files_beta
 """
 
-helps['files delete'] = """
+helps['files driveslistactivitieslistitem create-activity'] = """
     type: command
-    short-summary: "Delete navigation property fields for drives"
+    short-summary: "Create new navigation property to activities for drives."
 """
 
-helps['files create-activity'] = """
+helps['files driveslistactivitieslistitem create-link'] = """
     type: command
-    short-summary: "Create new navigation property to activities for drives"
-"""
-
-helps['files create-link'] = """
-    type: command
-    short-summary: "Invoke action createLink"
+    short-summary: "Invoke action createLink."
     parameters:
       - name: --recipients
         long-summary: |
@@ -2222,9 +2302,9 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files create-version'] = """
+helps['files driveslistactivitieslistitem create-version'] = """
     type: command
-    short-summary: "Create new navigation property to versions for drives"
+    short-summary: "Create new navigation property to versions for drives."
     parameters:
       - name: --publication
         short-summary: "publicationFacet"
@@ -2233,457 +2313,19 @@ helps['files create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files get-activity'] = """
-    type: command
-    short-summary: "Get activities from drives"
-"""
-
-helps['files get-activity-by-interval'] = """
-    type: command
-    short-summary: "Invoke function getActivitiesByInterval"
-"""
-
-helps['files get-analytic'] = """
-    type: command
-    short-summary: "Get analytics from drives"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from drives"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from drives"
-"""
-
-helps['files get-field'] = """
-    type: command
-    short-summary: "Get fields from drives"
-"""
-
-helps['files get-ref-analytic'] = """
-    type: command
-    short-summary: "Get ref of analytics from drives"
-"""
-
-helps['files get-version'] = """
-    type: command
-    short-summary: "Get versions from drives"
-"""
-
-helps['files list-activity'] = """
-    type: command
-    short-summary: "Get activities from drives"
-"""
-
-helps['files list-version'] = """
-    type: command
-    short-summary: "Get versions from drives"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in drives"
-"""
-
-helps['files set-ref-analytic'] = """
-    type: command
-    short-summary: "Update the ref of navigation property analytics in drives"
-"""
-
-helps['files update-activity'] = """
-    type: command
-    short-summary: "Update the navigation property activities in drives"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in drives"
-"""
-
-helps['files update-field'] = """
-    type: command
-    short-summary: "Update the navigation property fields in drives"
-"""
-
-helps['files update-version'] = """
-    type: command
-    short-summary: "Update the navigation property versions in drives"
-    parameters:
-      - name: --publication
-        short-summary: "publicationFacet"
-        long-summary: |
-            Usage: --publication level=XX version-id=XX
-
-            level: The state of publication for this document. Either published or checkout. Read-only.
-            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property fields for drives"
-"""
-
-helps['files get-field'] = """
-    type: command
-    short-summary: "Get fields from drives"
-"""
-
-helps['files restore-version'] = """
-    type: command
-    short-summary: "Invoke action restoreVersion"
-"""
-
-helps['files update-field'] = """
-    type: command
-    short-summary: "Update the navigation property fields in drives"
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property columnLinks for drives"
-"""
-
-helps['files create-column-link'] = """
-    type: command
-    short-summary: "Create new navigation property to columnLinks for drives"
-"""
-
-helps['files get-column-link'] = """
-    type: command
-    short-summary: "Get columnLinks from drives"
-"""
-
-helps['files list-column-link'] = """
-    type: command
-    short-summary: "Get columnLinks from drives"
-"""
-
-helps['files update-column-link'] = """
-    type: command
-    short-summary: "Update the navigation property columnLinks in drives"
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property fields for drives"
-"""
-
-helps['files create-activity'] = """
-    type: command
-    short-summary: "Create new navigation property to activities for drives"
-"""
-
-helps['files create-link'] = """
-    type: command
-    short-summary: "Invoke action createLink"
-    parameters:
-      - name: --recipients
-        long-summary: |
-            Usage: --recipients alias=XX email=XX object-id=XX
-
-            alias: The alias of the domain object, for cases where an email address is unavailable (e.g. security \
-groups).
-            email: The email address for the recipient, if the recipient has an associated email address.
-            object-id: The unique identifier for the recipient in the directory.
-
-            Multiple actions can be specified by using more than one --recipients argument.
-"""
-
-helps['files create-version'] = """
-    type: command
-    short-summary: "Create new navigation property to versions for drives"
-    parameters:
-      - name: --publication
-        short-summary: "publicationFacet"
-        long-summary: |
-            Usage: --publication level=XX version-id=XX
-
-            level: The state of publication for this document. Either published or checkout. Read-only.
-            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files get-activity'] = """
-    type: command
-    short-summary: "Get activities from drives"
-"""
-
-helps['files get-activity-by-interval'] = """
-    type: command
-    short-summary: "Invoke function getActivitiesByInterval"
-"""
-
-helps['files get-analytic'] = """
-    type: command
-    short-summary: "Get analytics from drives"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from drives"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from drives"
-"""
-
-helps['files get-field'] = """
-    type: command
-    short-summary: "Get fields from drives"
-"""
-
-helps['files get-ref-analytic'] = """
-    type: command
-    short-summary: "Get ref of analytics from drives"
-"""
-
-helps['files get-version'] = """
-    type: command
-    short-summary: "Get versions from drives"
-"""
-
-helps['files list-activity'] = """
-    type: command
-    short-summary: "Get activities from drives"
-"""
-
-helps['files list-version'] = """
-    type: command
-    short-summary: "Get versions from drives"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in drives"
-"""
-
-helps['files set-ref-analytic'] = """
-    type: command
-    short-summary: "Update the ref of navigation property analytics in drives"
-"""
-
-helps['files update-activity'] = """
-    type: command
-    short-summary: "Update the navigation property activities in drives"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in drives"
-"""
-
-helps['files update-field'] = """
-    type: command
-    short-summary: "Update the navigation property fields in drives"
-"""
-
-helps['files update-version'] = """
-    type: command
-    short-summary: "Update the navigation property versions in drives"
-    parameters:
-      - name: --publication
-        short-summary: "publicationFacet"
-        long-summary: |
-            Usage: --publication level=XX version-id=XX
-
-            level: The state of publication for this document. Either published or checkout. Read-only.
-            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property listItem for drives"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from drives"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from drives"
-"""
-
-helps['files get-list-item'] = """
-    type: command
-    short-summary: "Get listItem from drives"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in drives"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in drives"
-"""
-
-helps['files update-list-item'] = """
-    type: command
-    short-summary: "Update the navigation property listItem in drives"
-    parameters:
-      - name: --parent-reference-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2698,19 +2340,497 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+"""
+
+helps['files driveslistactivitieslistitem delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for drives."
+"""
+
+helps['files driveslistactivitieslistitem delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for drives."
+"""
+
+helps['files driveslistactivitieslistitem delete-field'] = """
+    type: command
+    short-summary: "Delete navigation property fields for drives."
+"""
+
+helps['files driveslistactivitieslistitem delete-ref-analytic'] = """
+    type: command
+    short-summary: "Delete ref of navigation property analytics for drives."
+"""
+
+helps['files driveslistactivitieslistitem delete-version'] = """
+    type: command
+    short-summary: "Delete navigation property versions for drives."
+"""
+
+helps['files driveslistactivitieslistitem list-activity'] = """
+    type: command
+    short-summary: "Get activities from drives."
+"""
+
+helps['files driveslistactivitieslistitem list-version'] = """
+    type: command
+    short-summary: "Get versions from drives."
+"""
+
+helps['files driveslistactivitieslistitem set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in drives."
+"""
+
+helps['files driveslistactivitieslistitem set-ref-analytic'] = """
+    type: command
+    short-summary: "Update the ref of navigation property analytics in drives."
+"""
+
+helps['files driveslistactivitieslistitem show-activity'] = """
+    type: command
+    short-summary: "Invoke function getActivitiesByInterval And Get activities from drives."
+"""
+
+helps['files driveslistactivitieslistitem show-analytic'] = """
+    type: command
+    short-summary: "Get analytics from drives."
+"""
+
+helps['files driveslistactivitieslistitem show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from drives."
+"""
+
+helps['files driveslistactivitieslistitem show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from drives."
+"""
+
+helps['files driveslistactivitieslistitem show-field'] = """
+    type: command
+    short-summary: "Get fields from drives."
+"""
+
+helps['files driveslistactivitieslistitem show-ref-analytic'] = """
+    type: command
+    short-summary: "Get ref of analytics from drives."
+"""
+
+helps['files driveslistactivitieslistitem show-version'] = """
+    type: command
+    short-summary: "Get versions from drives."
+"""
+
+helps['files driveslistactivitieslistitem update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in drives."
+"""
+
+helps['files driveslistactivitieslistitem update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in drives."
+"""
+
+helps['files driveslistactivitieslistitem update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in drives."
+"""
+
+helps['files driveslistactivitieslistitem update-version'] = """
+    type: command
+    short-summary: "Update the navigation property versions in drives."
+    parameters:
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files driveslistactivitieslistitemversion'] = """
+    type: group
+    short-summary: Manage driveslistactivitieslistitemversion with files_beta
+"""
+
+helps['files driveslistactivitieslistitemversion delete-field'] = """
+    type: command
+    short-summary: "Delete navigation property fields for drives."
+"""
+
+helps['files driveslistactivitieslistitemversion restore-version'] = """
+    type: command
+    short-summary: "Invoke action restoreVersion."
+"""
+
+helps['files driveslistactivitieslistitemversion show-field'] = """
+    type: command
+    short-summary: "Get fields from drives."
+"""
+
+helps['files driveslistactivitieslistitemversion update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in drives."
+"""
+
+helps['files driveslistcontenttype'] = """
+    type: group
+    short-summary: Manage driveslistcontenttype with files_beta
+"""
+
+helps['files driveslistcontenttype create-column-link'] = """
+    type: command
+    short-summary: "Create new navigation property to columnLinks for drives."
+"""
+
+helps['files driveslistcontenttype delete-column-link'] = """
+    type: command
+    short-summary: "Delete navigation property columnLinks for drives."
+"""
+
+helps['files driveslistcontenttype list-column-link'] = """
+    type: command
+    short-summary: "Get columnLinks from drives."
+"""
+
+helps['files driveslistcontenttype show-column-link'] = """
+    type: command
+    short-summary: "Get columnLinks from drives."
+"""
+
+helps['files driveslistcontenttype update-column-link'] = """
+    type: command
+    short-summary: "Update the navigation property columnLinks in drives."
+"""
+
+helps['files driveslistitem'] = """
+    type: group
+    short-summary: Manage driveslistitem with files_beta
+"""
+
+helps['files driveslistitem create-activity'] = """
+    type: command
+    short-summary: "Create new navigation property to activities for drives."
+"""
+
+helps['files driveslistitem create-link'] = """
+    type: command
+    short-summary: "Invoke action createLink."
+    parameters:
+      - name: --recipients
+        long-summary: |
+            Usage: --recipients alias=XX email=XX object-id=XX
+
+            alias: The alias of the domain object, for cases where an email address is unavailable (e.g. security \
+groups).
+            email: The email address for the recipient, if the recipient has an associated email address.
+            object-id: The unique identifier for the recipient in the directory.
+
+            Multiple actions can be specified by using more than one --recipients argument.
+"""
+
+helps['files driveslistitem create-version'] = """
+    type: command
+    short-summary: "Create new navigation property to versions for drives."
+    parameters:
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files driveslistitem delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for drives."
+"""
+
+helps['files driveslistitem delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for drives."
+"""
+
+helps['files driveslistitem delete-field'] = """
+    type: command
+    short-summary: "Delete navigation property fields for drives."
+"""
+
+helps['files driveslistitem delete-ref-analytic'] = """
+    type: command
+    short-summary: "Delete ref of navigation property analytics for drives."
+"""
+
+helps['files driveslistitem delete-version'] = """
+    type: command
+    short-summary: "Delete navigation property versions for drives."
+"""
+
+helps['files driveslistitem list-activity'] = """
+    type: command
+    short-summary: "Get activities from drives."
+"""
+
+helps['files driveslistitem list-version'] = """
+    type: command
+    short-summary: "Get versions from drives."
+"""
+
+helps['files driveslistitem set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in drives."
+"""
+
+helps['files driveslistitem set-ref-analytic'] = """
+    type: command
+    short-summary: "Update the ref of navigation property analytics in drives."
+"""
+
+helps['files driveslistitem show-activity'] = """
+    type: command
+    short-summary: "Invoke function getActivitiesByInterval And Get activities from drives."
+"""
+
+helps['files driveslistitem show-analytic'] = """
+    type: command
+    short-summary: "Get analytics from drives."
+"""
+
+helps['files driveslistitem show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from drives."
+"""
+
+helps['files driveslistitem show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from drives."
+"""
+
+helps['files driveslistitem show-field'] = """
+    type: command
+    short-summary: "Get fields from drives."
+"""
+
+helps['files driveslistitem show-ref-analytic'] = """
+    type: command
+    short-summary: "Get ref of analytics from drives."
+"""
+
+helps['files driveslistitem show-version'] = """
+    type: command
+    short-summary: "Get versions from drives."
+"""
+
+helps['files driveslistitem update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in drives."
+"""
+
+helps['files driveslistitem update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in drives."
+"""
+
+helps['files driveslistitem update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in drives."
+"""
+
+helps['files driveslistitem update-version'] = """
+    type: command
+    short-summary: "Update the navigation property versions in drives."
+    parameters:
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files driveslistitemsactivity'] = """
+    type: group
+    short-summary: Manage driveslistitemsactivity with files_beta
+"""
+
+helps['files driveslistitemsactivity delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for drives."
+"""
+
+helps['files driveslistitemsactivity delete-list-item'] = """
+    type: command
+    short-summary: "Delete navigation property listItem for drives."
+"""
+
+helps['files driveslistitemsactivity set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in drives."
+"""
+
+helps['files driveslistitemsactivity show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from drives."
+"""
+
+helps['files driveslistitemsactivity show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from drives."
+"""
+
+helps['files driveslistitemsactivity show-list-item'] = """
+    type: command
+    short-summary: "Get listItem from drives."
+"""
+
+helps['files driveslistitemsactivity update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in drives."
+"""
+
+helps['files driveslistitemsactivity update-list-item'] = """
+    type: command
+    short-summary: "Update the navigation property listItem in drives."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2763,14 +2883,14 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files'] = """
+helps['files driveslistitemsactivitieslistitem'] = """
     type: group
-    short-summary: files
+    short-summary: Manage driveslistitemsactivitieslistitem with files_beta
 """
 
-helps['files create-link'] = """
+helps['files driveslistitemsactivitieslistitem create-link'] = """
     type: command
-    short-summary: "Invoke action createLink"
+    short-summary: "Invoke action createLink."
     parameters:
       - name: --recipients
         long-summary: |
@@ -2784,55 +2904,50 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files get-activity-by-interval'] = """
+helps['files driveslistitemsactivitieslistitem show-activity'] = """
     type: command
-    short-summary: "Invoke function getActivitiesByInterval"
+    short-summary: "Invoke function getActivitiesByInterval."
 """
 
-helps['files'] = """
+helps['files driveslistitemsversion'] = """
     type: group
-    short-summary: files
+    short-summary: Manage driveslistitemsversion with files_beta
 """
 
-helps['files delete'] = """
+helps['files driveslistitemsversion delete-field'] = """
     type: command
-    short-summary: "Delete navigation property fields for drives"
+    short-summary: "Delete navigation property fields for drives."
 """
 
-helps['files get-field'] = """
+helps['files driveslistitemsversion restore-version'] = """
     type: command
-    short-summary: "Get fields from drives"
+    short-summary: "Invoke action restoreVersion."
 """
 
-helps['files restore-version'] = """
+helps['files driveslistitemsversion show-field'] = """
     type: command
-    short-summary: "Invoke action restoreVersion"
+    short-summary: "Get fields from drives."
 """
 
-helps['files update-field'] = """
+helps['files driveslistitemsversion update-field'] = """
     type: command
-    short-summary: "Update the navigation property fields in drives"
+    short-summary: "Update the navigation property fields in drives."
 """
 
-helps['files'] = """
+helps['files group'] = """
     type: group
-    short-summary: files
+    short-summary: Manage group with files_beta
 """
 
-helps['files delete'] = """
+helps['files group create-drive'] = """
     type: command
-    short-summary: "Delete navigation property drive for groups"
-"""
-
-helps['files create-drive'] = """
-    type: command
-    short-summary: "Create new navigation property to drives for groups"
+    short-summary: "Create new navigation property to drives for groups."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -2842,19 +2957,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2869,19 +2984,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2910,10 +3025,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -2924,19 +3039,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2951,19 +3066,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2978,19 +3093,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -3001,10 +3116,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -3047,35 +3162,35 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3083,25 +3198,31 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files get-drive'] = """
+helps['files group delete-drive'] = """
     type: command
-    short-summary: "Get drive from groups"
+    short-summary: "Delete navigation property drives for groups And Delete navigation property drive for groups."
 """
 
-helps['files list-drive'] = """
+helps['files group list-drive'] = """
     type: command
-    short-summary: "Get drives from groups"
+    short-summary: "Get drives from groups."
 """
 
-helps['files update-drive'] = """
+helps['files group show-drive'] = """
     type: command
-    short-summary: "Update the navigation property drive in groups"
+    short-summary: "Get drives from groups And Get drive from groups."
+"""
+
+helps['files group update-drive'] = """
+    type: command
+    short-summary: "Update the navigation property drives in groups And Update the navigation property drive in \
+groups."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3111,19 +3232,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3138,19 +3259,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3179,10 +3300,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -3193,19 +3314,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3220,19 +3341,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3247,19 +3368,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -3270,10 +3391,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -3316,176 +3437,45 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete entity from shares"
-"""
-
-helps['files create-shared-drive-item'] = """
-    type: command
-    short-summary: "Add new entity to shares"
-"""
-
-helps['files get-shared-drive-item'] = """
-    type: command
-    short-summary: "Get entity from shares by key"
-"""
-
-helps['files list-shared-drive-item'] = """
-    type: command
-    short-summary: "Get entities from shares"
-"""
-
-helps['files update-shared-drive-item'] = """
-    type: command
-    short-summary: "Update entity in shares"
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property site for shares"
-"""
-
-helps['files create-item'] = """
-    type: command
-    short-summary: "Create new navigation property to items for shares"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from shares"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from shares"
-"""
-
-helps['files get-item'] = """
-    type: command
-    short-summary: "Get items from shares"
-"""
-
-helps['files get-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property items from shares"
-"""
-
-helps['files get-list'] = """
-    type: command
-    short-summary: "Get list from shares"
-"""
-
-helps['files get-list-item'] = """
-    type: command
-    short-summary: "Get listItem from shares"
-"""
-
-helps['files get-permission'] = """
-    type: command
-    short-summary: "Get permission from shares"
-"""
-
-helps['files get-root'] = """
-    type: command
-    short-summary: "Get root from shares"
-"""
-
-helps['files get-root-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property root from shares"
-"""
-
-helps['files get-site'] = """
-    type: command
-    short-summary: "Get site from shares"
-"""
-
-helps['files list-item'] = """
-    type: command
-    short-summary: "Get items from shares"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in shares"
-"""
-
-helps['files set-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property items in shares"
-"""
-
-helps['files set-root-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property root in shares"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in shares"
-"""
-
-helps['files update-item'] = """
-    type: command
-    short-summary: "Update the navigation property items in shares"
-"""
-
-helps['files update-list'] = """
-    type: command
-    short-summary: "Update the navigation property list in shares"
-    parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3495,19 +3485,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3522,19 +3512,433 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --share-point-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --share-point-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list
+        short-summary: "listInfo"
+        long-summary: |
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
+
+            content-types-enabled: If true, indicates that content types are enabled for this list.
+            hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
+            template: An enumerated value that represents the base list template used in creating the list. Possible \
+values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the list."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
+        short-summary: "storagePlanInformation"
+        long-summary: |
+            Usage: --storage-plan-information upgrade-available=XX
+
+            upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
+      - name: --application3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files sharesshareddriveitem'] = """
+    type: group
+    short-summary: Manage sharesshareddriveitem with files_beta
+"""
+
+helps['files sharesshareddriveitem create-shared-drive-item'] = """
+    type: command
+    short-summary: "Add new entity to shares."
+"""
+
+helps['files sharesshareddriveitem delete-shared-drive-item'] = """
+    type: command
+    short-summary: "Delete entity from shares."
+"""
+
+helps['files sharesshareddriveitem list-shared-drive-item'] = """
+    type: command
+    short-summary: "Get entities from shares."
+"""
+
+helps['files sharesshareddriveitem show-shared-drive-item'] = """
+    type: command
+    short-summary: "Get entity from shares by key."
+"""
+
+helps['files sharesshareddriveitem update-shared-drive-item'] = """
+    type: command
+    short-summary: "Update entity in shares."
+"""
+
+helps['files share'] = """
+    type: group
+    short-summary: Manage share with files_beta
+"""
+
+helps['files share create-item'] = """
+    type: command
+    short-summary: "Create new navigation property to items for shares."
+"""
+
+helps['files share delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for shares."
+"""
+
+helps['files share delete-item'] = """
+    type: command
+    short-summary: "Delete navigation property items for shares."
+"""
+
+helps['files share delete-list'] = """
+    type: command
+    short-summary: "Delete navigation property list for shares."
+"""
+
+helps['files share delete-list-item'] = """
+    type: command
+    short-summary: "Delete navigation property listItem for shares."
+"""
+
+helps['files share delete-permission'] = """
+    type: command
+    short-summary: "Delete navigation property permission for shares."
+"""
+
+helps['files share delete-root'] = """
+    type: command
+    short-summary: "Delete navigation property root for shares."
+"""
+
+helps['files share delete-site'] = """
+    type: command
+    short-summary: "Delete navigation property site for shares."
+"""
+
+helps['files share list-item'] = """
+    type: command
+    short-summary: "Get items from shares."
+"""
+
+helps['files share set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in shares."
+"""
+
+helps['files share set-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property items in shares."
+"""
+
+helps['files share set-root-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property root in shares."
+"""
+
+helps['files share show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from shares."
+"""
+
+helps['files share show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from shares."
+"""
+
+helps['files share show-item'] = """
+    type: command
+    short-summary: "Get items from shares."
+"""
+
+helps['files share show-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property items from shares."
+"""
+
+helps['files share show-list'] = """
+    type: command
+    short-summary: "Get list from shares."
+"""
+
+helps['files share show-list-item'] = """
+    type: command
+    short-summary: "Get listItem from shares."
+"""
+
+helps['files share show-permission'] = """
+    type: command
+    short-summary: "Get permission from shares."
+"""
+
+helps['files share show-root'] = """
+    type: command
+    short-summary: "Get root from shares."
+"""
+
+helps['files share show-root-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property root from shares."
+"""
+
+helps['files share show-site'] = """
+    type: command
+    short-summary: "Get site from shares."
+"""
+
+helps['files share update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in shares."
+"""
+
+helps['files share update-item'] = """
+    type: command
+    short-summary: "Update the navigation property items in shares."
+"""
+
+helps['files share update-list'] = """
+    type: command
+    short-summary: "Update the navigation property list in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3621,15 +4025,15 @@ must make use of the HTTPS protocol.
             Multiple actions can be specified by using more than one --subscriptions argument.
 """
 
-helps['files update-list-item'] = """
+helps['files share update-list-item'] = """
     type: command
-    short-summary: "Update the navigation property listItem in shares"
+    short-summary: "Update the navigation property listItem in shares."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3639,19 +4043,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3666,19 +4070,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3731,25 +4135,25 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files update-permission'] = """
+helps['files share update-permission'] = """
     type: command
-    short-summary: "Update the navigation property permission in shares"
+    short-summary: "Update the navigation property permission in shares."
 """
 
-helps['files update-root'] = """
+helps['files share update-root'] = """
     type: command
-    short-summary: "Update the navigation property root in shares"
+    short-summary: "Update the navigation property root in shares."
 """
 
-helps['files update-site'] = """
+helps['files share update-site'] = """
     type: command
-    short-summary: "Update the navigation property site in shares"
+    short-summary: "Update the navigation property site in shares."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3759,19 +4163,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3786,19 +4190,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3827,38 +4231,33 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --onenote-resources
+      - name: --resources
         short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
 supported, but you can get the binary content of a specific resource. Read-only. Nullable."
         long-summary: |
-            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
+            Usage: --resources content=XX content-url=XX self=XX id=XX
 
             content: The content stream
             content-url: The URL for downloading the content
             self: The endpoint where you can get details about the page. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --onenote-resources argument.
+            Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['files'] = """
+helps['files shareslist'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslist with files_beta
 """
 
-helps['files delete'] = """
+helps['files shareslist create-activity'] = """
     type: command
-    short-summary: "Delete navigation property drive for shares"
+    short-summary: "Create new navigation property to activities for shares."
 """
 
-helps['files create-activity'] = """
+helps['files shareslist create-column'] = """
     type: command
-    short-summary: "Create new navigation property to activities for shares"
-"""
-
-helps['files create-column'] = """
-    type: command
-    short-summary: "Create new navigation property to columns for shares"
+    short-summary: "Create new navigation property to columns for shares."
     parameters:
       - name: --calculated
         short-summary: "calculatedColumn"
@@ -3941,9 +4340,9 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files create-content-type'] = """
+helps['files shareslist create-content-type'] = """
     type: command
-    short-summary: "Create new navigation property to contentTypes for shares"
+    short-summary: "Create new navigation property to contentTypes for shares."
     parameters:
       - name: --order
         short-summary: "contentTypeOrder"
@@ -3961,11 +4360,11 @@ helps['files create-content-type'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --column-links argument.
-      - name: --inherited-from-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --inherited-from-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3977,15 +4376,15 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files create-item'] = """
+helps['files shareslist create-item'] = """
     type: command
-    short-summary: "Create new navigation property to items for shares"
+    short-summary: "Create new navigation property to items for shares."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3995,19 +4394,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4022,19 +4421,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4087,74 +4486,104 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files create-subscription'] = """
+helps['files shareslist create-subscription'] = """
     type: command
-    short-summary: "Create new navigation property to subscriptions for shares"
+    short-summary: "Create new navigation property to subscriptions for shares."
 """
 
-helps['files get-activity'] = """
+helps['files shareslist delete-activity'] = """
     type: command
-    short-summary: "Get activities from shares"
+    short-summary: "Delete navigation property activities for shares."
 """
 
-helps['files get-column'] = """
+helps['files shareslist delete-column'] = """
     type: command
-    short-summary: "Get columns from shares"
+    short-summary: "Delete navigation property columns for shares."
 """
 
-helps['files get-content-type'] = """
+helps['files shareslist delete-content-type'] = """
     type: command
-    short-summary: "Get contentTypes from shares"
+    short-summary: "Delete navigation property contentTypes for shares."
 """
 
-helps['files get-drive'] = """
+helps['files shareslist delete-drive'] = """
     type: command
-    short-summary: "Get drive from shares"
+    short-summary: "Delete navigation property drive for shares."
 """
 
-helps['files get-item'] = """
+helps['files shareslist delete-item'] = """
     type: command
-    short-summary: "Get items from shares"
+    short-summary: "Delete navigation property items for shares."
 """
 
-helps['files get-subscription'] = """
+helps['files shareslist delete-subscription'] = """
     type: command
-    short-summary: "Get subscriptions from shares"
+    short-summary: "Delete navigation property subscriptions for shares."
 """
 
-helps['files list-activity'] = """
+helps['files shareslist list-activity'] = """
     type: command
-    short-summary: "Get activities from shares"
+    short-summary: "Get activities from shares."
 """
 
-helps['files list-column'] = """
+helps['files shareslist list-column'] = """
     type: command
-    short-summary: "Get columns from shares"
+    short-summary: "Get columns from shares."
 """
 
-helps['files list-content-type'] = """
+helps['files shareslist list-content-type'] = """
     type: command
-    short-summary: "Get contentTypes from shares"
+    short-summary: "Get contentTypes from shares."
 """
 
-helps['files list-item'] = """
+helps['files shareslist list-item'] = """
     type: command
-    short-summary: "Get items from shares"
+    short-summary: "Get items from shares."
 """
 
-helps['files list-subscription'] = """
+helps['files shareslist list-subscription'] = """
     type: command
-    short-summary: "Get subscriptions from shares"
+    short-summary: "Get subscriptions from shares."
 """
 
-helps['files update-activity'] = """
+helps['files shareslist show-activity'] = """
     type: command
-    short-summary: "Update the navigation property activities in shares"
+    short-summary: "Get activities from shares."
 """
 
-helps['files update-column'] = """
+helps['files shareslist show-column'] = """
     type: command
-    short-summary: "Update the navigation property columns in shares"
+    short-summary: "Get columns from shares."
+"""
+
+helps['files shareslist show-content-type'] = """
+    type: command
+    short-summary: "Get contentTypes from shares."
+"""
+
+helps['files shareslist show-drive'] = """
+    type: command
+    short-summary: "Get drive from shares."
+"""
+
+helps['files shareslist show-item'] = """
+    type: command
+    short-summary: "Get items from shares."
+"""
+
+helps['files shareslist show-subscription'] = """
+    type: command
+    short-summary: "Get subscriptions from shares."
+"""
+
+helps['files shareslist update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in shares."
+"""
+
+helps['files shareslist update-column'] = """
+    type: command
+    short-summary: "Update the navigation property columns in shares."
     parameters:
       - name: --calculated
         short-summary: "calculatedColumn"
@@ -4237,9 +4666,9 @@ it.
             text-type: The type of text being stored. Must be one of plain or richText
 """
 
-helps['files update-content-type'] = """
+helps['files shareslist update-content-type'] = """
     type: command
-    short-summary: "Update the navigation property contentTypes in shares"
+    short-summary: "Update the navigation property contentTypes in shares."
     parameters:
       - name: --order
         short-summary: "contentTypeOrder"
@@ -4257,11 +4686,11 @@ helps['files update-content-type'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --column-links argument.
-      - name: --inherited-from-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --inherited-from-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -4273,15 +4702,15 @@ SharePoint site.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
 """
 
-helps['files update-drive'] = """
+helps['files shareslist update-drive'] = """
     type: command
-    short-summary: "Update the navigation property drive in shares"
+    short-summary: "Update the navigation property drive in shares."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -4291,19 +4720,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4318,19 +4747,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4359,10 +4788,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -4373,19 +4802,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4400,19 +4829,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4427,19 +4856,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -4450,10 +4879,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -4496,35 +4925,35 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4532,15 +4961,15 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files update-item'] = """
+helps['files shareslist update-item'] = """
     type: command
-    short-summary: "Update the navigation property items in shares"
+    short-summary: "Update the navigation property items in shares."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -4550,19 +4979,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4577,19 +5006,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4642,55 +5071,60 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files update-subscription'] = """
+helps['files shareslist update-subscription'] = """
     type: command
-    short-summary: "Update the navigation property subscriptions in shares"
+    short-summary: "Update the navigation property subscriptions in shares."
 """
 
-helps['files'] = """
+helps['files shareslistactivity'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslistactivity with files_beta
 """
 
-helps['files delete'] = """
+helps['files shareslistactivity delete-drive-item'] = """
     type: command
-    short-summary: "Delete navigation property listItem for shares"
+    short-summary: "Delete navigation property driveItem for shares."
 """
 
-helps['files get-drive-item'] = """
+helps['files shareslistactivity delete-list-item'] = """
     type: command
-    short-summary: "Get driveItem from shares"
+    short-summary: "Delete navigation property listItem for shares."
 """
 
-helps['files get-drive-item-content'] = """
+helps['files shareslistactivity set-drive-item-content'] = """
     type: command
-    short-summary: "Get media content for the navigation property driveItem from shares"
+    short-summary: "Update media content for the navigation property driveItem in shares."
 """
 
-helps['files get-list-item'] = """
+helps['files shareslistactivity show-drive-item'] = """
     type: command
-    short-summary: "Get listItem from shares"
+    short-summary: "Get driveItem from shares."
 """
 
-helps['files set-drive-item-content'] = """
+helps['files shareslistactivity show-drive-item-content'] = """
     type: command
-    short-summary: "Update media content for the navigation property driveItem in shares"
+    short-summary: "Get media content for the navigation property driveItem from shares."
 """
 
-helps['files update-drive-item'] = """
+helps['files shareslistactivity show-list-item'] = """
     type: command
-    short-summary: "Update the navigation property driveItem in shares"
+    short-summary: "Get listItem from shares."
 """
 
-helps['files update-list-item'] = """
+helps['files shareslistactivity update-drive-item'] = """
     type: command
-    short-summary: "Update the navigation property listItem in shares"
+    short-summary: "Update the navigation property driveItem in shares."
+"""
+
+helps['files shareslistactivity update-list-item'] = """
+    type: command
+    short-summary: "Update the navigation property listItem in shares."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -4700,19 +5134,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4727,19 +5161,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -4792,24 +5226,19 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files'] = """
+helps['files shareslistactivitieslistitem'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslistactivitieslistitem with files_beta
 """
 
-helps['files delete'] = """
+helps['files shareslistactivitieslistitem create-activity'] = """
     type: command
-    short-summary: "Delete navigation property fields for shares"
+    short-summary: "Create new navigation property to activities for shares."
 """
 
-helps['files create-activity'] = """
+helps['files shareslistactivitieslistitem create-link'] = """
     type: command
-    short-summary: "Create new navigation property to activities for shares"
-"""
-
-helps['files create-link'] = """
-    type: command
-    short-summary: "Invoke action createLink"
+    short-summary: "Invoke action createLink."
     parameters:
       - name: --recipients
         long-summary: |
@@ -4823,9 +5252,9 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files create-version'] = """
+helps['files shareslistactivitieslistitem create-version'] = """
     type: command
-    short-summary: "Create new navigation property to versions for shares"
+    short-summary: "Create new navigation property to versions for shares."
     parameters:
       - name: --publication
         short-summary: "publicationFacet"
@@ -4834,457 +5263,19 @@ helps['files create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files get-activity'] = """
-    type: command
-    short-summary: "Get activities from shares"
-"""
-
-helps['files get-activity-by-interval'] = """
-    type: command
-    short-summary: "Invoke function getActivitiesByInterval"
-"""
-
-helps['files get-analytic'] = """
-    type: command
-    short-summary: "Get analytics from shares"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from shares"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from shares"
-"""
-
-helps['files get-field'] = """
-    type: command
-    short-summary: "Get fields from shares"
-"""
-
-helps['files get-ref-analytic'] = """
-    type: command
-    short-summary: "Get ref of analytics from shares"
-"""
-
-helps['files get-version'] = """
-    type: command
-    short-summary: "Get versions from shares"
-"""
-
-helps['files list-activity'] = """
-    type: command
-    short-summary: "Get activities from shares"
-"""
-
-helps['files list-version'] = """
-    type: command
-    short-summary: "Get versions from shares"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in shares"
-"""
-
-helps['files set-ref-analytic'] = """
-    type: command
-    short-summary: "Update the ref of navigation property analytics in shares"
-"""
-
-helps['files update-activity'] = """
-    type: command
-    short-summary: "Update the navigation property activities in shares"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in shares"
-"""
-
-helps['files update-field'] = """
-    type: command
-    short-summary: "Update the navigation property fields in shares"
-"""
-
-helps['files update-version'] = """
-    type: command
-    short-summary: "Update the navigation property versions in shares"
-    parameters:
-      - name: --publication
-        short-summary: "publicationFacet"
-        long-summary: |
-            Usage: --publication level=XX version-id=XX
-
-            level: The state of publication for this document. Either published or checkout. Read-only.
-            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property fields for shares"
-"""
-
-helps['files get-field'] = """
-    type: command
-    short-summary: "Get fields from shares"
-"""
-
-helps['files restore-version'] = """
-    type: command
-    short-summary: "Invoke action restoreVersion"
-"""
-
-helps['files update-field'] = """
-    type: command
-    short-summary: "Update the navigation property fields in shares"
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property columnLinks for shares"
-"""
-
-helps['files create-column-link'] = """
-    type: command
-    short-summary: "Create new navigation property to columnLinks for shares"
-"""
-
-helps['files get-column-link'] = """
-    type: command
-    short-summary: "Get columnLinks from shares"
-"""
-
-helps['files list-column-link'] = """
-    type: command
-    short-summary: "Get columnLinks from shares"
-"""
-
-helps['files update-column-link'] = """
-    type: command
-    short-summary: "Update the navigation property columnLinks in shares"
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property fields for shares"
-"""
-
-helps['files create-activity'] = """
-    type: command
-    short-summary: "Create new navigation property to activities for shares"
-"""
-
-helps['files create-link'] = """
-    type: command
-    short-summary: "Invoke action createLink"
-    parameters:
-      - name: --recipients
-        long-summary: |
-            Usage: --recipients alias=XX email=XX object-id=XX
-
-            alias: The alias of the domain object, for cases where an email address is unavailable (e.g. security \
-groups).
-            email: The email address for the recipient, if the recipient has an associated email address.
-            object-id: The unique identifier for the recipient in the directory.
-
-            Multiple actions can be specified by using more than one --recipients argument.
-"""
-
-helps['files create-version'] = """
-    type: command
-    short-summary: "Create new navigation property to versions for shares"
-    parameters:
-      - name: --publication
-        short-summary: "publicationFacet"
-        long-summary: |
-            Usage: --publication level=XX version-id=XX
-
-            level: The state of publication for this document. Either published or checkout. Read-only.
-            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files get-activity'] = """
-    type: command
-    short-summary: "Get activities from shares"
-"""
-
-helps['files get-activity-by-interval'] = """
-    type: command
-    short-summary: "Invoke function getActivitiesByInterval"
-"""
-
-helps['files get-analytic'] = """
-    type: command
-    short-summary: "Get analytics from shares"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from shares"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from shares"
-"""
-
-helps['files get-field'] = """
-    type: command
-    short-summary: "Get fields from shares"
-"""
-
-helps['files get-ref-analytic'] = """
-    type: command
-    short-summary: "Get ref of analytics from shares"
-"""
-
-helps['files get-version'] = """
-    type: command
-    short-summary: "Get versions from shares"
-"""
-
-helps['files list-activity'] = """
-    type: command
-    short-summary: "Get activities from shares"
-"""
-
-helps['files list-version'] = """
-    type: command
-    short-summary: "Get versions from shares"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in shares"
-"""
-
-helps['files set-ref-analytic'] = """
-    type: command
-    short-summary: "Update the ref of navigation property analytics in shares"
-"""
-
-helps['files update-activity'] = """
-    type: command
-    short-summary: "Update the navigation property activities in shares"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in shares"
-"""
-
-helps['files update-field'] = """
-    type: command
-    short-summary: "Update the navigation property fields in shares"
-"""
-
-helps['files update-version'] = """
-    type: command
-    short-summary: "Update the navigation property versions in shares"
-    parameters:
-      - name: --publication
-        short-summary: "publicationFacet"
-        long-summary: |
-            Usage: --publication level=XX version-id=XX
-
-            level: The state of publication for this document. Either published or checkout. Read-only.
-            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property listItem for shares"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from shares"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from shares"
-"""
-
-helps['files get-list-item'] = """
-    type: command
-    short-summary: "Get listItem from shares"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in shares"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in shares"
-"""
-
-helps['files update-list-item'] = """
-    type: command
-    short-summary: "Update the navigation property listItem in shares"
-    parameters:
-      - name: --parent-reference-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5299,19 +5290,497 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+"""
+
+helps['files shareslistactivitieslistitem delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for shares."
+"""
+
+helps['files shareslistactivitieslistitem delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for shares."
+"""
+
+helps['files shareslistactivitieslistitem delete-field'] = """
+    type: command
+    short-summary: "Delete navigation property fields for shares."
+"""
+
+helps['files shareslistactivitieslistitem delete-ref-analytic'] = """
+    type: command
+    short-summary: "Delete ref of navigation property analytics for shares."
+"""
+
+helps['files shareslistactivitieslistitem delete-version'] = """
+    type: command
+    short-summary: "Delete navigation property versions for shares."
+"""
+
+helps['files shareslistactivitieslistitem list-activity'] = """
+    type: command
+    short-summary: "Get activities from shares."
+"""
+
+helps['files shareslistactivitieslistitem list-version'] = """
+    type: command
+    short-summary: "Get versions from shares."
+"""
+
+helps['files shareslistactivitieslistitem set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in shares."
+"""
+
+helps['files shareslistactivitieslistitem set-ref-analytic'] = """
+    type: command
+    short-summary: "Update the ref of navigation property analytics in shares."
+"""
+
+helps['files shareslistactivitieslistitem show-activity'] = """
+    type: command
+    short-summary: "Invoke function getActivitiesByInterval And Get activities from shares."
+"""
+
+helps['files shareslistactivitieslistitem show-analytic'] = """
+    type: command
+    short-summary: "Get analytics from shares."
+"""
+
+helps['files shareslistactivitieslistitem show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from shares."
+"""
+
+helps['files shareslistactivitieslistitem show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from shares."
+"""
+
+helps['files shareslistactivitieslistitem show-field'] = """
+    type: command
+    short-summary: "Get fields from shares."
+"""
+
+helps['files shareslistactivitieslistitem show-ref-analytic'] = """
+    type: command
+    short-summary: "Get ref of analytics from shares."
+"""
+
+helps['files shareslistactivitieslistitem show-version'] = """
+    type: command
+    short-summary: "Get versions from shares."
+"""
+
+helps['files shareslistactivitieslistitem update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in shares."
+"""
+
+helps['files shareslistactivitieslistitem update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in shares."
+"""
+
+helps['files shareslistactivitieslistitem update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in shares."
+"""
+
+helps['files shareslistactivitieslistitem update-version'] = """
+    type: command
+    short-summary: "Update the navigation property versions in shares."
+    parameters:
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files shareslistactivitieslistitemversion'] = """
+    type: group
+    short-summary: Manage shareslistactivitieslistitemversion with files_beta
+"""
+
+helps['files shareslistactivitieslistitemversion delete-field'] = """
+    type: command
+    short-summary: "Delete navigation property fields for shares."
+"""
+
+helps['files shareslistactivitieslistitemversion restore-version'] = """
+    type: command
+    short-summary: "Invoke action restoreVersion."
+"""
+
+helps['files shareslistactivitieslistitemversion show-field'] = """
+    type: command
+    short-summary: "Get fields from shares."
+"""
+
+helps['files shareslistactivitieslistitemversion update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in shares."
+"""
+
+helps['files shareslistcontenttype'] = """
+    type: group
+    short-summary: Manage shareslistcontenttype with files_beta
+"""
+
+helps['files shareslistcontenttype create-column-link'] = """
+    type: command
+    short-summary: "Create new navigation property to columnLinks for shares."
+"""
+
+helps['files shareslistcontenttype delete-column-link'] = """
+    type: command
+    short-summary: "Delete navigation property columnLinks for shares."
+"""
+
+helps['files shareslistcontenttype list-column-link'] = """
+    type: command
+    short-summary: "Get columnLinks from shares."
+"""
+
+helps['files shareslistcontenttype show-column-link'] = """
+    type: command
+    short-summary: "Get columnLinks from shares."
+"""
+
+helps['files shareslistcontenttype update-column-link'] = """
+    type: command
+    short-summary: "Update the navigation property columnLinks in shares."
+"""
+
+helps['files shareslistitem'] = """
+    type: group
+    short-summary: Manage shareslistitem with files_beta
+"""
+
+helps['files shareslistitem create-activity'] = """
+    type: command
+    short-summary: "Create new navigation property to activities for shares."
+"""
+
+helps['files shareslistitem create-link'] = """
+    type: command
+    short-summary: "Invoke action createLink."
+    parameters:
+      - name: --recipients
+        long-summary: |
+            Usage: --recipients alias=XX email=XX object-id=XX
+
+            alias: The alias of the domain object, for cases where an email address is unavailable (e.g. security \
+groups).
+            email: The email address for the recipient, if the recipient has an associated email address.
+            object-id: The unique identifier for the recipient in the directory.
+
+            Multiple actions can be specified by using more than one --recipients argument.
+"""
+
+helps['files shareslistitem create-version'] = """
+    type: command
+    short-summary: "Create new navigation property to versions for shares."
+    parameters:
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files shareslistitem delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for shares."
+"""
+
+helps['files shareslistitem delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for shares."
+"""
+
+helps['files shareslistitem delete-field'] = """
+    type: command
+    short-summary: "Delete navigation property fields for shares."
+"""
+
+helps['files shareslistitem delete-ref-analytic'] = """
+    type: command
+    short-summary: "Delete ref of navigation property analytics for shares."
+"""
+
+helps['files shareslistitem delete-version'] = """
+    type: command
+    short-summary: "Delete navigation property versions for shares."
+"""
+
+helps['files shareslistitem list-activity'] = """
+    type: command
+    short-summary: "Get activities from shares."
+"""
+
+helps['files shareslistitem list-version'] = """
+    type: command
+    short-summary: "Get versions from shares."
+"""
+
+helps['files shareslistitem set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitem set-ref-analytic'] = """
+    type: command
+    short-summary: "Update the ref of navigation property analytics in shares."
+"""
+
+helps['files shareslistitem show-activity'] = """
+    type: command
+    short-summary: "Invoke function getActivitiesByInterval And Get activities from shares."
+"""
+
+helps['files shareslistitem show-analytic'] = """
+    type: command
+    short-summary: "Get analytics from shares."
+"""
+
+helps['files shareslistitem show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from shares."
+"""
+
+helps['files shareslistitem show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from shares."
+"""
+
+helps['files shareslistitem show-field'] = """
+    type: command
+    short-summary: "Get fields from shares."
+"""
+
+helps['files shareslistitem show-ref-analytic'] = """
+    type: command
+    short-summary: "Get ref of analytics from shares."
+"""
+
+helps['files shareslistitem show-version'] = """
+    type: command
+    short-summary: "Get versions from shares."
+"""
+
+helps['files shareslistitem update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in shares."
+"""
+
+helps['files shareslistitem update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitem update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in shares."
+"""
+
+helps['files shareslistitem update-version'] = """
+    type: command
+    short-summary: "Update the navigation property versions in shares."
+    parameters:
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files shareslistitemsactivity'] = """
+    type: group
+    short-summary: Manage shareslistitemsactivity with files_beta
+"""
+
+helps['files shareslistitemsactivity delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for shares."
+"""
+
+helps['files shareslistitemsactivity delete-list-item'] = """
+    type: command
+    short-summary: "Delete navigation property listItem for shares."
+"""
+
+helps['files shareslistitemsactivity set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitemsactivity show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from shares."
+"""
+
+helps['files shareslistitemsactivity show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from shares."
+"""
+
+helps['files shareslistitemsactivity show-list-item'] = """
+    type: command
+    short-summary: "Get listItem from shares."
+"""
+
+helps['files shareslistitemsactivity update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitemsactivity update-list-item'] = """
+    type: command
+    short-summary: "Update the navigation property listItem in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5364,14 +5833,14 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files'] = """
+helps['files shareslistitemsactivitieslistitem'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslistitemsactivitieslistitem with files_beta
 """
 
-helps['files create-link'] = """
+helps['files shareslistitemsactivitieslistitem create-link'] = """
     type: command
-    short-summary: "Invoke action createLink"
+    short-summary: "Invoke action createLink."
     parameters:
       - name: --recipients
         long-summary: |
@@ -5385,54 +5854,49 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files get-activity-by-interval'] = """
+helps['files shareslistitemsactivitieslistitem show-activity'] = """
     type: command
-    short-summary: "Invoke function getActivitiesByInterval"
+    short-summary: "Invoke function getActivitiesByInterval."
 """
 
-helps['files'] = """
+helps['files shareslistitemsversion'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslistitemsversion with files_beta
 """
 
-helps['files delete'] = """
+helps['files shareslistitemsversion delete-field'] = """
     type: command
-    short-summary: "Delete navigation property fields for shares"
+    short-summary: "Delete navigation property fields for shares."
 """
 
-helps['files get-field'] = """
+helps['files shareslistitemsversion restore-version'] = """
     type: command
-    short-summary: "Get fields from shares"
+    short-summary: "Invoke action restoreVersion."
 """
 
-helps['files restore-version'] = """
+helps['files shareslistitemsversion show-field'] = """
     type: command
-    short-summary: "Invoke action restoreVersion"
+    short-summary: "Get fields from shares."
 """
 
-helps['files update-field'] = """
+helps['files shareslistitemsversion update-field'] = """
     type: command
-    short-summary: "Update the navigation property fields in shares"
+    short-summary: "Update the navigation property fields in shares."
 """
 
-helps['files'] = """
+helps['files shareslistitem'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslistitem with files_beta
 """
 
-helps['files delete'] = """
+helps['files shareslistitem create-activity'] = """
     type: command
-    short-summary: "Delete navigation property fields for shares"
+    short-summary: "Create new navigation property to activities for shares."
 """
 
-helps['files create-activity'] = """
+helps['files shareslistitem create-link'] = """
     type: command
-    short-summary: "Create new navigation property to activities for shares"
-"""
-
-helps['files create-link'] = """
-    type: command
-    short-summary: "Invoke action createLink"
+    short-summary: "Invoke action createLink."
     parameters:
       - name: --recipients
         long-summary: |
@@ -5446,9 +5910,9 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files create-version'] = """
+helps['files shareslistitem create-version'] = """
     type: command
-    short-summary: "Create new navigation property to versions for shares"
+    short-summary: "Create new navigation property to versions for shares."
     parameters:
       - name: --publication
         short-summary: "publicationFacet"
@@ -5457,216 +5921,19 @@ helps['files create-version'] = """
 
             level: The state of publication for this document. Either published or checkout. Read-only.
             version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files get-activity'] = """
-    type: command
-    short-summary: "Get activities from shares"
-"""
-
-helps['files get-activity-by-interval'] = """
-    type: command
-    short-summary: "Invoke function getActivitiesByInterval"
-"""
-
-helps['files get-analytic'] = """
-    type: command
-    short-summary: "Get analytics from shares"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from shares"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from shares"
-"""
-
-helps['files get-field'] = """
-    type: command
-    short-summary: "Get fields from shares"
-"""
-
-helps['files get-ref-analytic'] = """
-    type: command
-    short-summary: "Get ref of analytics from shares"
-"""
-
-helps['files get-version'] = """
-    type: command
-    short-summary: "Get versions from shares"
-"""
-
-helps['files list-activity'] = """
-    type: command
-    short-summary: "Get activities from shares"
-"""
-
-helps['files list-version'] = """
-    type: command
-    short-summary: "Get versions from shares"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in shares"
-"""
-
-helps['files set-ref-analytic'] = """
-    type: command
-    short-summary: "Update the ref of navigation property analytics in shares"
-"""
-
-helps['files update-activity'] = """
-    type: command
-    short-summary: "Update the navigation property activities in shares"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in shares"
-"""
-
-helps['files update-field'] = """
-    type: command
-    short-summary: "Update the navigation property fields in shares"
-"""
-
-helps['files update-version'] = """
-    type: command
-    short-summary: "Update the navigation property versions in shares"
-    parameters:
-      - name: --publication
-        short-summary: "publicationFacet"
-        long-summary: |
-            Usage: --publication level=XX version-id=XX
-
-            level: The state of publication for this document. Either published or checkout. Read-only.
-            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-user
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-"""
-
-helps['files'] = """
-    type: group
-    short-summary: files
-"""
-
-helps['files delete'] = """
-    type: command
-    short-summary: "Delete navigation property listItem for shares"
-"""
-
-helps['files get-drive-item'] = """
-    type: command
-    short-summary: "Get driveItem from shares"
-"""
-
-helps['files get-drive-item-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property driveItem from shares"
-"""
-
-helps['files get-list-item'] = """
-    type: command
-    short-summary: "Get listItem from shares"
-"""
-
-helps['files set-drive-item-content'] = """
-    type: command
-    short-summary: "Update media content for the navigation property driveItem in shares"
-"""
-
-helps['files update-drive-item'] = """
-    type: command
-    short-summary: "Update the navigation property driveItem in shares"
-"""
-
-helps['files update-list-item'] = """
-    type: command
-    short-summary: "Update the navigation property listItem in shares"
-    parameters:
-      - name: --parent-reference-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
-      - name: --last-modified-by-device
-        short-summary: "identity"
-        long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5681,19 +5948,241 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+"""
+
+helps['files shareslistitem delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for shares."
+"""
+
+helps['files shareslistitem delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for shares."
+"""
+
+helps['files shareslistitem delete-field'] = """
+    type: command
+    short-summary: "Delete navigation property fields for shares."
+"""
+
+helps['files shareslistitem delete-ref-analytic'] = """
+    type: command
+    short-summary: "Delete ref of navigation property analytics for shares."
+"""
+
+helps['files shareslistitem delete-version'] = """
+    type: command
+    short-summary: "Delete navigation property versions for shares."
+"""
+
+helps['files shareslistitem list-activity'] = """
+    type: command
+    short-summary: "Get activities from shares."
+"""
+
+helps['files shareslistitem list-version'] = """
+    type: command
+    short-summary: "Get versions from shares."
+"""
+
+helps['files shareslistitem set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitem set-ref-analytic'] = """
+    type: command
+    short-summary: "Update the ref of navigation property analytics in shares."
+"""
+
+helps['files shareslistitem show-activity'] = """
+    type: command
+    short-summary: "Invoke function getActivitiesByInterval And Get activities from shares."
+"""
+
+helps['files shareslistitem show-analytic'] = """
+    type: command
+    short-summary: "Get analytics from shares."
+"""
+
+helps['files shareslistitem show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from shares."
+"""
+
+helps['files shareslistitem show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from shares."
+"""
+
+helps['files shareslistitem show-field'] = """
+    type: command
+    short-summary: "Get fields from shares."
+"""
+
+helps['files shareslistitem show-ref-analytic'] = """
+    type: command
+    short-summary: "Get ref of analytics from shares."
+"""
+
+helps['files shareslistitem show-version'] = """
+    type: command
+    short-summary: "Get versions from shares."
+"""
+
+helps['files shareslistitem update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in shares."
+"""
+
+helps['files shareslistitem update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitem update-field'] = """
+    type: command
+    short-summary: "Update the navigation property fields in shares."
+"""
+
+helps['files shareslistitem update-version'] = """
+    type: command
+    short-summary: "Update the navigation property versions in shares."
+    parameters:
+      - name: --publication
+        short-summary: "publicationFacet"
+        long-summary: |
+            Usage: --publication level=XX version-id=XX
+
+            level: The state of publication for this document. Either published or checkout. Read-only.
+            version-id: The unique identifier for the version that is visible to the current caller. Read-only.
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['files shareslistitemactivity'] = """
+    type: group
+    short-summary: Manage shareslistitemactivity with files_beta
+"""
+
+helps['files shareslistitemactivity delete-drive-item'] = """
+    type: command
+    short-summary: "Delete navigation property driveItem for shares."
+"""
+
+helps['files shareslistitemactivity delete-list-item'] = """
+    type: command
+    short-summary: "Delete navigation property listItem for shares."
+"""
+
+helps['files shareslistitemactivity set-drive-item-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitemactivity show-drive-item'] = """
+    type: command
+    short-summary: "Get driveItem from shares."
+"""
+
+helps['files shareslistitemactivity show-drive-item-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property driveItem from shares."
+"""
+
+helps['files shareslistitemactivity show-list-item'] = """
+    type: command
+    short-summary: "Get listItem from shares."
+"""
+
+helps['files shareslistitemactivity update-drive-item'] = """
+    type: command
+    short-summary: "Update the navigation property driveItem in shares."
+"""
+
+helps['files shareslistitemactivity update-list-item'] = """
+    type: command
+    short-summary: "Update the navigation property listItem in shares."
+    parameters:
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5746,14 +6235,14 @@ user=XX id=XX
             Multiple actions can be specified by using more than one --versions argument.
 """
 
-helps['files'] = """
+helps['files shareslistitemactivitieslistitem'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslistitemactivitieslistitem with files_beta
 """
 
-helps['files create-link'] = """
+helps['files shareslistitemactivitieslistitem create-link'] = """
     type: command
-    short-summary: "Invoke action createLink"
+    short-summary: "Invoke action createLink."
     parameters:
       - name: --recipients
         long-summary: |
@@ -5767,44 +6256,44 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files get-activity-by-interval'] = """
+helps['files shareslistitemactivitieslistitem show-activity'] = """
     type: command
-    short-summary: "Invoke function getActivitiesByInterval"
+    short-summary: "Invoke function getActivitiesByInterval."
 """
 
-helps['files'] = """
+helps['files shareslistitemversion'] = """
     type: group
-    short-summary: files
+    short-summary: Manage shareslistitemversion with files_beta
 """
 
-helps['files delete'] = """
+helps['files shareslistitemversion delete-field'] = """
     type: command
-    short-summary: "Delete navigation property fields for shares"
+    short-summary: "Delete navigation property fields for shares."
 """
 
-helps['files get-field'] = """
+helps['files shareslistitemversion restore-version'] = """
     type: command
-    short-summary: "Get fields from shares"
+    short-summary: "Invoke action restoreVersion."
 """
 
-helps['files restore-version'] = """
+helps['files shareslistitemversion show-field'] = """
     type: command
-    short-summary: "Invoke action restoreVersion"
+    short-summary: "Get fields from shares."
 """
 
-helps['files update-field'] = """
+helps['files shareslistitemversion update-field'] = """
     type: command
-    short-summary: "Update the navigation property fields in shares"
+    short-summary: "Update the navigation property fields in shares."
 """
 
-helps['files'] = """
+helps['files sharespermission'] = """
     type: group
-    short-summary: files
+    short-summary: Manage sharespermission with files_beta
 """
 
-helps['files grant'] = """
+helps['files sharespermission grant'] = """
     type: command
-    short-summary: "Invoke action grant"
+    short-summary: "Invoke action grant."
     parameters:
       - name: --recipients
         long-summary: |
@@ -5818,9 +6307,9 @@ groups).
             Multiple actions can be specified by using more than one --recipients argument.
 """
 
-helps['files revoke-grant'] = """
+helps['files sharespermission revoke-grant'] = """
     type: command
-    short-summary: "Invoke action revokeGrants"
+    short-summary: "Invoke action revokeGrants."
     parameters:
       - name: --grantees
         long-summary: |
@@ -5834,25 +6323,20 @@ groups).
             Multiple actions can be specified by using more than one --grantees argument.
 """
 
-helps['files'] = """
+helps['files user'] = """
     type: group
-    short-summary: files
+    short-summary: Manage user with files_beta
 """
 
-helps['files delete'] = """
+helps['files user create-drive'] = """
     type: command
-    short-summary: "Delete navigation property drive for users"
-"""
-
-helps['files create-drive'] = """
-    type: command
-    short-summary: "Create new navigation property to drives for users"
+    short-summary: "Create new navigation property to drives for users."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -5862,19 +6346,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5889,19 +6373,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5930,10 +6414,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -5944,19 +6428,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5971,19 +6455,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -5998,19 +6482,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -6021,10 +6505,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -6067,35 +6551,35 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -6103,25 +6587,30 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['files get-drive'] = """
+helps['files user delete-drive'] = """
     type: command
-    short-summary: "Get drive from users"
+    short-summary: "Delete navigation property drives for users And Delete navigation property drive for users."
 """
 
-helps['files list-drive'] = """
+helps['files user list-drive'] = """
     type: command
-    short-summary: "Get drives from users"
+    short-summary: "Get drives from users."
 """
 
-helps['files update-drive'] = """
+helps['files user show-drive'] = """
     type: command
-    short-summary: "Update the navigation property drive in users"
+    short-summary: "Get drives from users And Get drive from users."
+"""
+
+helps['files user update-drive'] = """
+    type: command
+    short-summary: "Update the navigation property drives in users And Update the navigation property drive in users."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -6131,19 +6620,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -6158,19 +6647,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -6199,10 +6688,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-parent-reference-sharepoint-ids
+      - name: --microsoft-graph-sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
 site-url=XX tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -6213,19 +6702,19 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-last-modified-by-application
+      - name: --application1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-application display-name=XX id=XX
+            Usage: --application1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-last-modified-by-device
+      - name: --device1
         short-summary: "identity"
         long-summary: |
-            Usage: --list-last-modified-by-device display-name=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -6240,19 +6729,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-application
+      - name: --application2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-application display-name=XX id=XX
+            Usage: --application2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-created-by-device
+      - name: --device2
         short-summary: "identity"
         long-summary: |
-            Usage: --list-created-by-device display-name=XX id=XX
+            Usage: --device2 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -6267,19 +6756,19 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-list
+      - name: --list
         short-summary: "listInfo"
         long-summary: |
-            Usage: --list-list content-types-enabled=XX hidden=XX template=XX
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
 
             content-types-enabled: If true, indicates that content types are enabled for this list.
             hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
             template: An enumerated value that represents the base list template used in creating the list. Possible \
 values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-      - name: --list-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -6290,10 +6779,10 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-subscriptions
+      - name: --subscriptions
         short-summary: "The set of subscriptions on the list."
         long-summary: |
-            Usage: --list-subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
 encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
 include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
 id=XX
@@ -6336,35 +6825,288 @@ must make use of the HTTPS protocol.
 (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --list-subscriptions argument.
-      - name: --quota-storage-plan-information
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
         short-summary: "storagePlanInformation"
         long-summary: |
-            Usage: --quota-storage-plan-information upgrade-available=XX
+            Usage: --storage-plan-information upgrade-available=XX
 
             upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
-      - name: --owner-application
+      - name: --application3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-application display-name=XX id=XX
+            Usage: --application3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-device
+      - name: --device3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-device display-name=XX id=XX
+            Usage: --device3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --owner-user
+      - name: --user3
         short-summary: "identity"
         long-summary: |
-            Usage: --owner-user display-name=XX id=XX
+            Usage: --user3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --share-point-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --share-point-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --microsoft-graph-sharepoint-ids
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --microsoft-graph-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
+site-url=XX tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --list
+        short-summary: "listInfo"
+        long-summary: |
+            Usage: --list content-types-enabled=XX hidden=XX template=XX
+
+            content-types-enabled: If true, indicates that content types are enabled for this list.
+            hidden: If true, indicates that the list is not normally visible in the SharePoint user experience.
+            template: An enumerated value that represents the base list template used in creating the list. Possible \
+values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+      - name: --sharepoint-ids1
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --subscriptions
+        short-summary: "The set of subscriptions on the list."
+        long-summary: |
+            Usage: --subscriptions application-id=XX change-type=XX client-state=XX creator-id=XX \
+encryption-certificate=XX encryption-certificate-id=XX expiration-date-time=XX include-properties=XX \
+include-resource-data=XX latest-supported-tls-version=XX lifecycle-notification-url=XX notification-url=XX resource=XX \
+id=XX
+
+            application-id: Identifier of the application used to create the subscription. Read-only.
+            change-type: Required. Indicates the type of change in the subscribed resource that will raise a change \
+notification. The supported values are: created, updated, deleted. Multiple values can be combined using a \
+comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and \
+group change notifications support updated and deleted changeType.
+            client-state: Optional. Specifies the value of the clientState property sent by the service in each change \
+notification. The maximum length is 128 characters. The client can check that the change notification came from the \
+service by comparing the value of the clientState property sent with the subscription with the value of the \
+clientState property received with each change notification.
+            creator-id: Identifier of the user or service principal that created the subscription. If the app used \
+delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on \
+behalf of. If the app used application permissions, this field contains the id of the service principal corresponding \
+to the app. Read-only.
+            encryption-certificate: A base64-encoded representation of a certificate with a public key used to encrypt \
+resource data in change notifications. Optional. Required when includeResourceData is true.
+            encryption-certificate-id: A custom app-provided identifier to help identify the certificate needed to \
+decrypt resource data. Optional.
+            expiration-date-time: Required. Specifies the date and time when the webhook subscription expires. The \
+time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  \
+See the table below for maximum supported subscription length of time.
+            include-resource-data: When set to true, change notifications include resource data (such as content of a \
+chat message). Optional.
+            latest-supported-tls-version: Specifies the latest version of Transport Layer Security (TLS) that the \
+notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For \
+subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), \
+specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before \
+completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in \
+subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this \
+property is optional. In such cases, Microsoft Graph defaults the property to v1_2.
+            lifecycle-notification-url: The URL of the endpoint that receives lifecycle notifications, including \
+subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about \
+how Outlook resources use lifecycle notifications.
+            notification-url: Required. The URL of the endpoint that will receive the change notifications. This URL \
+must make use of the HTTPS protocol.
+            resource: Required. Specifies the resource that will be monitored for changes. Do not include the base URL \
+(https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --subscriptions argument.
+      - name: --storage-plan-information
+        short-summary: "storagePlanInformation"
+        long-summary: |
+            Usage: --storage-plan-information upgrade-available=XX
+
+            upgrade-available: Indicates whether there are higher storage quota plans available. Read-only.
+      - name: --application3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device3 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user3
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user3 display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \

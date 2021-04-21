@@ -7,1173 +7,1173 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfActivityBasedTimeoutPolicy
-    from ._models_py3 import CollectionOfAuthenticationMethod
-    from ._models_py3 import CollectionOfAuthorizationPolicy
-    from ._models_py3 import CollectionOfCertificateBasedAuthConfiguration
-    from ._models_py3 import CollectionOfClaimsMappingPolicy
-    from ._models_py3 import CollectionOfConditionalAccessPolicy
-    from ._models_py3 import CollectionOfConditionalAccessPolicy0
-    from ._models_py3 import CollectionOfDataLossPreventionPolicy
-    from ._models_py3 import CollectionOfDataPolicyOperation
-    from ._models_py3 import CollectionOfEmailAuthenticationMethod
-    from ._models_py3 import CollectionOfFido2AuthenticationMethod
-    from ._models_py3 import CollectionOfHomeRealmDiscoveryPolicy
-    from ._models_py3 import CollectionOfIdentityProvider
-    from ._models_py3 import CollectionOfIdentityUserFlow
-    from ._models_py3 import CollectionOfInformationProtectionLabel
-    from ._models_py3 import CollectionOfInvitation
-    from ._models_py3 import CollectionOfLinksOfCertificateBasedAuthConfiguration
-    from ._models_py3 import CollectionOfLongRunningOperation
-    from ._models_py3 import CollectionOfMicrosoftAuthenticatorAuthenticationMethod
-    from ._models_py3 import CollectionOfNamedLocation
-    from ._models_py3 import CollectionOfOAuth2PermissionGrant
-    from ._models_py3 import CollectionOfPasswordAuthenticationMethod
-    from ._models_py3 import CollectionOfPasswordlessMicrosoftAuthenticatorAuthenticationMethod
-    from ._models_py3 import CollectionOfPermissionGrantConditionSet
-    from ._models_py3 import CollectionOfPermissionGrantConditionSet0
-    from ._models_py3 import CollectionOfPermissionGrantPolicy
-    from ._models_py3 import CollectionOfPhoneAuthenticationMethod
-    from ._models_py3 import CollectionOfPrivateLinkResource
-    from ._models_py3 import CollectionOfRiskDetection
-    from ._models_py3 import CollectionOfRiskyUser
-    from ._models_py3 import CollectionOfRiskyUserHistoryItem
-    from ._models_py3 import CollectionOfSecurityQuestionAuthenticationMethod
-    from ._models_py3 import CollectionOfSensitivityLabel
-    from ._models_py3 import CollectionOfSensitivityLabel0
-    from ._models_py3 import CollectionOfSoftwareOathAuthenticationMethod
-    from ._models_py3 import CollectionOfTemporaryAccessPassAuthenticationMethod
-    from ._models_py3 import CollectionOfThreatAssessmentRequest
-    from ._models_py3 import CollectionOfThreatAssessmentResult
-    from ._models_py3 import CollectionOfTokenIssuancePolicy
-    from ._models_py3 import CollectionOfTokenLifetimePolicy
-    from ._models_py3 import CollectionOfTrustFrameworkKeySet
-    from ._models_py3 import CollectionOfTrustFrameworkPolicy
-    from ._models_py3 import MicrosoftGraphAccessReviewInstance
-    from ._models_py3 import MicrosoftGraphAccessReviewInstanceDecisionItem
-    from ._models_py3 import MicrosoftGraphAccessReviewReviewerScope
-    from ._models_py3 import MicrosoftGraphAccessReviewScheduleDefinition
-    from ._models_py3 import MicrosoftGraphAccessReviewScheduleSettings
-    from ._models_py3 import MicrosoftGraphAccessReviewScope
-    from ._models_py3 import MicrosoftGraphActivityBasedTimeoutPolicy
-    from ._models_py3 import MicrosoftGraphActivityHistoryItem
-    from ._models_py3 import MicrosoftGraphActivityStatistics
-    from ._models_py3 import MicrosoftGraphAdminConsentRequestPolicy
-    from ._models_py3 import MicrosoftGraphAgreementAcceptance
-    from ._models_py3 import MicrosoftGraphAlbum
-    from ._models_py3 import MicrosoftGraphAlternativeSecurityId
-    from ._models_py3 import MicrosoftGraphAppConsentRequest
-    from ._models_py3 import MicrosoftGraphAppConsentRequestScope
-    from ._models_py3 import MicrosoftGraphAppLogCollectionRequest
-    from ._models_py3 import MicrosoftGraphAppRoleAssignment
-    from ._models_py3 import MicrosoftGraphApplicationEnforcedRestrictionsSessionControl
-    from ._models_py3 import MicrosoftGraphApproval
-    from ._models_py3 import MicrosoftGraphApprovalStep
-    from ._models_py3 import MicrosoftGraphAssignedLabel
-    from ._models_py3 import MicrosoftGraphAssignedLicense
-    from ._models_py3 import MicrosoftGraphAssignedPlan
-    from ._models_py3 import MicrosoftGraphAttachment
-    from ._models_py3 import MicrosoftGraphAttendee
-    from ._models_py3 import MicrosoftGraphAttendeeBase
-    from ._models_py3 import MicrosoftGraphAudio
-    from ._models_py3 import MicrosoftGraphAudioConferencing
-    from ._models_py3 import MicrosoftGraphAuthentication
-    from ._models_py3 import MicrosoftGraphAuthenticationFlowsPolicy
-    from ._models_py3 import MicrosoftGraphAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphAuthorizationPolicy
-    from ._models_py3 import MicrosoftGraphAutoLabeling
-    from ._models_py3 import MicrosoftGraphAutomaticRepliesSetting
-    from ._models_py3 import MicrosoftGraphB2CAuthenticationMethodsPolicy
-    from ._models_py3 import MicrosoftGraphBaseItem
-    from ._models_py3 import MicrosoftGraphBaseItemVersion
-    from ._models_py3 import MicrosoftGraphBundle
-    from ._models_py3 import MicrosoftGraphCalculatedColumn
-    from ._models_py3 import MicrosoftGraphCalendar
-    from ._models_py3 import MicrosoftGraphCalendarGroup
-    from ._models_py3 import MicrosoftGraphCalendarPermission
-    from ._models_py3 import MicrosoftGraphCertificateAuthority
-    from ._models_py3 import MicrosoftGraphCertificateBasedAuthConfiguration
-    from ._models_py3 import MicrosoftGraphChangeTrackedEntity
-    from ._models_py3 import MicrosoftGraphChannel
-    from ._models_py3 import MicrosoftGraphChannelIdentity
-    from ._models_py3 import MicrosoftGraphChannelModerationSettings
-    from ._models_py3 import MicrosoftGraphChat
-    from ._models_py3 import MicrosoftGraphChatInfo
-    from ._models_py3 import MicrosoftGraphChatMessage
-    from ._models_py3 import MicrosoftGraphChatMessageAttachment
-    from ._models_py3 import MicrosoftGraphChatMessageHostedContent
-    from ._models_py3 import MicrosoftGraphChatMessageMention
-    from ._models_py3 import MicrosoftGraphChatMessagePolicyViolation
-    from ._models_py3 import MicrosoftGraphChatMessagePolicyViolationPolicyTip
-    from ._models_py3 import MicrosoftGraphChatMessageReaction
-    from ._models_py3 import MicrosoftGraphChoiceColumn
-    from ._models_py3 import MicrosoftGraphClaimsMappingPolicy
-    from ._models_py3 import MicrosoftGraphClassifcationErrorBase
-    from ._models_py3 import MicrosoftGraphClassificationAttribute
-    from ._models_py3 import MicrosoftGraphClassificationError
-    from ._models_py3 import MicrosoftGraphClassificationInnerError
-    from ._models_py3 import MicrosoftGraphClassificationResult
-    from ._models_py3 import MicrosoftGraphCloudAppSecuritySessionControl
-    from ._models_py3 import MicrosoftGraphColumnDefinition
-    from ._models_py3 import MicrosoftGraphColumnLink
-    from ._models_py3 import MicrosoftGraphCommand
-    from ._models_py3 import MicrosoftGraphCommentAction
-    from ._models_py3 import MicrosoftGraphCompanyDetail
-    from ._models_py3 import MicrosoftGraphConditionalAccessApplications
-    from ._models_py3 import MicrosoftGraphConditionalAccessClientApplications
-    from ._models_py3 import MicrosoftGraphConditionalAccessConditionSet
-    from ._models_py3 import MicrosoftGraphConditionalAccessDeviceStates
-    from ._models_py3 import MicrosoftGraphConditionalAccessDevices
-    from ._models_py3 import MicrosoftGraphConditionalAccessGrantControls
-    from ._models_py3 import MicrosoftGraphConditionalAccessLocations
-    from ._models_py3 import MicrosoftGraphConditionalAccessPlatforms
-    from ._models_py3 import MicrosoftGraphConditionalAccessPolicy
-    from ._models_py3 import MicrosoftGraphConditionalAccessRoot
-    from ._models_py3 import MicrosoftGraphConditionalAccessSessionControl
-    from ._models_py3 import MicrosoftGraphConditionalAccessSessionControls
-    from ._models_py3 import MicrosoftGraphConditionalAccessUsers
-    from ._models_py3 import MicrosoftGraphConfigurationManagerClientEnabledFeatures
-    from ._models_py3 import MicrosoftGraphConfigurationManagerClientHealthState
-    from ._models_py3 import MicrosoftGraphConfigurationManagerClientInformation
-    from ._models_py3 import MicrosoftGraphContact
-    from ._models_py3 import MicrosoftGraphContactFolder
-    from ._models_py3 import MicrosoftGraphContentInfo
-    from ._models_py3 import MicrosoftGraphContentType
-    from ._models_py3 import MicrosoftGraphContentTypeInfo
-    from ._models_py3 import MicrosoftGraphContentTypeOrder
-    from ._models_py3 import MicrosoftGraphConversation
-    from ._models_py3 import MicrosoftGraphConversationMember
-    from ._models_py3 import MicrosoftGraphConversationThread
-    from ._models_py3 import MicrosoftGraphCurrencyColumn
-    from ._models_py3 import MicrosoftGraphCurrentLabel
-    from ._models_py3 import MicrosoftGraphDataLossPreventionPolicy
-    from ._models_py3 import MicrosoftGraphDataPolicyOperation
-    from ._models_py3 import MicrosoftGraphDateTimeColumn
-    from ._models_py3 import MicrosoftGraphDateTimeZone
-    from ._models_py3 import MicrosoftGraphDefaultColumnValue
-    from ._models_py3 import MicrosoftGraphDefaultUserRolePermissions
-    from ._models_py3 import MicrosoftGraphDeleteAction
-    from ._models_py3 import MicrosoftGraphDeleted
-    from ._models_py3 import MicrosoftGraphDetectedApp
-    from ._models_py3 import MicrosoftGraphDetectedSensitiveContent
-    from ._models_py3 import MicrosoftGraphDetectedSensitiveContentBase
-    from ._models_py3 import MicrosoftGraphDetectedSensitiveContentWrapper
-    from ._models_py3 import MicrosoftGraphDevice
-    from ._models_py3 import MicrosoftGraphDeviceActionResult
-    from ._models_py3 import MicrosoftGraphDeviceAndAppManagementAssignmentTarget
-    from ._models_py3 import MicrosoftGraphDeviceCategory
-    from ._models_py3 import MicrosoftGraphDeviceCompliancePolicySettingState
-    from ._models_py3 import MicrosoftGraphDeviceCompliancePolicyState
-    from ._models_py3 import MicrosoftGraphDeviceConfigurationSettingState
-    from ._models_py3 import MicrosoftGraphDeviceConfigurationState
-    from ._models_py3 import MicrosoftGraphDeviceEnrollmentConfiguration
-    from ._models_py3 import MicrosoftGraphDeviceHealthAttestationState
-    from ._models_py3 import MicrosoftGraphDeviceKey
-    from ._models_py3 import MicrosoftGraphDeviceLogCollectionResponse
-    from ._models_py3 import MicrosoftGraphDeviceManagementTroubleshootingErrorDetails
-    from ._models_py3 import MicrosoftGraphDeviceManagementTroubleshootingErrorResource
-    from ._models_py3 import MicrosoftGraphDeviceManagementTroubleshootingEvent
-    from ._models_py3 import MicrosoftGraphDeviceRegistrationPolicy
-    from ._models_py3 import MicrosoftGraphDirectoryObject
-    from ._models_py3 import MicrosoftGraphDirectoryRoleAccessReviewPolicy
-    from ._models_py3 import MicrosoftGraphDirectorySetting
-    from ._models_py3 import MicrosoftGraphDiscoveredSensitiveType
-    from ._models_py3 import MicrosoftGraphDlpActionInfo
-    from ._models_py3 import MicrosoftGraphDlpEvaluatePoliciesJobResponse
-    from ._models_py3 import MicrosoftGraphDlpEvaluatePoliciesRequest
-    from ._models_py3 import MicrosoftGraphDlpEvaluationInput
-    from ._models_py3 import MicrosoftGraphDlpNotification
-    from ._models_py3 import MicrosoftGraphDlpPoliciesJobResult
-    from ._models_py3 import MicrosoftGraphDowngradeJustification
-    from ._models_py3 import MicrosoftGraphDrive
-    from ._models_py3 import MicrosoftGraphDriveItem
-    from ._models_py3 import MicrosoftGraphDriveItemVersion
-    from ._models_py3 import MicrosoftGraphEducationalActivity
-    from ._models_py3 import MicrosoftGraphEducationalActivityDetail
-    from ._models_py3 import MicrosoftGraphEmailAddress
-    from ._models_py3 import MicrosoftGraphEmailAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphEmployeeOrgData
-    from ._models_py3 import MicrosoftGraphEndpoint
-    from ._models_py3 import MicrosoftGraphEnrollmentConfigurationAssignment
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphEvaluateLabelJobResponse
-    from ._models_py3 import MicrosoftGraphEvaluateLabelJobResult
-    from ._models_py3 import MicrosoftGraphEvaluateLabelJobResultGroup
-    from ._models_py3 import MicrosoftGraphEvaluateLabelsAndPoliciesJobResponse
-    from ._models_py3 import MicrosoftGraphEvaluateLabelsAndPoliciesResult
-    from ._models_py3 import MicrosoftGraphEvaluateSensitivityLabelsRequest
-    from ._models_py3 import MicrosoftGraphEvent
-    from ._models_py3 import MicrosoftGraphExtension
-    from ._models_py3 import MicrosoftGraphExternalLink
-    from ._models_py3 import MicrosoftGraphFido2AuthenticationMethod
-    from ._models_py3 import MicrosoftGraphFieldValueSet
-    from ._models_py3 import MicrosoftGraphFile
-    from ._models_py3 import MicrosoftGraphFileSystemInfo
-    from ._models_py3 import MicrosoftGraphFolder
-    from ._models_py3 import MicrosoftGraphFolderView
-    from ._models_py3 import MicrosoftGraphFollowupFlag
-    from ._models_py3 import MicrosoftGraphGeoCoordinates
-    from ._models_py3 import MicrosoftGraphGroup
-    from ._models_py3 import MicrosoftGraphGroupLifecyclePolicy
-    from ._models_py3 import MicrosoftGraphHardwareInformation
-    from ._models_py3 import MicrosoftGraphHashes
-    from ._models_py3 import MicrosoftGraphHomeRealmDiscoveryPolicy
-    from ._models_py3 import MicrosoftGraphIdentity
-    from ._models_py3 import MicrosoftGraphIdentityProvider
-    from ._models_py3 import MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy
-    from ._models_py3 import MicrosoftGraphIdentitySet
-    from ._models_py3 import MicrosoftGraphIdentityUserFlow
-    from ._models_py3 import MicrosoftGraphImage
-    from ._models_py3 import MicrosoftGraphImageInfo
-    from ._models_py3 import MicrosoftGraphIncompleteData
-    from ._models_py3 import MicrosoftGraphInferenceClassification
-    from ._models_py3 import MicrosoftGraphInferenceClassificationOverride
-    from ._models_py3 import MicrosoftGraphInferenceData
-    from ._models_py3 import MicrosoftGraphInformationProtection
-    from ._models_py3 import MicrosoftGraphInformationProtectionContentLabel
-    from ._models_py3 import MicrosoftGraphInformationProtectionLabel
-    from ._models_py3 import MicrosoftGraphInformationProtectionPolicy
-    from ._models_py3 import MicrosoftGraphInsightIdentity
-    from ._models_py3 import MicrosoftGraphInstitutionData
-    from ._models_py3 import MicrosoftGraphInternetMessageHeader
-    from ._models_py3 import MicrosoftGraphInvitation
-    from ._models_py3 import MicrosoftGraphInvitedUserMessageInfo
-    from ._models_py3 import MicrosoftGraphItemActionSet
-    from ._models_py3 import MicrosoftGraphItemActionStat
-    from ._models_py3 import MicrosoftGraphItemActivity
-    from ._models_py3 import MicrosoftGraphItemActivityOld
-    from ._models_py3 import MicrosoftGraphItemActivityStat
-    from ._models_py3 import MicrosoftGraphItemActivityTimeSet
-    from ._models_py3 import MicrosoftGraphItemAddress
-    from ._models_py3 import MicrosoftGraphItemAnalytics
-    from ._models_py3 import MicrosoftGraphItemBody
-    from ._models_py3 import MicrosoftGraphItemEmail
-    from ._models_py3 import MicrosoftGraphItemFacet
-    from ._models_py3 import MicrosoftGraphItemInsights
-    from ._models_py3 import MicrosoftGraphItemPatent
-    from ._models_py3 import MicrosoftGraphItemPhone
-    from ._models_py3 import MicrosoftGraphItemPublication
-    from ._models_py3 import MicrosoftGraphItemReference
-    from ._models_py3 import MicrosoftGraphJobResponseBase
-    from ._models_py3 import MicrosoftGraphKeyValuePair
-    from ._models_py3 import MicrosoftGraphLabelActionBase
-    from ._models_py3 import MicrosoftGraphLabelDetails
-    from ._models_py3 import MicrosoftGraphLabelPolicy
-    from ._models_py3 import MicrosoftGraphLabelingOptions
-    from ._models_py3 import MicrosoftGraphLanguageProficiency
-    from ._models_py3 import MicrosoftGraphLicenseAssignmentState
-    from ._models_py3 import MicrosoftGraphLicenseDetails
-    from ._models_py3 import MicrosoftGraphLicenseProcessingState
-    from ._models_py3 import MicrosoftGraphLinkedResource
-    from ._models_py3 import MicrosoftGraphList
-    from ._models_py3 import MicrosoftGraphListInfo
-    from ._models_py3 import MicrosoftGraphListItem
-    from ._models_py3 import MicrosoftGraphListItemVersion
-    from ._models_py3 import MicrosoftGraphLobbyBypassSettings
-    from ._models_py3 import MicrosoftGraphLocaleInfo
-    from ._models_py3 import MicrosoftGraphLocation
-    from ._models_py3 import MicrosoftGraphLoggedOnUser
-    from ._models_py3 import MicrosoftGraphLongRunningOperation
-    from ._models_py3 import MicrosoftGraphLookupColumn
-    from ._models_py3 import MicrosoftGraphMailFolder
-    from ._models_py3 import MicrosoftGraphMailboxSettings
-    from ._models_py3 import MicrosoftGraphManagedAppOperation
-    from ._models_py3 import MicrosoftGraphManagedAppPolicy
-    from ._models_py3 import MicrosoftGraphManagedAppRegistration
-    from ._models_py3 import MicrosoftGraphManagedDevice
-    from ._models_py3 import MicrosoftGraphManagedDeviceMobileAppConfigurationSettingState
-    from ._models_py3 import MicrosoftGraphManagedDeviceMobileAppConfigurationState
-    from ._models_py3 import MicrosoftGraphMatchingDlpRule
-    from ._models_py3 import MicrosoftGraphMatchingLabel
-    from ._models_py3 import MicrosoftGraphMeetingParticipantInfo
-    from ._models_py3 import MicrosoftGraphMeetingParticipants
-    from ._models_py3 import MicrosoftGraphMention
-    from ._models_py3 import MicrosoftGraphMentionAction
-    from ._models_py3 import MicrosoftGraphMentionsPreview
-    from ._models_py3 import MicrosoftGraphMessage
-    from ._models_py3 import MicrosoftGraphMessageRule
-    from ._models_py3 import MicrosoftGraphMessageRuleActions
-    from ._models_py3 import MicrosoftGraphMessageRulePredicates
-    from ._models_py3 import MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphMobileAppIntentAndState
-    from ._models_py3 import MicrosoftGraphMobileAppIntentAndStateDetail
-    from ._models_py3 import MicrosoftGraphMobileAppSupportedDeviceType
-    from ._models_py3 import MicrosoftGraphMobileAppTroubleshootingEvent
-    from ._models_py3 import MicrosoftGraphMobileAppTroubleshootingHistoryItem
-    from ._models_py3 import MicrosoftGraphMoveAction
-    from ._models_py3 import MicrosoftGraphMultiValueLegacyExtendedProperty
-    from ._models_py3 import MicrosoftGraphNamedLocation
-    from ._models_py3 import MicrosoftGraphNotebook
-    from ._models_py3 import MicrosoftGraphNotebookLinks
-    from ._models_py3 import MicrosoftGraphNotification
-    from ._models_py3 import MicrosoftGraphNumberColumn
-    from ._models_py3 import MicrosoftGraphOAuth2PermissionGrant
-    from ._models_py3 import MicrosoftGraphObjectIdentity
-    from ._models_py3 import MicrosoftGraphOfferShiftRequest
-    from ._models_py3 import MicrosoftGraphOfficeGraphInsights
-    from ._models_py3 import MicrosoftGraphOnPremisesExtensionAttributes
-    from ._models_py3 import MicrosoftGraphOnPremisesProvisioningError
-    from ._models_py3 import MicrosoftGraphOnenote
-    from ._models_py3 import MicrosoftGraphOnenoteEntityBaseModel
-    from ._models_py3 import MicrosoftGraphOnenoteEntityHierarchyModel
-    from ._models_py3 import MicrosoftGraphOnenoteEntitySchemaObjectModel
-    from ._models_py3 import MicrosoftGraphOnenoteOperation
-    from ._models_py3 import MicrosoftGraphOnenoteOperationError
-    from ._models_py3 import MicrosoftGraphOnenotePage
-    from ._models_py3 import MicrosoftGraphOnenoteResource
-    from ._models_py3 import MicrosoftGraphOnenoteSection
-    from ._models_py3 import MicrosoftGraphOnlineMeeting
-    from ._models_py3 import MicrosoftGraphOnlineMeetingInfo
-    from ._models_py3 import MicrosoftGraphOpenShift
-    from ._models_py3 import MicrosoftGraphOpenShiftChangeRequest
-    from ._models_py3 import MicrosoftGraphOpenShiftItem
-    from ._models_py3 import MicrosoftGraphOperation
-    from ._models_py3 import MicrosoftGraphOperationError
-    from ._models_py3 import MicrosoftGraphOutlookCategory
-    from ._models_py3 import MicrosoftGraphOutlookGeoCoordinates
-    from ._models_py3 import MicrosoftGraphOutlookItem
-    from ._models_py3 import MicrosoftGraphOutlookTask
-    from ._models_py3 import MicrosoftGraphOutlookTaskFolder
-    from ._models_py3 import MicrosoftGraphOutlookTaskGroup
-    from ._models_py3 import MicrosoftGraphOutlookUser
-    from ._models_py3 import MicrosoftGraphPackage
-    from ._models_py3 import MicrosoftGraphPageLinks
-    from ._models_py3 import MicrosoftGraphParentLabelDetails
-    from ._models_py3 import MicrosoftGraphPasswordAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphPasswordProfile
-    from ._models_py3 import MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphPatternedRecurrence
-    from ._models_py3 import MicrosoftGraphPayloadResponse
-    from ._models_py3 import MicrosoftGraphPayloadTypes
-    from ._models_py3 import MicrosoftGraphPendingContentUpdate
-    from ._models_py3 import MicrosoftGraphPendingOperations
-    from ._models_py3 import MicrosoftGraphPermission
-    from ._models_py3 import MicrosoftGraphPermissionGrantConditionSet
-    from ._models_py3 import MicrosoftGraphPermissionGrantPolicy
-    from ._models_py3 import MicrosoftGraphPersistentBrowserSessionControl
-    from ._models_py3 import MicrosoftGraphPerson
-    from ._models_py3 import MicrosoftGraphPersonAnniversary
-    from ._models_py3 import MicrosoftGraphPersonAnnotation
-    from ._models_py3 import MicrosoftGraphPersonAward
-    from ._models_py3 import MicrosoftGraphPersonCertification
-    from ._models_py3 import MicrosoftGraphPersonDataSource
-    from ._models_py3 import MicrosoftGraphPersonDataSources
-    from ._models_py3 import MicrosoftGraphPersonInterest
-    from ._models_py3 import MicrosoftGraphPersonName
-    from ._models_py3 import MicrosoftGraphPersonOrGroupColumn
-    from ._models_py3 import MicrosoftGraphPersonWebsite
-    from ._models_py3 import MicrosoftGraphPhone
-    from ._models_py3 import MicrosoftGraphPhoneAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphPhoto
-    from ._models_py3 import MicrosoftGraphPhysicalAddress
-    from ._models_py3 import MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat
-    from ._models_py3 import MicrosoftGraphPlannerBucket
-    from ._models_py3 import MicrosoftGraphPlannerBucketTaskBoardTaskFormat
-    from ._models_py3 import MicrosoftGraphPlannerCategoryDescriptions
-    from ._models_py3 import MicrosoftGraphPlannerDelta
-    from ._models_py3 import MicrosoftGraphPlannerGroup
-    from ._models_py3 import MicrosoftGraphPlannerPlan
-    from ._models_py3 import MicrosoftGraphPlannerPlanDetails
-    from ._models_py3 import MicrosoftGraphPlannerProgressTaskBoardTaskFormat
-    from ._models_py3 import MicrosoftGraphPlannerTask
-    from ._models_py3 import MicrosoftGraphPlannerTaskDetails
-    from ._models_py3 import MicrosoftGraphPlannerUser
-    from ._models_py3 import MicrosoftGraphPolicyBase
-    from ._models_py3 import MicrosoftGraphPolicyRoot
-    from ._models_py3 import MicrosoftGraphPositionDetail
-    from ._models_py3 import MicrosoftGraphPost
-    from ._models_py3 import MicrosoftGraphPresence
-    from ._models_py3 import MicrosoftGraphPrivateLinkResource
-    from ._models_py3 import MicrosoftGraphProfile
-    from ._models_py3 import MicrosoftGraphProfilePhoto
-    from ._models_py3 import MicrosoftGraphProjectParticipation
-    from ._models_py3 import MicrosoftGraphProvisionedPlan
-    from ._models_py3 import MicrosoftGraphPublicationFacet
-    from ._models_py3 import MicrosoftGraphQuota
-    from ._models_py3 import MicrosoftGraphRankedEmailAddress
-    from ._models_py3 import MicrosoftGraphRecipient
-    from ._models_py3 import MicrosoftGraphRecurrencePattern
-    from ._models_py3 import MicrosoftGraphRecurrenceRange
-    from ._models_py3 import MicrosoftGraphRegionalAndLanguageSettings
-    from ._models_py3 import MicrosoftGraphRegionalFormatOverrides
-    from ._models_py3 import MicrosoftGraphRelatedPerson
-    from ._models_py3 import MicrosoftGraphRemoteItem
-    from ._models_py3 import MicrosoftGraphRenameAction
-    from ._models_py3 import MicrosoftGraphRequest
-    from ._models_py3 import MicrosoftGraphResourceReference
-    from ._models_py3 import MicrosoftGraphResourceSpecificPermissionGrant
-    from ._models_py3 import MicrosoftGraphResourceVisualization
-    from ._models_py3 import MicrosoftGraphResponseStatus
-    from ._models_py3 import MicrosoftGraphResponsiblePolicy
-    from ._models_py3 import MicrosoftGraphResponsibleSensitiveType
-    from ._models_py3 import MicrosoftGraphRiskDetection
-    from ._models_py3 import MicrosoftGraphRiskUserActivity
-    from ._models_py3 import MicrosoftGraphRiskyUser
-    from ._models_py3 import MicrosoftGraphRiskyUserHistoryItem
-    from ._models_py3 import MicrosoftGraphSchedule
-    from ._models_py3 import MicrosoftGraphScheduleChangeRequest
-    from ._models_py3 import MicrosoftGraphScheduleEntity
-    from ._models_py3 import MicrosoftGraphSchedulingGroup
-    from ._models_py3 import MicrosoftGraphScopedRoleMembership
-    from ._models_py3 import MicrosoftGraphSearchResult
-    from ._models_py3 import MicrosoftGraphSectionGroup
-    from ._models_py3 import MicrosoftGraphSectionLinks
-    from ._models_py3 import MicrosoftGraphSecurityBaselineContributingPolicy
-    from ._models_py3 import MicrosoftGraphSecurityBaselineSettingState
-    from ._models_py3 import MicrosoftGraphSecurityBaselineState
-    from ._models_py3 import MicrosoftGraphSecurityQuestionAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphSelfServiceSignUpAuthenticationFlowConfiguration
-    from ._models_py3 import MicrosoftGraphSensitiveContentEvidence
-    from ._models_py3 import MicrosoftGraphSensitiveContentLocation
-    from ._models_py3 import MicrosoftGraphSensitiveContentLocationBase
-    from ._models_py3 import MicrosoftGraphSensitivityLabel
-    from ._models_py3 import MicrosoftGraphSensitivityPolicySettings
-    from ._models_py3 import MicrosoftGraphServiceInformation
-    from ._models_py3 import MicrosoftGraphServicePlanInfo
-    from ._models_py3 import MicrosoftGraphSettingSource
-    from ._models_py3 import MicrosoftGraphSettingValue
-    from ._models_py3 import MicrosoftGraphSettings
-    from ._models_py3 import MicrosoftGraphShareAction
-    from ._models_py3 import MicrosoftGraphShared
-    from ._models_py3 import MicrosoftGraphSharedAppleDeviceUser
-    from ._models_py3 import MicrosoftGraphSharedInsight
-    from ._models_py3 import MicrosoftGraphSharepointIds
-    from ._models_py3 import MicrosoftGraphSharingDetail
-    from ._models_py3 import MicrosoftGraphSharingInvitation
-    from ._models_py3 import MicrosoftGraphSharingLink
-    from ._models_py3 import MicrosoftGraphShift
-    from ._models_py3 import MicrosoftGraphShiftActivity
-    from ._models_py3 import MicrosoftGraphShiftAvailability
-    from ._models_py3 import MicrosoftGraphShiftItem
-    from ._models_py3 import MicrosoftGraphShiftPreferences
-    from ._models_py3 import MicrosoftGraphSignInActivity
-    from ._models_py3 import MicrosoftGraphSignInFrequencySessionControl
-    from ._models_py3 import MicrosoftGraphSignInLocation
-    from ._models_py3 import MicrosoftGraphSingleValueLegacyExtendedProperty
-    from ._models_py3 import MicrosoftGraphSite
-    from ._models_py3 import MicrosoftGraphSiteCollection
-    from ._models_py3 import MicrosoftGraphSitePage
-    from ._models_py3 import MicrosoftGraphSizeRange
-    from ._models_py3 import MicrosoftGraphSkillProficiency
-    from ._models_py3 import MicrosoftGraphSoftwareOathAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphSpecialFolder
-    from ._models_py3 import MicrosoftGraphStoragePlanInformation
-    from ._models_py3 import MicrosoftGraphStsPolicy
-    from ._models_py3 import MicrosoftGraphSubscription
-    from ._models_py3 import MicrosoftGraphSwapShiftsChangeRequest
-    from ._models_py3 import MicrosoftGraphTargetPolicyEndpoints
-    from ._models_py3 import MicrosoftGraphTeam
-    from ._models_py3 import MicrosoftGraphTeamDiscoverySettings
-    from ._models_py3 import MicrosoftGraphTeamFunSettings
-    from ._models_py3 import MicrosoftGraphTeamGuestSettings
-    from ._models_py3 import MicrosoftGraphTeamMemberSettings
-    from ._models_py3 import MicrosoftGraphTeamMessagingSettings
-    from ._models_py3 import MicrosoftGraphTeamsApp
-    from ._models_py3 import MicrosoftGraphTeamsAppDefinition
-    from ._models_py3 import MicrosoftGraphTeamsAppInstallation
-    from ._models_py3 import MicrosoftGraphTeamsAsyncOperation
-    from ._models_py3 import MicrosoftGraphTeamsTab
-    from ._models_py3 import MicrosoftGraphTeamsTabConfiguration
-    from ._models_py3 import MicrosoftGraphTeamsTemplate
-    from ._models_py3 import MicrosoftGraphTemporaryAccessPassAuthenticationMethod
-    from ._models_py3 import MicrosoftGraphTextClassificationRequest
-    from ._models_py3 import MicrosoftGraphTextColumn
-    from ._models_py3 import MicrosoftGraphThreatAssessmentRequest
-    from ._models_py3 import MicrosoftGraphThreatAssessmentResult
-    from ._models_py3 import MicrosoftGraphThumbnail
-    from ._models_py3 import MicrosoftGraphThumbnailSet
-    from ._models_py3 import MicrosoftGraphTimeCard
-    from ._models_py3 import MicrosoftGraphTimeCardBreak
-    from ._models_py3 import MicrosoftGraphTimeCardEntry
-    from ._models_py3 import MicrosoftGraphTimeCardEvent
-    from ._models_py3 import MicrosoftGraphTimeClockSettings
-    from ._models_py3 import MicrosoftGraphTimeOff
-    from ._models_py3 import MicrosoftGraphTimeOffItem
-    from ._models_py3 import MicrosoftGraphTimeOffReason
-    from ._models_py3 import MicrosoftGraphTimeOffRequest
-    from ._models_py3 import MicrosoftGraphTimeRange
-    from ._models_py3 import MicrosoftGraphTimeSlot
-    from ._models_py3 import MicrosoftGraphTimeZoneBase
-    from ._models_py3 import MicrosoftGraphTodo
-    from ._models_py3 import MicrosoftGraphTodoTask
-    from ._models_py3 import MicrosoftGraphTodoTaskList
-    from ._models_py3 import MicrosoftGraphTokenIssuancePolicy
-    from ._models_py3 import MicrosoftGraphTokenLifetimePolicy
-    from ._models_py3 import MicrosoftGraphTrending
-    from ._models_py3 import MicrosoftGraphTrustFramework
-    from ._models_py3 import MicrosoftGraphTrustFrameworkKey
-    from ._models_py3 import MicrosoftGraphTrustFrameworkKeySet
-    from ._models_py3 import MicrosoftGraphTrustFrameworkPolicy
-    from ._models_py3 import MicrosoftGraphTypedEmailAddress
-    from ._models_py3 import MicrosoftGraphUsageDetails
-    from ._models_py3 import MicrosoftGraphUsedInsight
-    from ._models_py3 import MicrosoftGraphUser
-    from ._models_py3 import MicrosoftGraphUserAccountInformation
-    from ._models_py3 import MicrosoftGraphUserActivity
-    from ._models_py3 import MicrosoftGraphUserAnalytics
-    from ._models_py3 import MicrosoftGraphUserConfiguration
-    from ._models_py3 import MicrosoftGraphUserConsentRequest
-    from ._models_py3 import MicrosoftGraphUserIdentity
-    from ._models_py3 import MicrosoftGraphUserPurpose
-    from ._models_py3 import MicrosoftGraphUserScopeTeamsAppInstallation
-    from ._models_py3 import MicrosoftGraphUserSettings
-    from ._models_py3 import MicrosoftGraphUserTeamwork
-    from ._models_py3 import MicrosoftGraphVersionAction
-    from ._models_py3 import MicrosoftGraphVideo
-    from ._models_py3 import MicrosoftGraphVisualInfo
-    from ._models_py3 import MicrosoftGraphVisualProperties
-    from ._models_py3 import MicrosoftGraphWebAccount
-    from ._models_py3 import MicrosoftGraphWebPart
-    from ._models_py3 import MicrosoftGraphWebsite
-    from ._models_py3 import MicrosoftGraphWindowsDeviceMalwareState
-    from ._models_py3 import MicrosoftGraphWindowsInformationProtectionDeviceRegistration
-    from ._models_py3 import MicrosoftGraphWindowsProtectionState
-    from ._models_py3 import MicrosoftGraphWorkPosition
-    from ._models_py3 import MicrosoftGraphWorkbook
-    from ._models_py3 import MicrosoftGraphWorkbookApplication
-    from ._models_py3 import MicrosoftGraphWorkbookChart
-    from ._models_py3 import MicrosoftGraphWorkbookChartAreaFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartAxes
-    from ._models_py3 import MicrosoftGraphWorkbookChartAxis
-    from ._models_py3 import MicrosoftGraphWorkbookChartAxisFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartAxisTitle
-    from ._models_py3 import MicrosoftGraphWorkbookChartAxisTitleFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartDataLabelFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartDataLabels
-    from ._models_py3 import MicrosoftGraphWorkbookChartFill
-    from ._models_py3 import MicrosoftGraphWorkbookChartFont
-    from ._models_py3 import MicrosoftGraphWorkbookChartGridlines
-    from ._models_py3 import MicrosoftGraphWorkbookChartGridlinesFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartLegend
-    from ._models_py3 import MicrosoftGraphWorkbookChartLegendFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartLineFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartPoint
-    from ._models_py3 import MicrosoftGraphWorkbookChartPointFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartSeries
-    from ._models_py3 import MicrosoftGraphWorkbookChartSeriesFormat
-    from ._models_py3 import MicrosoftGraphWorkbookChartTitle
-    from ._models_py3 import MicrosoftGraphWorkbookChartTitleFormat
-    from ._models_py3 import MicrosoftGraphWorkbookComment
-    from ._models_py3 import MicrosoftGraphWorkbookCommentReply
-    from ._models_py3 import MicrosoftGraphWorkbookFilter
-    from ._models_py3 import MicrosoftGraphWorkbookFilterCriteria
-    from ._models_py3 import MicrosoftGraphWorkbookFunctions
-    from ._models_py3 import MicrosoftGraphWorkbookIcon
-    from ._models_py3 import MicrosoftGraphWorkbookNamedItem
-    from ._models_py3 import MicrosoftGraphWorkbookOperation
-    from ._models_py3 import MicrosoftGraphWorkbookOperationError
-    from ._models_py3 import MicrosoftGraphWorkbookPivotTable
-    from ._models_py3 import MicrosoftGraphWorkbookSortField
-    from ._models_py3 import MicrosoftGraphWorkbookTable
-    from ._models_py3 import MicrosoftGraphWorkbookTableColumn
-    from ._models_py3 import MicrosoftGraphWorkbookTableRow
-    from ._models_py3 import MicrosoftGraphWorkbookTableSort
-    from ._models_py3 import MicrosoftGraphWorkbookWorksheet
-    from ._models_py3 import MicrosoftGraphWorkbookWorksheetProtection
-    from ._models_py3 import MicrosoftGraphWorkbookWorksheetProtectionOptions
-    from ._models_py3 import MicrosoftGraphWorkingHours
-    from ._models_py3 import MicrosoftGraphYomiPersonName
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
-    from ._models_py3 import Paths11Ap814TrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadpkcs12PostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths184IgqyInformationprotectionSensitivitylabelsMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths19SkfwzTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadcertificatePostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1Aushj1InformationprotectionPolicyLabelsMicrosoftGraphEvaluateapplicationPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1IaopbhTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphGeneratekeyPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1JhdydfInformationprotectionDatalosspreventionpoliciesMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsBj48EsInformationprotectionPolicyLabelsMicrosoftGraphExtractlabelPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsDmvqaiTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadsecretPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsK62XddInformationprotectionSensitivitylabelsSensitivitylabelIdSublabelsMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsL8Oa4IRiskyusersMicrosoftGraphConfirmcompromisedPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsLeqqhcInformationprotectionPolicyLabelsMicrosoftGraphEvaluateclassificationresultsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsTai6NqRiskyusersMicrosoftGraphDismissPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsU4Eih0InformationprotectionMicrosoftGraphEvaluatelabelsandpoliciesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsZ22GcjInformationprotectionPolicyLabelsMicrosoftGraphEvaluateremovalPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import collectionofactivitybasedtimeoutpolicy
+    from ._models_py3 import collectionofauthenticationmethod
+    from ._models_py3 import collectionofauthorizationpolicy
+    from ._models_py3 import collectionofcertificatebasedauthconfiguration
+    from ._models_py3 import collectionofclaimsmappingpolicy
+    from ._models_py3 import collectionofconditionalaccesspolicy
+    from ._models_py3 import collectionofconditionalaccesspolicy0
+    from ._models_py3 import collectionofdatalosspreventionpolicy
+    from ._models_py3 import collectionofdatapolicyoperation
+    from ._models_py3 import collectionofemailauthenticationmethod
+    from ._models_py3 import collectionoffido2authenticationmethod
+    from ._models_py3 import collectionofhomerealmdiscoverypolicy
+    from ._models_py3 import collectionofidentityprovider
+    from ._models_py3 import collectionofidentityuserflow
+    from ._models_py3 import collectionofinformationprotectionlabel
+    from ._models_py3 import collectionofinvitation
+    from ._models_py3 import collectionoflinksofcertificatebasedauthconfiguration
+    from ._models_py3 import collectionoflongrunningoperation
+    from ._models_py3 import collectionofmicrosoftauthenticatorauthenticationmethod
+    from ._models_py3 import collectionofnamedlocation
+    from ._models_py3 import collectionofoauth2permissiongrant
+    from ._models_py3 import collectionofpasswordauthenticationmethod
+    from ._models_py3 import collectionofpasswordlessmicrosoftauthenticatorauthenticationmethod
+    from ._models_py3 import collectionofpermissiongrantconditionset
+    from ._models_py3 import collectionofpermissiongrantconditionset0
+    from ._models_py3 import collectionofpermissiongrantpolicy
+    from ._models_py3 import collectionofphoneauthenticationmethod
+    from ._models_py3 import collectionofprivatelinkresource
+    from ._models_py3 import collectionofriskdetection
+    from ._models_py3 import collectionofriskyuser
+    from ._models_py3 import collectionofriskyuserhistoryitem
+    from ._models_py3 import collectionofsecurityquestionauthenticationmethod
+    from ._models_py3 import collectionofsensitivitylabel
+    from ._models_py3 import collectionofsensitivitylabel0
+    from ._models_py3 import collectionofsoftwareoathauthenticationmethod
+    from ._models_py3 import collectionoftemporaryaccesspassauthenticationmethod
+    from ._models_py3 import collectionofthreatassessmentrequest
+    from ._models_py3 import collectionofthreatassessmentresult
+    from ._models_py3 import collectionoftokenissuancepolicy
+    from ._models_py3 import collectionoftokenlifetimepolicy
+    from ._models_py3 import collectionoftrustframeworkkeyset
+    from ._models_py3 import collectionoftrustframeworkpolicy
+    from ._models_py3 import microsoftgraphaccessreviewinstance
+    from ._models_py3 import microsoftgraphaccessreviewinstancedecisionitem
+    from ._models_py3 import microsoftgraphaccessreviewreviewerscope
+    from ._models_py3 import microsoftgraphaccessreviewscheduledefinition
+    from ._models_py3 import microsoftgraphaccessreviewschedulesettings
+    from ._models_py3 import microsoftgraphaccessreviewscope
+    from ._models_py3 import microsoftgraphactivitybasedtimeoutpolicy
+    from ._models_py3 import microsoftgraphactivityhistoryitem
+    from ._models_py3 import microsoftgraphactivitystatistics
+    from ._models_py3 import microsoftgraphadminconsentrequestpolicy
+    from ._models_py3 import microsoftgraphagreementacceptance
+    from ._models_py3 import microsoftgraphalbum
+    from ._models_py3 import microsoftgraphalternativesecurityid
+    from ._models_py3 import microsoftgraphappconsentrequest
+    from ._models_py3 import microsoftgraphappconsentrequestscope
+    from ._models_py3 import microsoftgraphapplicationenforcedrestrictionssessioncontrol
+    from ._models_py3 import microsoftgraphapplogcollectionrequest
+    from ._models_py3 import microsoftgraphapproleassignment
+    from ._models_py3 import microsoftgraphapproval
+    from ._models_py3 import microsoftgraphapprovalstep
+    from ._models_py3 import microsoftgraphassignedlabel
+    from ._models_py3 import microsoftgraphassignedlicense
+    from ._models_py3 import microsoftgraphassignedplan
+    from ._models_py3 import microsoftgraphattachment
+    from ._models_py3 import microsoftgraphattendee
+    from ._models_py3 import microsoftgraphattendeebase
+    from ._models_py3 import microsoftgraphaudio
+    from ._models_py3 import microsoftgraphaudioconferencing
+    from ._models_py3 import microsoftgraphauthentication
+    from ._models_py3 import microsoftgraphauthenticationflowspolicy
+    from ._models_py3 import microsoftgraphauthenticationmethod
+    from ._models_py3 import microsoftgraphauthorizationpolicy
+    from ._models_py3 import microsoftgraphautolabeling
+    from ._models_py3 import microsoftgraphautomaticrepliessetting
+    from ._models_py3 import microsoftgraphb2cauthenticationmethodspolicy
+    from ._models_py3 import microsoftgraphbaseitem
+    from ._models_py3 import microsoftgraphbaseitemversion
+    from ._models_py3 import microsoftgraphbundle
+    from ._models_py3 import microsoftgraphcalculatedcolumn
+    from ._models_py3 import microsoftgraphcalendar
+    from ._models_py3 import microsoftgraphcalendargroup
+    from ._models_py3 import microsoftgraphcalendarpermission
+    from ._models_py3 import microsoftgraphcertificateauthority
+    from ._models_py3 import microsoftgraphcertificatebasedauthconfiguration
+    from ._models_py3 import microsoftgraphchangetrackedentity
+    from ._models_py3 import microsoftgraphchannel
+    from ._models_py3 import microsoftgraphchannelidentity
+    from ._models_py3 import microsoftgraphchannelmoderationsettings
+    from ._models_py3 import microsoftgraphchat
+    from ._models_py3 import microsoftgraphchatinfo
+    from ._models_py3 import microsoftgraphchatmessage
+    from ._models_py3 import microsoftgraphchatmessageattachment
+    from ._models_py3 import microsoftgraphchatmessagehostedcontent
+    from ._models_py3 import microsoftgraphchatmessagemention
+    from ._models_py3 import microsoftgraphchatmessagepolicyviolation
+    from ._models_py3 import microsoftgraphchatmessagepolicyviolationpolicytip
+    from ._models_py3 import microsoftgraphchatmessagereaction
+    from ._models_py3 import microsoftgraphchoicecolumn
+    from ._models_py3 import microsoftgraphclaimsmappingpolicy
+    from ._models_py3 import microsoftgraphclassifcationerrorbase
+    from ._models_py3 import microsoftgraphclassificationattribute
+    from ._models_py3 import microsoftgraphclassificationerror
+    from ._models_py3 import microsoftgraphclassificationinnererror
+    from ._models_py3 import microsoftgraphclassificationresult
+    from ._models_py3 import microsoftgraphcloudappsecuritysessioncontrol
+    from ._models_py3 import microsoftgraphcolumndefinition
+    from ._models_py3 import microsoftgraphcolumnlink
+    from ._models_py3 import microsoftgraphcommand
+    from ._models_py3 import microsoftgraphcommentaction
+    from ._models_py3 import microsoftgraphcompanydetail
+    from ._models_py3 import microsoftgraphconditionalaccessapplications
+    from ._models_py3 import microsoftgraphconditionalaccessclientapplications
+    from ._models_py3 import microsoftgraphconditionalaccessconditionset
+    from ._models_py3 import microsoftgraphconditionalaccessdevices
+    from ._models_py3 import microsoftgraphconditionalaccessdevicestates
+    from ._models_py3 import microsoftgraphconditionalaccessgrantcontrols
+    from ._models_py3 import microsoftgraphconditionalaccesslocations
+    from ._models_py3 import microsoftgraphconditionalaccessplatforms
+    from ._models_py3 import microsoftgraphconditionalaccesspolicy
+    from ._models_py3 import microsoftgraphconditionalaccessroot
+    from ._models_py3 import microsoftgraphconditionalaccesssessioncontrol
+    from ._models_py3 import microsoftgraphconditionalaccesssessioncontrols
+    from ._models_py3 import microsoftgraphconditionalaccessusers
+    from ._models_py3 import microsoftgraphconfigurationmanagerclientenabledfeatures
+    from ._models_py3 import microsoftgraphconfigurationmanagerclienthealthstate
+    from ._models_py3 import microsoftgraphconfigurationmanagerclientinformation
+    from ._models_py3 import microsoftgraphcontact
+    from ._models_py3 import microsoftgraphcontactfolder
+    from ._models_py3 import microsoftgraphcontentinfo
+    from ._models_py3 import microsoftgraphcontenttype
+    from ._models_py3 import microsoftgraphcontenttypeinfo
+    from ._models_py3 import microsoftgraphcontenttypeorder
+    from ._models_py3 import microsoftgraphconversation
+    from ._models_py3 import microsoftgraphconversationmember
+    from ._models_py3 import microsoftgraphconversationthread
+    from ._models_py3 import microsoftgraphcurrencycolumn
+    from ._models_py3 import microsoftgraphcurrentlabel
+    from ._models_py3 import microsoftgraphdatalosspreventionpolicy
+    from ._models_py3 import microsoftgraphdatapolicyoperation
+    from ._models_py3 import microsoftgraphdatetimecolumn
+    from ._models_py3 import microsoftgraphdatetimezone
+    from ._models_py3 import microsoftgraphdefaultcolumnvalue
+    from ._models_py3 import microsoftgraphdefaultuserrolepermissions
+    from ._models_py3 import microsoftgraphdeleteaction
+    from ._models_py3 import microsoftgraphdeleted
+    from ._models_py3 import microsoftgraphdetectedapp
+    from ._models_py3 import microsoftgraphdetectedsensitivecontent
+    from ._models_py3 import microsoftgraphdetectedsensitivecontentbase
+    from ._models_py3 import microsoftgraphdetectedsensitivecontentwrapper
+    from ._models_py3 import microsoftgraphdevice
+    from ._models_py3 import microsoftgraphdeviceactionresult
+    from ._models_py3 import microsoftgraphdeviceandappmanagementassignmenttarget
+    from ._models_py3 import microsoftgraphdevicecategory
+    from ._models_py3 import microsoftgraphdevicecompliancepolicysettingstate
+    from ._models_py3 import microsoftgraphdevicecompliancepolicystate
+    from ._models_py3 import microsoftgraphdeviceconfigurationsettingstate
+    from ._models_py3 import microsoftgraphdeviceconfigurationstate
+    from ._models_py3 import microsoftgraphdeviceenrollmentconfiguration
+    from ._models_py3 import microsoftgraphdevicehealthattestationstate
+    from ._models_py3 import microsoftgraphdevicekey
+    from ._models_py3 import microsoftgraphdevicelogcollectionresponse
+    from ._models_py3 import microsoftgraphdevicemanagementtroubleshootingerrordetails
+    from ._models_py3 import microsoftgraphdevicemanagementtroubleshootingerrorresource
+    from ._models_py3 import microsoftgraphdevicemanagementtroubleshootingevent
+    from ._models_py3 import microsoftgraphdeviceregistrationpolicy
+    from ._models_py3 import microsoftgraphdirectoryobject
+    from ._models_py3 import microsoftgraphdirectoryroleaccessreviewpolicy
+    from ._models_py3 import microsoftgraphdirectorysetting
+    from ._models_py3 import microsoftgraphdiscoveredsensitivetype
+    from ._models_py3 import microsoftgraphdlpactioninfo
+    from ._models_py3 import microsoftgraphdlpevaluatepoliciesjobresponse
+    from ._models_py3 import microsoftgraphdlpevaluatepoliciesrequest
+    from ._models_py3 import microsoftgraphdlpevaluationinput
+    from ._models_py3 import microsoftgraphdlpnotification
+    from ._models_py3 import microsoftgraphdlppoliciesjobresult
+    from ._models_py3 import microsoftgraphdowngradejustification
+    from ._models_py3 import microsoftgraphdrive
+    from ._models_py3 import microsoftgraphdriveitem
+    from ._models_py3 import microsoftgraphdriveitemversion
+    from ._models_py3 import microsoftgrapheducationalactivity
+    from ._models_py3 import microsoftgrapheducationalactivitydetail
+    from ._models_py3 import microsoftgraphemailaddress
+    from ._models_py3 import microsoftgraphemailauthenticationmethod
+    from ._models_py3 import microsoftgraphemployeeorgdata
+    from ._models_py3 import microsoftgraphendpoint
+    from ._models_py3 import microsoftgraphenrollmentconfigurationassignment
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphevaluatelabeljobresponse
+    from ._models_py3 import microsoftgraphevaluatelabeljobresult
+    from ._models_py3 import microsoftgraphevaluatelabeljobresultgroup
+    from ._models_py3 import microsoftgraphevaluatelabelsandpoliciesjobresponse
+    from ._models_py3 import microsoftgraphevaluatelabelsandpoliciesresult
+    from ._models_py3 import microsoftgraphevaluatesensitivitylabelsrequest
+    from ._models_py3 import microsoftgraphevent
+    from ._models_py3 import microsoftgraphextension
+    from ._models_py3 import microsoftgraphexternallink
+    from ._models_py3 import microsoftgraphfido2authenticationmethod
+    from ._models_py3 import microsoftgraphfieldvalueset
+    from ._models_py3 import microsoftgraphfile
+    from ._models_py3 import microsoftgraphfilesysteminfo
+    from ._models_py3 import microsoftgraphfolder
+    from ._models_py3 import microsoftgraphfolderview
+    from ._models_py3 import microsoftgraphfollowupflag
+    from ._models_py3 import microsoftgraphgeocoordinates
+    from ._models_py3 import microsoftgraphgroup
+    from ._models_py3 import microsoftgraphgrouplifecyclepolicy
+    from ._models_py3 import microsoftgraphhardwareinformation
+    from ._models_py3 import microsoftgraphhashes
+    from ._models_py3 import microsoftgraphhomerealmdiscoverypolicy
+    from ._models_py3 import microsoftgraphidentity
+    from ._models_py3 import microsoftgraphidentityprovider
+    from ._models_py3 import microsoftgraphidentitysecuritydefaultsenforcementpolicy
+    from ._models_py3 import microsoftgraphidentityset
+    from ._models_py3 import microsoftgraphidentityuserflow
+    from ._models_py3 import microsoftgraphimage
+    from ._models_py3 import microsoftgraphimageinfo
+    from ._models_py3 import microsoftgraphincompletedata
+    from ._models_py3 import microsoftgraphinferenceclassification
+    from ._models_py3 import microsoftgraphinferenceclassificationoverride
+    from ._models_py3 import microsoftgraphinferencedata
+    from ._models_py3 import microsoftgraphinformationprotection
+    from ._models_py3 import microsoftgraphinformationprotectioncontentlabel
+    from ._models_py3 import microsoftgraphinformationprotectionlabel
+    from ._models_py3 import microsoftgraphinformationprotectionpolicy
+    from ._models_py3 import microsoftgraphinsightidentity
+    from ._models_py3 import microsoftgraphinstitutiondata
+    from ._models_py3 import microsoftgraphinternetmessageheader
+    from ._models_py3 import microsoftgraphinvitation
+    from ._models_py3 import microsoftgraphinvitedusermessageinfo
+    from ._models_py3 import microsoftgraphitemactionset
+    from ._models_py3 import microsoftgraphitemactionstat
+    from ._models_py3 import microsoftgraphitemactivity
+    from ._models_py3 import microsoftgraphitemactivityold
+    from ._models_py3 import microsoftgraphitemactivitystat
+    from ._models_py3 import microsoftgraphitemactivitytimeset
+    from ._models_py3 import microsoftgraphitemaddress
+    from ._models_py3 import microsoftgraphitemanalytics
+    from ._models_py3 import microsoftgraphitembody
+    from ._models_py3 import microsoftgraphitememail
+    from ._models_py3 import microsoftgraphitemfacet
+    from ._models_py3 import microsoftgraphiteminsights
+    from ._models_py3 import microsoftgraphitempatent
+    from ._models_py3 import microsoftgraphitemphone
+    from ._models_py3 import microsoftgraphitempublication
+    from ._models_py3 import microsoftgraphitemreference
+    from ._models_py3 import microsoftgraphjobresponsebase
+    from ._models_py3 import microsoftgraphkeyvaluepair
+    from ._models_py3 import microsoftgraphlabelactionbase
+    from ._models_py3 import microsoftgraphlabeldetails
+    from ._models_py3 import microsoftgraphlabelingoptions
+    from ._models_py3 import microsoftgraphlabelpolicy
+    from ._models_py3 import microsoftgraphlanguageproficiency
+    from ._models_py3 import microsoftgraphlicenseassignmentstate
+    from ._models_py3 import microsoftgraphlicensedetails
+    from ._models_py3 import microsoftgraphlicenseprocessingstate
+    from ._models_py3 import microsoftgraphlinkedresource
+    from ._models_py3 import microsoftgraphlist
+    from ._models_py3 import microsoftgraphlistinfo
+    from ._models_py3 import microsoftgraphlistitem
+    from ._models_py3 import microsoftgraphlistitemversion
+    from ._models_py3 import microsoftgraphlobbybypasssettings
+    from ._models_py3 import microsoftgraphlocaleinfo
+    from ._models_py3 import microsoftgraphlocation
+    from ._models_py3 import microsoftgraphloggedonuser
+    from ._models_py3 import microsoftgraphlongrunningoperation
+    from ._models_py3 import microsoftgraphlookupcolumn
+    from ._models_py3 import microsoftgraphmailboxsettings
+    from ._models_py3 import microsoftgraphmailfolder
+    from ._models_py3 import microsoftgraphmanagedappoperation
+    from ._models_py3 import microsoftgraphmanagedapppolicy
+    from ._models_py3 import microsoftgraphmanagedappregistration
+    from ._models_py3 import microsoftgraphmanageddevice
+    from ._models_py3 import microsoftgraphmanageddevicemobileappconfigurationsettingstate
+    from ._models_py3 import microsoftgraphmanageddevicemobileappconfigurationstate
+    from ._models_py3 import microsoftgraphmatchingdlprule
+    from ._models_py3 import microsoftgraphmatchinglabel
+    from ._models_py3 import microsoftgraphmeetingparticipantinfo
+    from ._models_py3 import microsoftgraphmeetingparticipants
+    from ._models_py3 import microsoftgraphmention
+    from ._models_py3 import microsoftgraphmentionaction
+    from ._models_py3 import microsoftgraphmentionspreview
+    from ._models_py3 import microsoftgraphmessage
+    from ._models_py3 import microsoftgraphmessagerule
+    from ._models_py3 import microsoftgraphmessageruleactions
+    from ._models_py3 import microsoftgraphmessagerulepredicates
+    from ._models_py3 import microsoftgraphmicrosoftauthenticatorauthenticationmethod
+    from ._models_py3 import microsoftgraphmobileappintentandstate
+    from ._models_py3 import microsoftgraphmobileappintentandstatedetail
+    from ._models_py3 import microsoftgraphmobileappsupporteddevicetype
+    from ._models_py3 import microsoftgraphmobileapptroubleshootingevent
+    from ._models_py3 import microsoftgraphmobileapptroubleshootinghistoryitem
+    from ._models_py3 import microsoftgraphmoveaction
+    from ._models_py3 import microsoftgraphmultivaluelegacyextendedproperty
+    from ._models_py3 import microsoftgraphnamedlocation
+    from ._models_py3 import microsoftgraphnotebook
+    from ._models_py3 import microsoftgraphnotebooklinks
+    from ._models_py3 import microsoftgraphnotification
+    from ._models_py3 import microsoftgraphnumbercolumn
+    from ._models_py3 import microsoftgraphoauth2permissiongrant
+    from ._models_py3 import microsoftgraphobjectidentity
+    from ._models_py3 import microsoftgraphoffershiftrequest
+    from ._models_py3 import microsoftgraphofficegraphinsights
+    from ._models_py3 import microsoftgraphonenote
+    from ._models_py3 import microsoftgraphonenoteentitybasemodel
+    from ._models_py3 import microsoftgraphonenoteentityhierarchymodel
+    from ._models_py3 import microsoftgraphonenoteentityschemaobjectmodel
+    from ._models_py3 import microsoftgraphonenoteoperation
+    from ._models_py3 import microsoftgraphonenoteoperationerror
+    from ._models_py3 import microsoftgraphonenotepage
+    from ._models_py3 import microsoftgraphonenoteresource
+    from ._models_py3 import microsoftgraphonenotesection
+    from ._models_py3 import microsoftgraphonlinemeeting
+    from ._models_py3 import microsoftgraphonlinemeetinginfo
+    from ._models_py3 import microsoftgraphonpremisesextensionattributes
+    from ._models_py3 import microsoftgraphonpremisesprovisioningerror
+    from ._models_py3 import microsoftgraphopenshift
+    from ._models_py3 import microsoftgraphopenshiftchangerequest
+    from ._models_py3 import microsoftgraphopenshiftitem
+    from ._models_py3 import microsoftgraphoperation
+    from ._models_py3 import microsoftgraphoperationerror
+    from ._models_py3 import microsoftgraphoutlookcategory
+    from ._models_py3 import microsoftgraphoutlookgeocoordinates
+    from ._models_py3 import microsoftgraphoutlookitem
+    from ._models_py3 import microsoftgraphoutlooktask
+    from ._models_py3 import microsoftgraphoutlooktaskfolder
+    from ._models_py3 import microsoftgraphoutlooktaskgroup
+    from ._models_py3 import microsoftgraphoutlookuser
+    from ._models_py3 import microsoftgraphpackage
+    from ._models_py3 import microsoftgraphpagelinks
+    from ._models_py3 import microsoftgraphparentlabeldetails
+    from ._models_py3 import microsoftgraphpasswordauthenticationmethod
+    from ._models_py3 import microsoftgraphpasswordlessmicrosoftauthenticatorauthenticationmethod
+    from ._models_py3 import microsoftgraphpasswordprofile
+    from ._models_py3 import microsoftgraphpatternedrecurrence
+    from ._models_py3 import microsoftgraphpayloadresponse
+    from ._models_py3 import microsoftgraphpayloadtypes
+    from ._models_py3 import microsoftgraphpendingcontentupdate
+    from ._models_py3 import microsoftgraphpendingoperations
+    from ._models_py3 import microsoftgraphpermission
+    from ._models_py3 import microsoftgraphpermissiongrantconditionset
+    from ._models_py3 import microsoftgraphpermissiongrantpolicy
+    from ._models_py3 import microsoftgraphpersistentbrowsersessioncontrol
+    from ._models_py3 import microsoftgraphperson
+    from ._models_py3 import microsoftgraphpersonanniversary
+    from ._models_py3 import microsoftgraphpersonannotation
+    from ._models_py3 import microsoftgraphpersonaward
+    from ._models_py3 import microsoftgraphpersoncertification
+    from ._models_py3 import microsoftgraphpersondatasource
+    from ._models_py3 import microsoftgraphpersondatasources
+    from ._models_py3 import microsoftgraphpersoninterest
+    from ._models_py3 import microsoftgraphpersonname
+    from ._models_py3 import microsoftgraphpersonorgroupcolumn
+    from ._models_py3 import microsoftgraphpersonwebsite
+    from ._models_py3 import microsoftgraphphone
+    from ._models_py3 import microsoftgraphphoneauthenticationmethod
+    from ._models_py3 import microsoftgraphphoto
+    from ._models_py3 import microsoftgraphphysicaladdress
+    from ._models_py3 import microsoftgraphplannerassignedtotaskboardtaskformat
+    from ._models_py3 import microsoftgraphplannerbucket
+    from ._models_py3 import microsoftgraphplannerbuckettaskboardtaskformat
+    from ._models_py3 import microsoftgraphplannercategorydescriptions
+    from ._models_py3 import microsoftgraphplannerdelta
+    from ._models_py3 import microsoftgraphplannergroup
+    from ._models_py3 import microsoftgraphplannerplan
+    from ._models_py3 import microsoftgraphplannerplandetails
+    from ._models_py3 import microsoftgraphplannerprogresstaskboardtaskformat
+    from ._models_py3 import microsoftgraphplannertask
+    from ._models_py3 import microsoftgraphplannertaskdetails
+    from ._models_py3 import microsoftgraphplanneruser
+    from ._models_py3 import microsoftgraphpolicybase
+    from ._models_py3 import microsoftgraphpolicyroot
+    from ._models_py3 import microsoftgraphpositiondetail
+    from ._models_py3 import microsoftgraphpost
+    from ._models_py3 import microsoftgraphpresence
+    from ._models_py3 import microsoftgraphprivatelinkresource
+    from ._models_py3 import microsoftgraphprofile
+    from ._models_py3 import microsoftgraphprofilephoto
+    from ._models_py3 import microsoftgraphprojectparticipation
+    from ._models_py3 import microsoftgraphprovisionedplan
+    from ._models_py3 import microsoftgraphpublicationfacet
+    from ._models_py3 import microsoftgraphquota
+    from ._models_py3 import microsoftgraphrankedemailaddress
+    from ._models_py3 import microsoftgraphrecipient
+    from ._models_py3 import microsoftgraphrecurrencepattern
+    from ._models_py3 import microsoftgraphrecurrencerange
+    from ._models_py3 import microsoftgraphregionalandlanguagesettings
+    from ._models_py3 import microsoftgraphregionalformatoverrides
+    from ._models_py3 import microsoftgraphrelatedperson
+    from ._models_py3 import microsoftgraphremoteitem
+    from ._models_py3 import microsoftgraphrenameaction
+    from ._models_py3 import microsoftgraphrequest
+    from ._models_py3 import microsoftgraphresourcereference
+    from ._models_py3 import microsoftgraphresourcespecificpermissiongrant
+    from ._models_py3 import microsoftgraphresourcevisualization
+    from ._models_py3 import microsoftgraphresponsestatus
+    from ._models_py3 import microsoftgraphresponsiblepolicy
+    from ._models_py3 import microsoftgraphresponsiblesensitivetype
+    from ._models_py3 import microsoftgraphriskdetection
+    from ._models_py3 import microsoftgraphriskuseractivity
+    from ._models_py3 import microsoftgraphriskyuser
+    from ._models_py3 import microsoftgraphriskyuserhistoryitem
+    from ._models_py3 import microsoftgraphschedule
+    from ._models_py3 import microsoftgraphschedulechangerequest
+    from ._models_py3 import microsoftgraphscheduleentity
+    from ._models_py3 import microsoftgraphschedulinggroup
+    from ._models_py3 import microsoftgraphscopedrolemembership
+    from ._models_py3 import microsoftgraphsearchresult
+    from ._models_py3 import microsoftgraphsectiongroup
+    from ._models_py3 import microsoftgraphsectionlinks
+    from ._models_py3 import microsoftgraphsecuritybaselinecontributingpolicy
+    from ._models_py3 import microsoftgraphsecuritybaselinesettingstate
+    from ._models_py3 import microsoftgraphsecuritybaselinestate
+    from ._models_py3 import microsoftgraphsecurityquestionauthenticationmethod
+    from ._models_py3 import microsoftgraphselfservicesignupauthenticationflowconfiguration
+    from ._models_py3 import microsoftgraphsensitivecontentevidence
+    from ._models_py3 import microsoftgraphsensitivecontentlocation
+    from ._models_py3 import microsoftgraphsensitivecontentlocationbase
+    from ._models_py3 import microsoftgraphsensitivitylabel
+    from ._models_py3 import microsoftgraphsensitivitypolicysettings
+    from ._models_py3 import microsoftgraphserviceinformation
+    from ._models_py3 import microsoftgraphserviceplaninfo
+    from ._models_py3 import microsoftgraphsettings
+    from ._models_py3 import microsoftgraphsettingsource
+    from ._models_py3 import microsoftgraphsettingvalue
+    from ._models_py3 import microsoftgraphshareaction
+    from ._models_py3 import microsoftgraphshared
+    from ._models_py3 import microsoftgraphsharedappledeviceuser
+    from ._models_py3 import microsoftgraphsharedinsight
+    from ._models_py3 import microsoftgraphsharepointids
+    from ._models_py3 import microsoftgraphsharingdetail
+    from ._models_py3 import microsoftgraphsharinginvitation
+    from ._models_py3 import microsoftgraphsharinglink
+    from ._models_py3 import microsoftgraphshift
+    from ._models_py3 import microsoftgraphshiftactivity
+    from ._models_py3 import microsoftgraphshiftavailability
+    from ._models_py3 import microsoftgraphshiftitem
+    from ._models_py3 import microsoftgraphshiftpreferences
+    from ._models_py3 import microsoftgraphsigninactivity
+    from ._models_py3 import microsoftgraphsigninfrequencysessioncontrol
+    from ._models_py3 import microsoftgraphsigninlocation
+    from ._models_py3 import microsoftgraphsinglevaluelegacyextendedproperty
+    from ._models_py3 import microsoftgraphsite
+    from ._models_py3 import microsoftgraphsitecollection
+    from ._models_py3 import microsoftgraphsitepage
+    from ._models_py3 import microsoftgraphsizerange
+    from ._models_py3 import microsoftgraphskillproficiency
+    from ._models_py3 import microsoftgraphsoftwareoathauthenticationmethod
+    from ._models_py3 import microsoftgraphspecialfolder
+    from ._models_py3 import microsoftgraphstorageplaninformation
+    from ._models_py3 import microsoftgraphstspolicy
+    from ._models_py3 import microsoftgraphsubscription
+    from ._models_py3 import microsoftgraphswapshiftschangerequest
+    from ._models_py3 import microsoftgraphtargetpolicyendpoints
+    from ._models_py3 import microsoftgraphteam
+    from ._models_py3 import microsoftgraphteamdiscoverysettings
+    from ._models_py3 import microsoftgraphteamfunsettings
+    from ._models_py3 import microsoftgraphteamguestsettings
+    from ._models_py3 import microsoftgraphteammembersettings
+    from ._models_py3 import microsoftgraphteammessagingsettings
+    from ._models_py3 import microsoftgraphteamsapp
+    from ._models_py3 import microsoftgraphteamsappdefinition
+    from ._models_py3 import microsoftgraphteamsappinstallation
+    from ._models_py3 import microsoftgraphteamsasyncoperation
+    from ._models_py3 import microsoftgraphteamstab
+    from ._models_py3 import microsoftgraphteamstabconfiguration
+    from ._models_py3 import microsoftgraphteamstemplate
+    from ._models_py3 import microsoftgraphtemporaryaccesspassauthenticationmethod
+    from ._models_py3 import microsoftgraphtextclassificationrequest
+    from ._models_py3 import microsoftgraphtextcolumn
+    from ._models_py3 import microsoftgraphthreatassessmentrequest
+    from ._models_py3 import microsoftgraphthreatassessmentresult
+    from ._models_py3 import microsoftgraphthumbnail
+    from ._models_py3 import microsoftgraphthumbnailset
+    from ._models_py3 import microsoftgraphtimecard
+    from ._models_py3 import microsoftgraphtimecardbreak
+    from ._models_py3 import microsoftgraphtimecardentry
+    from ._models_py3 import microsoftgraphtimecardevent
+    from ._models_py3 import microsoftgraphtimeclocksettings
+    from ._models_py3 import microsoftgraphtimeoff
+    from ._models_py3 import microsoftgraphtimeoffitem
+    from ._models_py3 import microsoftgraphtimeoffreason
+    from ._models_py3 import microsoftgraphtimeoffrequest
+    from ._models_py3 import microsoftgraphtimerange
+    from ._models_py3 import microsoftgraphtimeslot
+    from ._models_py3 import microsoftgraphtimezonebase
+    from ._models_py3 import microsoftgraphtodo
+    from ._models_py3 import microsoftgraphtodotask
+    from ._models_py3 import microsoftgraphtodotasklist
+    from ._models_py3 import microsoftgraphtokenissuancepolicy
+    from ._models_py3 import microsoftgraphtokenlifetimepolicy
+    from ._models_py3 import microsoftgraphtrending
+    from ._models_py3 import microsoftgraphtrustframework
+    from ._models_py3 import microsoftgraphtrustframeworkkey
+    from ._models_py3 import microsoftgraphtrustframeworkkeyset
+    from ._models_py3 import microsoftgraphtrustframeworkpolicy
+    from ._models_py3 import microsoftgraphtypedemailaddress
+    from ._models_py3 import microsoftgraphusagedetails
+    from ._models_py3 import microsoftgraphusedinsight
+    from ._models_py3 import microsoftgraphuser
+    from ._models_py3 import microsoftgraphuseraccountinformation
+    from ._models_py3 import microsoftgraphuseractivity
+    from ._models_py3 import microsoftgraphuseranalytics
+    from ._models_py3 import microsoftgraphuserconfiguration
+    from ._models_py3 import microsoftgraphuserconsentrequest
+    from ._models_py3 import microsoftgraphuseridentity
+    from ._models_py3 import microsoftgraphuserpurpose
+    from ._models_py3 import microsoftgraphuserscopeteamsappinstallation
+    from ._models_py3 import microsoftgraphusersettings
+    from ._models_py3 import microsoftgraphuserteamwork
+    from ._models_py3 import microsoftgraphversionaction
+    from ._models_py3 import microsoftgraphvideo
+    from ._models_py3 import microsoftgraphvisualinfo
+    from ._models_py3 import microsoftgraphvisualproperties
+    from ._models_py3 import microsoftgraphwebaccount
+    from ._models_py3 import microsoftgraphwebpart
+    from ._models_py3 import microsoftgraphwebsite
+    from ._models_py3 import microsoftgraphwindowsdevicemalwarestate
+    from ._models_py3 import microsoftgraphwindowsinformationprotectiondeviceregistration
+    from ._models_py3 import microsoftgraphwindowsprotectionstate
+    from ._models_py3 import microsoftgraphworkbook
+    from ._models_py3 import microsoftgraphworkbookapplication
+    from ._models_py3 import microsoftgraphworkbookchart
+    from ._models_py3 import microsoftgraphworkbookchartareaformat
+    from ._models_py3 import microsoftgraphworkbookchartaxes
+    from ._models_py3 import microsoftgraphworkbookchartaxis
+    from ._models_py3 import microsoftgraphworkbookchartaxisformat
+    from ._models_py3 import microsoftgraphworkbookchartaxistitle
+    from ._models_py3 import microsoftgraphworkbookchartaxistitleformat
+    from ._models_py3 import microsoftgraphworkbookchartdatalabelformat
+    from ._models_py3 import microsoftgraphworkbookchartdatalabels
+    from ._models_py3 import microsoftgraphworkbookchartfill
+    from ._models_py3 import microsoftgraphworkbookchartfont
+    from ._models_py3 import microsoftgraphworkbookchartgridlines
+    from ._models_py3 import microsoftgraphworkbookchartgridlinesformat
+    from ._models_py3 import microsoftgraphworkbookchartlegend
+    from ._models_py3 import microsoftgraphworkbookchartlegendformat
+    from ._models_py3 import microsoftgraphworkbookchartlineformat
+    from ._models_py3 import microsoftgraphworkbookchartpoint
+    from ._models_py3 import microsoftgraphworkbookchartpointformat
+    from ._models_py3 import microsoftgraphworkbookchartseries
+    from ._models_py3 import microsoftgraphworkbookchartseriesformat
+    from ._models_py3 import microsoftgraphworkbookcharttitle
+    from ._models_py3 import microsoftgraphworkbookcharttitleformat
+    from ._models_py3 import microsoftgraphworkbookcomment
+    from ._models_py3 import microsoftgraphworkbookcommentreply
+    from ._models_py3 import microsoftgraphworkbookfilter
+    from ._models_py3 import microsoftgraphworkbookfiltercriteria
+    from ._models_py3 import microsoftgraphworkbookfunctions
+    from ._models_py3 import microsoftgraphworkbookicon
+    from ._models_py3 import microsoftgraphworkbooknameditem
+    from ._models_py3 import microsoftgraphworkbookoperation
+    from ._models_py3 import microsoftgraphworkbookoperationerror
+    from ._models_py3 import microsoftgraphworkbookpivottable
+    from ._models_py3 import microsoftgraphworkbooksortfield
+    from ._models_py3 import microsoftgraphworkbooktable
+    from ._models_py3 import microsoftgraphworkbooktablecolumn
+    from ._models_py3 import microsoftgraphworkbooktablerow
+    from ._models_py3 import microsoftgraphworkbooktablesort
+    from ._models_py3 import microsoftgraphworkbookworksheet
+    from ._models_py3 import microsoftgraphworkbookworksheetprotection
+    from ._models_py3 import microsoftgraphworkbookworksheetprotectionoptions
+    from ._models_py3 import microsoftgraphworkinghours
+    from ._models_py3 import microsoftgraphworkposition
+    from ._models_py3 import microsoftgraphyomipersonname
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
+    from ._models_py3 import paths11ap814trustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadpkcs12postrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths184igqyinformationprotectionsensitivitylabelsmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths19skfwztrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadcertificatepostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1aushj1informationprotectionpolicylabelsmicrosoftgraphevaluateapplicationpostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1iaopbhtrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphgeneratekeypostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1jhdydfinformationprotectiondatalosspreventionpoliciesmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsbj48esinformationprotectionpolicylabelsmicrosoftgraphextractlabelpostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsdmvqaitrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadsecretpostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsk62xddinformationprotectionsensitivitylabelssensitivitylabelidsublabelsmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsl8oa4iriskyusersmicrosoftgraphconfirmcompromisedpostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsleqqhcinformationprotectionpolicylabelsmicrosoftgraphevaluateclassificationresultspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathstai6nqriskyusersmicrosoftgraphdismisspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsu4eih0informationprotectionmicrosoftgraphevaluatelabelsandpoliciespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsz22gcjinformationprotectionpolicylabelsmicrosoftgraphevaluateremovalpostrequestbodycontentapplicationjsonschema
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfActivityBasedTimeoutPolicy  # type: ignore
-    from ._models import CollectionOfAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfAuthorizationPolicy  # type: ignore
-    from ._models import CollectionOfCertificateBasedAuthConfiguration  # type: ignore
-    from ._models import CollectionOfClaimsMappingPolicy  # type: ignore
-    from ._models import CollectionOfConditionalAccessPolicy  # type: ignore
-    from ._models import CollectionOfConditionalAccessPolicy0  # type: ignore
-    from ._models import CollectionOfDataLossPreventionPolicy  # type: ignore
-    from ._models import CollectionOfDataPolicyOperation  # type: ignore
-    from ._models import CollectionOfEmailAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfFido2AuthenticationMethod  # type: ignore
-    from ._models import CollectionOfHomeRealmDiscoveryPolicy  # type: ignore
-    from ._models import CollectionOfIdentityProvider  # type: ignore
-    from ._models import CollectionOfIdentityUserFlow  # type: ignore
-    from ._models import CollectionOfInformationProtectionLabel  # type: ignore
-    from ._models import CollectionOfInvitation  # type: ignore
-    from ._models import CollectionOfLinksOfCertificateBasedAuthConfiguration  # type: ignore
-    from ._models import CollectionOfLongRunningOperation  # type: ignore
-    from ._models import CollectionOfMicrosoftAuthenticatorAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfNamedLocation  # type: ignore
-    from ._models import CollectionOfOAuth2PermissionGrant  # type: ignore
-    from ._models import CollectionOfPasswordAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfPasswordlessMicrosoftAuthenticatorAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfPermissionGrantConditionSet  # type: ignore
-    from ._models import CollectionOfPermissionGrantConditionSet0  # type: ignore
-    from ._models import CollectionOfPermissionGrantPolicy  # type: ignore
-    from ._models import CollectionOfPhoneAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfPrivateLinkResource  # type: ignore
-    from ._models import CollectionOfRiskDetection  # type: ignore
-    from ._models import CollectionOfRiskyUser  # type: ignore
-    from ._models import CollectionOfRiskyUserHistoryItem  # type: ignore
-    from ._models import CollectionOfSecurityQuestionAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfSensitivityLabel  # type: ignore
-    from ._models import CollectionOfSensitivityLabel0  # type: ignore
-    from ._models import CollectionOfSoftwareOathAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfTemporaryAccessPassAuthenticationMethod  # type: ignore
-    from ._models import CollectionOfThreatAssessmentRequest  # type: ignore
-    from ._models import CollectionOfThreatAssessmentResult  # type: ignore
-    from ._models import CollectionOfTokenIssuancePolicy  # type: ignore
-    from ._models import CollectionOfTokenLifetimePolicy  # type: ignore
-    from ._models import CollectionOfTrustFrameworkKeySet  # type: ignore
-    from ._models import CollectionOfTrustFrameworkPolicy  # type: ignore
-    from ._models import MicrosoftGraphAccessReviewInstance  # type: ignore
-    from ._models import MicrosoftGraphAccessReviewInstanceDecisionItem  # type: ignore
-    from ._models import MicrosoftGraphAccessReviewReviewerScope  # type: ignore
-    from ._models import MicrosoftGraphAccessReviewScheduleDefinition  # type: ignore
-    from ._models import MicrosoftGraphAccessReviewScheduleSettings  # type: ignore
-    from ._models import MicrosoftGraphAccessReviewScope  # type: ignore
-    from ._models import MicrosoftGraphActivityBasedTimeoutPolicy  # type: ignore
-    from ._models import MicrosoftGraphActivityHistoryItem  # type: ignore
-    from ._models import MicrosoftGraphActivityStatistics  # type: ignore
-    from ._models import MicrosoftGraphAdminConsentRequestPolicy  # type: ignore
-    from ._models import MicrosoftGraphAgreementAcceptance  # type: ignore
-    from ._models import MicrosoftGraphAlbum  # type: ignore
-    from ._models import MicrosoftGraphAlternativeSecurityId  # type: ignore
-    from ._models import MicrosoftGraphAppConsentRequest  # type: ignore
-    from ._models import MicrosoftGraphAppConsentRequestScope  # type: ignore
-    from ._models import MicrosoftGraphAppLogCollectionRequest  # type: ignore
-    from ._models import MicrosoftGraphAppRoleAssignment  # type: ignore
-    from ._models import MicrosoftGraphApplicationEnforcedRestrictionsSessionControl  # type: ignore
-    from ._models import MicrosoftGraphApproval  # type: ignore
-    from ._models import MicrosoftGraphApprovalStep  # type: ignore
-    from ._models import MicrosoftGraphAssignedLabel  # type: ignore
-    from ._models import MicrosoftGraphAssignedLicense  # type: ignore
-    from ._models import MicrosoftGraphAssignedPlan  # type: ignore
-    from ._models import MicrosoftGraphAttachment  # type: ignore
-    from ._models import MicrosoftGraphAttendee  # type: ignore
-    from ._models import MicrosoftGraphAttendeeBase  # type: ignore
-    from ._models import MicrosoftGraphAudio  # type: ignore
-    from ._models import MicrosoftGraphAudioConferencing  # type: ignore
-    from ._models import MicrosoftGraphAuthentication  # type: ignore
-    from ._models import MicrosoftGraphAuthenticationFlowsPolicy  # type: ignore
-    from ._models import MicrosoftGraphAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphAuthorizationPolicy  # type: ignore
-    from ._models import MicrosoftGraphAutoLabeling  # type: ignore
-    from ._models import MicrosoftGraphAutomaticRepliesSetting  # type: ignore
-    from ._models import MicrosoftGraphB2CAuthenticationMethodsPolicy  # type: ignore
-    from ._models import MicrosoftGraphBaseItem  # type: ignore
-    from ._models import MicrosoftGraphBaseItemVersion  # type: ignore
-    from ._models import MicrosoftGraphBundle  # type: ignore
-    from ._models import MicrosoftGraphCalculatedColumn  # type: ignore
-    from ._models import MicrosoftGraphCalendar  # type: ignore
-    from ._models import MicrosoftGraphCalendarGroup  # type: ignore
-    from ._models import MicrosoftGraphCalendarPermission  # type: ignore
-    from ._models import MicrosoftGraphCertificateAuthority  # type: ignore
-    from ._models import MicrosoftGraphCertificateBasedAuthConfiguration  # type: ignore
-    from ._models import MicrosoftGraphChangeTrackedEntity  # type: ignore
-    from ._models import MicrosoftGraphChannel  # type: ignore
-    from ._models import MicrosoftGraphChannelIdentity  # type: ignore
-    from ._models import MicrosoftGraphChannelModerationSettings  # type: ignore
-    from ._models import MicrosoftGraphChat  # type: ignore
-    from ._models import MicrosoftGraphChatInfo  # type: ignore
-    from ._models import MicrosoftGraphChatMessage  # type: ignore
-    from ._models import MicrosoftGraphChatMessageAttachment  # type: ignore
-    from ._models import MicrosoftGraphChatMessageHostedContent  # type: ignore
-    from ._models import MicrosoftGraphChatMessageMention  # type: ignore
-    from ._models import MicrosoftGraphChatMessagePolicyViolation  # type: ignore
-    from ._models import MicrosoftGraphChatMessagePolicyViolationPolicyTip  # type: ignore
-    from ._models import MicrosoftGraphChatMessageReaction  # type: ignore
-    from ._models import MicrosoftGraphChoiceColumn  # type: ignore
-    from ._models import MicrosoftGraphClaimsMappingPolicy  # type: ignore
-    from ._models import MicrosoftGraphClassifcationErrorBase  # type: ignore
-    from ._models import MicrosoftGraphClassificationAttribute  # type: ignore
-    from ._models import MicrosoftGraphClassificationError  # type: ignore
-    from ._models import MicrosoftGraphClassificationInnerError  # type: ignore
-    from ._models import MicrosoftGraphClassificationResult  # type: ignore
-    from ._models import MicrosoftGraphCloudAppSecuritySessionControl  # type: ignore
-    from ._models import MicrosoftGraphColumnDefinition  # type: ignore
-    from ._models import MicrosoftGraphColumnLink  # type: ignore
-    from ._models import MicrosoftGraphCommand  # type: ignore
-    from ._models import MicrosoftGraphCommentAction  # type: ignore
-    from ._models import MicrosoftGraphCompanyDetail  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessApplications  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessClientApplications  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessConditionSet  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessDeviceStates  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessDevices  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessGrantControls  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessLocations  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessPlatforms  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessPolicy  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessRoot  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessSessionControl  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessSessionControls  # type: ignore
-    from ._models import MicrosoftGraphConditionalAccessUsers  # type: ignore
-    from ._models import MicrosoftGraphConfigurationManagerClientEnabledFeatures  # type: ignore
-    from ._models import MicrosoftGraphConfigurationManagerClientHealthState  # type: ignore
-    from ._models import MicrosoftGraphConfigurationManagerClientInformation  # type: ignore
-    from ._models import MicrosoftGraphContact  # type: ignore
-    from ._models import MicrosoftGraphContactFolder  # type: ignore
-    from ._models import MicrosoftGraphContentInfo  # type: ignore
-    from ._models import MicrosoftGraphContentType  # type: ignore
-    from ._models import MicrosoftGraphContentTypeInfo  # type: ignore
-    from ._models import MicrosoftGraphContentTypeOrder  # type: ignore
-    from ._models import MicrosoftGraphConversation  # type: ignore
-    from ._models import MicrosoftGraphConversationMember  # type: ignore
-    from ._models import MicrosoftGraphConversationThread  # type: ignore
-    from ._models import MicrosoftGraphCurrencyColumn  # type: ignore
-    from ._models import MicrosoftGraphCurrentLabel  # type: ignore
-    from ._models import MicrosoftGraphDataLossPreventionPolicy  # type: ignore
-    from ._models import MicrosoftGraphDataPolicyOperation  # type: ignore
-    from ._models import MicrosoftGraphDateTimeColumn  # type: ignore
-    from ._models import MicrosoftGraphDateTimeZone  # type: ignore
-    from ._models import MicrosoftGraphDefaultColumnValue  # type: ignore
-    from ._models import MicrosoftGraphDefaultUserRolePermissions  # type: ignore
-    from ._models import MicrosoftGraphDeleteAction  # type: ignore
-    from ._models import MicrosoftGraphDeleted  # type: ignore
-    from ._models import MicrosoftGraphDetectedApp  # type: ignore
-    from ._models import MicrosoftGraphDetectedSensitiveContent  # type: ignore
-    from ._models import MicrosoftGraphDetectedSensitiveContentBase  # type: ignore
-    from ._models import MicrosoftGraphDetectedSensitiveContentWrapper  # type: ignore
-    from ._models import MicrosoftGraphDevice  # type: ignore
-    from ._models import MicrosoftGraphDeviceActionResult  # type: ignore
-    from ._models import MicrosoftGraphDeviceAndAppManagementAssignmentTarget  # type: ignore
-    from ._models import MicrosoftGraphDeviceCategory  # type: ignore
-    from ._models import MicrosoftGraphDeviceCompliancePolicySettingState  # type: ignore
-    from ._models import MicrosoftGraphDeviceCompliancePolicyState  # type: ignore
-    from ._models import MicrosoftGraphDeviceConfigurationSettingState  # type: ignore
-    from ._models import MicrosoftGraphDeviceConfigurationState  # type: ignore
-    from ._models import MicrosoftGraphDeviceEnrollmentConfiguration  # type: ignore
-    from ._models import MicrosoftGraphDeviceHealthAttestationState  # type: ignore
-    from ._models import MicrosoftGraphDeviceKey  # type: ignore
-    from ._models import MicrosoftGraphDeviceLogCollectionResponse  # type: ignore
-    from ._models import MicrosoftGraphDeviceManagementTroubleshootingErrorDetails  # type: ignore
-    from ._models import MicrosoftGraphDeviceManagementTroubleshootingErrorResource  # type: ignore
-    from ._models import MicrosoftGraphDeviceManagementTroubleshootingEvent  # type: ignore
-    from ._models import MicrosoftGraphDeviceRegistrationPolicy  # type: ignore
-    from ._models import MicrosoftGraphDirectoryObject  # type: ignore
-    from ._models import MicrosoftGraphDirectoryRoleAccessReviewPolicy  # type: ignore
-    from ._models import MicrosoftGraphDirectorySetting  # type: ignore
-    from ._models import MicrosoftGraphDiscoveredSensitiveType  # type: ignore
-    from ._models import MicrosoftGraphDlpActionInfo  # type: ignore
-    from ._models import MicrosoftGraphDlpEvaluatePoliciesJobResponse  # type: ignore
-    from ._models import MicrosoftGraphDlpEvaluatePoliciesRequest  # type: ignore
-    from ._models import MicrosoftGraphDlpEvaluationInput  # type: ignore
-    from ._models import MicrosoftGraphDlpNotification  # type: ignore
-    from ._models import MicrosoftGraphDlpPoliciesJobResult  # type: ignore
-    from ._models import MicrosoftGraphDowngradeJustification  # type: ignore
-    from ._models import MicrosoftGraphDrive  # type: ignore
-    from ._models import MicrosoftGraphDriveItem  # type: ignore
-    from ._models import MicrosoftGraphDriveItemVersion  # type: ignore
-    from ._models import MicrosoftGraphEducationalActivity  # type: ignore
-    from ._models import MicrosoftGraphEducationalActivityDetail  # type: ignore
-    from ._models import MicrosoftGraphEmailAddress  # type: ignore
-    from ._models import MicrosoftGraphEmailAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphEmployeeOrgData  # type: ignore
-    from ._models import MicrosoftGraphEndpoint  # type: ignore
-    from ._models import MicrosoftGraphEnrollmentConfigurationAssignment  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphEvaluateLabelJobResponse  # type: ignore
-    from ._models import MicrosoftGraphEvaluateLabelJobResult  # type: ignore
-    from ._models import MicrosoftGraphEvaluateLabelJobResultGroup  # type: ignore
-    from ._models import MicrosoftGraphEvaluateLabelsAndPoliciesJobResponse  # type: ignore
-    from ._models import MicrosoftGraphEvaluateLabelsAndPoliciesResult  # type: ignore
-    from ._models import MicrosoftGraphEvaluateSensitivityLabelsRequest  # type: ignore
-    from ._models import MicrosoftGraphEvent  # type: ignore
-    from ._models import MicrosoftGraphExtension  # type: ignore
-    from ._models import MicrosoftGraphExternalLink  # type: ignore
-    from ._models import MicrosoftGraphFido2AuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphFieldValueSet  # type: ignore
-    from ._models import MicrosoftGraphFile  # type: ignore
-    from ._models import MicrosoftGraphFileSystemInfo  # type: ignore
-    from ._models import MicrosoftGraphFolder  # type: ignore
-    from ._models import MicrosoftGraphFolderView  # type: ignore
-    from ._models import MicrosoftGraphFollowupFlag  # type: ignore
-    from ._models import MicrosoftGraphGeoCoordinates  # type: ignore
-    from ._models import MicrosoftGraphGroup  # type: ignore
-    from ._models import MicrosoftGraphGroupLifecyclePolicy  # type: ignore
-    from ._models import MicrosoftGraphHardwareInformation  # type: ignore
-    from ._models import MicrosoftGraphHashes  # type: ignore
-    from ._models import MicrosoftGraphHomeRealmDiscoveryPolicy  # type: ignore
-    from ._models import MicrosoftGraphIdentity  # type: ignore
-    from ._models import MicrosoftGraphIdentityProvider  # type: ignore
-    from ._models import MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy  # type: ignore
-    from ._models import MicrosoftGraphIdentitySet  # type: ignore
-    from ._models import MicrosoftGraphIdentityUserFlow  # type: ignore
-    from ._models import MicrosoftGraphImage  # type: ignore
-    from ._models import MicrosoftGraphImageInfo  # type: ignore
-    from ._models import MicrosoftGraphIncompleteData  # type: ignore
-    from ._models import MicrosoftGraphInferenceClassification  # type: ignore
-    from ._models import MicrosoftGraphInferenceClassificationOverride  # type: ignore
-    from ._models import MicrosoftGraphInferenceData  # type: ignore
-    from ._models import MicrosoftGraphInformationProtection  # type: ignore
-    from ._models import MicrosoftGraphInformationProtectionContentLabel  # type: ignore
-    from ._models import MicrosoftGraphInformationProtectionLabel  # type: ignore
-    from ._models import MicrosoftGraphInformationProtectionPolicy  # type: ignore
-    from ._models import MicrosoftGraphInsightIdentity  # type: ignore
-    from ._models import MicrosoftGraphInstitutionData  # type: ignore
-    from ._models import MicrosoftGraphInternetMessageHeader  # type: ignore
-    from ._models import MicrosoftGraphInvitation  # type: ignore
-    from ._models import MicrosoftGraphInvitedUserMessageInfo  # type: ignore
-    from ._models import MicrosoftGraphItemActionSet  # type: ignore
-    from ._models import MicrosoftGraphItemActionStat  # type: ignore
-    from ._models import MicrosoftGraphItemActivity  # type: ignore
-    from ._models import MicrosoftGraphItemActivityOld  # type: ignore
-    from ._models import MicrosoftGraphItemActivityStat  # type: ignore
-    from ._models import MicrosoftGraphItemActivityTimeSet  # type: ignore
-    from ._models import MicrosoftGraphItemAddress  # type: ignore
-    from ._models import MicrosoftGraphItemAnalytics  # type: ignore
-    from ._models import MicrosoftGraphItemBody  # type: ignore
-    from ._models import MicrosoftGraphItemEmail  # type: ignore
-    from ._models import MicrosoftGraphItemFacet  # type: ignore
-    from ._models import MicrosoftGraphItemInsights  # type: ignore
-    from ._models import MicrosoftGraphItemPatent  # type: ignore
-    from ._models import MicrosoftGraphItemPhone  # type: ignore
-    from ._models import MicrosoftGraphItemPublication  # type: ignore
-    from ._models import MicrosoftGraphItemReference  # type: ignore
-    from ._models import MicrosoftGraphJobResponseBase  # type: ignore
-    from ._models import MicrosoftGraphKeyValuePair  # type: ignore
-    from ._models import MicrosoftGraphLabelActionBase  # type: ignore
-    from ._models import MicrosoftGraphLabelDetails  # type: ignore
-    from ._models import MicrosoftGraphLabelPolicy  # type: ignore
-    from ._models import MicrosoftGraphLabelingOptions  # type: ignore
-    from ._models import MicrosoftGraphLanguageProficiency  # type: ignore
-    from ._models import MicrosoftGraphLicenseAssignmentState  # type: ignore
-    from ._models import MicrosoftGraphLicenseDetails  # type: ignore
-    from ._models import MicrosoftGraphLicenseProcessingState  # type: ignore
-    from ._models import MicrosoftGraphLinkedResource  # type: ignore
-    from ._models import MicrosoftGraphList  # type: ignore
-    from ._models import MicrosoftGraphListInfo  # type: ignore
-    from ._models import MicrosoftGraphListItem  # type: ignore
-    from ._models import MicrosoftGraphListItemVersion  # type: ignore
-    from ._models import MicrosoftGraphLobbyBypassSettings  # type: ignore
-    from ._models import MicrosoftGraphLocaleInfo  # type: ignore
-    from ._models import MicrosoftGraphLocation  # type: ignore
-    from ._models import MicrosoftGraphLoggedOnUser  # type: ignore
-    from ._models import MicrosoftGraphLongRunningOperation  # type: ignore
-    from ._models import MicrosoftGraphLookupColumn  # type: ignore
-    from ._models import MicrosoftGraphMailFolder  # type: ignore
-    from ._models import MicrosoftGraphMailboxSettings  # type: ignore
-    from ._models import MicrosoftGraphManagedAppOperation  # type: ignore
-    from ._models import MicrosoftGraphManagedAppPolicy  # type: ignore
-    from ._models import MicrosoftGraphManagedAppRegistration  # type: ignore
-    from ._models import MicrosoftGraphManagedDevice  # type: ignore
-    from ._models import MicrosoftGraphManagedDeviceMobileAppConfigurationSettingState  # type: ignore
-    from ._models import MicrosoftGraphManagedDeviceMobileAppConfigurationState  # type: ignore
-    from ._models import MicrosoftGraphMatchingDlpRule  # type: ignore
-    from ._models import MicrosoftGraphMatchingLabel  # type: ignore
-    from ._models import MicrosoftGraphMeetingParticipantInfo  # type: ignore
-    from ._models import MicrosoftGraphMeetingParticipants  # type: ignore
-    from ._models import MicrosoftGraphMention  # type: ignore
-    from ._models import MicrosoftGraphMentionAction  # type: ignore
-    from ._models import MicrosoftGraphMentionsPreview  # type: ignore
-    from ._models import MicrosoftGraphMessage  # type: ignore
-    from ._models import MicrosoftGraphMessageRule  # type: ignore
-    from ._models import MicrosoftGraphMessageRuleActions  # type: ignore
-    from ._models import MicrosoftGraphMessageRulePredicates  # type: ignore
-    from ._models import MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphMobileAppIntentAndState  # type: ignore
-    from ._models import MicrosoftGraphMobileAppIntentAndStateDetail  # type: ignore
-    from ._models import MicrosoftGraphMobileAppSupportedDeviceType  # type: ignore
-    from ._models import MicrosoftGraphMobileAppTroubleshootingEvent  # type: ignore
-    from ._models import MicrosoftGraphMobileAppTroubleshootingHistoryItem  # type: ignore
-    from ._models import MicrosoftGraphMoveAction  # type: ignore
-    from ._models import MicrosoftGraphMultiValueLegacyExtendedProperty  # type: ignore
-    from ._models import MicrosoftGraphNamedLocation  # type: ignore
-    from ._models import MicrosoftGraphNotebook  # type: ignore
-    from ._models import MicrosoftGraphNotebookLinks  # type: ignore
-    from ._models import MicrosoftGraphNotification  # type: ignore
-    from ._models import MicrosoftGraphNumberColumn  # type: ignore
-    from ._models import MicrosoftGraphOAuth2PermissionGrant  # type: ignore
-    from ._models import MicrosoftGraphObjectIdentity  # type: ignore
-    from ._models import MicrosoftGraphOfferShiftRequest  # type: ignore
-    from ._models import MicrosoftGraphOfficeGraphInsights  # type: ignore
-    from ._models import MicrosoftGraphOnPremisesExtensionAttributes  # type: ignore
-    from ._models import MicrosoftGraphOnPremisesProvisioningError  # type: ignore
-    from ._models import MicrosoftGraphOnenote  # type: ignore
-    from ._models import MicrosoftGraphOnenoteEntityBaseModel  # type: ignore
-    from ._models import MicrosoftGraphOnenoteEntityHierarchyModel  # type: ignore
-    from ._models import MicrosoftGraphOnenoteEntitySchemaObjectModel  # type: ignore
-    from ._models import MicrosoftGraphOnenoteOperation  # type: ignore
-    from ._models import MicrosoftGraphOnenoteOperationError  # type: ignore
-    from ._models import MicrosoftGraphOnenotePage  # type: ignore
-    from ._models import MicrosoftGraphOnenoteResource  # type: ignore
-    from ._models import MicrosoftGraphOnenoteSection  # type: ignore
-    from ._models import MicrosoftGraphOnlineMeeting  # type: ignore
-    from ._models import MicrosoftGraphOnlineMeetingInfo  # type: ignore
-    from ._models import MicrosoftGraphOpenShift  # type: ignore
-    from ._models import MicrosoftGraphOpenShiftChangeRequest  # type: ignore
-    from ._models import MicrosoftGraphOpenShiftItem  # type: ignore
-    from ._models import MicrosoftGraphOperation  # type: ignore
-    from ._models import MicrosoftGraphOperationError  # type: ignore
-    from ._models import MicrosoftGraphOutlookCategory  # type: ignore
-    from ._models import MicrosoftGraphOutlookGeoCoordinates  # type: ignore
-    from ._models import MicrosoftGraphOutlookItem  # type: ignore
-    from ._models import MicrosoftGraphOutlookTask  # type: ignore
-    from ._models import MicrosoftGraphOutlookTaskFolder  # type: ignore
-    from ._models import MicrosoftGraphOutlookTaskGroup  # type: ignore
-    from ._models import MicrosoftGraphOutlookUser  # type: ignore
-    from ._models import MicrosoftGraphPackage  # type: ignore
-    from ._models import MicrosoftGraphPageLinks  # type: ignore
-    from ._models import MicrosoftGraphParentLabelDetails  # type: ignore
-    from ._models import MicrosoftGraphPasswordAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphPasswordProfile  # type: ignore
-    from ._models import MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphPatternedRecurrence  # type: ignore
-    from ._models import MicrosoftGraphPayloadResponse  # type: ignore
-    from ._models import MicrosoftGraphPayloadTypes  # type: ignore
-    from ._models import MicrosoftGraphPendingContentUpdate  # type: ignore
-    from ._models import MicrosoftGraphPendingOperations  # type: ignore
-    from ._models import MicrosoftGraphPermission  # type: ignore
-    from ._models import MicrosoftGraphPermissionGrantConditionSet  # type: ignore
-    from ._models import MicrosoftGraphPermissionGrantPolicy  # type: ignore
-    from ._models import MicrosoftGraphPersistentBrowserSessionControl  # type: ignore
-    from ._models import MicrosoftGraphPerson  # type: ignore
-    from ._models import MicrosoftGraphPersonAnniversary  # type: ignore
-    from ._models import MicrosoftGraphPersonAnnotation  # type: ignore
-    from ._models import MicrosoftGraphPersonAward  # type: ignore
-    from ._models import MicrosoftGraphPersonCertification  # type: ignore
-    from ._models import MicrosoftGraphPersonDataSource  # type: ignore
-    from ._models import MicrosoftGraphPersonDataSources  # type: ignore
-    from ._models import MicrosoftGraphPersonInterest  # type: ignore
-    from ._models import MicrosoftGraphPersonName  # type: ignore
-    from ._models import MicrosoftGraphPersonOrGroupColumn  # type: ignore
-    from ._models import MicrosoftGraphPersonWebsite  # type: ignore
-    from ._models import MicrosoftGraphPhone  # type: ignore
-    from ._models import MicrosoftGraphPhoneAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphPhoto  # type: ignore
-    from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
-    from ._models import MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat  # type: ignore
-    from ._models import MicrosoftGraphPlannerBucket  # type: ignore
-    from ._models import MicrosoftGraphPlannerBucketTaskBoardTaskFormat  # type: ignore
-    from ._models import MicrosoftGraphPlannerCategoryDescriptions  # type: ignore
-    from ._models import MicrosoftGraphPlannerDelta  # type: ignore
-    from ._models import MicrosoftGraphPlannerGroup  # type: ignore
-    from ._models import MicrosoftGraphPlannerPlan  # type: ignore
-    from ._models import MicrosoftGraphPlannerPlanDetails  # type: ignore
-    from ._models import MicrosoftGraphPlannerProgressTaskBoardTaskFormat  # type: ignore
-    from ._models import MicrosoftGraphPlannerTask  # type: ignore
-    from ._models import MicrosoftGraphPlannerTaskDetails  # type: ignore
-    from ._models import MicrosoftGraphPlannerUser  # type: ignore
-    from ._models import MicrosoftGraphPolicyBase  # type: ignore
-    from ._models import MicrosoftGraphPolicyRoot  # type: ignore
-    from ._models import MicrosoftGraphPositionDetail  # type: ignore
-    from ._models import MicrosoftGraphPost  # type: ignore
-    from ._models import MicrosoftGraphPresence  # type: ignore
-    from ._models import MicrosoftGraphPrivateLinkResource  # type: ignore
-    from ._models import MicrosoftGraphProfile  # type: ignore
-    from ._models import MicrosoftGraphProfilePhoto  # type: ignore
-    from ._models import MicrosoftGraphProjectParticipation  # type: ignore
-    from ._models import MicrosoftGraphProvisionedPlan  # type: ignore
-    from ._models import MicrosoftGraphPublicationFacet  # type: ignore
-    from ._models import MicrosoftGraphQuota  # type: ignore
-    from ._models import MicrosoftGraphRankedEmailAddress  # type: ignore
-    from ._models import MicrosoftGraphRecipient  # type: ignore
-    from ._models import MicrosoftGraphRecurrencePattern  # type: ignore
-    from ._models import MicrosoftGraphRecurrenceRange  # type: ignore
-    from ._models import MicrosoftGraphRegionalAndLanguageSettings  # type: ignore
-    from ._models import MicrosoftGraphRegionalFormatOverrides  # type: ignore
-    from ._models import MicrosoftGraphRelatedPerson  # type: ignore
-    from ._models import MicrosoftGraphRemoteItem  # type: ignore
-    from ._models import MicrosoftGraphRenameAction  # type: ignore
-    from ._models import MicrosoftGraphRequest  # type: ignore
-    from ._models import MicrosoftGraphResourceReference  # type: ignore
-    from ._models import MicrosoftGraphResourceSpecificPermissionGrant  # type: ignore
-    from ._models import MicrosoftGraphResourceVisualization  # type: ignore
-    from ._models import MicrosoftGraphResponseStatus  # type: ignore
-    from ._models import MicrosoftGraphResponsiblePolicy  # type: ignore
-    from ._models import MicrosoftGraphResponsibleSensitiveType  # type: ignore
-    from ._models import MicrosoftGraphRiskDetection  # type: ignore
-    from ._models import MicrosoftGraphRiskUserActivity  # type: ignore
-    from ._models import MicrosoftGraphRiskyUser  # type: ignore
-    from ._models import MicrosoftGraphRiskyUserHistoryItem  # type: ignore
-    from ._models import MicrosoftGraphSchedule  # type: ignore
-    from ._models import MicrosoftGraphScheduleChangeRequest  # type: ignore
-    from ._models import MicrosoftGraphScheduleEntity  # type: ignore
-    from ._models import MicrosoftGraphSchedulingGroup  # type: ignore
-    from ._models import MicrosoftGraphScopedRoleMembership  # type: ignore
-    from ._models import MicrosoftGraphSearchResult  # type: ignore
-    from ._models import MicrosoftGraphSectionGroup  # type: ignore
-    from ._models import MicrosoftGraphSectionLinks  # type: ignore
-    from ._models import MicrosoftGraphSecurityBaselineContributingPolicy  # type: ignore
-    from ._models import MicrosoftGraphSecurityBaselineSettingState  # type: ignore
-    from ._models import MicrosoftGraphSecurityBaselineState  # type: ignore
-    from ._models import MicrosoftGraphSecurityQuestionAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphSelfServiceSignUpAuthenticationFlowConfiguration  # type: ignore
-    from ._models import MicrosoftGraphSensitiveContentEvidence  # type: ignore
-    from ._models import MicrosoftGraphSensitiveContentLocation  # type: ignore
-    from ._models import MicrosoftGraphSensitiveContentLocationBase  # type: ignore
-    from ._models import MicrosoftGraphSensitivityLabel  # type: ignore
-    from ._models import MicrosoftGraphSensitivityPolicySettings  # type: ignore
-    from ._models import MicrosoftGraphServiceInformation  # type: ignore
-    from ._models import MicrosoftGraphServicePlanInfo  # type: ignore
-    from ._models import MicrosoftGraphSettingSource  # type: ignore
-    from ._models import MicrosoftGraphSettingValue  # type: ignore
-    from ._models import MicrosoftGraphSettings  # type: ignore
-    from ._models import MicrosoftGraphShareAction  # type: ignore
-    from ._models import MicrosoftGraphShared  # type: ignore
-    from ._models import MicrosoftGraphSharedAppleDeviceUser  # type: ignore
-    from ._models import MicrosoftGraphSharedInsight  # type: ignore
-    from ._models import MicrosoftGraphSharepointIds  # type: ignore
-    from ._models import MicrosoftGraphSharingDetail  # type: ignore
-    from ._models import MicrosoftGraphSharingInvitation  # type: ignore
-    from ._models import MicrosoftGraphSharingLink  # type: ignore
-    from ._models import MicrosoftGraphShift  # type: ignore
-    from ._models import MicrosoftGraphShiftActivity  # type: ignore
-    from ._models import MicrosoftGraphShiftAvailability  # type: ignore
-    from ._models import MicrosoftGraphShiftItem  # type: ignore
-    from ._models import MicrosoftGraphShiftPreferences  # type: ignore
-    from ._models import MicrosoftGraphSignInActivity  # type: ignore
-    from ._models import MicrosoftGraphSignInFrequencySessionControl  # type: ignore
-    from ._models import MicrosoftGraphSignInLocation  # type: ignore
-    from ._models import MicrosoftGraphSingleValueLegacyExtendedProperty  # type: ignore
-    from ._models import MicrosoftGraphSite  # type: ignore
-    from ._models import MicrosoftGraphSiteCollection  # type: ignore
-    from ._models import MicrosoftGraphSitePage  # type: ignore
-    from ._models import MicrosoftGraphSizeRange  # type: ignore
-    from ._models import MicrosoftGraphSkillProficiency  # type: ignore
-    from ._models import MicrosoftGraphSoftwareOathAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphSpecialFolder  # type: ignore
-    from ._models import MicrosoftGraphStoragePlanInformation  # type: ignore
-    from ._models import MicrosoftGraphStsPolicy  # type: ignore
-    from ._models import MicrosoftGraphSubscription  # type: ignore
-    from ._models import MicrosoftGraphSwapShiftsChangeRequest  # type: ignore
-    from ._models import MicrosoftGraphTargetPolicyEndpoints  # type: ignore
-    from ._models import MicrosoftGraphTeam  # type: ignore
-    from ._models import MicrosoftGraphTeamDiscoverySettings  # type: ignore
-    from ._models import MicrosoftGraphTeamFunSettings  # type: ignore
-    from ._models import MicrosoftGraphTeamGuestSettings  # type: ignore
-    from ._models import MicrosoftGraphTeamMemberSettings  # type: ignore
-    from ._models import MicrosoftGraphTeamMessagingSettings  # type: ignore
-    from ._models import MicrosoftGraphTeamsApp  # type: ignore
-    from ._models import MicrosoftGraphTeamsAppDefinition  # type: ignore
-    from ._models import MicrosoftGraphTeamsAppInstallation  # type: ignore
-    from ._models import MicrosoftGraphTeamsAsyncOperation  # type: ignore
-    from ._models import MicrosoftGraphTeamsTab  # type: ignore
-    from ._models import MicrosoftGraphTeamsTabConfiguration  # type: ignore
-    from ._models import MicrosoftGraphTeamsTemplate  # type: ignore
-    from ._models import MicrosoftGraphTemporaryAccessPassAuthenticationMethod  # type: ignore
-    from ._models import MicrosoftGraphTextClassificationRequest  # type: ignore
-    from ._models import MicrosoftGraphTextColumn  # type: ignore
-    from ._models import MicrosoftGraphThreatAssessmentRequest  # type: ignore
-    from ._models import MicrosoftGraphThreatAssessmentResult  # type: ignore
-    from ._models import MicrosoftGraphThumbnail  # type: ignore
-    from ._models import MicrosoftGraphThumbnailSet  # type: ignore
-    from ._models import MicrosoftGraphTimeCard  # type: ignore
-    from ._models import MicrosoftGraphTimeCardBreak  # type: ignore
-    from ._models import MicrosoftGraphTimeCardEntry  # type: ignore
-    from ._models import MicrosoftGraphTimeCardEvent  # type: ignore
-    from ._models import MicrosoftGraphTimeClockSettings  # type: ignore
-    from ._models import MicrosoftGraphTimeOff  # type: ignore
-    from ._models import MicrosoftGraphTimeOffItem  # type: ignore
-    from ._models import MicrosoftGraphTimeOffReason  # type: ignore
-    from ._models import MicrosoftGraphTimeOffRequest  # type: ignore
-    from ._models import MicrosoftGraphTimeRange  # type: ignore
-    from ._models import MicrosoftGraphTimeSlot  # type: ignore
-    from ._models import MicrosoftGraphTimeZoneBase  # type: ignore
-    from ._models import MicrosoftGraphTodo  # type: ignore
-    from ._models import MicrosoftGraphTodoTask  # type: ignore
-    from ._models import MicrosoftGraphTodoTaskList  # type: ignore
-    from ._models import MicrosoftGraphTokenIssuancePolicy  # type: ignore
-    from ._models import MicrosoftGraphTokenLifetimePolicy  # type: ignore
-    from ._models import MicrosoftGraphTrending  # type: ignore
-    from ._models import MicrosoftGraphTrustFramework  # type: ignore
-    from ._models import MicrosoftGraphTrustFrameworkKey  # type: ignore
-    from ._models import MicrosoftGraphTrustFrameworkKeySet  # type: ignore
-    from ._models import MicrosoftGraphTrustFrameworkPolicy  # type: ignore
-    from ._models import MicrosoftGraphTypedEmailAddress  # type: ignore
-    from ._models import MicrosoftGraphUsageDetails  # type: ignore
-    from ._models import MicrosoftGraphUsedInsight  # type: ignore
-    from ._models import MicrosoftGraphUser  # type: ignore
-    from ._models import MicrosoftGraphUserAccountInformation  # type: ignore
-    from ._models import MicrosoftGraphUserActivity  # type: ignore
-    from ._models import MicrosoftGraphUserAnalytics  # type: ignore
-    from ._models import MicrosoftGraphUserConfiguration  # type: ignore
-    from ._models import MicrosoftGraphUserConsentRequest  # type: ignore
-    from ._models import MicrosoftGraphUserIdentity  # type: ignore
-    from ._models import MicrosoftGraphUserPurpose  # type: ignore
-    from ._models import MicrosoftGraphUserScopeTeamsAppInstallation  # type: ignore
-    from ._models import MicrosoftGraphUserSettings  # type: ignore
-    from ._models import MicrosoftGraphUserTeamwork  # type: ignore
-    from ._models import MicrosoftGraphVersionAction  # type: ignore
-    from ._models import MicrosoftGraphVideo  # type: ignore
-    from ._models import MicrosoftGraphVisualInfo  # type: ignore
-    from ._models import MicrosoftGraphVisualProperties  # type: ignore
-    from ._models import MicrosoftGraphWebAccount  # type: ignore
-    from ._models import MicrosoftGraphWebPart  # type: ignore
-    from ._models import MicrosoftGraphWebsite  # type: ignore
-    from ._models import MicrosoftGraphWindowsDeviceMalwareState  # type: ignore
-    from ._models import MicrosoftGraphWindowsInformationProtectionDeviceRegistration  # type: ignore
-    from ._models import MicrosoftGraphWindowsProtectionState  # type: ignore
-    from ._models import MicrosoftGraphWorkPosition  # type: ignore
-    from ._models import MicrosoftGraphWorkbook  # type: ignore
-    from ._models import MicrosoftGraphWorkbookApplication  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChart  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartAreaFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartAxes  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartAxis  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartAxisFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartAxisTitle  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartAxisTitleFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartDataLabelFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartDataLabels  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartFill  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartFont  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartGridlines  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartGridlinesFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartLegend  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartLegendFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartLineFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartPoint  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartPointFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartSeries  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartSeriesFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartTitle  # type: ignore
-    from ._models import MicrosoftGraphWorkbookChartTitleFormat  # type: ignore
-    from ._models import MicrosoftGraphWorkbookComment  # type: ignore
-    from ._models import MicrosoftGraphWorkbookCommentReply  # type: ignore
-    from ._models import MicrosoftGraphWorkbookFilter  # type: ignore
-    from ._models import MicrosoftGraphWorkbookFilterCriteria  # type: ignore
-    from ._models import MicrosoftGraphWorkbookFunctions  # type: ignore
-    from ._models import MicrosoftGraphWorkbookIcon  # type: ignore
-    from ._models import MicrosoftGraphWorkbookNamedItem  # type: ignore
-    from ._models import MicrosoftGraphWorkbookOperation  # type: ignore
-    from ._models import MicrosoftGraphWorkbookOperationError  # type: ignore
-    from ._models import MicrosoftGraphWorkbookPivotTable  # type: ignore
-    from ._models import MicrosoftGraphWorkbookSortField  # type: ignore
-    from ._models import MicrosoftGraphWorkbookTable  # type: ignore
-    from ._models import MicrosoftGraphWorkbookTableColumn  # type: ignore
-    from ._models import MicrosoftGraphWorkbookTableRow  # type: ignore
-    from ._models import MicrosoftGraphWorkbookTableSort  # type: ignore
-    from ._models import MicrosoftGraphWorkbookWorksheet  # type: ignore
-    from ._models import MicrosoftGraphWorkbookWorksheetProtection  # type: ignore
-    from ._models import MicrosoftGraphWorkbookWorksheetProtectionOptions  # type: ignore
-    from ._models import MicrosoftGraphWorkingHours  # type: ignore
-    from ._models import MicrosoftGraphYomiPersonName  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
-    from ._models import Paths11Ap814TrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadpkcs12PostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths184IgqyInformationprotectionSensitivitylabelsMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths19SkfwzTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadcertificatePostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1Aushj1InformationprotectionPolicyLabelsMicrosoftGraphEvaluateapplicationPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1IaopbhTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphGeneratekeyPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1JhdydfInformationprotectionDatalosspreventionpoliciesMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsBj48EsInformationprotectionPolicyLabelsMicrosoftGraphExtractlabelPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsDmvqaiTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadsecretPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsK62XddInformationprotectionSensitivitylabelsSensitivitylabelIdSublabelsMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsL8Oa4IRiskyusersMicrosoftGraphConfirmcompromisedPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsLeqqhcInformationprotectionPolicyLabelsMicrosoftGraphEvaluateclassificationresultsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsTai6NqRiskyusersMicrosoftGraphDismissPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsU4Eih0InformationprotectionMicrosoftGraphEvaluatelabelsandpoliciesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsZ22GcjInformationprotectionPolicyLabelsMicrosoftGraphEvaluateremovalPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import collectionofactivitybasedtimeoutpolicy  # type: ignore
+    from ._models import collectionofauthenticationmethod  # type: ignore
+    from ._models import collectionofauthorizationpolicy  # type: ignore
+    from ._models import collectionofcertificatebasedauthconfiguration  # type: ignore
+    from ._models import collectionofclaimsmappingpolicy  # type: ignore
+    from ._models import collectionofconditionalaccesspolicy  # type: ignore
+    from ._models import collectionofconditionalaccesspolicy0  # type: ignore
+    from ._models import collectionofdatalosspreventionpolicy  # type: ignore
+    from ._models import collectionofdatapolicyoperation  # type: ignore
+    from ._models import collectionofemailauthenticationmethod  # type: ignore
+    from ._models import collectionoffido2authenticationmethod  # type: ignore
+    from ._models import collectionofhomerealmdiscoverypolicy  # type: ignore
+    from ._models import collectionofidentityprovider  # type: ignore
+    from ._models import collectionofidentityuserflow  # type: ignore
+    from ._models import collectionofinformationprotectionlabel  # type: ignore
+    from ._models import collectionofinvitation  # type: ignore
+    from ._models import collectionoflinksofcertificatebasedauthconfiguration  # type: ignore
+    from ._models import collectionoflongrunningoperation  # type: ignore
+    from ._models import collectionofmicrosoftauthenticatorauthenticationmethod  # type: ignore
+    from ._models import collectionofnamedlocation  # type: ignore
+    from ._models import collectionofoauth2permissiongrant  # type: ignore
+    from ._models import collectionofpasswordauthenticationmethod  # type: ignore
+    from ._models import collectionofpasswordlessmicrosoftauthenticatorauthenticationmethod  # type: ignore
+    from ._models import collectionofpermissiongrantconditionset  # type: ignore
+    from ._models import collectionofpermissiongrantconditionset0  # type: ignore
+    from ._models import collectionofpermissiongrantpolicy  # type: ignore
+    from ._models import collectionofphoneauthenticationmethod  # type: ignore
+    from ._models import collectionofprivatelinkresource  # type: ignore
+    from ._models import collectionofriskdetection  # type: ignore
+    from ._models import collectionofriskyuser  # type: ignore
+    from ._models import collectionofriskyuserhistoryitem  # type: ignore
+    from ._models import collectionofsecurityquestionauthenticationmethod  # type: ignore
+    from ._models import collectionofsensitivitylabel  # type: ignore
+    from ._models import collectionofsensitivitylabel0  # type: ignore
+    from ._models import collectionofsoftwareoathauthenticationmethod  # type: ignore
+    from ._models import collectionoftemporaryaccesspassauthenticationmethod  # type: ignore
+    from ._models import collectionofthreatassessmentrequest  # type: ignore
+    from ._models import collectionofthreatassessmentresult  # type: ignore
+    from ._models import collectionoftokenissuancepolicy  # type: ignore
+    from ._models import collectionoftokenlifetimepolicy  # type: ignore
+    from ._models import collectionoftrustframeworkkeyset  # type: ignore
+    from ._models import collectionoftrustframeworkpolicy  # type: ignore
+    from ._models import microsoftgraphaccessreviewinstance  # type: ignore
+    from ._models import microsoftgraphaccessreviewinstancedecisionitem  # type: ignore
+    from ._models import microsoftgraphaccessreviewreviewerscope  # type: ignore
+    from ._models import microsoftgraphaccessreviewscheduledefinition  # type: ignore
+    from ._models import microsoftgraphaccessreviewschedulesettings  # type: ignore
+    from ._models import microsoftgraphaccessreviewscope  # type: ignore
+    from ._models import microsoftgraphactivitybasedtimeoutpolicy  # type: ignore
+    from ._models import microsoftgraphactivityhistoryitem  # type: ignore
+    from ._models import microsoftgraphactivitystatistics  # type: ignore
+    from ._models import microsoftgraphadminconsentrequestpolicy  # type: ignore
+    from ._models import microsoftgraphagreementacceptance  # type: ignore
+    from ._models import microsoftgraphalbum  # type: ignore
+    from ._models import microsoftgraphalternativesecurityid  # type: ignore
+    from ._models import microsoftgraphappconsentrequest  # type: ignore
+    from ._models import microsoftgraphappconsentrequestscope  # type: ignore
+    from ._models import microsoftgraphapplicationenforcedrestrictionssessioncontrol  # type: ignore
+    from ._models import microsoftgraphapplogcollectionrequest  # type: ignore
+    from ._models import microsoftgraphapproleassignment  # type: ignore
+    from ._models import microsoftgraphapproval  # type: ignore
+    from ._models import microsoftgraphapprovalstep  # type: ignore
+    from ._models import microsoftgraphassignedlabel  # type: ignore
+    from ._models import microsoftgraphassignedlicense  # type: ignore
+    from ._models import microsoftgraphassignedplan  # type: ignore
+    from ._models import microsoftgraphattachment  # type: ignore
+    from ._models import microsoftgraphattendee  # type: ignore
+    from ._models import microsoftgraphattendeebase  # type: ignore
+    from ._models import microsoftgraphaudio  # type: ignore
+    from ._models import microsoftgraphaudioconferencing  # type: ignore
+    from ._models import microsoftgraphauthentication  # type: ignore
+    from ._models import microsoftgraphauthenticationflowspolicy  # type: ignore
+    from ._models import microsoftgraphauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphauthorizationpolicy  # type: ignore
+    from ._models import microsoftgraphautolabeling  # type: ignore
+    from ._models import microsoftgraphautomaticrepliessetting  # type: ignore
+    from ._models import microsoftgraphb2cauthenticationmethodspolicy  # type: ignore
+    from ._models import microsoftgraphbaseitem  # type: ignore
+    from ._models import microsoftgraphbaseitemversion  # type: ignore
+    from ._models import microsoftgraphbundle  # type: ignore
+    from ._models import microsoftgraphcalculatedcolumn  # type: ignore
+    from ._models import microsoftgraphcalendar  # type: ignore
+    from ._models import microsoftgraphcalendargroup  # type: ignore
+    from ._models import microsoftgraphcalendarpermission  # type: ignore
+    from ._models import microsoftgraphcertificateauthority  # type: ignore
+    from ._models import microsoftgraphcertificatebasedauthconfiguration  # type: ignore
+    from ._models import microsoftgraphchangetrackedentity  # type: ignore
+    from ._models import microsoftgraphchannel  # type: ignore
+    from ._models import microsoftgraphchannelidentity  # type: ignore
+    from ._models import microsoftgraphchannelmoderationsettings  # type: ignore
+    from ._models import microsoftgraphchat  # type: ignore
+    from ._models import microsoftgraphchatinfo  # type: ignore
+    from ._models import microsoftgraphchatmessage  # type: ignore
+    from ._models import microsoftgraphchatmessageattachment  # type: ignore
+    from ._models import microsoftgraphchatmessagehostedcontent  # type: ignore
+    from ._models import microsoftgraphchatmessagemention  # type: ignore
+    from ._models import microsoftgraphchatmessagepolicyviolation  # type: ignore
+    from ._models import microsoftgraphchatmessagepolicyviolationpolicytip  # type: ignore
+    from ._models import microsoftgraphchatmessagereaction  # type: ignore
+    from ._models import microsoftgraphchoicecolumn  # type: ignore
+    from ._models import microsoftgraphclaimsmappingpolicy  # type: ignore
+    from ._models import microsoftgraphclassifcationerrorbase  # type: ignore
+    from ._models import microsoftgraphclassificationattribute  # type: ignore
+    from ._models import microsoftgraphclassificationerror  # type: ignore
+    from ._models import microsoftgraphclassificationinnererror  # type: ignore
+    from ._models import microsoftgraphclassificationresult  # type: ignore
+    from ._models import microsoftgraphcloudappsecuritysessioncontrol  # type: ignore
+    from ._models import microsoftgraphcolumndefinition  # type: ignore
+    from ._models import microsoftgraphcolumnlink  # type: ignore
+    from ._models import microsoftgraphcommand  # type: ignore
+    from ._models import microsoftgraphcommentaction  # type: ignore
+    from ._models import microsoftgraphcompanydetail  # type: ignore
+    from ._models import microsoftgraphconditionalaccessapplications  # type: ignore
+    from ._models import microsoftgraphconditionalaccessclientapplications  # type: ignore
+    from ._models import microsoftgraphconditionalaccessconditionset  # type: ignore
+    from ._models import microsoftgraphconditionalaccessdevices  # type: ignore
+    from ._models import microsoftgraphconditionalaccessdevicestates  # type: ignore
+    from ._models import microsoftgraphconditionalaccessgrantcontrols  # type: ignore
+    from ._models import microsoftgraphconditionalaccesslocations  # type: ignore
+    from ._models import microsoftgraphconditionalaccessplatforms  # type: ignore
+    from ._models import microsoftgraphconditionalaccesspolicy  # type: ignore
+    from ._models import microsoftgraphconditionalaccessroot  # type: ignore
+    from ._models import microsoftgraphconditionalaccesssessioncontrol  # type: ignore
+    from ._models import microsoftgraphconditionalaccesssessioncontrols  # type: ignore
+    from ._models import microsoftgraphconditionalaccessusers  # type: ignore
+    from ._models import microsoftgraphconfigurationmanagerclientenabledfeatures  # type: ignore
+    from ._models import microsoftgraphconfigurationmanagerclienthealthstate  # type: ignore
+    from ._models import microsoftgraphconfigurationmanagerclientinformation  # type: ignore
+    from ._models import microsoftgraphcontact  # type: ignore
+    from ._models import microsoftgraphcontactfolder  # type: ignore
+    from ._models import microsoftgraphcontentinfo  # type: ignore
+    from ._models import microsoftgraphcontenttype  # type: ignore
+    from ._models import microsoftgraphcontenttypeinfo  # type: ignore
+    from ._models import microsoftgraphcontenttypeorder  # type: ignore
+    from ._models import microsoftgraphconversation  # type: ignore
+    from ._models import microsoftgraphconversationmember  # type: ignore
+    from ._models import microsoftgraphconversationthread  # type: ignore
+    from ._models import microsoftgraphcurrencycolumn  # type: ignore
+    from ._models import microsoftgraphcurrentlabel  # type: ignore
+    from ._models import microsoftgraphdatalosspreventionpolicy  # type: ignore
+    from ._models import microsoftgraphdatapolicyoperation  # type: ignore
+    from ._models import microsoftgraphdatetimecolumn  # type: ignore
+    from ._models import microsoftgraphdatetimezone  # type: ignore
+    from ._models import microsoftgraphdefaultcolumnvalue  # type: ignore
+    from ._models import microsoftgraphdefaultuserrolepermissions  # type: ignore
+    from ._models import microsoftgraphdeleteaction  # type: ignore
+    from ._models import microsoftgraphdeleted  # type: ignore
+    from ._models import microsoftgraphdetectedapp  # type: ignore
+    from ._models import microsoftgraphdetectedsensitivecontent  # type: ignore
+    from ._models import microsoftgraphdetectedsensitivecontentbase  # type: ignore
+    from ._models import microsoftgraphdetectedsensitivecontentwrapper  # type: ignore
+    from ._models import microsoftgraphdevice  # type: ignore
+    from ._models import microsoftgraphdeviceactionresult  # type: ignore
+    from ._models import microsoftgraphdeviceandappmanagementassignmenttarget  # type: ignore
+    from ._models import microsoftgraphdevicecategory  # type: ignore
+    from ._models import microsoftgraphdevicecompliancepolicysettingstate  # type: ignore
+    from ._models import microsoftgraphdevicecompliancepolicystate  # type: ignore
+    from ._models import microsoftgraphdeviceconfigurationsettingstate  # type: ignore
+    from ._models import microsoftgraphdeviceconfigurationstate  # type: ignore
+    from ._models import microsoftgraphdeviceenrollmentconfiguration  # type: ignore
+    from ._models import microsoftgraphdevicehealthattestationstate  # type: ignore
+    from ._models import microsoftgraphdevicekey  # type: ignore
+    from ._models import microsoftgraphdevicelogcollectionresponse  # type: ignore
+    from ._models import microsoftgraphdevicemanagementtroubleshootingerrordetails  # type: ignore
+    from ._models import microsoftgraphdevicemanagementtroubleshootingerrorresource  # type: ignore
+    from ._models import microsoftgraphdevicemanagementtroubleshootingevent  # type: ignore
+    from ._models import microsoftgraphdeviceregistrationpolicy  # type: ignore
+    from ._models import microsoftgraphdirectoryobject  # type: ignore
+    from ._models import microsoftgraphdirectoryroleaccessreviewpolicy  # type: ignore
+    from ._models import microsoftgraphdirectorysetting  # type: ignore
+    from ._models import microsoftgraphdiscoveredsensitivetype  # type: ignore
+    from ._models import microsoftgraphdlpactioninfo  # type: ignore
+    from ._models import microsoftgraphdlpevaluatepoliciesjobresponse  # type: ignore
+    from ._models import microsoftgraphdlpevaluatepoliciesrequest  # type: ignore
+    from ._models import microsoftgraphdlpevaluationinput  # type: ignore
+    from ._models import microsoftgraphdlpnotification  # type: ignore
+    from ._models import microsoftgraphdlppoliciesjobresult  # type: ignore
+    from ._models import microsoftgraphdowngradejustification  # type: ignore
+    from ._models import microsoftgraphdrive  # type: ignore
+    from ._models import microsoftgraphdriveitem  # type: ignore
+    from ._models import microsoftgraphdriveitemversion  # type: ignore
+    from ._models import microsoftgrapheducationalactivity  # type: ignore
+    from ._models import microsoftgrapheducationalactivitydetail  # type: ignore
+    from ._models import microsoftgraphemailaddress  # type: ignore
+    from ._models import microsoftgraphemailauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphemployeeorgdata  # type: ignore
+    from ._models import microsoftgraphendpoint  # type: ignore
+    from ._models import microsoftgraphenrollmentconfigurationassignment  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphevaluatelabeljobresponse  # type: ignore
+    from ._models import microsoftgraphevaluatelabeljobresult  # type: ignore
+    from ._models import microsoftgraphevaluatelabeljobresultgroup  # type: ignore
+    from ._models import microsoftgraphevaluatelabelsandpoliciesjobresponse  # type: ignore
+    from ._models import microsoftgraphevaluatelabelsandpoliciesresult  # type: ignore
+    from ._models import microsoftgraphevaluatesensitivitylabelsrequest  # type: ignore
+    from ._models import microsoftgraphevent  # type: ignore
+    from ._models import microsoftgraphextension  # type: ignore
+    from ._models import microsoftgraphexternallink  # type: ignore
+    from ._models import microsoftgraphfido2authenticationmethod  # type: ignore
+    from ._models import microsoftgraphfieldvalueset  # type: ignore
+    from ._models import microsoftgraphfile  # type: ignore
+    from ._models import microsoftgraphfilesysteminfo  # type: ignore
+    from ._models import microsoftgraphfolder  # type: ignore
+    from ._models import microsoftgraphfolderview  # type: ignore
+    from ._models import microsoftgraphfollowupflag  # type: ignore
+    from ._models import microsoftgraphgeocoordinates  # type: ignore
+    from ._models import microsoftgraphgroup  # type: ignore
+    from ._models import microsoftgraphgrouplifecyclepolicy  # type: ignore
+    from ._models import microsoftgraphhardwareinformation  # type: ignore
+    from ._models import microsoftgraphhashes  # type: ignore
+    from ._models import microsoftgraphhomerealmdiscoverypolicy  # type: ignore
+    from ._models import microsoftgraphidentity  # type: ignore
+    from ._models import microsoftgraphidentityprovider  # type: ignore
+    from ._models import microsoftgraphidentitysecuritydefaultsenforcementpolicy  # type: ignore
+    from ._models import microsoftgraphidentityset  # type: ignore
+    from ._models import microsoftgraphidentityuserflow  # type: ignore
+    from ._models import microsoftgraphimage  # type: ignore
+    from ._models import microsoftgraphimageinfo  # type: ignore
+    from ._models import microsoftgraphincompletedata  # type: ignore
+    from ._models import microsoftgraphinferenceclassification  # type: ignore
+    from ._models import microsoftgraphinferenceclassificationoverride  # type: ignore
+    from ._models import microsoftgraphinferencedata  # type: ignore
+    from ._models import microsoftgraphinformationprotection  # type: ignore
+    from ._models import microsoftgraphinformationprotectioncontentlabel  # type: ignore
+    from ._models import microsoftgraphinformationprotectionlabel  # type: ignore
+    from ._models import microsoftgraphinformationprotectionpolicy  # type: ignore
+    from ._models import microsoftgraphinsightidentity  # type: ignore
+    from ._models import microsoftgraphinstitutiondata  # type: ignore
+    from ._models import microsoftgraphinternetmessageheader  # type: ignore
+    from ._models import microsoftgraphinvitation  # type: ignore
+    from ._models import microsoftgraphinvitedusermessageinfo  # type: ignore
+    from ._models import microsoftgraphitemactionset  # type: ignore
+    from ._models import microsoftgraphitemactionstat  # type: ignore
+    from ._models import microsoftgraphitemactivity  # type: ignore
+    from ._models import microsoftgraphitemactivityold  # type: ignore
+    from ._models import microsoftgraphitemactivitystat  # type: ignore
+    from ._models import microsoftgraphitemactivitytimeset  # type: ignore
+    from ._models import microsoftgraphitemaddress  # type: ignore
+    from ._models import microsoftgraphitemanalytics  # type: ignore
+    from ._models import microsoftgraphitembody  # type: ignore
+    from ._models import microsoftgraphitememail  # type: ignore
+    from ._models import microsoftgraphitemfacet  # type: ignore
+    from ._models import microsoftgraphiteminsights  # type: ignore
+    from ._models import microsoftgraphitempatent  # type: ignore
+    from ._models import microsoftgraphitemphone  # type: ignore
+    from ._models import microsoftgraphitempublication  # type: ignore
+    from ._models import microsoftgraphitemreference  # type: ignore
+    from ._models import microsoftgraphjobresponsebase  # type: ignore
+    from ._models import microsoftgraphkeyvaluepair  # type: ignore
+    from ._models import microsoftgraphlabelactionbase  # type: ignore
+    from ._models import microsoftgraphlabeldetails  # type: ignore
+    from ._models import microsoftgraphlabelingoptions  # type: ignore
+    from ._models import microsoftgraphlabelpolicy  # type: ignore
+    from ._models import microsoftgraphlanguageproficiency  # type: ignore
+    from ._models import microsoftgraphlicenseassignmentstate  # type: ignore
+    from ._models import microsoftgraphlicensedetails  # type: ignore
+    from ._models import microsoftgraphlicenseprocessingstate  # type: ignore
+    from ._models import microsoftgraphlinkedresource  # type: ignore
+    from ._models import microsoftgraphlist  # type: ignore
+    from ._models import microsoftgraphlistinfo  # type: ignore
+    from ._models import microsoftgraphlistitem  # type: ignore
+    from ._models import microsoftgraphlistitemversion  # type: ignore
+    from ._models import microsoftgraphlobbybypasssettings  # type: ignore
+    from ._models import microsoftgraphlocaleinfo  # type: ignore
+    from ._models import microsoftgraphlocation  # type: ignore
+    from ._models import microsoftgraphloggedonuser  # type: ignore
+    from ._models import microsoftgraphlongrunningoperation  # type: ignore
+    from ._models import microsoftgraphlookupcolumn  # type: ignore
+    from ._models import microsoftgraphmailboxsettings  # type: ignore
+    from ._models import microsoftgraphmailfolder  # type: ignore
+    from ._models import microsoftgraphmanagedappoperation  # type: ignore
+    from ._models import microsoftgraphmanagedapppolicy  # type: ignore
+    from ._models import microsoftgraphmanagedappregistration  # type: ignore
+    from ._models import microsoftgraphmanageddevice  # type: ignore
+    from ._models import microsoftgraphmanageddevicemobileappconfigurationsettingstate  # type: ignore
+    from ._models import microsoftgraphmanageddevicemobileappconfigurationstate  # type: ignore
+    from ._models import microsoftgraphmatchingdlprule  # type: ignore
+    from ._models import microsoftgraphmatchinglabel  # type: ignore
+    from ._models import microsoftgraphmeetingparticipantinfo  # type: ignore
+    from ._models import microsoftgraphmeetingparticipants  # type: ignore
+    from ._models import microsoftgraphmention  # type: ignore
+    from ._models import microsoftgraphmentionaction  # type: ignore
+    from ._models import microsoftgraphmentionspreview  # type: ignore
+    from ._models import microsoftgraphmessage  # type: ignore
+    from ._models import microsoftgraphmessagerule  # type: ignore
+    from ._models import microsoftgraphmessageruleactions  # type: ignore
+    from ._models import microsoftgraphmessagerulepredicates  # type: ignore
+    from ._models import microsoftgraphmicrosoftauthenticatorauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphmobileappintentandstate  # type: ignore
+    from ._models import microsoftgraphmobileappintentandstatedetail  # type: ignore
+    from ._models import microsoftgraphmobileappsupporteddevicetype  # type: ignore
+    from ._models import microsoftgraphmobileapptroubleshootingevent  # type: ignore
+    from ._models import microsoftgraphmobileapptroubleshootinghistoryitem  # type: ignore
+    from ._models import microsoftgraphmoveaction  # type: ignore
+    from ._models import microsoftgraphmultivaluelegacyextendedproperty  # type: ignore
+    from ._models import microsoftgraphnamedlocation  # type: ignore
+    from ._models import microsoftgraphnotebook  # type: ignore
+    from ._models import microsoftgraphnotebooklinks  # type: ignore
+    from ._models import microsoftgraphnotification  # type: ignore
+    from ._models import microsoftgraphnumbercolumn  # type: ignore
+    from ._models import microsoftgraphoauth2permissiongrant  # type: ignore
+    from ._models import microsoftgraphobjectidentity  # type: ignore
+    from ._models import microsoftgraphoffershiftrequest  # type: ignore
+    from ._models import microsoftgraphofficegraphinsights  # type: ignore
+    from ._models import microsoftgraphonenote  # type: ignore
+    from ._models import microsoftgraphonenoteentitybasemodel  # type: ignore
+    from ._models import microsoftgraphonenoteentityhierarchymodel  # type: ignore
+    from ._models import microsoftgraphonenoteentityschemaobjectmodel  # type: ignore
+    from ._models import microsoftgraphonenoteoperation  # type: ignore
+    from ._models import microsoftgraphonenoteoperationerror  # type: ignore
+    from ._models import microsoftgraphonenotepage  # type: ignore
+    from ._models import microsoftgraphonenoteresource  # type: ignore
+    from ._models import microsoftgraphonenotesection  # type: ignore
+    from ._models import microsoftgraphonlinemeeting  # type: ignore
+    from ._models import microsoftgraphonlinemeetinginfo  # type: ignore
+    from ._models import microsoftgraphonpremisesextensionattributes  # type: ignore
+    from ._models import microsoftgraphonpremisesprovisioningerror  # type: ignore
+    from ._models import microsoftgraphopenshift  # type: ignore
+    from ._models import microsoftgraphopenshiftchangerequest  # type: ignore
+    from ._models import microsoftgraphopenshiftitem  # type: ignore
+    from ._models import microsoftgraphoperation  # type: ignore
+    from ._models import microsoftgraphoperationerror  # type: ignore
+    from ._models import microsoftgraphoutlookcategory  # type: ignore
+    from ._models import microsoftgraphoutlookgeocoordinates  # type: ignore
+    from ._models import microsoftgraphoutlookitem  # type: ignore
+    from ._models import microsoftgraphoutlooktask  # type: ignore
+    from ._models import microsoftgraphoutlooktaskfolder  # type: ignore
+    from ._models import microsoftgraphoutlooktaskgroup  # type: ignore
+    from ._models import microsoftgraphoutlookuser  # type: ignore
+    from ._models import microsoftgraphpackage  # type: ignore
+    from ._models import microsoftgraphpagelinks  # type: ignore
+    from ._models import microsoftgraphparentlabeldetails  # type: ignore
+    from ._models import microsoftgraphpasswordauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphpasswordlessmicrosoftauthenticatorauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphpasswordprofile  # type: ignore
+    from ._models import microsoftgraphpatternedrecurrence  # type: ignore
+    from ._models import microsoftgraphpayloadresponse  # type: ignore
+    from ._models import microsoftgraphpayloadtypes  # type: ignore
+    from ._models import microsoftgraphpendingcontentupdate  # type: ignore
+    from ._models import microsoftgraphpendingoperations  # type: ignore
+    from ._models import microsoftgraphpermission  # type: ignore
+    from ._models import microsoftgraphpermissiongrantconditionset  # type: ignore
+    from ._models import microsoftgraphpermissiongrantpolicy  # type: ignore
+    from ._models import microsoftgraphpersistentbrowsersessioncontrol  # type: ignore
+    from ._models import microsoftgraphperson  # type: ignore
+    from ._models import microsoftgraphpersonanniversary  # type: ignore
+    from ._models import microsoftgraphpersonannotation  # type: ignore
+    from ._models import microsoftgraphpersonaward  # type: ignore
+    from ._models import microsoftgraphpersoncertification  # type: ignore
+    from ._models import microsoftgraphpersondatasource  # type: ignore
+    from ._models import microsoftgraphpersondatasources  # type: ignore
+    from ._models import microsoftgraphpersoninterest  # type: ignore
+    from ._models import microsoftgraphpersonname  # type: ignore
+    from ._models import microsoftgraphpersonorgroupcolumn  # type: ignore
+    from ._models import microsoftgraphpersonwebsite  # type: ignore
+    from ._models import microsoftgraphphone  # type: ignore
+    from ._models import microsoftgraphphoneauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphphoto  # type: ignore
+    from ._models import microsoftgraphphysicaladdress  # type: ignore
+    from ._models import microsoftgraphplannerassignedtotaskboardtaskformat  # type: ignore
+    from ._models import microsoftgraphplannerbucket  # type: ignore
+    from ._models import microsoftgraphplannerbuckettaskboardtaskformat  # type: ignore
+    from ._models import microsoftgraphplannercategorydescriptions  # type: ignore
+    from ._models import microsoftgraphplannerdelta  # type: ignore
+    from ._models import microsoftgraphplannergroup  # type: ignore
+    from ._models import microsoftgraphplannerplan  # type: ignore
+    from ._models import microsoftgraphplannerplandetails  # type: ignore
+    from ._models import microsoftgraphplannerprogresstaskboardtaskformat  # type: ignore
+    from ._models import microsoftgraphplannertask  # type: ignore
+    from ._models import microsoftgraphplannertaskdetails  # type: ignore
+    from ._models import microsoftgraphplanneruser  # type: ignore
+    from ._models import microsoftgraphpolicybase  # type: ignore
+    from ._models import microsoftgraphpolicyroot  # type: ignore
+    from ._models import microsoftgraphpositiondetail  # type: ignore
+    from ._models import microsoftgraphpost  # type: ignore
+    from ._models import microsoftgraphpresence  # type: ignore
+    from ._models import microsoftgraphprivatelinkresource  # type: ignore
+    from ._models import microsoftgraphprofile  # type: ignore
+    from ._models import microsoftgraphprofilephoto  # type: ignore
+    from ._models import microsoftgraphprojectparticipation  # type: ignore
+    from ._models import microsoftgraphprovisionedplan  # type: ignore
+    from ._models import microsoftgraphpublicationfacet  # type: ignore
+    from ._models import microsoftgraphquota  # type: ignore
+    from ._models import microsoftgraphrankedemailaddress  # type: ignore
+    from ._models import microsoftgraphrecipient  # type: ignore
+    from ._models import microsoftgraphrecurrencepattern  # type: ignore
+    from ._models import microsoftgraphrecurrencerange  # type: ignore
+    from ._models import microsoftgraphregionalandlanguagesettings  # type: ignore
+    from ._models import microsoftgraphregionalformatoverrides  # type: ignore
+    from ._models import microsoftgraphrelatedperson  # type: ignore
+    from ._models import microsoftgraphremoteitem  # type: ignore
+    from ._models import microsoftgraphrenameaction  # type: ignore
+    from ._models import microsoftgraphrequest  # type: ignore
+    from ._models import microsoftgraphresourcereference  # type: ignore
+    from ._models import microsoftgraphresourcespecificpermissiongrant  # type: ignore
+    from ._models import microsoftgraphresourcevisualization  # type: ignore
+    from ._models import microsoftgraphresponsestatus  # type: ignore
+    from ._models import microsoftgraphresponsiblepolicy  # type: ignore
+    from ._models import microsoftgraphresponsiblesensitivetype  # type: ignore
+    from ._models import microsoftgraphriskdetection  # type: ignore
+    from ._models import microsoftgraphriskuseractivity  # type: ignore
+    from ._models import microsoftgraphriskyuser  # type: ignore
+    from ._models import microsoftgraphriskyuserhistoryitem  # type: ignore
+    from ._models import microsoftgraphschedule  # type: ignore
+    from ._models import microsoftgraphschedulechangerequest  # type: ignore
+    from ._models import microsoftgraphscheduleentity  # type: ignore
+    from ._models import microsoftgraphschedulinggroup  # type: ignore
+    from ._models import microsoftgraphscopedrolemembership  # type: ignore
+    from ._models import microsoftgraphsearchresult  # type: ignore
+    from ._models import microsoftgraphsectiongroup  # type: ignore
+    from ._models import microsoftgraphsectionlinks  # type: ignore
+    from ._models import microsoftgraphsecuritybaselinecontributingpolicy  # type: ignore
+    from ._models import microsoftgraphsecuritybaselinesettingstate  # type: ignore
+    from ._models import microsoftgraphsecuritybaselinestate  # type: ignore
+    from ._models import microsoftgraphsecurityquestionauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphselfservicesignupauthenticationflowconfiguration  # type: ignore
+    from ._models import microsoftgraphsensitivecontentevidence  # type: ignore
+    from ._models import microsoftgraphsensitivecontentlocation  # type: ignore
+    from ._models import microsoftgraphsensitivecontentlocationbase  # type: ignore
+    from ._models import microsoftgraphsensitivitylabel  # type: ignore
+    from ._models import microsoftgraphsensitivitypolicysettings  # type: ignore
+    from ._models import microsoftgraphserviceinformation  # type: ignore
+    from ._models import microsoftgraphserviceplaninfo  # type: ignore
+    from ._models import microsoftgraphsettings  # type: ignore
+    from ._models import microsoftgraphsettingsource  # type: ignore
+    from ._models import microsoftgraphsettingvalue  # type: ignore
+    from ._models import microsoftgraphshareaction  # type: ignore
+    from ._models import microsoftgraphshared  # type: ignore
+    from ._models import microsoftgraphsharedappledeviceuser  # type: ignore
+    from ._models import microsoftgraphsharedinsight  # type: ignore
+    from ._models import microsoftgraphsharepointids  # type: ignore
+    from ._models import microsoftgraphsharingdetail  # type: ignore
+    from ._models import microsoftgraphsharinginvitation  # type: ignore
+    from ._models import microsoftgraphsharinglink  # type: ignore
+    from ._models import microsoftgraphshift  # type: ignore
+    from ._models import microsoftgraphshiftactivity  # type: ignore
+    from ._models import microsoftgraphshiftavailability  # type: ignore
+    from ._models import microsoftgraphshiftitem  # type: ignore
+    from ._models import microsoftgraphshiftpreferences  # type: ignore
+    from ._models import microsoftgraphsigninactivity  # type: ignore
+    from ._models import microsoftgraphsigninfrequencysessioncontrol  # type: ignore
+    from ._models import microsoftgraphsigninlocation  # type: ignore
+    from ._models import microsoftgraphsinglevaluelegacyextendedproperty  # type: ignore
+    from ._models import microsoftgraphsite  # type: ignore
+    from ._models import microsoftgraphsitecollection  # type: ignore
+    from ._models import microsoftgraphsitepage  # type: ignore
+    from ._models import microsoftgraphsizerange  # type: ignore
+    from ._models import microsoftgraphskillproficiency  # type: ignore
+    from ._models import microsoftgraphsoftwareoathauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphspecialfolder  # type: ignore
+    from ._models import microsoftgraphstorageplaninformation  # type: ignore
+    from ._models import microsoftgraphstspolicy  # type: ignore
+    from ._models import microsoftgraphsubscription  # type: ignore
+    from ._models import microsoftgraphswapshiftschangerequest  # type: ignore
+    from ._models import microsoftgraphtargetpolicyendpoints  # type: ignore
+    from ._models import microsoftgraphteam  # type: ignore
+    from ._models import microsoftgraphteamdiscoverysettings  # type: ignore
+    from ._models import microsoftgraphteamfunsettings  # type: ignore
+    from ._models import microsoftgraphteamguestsettings  # type: ignore
+    from ._models import microsoftgraphteammembersettings  # type: ignore
+    from ._models import microsoftgraphteammessagingsettings  # type: ignore
+    from ._models import microsoftgraphteamsapp  # type: ignore
+    from ._models import microsoftgraphteamsappdefinition  # type: ignore
+    from ._models import microsoftgraphteamsappinstallation  # type: ignore
+    from ._models import microsoftgraphteamsasyncoperation  # type: ignore
+    from ._models import microsoftgraphteamstab  # type: ignore
+    from ._models import microsoftgraphteamstabconfiguration  # type: ignore
+    from ._models import microsoftgraphteamstemplate  # type: ignore
+    from ._models import microsoftgraphtemporaryaccesspassauthenticationmethod  # type: ignore
+    from ._models import microsoftgraphtextclassificationrequest  # type: ignore
+    from ._models import microsoftgraphtextcolumn  # type: ignore
+    from ._models import microsoftgraphthreatassessmentrequest  # type: ignore
+    from ._models import microsoftgraphthreatassessmentresult  # type: ignore
+    from ._models import microsoftgraphthumbnail  # type: ignore
+    from ._models import microsoftgraphthumbnailset  # type: ignore
+    from ._models import microsoftgraphtimecard  # type: ignore
+    from ._models import microsoftgraphtimecardbreak  # type: ignore
+    from ._models import microsoftgraphtimecardentry  # type: ignore
+    from ._models import microsoftgraphtimecardevent  # type: ignore
+    from ._models import microsoftgraphtimeclocksettings  # type: ignore
+    from ._models import microsoftgraphtimeoff  # type: ignore
+    from ._models import microsoftgraphtimeoffitem  # type: ignore
+    from ._models import microsoftgraphtimeoffreason  # type: ignore
+    from ._models import microsoftgraphtimeoffrequest  # type: ignore
+    from ._models import microsoftgraphtimerange  # type: ignore
+    from ._models import microsoftgraphtimeslot  # type: ignore
+    from ._models import microsoftgraphtimezonebase  # type: ignore
+    from ._models import microsoftgraphtodo  # type: ignore
+    from ._models import microsoftgraphtodotask  # type: ignore
+    from ._models import microsoftgraphtodotasklist  # type: ignore
+    from ._models import microsoftgraphtokenissuancepolicy  # type: ignore
+    from ._models import microsoftgraphtokenlifetimepolicy  # type: ignore
+    from ._models import microsoftgraphtrending  # type: ignore
+    from ._models import microsoftgraphtrustframework  # type: ignore
+    from ._models import microsoftgraphtrustframeworkkey  # type: ignore
+    from ._models import microsoftgraphtrustframeworkkeyset  # type: ignore
+    from ._models import microsoftgraphtrustframeworkpolicy  # type: ignore
+    from ._models import microsoftgraphtypedemailaddress  # type: ignore
+    from ._models import microsoftgraphusagedetails  # type: ignore
+    from ._models import microsoftgraphusedinsight  # type: ignore
+    from ._models import microsoftgraphuser  # type: ignore
+    from ._models import microsoftgraphuseraccountinformation  # type: ignore
+    from ._models import microsoftgraphuseractivity  # type: ignore
+    from ._models import microsoftgraphuseranalytics  # type: ignore
+    from ._models import microsoftgraphuserconfiguration  # type: ignore
+    from ._models import microsoftgraphuserconsentrequest  # type: ignore
+    from ._models import microsoftgraphuseridentity  # type: ignore
+    from ._models import microsoftgraphuserpurpose  # type: ignore
+    from ._models import microsoftgraphuserscopeteamsappinstallation  # type: ignore
+    from ._models import microsoftgraphusersettings  # type: ignore
+    from ._models import microsoftgraphuserteamwork  # type: ignore
+    from ._models import microsoftgraphversionaction  # type: ignore
+    from ._models import microsoftgraphvideo  # type: ignore
+    from ._models import microsoftgraphvisualinfo  # type: ignore
+    from ._models import microsoftgraphvisualproperties  # type: ignore
+    from ._models import microsoftgraphwebaccount  # type: ignore
+    from ._models import microsoftgraphwebpart  # type: ignore
+    from ._models import microsoftgraphwebsite  # type: ignore
+    from ._models import microsoftgraphwindowsdevicemalwarestate  # type: ignore
+    from ._models import microsoftgraphwindowsinformationprotectiondeviceregistration  # type: ignore
+    from ._models import microsoftgraphwindowsprotectionstate  # type: ignore
+    from ._models import microsoftgraphworkbook  # type: ignore
+    from ._models import microsoftgraphworkbookapplication  # type: ignore
+    from ._models import microsoftgraphworkbookchart  # type: ignore
+    from ._models import microsoftgraphworkbookchartareaformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartaxes  # type: ignore
+    from ._models import microsoftgraphworkbookchartaxis  # type: ignore
+    from ._models import microsoftgraphworkbookchartaxisformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartaxistitle  # type: ignore
+    from ._models import microsoftgraphworkbookchartaxistitleformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartdatalabelformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartdatalabels  # type: ignore
+    from ._models import microsoftgraphworkbookchartfill  # type: ignore
+    from ._models import microsoftgraphworkbookchartfont  # type: ignore
+    from ._models import microsoftgraphworkbookchartgridlines  # type: ignore
+    from ._models import microsoftgraphworkbookchartgridlinesformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartlegend  # type: ignore
+    from ._models import microsoftgraphworkbookchartlegendformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartlineformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartpoint  # type: ignore
+    from ._models import microsoftgraphworkbookchartpointformat  # type: ignore
+    from ._models import microsoftgraphworkbookchartseries  # type: ignore
+    from ._models import microsoftgraphworkbookchartseriesformat  # type: ignore
+    from ._models import microsoftgraphworkbookcharttitle  # type: ignore
+    from ._models import microsoftgraphworkbookcharttitleformat  # type: ignore
+    from ._models import microsoftgraphworkbookcomment  # type: ignore
+    from ._models import microsoftgraphworkbookcommentreply  # type: ignore
+    from ._models import microsoftgraphworkbookfilter  # type: ignore
+    from ._models import microsoftgraphworkbookfiltercriteria  # type: ignore
+    from ._models import microsoftgraphworkbookfunctions  # type: ignore
+    from ._models import microsoftgraphworkbookicon  # type: ignore
+    from ._models import microsoftgraphworkbooknameditem  # type: ignore
+    from ._models import microsoftgraphworkbookoperation  # type: ignore
+    from ._models import microsoftgraphworkbookoperationerror  # type: ignore
+    from ._models import microsoftgraphworkbookpivottable  # type: ignore
+    from ._models import microsoftgraphworkbooksortfield  # type: ignore
+    from ._models import microsoftgraphworkbooktable  # type: ignore
+    from ._models import microsoftgraphworkbooktablecolumn  # type: ignore
+    from ._models import microsoftgraphworkbooktablerow  # type: ignore
+    from ._models import microsoftgraphworkbooktablesort  # type: ignore
+    from ._models import microsoftgraphworkbookworksheet  # type: ignore
+    from ._models import microsoftgraphworkbookworksheetprotection  # type: ignore
+    from ._models import microsoftgraphworkbookworksheetprotectionoptions  # type: ignore
+    from ._models import microsoftgraphworkinghours  # type: ignore
+    from ._models import microsoftgraphworkposition  # type: ignore
+    from ._models import microsoftgraphyomipersonname  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
+    from ._models import paths11ap814trustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadpkcs12postrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths184igqyinformationprotectionsensitivitylabelsmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths19skfwztrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadcertificatepostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1aushj1informationprotectionpolicylabelsmicrosoftgraphevaluateapplicationpostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1iaopbhtrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphgeneratekeypostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1jhdydfinformationprotectiondatalosspreventionpoliciesmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsbj48esinformationprotectionpolicylabelsmicrosoftgraphextractlabelpostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsdmvqaitrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadsecretpostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsk62xddinformationprotectionsensitivitylabelssensitivitylabelidsublabelsmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsl8oa4iriskyusersmicrosoftgraphconfirmcompromisedpostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsleqqhcinformationprotectionpolicylabelsmicrosoftgraphevaluateclassificationresultspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathstai6nqriskyusersmicrosoftgraphdismisspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsu4eih0informationprotectionmicrosoftgraphevaluatelabelsandpoliciespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsz22gcjinformationprotectionpolicylabelsmicrosoftgraphevaluateremovalpostrequestbodycontentapplicationjsonschema  # type: ignore
 
 from ._identity_sign_ins_enums import (
     Enum14,
@@ -1321,745 +1321,745 @@ from ._identity_sign_ins_enums import (
     Enum74,
     Enum75,
     Enum76,
-    Get0ItemsItem,
-    Get1ItemsItem,
-    Get3ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
-    Get8ItemsItem,
-    MicrosoftGraphAccessLevel,
-    MicrosoftGraphAccessScope,
-    MicrosoftGraphActionState,
-    MicrosoftGraphActivityType,
-    MicrosoftGraphAgreementAcceptanceState,
-    MicrosoftGraphAllowInvitesFrom,
-    MicrosoftGraphAllowedAudiences,
-    MicrosoftGraphAnalyticsActivityType,
-    MicrosoftGraphAnniversaryType,
-    MicrosoftGraphAppLogUploadState,
-    MicrosoftGraphApplicationMode,
-    MicrosoftGraphAssignmentMethod,
-    MicrosoftGraphAttendeeType,
-    MicrosoftGraphAuthenticationMethodSignInState,
-    MicrosoftGraphAuthenticationPhoneType,
-    MicrosoftGraphAutomaticRepliesStatus,
-    MicrosoftGraphBodyType,
-    MicrosoftGraphCalendarColor,
-    MicrosoftGraphCalendarRoleType,
-    MicrosoftGraphCategoryColor,
-    MicrosoftGraphChannelMembershipType,
-    MicrosoftGraphChassisType,
-    MicrosoftGraphChatMessageImportance,
-    MicrosoftGraphChatMessagePolicyViolationDlpActionTypes,
-    MicrosoftGraphChatMessagePolicyViolationUserActionTypes,
-    MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes,
-    MicrosoftGraphChatMessageType,
-    MicrosoftGraphClassificationMethod,
-    MicrosoftGraphCloudAppSecuritySessionControlType,
-    MicrosoftGraphComplianceState,
-    MicrosoftGraphComplianceStatus,
-    MicrosoftGraphConditionalAccessClientApp,
-    MicrosoftGraphConditionalAccessDevicePlatform,
-    MicrosoftGraphConditionalAccessGrantControl,
-    MicrosoftGraphConditionalAccessPolicyState,
-    MicrosoftGraphConfigurationManagerClientState,
-    MicrosoftGraphConfirmedBy,
-    MicrosoftGraphContentFormat,
-    MicrosoftGraphContentState,
-    MicrosoftGraphDataPolicyOperationStatus,
-    MicrosoftGraphDayOfWeek,
-    MicrosoftGraphDelegateMeetingMessageDeliveryOptions,
-    MicrosoftGraphDeviceAndAppManagementAssignmentFilterType,
-    MicrosoftGraphDeviceAndAppManagementAssignmentSource,
-    MicrosoftGraphDeviceEnrollmentType,
-    MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState,
-    MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState,
-    MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState,
-    MicrosoftGraphDeviceManagementExchangeAccessState,
-    MicrosoftGraphDeviceManagementExchangeAccessStateReason,
-    MicrosoftGraphDeviceRegistrationState,
-    MicrosoftGraphDeviceType,
-    MicrosoftGraphDlpAction,
-    MicrosoftGraphEmailType,
-    MicrosoftGraphEventType,
-    MicrosoftGraphExternalAudienceScope,
-    MicrosoftGraphFollowupFlagStatus,
-    MicrosoftGraphFreeBusyStatus,
-    MicrosoftGraphGiphyRatingType,
-    MicrosoftGraphGroupAccessType,
-    MicrosoftGraphImportance,
-    MicrosoftGraphInferenceClassificationType,
-    MicrosoftGraphJoinType,
-    MicrosoftGraphLanguageProficiencyLevel,
-    MicrosoftGraphLobbyBypassScope,
-    MicrosoftGraphLocationType,
-    MicrosoftGraphLocationUniqueIdType,
-    MicrosoftGraphLongRunningOperationStatus,
-    MicrosoftGraphLostModeState,
-    MicrosoftGraphMailboxRecipientType,
-    MicrosoftGraphManagedAppFlaggedReason,
-    MicrosoftGraphManagedDeviceArchitecture,
-    MicrosoftGraphManagedDeviceManagementFeatures,
-    MicrosoftGraphManagedDeviceOwnerType,
-    MicrosoftGraphManagedDevicePartnerReportedHealthState,
-    MicrosoftGraphManagementAgentType,
-    MicrosoftGraphManagementState,
-    MicrosoftGraphMeetingCapabilities,
-    MicrosoftGraphMessageActionFlag,
-    MicrosoftGraphMlClassificationMatchTolerance,
-    MicrosoftGraphMobileAppIntent,
-    MicrosoftGraphOnenoteUserRole,
-    MicrosoftGraphOnlineMeetingPresenters,
-    MicrosoftGraphOnlineMeetingProviderType,
-    MicrosoftGraphOnlineMeetingRole,
-    MicrosoftGraphOperationStatus,
-    MicrosoftGraphOwnerType,
-    MicrosoftGraphPermissionType,
-    MicrosoftGraphPersistentBrowserSessionMode,
-    MicrosoftGraphPersonRelationship,
-    MicrosoftGraphPhoneType,
-    MicrosoftGraphPhysicalAddressType,
-    MicrosoftGraphPlannerPreviewType,
-    MicrosoftGraphPolicyPlatformType,
-    MicrosoftGraphPriority,
-    MicrosoftGraphRecurrencePatternType,
-    MicrosoftGraphRecurrenceRangeType,
-    MicrosoftGraphReplyRestriction,
-    MicrosoftGraphResponseType,
-    MicrosoftGraphResultantAppState,
-    MicrosoftGraphRiskDetail,
-    MicrosoftGraphRiskDetectionTimingType,
-    MicrosoftGraphRiskEventType,
-    MicrosoftGraphRiskLevel,
-    MicrosoftGraphRiskState,
-    MicrosoftGraphRuleMode,
-    MicrosoftGraphScheduleChangeRequestActor,
-    MicrosoftGraphScheduleChangeState,
-    MicrosoftGraphScheduleEntityTheme,
-    MicrosoftGraphSecurityBaselineComplianceState,
-    MicrosoftGraphSecurityBaselinePolicySourceType,
-    MicrosoftGraphSensitiveTypeScope,
-    MicrosoftGraphSensitiveTypeSource,
-    MicrosoftGraphSensitivity,
-    MicrosoftGraphSensitivityLabelTarget,
-    MicrosoftGraphSettingSourceType,
-    MicrosoftGraphSigninFrequencyType,
-    MicrosoftGraphSkillProficiencyLevel,
-    MicrosoftGraphStatus,
-    MicrosoftGraphTaskStatus,
-    MicrosoftGraphTeamSpecialization,
-    MicrosoftGraphTeamVisibilityType,
-    MicrosoftGraphTeamsAppDistributionMethod,
-    MicrosoftGraphTeamsAppPublishingState,
-    MicrosoftGraphTeamsAsyncOperationStatus,
-    MicrosoftGraphTeamsAsyncOperationType,
-    MicrosoftGraphThreatAssessmentContentType,
-    MicrosoftGraphThreatAssessmentRequestSource,
-    MicrosoftGraphThreatAssessmentResultType,
-    MicrosoftGraphThreatAssessmentStatus,
-    MicrosoftGraphThreatCategory,
-    MicrosoftGraphThreatExpectedAssessment,
-    MicrosoftGraphTimeCardState,
-    MicrosoftGraphTimeOffReasonIconType,
-    MicrosoftGraphTokenIssuerType,
-    MicrosoftGraphUserFlowType,
-    MicrosoftGraphUserNewMessageRestriction,
-    MicrosoftGraphWebsiteType,
-    MicrosoftGraphWeekIndex,
-    MicrosoftGraphWellknownListName,
-    MicrosoftGraphWindowsDeviceHealthState,
-    MicrosoftGraphWindowsMalwareCategory,
-    MicrosoftGraphWindowsMalwareExecutionState,
-    MicrosoftGraphWindowsMalwareSeverity,
-    MicrosoftGraphWindowsMalwareState,
-    MicrosoftGraphWindowsMalwareThreatState,
-    MicrosoftGraphWorkbookOperationStatus,
+    Get0itemsitem,
+    Get1itemsitem,
+    Get3itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
+    Get8itemsitem,
+    Microsoftgraphaccesslevel,
+    Microsoftgraphaccessscope,
+    Microsoftgraphactionstate,
+    Microsoftgraphactivitytype,
+    Microsoftgraphagreementacceptancestate,
+    Microsoftgraphallowedaudiences,
+    Microsoftgraphallowinvitesfrom,
+    Microsoftgraphanalyticsactivitytype,
+    Microsoftgraphanniversarytype,
+    Microsoftgraphapplicationmode,
+    Microsoftgraphapploguploadstate,
+    Microsoftgraphassignmentmethod,
+    Microsoftgraphattendeetype,
+    Microsoftgraphauthenticationmethodsigninstate,
+    Microsoftgraphauthenticationphonetype,
+    Microsoftgraphautomaticrepliesstatus,
+    Microsoftgraphbodytype,
+    Microsoftgraphcalendarcolor,
+    Microsoftgraphcalendarroletype,
+    Microsoftgraphcategorycolor,
+    Microsoftgraphchannelmembershiptype,
+    Microsoftgraphchassistype,
+    Microsoftgraphchatmessageimportance,
+    Microsoftgraphchatmessagepolicyviolationdlpactiontypes,
+    Microsoftgraphchatmessagepolicyviolationuseractiontypes,
+    Microsoftgraphchatmessagepolicyviolationverdictdetailstypes,
+    Microsoftgraphchatmessagetype,
+    Microsoftgraphclassificationmethod,
+    Microsoftgraphcloudappsecuritysessioncontroltype,
+    Microsoftgraphcompliancestate,
+    Microsoftgraphcompliancestatus,
+    Microsoftgraphconditionalaccessclientapp,
+    Microsoftgraphconditionalaccessdeviceplatform,
+    Microsoftgraphconditionalaccessgrantcontrol,
+    Microsoftgraphconditionalaccesspolicystate,
+    Microsoftgraphconfigurationmanagerclientstate,
+    Microsoftgraphconfirmedby,
+    Microsoftgraphcontentformat,
+    Microsoftgraphcontentstate,
+    Microsoftgraphdatapolicyoperationstatus,
+    Microsoftgraphdayofweek,
+    Microsoftgraphdelegatemeetingmessagedeliveryoptions,
+    Microsoftgraphdeviceandappmanagementassignmentfiltertype,
+    Microsoftgraphdeviceandappmanagementassignmentsource,
+    Microsoftgraphdeviceenrollmenttype,
+    Microsoftgraphdeviceguardlocalsystemauthoritycredentialguardstate,
+    Microsoftgraphdeviceguardvirtualizationbasedsecurityhardwarerequirementstate,
+    Microsoftgraphdeviceguardvirtualizationbasedsecuritystate,
+    Microsoftgraphdevicemanagementexchangeaccessstate,
+    Microsoftgraphdevicemanagementexchangeaccessstatereason,
+    Microsoftgraphdeviceregistrationstate,
+    Microsoftgraphdevicetype,
+    Microsoftgraphdlpaction,
+    Microsoftgraphemailtype,
+    Microsoftgrapheventtype,
+    Microsoftgraphexternalaudiencescope,
+    Microsoftgraphfollowupflagstatus,
+    Microsoftgraphfreebusystatus,
+    Microsoftgraphgiphyratingtype,
+    Microsoftgraphgroupaccesstype,
+    Microsoftgraphimportance,
+    Microsoftgraphinferenceclassificationtype,
+    Microsoftgraphjointype,
+    Microsoftgraphlanguageproficiencylevel,
+    Microsoftgraphlobbybypassscope,
+    Microsoftgraphlocationtype,
+    Microsoftgraphlocationuniqueidtype,
+    Microsoftgraphlongrunningoperationstatus,
+    Microsoftgraphlostmodestate,
+    Microsoftgraphmailboxrecipienttype,
+    Microsoftgraphmanagedappflaggedreason,
+    Microsoftgraphmanageddevicearchitecture,
+    Microsoftgraphmanageddevicemanagementfeatures,
+    Microsoftgraphmanageddeviceownertype,
+    Microsoftgraphmanageddevicepartnerreportedhealthstate,
+    Microsoftgraphmanagementagenttype,
+    Microsoftgraphmanagementstate,
+    Microsoftgraphmeetingcapabilities,
+    Microsoftgraphmessageactionflag,
+    Microsoftgraphmlclassificationmatchtolerance,
+    Microsoftgraphmobileappintent,
+    Microsoftgraphonenoteuserrole,
+    Microsoftgraphonlinemeetingpresenters,
+    Microsoftgraphonlinemeetingprovidertype,
+    Microsoftgraphonlinemeetingrole,
+    Microsoftgraphoperationstatus,
+    Microsoftgraphownertype,
+    Microsoftgraphpermissiontype,
+    Microsoftgraphpersistentbrowsersessionmode,
+    Microsoftgraphpersonrelationship,
+    Microsoftgraphphonetype,
+    Microsoftgraphphysicaladdresstype,
+    Microsoftgraphplannerpreviewtype,
+    Microsoftgraphpolicyplatformtype,
+    Microsoftgraphpriority,
+    Microsoftgraphrecurrencepatterntype,
+    Microsoftgraphrecurrencerangetype,
+    Microsoftgraphreplyrestriction,
+    Microsoftgraphresponsetype,
+    Microsoftgraphresultantappstate,
+    Microsoftgraphriskdetail,
+    Microsoftgraphriskdetectiontimingtype,
+    Microsoftgraphriskeventtype,
+    Microsoftgraphrisklevel,
+    Microsoftgraphriskstate,
+    Microsoftgraphrulemode,
+    Microsoftgraphschedulechangerequestactor,
+    Microsoftgraphschedulechangestate,
+    Microsoftgraphscheduleentitytheme,
+    Microsoftgraphsecuritybaselinecompliancestate,
+    Microsoftgraphsecuritybaselinepolicysourcetype,
+    Microsoftgraphsensitivetypescope,
+    Microsoftgraphsensitivetypesource,
+    Microsoftgraphsensitivity,
+    Microsoftgraphsensitivitylabeltarget,
+    Microsoftgraphsettingsourcetype,
+    Microsoftgraphsigninfrequencytype,
+    Microsoftgraphskillproficiencylevel,
+    Microsoftgraphstatus,
+    Microsoftgraphtaskstatus,
+    Microsoftgraphteamsappdistributionmethod,
+    Microsoftgraphteamsapppublishingstate,
+    Microsoftgraphteamsasyncoperationstatus,
+    Microsoftgraphteamsasyncoperationtype,
+    Microsoftgraphteamspecialization,
+    Microsoftgraphteamvisibilitytype,
+    Microsoftgraphthreatassessmentcontenttype,
+    Microsoftgraphthreatassessmentrequestsource,
+    Microsoftgraphthreatassessmentresulttype,
+    Microsoftgraphthreatassessmentstatus,
+    Microsoftgraphthreatcategory,
+    Microsoftgraphthreatexpectedassessment,
+    Microsoftgraphtimecardstate,
+    Microsoftgraphtimeoffreasonicontype,
+    Microsoftgraphtokenissuertype,
+    Microsoftgraphuserflowtype,
+    Microsoftgraphusernewmessagerestriction,
+    Microsoftgraphwebsitetype,
+    Microsoftgraphweekindex,
+    Microsoftgraphwellknownlistname,
+    Microsoftgraphwindowsdevicehealthstate,
+    Microsoftgraphwindowsmalwarecategory,
+    Microsoftgraphwindowsmalwareexecutionstate,
+    Microsoftgraphwindowsmalwareseverity,
+    Microsoftgraphwindowsmalwarestate,
+    Microsoftgraphwindowsmalwarethreatstate,
+    Microsoftgraphworkbookoperationstatus,
 )
 
 __all__ = [
-    'CollectionOfActivityBasedTimeoutPolicy',
-    'CollectionOfAuthenticationMethod',
-    'CollectionOfAuthorizationPolicy',
-    'CollectionOfCertificateBasedAuthConfiguration',
-    'CollectionOfClaimsMappingPolicy',
-    'CollectionOfConditionalAccessPolicy',
-    'CollectionOfConditionalAccessPolicy0',
-    'CollectionOfDataLossPreventionPolicy',
-    'CollectionOfDataPolicyOperation',
-    'CollectionOfEmailAuthenticationMethod',
-    'CollectionOfFido2AuthenticationMethod',
-    'CollectionOfHomeRealmDiscoveryPolicy',
-    'CollectionOfIdentityProvider',
-    'CollectionOfIdentityUserFlow',
-    'CollectionOfInformationProtectionLabel',
-    'CollectionOfInvitation',
-    'CollectionOfLinksOfCertificateBasedAuthConfiguration',
-    'CollectionOfLongRunningOperation',
-    'CollectionOfMicrosoftAuthenticatorAuthenticationMethod',
-    'CollectionOfNamedLocation',
-    'CollectionOfOAuth2PermissionGrant',
-    'CollectionOfPasswordAuthenticationMethod',
-    'CollectionOfPasswordlessMicrosoftAuthenticatorAuthenticationMethod',
-    'CollectionOfPermissionGrantConditionSet',
-    'CollectionOfPermissionGrantConditionSet0',
-    'CollectionOfPermissionGrantPolicy',
-    'CollectionOfPhoneAuthenticationMethod',
-    'CollectionOfPrivateLinkResource',
-    'CollectionOfRiskDetection',
-    'CollectionOfRiskyUser',
-    'CollectionOfRiskyUserHistoryItem',
-    'CollectionOfSecurityQuestionAuthenticationMethod',
-    'CollectionOfSensitivityLabel',
-    'CollectionOfSensitivityLabel0',
-    'CollectionOfSoftwareOathAuthenticationMethod',
-    'CollectionOfTemporaryAccessPassAuthenticationMethod',
-    'CollectionOfThreatAssessmentRequest',
-    'CollectionOfThreatAssessmentResult',
-    'CollectionOfTokenIssuancePolicy',
-    'CollectionOfTokenLifetimePolicy',
-    'CollectionOfTrustFrameworkKeySet',
-    'CollectionOfTrustFrameworkPolicy',
-    'MicrosoftGraphAccessReviewInstance',
-    'MicrosoftGraphAccessReviewInstanceDecisionItem',
-    'MicrosoftGraphAccessReviewReviewerScope',
-    'MicrosoftGraphAccessReviewScheduleDefinition',
-    'MicrosoftGraphAccessReviewScheduleSettings',
-    'MicrosoftGraphAccessReviewScope',
-    'MicrosoftGraphActivityBasedTimeoutPolicy',
-    'MicrosoftGraphActivityHistoryItem',
-    'MicrosoftGraphActivityStatistics',
-    'MicrosoftGraphAdminConsentRequestPolicy',
-    'MicrosoftGraphAgreementAcceptance',
-    'MicrosoftGraphAlbum',
-    'MicrosoftGraphAlternativeSecurityId',
-    'MicrosoftGraphAppConsentRequest',
-    'MicrosoftGraphAppConsentRequestScope',
-    'MicrosoftGraphAppLogCollectionRequest',
-    'MicrosoftGraphAppRoleAssignment',
-    'MicrosoftGraphApplicationEnforcedRestrictionsSessionControl',
-    'MicrosoftGraphApproval',
-    'MicrosoftGraphApprovalStep',
-    'MicrosoftGraphAssignedLabel',
-    'MicrosoftGraphAssignedLicense',
-    'MicrosoftGraphAssignedPlan',
-    'MicrosoftGraphAttachment',
-    'MicrosoftGraphAttendee',
-    'MicrosoftGraphAttendeeBase',
-    'MicrosoftGraphAudio',
-    'MicrosoftGraphAudioConferencing',
-    'MicrosoftGraphAuthentication',
-    'MicrosoftGraphAuthenticationFlowsPolicy',
-    'MicrosoftGraphAuthenticationMethod',
-    'MicrosoftGraphAuthorizationPolicy',
-    'MicrosoftGraphAutoLabeling',
-    'MicrosoftGraphAutomaticRepliesSetting',
-    'MicrosoftGraphB2CAuthenticationMethodsPolicy',
-    'MicrosoftGraphBaseItem',
-    'MicrosoftGraphBaseItemVersion',
-    'MicrosoftGraphBundle',
-    'MicrosoftGraphCalculatedColumn',
-    'MicrosoftGraphCalendar',
-    'MicrosoftGraphCalendarGroup',
-    'MicrosoftGraphCalendarPermission',
-    'MicrosoftGraphCertificateAuthority',
-    'MicrosoftGraphCertificateBasedAuthConfiguration',
-    'MicrosoftGraphChangeTrackedEntity',
-    'MicrosoftGraphChannel',
-    'MicrosoftGraphChannelIdentity',
-    'MicrosoftGraphChannelModerationSettings',
-    'MicrosoftGraphChat',
-    'MicrosoftGraphChatInfo',
-    'MicrosoftGraphChatMessage',
-    'MicrosoftGraphChatMessageAttachment',
-    'MicrosoftGraphChatMessageHostedContent',
-    'MicrosoftGraphChatMessageMention',
-    'MicrosoftGraphChatMessagePolicyViolation',
-    'MicrosoftGraphChatMessagePolicyViolationPolicyTip',
-    'MicrosoftGraphChatMessageReaction',
-    'MicrosoftGraphChoiceColumn',
-    'MicrosoftGraphClaimsMappingPolicy',
-    'MicrosoftGraphClassifcationErrorBase',
-    'MicrosoftGraphClassificationAttribute',
-    'MicrosoftGraphClassificationError',
-    'MicrosoftGraphClassificationInnerError',
-    'MicrosoftGraphClassificationResult',
-    'MicrosoftGraphCloudAppSecuritySessionControl',
-    'MicrosoftGraphColumnDefinition',
-    'MicrosoftGraphColumnLink',
-    'MicrosoftGraphCommand',
-    'MicrosoftGraphCommentAction',
-    'MicrosoftGraphCompanyDetail',
-    'MicrosoftGraphConditionalAccessApplications',
-    'MicrosoftGraphConditionalAccessClientApplications',
-    'MicrosoftGraphConditionalAccessConditionSet',
-    'MicrosoftGraphConditionalAccessDeviceStates',
-    'MicrosoftGraphConditionalAccessDevices',
-    'MicrosoftGraphConditionalAccessGrantControls',
-    'MicrosoftGraphConditionalAccessLocations',
-    'MicrosoftGraphConditionalAccessPlatforms',
-    'MicrosoftGraphConditionalAccessPolicy',
-    'MicrosoftGraphConditionalAccessRoot',
-    'MicrosoftGraphConditionalAccessSessionControl',
-    'MicrosoftGraphConditionalAccessSessionControls',
-    'MicrosoftGraphConditionalAccessUsers',
-    'MicrosoftGraphConfigurationManagerClientEnabledFeatures',
-    'MicrosoftGraphConfigurationManagerClientHealthState',
-    'MicrosoftGraphConfigurationManagerClientInformation',
-    'MicrosoftGraphContact',
-    'MicrosoftGraphContactFolder',
-    'MicrosoftGraphContentInfo',
-    'MicrosoftGraphContentType',
-    'MicrosoftGraphContentTypeInfo',
-    'MicrosoftGraphContentTypeOrder',
-    'MicrosoftGraphConversation',
-    'MicrosoftGraphConversationMember',
-    'MicrosoftGraphConversationThread',
-    'MicrosoftGraphCurrencyColumn',
-    'MicrosoftGraphCurrentLabel',
-    'MicrosoftGraphDataLossPreventionPolicy',
-    'MicrosoftGraphDataPolicyOperation',
-    'MicrosoftGraphDateTimeColumn',
-    'MicrosoftGraphDateTimeZone',
-    'MicrosoftGraphDefaultColumnValue',
-    'MicrosoftGraphDefaultUserRolePermissions',
-    'MicrosoftGraphDeleteAction',
-    'MicrosoftGraphDeleted',
-    'MicrosoftGraphDetectedApp',
-    'MicrosoftGraphDetectedSensitiveContent',
-    'MicrosoftGraphDetectedSensitiveContentBase',
-    'MicrosoftGraphDetectedSensitiveContentWrapper',
-    'MicrosoftGraphDevice',
-    'MicrosoftGraphDeviceActionResult',
-    'MicrosoftGraphDeviceAndAppManagementAssignmentTarget',
-    'MicrosoftGraphDeviceCategory',
-    'MicrosoftGraphDeviceCompliancePolicySettingState',
-    'MicrosoftGraphDeviceCompliancePolicyState',
-    'MicrosoftGraphDeviceConfigurationSettingState',
-    'MicrosoftGraphDeviceConfigurationState',
-    'MicrosoftGraphDeviceEnrollmentConfiguration',
-    'MicrosoftGraphDeviceHealthAttestationState',
-    'MicrosoftGraphDeviceKey',
-    'MicrosoftGraphDeviceLogCollectionResponse',
-    'MicrosoftGraphDeviceManagementTroubleshootingErrorDetails',
-    'MicrosoftGraphDeviceManagementTroubleshootingErrorResource',
-    'MicrosoftGraphDeviceManagementTroubleshootingEvent',
-    'MicrosoftGraphDeviceRegistrationPolicy',
-    'MicrosoftGraphDirectoryObject',
-    'MicrosoftGraphDirectoryRoleAccessReviewPolicy',
-    'MicrosoftGraphDirectorySetting',
-    'MicrosoftGraphDiscoveredSensitiveType',
-    'MicrosoftGraphDlpActionInfo',
-    'MicrosoftGraphDlpEvaluatePoliciesJobResponse',
-    'MicrosoftGraphDlpEvaluatePoliciesRequest',
-    'MicrosoftGraphDlpEvaluationInput',
-    'MicrosoftGraphDlpNotification',
-    'MicrosoftGraphDlpPoliciesJobResult',
-    'MicrosoftGraphDowngradeJustification',
-    'MicrosoftGraphDrive',
-    'MicrosoftGraphDriveItem',
-    'MicrosoftGraphDriveItemVersion',
-    'MicrosoftGraphEducationalActivity',
-    'MicrosoftGraphEducationalActivityDetail',
-    'MicrosoftGraphEmailAddress',
-    'MicrosoftGraphEmailAuthenticationMethod',
-    'MicrosoftGraphEmployeeOrgData',
-    'MicrosoftGraphEndpoint',
-    'MicrosoftGraphEnrollmentConfigurationAssignment',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphEvaluateLabelJobResponse',
-    'MicrosoftGraphEvaluateLabelJobResult',
-    'MicrosoftGraphEvaluateLabelJobResultGroup',
-    'MicrosoftGraphEvaluateLabelsAndPoliciesJobResponse',
-    'MicrosoftGraphEvaluateLabelsAndPoliciesResult',
-    'MicrosoftGraphEvaluateSensitivityLabelsRequest',
-    'MicrosoftGraphEvent',
-    'MicrosoftGraphExtension',
-    'MicrosoftGraphExternalLink',
-    'MicrosoftGraphFido2AuthenticationMethod',
-    'MicrosoftGraphFieldValueSet',
-    'MicrosoftGraphFile',
-    'MicrosoftGraphFileSystemInfo',
-    'MicrosoftGraphFolder',
-    'MicrosoftGraphFolderView',
-    'MicrosoftGraphFollowupFlag',
-    'MicrosoftGraphGeoCoordinates',
-    'MicrosoftGraphGroup',
-    'MicrosoftGraphGroupLifecyclePolicy',
-    'MicrosoftGraphHardwareInformation',
-    'MicrosoftGraphHashes',
-    'MicrosoftGraphHomeRealmDiscoveryPolicy',
-    'MicrosoftGraphIdentity',
-    'MicrosoftGraphIdentityProvider',
-    'MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy',
-    'MicrosoftGraphIdentitySet',
-    'MicrosoftGraphIdentityUserFlow',
-    'MicrosoftGraphImage',
-    'MicrosoftGraphImageInfo',
-    'MicrosoftGraphIncompleteData',
-    'MicrosoftGraphInferenceClassification',
-    'MicrosoftGraphInferenceClassificationOverride',
-    'MicrosoftGraphInferenceData',
-    'MicrosoftGraphInformationProtection',
-    'MicrosoftGraphInformationProtectionContentLabel',
-    'MicrosoftGraphInformationProtectionLabel',
-    'MicrosoftGraphInformationProtectionPolicy',
-    'MicrosoftGraphInsightIdentity',
-    'MicrosoftGraphInstitutionData',
-    'MicrosoftGraphInternetMessageHeader',
-    'MicrosoftGraphInvitation',
-    'MicrosoftGraphInvitedUserMessageInfo',
-    'MicrosoftGraphItemActionSet',
-    'MicrosoftGraphItemActionStat',
-    'MicrosoftGraphItemActivity',
-    'MicrosoftGraphItemActivityOld',
-    'MicrosoftGraphItemActivityStat',
-    'MicrosoftGraphItemActivityTimeSet',
-    'MicrosoftGraphItemAddress',
-    'MicrosoftGraphItemAnalytics',
-    'MicrosoftGraphItemBody',
-    'MicrosoftGraphItemEmail',
-    'MicrosoftGraphItemFacet',
-    'MicrosoftGraphItemInsights',
-    'MicrosoftGraphItemPatent',
-    'MicrosoftGraphItemPhone',
-    'MicrosoftGraphItemPublication',
-    'MicrosoftGraphItemReference',
-    'MicrosoftGraphJobResponseBase',
-    'MicrosoftGraphKeyValuePair',
-    'MicrosoftGraphLabelActionBase',
-    'MicrosoftGraphLabelDetails',
-    'MicrosoftGraphLabelPolicy',
-    'MicrosoftGraphLabelingOptions',
-    'MicrosoftGraphLanguageProficiency',
-    'MicrosoftGraphLicenseAssignmentState',
-    'MicrosoftGraphLicenseDetails',
-    'MicrosoftGraphLicenseProcessingState',
-    'MicrosoftGraphLinkedResource',
-    'MicrosoftGraphList',
-    'MicrosoftGraphListInfo',
-    'MicrosoftGraphListItem',
-    'MicrosoftGraphListItemVersion',
-    'MicrosoftGraphLobbyBypassSettings',
-    'MicrosoftGraphLocaleInfo',
-    'MicrosoftGraphLocation',
-    'MicrosoftGraphLoggedOnUser',
-    'MicrosoftGraphLongRunningOperation',
-    'MicrosoftGraphLookupColumn',
-    'MicrosoftGraphMailFolder',
-    'MicrosoftGraphMailboxSettings',
-    'MicrosoftGraphManagedAppOperation',
-    'MicrosoftGraphManagedAppPolicy',
-    'MicrosoftGraphManagedAppRegistration',
-    'MicrosoftGraphManagedDevice',
-    'MicrosoftGraphManagedDeviceMobileAppConfigurationSettingState',
-    'MicrosoftGraphManagedDeviceMobileAppConfigurationState',
-    'MicrosoftGraphMatchingDlpRule',
-    'MicrosoftGraphMatchingLabel',
-    'MicrosoftGraphMeetingParticipantInfo',
-    'MicrosoftGraphMeetingParticipants',
-    'MicrosoftGraphMention',
-    'MicrosoftGraphMentionAction',
-    'MicrosoftGraphMentionsPreview',
-    'MicrosoftGraphMessage',
-    'MicrosoftGraphMessageRule',
-    'MicrosoftGraphMessageRuleActions',
-    'MicrosoftGraphMessageRulePredicates',
-    'MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod',
-    'MicrosoftGraphMobileAppIntentAndState',
-    'MicrosoftGraphMobileAppIntentAndStateDetail',
-    'MicrosoftGraphMobileAppSupportedDeviceType',
-    'MicrosoftGraphMobileAppTroubleshootingEvent',
-    'MicrosoftGraphMobileAppTroubleshootingHistoryItem',
-    'MicrosoftGraphMoveAction',
-    'MicrosoftGraphMultiValueLegacyExtendedProperty',
-    'MicrosoftGraphNamedLocation',
-    'MicrosoftGraphNotebook',
-    'MicrosoftGraphNotebookLinks',
-    'MicrosoftGraphNotification',
-    'MicrosoftGraphNumberColumn',
-    'MicrosoftGraphOAuth2PermissionGrant',
-    'MicrosoftGraphObjectIdentity',
-    'MicrosoftGraphOfferShiftRequest',
-    'MicrosoftGraphOfficeGraphInsights',
-    'MicrosoftGraphOnPremisesExtensionAttributes',
-    'MicrosoftGraphOnPremisesProvisioningError',
-    'MicrosoftGraphOnenote',
-    'MicrosoftGraphOnenoteEntityBaseModel',
-    'MicrosoftGraphOnenoteEntityHierarchyModel',
-    'MicrosoftGraphOnenoteEntitySchemaObjectModel',
-    'MicrosoftGraphOnenoteOperation',
-    'MicrosoftGraphOnenoteOperationError',
-    'MicrosoftGraphOnenotePage',
-    'MicrosoftGraphOnenoteResource',
-    'MicrosoftGraphOnenoteSection',
-    'MicrosoftGraphOnlineMeeting',
-    'MicrosoftGraphOnlineMeetingInfo',
-    'MicrosoftGraphOpenShift',
-    'MicrosoftGraphOpenShiftChangeRequest',
-    'MicrosoftGraphOpenShiftItem',
-    'MicrosoftGraphOperation',
-    'MicrosoftGraphOperationError',
-    'MicrosoftGraphOutlookCategory',
-    'MicrosoftGraphOutlookGeoCoordinates',
-    'MicrosoftGraphOutlookItem',
-    'MicrosoftGraphOutlookTask',
-    'MicrosoftGraphOutlookTaskFolder',
-    'MicrosoftGraphOutlookTaskGroup',
-    'MicrosoftGraphOutlookUser',
-    'MicrosoftGraphPackage',
-    'MicrosoftGraphPageLinks',
-    'MicrosoftGraphParentLabelDetails',
-    'MicrosoftGraphPasswordAuthenticationMethod',
-    'MicrosoftGraphPasswordProfile',
-    'MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod',
-    'MicrosoftGraphPatternedRecurrence',
-    'MicrosoftGraphPayloadResponse',
-    'MicrosoftGraphPayloadTypes',
-    'MicrosoftGraphPendingContentUpdate',
-    'MicrosoftGraphPendingOperations',
-    'MicrosoftGraphPermission',
-    'MicrosoftGraphPermissionGrantConditionSet',
-    'MicrosoftGraphPermissionGrantPolicy',
-    'MicrosoftGraphPersistentBrowserSessionControl',
-    'MicrosoftGraphPerson',
-    'MicrosoftGraphPersonAnniversary',
-    'MicrosoftGraphPersonAnnotation',
-    'MicrosoftGraphPersonAward',
-    'MicrosoftGraphPersonCertification',
-    'MicrosoftGraphPersonDataSource',
-    'MicrosoftGraphPersonDataSources',
-    'MicrosoftGraphPersonInterest',
-    'MicrosoftGraphPersonName',
-    'MicrosoftGraphPersonOrGroupColumn',
-    'MicrosoftGraphPersonWebsite',
-    'MicrosoftGraphPhone',
-    'MicrosoftGraphPhoneAuthenticationMethod',
-    'MicrosoftGraphPhoto',
-    'MicrosoftGraphPhysicalAddress',
-    'MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat',
-    'MicrosoftGraphPlannerBucket',
-    'MicrosoftGraphPlannerBucketTaskBoardTaskFormat',
-    'MicrosoftGraphPlannerCategoryDescriptions',
-    'MicrosoftGraphPlannerDelta',
-    'MicrosoftGraphPlannerGroup',
-    'MicrosoftGraphPlannerPlan',
-    'MicrosoftGraphPlannerPlanDetails',
-    'MicrosoftGraphPlannerProgressTaskBoardTaskFormat',
-    'MicrosoftGraphPlannerTask',
-    'MicrosoftGraphPlannerTaskDetails',
-    'MicrosoftGraphPlannerUser',
-    'MicrosoftGraphPolicyBase',
-    'MicrosoftGraphPolicyRoot',
-    'MicrosoftGraphPositionDetail',
-    'MicrosoftGraphPost',
-    'MicrosoftGraphPresence',
-    'MicrosoftGraphPrivateLinkResource',
-    'MicrosoftGraphProfile',
-    'MicrosoftGraphProfilePhoto',
-    'MicrosoftGraphProjectParticipation',
-    'MicrosoftGraphProvisionedPlan',
-    'MicrosoftGraphPublicationFacet',
-    'MicrosoftGraphQuota',
-    'MicrosoftGraphRankedEmailAddress',
-    'MicrosoftGraphRecipient',
-    'MicrosoftGraphRecurrencePattern',
-    'MicrosoftGraphRecurrenceRange',
-    'MicrosoftGraphRegionalAndLanguageSettings',
-    'MicrosoftGraphRegionalFormatOverrides',
-    'MicrosoftGraphRelatedPerson',
-    'MicrosoftGraphRemoteItem',
-    'MicrosoftGraphRenameAction',
-    'MicrosoftGraphRequest',
-    'MicrosoftGraphResourceReference',
-    'MicrosoftGraphResourceSpecificPermissionGrant',
-    'MicrosoftGraphResourceVisualization',
-    'MicrosoftGraphResponseStatus',
-    'MicrosoftGraphResponsiblePolicy',
-    'MicrosoftGraphResponsibleSensitiveType',
-    'MicrosoftGraphRiskDetection',
-    'MicrosoftGraphRiskUserActivity',
-    'MicrosoftGraphRiskyUser',
-    'MicrosoftGraphRiskyUserHistoryItem',
-    'MicrosoftGraphSchedule',
-    'MicrosoftGraphScheduleChangeRequest',
-    'MicrosoftGraphScheduleEntity',
-    'MicrosoftGraphSchedulingGroup',
-    'MicrosoftGraphScopedRoleMembership',
-    'MicrosoftGraphSearchResult',
-    'MicrosoftGraphSectionGroup',
-    'MicrosoftGraphSectionLinks',
-    'MicrosoftGraphSecurityBaselineContributingPolicy',
-    'MicrosoftGraphSecurityBaselineSettingState',
-    'MicrosoftGraphSecurityBaselineState',
-    'MicrosoftGraphSecurityQuestionAuthenticationMethod',
-    'MicrosoftGraphSelfServiceSignUpAuthenticationFlowConfiguration',
-    'MicrosoftGraphSensitiveContentEvidence',
-    'MicrosoftGraphSensitiveContentLocation',
-    'MicrosoftGraphSensitiveContentLocationBase',
-    'MicrosoftGraphSensitivityLabel',
-    'MicrosoftGraphSensitivityPolicySettings',
-    'MicrosoftGraphServiceInformation',
-    'MicrosoftGraphServicePlanInfo',
-    'MicrosoftGraphSettingSource',
-    'MicrosoftGraphSettingValue',
-    'MicrosoftGraphSettings',
-    'MicrosoftGraphShareAction',
-    'MicrosoftGraphShared',
-    'MicrosoftGraphSharedAppleDeviceUser',
-    'MicrosoftGraphSharedInsight',
-    'MicrosoftGraphSharepointIds',
-    'MicrosoftGraphSharingDetail',
-    'MicrosoftGraphSharingInvitation',
-    'MicrosoftGraphSharingLink',
-    'MicrosoftGraphShift',
-    'MicrosoftGraphShiftActivity',
-    'MicrosoftGraphShiftAvailability',
-    'MicrosoftGraphShiftItem',
-    'MicrosoftGraphShiftPreferences',
-    'MicrosoftGraphSignInActivity',
-    'MicrosoftGraphSignInFrequencySessionControl',
-    'MicrosoftGraphSignInLocation',
-    'MicrosoftGraphSingleValueLegacyExtendedProperty',
-    'MicrosoftGraphSite',
-    'MicrosoftGraphSiteCollection',
-    'MicrosoftGraphSitePage',
-    'MicrosoftGraphSizeRange',
-    'MicrosoftGraphSkillProficiency',
-    'MicrosoftGraphSoftwareOathAuthenticationMethod',
-    'MicrosoftGraphSpecialFolder',
-    'MicrosoftGraphStoragePlanInformation',
-    'MicrosoftGraphStsPolicy',
-    'MicrosoftGraphSubscription',
-    'MicrosoftGraphSwapShiftsChangeRequest',
-    'MicrosoftGraphTargetPolicyEndpoints',
-    'MicrosoftGraphTeam',
-    'MicrosoftGraphTeamDiscoverySettings',
-    'MicrosoftGraphTeamFunSettings',
-    'MicrosoftGraphTeamGuestSettings',
-    'MicrosoftGraphTeamMemberSettings',
-    'MicrosoftGraphTeamMessagingSettings',
-    'MicrosoftGraphTeamsApp',
-    'MicrosoftGraphTeamsAppDefinition',
-    'MicrosoftGraphTeamsAppInstallation',
-    'MicrosoftGraphTeamsAsyncOperation',
-    'MicrosoftGraphTeamsTab',
-    'MicrosoftGraphTeamsTabConfiguration',
-    'MicrosoftGraphTeamsTemplate',
-    'MicrosoftGraphTemporaryAccessPassAuthenticationMethod',
-    'MicrosoftGraphTextClassificationRequest',
-    'MicrosoftGraphTextColumn',
-    'MicrosoftGraphThreatAssessmentRequest',
-    'MicrosoftGraphThreatAssessmentResult',
-    'MicrosoftGraphThumbnail',
-    'MicrosoftGraphThumbnailSet',
-    'MicrosoftGraphTimeCard',
-    'MicrosoftGraphTimeCardBreak',
-    'MicrosoftGraphTimeCardEntry',
-    'MicrosoftGraphTimeCardEvent',
-    'MicrosoftGraphTimeClockSettings',
-    'MicrosoftGraphTimeOff',
-    'MicrosoftGraphTimeOffItem',
-    'MicrosoftGraphTimeOffReason',
-    'MicrosoftGraphTimeOffRequest',
-    'MicrosoftGraphTimeRange',
-    'MicrosoftGraphTimeSlot',
-    'MicrosoftGraphTimeZoneBase',
-    'MicrosoftGraphTodo',
-    'MicrosoftGraphTodoTask',
-    'MicrosoftGraphTodoTaskList',
-    'MicrosoftGraphTokenIssuancePolicy',
-    'MicrosoftGraphTokenLifetimePolicy',
-    'MicrosoftGraphTrending',
-    'MicrosoftGraphTrustFramework',
-    'MicrosoftGraphTrustFrameworkKey',
-    'MicrosoftGraphTrustFrameworkKeySet',
-    'MicrosoftGraphTrustFrameworkPolicy',
-    'MicrosoftGraphTypedEmailAddress',
-    'MicrosoftGraphUsageDetails',
-    'MicrosoftGraphUsedInsight',
-    'MicrosoftGraphUser',
-    'MicrosoftGraphUserAccountInformation',
-    'MicrosoftGraphUserActivity',
-    'MicrosoftGraphUserAnalytics',
-    'MicrosoftGraphUserConfiguration',
-    'MicrosoftGraphUserConsentRequest',
-    'MicrosoftGraphUserIdentity',
-    'MicrosoftGraphUserPurpose',
-    'MicrosoftGraphUserScopeTeamsAppInstallation',
-    'MicrosoftGraphUserSettings',
-    'MicrosoftGraphUserTeamwork',
-    'MicrosoftGraphVersionAction',
-    'MicrosoftGraphVideo',
-    'MicrosoftGraphVisualInfo',
-    'MicrosoftGraphVisualProperties',
-    'MicrosoftGraphWebAccount',
-    'MicrosoftGraphWebPart',
-    'MicrosoftGraphWebsite',
-    'MicrosoftGraphWindowsDeviceMalwareState',
-    'MicrosoftGraphWindowsInformationProtectionDeviceRegistration',
-    'MicrosoftGraphWindowsProtectionState',
-    'MicrosoftGraphWorkPosition',
-    'MicrosoftGraphWorkbook',
-    'MicrosoftGraphWorkbookApplication',
-    'MicrosoftGraphWorkbookChart',
-    'MicrosoftGraphWorkbookChartAreaFormat',
-    'MicrosoftGraphWorkbookChartAxes',
-    'MicrosoftGraphWorkbookChartAxis',
-    'MicrosoftGraphWorkbookChartAxisFormat',
-    'MicrosoftGraphWorkbookChartAxisTitle',
-    'MicrosoftGraphWorkbookChartAxisTitleFormat',
-    'MicrosoftGraphWorkbookChartDataLabelFormat',
-    'MicrosoftGraphWorkbookChartDataLabels',
-    'MicrosoftGraphWorkbookChartFill',
-    'MicrosoftGraphWorkbookChartFont',
-    'MicrosoftGraphWorkbookChartGridlines',
-    'MicrosoftGraphWorkbookChartGridlinesFormat',
-    'MicrosoftGraphWorkbookChartLegend',
-    'MicrosoftGraphWorkbookChartLegendFormat',
-    'MicrosoftGraphWorkbookChartLineFormat',
-    'MicrosoftGraphWorkbookChartPoint',
-    'MicrosoftGraphWorkbookChartPointFormat',
-    'MicrosoftGraphWorkbookChartSeries',
-    'MicrosoftGraphWorkbookChartSeriesFormat',
-    'MicrosoftGraphWorkbookChartTitle',
-    'MicrosoftGraphWorkbookChartTitleFormat',
-    'MicrosoftGraphWorkbookComment',
-    'MicrosoftGraphWorkbookCommentReply',
-    'MicrosoftGraphWorkbookFilter',
-    'MicrosoftGraphWorkbookFilterCriteria',
-    'MicrosoftGraphWorkbookFunctions',
-    'MicrosoftGraphWorkbookIcon',
-    'MicrosoftGraphWorkbookNamedItem',
-    'MicrosoftGraphWorkbookOperation',
-    'MicrosoftGraphWorkbookOperationError',
-    'MicrosoftGraphWorkbookPivotTable',
-    'MicrosoftGraphWorkbookSortField',
-    'MicrosoftGraphWorkbookTable',
-    'MicrosoftGraphWorkbookTableColumn',
-    'MicrosoftGraphWorkbookTableRow',
-    'MicrosoftGraphWorkbookTableSort',
-    'MicrosoftGraphWorkbookWorksheet',
-    'MicrosoftGraphWorkbookWorksheetProtection',
-    'MicrosoftGraphWorkbookWorksheetProtectionOptions',
-    'MicrosoftGraphWorkingHours',
-    'MicrosoftGraphYomiPersonName',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
-    'Paths11Ap814TrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadpkcs12PostRequestbodyContentApplicationJsonSchema',
-    'Paths184IgqyInformationprotectionSensitivitylabelsMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema',
-    'Paths19SkfwzTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadcertificatePostRequestbodyContentApplicationJsonSchema',
-    'Paths1Aushj1InformationprotectionPolicyLabelsMicrosoftGraphEvaluateapplicationPostRequestbodyContentApplicationJsonSchema',
-    'Paths1IaopbhTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphGeneratekeyPostRequestbodyContentApplicationJsonSchema',
-    'Paths1JhdydfInformationprotectionDatalosspreventionpoliciesMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema',
-    'PathsBj48EsInformationprotectionPolicyLabelsMicrosoftGraphExtractlabelPostRequestbodyContentApplicationJsonSchema',
-    'PathsDmvqaiTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadsecretPostRequestbodyContentApplicationJsonSchema',
-    'PathsK62XddInformationprotectionSensitivitylabelsSensitivitylabelIdSublabelsMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema',
-    'PathsL8Oa4IRiskyusersMicrosoftGraphConfirmcompromisedPostRequestbodyContentApplicationJsonSchema',
-    'PathsLeqqhcInformationprotectionPolicyLabelsMicrosoftGraphEvaluateclassificationresultsPostRequestbodyContentApplicationJsonSchema',
-    'PathsTai6NqRiskyusersMicrosoftGraphDismissPostRequestbodyContentApplicationJsonSchema',
-    'PathsU4Eih0InformationprotectionMicrosoftGraphEvaluatelabelsandpoliciesPostRequestbodyContentApplicationJsonSchema',
-    'PathsZ22GcjInformationprotectionPolicyLabelsMicrosoftGraphEvaluateremovalPostRequestbodyContentApplicationJsonSchema',
+    'collectionofactivitybasedtimeoutpolicy',
+    'collectionofauthenticationmethod',
+    'collectionofauthorizationpolicy',
+    'collectionofcertificatebasedauthconfiguration',
+    'collectionofclaimsmappingpolicy',
+    'collectionofconditionalaccesspolicy',
+    'collectionofconditionalaccesspolicy0',
+    'collectionofdatalosspreventionpolicy',
+    'collectionofdatapolicyoperation',
+    'collectionofemailauthenticationmethod',
+    'collectionoffido2authenticationmethod',
+    'collectionofhomerealmdiscoverypolicy',
+    'collectionofidentityprovider',
+    'collectionofidentityuserflow',
+    'collectionofinformationprotectionlabel',
+    'collectionofinvitation',
+    'collectionoflinksofcertificatebasedauthconfiguration',
+    'collectionoflongrunningoperation',
+    'collectionofmicrosoftauthenticatorauthenticationmethod',
+    'collectionofnamedlocation',
+    'collectionofoauth2permissiongrant',
+    'collectionofpasswordauthenticationmethod',
+    'collectionofpasswordlessmicrosoftauthenticatorauthenticationmethod',
+    'collectionofpermissiongrantconditionset',
+    'collectionofpermissiongrantconditionset0',
+    'collectionofpermissiongrantpolicy',
+    'collectionofphoneauthenticationmethod',
+    'collectionofprivatelinkresource',
+    'collectionofriskdetection',
+    'collectionofriskyuser',
+    'collectionofriskyuserhistoryitem',
+    'collectionofsecurityquestionauthenticationmethod',
+    'collectionofsensitivitylabel',
+    'collectionofsensitivitylabel0',
+    'collectionofsoftwareoathauthenticationmethod',
+    'collectionoftemporaryaccesspassauthenticationmethod',
+    'collectionofthreatassessmentrequest',
+    'collectionofthreatassessmentresult',
+    'collectionoftokenissuancepolicy',
+    'collectionoftokenlifetimepolicy',
+    'collectionoftrustframeworkkeyset',
+    'collectionoftrustframeworkpolicy',
+    'microsoftgraphaccessreviewinstance',
+    'microsoftgraphaccessreviewinstancedecisionitem',
+    'microsoftgraphaccessreviewreviewerscope',
+    'microsoftgraphaccessreviewscheduledefinition',
+    'microsoftgraphaccessreviewschedulesettings',
+    'microsoftgraphaccessreviewscope',
+    'microsoftgraphactivitybasedtimeoutpolicy',
+    'microsoftgraphactivityhistoryitem',
+    'microsoftgraphactivitystatistics',
+    'microsoftgraphadminconsentrequestpolicy',
+    'microsoftgraphagreementacceptance',
+    'microsoftgraphalbum',
+    'microsoftgraphalternativesecurityid',
+    'microsoftgraphappconsentrequest',
+    'microsoftgraphappconsentrequestscope',
+    'microsoftgraphapplicationenforcedrestrictionssessioncontrol',
+    'microsoftgraphapplogcollectionrequest',
+    'microsoftgraphapproleassignment',
+    'microsoftgraphapproval',
+    'microsoftgraphapprovalstep',
+    'microsoftgraphassignedlabel',
+    'microsoftgraphassignedlicense',
+    'microsoftgraphassignedplan',
+    'microsoftgraphattachment',
+    'microsoftgraphattendee',
+    'microsoftgraphattendeebase',
+    'microsoftgraphaudio',
+    'microsoftgraphaudioconferencing',
+    'microsoftgraphauthentication',
+    'microsoftgraphauthenticationflowspolicy',
+    'microsoftgraphauthenticationmethod',
+    'microsoftgraphauthorizationpolicy',
+    'microsoftgraphautolabeling',
+    'microsoftgraphautomaticrepliessetting',
+    'microsoftgraphb2cauthenticationmethodspolicy',
+    'microsoftgraphbaseitem',
+    'microsoftgraphbaseitemversion',
+    'microsoftgraphbundle',
+    'microsoftgraphcalculatedcolumn',
+    'microsoftgraphcalendar',
+    'microsoftgraphcalendargroup',
+    'microsoftgraphcalendarpermission',
+    'microsoftgraphcertificateauthority',
+    'microsoftgraphcertificatebasedauthconfiguration',
+    'microsoftgraphchangetrackedentity',
+    'microsoftgraphchannel',
+    'microsoftgraphchannelidentity',
+    'microsoftgraphchannelmoderationsettings',
+    'microsoftgraphchat',
+    'microsoftgraphchatinfo',
+    'microsoftgraphchatmessage',
+    'microsoftgraphchatmessageattachment',
+    'microsoftgraphchatmessagehostedcontent',
+    'microsoftgraphchatmessagemention',
+    'microsoftgraphchatmessagepolicyviolation',
+    'microsoftgraphchatmessagepolicyviolationpolicytip',
+    'microsoftgraphchatmessagereaction',
+    'microsoftgraphchoicecolumn',
+    'microsoftgraphclaimsmappingpolicy',
+    'microsoftgraphclassifcationerrorbase',
+    'microsoftgraphclassificationattribute',
+    'microsoftgraphclassificationerror',
+    'microsoftgraphclassificationinnererror',
+    'microsoftgraphclassificationresult',
+    'microsoftgraphcloudappsecuritysessioncontrol',
+    'microsoftgraphcolumndefinition',
+    'microsoftgraphcolumnlink',
+    'microsoftgraphcommand',
+    'microsoftgraphcommentaction',
+    'microsoftgraphcompanydetail',
+    'microsoftgraphconditionalaccessapplications',
+    'microsoftgraphconditionalaccessclientapplications',
+    'microsoftgraphconditionalaccessconditionset',
+    'microsoftgraphconditionalaccessdevices',
+    'microsoftgraphconditionalaccessdevicestates',
+    'microsoftgraphconditionalaccessgrantcontrols',
+    'microsoftgraphconditionalaccesslocations',
+    'microsoftgraphconditionalaccessplatforms',
+    'microsoftgraphconditionalaccesspolicy',
+    'microsoftgraphconditionalaccessroot',
+    'microsoftgraphconditionalaccesssessioncontrol',
+    'microsoftgraphconditionalaccesssessioncontrols',
+    'microsoftgraphconditionalaccessusers',
+    'microsoftgraphconfigurationmanagerclientenabledfeatures',
+    'microsoftgraphconfigurationmanagerclienthealthstate',
+    'microsoftgraphconfigurationmanagerclientinformation',
+    'microsoftgraphcontact',
+    'microsoftgraphcontactfolder',
+    'microsoftgraphcontentinfo',
+    'microsoftgraphcontenttype',
+    'microsoftgraphcontenttypeinfo',
+    'microsoftgraphcontenttypeorder',
+    'microsoftgraphconversation',
+    'microsoftgraphconversationmember',
+    'microsoftgraphconversationthread',
+    'microsoftgraphcurrencycolumn',
+    'microsoftgraphcurrentlabel',
+    'microsoftgraphdatalosspreventionpolicy',
+    'microsoftgraphdatapolicyoperation',
+    'microsoftgraphdatetimecolumn',
+    'microsoftgraphdatetimezone',
+    'microsoftgraphdefaultcolumnvalue',
+    'microsoftgraphdefaultuserrolepermissions',
+    'microsoftgraphdeleteaction',
+    'microsoftgraphdeleted',
+    'microsoftgraphdetectedapp',
+    'microsoftgraphdetectedsensitivecontent',
+    'microsoftgraphdetectedsensitivecontentbase',
+    'microsoftgraphdetectedsensitivecontentwrapper',
+    'microsoftgraphdevice',
+    'microsoftgraphdeviceactionresult',
+    'microsoftgraphdeviceandappmanagementassignmenttarget',
+    'microsoftgraphdevicecategory',
+    'microsoftgraphdevicecompliancepolicysettingstate',
+    'microsoftgraphdevicecompliancepolicystate',
+    'microsoftgraphdeviceconfigurationsettingstate',
+    'microsoftgraphdeviceconfigurationstate',
+    'microsoftgraphdeviceenrollmentconfiguration',
+    'microsoftgraphdevicehealthattestationstate',
+    'microsoftgraphdevicekey',
+    'microsoftgraphdevicelogcollectionresponse',
+    'microsoftgraphdevicemanagementtroubleshootingerrordetails',
+    'microsoftgraphdevicemanagementtroubleshootingerrorresource',
+    'microsoftgraphdevicemanagementtroubleshootingevent',
+    'microsoftgraphdeviceregistrationpolicy',
+    'microsoftgraphdirectoryobject',
+    'microsoftgraphdirectoryroleaccessreviewpolicy',
+    'microsoftgraphdirectorysetting',
+    'microsoftgraphdiscoveredsensitivetype',
+    'microsoftgraphdlpactioninfo',
+    'microsoftgraphdlpevaluatepoliciesjobresponse',
+    'microsoftgraphdlpevaluatepoliciesrequest',
+    'microsoftgraphdlpevaluationinput',
+    'microsoftgraphdlpnotification',
+    'microsoftgraphdlppoliciesjobresult',
+    'microsoftgraphdowngradejustification',
+    'microsoftgraphdrive',
+    'microsoftgraphdriveitem',
+    'microsoftgraphdriveitemversion',
+    'microsoftgrapheducationalactivity',
+    'microsoftgrapheducationalactivitydetail',
+    'microsoftgraphemailaddress',
+    'microsoftgraphemailauthenticationmethod',
+    'microsoftgraphemployeeorgdata',
+    'microsoftgraphendpoint',
+    'microsoftgraphenrollmentconfigurationassignment',
+    'microsoftgraphentity',
+    'microsoftgraphevaluatelabeljobresponse',
+    'microsoftgraphevaluatelabeljobresult',
+    'microsoftgraphevaluatelabeljobresultgroup',
+    'microsoftgraphevaluatelabelsandpoliciesjobresponse',
+    'microsoftgraphevaluatelabelsandpoliciesresult',
+    'microsoftgraphevaluatesensitivitylabelsrequest',
+    'microsoftgraphevent',
+    'microsoftgraphextension',
+    'microsoftgraphexternallink',
+    'microsoftgraphfido2authenticationmethod',
+    'microsoftgraphfieldvalueset',
+    'microsoftgraphfile',
+    'microsoftgraphfilesysteminfo',
+    'microsoftgraphfolder',
+    'microsoftgraphfolderview',
+    'microsoftgraphfollowupflag',
+    'microsoftgraphgeocoordinates',
+    'microsoftgraphgroup',
+    'microsoftgraphgrouplifecyclepolicy',
+    'microsoftgraphhardwareinformation',
+    'microsoftgraphhashes',
+    'microsoftgraphhomerealmdiscoverypolicy',
+    'microsoftgraphidentity',
+    'microsoftgraphidentityprovider',
+    'microsoftgraphidentitysecuritydefaultsenforcementpolicy',
+    'microsoftgraphidentityset',
+    'microsoftgraphidentityuserflow',
+    'microsoftgraphimage',
+    'microsoftgraphimageinfo',
+    'microsoftgraphincompletedata',
+    'microsoftgraphinferenceclassification',
+    'microsoftgraphinferenceclassificationoverride',
+    'microsoftgraphinferencedata',
+    'microsoftgraphinformationprotection',
+    'microsoftgraphinformationprotectioncontentlabel',
+    'microsoftgraphinformationprotectionlabel',
+    'microsoftgraphinformationprotectionpolicy',
+    'microsoftgraphinsightidentity',
+    'microsoftgraphinstitutiondata',
+    'microsoftgraphinternetmessageheader',
+    'microsoftgraphinvitation',
+    'microsoftgraphinvitedusermessageinfo',
+    'microsoftgraphitemactionset',
+    'microsoftgraphitemactionstat',
+    'microsoftgraphitemactivity',
+    'microsoftgraphitemactivityold',
+    'microsoftgraphitemactivitystat',
+    'microsoftgraphitemactivitytimeset',
+    'microsoftgraphitemaddress',
+    'microsoftgraphitemanalytics',
+    'microsoftgraphitembody',
+    'microsoftgraphitememail',
+    'microsoftgraphitemfacet',
+    'microsoftgraphiteminsights',
+    'microsoftgraphitempatent',
+    'microsoftgraphitemphone',
+    'microsoftgraphitempublication',
+    'microsoftgraphitemreference',
+    'microsoftgraphjobresponsebase',
+    'microsoftgraphkeyvaluepair',
+    'microsoftgraphlabelactionbase',
+    'microsoftgraphlabeldetails',
+    'microsoftgraphlabelingoptions',
+    'microsoftgraphlabelpolicy',
+    'microsoftgraphlanguageproficiency',
+    'microsoftgraphlicenseassignmentstate',
+    'microsoftgraphlicensedetails',
+    'microsoftgraphlicenseprocessingstate',
+    'microsoftgraphlinkedresource',
+    'microsoftgraphlist',
+    'microsoftgraphlistinfo',
+    'microsoftgraphlistitem',
+    'microsoftgraphlistitemversion',
+    'microsoftgraphlobbybypasssettings',
+    'microsoftgraphlocaleinfo',
+    'microsoftgraphlocation',
+    'microsoftgraphloggedonuser',
+    'microsoftgraphlongrunningoperation',
+    'microsoftgraphlookupcolumn',
+    'microsoftgraphmailboxsettings',
+    'microsoftgraphmailfolder',
+    'microsoftgraphmanagedappoperation',
+    'microsoftgraphmanagedapppolicy',
+    'microsoftgraphmanagedappregistration',
+    'microsoftgraphmanageddevice',
+    'microsoftgraphmanageddevicemobileappconfigurationsettingstate',
+    'microsoftgraphmanageddevicemobileappconfigurationstate',
+    'microsoftgraphmatchingdlprule',
+    'microsoftgraphmatchinglabel',
+    'microsoftgraphmeetingparticipantinfo',
+    'microsoftgraphmeetingparticipants',
+    'microsoftgraphmention',
+    'microsoftgraphmentionaction',
+    'microsoftgraphmentionspreview',
+    'microsoftgraphmessage',
+    'microsoftgraphmessagerule',
+    'microsoftgraphmessageruleactions',
+    'microsoftgraphmessagerulepredicates',
+    'microsoftgraphmicrosoftauthenticatorauthenticationmethod',
+    'microsoftgraphmobileappintentandstate',
+    'microsoftgraphmobileappintentandstatedetail',
+    'microsoftgraphmobileappsupporteddevicetype',
+    'microsoftgraphmobileapptroubleshootingevent',
+    'microsoftgraphmobileapptroubleshootinghistoryitem',
+    'microsoftgraphmoveaction',
+    'microsoftgraphmultivaluelegacyextendedproperty',
+    'microsoftgraphnamedlocation',
+    'microsoftgraphnotebook',
+    'microsoftgraphnotebooklinks',
+    'microsoftgraphnotification',
+    'microsoftgraphnumbercolumn',
+    'microsoftgraphoauth2permissiongrant',
+    'microsoftgraphobjectidentity',
+    'microsoftgraphoffershiftrequest',
+    'microsoftgraphofficegraphinsights',
+    'microsoftgraphonenote',
+    'microsoftgraphonenoteentitybasemodel',
+    'microsoftgraphonenoteentityhierarchymodel',
+    'microsoftgraphonenoteentityschemaobjectmodel',
+    'microsoftgraphonenoteoperation',
+    'microsoftgraphonenoteoperationerror',
+    'microsoftgraphonenotepage',
+    'microsoftgraphonenoteresource',
+    'microsoftgraphonenotesection',
+    'microsoftgraphonlinemeeting',
+    'microsoftgraphonlinemeetinginfo',
+    'microsoftgraphonpremisesextensionattributes',
+    'microsoftgraphonpremisesprovisioningerror',
+    'microsoftgraphopenshift',
+    'microsoftgraphopenshiftchangerequest',
+    'microsoftgraphopenshiftitem',
+    'microsoftgraphoperation',
+    'microsoftgraphoperationerror',
+    'microsoftgraphoutlookcategory',
+    'microsoftgraphoutlookgeocoordinates',
+    'microsoftgraphoutlookitem',
+    'microsoftgraphoutlooktask',
+    'microsoftgraphoutlooktaskfolder',
+    'microsoftgraphoutlooktaskgroup',
+    'microsoftgraphoutlookuser',
+    'microsoftgraphpackage',
+    'microsoftgraphpagelinks',
+    'microsoftgraphparentlabeldetails',
+    'microsoftgraphpasswordauthenticationmethod',
+    'microsoftgraphpasswordlessmicrosoftauthenticatorauthenticationmethod',
+    'microsoftgraphpasswordprofile',
+    'microsoftgraphpatternedrecurrence',
+    'microsoftgraphpayloadresponse',
+    'microsoftgraphpayloadtypes',
+    'microsoftgraphpendingcontentupdate',
+    'microsoftgraphpendingoperations',
+    'microsoftgraphpermission',
+    'microsoftgraphpermissiongrantconditionset',
+    'microsoftgraphpermissiongrantpolicy',
+    'microsoftgraphpersistentbrowsersessioncontrol',
+    'microsoftgraphperson',
+    'microsoftgraphpersonanniversary',
+    'microsoftgraphpersonannotation',
+    'microsoftgraphpersonaward',
+    'microsoftgraphpersoncertification',
+    'microsoftgraphpersondatasource',
+    'microsoftgraphpersondatasources',
+    'microsoftgraphpersoninterest',
+    'microsoftgraphpersonname',
+    'microsoftgraphpersonorgroupcolumn',
+    'microsoftgraphpersonwebsite',
+    'microsoftgraphphone',
+    'microsoftgraphphoneauthenticationmethod',
+    'microsoftgraphphoto',
+    'microsoftgraphphysicaladdress',
+    'microsoftgraphplannerassignedtotaskboardtaskformat',
+    'microsoftgraphplannerbucket',
+    'microsoftgraphplannerbuckettaskboardtaskformat',
+    'microsoftgraphplannercategorydescriptions',
+    'microsoftgraphplannerdelta',
+    'microsoftgraphplannergroup',
+    'microsoftgraphplannerplan',
+    'microsoftgraphplannerplandetails',
+    'microsoftgraphplannerprogresstaskboardtaskformat',
+    'microsoftgraphplannertask',
+    'microsoftgraphplannertaskdetails',
+    'microsoftgraphplanneruser',
+    'microsoftgraphpolicybase',
+    'microsoftgraphpolicyroot',
+    'microsoftgraphpositiondetail',
+    'microsoftgraphpost',
+    'microsoftgraphpresence',
+    'microsoftgraphprivatelinkresource',
+    'microsoftgraphprofile',
+    'microsoftgraphprofilephoto',
+    'microsoftgraphprojectparticipation',
+    'microsoftgraphprovisionedplan',
+    'microsoftgraphpublicationfacet',
+    'microsoftgraphquota',
+    'microsoftgraphrankedemailaddress',
+    'microsoftgraphrecipient',
+    'microsoftgraphrecurrencepattern',
+    'microsoftgraphrecurrencerange',
+    'microsoftgraphregionalandlanguagesettings',
+    'microsoftgraphregionalformatoverrides',
+    'microsoftgraphrelatedperson',
+    'microsoftgraphremoteitem',
+    'microsoftgraphrenameaction',
+    'microsoftgraphrequest',
+    'microsoftgraphresourcereference',
+    'microsoftgraphresourcespecificpermissiongrant',
+    'microsoftgraphresourcevisualization',
+    'microsoftgraphresponsestatus',
+    'microsoftgraphresponsiblepolicy',
+    'microsoftgraphresponsiblesensitivetype',
+    'microsoftgraphriskdetection',
+    'microsoftgraphriskuseractivity',
+    'microsoftgraphriskyuser',
+    'microsoftgraphriskyuserhistoryitem',
+    'microsoftgraphschedule',
+    'microsoftgraphschedulechangerequest',
+    'microsoftgraphscheduleentity',
+    'microsoftgraphschedulinggroup',
+    'microsoftgraphscopedrolemembership',
+    'microsoftgraphsearchresult',
+    'microsoftgraphsectiongroup',
+    'microsoftgraphsectionlinks',
+    'microsoftgraphsecuritybaselinecontributingpolicy',
+    'microsoftgraphsecuritybaselinesettingstate',
+    'microsoftgraphsecuritybaselinestate',
+    'microsoftgraphsecurityquestionauthenticationmethod',
+    'microsoftgraphselfservicesignupauthenticationflowconfiguration',
+    'microsoftgraphsensitivecontentevidence',
+    'microsoftgraphsensitivecontentlocation',
+    'microsoftgraphsensitivecontentlocationbase',
+    'microsoftgraphsensitivitylabel',
+    'microsoftgraphsensitivitypolicysettings',
+    'microsoftgraphserviceinformation',
+    'microsoftgraphserviceplaninfo',
+    'microsoftgraphsettings',
+    'microsoftgraphsettingsource',
+    'microsoftgraphsettingvalue',
+    'microsoftgraphshareaction',
+    'microsoftgraphshared',
+    'microsoftgraphsharedappledeviceuser',
+    'microsoftgraphsharedinsight',
+    'microsoftgraphsharepointids',
+    'microsoftgraphsharingdetail',
+    'microsoftgraphsharinginvitation',
+    'microsoftgraphsharinglink',
+    'microsoftgraphshift',
+    'microsoftgraphshiftactivity',
+    'microsoftgraphshiftavailability',
+    'microsoftgraphshiftitem',
+    'microsoftgraphshiftpreferences',
+    'microsoftgraphsigninactivity',
+    'microsoftgraphsigninfrequencysessioncontrol',
+    'microsoftgraphsigninlocation',
+    'microsoftgraphsinglevaluelegacyextendedproperty',
+    'microsoftgraphsite',
+    'microsoftgraphsitecollection',
+    'microsoftgraphsitepage',
+    'microsoftgraphsizerange',
+    'microsoftgraphskillproficiency',
+    'microsoftgraphsoftwareoathauthenticationmethod',
+    'microsoftgraphspecialfolder',
+    'microsoftgraphstorageplaninformation',
+    'microsoftgraphstspolicy',
+    'microsoftgraphsubscription',
+    'microsoftgraphswapshiftschangerequest',
+    'microsoftgraphtargetpolicyendpoints',
+    'microsoftgraphteam',
+    'microsoftgraphteamdiscoverysettings',
+    'microsoftgraphteamfunsettings',
+    'microsoftgraphteamguestsettings',
+    'microsoftgraphteammembersettings',
+    'microsoftgraphteammessagingsettings',
+    'microsoftgraphteamsapp',
+    'microsoftgraphteamsappdefinition',
+    'microsoftgraphteamsappinstallation',
+    'microsoftgraphteamsasyncoperation',
+    'microsoftgraphteamstab',
+    'microsoftgraphteamstabconfiguration',
+    'microsoftgraphteamstemplate',
+    'microsoftgraphtemporaryaccesspassauthenticationmethod',
+    'microsoftgraphtextclassificationrequest',
+    'microsoftgraphtextcolumn',
+    'microsoftgraphthreatassessmentrequest',
+    'microsoftgraphthreatassessmentresult',
+    'microsoftgraphthumbnail',
+    'microsoftgraphthumbnailset',
+    'microsoftgraphtimecard',
+    'microsoftgraphtimecardbreak',
+    'microsoftgraphtimecardentry',
+    'microsoftgraphtimecardevent',
+    'microsoftgraphtimeclocksettings',
+    'microsoftgraphtimeoff',
+    'microsoftgraphtimeoffitem',
+    'microsoftgraphtimeoffreason',
+    'microsoftgraphtimeoffrequest',
+    'microsoftgraphtimerange',
+    'microsoftgraphtimeslot',
+    'microsoftgraphtimezonebase',
+    'microsoftgraphtodo',
+    'microsoftgraphtodotask',
+    'microsoftgraphtodotasklist',
+    'microsoftgraphtokenissuancepolicy',
+    'microsoftgraphtokenlifetimepolicy',
+    'microsoftgraphtrending',
+    'microsoftgraphtrustframework',
+    'microsoftgraphtrustframeworkkey',
+    'microsoftgraphtrustframeworkkeyset',
+    'microsoftgraphtrustframeworkpolicy',
+    'microsoftgraphtypedemailaddress',
+    'microsoftgraphusagedetails',
+    'microsoftgraphusedinsight',
+    'microsoftgraphuser',
+    'microsoftgraphuseraccountinformation',
+    'microsoftgraphuseractivity',
+    'microsoftgraphuseranalytics',
+    'microsoftgraphuserconfiguration',
+    'microsoftgraphuserconsentrequest',
+    'microsoftgraphuseridentity',
+    'microsoftgraphuserpurpose',
+    'microsoftgraphuserscopeteamsappinstallation',
+    'microsoftgraphusersettings',
+    'microsoftgraphuserteamwork',
+    'microsoftgraphversionaction',
+    'microsoftgraphvideo',
+    'microsoftgraphvisualinfo',
+    'microsoftgraphvisualproperties',
+    'microsoftgraphwebaccount',
+    'microsoftgraphwebpart',
+    'microsoftgraphwebsite',
+    'microsoftgraphwindowsdevicemalwarestate',
+    'microsoftgraphwindowsinformationprotectiondeviceregistration',
+    'microsoftgraphwindowsprotectionstate',
+    'microsoftgraphworkbook',
+    'microsoftgraphworkbookapplication',
+    'microsoftgraphworkbookchart',
+    'microsoftgraphworkbookchartareaformat',
+    'microsoftgraphworkbookchartaxes',
+    'microsoftgraphworkbookchartaxis',
+    'microsoftgraphworkbookchartaxisformat',
+    'microsoftgraphworkbookchartaxistitle',
+    'microsoftgraphworkbookchartaxistitleformat',
+    'microsoftgraphworkbookchartdatalabelformat',
+    'microsoftgraphworkbookchartdatalabels',
+    'microsoftgraphworkbookchartfill',
+    'microsoftgraphworkbookchartfont',
+    'microsoftgraphworkbookchartgridlines',
+    'microsoftgraphworkbookchartgridlinesformat',
+    'microsoftgraphworkbookchartlegend',
+    'microsoftgraphworkbookchartlegendformat',
+    'microsoftgraphworkbookchartlineformat',
+    'microsoftgraphworkbookchartpoint',
+    'microsoftgraphworkbookchartpointformat',
+    'microsoftgraphworkbookchartseries',
+    'microsoftgraphworkbookchartseriesformat',
+    'microsoftgraphworkbookcharttitle',
+    'microsoftgraphworkbookcharttitleformat',
+    'microsoftgraphworkbookcomment',
+    'microsoftgraphworkbookcommentreply',
+    'microsoftgraphworkbookfilter',
+    'microsoftgraphworkbookfiltercriteria',
+    'microsoftgraphworkbookfunctions',
+    'microsoftgraphworkbookicon',
+    'microsoftgraphworkbooknameditem',
+    'microsoftgraphworkbookoperation',
+    'microsoftgraphworkbookoperationerror',
+    'microsoftgraphworkbookpivottable',
+    'microsoftgraphworkbooksortfield',
+    'microsoftgraphworkbooktable',
+    'microsoftgraphworkbooktablecolumn',
+    'microsoftgraphworkbooktablerow',
+    'microsoftgraphworkbooktablesort',
+    'microsoftgraphworkbookworksheet',
+    'microsoftgraphworkbookworksheetprotection',
+    'microsoftgraphworkbookworksheetprotectionoptions',
+    'microsoftgraphworkinghours',
+    'microsoftgraphworkposition',
+    'microsoftgraphyomipersonname',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
+    'paths11ap814trustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadpkcs12postrequestbodycontentapplicationjsonschema',
+    'paths184igqyinformationprotectionsensitivitylabelsmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema',
+    'paths19skfwztrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadcertificatepostrequestbodycontentapplicationjsonschema',
+    'paths1aushj1informationprotectionpolicylabelsmicrosoftgraphevaluateapplicationpostrequestbodycontentapplicationjsonschema',
+    'paths1iaopbhtrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphgeneratekeypostrequestbodycontentapplicationjsonschema',
+    'paths1jhdydfinformationprotectiondatalosspreventionpoliciesmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema',
+    'pathsbj48esinformationprotectionpolicylabelsmicrosoftgraphextractlabelpostrequestbodycontentapplicationjsonschema',
+    'pathsdmvqaitrustframeworkkeysetstrustframeworkkeysetidmicrosoftgraphuploadsecretpostrequestbodycontentapplicationjsonschema',
+    'pathsk62xddinformationprotectionsensitivitylabelssensitivitylabelidsublabelsmicrosoftgraphevaluatepostrequestbodycontentapplicationjsonschema',
+    'pathsl8oa4iriskyusersmicrosoftgraphconfirmcompromisedpostrequestbodycontentapplicationjsonschema',
+    'pathsleqqhcinformationprotectionpolicylabelsmicrosoftgraphevaluateclassificationresultspostrequestbodycontentapplicationjsonschema',
+    'pathstai6nqriskyusersmicrosoftgraphdismisspostrequestbodycontentapplicationjsonschema',
+    'pathsu4eih0informationprotectionmicrosoftgraphevaluatelabelsandpoliciespostrequestbodycontentapplicationjsonschema',
+    'pathsz22gcjinformationprotectionpolicylabelsmicrosoftgraphevaluateremovalpostrequestbodycontentapplicationjsonschema',
     'Enum14',
     'Enum15',
     'Enum16',
@@ -2205,157 +2205,157 @@ __all__ = [
     'Enum74',
     'Enum75',
     'Enum76',
-    'Get0ItemsItem',
-    'Get1ItemsItem',
-    'Get3ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
-    'Get8ItemsItem',
-    'MicrosoftGraphAccessLevel',
-    'MicrosoftGraphAccessScope',
-    'MicrosoftGraphActionState',
-    'MicrosoftGraphActivityType',
-    'MicrosoftGraphAgreementAcceptanceState',
-    'MicrosoftGraphAllowInvitesFrom',
-    'MicrosoftGraphAllowedAudiences',
-    'MicrosoftGraphAnalyticsActivityType',
-    'MicrosoftGraphAnniversaryType',
-    'MicrosoftGraphAppLogUploadState',
-    'MicrosoftGraphApplicationMode',
-    'MicrosoftGraphAssignmentMethod',
-    'MicrosoftGraphAttendeeType',
-    'MicrosoftGraphAuthenticationMethodSignInState',
-    'MicrosoftGraphAuthenticationPhoneType',
-    'MicrosoftGraphAutomaticRepliesStatus',
-    'MicrosoftGraphBodyType',
-    'MicrosoftGraphCalendarColor',
-    'MicrosoftGraphCalendarRoleType',
-    'MicrosoftGraphCategoryColor',
-    'MicrosoftGraphChannelMembershipType',
-    'MicrosoftGraphChassisType',
-    'MicrosoftGraphChatMessageImportance',
-    'MicrosoftGraphChatMessagePolicyViolationDlpActionTypes',
-    'MicrosoftGraphChatMessagePolicyViolationUserActionTypes',
-    'MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes',
-    'MicrosoftGraphChatMessageType',
-    'MicrosoftGraphClassificationMethod',
-    'MicrosoftGraphCloudAppSecuritySessionControlType',
-    'MicrosoftGraphComplianceState',
-    'MicrosoftGraphComplianceStatus',
-    'MicrosoftGraphConditionalAccessClientApp',
-    'MicrosoftGraphConditionalAccessDevicePlatform',
-    'MicrosoftGraphConditionalAccessGrantControl',
-    'MicrosoftGraphConditionalAccessPolicyState',
-    'MicrosoftGraphConfigurationManagerClientState',
-    'MicrosoftGraphConfirmedBy',
-    'MicrosoftGraphContentFormat',
-    'MicrosoftGraphContentState',
-    'MicrosoftGraphDataPolicyOperationStatus',
-    'MicrosoftGraphDayOfWeek',
-    'MicrosoftGraphDelegateMeetingMessageDeliveryOptions',
-    'MicrosoftGraphDeviceAndAppManagementAssignmentFilterType',
-    'MicrosoftGraphDeviceAndAppManagementAssignmentSource',
-    'MicrosoftGraphDeviceEnrollmentType',
-    'MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState',
-    'MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState',
-    'MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState',
-    'MicrosoftGraphDeviceManagementExchangeAccessState',
-    'MicrosoftGraphDeviceManagementExchangeAccessStateReason',
-    'MicrosoftGraphDeviceRegistrationState',
-    'MicrosoftGraphDeviceType',
-    'MicrosoftGraphDlpAction',
-    'MicrosoftGraphEmailType',
-    'MicrosoftGraphEventType',
-    'MicrosoftGraphExternalAudienceScope',
-    'MicrosoftGraphFollowupFlagStatus',
-    'MicrosoftGraphFreeBusyStatus',
-    'MicrosoftGraphGiphyRatingType',
-    'MicrosoftGraphGroupAccessType',
-    'MicrosoftGraphImportance',
-    'MicrosoftGraphInferenceClassificationType',
-    'MicrosoftGraphJoinType',
-    'MicrosoftGraphLanguageProficiencyLevel',
-    'MicrosoftGraphLobbyBypassScope',
-    'MicrosoftGraphLocationType',
-    'MicrosoftGraphLocationUniqueIdType',
-    'MicrosoftGraphLongRunningOperationStatus',
-    'MicrosoftGraphLostModeState',
-    'MicrosoftGraphMailboxRecipientType',
-    'MicrosoftGraphManagedAppFlaggedReason',
-    'MicrosoftGraphManagedDeviceArchitecture',
-    'MicrosoftGraphManagedDeviceManagementFeatures',
-    'MicrosoftGraphManagedDeviceOwnerType',
-    'MicrosoftGraphManagedDevicePartnerReportedHealthState',
-    'MicrosoftGraphManagementAgentType',
-    'MicrosoftGraphManagementState',
-    'MicrosoftGraphMeetingCapabilities',
-    'MicrosoftGraphMessageActionFlag',
-    'MicrosoftGraphMlClassificationMatchTolerance',
-    'MicrosoftGraphMobileAppIntent',
-    'MicrosoftGraphOnenoteUserRole',
-    'MicrosoftGraphOnlineMeetingPresenters',
-    'MicrosoftGraphOnlineMeetingProviderType',
-    'MicrosoftGraphOnlineMeetingRole',
-    'MicrosoftGraphOperationStatus',
-    'MicrosoftGraphOwnerType',
-    'MicrosoftGraphPermissionType',
-    'MicrosoftGraphPersistentBrowserSessionMode',
-    'MicrosoftGraphPersonRelationship',
-    'MicrosoftGraphPhoneType',
-    'MicrosoftGraphPhysicalAddressType',
-    'MicrosoftGraphPlannerPreviewType',
-    'MicrosoftGraphPolicyPlatformType',
-    'MicrosoftGraphPriority',
-    'MicrosoftGraphRecurrencePatternType',
-    'MicrosoftGraphRecurrenceRangeType',
-    'MicrosoftGraphReplyRestriction',
-    'MicrosoftGraphResponseType',
-    'MicrosoftGraphResultantAppState',
-    'MicrosoftGraphRiskDetail',
-    'MicrosoftGraphRiskDetectionTimingType',
-    'MicrosoftGraphRiskEventType',
-    'MicrosoftGraphRiskLevel',
-    'MicrosoftGraphRiskState',
-    'MicrosoftGraphRuleMode',
-    'MicrosoftGraphScheduleChangeRequestActor',
-    'MicrosoftGraphScheduleChangeState',
-    'MicrosoftGraphScheduleEntityTheme',
-    'MicrosoftGraphSecurityBaselineComplianceState',
-    'MicrosoftGraphSecurityBaselinePolicySourceType',
-    'MicrosoftGraphSensitiveTypeScope',
-    'MicrosoftGraphSensitiveTypeSource',
-    'MicrosoftGraphSensitivity',
-    'MicrosoftGraphSensitivityLabelTarget',
-    'MicrosoftGraphSettingSourceType',
-    'MicrosoftGraphSigninFrequencyType',
-    'MicrosoftGraphSkillProficiencyLevel',
-    'MicrosoftGraphStatus',
-    'MicrosoftGraphTaskStatus',
-    'MicrosoftGraphTeamSpecialization',
-    'MicrosoftGraphTeamVisibilityType',
-    'MicrosoftGraphTeamsAppDistributionMethod',
-    'MicrosoftGraphTeamsAppPublishingState',
-    'MicrosoftGraphTeamsAsyncOperationStatus',
-    'MicrosoftGraphTeamsAsyncOperationType',
-    'MicrosoftGraphThreatAssessmentContentType',
-    'MicrosoftGraphThreatAssessmentRequestSource',
-    'MicrosoftGraphThreatAssessmentResultType',
-    'MicrosoftGraphThreatAssessmentStatus',
-    'MicrosoftGraphThreatCategory',
-    'MicrosoftGraphThreatExpectedAssessment',
-    'MicrosoftGraphTimeCardState',
-    'MicrosoftGraphTimeOffReasonIconType',
-    'MicrosoftGraphTokenIssuerType',
-    'MicrosoftGraphUserFlowType',
-    'MicrosoftGraphUserNewMessageRestriction',
-    'MicrosoftGraphWebsiteType',
-    'MicrosoftGraphWeekIndex',
-    'MicrosoftGraphWellknownListName',
-    'MicrosoftGraphWindowsDeviceHealthState',
-    'MicrosoftGraphWindowsMalwareCategory',
-    'MicrosoftGraphWindowsMalwareExecutionState',
-    'MicrosoftGraphWindowsMalwareSeverity',
-    'MicrosoftGraphWindowsMalwareState',
-    'MicrosoftGraphWindowsMalwareThreatState',
-    'MicrosoftGraphWorkbookOperationStatus',
+    'Get0itemsitem',
+    'Get1itemsitem',
+    'Get3itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
+    'Get8itemsitem',
+    'Microsoftgraphaccesslevel',
+    'Microsoftgraphaccessscope',
+    'Microsoftgraphactionstate',
+    'Microsoftgraphactivitytype',
+    'Microsoftgraphagreementacceptancestate',
+    'Microsoftgraphallowedaudiences',
+    'Microsoftgraphallowinvitesfrom',
+    'Microsoftgraphanalyticsactivitytype',
+    'Microsoftgraphanniversarytype',
+    'Microsoftgraphapplicationmode',
+    'Microsoftgraphapploguploadstate',
+    'Microsoftgraphassignmentmethod',
+    'Microsoftgraphattendeetype',
+    'Microsoftgraphauthenticationmethodsigninstate',
+    'Microsoftgraphauthenticationphonetype',
+    'Microsoftgraphautomaticrepliesstatus',
+    'Microsoftgraphbodytype',
+    'Microsoftgraphcalendarcolor',
+    'Microsoftgraphcalendarroletype',
+    'Microsoftgraphcategorycolor',
+    'Microsoftgraphchannelmembershiptype',
+    'Microsoftgraphchassistype',
+    'Microsoftgraphchatmessageimportance',
+    'Microsoftgraphchatmessagepolicyviolationdlpactiontypes',
+    'Microsoftgraphchatmessagepolicyviolationuseractiontypes',
+    'Microsoftgraphchatmessagepolicyviolationverdictdetailstypes',
+    'Microsoftgraphchatmessagetype',
+    'Microsoftgraphclassificationmethod',
+    'Microsoftgraphcloudappsecuritysessioncontroltype',
+    'Microsoftgraphcompliancestate',
+    'Microsoftgraphcompliancestatus',
+    'Microsoftgraphconditionalaccessclientapp',
+    'Microsoftgraphconditionalaccessdeviceplatform',
+    'Microsoftgraphconditionalaccessgrantcontrol',
+    'Microsoftgraphconditionalaccesspolicystate',
+    'Microsoftgraphconfigurationmanagerclientstate',
+    'Microsoftgraphconfirmedby',
+    'Microsoftgraphcontentformat',
+    'Microsoftgraphcontentstate',
+    'Microsoftgraphdatapolicyoperationstatus',
+    'Microsoftgraphdayofweek',
+    'Microsoftgraphdelegatemeetingmessagedeliveryoptions',
+    'Microsoftgraphdeviceandappmanagementassignmentfiltertype',
+    'Microsoftgraphdeviceandappmanagementassignmentsource',
+    'Microsoftgraphdeviceenrollmenttype',
+    'Microsoftgraphdeviceguardlocalsystemauthoritycredentialguardstate',
+    'Microsoftgraphdeviceguardvirtualizationbasedsecurityhardwarerequirementstate',
+    'Microsoftgraphdeviceguardvirtualizationbasedsecuritystate',
+    'Microsoftgraphdevicemanagementexchangeaccessstate',
+    'Microsoftgraphdevicemanagementexchangeaccessstatereason',
+    'Microsoftgraphdeviceregistrationstate',
+    'Microsoftgraphdevicetype',
+    'Microsoftgraphdlpaction',
+    'Microsoftgraphemailtype',
+    'Microsoftgrapheventtype',
+    'Microsoftgraphexternalaudiencescope',
+    'Microsoftgraphfollowupflagstatus',
+    'Microsoftgraphfreebusystatus',
+    'Microsoftgraphgiphyratingtype',
+    'Microsoftgraphgroupaccesstype',
+    'Microsoftgraphimportance',
+    'Microsoftgraphinferenceclassificationtype',
+    'Microsoftgraphjointype',
+    'Microsoftgraphlanguageproficiencylevel',
+    'Microsoftgraphlobbybypassscope',
+    'Microsoftgraphlocationtype',
+    'Microsoftgraphlocationuniqueidtype',
+    'Microsoftgraphlongrunningoperationstatus',
+    'Microsoftgraphlostmodestate',
+    'Microsoftgraphmailboxrecipienttype',
+    'Microsoftgraphmanagedappflaggedreason',
+    'Microsoftgraphmanageddevicearchitecture',
+    'Microsoftgraphmanageddevicemanagementfeatures',
+    'Microsoftgraphmanageddeviceownertype',
+    'Microsoftgraphmanageddevicepartnerreportedhealthstate',
+    'Microsoftgraphmanagementagenttype',
+    'Microsoftgraphmanagementstate',
+    'Microsoftgraphmeetingcapabilities',
+    'Microsoftgraphmessageactionflag',
+    'Microsoftgraphmlclassificationmatchtolerance',
+    'Microsoftgraphmobileappintent',
+    'Microsoftgraphonenoteuserrole',
+    'Microsoftgraphonlinemeetingpresenters',
+    'Microsoftgraphonlinemeetingprovidertype',
+    'Microsoftgraphonlinemeetingrole',
+    'Microsoftgraphoperationstatus',
+    'Microsoftgraphownertype',
+    'Microsoftgraphpermissiontype',
+    'Microsoftgraphpersistentbrowsersessionmode',
+    'Microsoftgraphpersonrelationship',
+    'Microsoftgraphphonetype',
+    'Microsoftgraphphysicaladdresstype',
+    'Microsoftgraphplannerpreviewtype',
+    'Microsoftgraphpolicyplatformtype',
+    'Microsoftgraphpriority',
+    'Microsoftgraphrecurrencepatterntype',
+    'Microsoftgraphrecurrencerangetype',
+    'Microsoftgraphreplyrestriction',
+    'Microsoftgraphresponsetype',
+    'Microsoftgraphresultantappstate',
+    'Microsoftgraphriskdetail',
+    'Microsoftgraphriskdetectiontimingtype',
+    'Microsoftgraphriskeventtype',
+    'Microsoftgraphrisklevel',
+    'Microsoftgraphriskstate',
+    'Microsoftgraphrulemode',
+    'Microsoftgraphschedulechangerequestactor',
+    'Microsoftgraphschedulechangestate',
+    'Microsoftgraphscheduleentitytheme',
+    'Microsoftgraphsecuritybaselinecompliancestate',
+    'Microsoftgraphsecuritybaselinepolicysourcetype',
+    'Microsoftgraphsensitivetypescope',
+    'Microsoftgraphsensitivetypesource',
+    'Microsoftgraphsensitivity',
+    'Microsoftgraphsensitivitylabeltarget',
+    'Microsoftgraphsettingsourcetype',
+    'Microsoftgraphsigninfrequencytype',
+    'Microsoftgraphskillproficiencylevel',
+    'Microsoftgraphstatus',
+    'Microsoftgraphtaskstatus',
+    'Microsoftgraphteamsappdistributionmethod',
+    'Microsoftgraphteamsapppublishingstate',
+    'Microsoftgraphteamsasyncoperationstatus',
+    'Microsoftgraphteamsasyncoperationtype',
+    'Microsoftgraphteamspecialization',
+    'Microsoftgraphteamvisibilitytype',
+    'Microsoftgraphthreatassessmentcontenttype',
+    'Microsoftgraphthreatassessmentrequestsource',
+    'Microsoftgraphthreatassessmentresulttype',
+    'Microsoftgraphthreatassessmentstatus',
+    'Microsoftgraphthreatcategory',
+    'Microsoftgraphthreatexpectedassessment',
+    'Microsoftgraphtimecardstate',
+    'Microsoftgraphtimeoffreasonicontype',
+    'Microsoftgraphtokenissuertype',
+    'Microsoftgraphuserflowtype',
+    'Microsoftgraphusernewmessagerestriction',
+    'Microsoftgraphwebsitetype',
+    'Microsoftgraphweekindex',
+    'Microsoftgraphwellknownlistname',
+    'Microsoftgraphwindowsdevicehealthstate',
+    'Microsoftgraphwindowsmalwarecategory',
+    'Microsoftgraphwindowsmalwareexecutionstate',
+    'Microsoftgraphwindowsmalwareseverity',
+    'Microsoftgraphwindowsmalwarestate',
+    'Microsoftgraphwindowsmalwarethreatstate',
+    'Microsoftgraphworkbookoperationstatus',
 ]

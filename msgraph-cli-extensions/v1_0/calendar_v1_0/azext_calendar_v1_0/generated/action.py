@@ -35,6 +35,9 @@ class AddOwner(argparse.Action):
                 d['address'] = v[0]
             elif kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter owner. All possible keys are: address, '
+                               'name'.format(k))
         return d
 
 
@@ -59,6 +62,9 @@ class AddMultiValueExtendedProperties(argparse._AppendAction):
                 d['value'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter multi_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
@@ -83,6 +89,9 @@ class AddSingleValueExtendedProperties(argparse._AppendAction):
                 d['value'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter single_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
@@ -113,6 +122,9 @@ class AddAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-or-region, postal-code, state, street'.format(k))
         return d
 
 
@@ -143,4 +155,7 @@ class AddGeoCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter geo_coordinates. All possible keys are: '
+                               'accuracy, altitude, altitude-accuracy, latitude, longitude'.format(k))
         return d

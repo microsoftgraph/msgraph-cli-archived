@@ -1,5 +1,127 @@
-Microsoft Azure CLI 'notes_beta' Extension
-==========================================
+# Azure CLI notes_beta Extension #
+This is the extension for notes_beta
 
-This package is for the 'notes_beta' extension.
-i.e. 'az notes_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name notes_beta
+```
+
+### Included Features ###
+#### notes group ####
+#### notes groupsonenote ####
+#### notes groupsonenotenotebook ####
+#### notes groupsonenotenotebookssectiongroup ####
+#### notes groupsonenotenotebookssectiongroupssection ####
+#### notes groupsonenotenotebookssectiongroupssectionspage ####
+#### notes groupsonenotenotebookssection ####
+#### notes groupsonenotenotebookssectionspage ####
+#### notes groupsonenotenotebookssectionsparentsectiongroup ####
+#### notes groupsonenotepage ####
+#### notes groupsonenotepagesparentnotebook ####
+#### notes groupsonenotepagesparentnotebooksectiongroup ####
+#### notes groupsonenotepagesparentnotebooksectiongroupssection ####
+#### notes groupsonenoteparentnotebooksectiongroupssectionspage ####
+#### notes groupsonenotepagesparentnotebooksection ####
+#### notes groupsonenoteparentnotebooksectionspage ####
+#### notes groupsonenotepagesparentnotebooksectionsparentsectiongroup ####
+#### notes groupsonenotepagesparentsection ####
+#### notes groupsonenoteparentsectionpage ####
+#### notes groupsonenotepagesparentsectionparentnotebook ####
+#### notes groupsonenotepagesparentsectionparentnotebooksectiongroup ####
+#### notes groupsonenotepagesparentsectiongroup ####
+#### notes groupsonenotepagesparentsectiongroupparentnotebook ####
+#### notes groupsonenotesectiongroup ####
+#### notes groupsonenotesectiongroupsparentnotebook ####
+#### notes groupsonenotesectiongroupsparentnotebooksection ####
+#### notes groupsonenotesectiongroupsparentnotebooksectionspage ####
+#### notes groupsonenotesectiongroupssection ####
+#### notes groupsonenotesectiongroupssectionspage ####
+#### notes groupsonenotesectiongroupssectionspagesparentnotebook ####
+#### notes groupsonenotesectiongroupssectionsparentnotebook ####
+#### notes groupsonenotesection ####
+#### notes groupsonenotesectionspage ####
+#### notes groupsonenotesectionspagesparentnotebook ####
+#### notes groupsonenotesectionspagesparentnotebooksectiongroup ####
+#### notes groupsonenotesectionsparentnotebook ####
+#### notes groupsonenotesectionsparentnotebooksectiongroup ####
+#### notes groupsonenotesectionsparentsectiongroup ####
+#### notes groupsonenotesectionsparentsectiongroupparentnotebook ####
+#### notes site ####
+#### notes sitesonenote ####
+#### notes sitesonenotenotebook ####
+#### notes sitesonenotenotebookssectiongroup ####
+#### notes sitesonenotenotebookssectiongroupssection ####
+#### notes sitesonenotenotebookssectiongroupssectionspage ####
+#### notes sitesonenotenotebookssection ####
+#### notes sitesonenotenotebookssectionspage ####
+#### notes sitesonenotenotebookssectionsparentsectiongroup ####
+#### notes sitesonenotepage ####
+#### notes sitesonenotepagesparentnotebook ####
+#### notes sitesonenotepagesparentnotebooksectiongroup ####
+#### notes sitesonenotepagesparentnotebooksectiongroupssection ####
+#### notes sitesonenoteparentnotebooksectiongroupssectionspage ####
+#### notes sitesonenotepagesparentnotebooksection ####
+#### notes sitesonenoteparentnotebooksectionspage ####
+#### notes sitesonenotepagesparentnotebooksectionsparentsectiongroup ####
+#### notes sitesonenotepagesparentsection ####
+#### notes sitesonenoteparentsectionpage ####
+#### notes sitesonenotepagesparentsectionparentnotebook ####
+#### notes sitesonenotepagesparentsectionparentnotebooksectiongroup ####
+#### notes sitesonenotepagesparentsectiongroup ####
+#### notes sitesonenotepagesparentsectiongroupparentnotebook ####
+#### notes sitesonenotesectiongroup ####
+#### notes sitesonenotesectiongroupsparentnotebook ####
+#### notes sitesonenotesectiongroupsparentnotebooksection ####
+#### notes sitesonenotesectiongroupsparentnotebooksectionspage ####
+#### notes sitesonenotesectiongroupssection ####
+#### notes sitesonenotesectiongroupssectionspage ####
+#### notes sitesonenotesectiongroupssectionspagesparentnotebook ####
+#### notes sitesonenotesectiongroupssectionsparentnotebook ####
+#### notes sitesonenotesection ####
+#### notes sitesonenotesectionspage ####
+#### notes sitesonenotesectionspagesparentnotebook ####
+#### notes sitesonenotesectionspagesparentnotebooksectiongroup ####
+#### notes sitesonenotesectionsparentnotebook ####
+#### notes sitesonenotesectionsparentnotebooksectiongroup ####
+#### notes sitesonenotesectionsparentsectiongroup ####
+#### notes sitesonenotesectionsparentsectiongroupparentnotebook ####
+#### notes user ####
+#### notes usersonenote ####
+#### notes usersonenotenotebook ####
+#### notes usersonenotenotebookssectiongroup ####
+#### notes usersonenotenotebookssectiongroupssection ####
+#### notes usersonenotenotebookssectiongroupssectionspage ####
+#### notes usersonenotenotebookssection ####
+#### notes usersonenotenotebookssectionspage ####
+#### notes usersonenotenotebookssectionsparentsectiongroup ####
+#### notes usersonenotepage ####
+#### notes usersonenotepagesparentnotebook ####
+#### notes usersonenotepagesparentnotebooksectiongroup ####
+#### notes usersonenotepagesparentnotebooksectiongroupssection ####
+#### notes usersonenoteparentnotebooksectiongroupssectionspage ####
+#### notes usersonenotepagesparentnotebooksection ####
+#### notes usersonenoteparentnotebooksectionspage ####
+#### notes usersonenotepagesparentnotebooksectionsparentsectiongroup ####
+#### notes usersonenotepagesparentsection ####
+#### notes usersonenoteparentsectionpage ####
+#### notes usersonenotepagesparentsectionparentnotebook ####
+#### notes usersonenotepagesparentsectionparentnotebooksectiongroup ####
+#### notes usersonenotepagesparentsectiongroup ####
+#### notes usersonenotepagesparentsectiongroupparentnotebook ####
+#### notes usersonenotesectiongroup ####
+#### notes usersonenotesectiongroupsparentnotebook ####
+#### notes usersonenotesectiongroupsparentnotebooksection ####
+#### notes usersonenotesectiongroupsparentnotebooksectionspage ####
+#### notes usersonenotesectiongroupssection ####
+#### notes usersonenotesectiongroupssectionspage ####
+#### notes usersonenotesectiongroupssectionspagesparentnotebook ####
+#### notes usersonenotesectiongroupssectionsparentnotebook ####
+#### notes usersonenotesection ####
+#### notes usersonenotesectionspage ####
+#### notes usersonenotesectionspagesparentnotebook ####
+#### notes usersonenotesectionspagesparentnotebooksectiongroup ####
+#### notes usersonenotesectionsparentnotebook ####
+#### notes usersonenotesectionsparentnotebooksectiongroup ####
+#### notes usersonenotesectionsparentsectiongroup ####
+#### notes usersonenotesectionsparentsectiongroupparentnotebook ####

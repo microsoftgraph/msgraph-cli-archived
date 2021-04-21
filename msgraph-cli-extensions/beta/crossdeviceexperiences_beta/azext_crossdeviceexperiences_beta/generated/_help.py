@@ -12,24 +12,24 @@
 from knack.help_files import helps
 
 
-helps['crossdeviceexperiences'] = """
+helps['crossdeviceexperiences_beta'] = '''
     type: group
-    short-summary: crossdeviceexperiences
+    short-summary: Manage Cross Device Experiences
+'''
+
+helps['crossdeviceexperiences user'] = """
+    type: group
+    short-summary: Manage user with crossdeviceexperiences_beta
 """
 
-helps['crossdeviceexperiences delete'] = """
+helps['crossdeviceexperiences user create-activity'] = """
     type: command
-    short-summary: "Delete navigation property devices for users"
-"""
-
-helps['crossdeviceexperiences create-activity'] = """
-    type: command
-    short-summary: "Create new navigation property to activities for users"
+    short-summary: "Create new navigation property to activities for users."
     parameters:
-      - name: --visual-elements-attribution
+      - name: --attribution
         short-summary: "imageInfo"
         long-summary: |
-            Usage: --visual-elements-attribution add-image-query=XX alternate-text=XX alternative-text=XX icon-url=XX
+            Usage: --attribution add-image-query=XX alternate-text=XX alternative-text=XX icon-url=XX
 
             add-image-query: Optional; parameter used to indicate the server is able to render image dynamically in \
 response to parameterization. For example – a high contrast image
@@ -38,39 +38,49 @@ response to parameterization. For example – a high contrast image
 activity
 """
 
-helps['crossdeviceexperiences create-device'] = """
+helps['crossdeviceexperiences user create-device'] = """
     type: command
-    short-summary: "Create new navigation property to devices for users"
+    short-summary: "Create new navigation property to devices for users."
 """
 
-helps['crossdeviceexperiences get-activity'] = """
+helps['crossdeviceexperiences user delete-activity'] = """
     type: command
-    short-summary: "Get activities from users"
+    short-summary: "Delete navigation property activities for users."
 """
 
-helps['crossdeviceexperiences get-device'] = """
+helps['crossdeviceexperiences user delete-device'] = """
     type: command
-    short-summary: "Get devices from users"
+    short-summary: "Delete navigation property devices for users."
 """
 
-helps['crossdeviceexperiences list-activity'] = """
+helps['crossdeviceexperiences user list-activity'] = """
     type: command
-    short-summary: "Get activities from users"
+    short-summary: "Get activities from users."
 """
 
-helps['crossdeviceexperiences list-device'] = """
+helps['crossdeviceexperiences user list-device'] = """
     type: command
-    short-summary: "Get devices from users"
+    short-summary: "Get devices from users."
 """
 
-helps['crossdeviceexperiences update-activity'] = """
+helps['crossdeviceexperiences user show-activity'] = """
     type: command
-    short-summary: "Update the navigation property activities in users"
+    short-summary: "Get activities from users."
+"""
+
+helps['crossdeviceexperiences user show-device'] = """
+    type: command
+    short-summary: "Get devices from users."
+"""
+
+helps['crossdeviceexperiences user update-activity'] = """
+    type: command
+    short-summary: "Update the navigation property activities in users."
     parameters:
-      - name: --visual-elements-attribution
+      - name: --attribution
         short-summary: "imageInfo"
         long-summary: |
-            Usage: --visual-elements-attribution add-image-query=XX alternate-text=XX alternative-text=XX icon-url=XX
+            Usage: --attribution add-image-query=XX alternate-text=XX alternative-text=XX icon-url=XX
 
             add-image-query: Optional; parameter used to indicate the server is able to render image dynamically in \
 response to parameterization. For example – a high contrast image
@@ -79,62 +89,62 @@ response to parameterization. For example – a high contrast image
 activity
 """
 
-helps['crossdeviceexperiences update-device'] = """
+helps['crossdeviceexperiences user update-device'] = """
     type: command
-    short-summary: "Update the navigation property devices in users"
+    short-summary: "Update the navigation property devices in users."
 """
 
-helps['crossdeviceexperiences'] = """
+helps['crossdeviceexperiences usersactivity'] = """
     type: group
-    short-summary: crossdeviceexperiences
+    short-summary: Manage usersactivity with crossdeviceexperiences_beta
 """
 
-helps['crossdeviceexperiences delete'] = """
+helps['crossdeviceexperiences usersactivity create-history-item'] = """
     type: command
-    short-summary: "Delete navigation property historyItems for users"
+    short-summary: "Create new navigation property to historyItems for users."
 """
 
-helps['crossdeviceexperiences create-history-item'] = """
+helps['crossdeviceexperiences usersactivity delete-history-item'] = """
     type: command
-    short-summary: "Create new navigation property to historyItems for users"
+    short-summary: "Delete navigation property historyItems for users."
 """
 
-helps['crossdeviceexperiences get-history-item'] = """
+helps['crossdeviceexperiences usersactivity list-history-item'] = """
     type: command
-    short-summary: "Get historyItems from users"
+    short-summary: "Get historyItems from users."
 """
 
-helps['crossdeviceexperiences list-history-item'] = """
+helps['crossdeviceexperiences usersactivity show-history-item'] = """
     type: command
-    short-summary: "Get historyItems from users"
+    short-summary: "Get historyItems from users."
 """
 
-helps['crossdeviceexperiences update-history-item'] = """
+helps['crossdeviceexperiences usersactivity update-history-item'] = """
     type: command
-    short-summary: "Update the navigation property historyItems in users"
+    short-summary: "Update the navigation property historyItems in users."
 """
 
-helps['crossdeviceexperiences'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem'] = """
     type: group
-    short-summary: crossdeviceexperiences
+    short-summary: Manage usersactivitieshistoryitem with crossdeviceexperiences_beta
 """
 
-helps['crossdeviceexperiences delete'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem delete-ref-activity'] = """
     type: command
-    short-summary: "Delete ref of navigation property activity for users"
+    short-summary: "Delete ref of navigation property activity for users."
 """
 
-helps['crossdeviceexperiences get-activity'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem set-ref-activity'] = """
     type: command
-    short-summary: "Get activity from users"
+    short-summary: "Update the ref of navigation property activity in users."
 """
 
-helps['crossdeviceexperiences get-ref-activity'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem show-activity'] = """
     type: command
-    short-summary: "Get ref of activity from users"
+    short-summary: "Get activity from users."
 """
 
-helps['crossdeviceexperiences set-ref-activity'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem show-ref-activity'] = """
     type: command
-    short-summary: "Update the ref of navigation property activity in users"
+    short-summary: "Get ref of activity from users."
 """

@@ -11,16 +11,16 @@
 
 def cf_directoryobjects_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.directoryobjects import DirectoryObjects
+    from azext_directoryobjects_beta.vendored_sdks.directoryobjects import DirectoryObjects
     return get_mgmt_service_client(cli_ctx,
                                    DirectoryObjects,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_directory_object_directory_object(cli_ctx, *_):
-    return cf_directoryobjects_beta_cl(cli_ctx).directory_object_directory_object
+def cf_directoryobjectsdirectoryobject(cli_ctx, *_):
+    return cf_directoryobjects_beta_cl(cli_ctx).directoryobjectsdirectoryobject
 
 
-def cf_directory_object(cli_ctx, *_):
-    return cf_directoryobjects_beta_cl(cli_ctx).directory_object
+def cf_directoryobject(cli_ctx, *_):
+    return cf_directoryobjects_beta_cl(cli_ctx).directoryobjects

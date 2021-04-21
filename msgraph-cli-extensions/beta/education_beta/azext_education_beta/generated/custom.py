@@ -11,1468 +11,1351 @@
 # pylint: disable=too-many-lines
 
 
-def education_get_education_root(client,
-                                 select=None,
-                                 expand=None):
+def education_educationroot_show_education_root(client,
+                                                select=None,
+                                                expand=None):
     return client.get_education_root(select=select,
                                      expand=expand)
 
 
-def education_update_education_root(client,
-                                    id_=None,
-                                    synchronization_profiles=None,
-                                    classes=None,
-                                    me=None,
-                                    schools=None,
-                                    users=None):
-    return client.update_education_root(id=id_,
-                                        synchronization_profiles=synchronization_profiles,
-                                        classes=classes,
-                                        me=me,
-                                        schools=schools,
-                                        users=users)
+def education_educationroot_update_education_root(client,
+                                                  id_=None,
+                                                  synchronization_profiles=None,
+                                                  classes=None,
+                                                  me=None,
+                                                  schools=None,
+                                                  users=None):
+    body = {}
+    body['id'] = id_
+    body['synchronization_profiles'] = synchronization_profiles
+    body['classes'] = classes
+    body['me'] = me
+    body['schools'] = schools
+    body['users'] = users
+    return client.update_education_root(body=body)
 
 
-def education_delete(client,
-                     education_class_id=None,
-                     if_match=None,
-                     education_school_id=None,
-                     education_synchronization_profile_id=None,
-                     education_user_id=None):
-    if education_class_id is not None:
-        return client.delete_class(education_class_id=education_class_id,
-                                   if_match=if_match)
-    elif education_school_id is not None:
-        return client.delete_school(education_school_id=education_school_id,
-                                    if_match=if_match)
-    elif education_synchronization_profile_id is not None:
-        return client.delete_synchronization_profile(education_synchronization_profile_id=education_synchronization_profile_id,
-                                                     if_match=if_match)
-    elif education_user_id is not None:
-        return client.delete_user(education_user_id=education_user_id,
-                                  if_match=if_match)
+def education_education_create_class(client,
+                                     id_=None,
+                                     class_code=None,
+                                     course=None,
+                                     description=None,
+                                     display_name=None,
+                                     external_id=None,
+                                     external_name=None,
+                                     external_source=None,
+                                     external_source_detail=None,
+                                     grade=None,
+                                     mail_nickname=None,
+                                     term=None,
+                                     assignment_categories=None,
+                                     assignments=None,
+                                     group=None,
+                                     members=None,
+                                     schools=None,
+                                     teachers=None,
+                                     application=None,
+                                     device=None,
+                                     user=None):
+    body = {}
+    body['id'] = id_
+    body['class_code'] = class_code
+    body['course'] = course
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_id'] = external_id
+    body['external_name'] = external_name
+    body['external_source'] = external_source
+    body['external_source_detail'] = external_source_detail
+    body['grade'] = grade
+    body['mail_nickname'] = mail_nickname
+    body['term'] = term
+    body['assignment_categories'] = assignment_categories
+    body['assignments'] = assignments
+    body['group'] = group
+    body['members'] = members
+    body['schools'] = schools
+    body['teachers'] = teachers
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.create_classes(body=body)
+
+
+def education_education_create_school(client,
+                                      id_=None,
+                                      description=None,
+                                      display_name=None,
+                                      external_source=None,
+                                      external_source_detail=None,
+                                      address=None,
+                                      external_id=None,
+                                      external_principal_id=None,
+                                      fax=None,
+                                      highest_grade=None,
+                                      lowest_grade=None,
+                                      phone=None,
+                                      principal_email=None,
+                                      principal_name=None,
+                                      school_number=None,
+                                      classes=None,
+                                      users=None,
+                                      microsoft_graph_entity_id=None,
+                                      deleted_date_time=None,
+                                      microsoft_graph_administrative_unit_description=None,
+                                      microsoft_graph_administrative_unit_display_name=None,
+                                      visibility=None,
+                                      members=None,
+                                      scoped_role_members=None,
+                                      extensions=None,
+                                      application=None,
+                                      device=None,
+                                      user=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_source'] = external_source
+    body['external_source_detail'] = external_source_detail
+    body['address'] = address
+    body['external_id'] = external_id
+    body['external_principal_id'] = external_principal_id
+    body['fax'] = fax
+    body['highest_grade'] = highest_grade
+    body['lowest_grade'] = lowest_grade
+    body['phone'] = phone
+    body['principal_email'] = principal_email
+    body['principal_name'] = principal_name
+    body['school_number'] = school_number
+    body['classes'] = classes
+    body['users'] = users
+    body['administrative_unit'] = {}
+    body['administrative_unit']['id'] = microsoft_graph_entity_id
+    body['administrative_unit']['deleted_date_time'] = deleted_date_time
+    body['administrative_unit']['description'] = microsoft_graph_administrative_unit_description
+    body['administrative_unit']['display_name'] = microsoft_graph_administrative_unit_display_name
+    body['administrative_unit']['visibility'] = visibility
+    body['administrative_unit']['members'] = members
+    body['administrative_unit']['scoped_role_members'] = scoped_role_members
+    body['administrative_unit']['extensions'] = extensions
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.create_schools(body=body)
+
+
+def education_education_create_synchronization_profile(client,
+                                                       id_=None,
+                                                       data_provider=None,
+                                                       display_name=None,
+                                                       expiration_date=None,
+                                                       handle_special_character_constraint=None,
+                                                       identity_synchronization_configuration=None,
+                                                       licenses_to_assign=None,
+                                                       state=None,
+                                                       errors=None,
+                                                       profile_status=None):
+    body = {}
+    body['id'] = id_
+    body['data_provider'] = data_provider
+    body['display_name'] = display_name
+    body['expiration_date'] = expiration_date
+    body['handle_special_character_constraint'] = handle_special_character_constraint
+    body['identity_synchronization_configuration'] = identity_synchronization_configuration
+    body['licenses_to_assign'] = licenses_to_assign
+    body['state'] = state
+    body['errors'] = errors
+    body['profile_status'] = profile_status
+    return client.create_synchronization_profiles(body=body)
+
+
+def education_education_create_user(client,
+                                    body):
+    return client.create_users(body=body)
+
+
+def education_education_delete_class(client,
+                                     education_class_id,
+                                     if_match=None):
+    return client.delete_classes(education_class_id=education_class_id,
+                                 if_match=if_match)
+
+
+def education_education_delete_me(client,
+                                  if_match=None):
     return client.delete_me(if_match=if_match)
 
 
-def education_create_class(client,
-                           id_=None,
-                           class_code=None,
-                           course=None,
-                           description=None,
-                           display_name=None,
-                           external_id=None,
-                           external_name=None,
-                           external_source=None,
-                           external_source_detail=None,
-                           grade=None,
-                           mail_nickname=None,
-                           term=None,
-                           assignment_categories=None,
-                           assignments=None,
-                           group=None,
-                           members=None,
-                           schools=None,
-                           teachers=None,
-                           created_by_user_display_name=None,
-                           created_by_user_id=None,
-                           created_by_device_display_name=None,
-                           created_by_device_id=None,
-                           created_by_application_display_name=None,
-                           created_by_application_id=None):
-    return client.create_class(id=id_,
-                               class_code=class_code,
-                               course=course,
-                               description=description,
-                               display_name=display_name,
-                               external_id=external_id,
-                               external_name=external_name,
-                               external_source=external_source,
-                               external_source_detail=external_source_detail,
-                               grade=grade,
-                               mail_nickname=mail_nickname,
-                               term=term,
-                               assignment_categories=assignment_categories,
-                               assignments=assignments,
-                               group=group,
-                               members=members,
-                               schools=schools,
-                               teachers=teachers,
-                               microsoft_graph_identity_display_name=created_by_user_display_name,
-                               microsoft_graph_identity_id=created_by_user_id,
-                               display_name1=created_by_device_display_name,
-                               id1=created_by_device_id,
-                               display_name2=created_by_application_display_name,
-                               id2=created_by_application_id)
+def education_education_delete_school(client,
+                                      education_school_id,
+                                      if_match=None):
+    return client.delete_schools(education_school_id=education_school_id,
+                                 if_match=if_match)
 
 
-def education_create_school(client,
-                            id_=None,
-                            description=None,
-                            display_name=None,
-                            external_source=None,
-                            external_source_detail=None,
-                            address=None,
-                            external_id=None,
-                            external_principal_id=None,
-                            fax=None,
-                            highest_grade=None,
-                            lowest_grade=None,
-                            phone=None,
-                            principal_email=None,
-                            principal_name=None,
-                            school_number=None,
-                            classes=None,
-                            users=None,
-                            administrative_unit_id=None,
-                            administrative_unit_deleted_date_time=None,
-                            administrative_unit_description=None,
-                            administrative_unit_display_name=None,
-                            administrative_unit_visibility=None,
-                            administrative_unit_members=None,
-                            administrative_unit_scoped_role_members=None,
-                            administrative_unit_extensions=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
-    return client.create_school(id=id_,
-                                description=description,
-                                display_name=display_name,
-                                external_source=external_source,
-                                external_source_detail=external_source_detail,
-                                address=address,
-                                external_id=external_id,
-                                external_principal_id=external_principal_id,
-                                fax=fax,
-                                highest_grade=highest_grade,
-                                lowest_grade=lowest_grade,
-                                phone=phone,
-                                principal_email=principal_email,
-                                principal_name=principal_name,
-                                school_number=school_number,
-                                classes=classes,
-                                users=users,
-                                microsoft_graph_entity_id=administrative_unit_id,
-                                deleted_date_time=administrative_unit_deleted_date_time,
-                                microsoft_graph_administrative_unit_description=administrative_unit_description,
-                                microsoft_graph_administrative_unit_display_name=administrative_unit_display_name,
-                                visibility=administrative_unit_visibility,
-                                members=administrative_unit_members,
-                                scoped_role_members=administrative_unit_scoped_role_members,
-                                extensions=administrative_unit_extensions,
-                                microsoft_graph_identity_display_name=created_by_user_display_name,
-                                microsoft_graph_identity_id=created_by_user_id,
-                                display_name1=created_by_device_display_name,
-                                id1=created_by_device_id,
-                                display_name2=created_by_application_display_name,
-                                id2=created_by_application_id)
+def education_education_delete_synchronization_profile(client,
+                                                       education_synchronization_profile_id,
+                                                       if_match=None):
+    return client.delete_synchronization_profiles(education_synchronization_profile_id=education_synchronization_profile_id,
+                                                  if_match=if_match)
 
 
-def education_create_synchronization_profile(client,
-                                             id_=None,
-                                             data_provider=None,
-                                             display_name=None,
-                                             expiration_date=None,
-                                             handle_special_character_constraint=None,
-                                             identity_synchronization_configuration=None,
-                                             licenses_to_assign=None,
-                                             state=None,
-                                             errors=None,
-                                             profile_status=None):
-    return client.create_synchronization_profile(id=id_,
-                                                 data_provider=data_provider,
-                                                 display_name=display_name,
-                                                 expiration_date=expiration_date,
-                                                 handle_special_character_constraint=handle_special_character_constraint,
-                                                 identity_synchronization_configuration=identity_synchronization_configuration,
-                                                 licenses_to_assign=licenses_to_assign,
-                                                 state=state,
-                                                 errors=errors,
-                                                 profile_status=profile_status)
+def education_education_delete_user(client,
+                                    education_user_id,
+                                    if_match=None):
+    return client.delete_users(education_user_id=education_user_id,
+                               if_match=if_match)
 
 
-def education_create_user(client,
-                          body):
-    return client.create_user(body=body)
+def education_education_list_class(client,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
+    return client.list_classes(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
-def education_get_class(client,
-                        education_class_id,
-                        select=None,
-                        expand=None):
-    return client.get_class(education_class_id=education_class_id,
-                            select=select,
-                            expand=expand)
+def education_education_list_school(client,
+                                    orderby=None,
+                                    select=None,
+                                    expand=None):
+    return client.list_schools(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
-def education_get_me(client,
-                     select=None,
-                     expand=None):
+def education_education_list_synchronization_profile(client,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
+    return client.list_synchronization_profiles(orderby=orderby,
+                                                select=select,
+                                                expand=expand)
+
+
+def education_education_list_user(client,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
+    return client.list_users(orderby=orderby,
+                             select=select,
+                             expand=expand)
+
+
+def education_education_show_class(client,
+                                   education_class_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_classes(education_class_id=education_class_id,
+                              select=select,
+                              expand=expand)
+
+
+def education_education_show_me(client,
+                                select=None,
+                                expand=None):
     return client.get_me(select=select,
                          expand=expand)
 
 
-def education_get_school(client,
-                         education_school_id,
-                         select=None,
-                         expand=None):
-    return client.get_school(education_school_id=education_school_id,
-                             select=select,
-                             expand=expand)
-
-
-def education_get_synchronization_profile(client,
-                                          education_synchronization_profile_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_synchronization_profile(education_synchronization_profile_id=education_synchronization_profile_id,
-                                              select=select,
-                                              expand=expand)
-
-
-def education_get_user(client,
-                       education_user_id,
-                       select=None,
-                       expand=None):
-    return client.get_user(education_user_id=education_user_id,
-                           select=select,
-                           expand=expand)
-
-
-def education_list_class(client,
-                         orderby=None,
-                         select=None,
-                         expand=None):
-    return client.list_class(orderby=orderby,
-                             select=select,
-                             expand=expand)
-
-
-def education_list_school(client,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_school(orderby=orderby,
+def education_education_show_school(client,
+                                    education_school_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_schools(education_school_id=education_school_id,
                               select=select,
                               expand=expand)
 
 
-def education_list_synchronization_profile(client,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
-    return client.list_synchronization_profile(orderby=orderby,
+def education_education_show_synchronization_profile(client,
+                                                     education_synchronization_profile_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_synchronization_profiles(education_synchronization_profile_id=education_synchronization_profile_id,
                                                select=select,
                                                expand=expand)
 
 
-def education_list_user(client,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_user(orderby=orderby,
+def education_education_show_user(client,
+                                  education_user_id,
+                                  select=None,
+                                  expand=None):
+    return client.get_users(education_user_id=education_user_id,
                             select=select,
                             expand=expand)
 
 
-def education_update_class(client,
-                           education_class_id,
-                           id_=None,
-                           class_code=None,
-                           course=None,
-                           description=None,
-                           display_name=None,
-                           external_id=None,
-                           external_name=None,
-                           external_source=None,
-                           external_source_detail=None,
-                           grade=None,
-                           mail_nickname=None,
-                           term=None,
-                           assignment_categories=None,
-                           assignments=None,
-                           group=None,
-                           members=None,
-                           schools=None,
-                           teachers=None,
-                           created_by_user_display_name=None,
-                           created_by_user_id=None,
-                           created_by_device_display_name=None,
-                           created_by_device_id=None,
-                           created_by_application_display_name=None,
-                           created_by_application_id=None):
-    return client.update_class(education_class_id=education_class_id,
-                               id=id_,
-                               class_code=class_code,
-                               course=course,
-                               description=description,
-                               display_name=display_name,
-                               external_id=external_id,
-                               external_name=external_name,
-                               external_source=external_source,
-                               external_source_detail=external_source_detail,
-                               grade=grade,
-                               mail_nickname=mail_nickname,
-                               term=term,
-                               assignment_categories=assignment_categories,
-                               assignments=assignments,
-                               group=group,
-                               members=members,
-                               schools=schools,
-                               teachers=teachers,
-                               microsoft_graph_identity_display_name=created_by_user_display_name,
-                               microsoft_graph_identity_id=created_by_user_id,
-                               display_name1=created_by_device_display_name,
-                               id1=created_by_device_id,
-                               display_name2=created_by_application_display_name,
-                               id2=created_by_application_id)
+def education_education_update_class(client,
+                                     education_class_id,
+                                     id_=None,
+                                     class_code=None,
+                                     course=None,
+                                     description=None,
+                                     display_name=None,
+                                     external_id=None,
+                                     external_name=None,
+                                     external_source=None,
+                                     external_source_detail=None,
+                                     grade=None,
+                                     mail_nickname=None,
+                                     term=None,
+                                     assignment_categories=None,
+                                     assignments=None,
+                                     group=None,
+                                     members=None,
+                                     schools=None,
+                                     teachers=None,
+                                     application=None,
+                                     device=None,
+                                     user=None):
+    body = {}
+    body['id'] = id_
+    body['class_code'] = class_code
+    body['course'] = course
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_id'] = external_id
+    body['external_name'] = external_name
+    body['external_source'] = external_source
+    body['external_source_detail'] = external_source_detail
+    body['grade'] = grade
+    body['mail_nickname'] = mail_nickname
+    body['term'] = term
+    body['assignment_categories'] = assignment_categories
+    body['assignments'] = assignments
+    body['group'] = group
+    body['members'] = members
+    body['schools'] = schools
+    body['teachers'] = teachers
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.update_classes(education_class_id=education_class_id,
+                                 body=body)
 
 
-def education_update_me(client,
-                        body):
+def education_education_update_me(client,
+                                  body):
     return client.update_me(body=body)
 
 
-def education_update_school(client,
-                            education_school_id,
-                            id_=None,
-                            description=None,
-                            display_name=None,
-                            external_source=None,
-                            external_source_detail=None,
-                            address=None,
-                            external_id=None,
-                            external_principal_id=None,
-                            fax=None,
-                            highest_grade=None,
-                            lowest_grade=None,
-                            phone=None,
-                            principal_email=None,
-                            principal_name=None,
-                            school_number=None,
-                            classes=None,
-                            users=None,
-                            administrative_unit_id=None,
-                            administrative_unit_deleted_date_time=None,
-                            administrative_unit_description=None,
-                            administrative_unit_display_name=None,
-                            administrative_unit_visibility=None,
-                            administrative_unit_members=None,
-                            administrative_unit_scoped_role_members=None,
-                            administrative_unit_extensions=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
-    return client.update_school(education_school_id=education_school_id,
-                                id=id_,
-                                description=description,
-                                display_name=display_name,
-                                external_source=external_source,
-                                external_source_detail=external_source_detail,
-                                address=address,
-                                external_id=external_id,
-                                external_principal_id=external_principal_id,
-                                fax=fax,
-                                highest_grade=highest_grade,
-                                lowest_grade=lowest_grade,
-                                phone=phone,
-                                principal_email=principal_email,
-                                principal_name=principal_name,
-                                school_number=school_number,
-                                classes=classes,
-                                users=users,
-                                microsoft_graph_entity_id=administrative_unit_id,
-                                deleted_date_time=administrative_unit_deleted_date_time,
-                                microsoft_graph_administrative_unit_description=administrative_unit_description,
-                                microsoft_graph_administrative_unit_display_name=administrative_unit_display_name,
-                                visibility=administrative_unit_visibility,
-                                members=administrative_unit_members,
-                                scoped_role_members=administrative_unit_scoped_role_members,
-                                extensions=administrative_unit_extensions,
-                                microsoft_graph_identity_display_name=created_by_user_display_name,
-                                microsoft_graph_identity_id=created_by_user_id,
-                                display_name1=created_by_device_display_name,
-                                id1=created_by_device_id,
-                                display_name2=created_by_application_display_name,
-                                id2=created_by_application_id)
+def education_education_update_school(client,
+                                      education_school_id,
+                                      id_=None,
+                                      description=None,
+                                      display_name=None,
+                                      external_source=None,
+                                      external_source_detail=None,
+                                      address=None,
+                                      external_id=None,
+                                      external_principal_id=None,
+                                      fax=None,
+                                      highest_grade=None,
+                                      lowest_grade=None,
+                                      phone=None,
+                                      principal_email=None,
+                                      principal_name=None,
+                                      school_number=None,
+                                      classes=None,
+                                      users=None,
+                                      microsoft_graph_entity_id=None,
+                                      deleted_date_time=None,
+                                      microsoft_graph_administrative_unit_description=None,
+                                      microsoft_graph_administrative_unit_display_name=None,
+                                      visibility=None,
+                                      members=None,
+                                      scoped_role_members=None,
+                                      extensions=None,
+                                      application=None,
+                                      device=None,
+                                      user=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_source'] = external_source
+    body['external_source_detail'] = external_source_detail
+    body['address'] = address
+    body['external_id'] = external_id
+    body['external_principal_id'] = external_principal_id
+    body['fax'] = fax
+    body['highest_grade'] = highest_grade
+    body['lowest_grade'] = lowest_grade
+    body['phone'] = phone
+    body['principal_email'] = principal_email
+    body['principal_name'] = principal_name
+    body['school_number'] = school_number
+    body['classes'] = classes
+    body['users'] = users
+    body['administrative_unit'] = {}
+    body['administrative_unit']['id'] = microsoft_graph_entity_id
+    body['administrative_unit']['deleted_date_time'] = deleted_date_time
+    body['administrative_unit']['description'] = microsoft_graph_administrative_unit_description
+    body['administrative_unit']['display_name'] = microsoft_graph_administrative_unit_display_name
+    body['administrative_unit']['visibility'] = visibility
+    body['administrative_unit']['members'] = members
+    body['administrative_unit']['scoped_role_members'] = scoped_role_members
+    body['administrative_unit']['extensions'] = extensions
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.update_schools(education_school_id=education_school_id,
+                                 body=body)
 
 
-def education_update_synchronization_profile(client,
-                                             education_synchronization_profile_id,
-                                             id_=None,
-                                             data_provider=None,
-                                             display_name=None,
-                                             expiration_date=None,
-                                             handle_special_character_constraint=None,
-                                             identity_synchronization_configuration=None,
-                                             licenses_to_assign=None,
-                                             state=None,
-                                             errors=None,
-                                             profile_status=None):
-    return client.update_synchronization_profile(education_synchronization_profile_id=education_synchronization_profile_id,
-                                                 id=id_,
-                                                 data_provider=data_provider,
-                                                 display_name=display_name,
-                                                 expiration_date=expiration_date,
-                                                 handle_special_character_constraint=handle_special_character_constraint,
-                                                 identity_synchronization_configuration=identity_synchronization_configuration,
-                                                 licenses_to_assign=licenses_to_assign,
-                                                 state=state,
-                                                 errors=errors,
-                                                 profile_status=profile_status)
+def education_education_update_synchronization_profile(client,
+                                                       education_synchronization_profile_id,
+                                                       id_=None,
+                                                       data_provider=None,
+                                                       display_name=None,
+                                                       expiration_date=None,
+                                                       handle_special_character_constraint=None,
+                                                       identity_synchronization_configuration=None,
+                                                       licenses_to_assign=None,
+                                                       state=None,
+                                                       errors=None,
+                                                       profile_status=None):
+    body = {}
+    body['id'] = id_
+    body['data_provider'] = data_provider
+    body['display_name'] = display_name
+    body['expiration_date'] = expiration_date
+    body['handle_special_character_constraint'] = handle_special_character_constraint
+    body['identity_synchronization_configuration'] = identity_synchronization_configuration
+    body['licenses_to_assign'] = licenses_to_assign
+    body['state'] = state
+    body['errors'] = errors
+    body['profile_status'] = profile_status
+    return client.update_synchronization_profiles(education_synchronization_profile_id=education_synchronization_profile_id,
+                                                  body=body)
 
 
-def education_update_user(client,
-                          education_user_id,
-                          body):
-    return client.update_user(education_user_id=education_user_id,
-                              body=body)
+def education_education_update_user(client,
+                                    education_user_id,
+                                    body):
+    return client.update_users(education_user_id=education_user_id,
+                               body=body)
 
 
-def education_delete(client,
-                     education_class_id,
-                     education_category_id=None,
-                     if_match=None,
-                     education_assignment_id=None):
-    if education_class_id is not None and education_category_id is not None:
-        return client.delete_assignment_category(education_class_id=education_class_id,
-                                                 education_category_id=education_category_id,
-                                                 if_match=if_match)
-    elif education_class_id is not None and education_assignment_id is not None:
-        return client.delete_assignment(education_class_id=education_class_id,
-                                        education_assignment_id=education_assignment_id,
-                                        if_match=if_match)
+def education_educationclass_create_assignment(client,
+                                               education_class_id,
+                                               id_=None,
+                                               allow_late_submissions=None,
+                                               allow_students_to_add_resources_to_submission=None,
+                                               assign_date_time=None,
+                                               assigned_date_time=None,
+                                               assign_to=None,
+                                               class_id=None,
+                                               close_date_time=None,
+                                               created_date_time=None,
+                                               display_name=None,
+                                               due_date_time=None,
+                                               grading=None,
+                                               instructions=None,
+                                               last_modified_date_time=None,
+                                               status=None,
+                                               categories=None,
+                                               resources=None,
+                                               submissions=None,
+                                               microsoft_graph_entity_id=None,
+                                               microsoft_graph_education_rubric_created_date_time_created_date_time=None,
+                                               description=None,
+                                               microsoft_graph_education_rubric_display_name=None,
+                                               microsoft_graph_education_assignment_grade_type_grading=None,
+                                               microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=None,
+                                               levels=None,
+                                               qualities=None,
+                                               application=None,
+                                               device=None,
+                                               user=None,
+                                               microsoft_graph_identity_application=None,
+                                               microsoft_graph_identity_device=None,
+                                               microsoft_graph_identity_user=None,
+                                               application1=None,
+                                               device1=None,
+                                               user1=None,
+                                               application2=None,
+                                               device2=None,
+                                               user2=None):
+    body = {}
+    body['id'] = id_
+    body['allow_late_submissions'] = allow_late_submissions
+    body['allow_students_to_add_resources_to_submission'] = allow_students_to_add_resources_to_submission
+    body['assign_date_time'] = assign_date_time
+    body['assigned_date_time'] = assigned_date_time
+    body['assign_to'] = assign_to
+    body['class_id'] = class_id
+    body['close_date_time'] = close_date_time
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['due_date_time'] = due_date_time
+    body['grading'] = grading
+    body['instructions'] = instructions
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['categories'] = categories
+    body['resources'] = resources
+    body['submissions'] = submissions
+    body['rubric'] = {}
+    body['rubric']['id'] = microsoft_graph_entity_id
+    body['rubric']['created_date_time'] = microsoft_graph_education_rubric_created_date_time_created_date_time
+    body['rubric']['description'] = description
+    body['rubric']['display_name'] = microsoft_graph_education_rubric_display_name
+    body['rubric']['grading'] = microsoft_graph_education_assignment_grade_type_grading
+    body['rubric']['last_modified_date_time'] = microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time
+    body['rubric']['levels'] = levels
+    body['rubric']['qualities'] = qualities
+    body['rubric']['last_modified_by'] = {}
+    body['rubric']['last_modified_by']['application'] = application
+    body['rubric']['last_modified_by']['device'] = device
+    body['rubric']['last_modified_by']['user'] = user
+    body['rubric']['created_by'] = {}
+    body['rubric']['created_by']['application'] = microsoft_graph_identity_application
+    body['rubric']['created_by']['device'] = microsoft_graph_identity_device
+    body['rubric']['created_by']['user'] = microsoft_graph_identity_user
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application1
+    body['last_modified_by']['device'] = device1
+    body['last_modified_by']['user'] = user1
+    body['created_by'] = {}
+    body['created_by']['application'] = application2
+    body['created_by']['device'] = device2
+    body['created_by']['user'] = user2
+    return client.create_assignments(education_class_id=education_class_id,
+                                     body=body)
+
+
+def education_educationclass_create_assignment_category(client,
+                                                        education_class_id,
+                                                        id_=None,
+                                                        display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.create_assignment_categories(education_class_id=education_class_id,
+                                               body=body)
+
+
+def education_educationclass_create_ref_member(client,
+                                               education_class_id,
+                                               body):
+    return client.create_ref_members(education_class_id=education_class_id,
+                                     body=body)
+
+
+def education_educationclass_create_ref_school(client,
+                                               education_class_id,
+                                               body):
+    return client.create_ref_schools(education_class_id=education_class_id,
+                                     body=body)
+
+
+def education_educationclass_create_ref_teacher(client,
+                                                education_class_id,
+                                                body):
+    return client.create_ref_teachers(education_class_id=education_class_id,
+                                      body=body)
+
+
+def education_educationclass_delete_assignment(client,
+                                               education_class_id,
+                                               education_assignment_id,
+                                               if_match=None):
+    return client.delete_assignments(education_class_id=education_class_id,
+                                     education_assignment_id=education_assignment_id,
+                                     if_match=if_match)
+
+
+def education_educationclass_delete_assignment_category(client,
+                                                        education_class_id,
+                                                        education_category_id,
+                                                        if_match=None):
+    return client.delete_assignment_categories(education_class_id=education_class_id,
+                                               education_category_id=education_category_id,
+                                               if_match=if_match)
+
+
+def education_educationclass_delete_ref_group(client,
+                                              education_class_id,
+                                              if_match=None):
     return client.delete_ref_group(education_class_id=education_class_id,
                                    if_match=if_match)
 
 
-def education_create_assignment(client,
-                                education_class_id,
-                                id_=None,
-                                allow_late_submissions=None,
-                                allow_students_to_add_resources_to_submission=None,
-                                assign_date_time=None,
-                                assigned_date_time=None,
-                                assign_to=None,
-                                class_id=None,
-                                close_date_time=None,
-                                created_date_time=None,
-                                display_name=None,
-                                due_date_time=None,
-                                grading=None,
-                                instructions=None,
-                                last_modified_date_time=None,
-                                status=None,
-                                categories=None,
-                                resources=None,
-                                submissions=None,
-                                rubric_id=None,
-                                rubric_created_date_time=None,
-                                rubric_description=None,
-                                rubric_display_name=None,
-                                rubric_grading=None,
-                                rubric_last_modified_date_time=None,
-                                rubric_levels=None,
-                                rubric_qualities=None,
-                                rubric_last_modified_by_user_display_name=None,
-                                rubric_last_modified_by_user_id=None,
-                                rubric_last_modified_by_device_display_name=None,
-                                rubric_last_modified_by_device_id=None,
-                                rubric_last_modified_by_application_display_name=None,
-                                rubric_last_modified_by_application_id=None,
-                                rubric_created_by_user_display_name=None,
-                                rubric_created_by_user_id=None,
-                                rubric_created_by_device_display_name=None,
-                                rubric_created_by_device_id=None,
-                                rubric_created_by_application_display_name=None,
-                                rubric_created_by_application_id=None,
-                                last_modified_by_user_display_name=None,
-                                last_modified_by_user_id=None,
-                                last_modified_by_device_display_name=None,
-                                last_modified_by_device_id=None,
-                                last_modified_by_application_display_name=None,
-                                last_modified_by_application_id=None,
-                                created_by_user_display_name=None,
-                                created_by_user_id=None,
-                                created_by_device_display_name=None,
-                                created_by_device_id=None,
-                                created_by_application_display_name=None,
-                                created_by_application_id=None):
-    return client.create_assignment(education_class_id=education_class_id,
-                                    id=id_,
-                                    allow_late_submissions=allow_late_submissions,
-                                    allow_students_to_add_resources_to_submission=allow_students_to_add_resources_to_submission,
-                                    assign_date_time=assign_date_time,
-                                    assigned_date_time=assigned_date_time,
-                                    assign_to=assign_to,
-                                    class_id=class_id,
-                                    close_date_time=close_date_time,
-                                    created_date_time=created_date_time,
-                                    display_name=display_name,
-                                    due_date_time=due_date_time,
-                                    grading=grading,
-                                    instructions=instructions,
-                                    last_modified_date_time=last_modified_date_time,
-                                    status=status,
-                                    categories=categories,
-                                    resources=resources,
-                                    submissions=submissions,
-                                    microsoft_graph_entity_id=rubric_id,
-                                    microsoft_graph_education_rubric_created_date_time_created_date_time=rubric_created_date_time,
-                                    description=rubric_description,
-                                    microsoft_graph_education_rubric_display_name=rubric_display_name,
-                                    microsoft_graph_education_assignment_grade_type_grading=rubric_grading,
-                                    microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=rubric_last_modified_date_time,
-                                    levels=rubric_levels,
-                                    qualities=rubric_qualities,
-                                    microsoft_graph_identity_display_name=rubric_last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=rubric_last_modified_by_user_id,
-                                    display_name1=rubric_last_modified_by_device_display_name,
-                                    id1=rubric_last_modified_by_device_id,
-                                    display_name2=rubric_last_modified_by_application_display_name,
-                                    id2=rubric_last_modified_by_application_id,
-                                    display_name3=rubric_created_by_user_display_name,
-                                    id3=rubric_created_by_user_id,
-                                    display_name4=rubric_created_by_device_display_name,
-                                    id4=rubric_created_by_device_id,
-                                    display_name5=rubric_created_by_application_display_name,
-                                    id5=rubric_created_by_application_id,
-                                    display_name6=last_modified_by_user_display_name,
-                                    id6=last_modified_by_user_id,
-                                    display_name7=last_modified_by_device_display_name,
-                                    id7=last_modified_by_device_id,
-                                    display_name8=last_modified_by_application_display_name,
-                                    id8=last_modified_by_application_id,
-                                    display_name9=created_by_user_display_name,
-                                    id9=created_by_user_id,
-                                    display_name10=created_by_device_display_name,
-                                    id10=created_by_device_id,
-                                    display_name11=created_by_application_display_name,
-                                    id11=created_by_application_id)
-
-
-def education_create_assignment_category(client,
-                                         education_class_id,
-                                         id_=None,
-                                         display_name=None):
-    return client.create_assignment_category(education_class_id=education_class_id,
-                                             id=id_,
-                                             display_name=display_name)
-
-
-def education_create_ref_member(client,
-                                education_class_id,
-                                body):
-    return client.create_ref_member(education_class_id=education_class_id,
-                                    body=body)
-
-
-def education_create_ref_school(client,
-                                education_class_id,
-                                body):
-    return client.create_ref_school(education_class_id=education_class_id,
-                                    body=body)
-
-
-def education_create_ref_teacher(client,
-                                 education_class_id,
-                                 body):
-    return client.create_ref_teacher(education_class_id=education_class_id,
-                                     body=body)
-
-
-def education_delta(client):
+def education_educationclass_delta(client):
     return client.delta()
 
 
-def education_get_assignment(client,
-                             education_class_id,
-                             education_assignment_id,
-                             select=None,
-                             expand=None):
-    return client.get_assignment(education_class_id=education_class_id,
-                                 education_assignment_id=education_assignment_id,
-                                 select=select,
-                                 expand=expand)
+def education_educationclass_list_assignment(client,
+                                             education_class_id,
+                                             orderby=None,
+                                             select=None,
+                                             expand=None):
+    return client.list_assignments(education_class_id=education_class_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
-def education_get_assignment_category(client,
-                                      education_class_id,
-                                      education_category_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_assignment_category(education_class_id=education_class_id,
-                                          education_category_id=education_category_id,
-                                          select=select,
-                                          expand=expand)
+def education_educationclass_list_assignment_category(client,
+                                                      education_class_id,
+                                                      orderby=None,
+                                                      select=None,
+                                                      expand=None):
+    return client.list_assignment_categories(education_class_id=education_class_id,
+                                             orderby=orderby,
+                                             select=select,
+                                             expand=expand)
 
 
-def education_get_group(client,
-                        education_class_id,
-                        select=None,
-                        expand=None):
-    return client.get_group(education_class_id=education_class_id,
-                            select=select,
-                            expand=expand)
-
-
-def education_get_ref_group(client,
-                            education_class_id):
-    return client.get_ref_group(education_class_id=education_class_id)
-
-
-def education_list_assignment(client,
-                              education_class_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
-    return client.list_assignment(education_class_id=education_class_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
-
-
-def education_list_assignment_category(client,
-                                       education_class_id,
-                                       orderby=None,
-                                       select=None,
-                                       expand=None):
-    return client.list_assignment_category(education_class_id=education_class_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
-
-
-def education_list_member(client,
-                          education_class_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_member(education_class_id=education_class_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
-
-
-def education_list_ref_member(client,
-                              education_class_id,
-                              orderby=None):
-    return client.list_ref_member(education_class_id=education_class_id,
-                                  orderby=orderby)
-
-
-def education_list_ref_school(client,
-                              education_class_id,
-                              orderby=None):
-    return client.list_ref_school(education_class_id=education_class_id,
-                                  orderby=orderby)
-
-
-def education_list_ref_teacher(client,
-                               education_class_id,
-                               orderby=None):
-    return client.list_ref_teacher(education_class_id=education_class_id,
-                                   orderby=orderby)
-
-
-def education_list_school(client,
-                          education_class_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_school(education_class_id=education_class_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
-
-
-def education_list_teacher(client,
-                           education_class_id,
-                           orderby=None,
-                           select=None,
-                           expand=None):
-    return client.list_teacher(education_class_id=education_class_id,
+def education_educationclass_list_member(client,
+                                         education_class_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
+    return client.list_members(education_class_id=education_class_id,
                                orderby=orderby,
                                select=select,
                                expand=expand)
 
 
-def education_set_ref_group(client,
-                            education_class_id,
-                            body):
+def education_educationclass_list_ref_member(client,
+                                             education_class_id,
+                                             orderby=None):
+    return client.list_ref_members(education_class_id=education_class_id,
+                                   orderby=orderby)
+
+
+def education_educationclass_list_ref_school(client,
+                                             education_class_id,
+                                             orderby=None):
+    return client.list_ref_schools(education_class_id=education_class_id,
+                                   orderby=orderby)
+
+
+def education_educationclass_list_ref_teacher(client,
+                                              education_class_id,
+                                              orderby=None):
+    return client.list_ref_teachers(education_class_id=education_class_id,
+                                    orderby=orderby)
+
+
+def education_educationclass_list_school(client,
+                                         education_class_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
+    return client.list_schools(education_class_id=education_class_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationclass_list_teacher(client,
+                                          education_class_id,
+                                          orderby=None,
+                                          select=None,
+                                          expand=None):
+    return client.list_teachers(education_class_id=education_class_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
+
+
+def education_educationclass_set_ref_group(client,
+                                           education_class_id,
+                                           body):
     return client.set_ref_group(education_class_id=education_class_id,
                                 body=body)
 
 
-def education_update_assignment(client,
-                                education_class_id,
-                                education_assignment_id,
-                                id_=None,
-                                allow_late_submissions=None,
-                                allow_students_to_add_resources_to_submission=None,
-                                assign_date_time=None,
-                                assigned_date_time=None,
-                                assign_to=None,
-                                class_id=None,
-                                close_date_time=None,
-                                created_date_time=None,
-                                display_name=None,
-                                due_date_time=None,
-                                grading=None,
-                                instructions=None,
-                                last_modified_date_time=None,
-                                status=None,
-                                categories=None,
-                                resources=None,
-                                submissions=None,
-                                rubric_id=None,
-                                rubric_created_date_time=None,
-                                rubric_description=None,
-                                rubric_display_name=None,
-                                rubric_grading=None,
-                                rubric_last_modified_date_time=None,
-                                rubric_levels=None,
-                                rubric_qualities=None,
-                                rubric_last_modified_by_user_display_name=None,
-                                rubric_last_modified_by_user_id=None,
-                                rubric_last_modified_by_device_display_name=None,
-                                rubric_last_modified_by_device_id=None,
-                                rubric_last_modified_by_application_display_name=None,
-                                rubric_last_modified_by_application_id=None,
-                                rubric_created_by_user_display_name=None,
-                                rubric_created_by_user_id=None,
-                                rubric_created_by_device_display_name=None,
-                                rubric_created_by_device_id=None,
-                                rubric_created_by_application_display_name=None,
-                                rubric_created_by_application_id=None,
-                                last_modified_by_user_display_name=None,
-                                last_modified_by_user_id=None,
-                                last_modified_by_device_display_name=None,
-                                last_modified_by_device_id=None,
-                                last_modified_by_application_display_name=None,
-                                last_modified_by_application_id=None,
-                                created_by_user_display_name=None,
-                                created_by_user_id=None,
-                                created_by_device_display_name=None,
-                                created_by_device_id=None,
-                                created_by_application_display_name=None,
-                                created_by_application_id=None):
-    return client.update_assignment(education_class_id=education_class_id,
+def education_educationclass_show_assignment(client,
+                                             education_class_id,
+                                             education_assignment_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_assignments(education_class_id=education_class_id,
+                                  education_assignment_id=education_assignment_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def education_educationclass_show_assignment_category(client,
+                                                      education_class_id,
+                                                      education_category_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_assignment_categories(education_class_id=education_class_id,
+                                            education_category_id=education_category_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def education_educationclass_show_group(client,
+                                        education_class_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_group(education_class_id=education_class_id,
+                            select=select,
+                            expand=expand)
+
+
+def education_educationclass_show_ref_group(client,
+                                            education_class_id):
+    return client.get_ref_group(education_class_id=education_class_id)
+
+
+def education_educationclass_update_assignment(client,
+                                               education_class_id,
+                                               education_assignment_id,
+                                               id_=None,
+                                               allow_late_submissions=None,
+                                               allow_students_to_add_resources_to_submission=None,
+                                               assign_date_time=None,
+                                               assigned_date_time=None,
+                                               assign_to=None,
+                                               class_id=None,
+                                               close_date_time=None,
+                                               created_date_time=None,
+                                               display_name=None,
+                                               due_date_time=None,
+                                               grading=None,
+                                               instructions=None,
+                                               last_modified_date_time=None,
+                                               status=None,
+                                               categories=None,
+                                               resources=None,
+                                               submissions=None,
+                                               microsoft_graph_entity_id=None,
+                                               microsoft_graph_education_rubric_created_date_time_created_date_time=None,
+                                               description=None,
+                                               microsoft_graph_education_rubric_display_name=None,
+                                               microsoft_graph_education_assignment_grade_type_grading=None,
+                                               microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=None,
+                                               levels=None,
+                                               qualities=None,
+                                               application=None,
+                                               device=None,
+                                               user=None,
+                                               microsoft_graph_identity_application=None,
+                                               microsoft_graph_identity_device=None,
+                                               microsoft_graph_identity_user=None,
+                                               application1=None,
+                                               device1=None,
+                                               user1=None,
+                                               application2=None,
+                                               device2=None,
+                                               user2=None):
+    body = {}
+    body['id'] = id_
+    body['allow_late_submissions'] = allow_late_submissions
+    body['allow_students_to_add_resources_to_submission'] = allow_students_to_add_resources_to_submission
+    body['assign_date_time'] = assign_date_time
+    body['assigned_date_time'] = assigned_date_time
+    body['assign_to'] = assign_to
+    body['class_id'] = class_id
+    body['close_date_time'] = close_date_time
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['due_date_time'] = due_date_time
+    body['grading'] = grading
+    body['instructions'] = instructions
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['categories'] = categories
+    body['resources'] = resources
+    body['submissions'] = submissions
+    body['rubric'] = {}
+    body['rubric']['id'] = microsoft_graph_entity_id
+    body['rubric']['created_date_time'] = microsoft_graph_education_rubric_created_date_time_created_date_time
+    body['rubric']['description'] = description
+    body['rubric']['display_name'] = microsoft_graph_education_rubric_display_name
+    body['rubric']['grading'] = microsoft_graph_education_assignment_grade_type_grading
+    body['rubric']['last_modified_date_time'] = microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time
+    body['rubric']['levels'] = levels
+    body['rubric']['qualities'] = qualities
+    body['rubric']['last_modified_by'] = {}
+    body['rubric']['last_modified_by']['application'] = application
+    body['rubric']['last_modified_by']['device'] = device
+    body['rubric']['last_modified_by']['user'] = user
+    body['rubric']['created_by'] = {}
+    body['rubric']['created_by']['application'] = microsoft_graph_identity_application
+    body['rubric']['created_by']['device'] = microsoft_graph_identity_device
+    body['rubric']['created_by']['user'] = microsoft_graph_identity_user
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application1
+    body['last_modified_by']['device'] = device1
+    body['last_modified_by']['user'] = user1
+    body['created_by'] = {}
+    body['created_by']['application'] = application2
+    body['created_by']['device'] = device2
+    body['created_by']['user'] = user2
+    return client.update_assignments(education_class_id=education_class_id,
+                                     education_assignment_id=education_assignment_id,
+                                     body=body)
+
+
+def education_educationclass_update_assignment_category(client,
+                                                        education_class_id,
+                                                        education_category_id,
+                                                        id_=None,
+                                                        display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.update_assignment_categories(education_class_id=education_class_id,
+                                               education_category_id=education_category_id,
+                                               body=body)
+
+
+def education_educationclassesassignment_create_category(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         id_=None,
+                                                         display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.create_categories(education_class_id=education_class_id,
                                     education_assignment_id=education_assignment_id,
-                                    id=id_,
-                                    allow_late_submissions=allow_late_submissions,
-                                    allow_students_to_add_resources_to_submission=allow_students_to_add_resources_to_submission,
-                                    assign_date_time=assign_date_time,
-                                    assigned_date_time=assigned_date_time,
-                                    assign_to=assign_to,
-                                    class_id=class_id,
-                                    close_date_time=close_date_time,
-                                    created_date_time=created_date_time,
-                                    display_name=display_name,
-                                    due_date_time=due_date_time,
-                                    grading=grading,
-                                    instructions=instructions,
-                                    last_modified_date_time=last_modified_date_time,
-                                    status=status,
-                                    categories=categories,
-                                    resources=resources,
-                                    submissions=submissions,
-                                    microsoft_graph_entity_id=rubric_id,
-                                    microsoft_graph_education_rubric_created_date_time_created_date_time=rubric_created_date_time,
-                                    description=rubric_description,
-                                    microsoft_graph_education_rubric_display_name=rubric_display_name,
-                                    microsoft_graph_education_assignment_grade_type_grading=rubric_grading,
-                                    microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=rubric_last_modified_date_time,
-                                    levels=rubric_levels,
-                                    qualities=rubric_qualities,
-                                    microsoft_graph_identity_display_name=rubric_last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=rubric_last_modified_by_user_id,
-                                    display_name1=rubric_last_modified_by_device_display_name,
-                                    id1=rubric_last_modified_by_device_id,
-                                    display_name2=rubric_last_modified_by_application_display_name,
-                                    id2=rubric_last_modified_by_application_id,
-                                    display_name3=rubric_created_by_user_display_name,
-                                    id3=rubric_created_by_user_id,
-                                    display_name4=rubric_created_by_device_display_name,
-                                    id4=rubric_created_by_device_id,
-                                    display_name5=rubric_created_by_application_display_name,
-                                    id5=rubric_created_by_application_id,
-                                    display_name6=last_modified_by_user_display_name,
-                                    id6=last_modified_by_user_id,
-                                    display_name7=last_modified_by_device_display_name,
-                                    id7=last_modified_by_device_id,
-                                    display_name8=last_modified_by_application_display_name,
-                                    id8=last_modified_by_application_id,
-                                    display_name9=created_by_user_display_name,
-                                    id9=created_by_user_id,
-                                    display_name10=created_by_device_display_name,
-                                    id10=created_by_device_id,
-                                    display_name11=created_by_application_display_name,
-                                    id11=created_by_application_id)
+                                    body=body)
 
 
-def education_update_assignment_category(client,
-                                         education_class_id,
-                                         education_category_id,
-                                         id_=None,
-                                         display_name=None):
-    return client.update_assignment_category(education_class_id=education_class_id,
-                                             education_category_id=education_category_id,
-                                             id=id_,
-                                             display_name=display_name)
+def education_educationclassesassignment_create_resource(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         id_=None,
+                                                         distribute_for_student_work=None,
+                                                         created_date_time=None,
+                                                         display_name=None,
+                                                         last_modified_date_time=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
+                                                         microsoft_graph_identity_application=None,
+                                                         microsoft_graph_identity_device=None,
+                                                         microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['distribute_for_student_work'] = distribute_for_student_work
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_resources(education_class_id=education_class_id,
+                                   education_assignment_id=education_assignment_id,
+                                   body=body)
 
 
-def education_delete(client,
-                     education_class_id,
-                     education_assignment_id,
-                     education_category_id=None,
-                     if_match=None,
-                     education_assignment_resource_id=None,
-                     education_submission_id=None):
-    if education_class_id is not None and education_assignment_id is not None and education_category_id is not None:
-        return client.delete_category(education_class_id=education_class_id,
-                                      education_assignment_id=education_assignment_id,
-                                      education_category_id=education_category_id,
-                                      if_match=if_match)
-    elif education_class_id is not None and education_assignment_id is not None and education_assignment_resource_id is not None:
-        return client.delete_resource(education_class_id=education_class_id,
-                                      education_assignment_id=education_assignment_id,
-                                      education_assignment_resource_id=education_assignment_resource_id,
-                                      if_match=if_match)
-    elif education_class_id is not None and education_assignment_id is not None and education_submission_id is not None:
-        return client.delete_submission(education_class_id=education_class_id,
-                                        education_assignment_id=education_assignment_id,
-                                        education_submission_id=education_submission_id,
-                                        if_match=if_match)
+def education_educationclassesassignment_create_submission(client,
+                                                           education_class_id,
+                                                           education_assignment_id,
+                                                           id_=None,
+                                                           recipient=None,
+                                                           released_date_time=None,
+                                                           resources_folder_url=None,
+                                                           returned_date_time=None,
+                                                           status=None,
+                                                           submitted_date_time=None,
+                                                           unsubmitted_date_time=None,
+                                                           outcomes=None,
+                                                           resources=None,
+                                                           submitted_resources=None,
+                                                           application=None,
+                                                           device=None,
+                                                           user=None,
+                                                           microsoft_graph_identity_application=None,
+                                                           microsoft_graph_identity_device=None,
+                                                           microsoft_graph_identity_user=None,
+                                                           application1=None,
+                                                           device1=None,
+                                                           user1=None,
+                                                           application2=None,
+                                                           device2=None,
+                                                           user2=None):
+    body = {}
+    body['id'] = id_
+    body['recipient'] = recipient
+    body['released_date_time'] = released_date_time
+    body['resources_folder_url'] = resources_folder_url
+    body['returned_date_time'] = returned_date_time
+    body['status'] = status
+    body['submitted_date_time'] = submitted_date_time
+    body['unsubmitted_date_time'] = unsubmitted_date_time
+    body['outcomes'] = outcomes
+    body['resources'] = resources
+    body['submitted_resources'] = submitted_resources
+    body['unsubmitted_by'] = {}
+    body['unsubmitted_by']['application'] = application
+    body['unsubmitted_by']['device'] = device
+    body['unsubmitted_by']['user'] = user
+    body['submitted_by'] = {}
+    body['submitted_by']['application'] = microsoft_graph_identity_application
+    body['submitted_by']['device'] = microsoft_graph_identity_device
+    body['submitted_by']['user'] = microsoft_graph_identity_user
+    body['returned_by'] = {}
+    body['returned_by']['application'] = application1
+    body['returned_by']['device'] = device1
+    body['returned_by']['user'] = user1
+    body['released_by'] = {}
+    body['released_by']['application'] = application2
+    body['released_by']['device'] = device2
+    body['released_by']['user'] = user2
+    return client.create_submissions(education_class_id=education_class_id,
+                                     education_assignment_id=education_assignment_id,
+                                     body=body)
+
+
+def education_educationclassesassignment_delete_category(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         education_category_id,
+                                                         if_match=None):
+    return client.delete_categories(education_class_id=education_class_id,
+                                    education_assignment_id=education_assignment_id,
+                                    education_category_id=education_category_id,
+                                    if_match=if_match)
+
+
+def education_educationclassesassignment_delete_resource(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         education_assignment_resource_id,
+                                                         if_match=None):
+    return client.delete_resources(education_class_id=education_class_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_assignment_resource_id=education_assignment_resource_id,
+                                   if_match=if_match)
+
+
+def education_educationclassesassignment_delete_rubric(client,
+                                                       education_class_id,
+                                                       education_assignment_id,
+                                                       if_match=None):
     return client.delete_rubric(education_class_id=education_class_id,
                                 education_assignment_id=education_assignment_id,
                                 if_match=if_match)
 
 
-def education_create_category(client,
-                              education_class_id,
-                              education_assignment_id,
-                              id_=None,
-                              display_name=None):
-    return client.create_category(education_class_id=education_class_id,
+def education_educationclassesassignment_delete_submission(client,
+                                                           education_class_id,
+                                                           education_assignment_id,
+                                                           education_submission_id,
+                                                           if_match=None):
+    return client.delete_submissions(education_class_id=education_class_id,
+                                     education_assignment_id=education_assignment_id,
+                                     education_submission_id=education_submission_id,
+                                     if_match=if_match)
+
+
+def education_educationclassesassignment_list_category(client,
+                                                       education_class_id,
+                                                       education_assignment_id,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
+    return client.list_categories(education_class_id=education_class_id,
                                   education_assignment_id=education_assignment_id,
-                                  id=id_,
-                                  display_name=display_name)
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
-def education_create_resource(client,
-                              education_class_id,
-                              education_assignment_id,
-                              id_=None,
-                              distribute_for_student_work=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.create_resource(education_class_id=education_class_id,
-                                  education_assignment_id=education_assignment_id,
-                                  id=id_,
-                                  distribute_for_student_work=distribute_for_student_work,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+def education_educationclassesassignment_list_resource(client,
+                                                       education_class_id,
+                                                       education_assignment_id,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
+    return client.list_resources(education_class_id=education_class_id,
+                                 education_assignment_id=education_assignment_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_create_submission(client,
-                                education_class_id,
-                                education_assignment_id,
-                                id_=None,
-                                recipient=None,
-                                released_date_time=None,
-                                resources_folder_url=None,
-                                returned_date_time=None,
-                                status=None,
-                                submitted_date_time=None,
-                                unsubmitted_date_time=None,
-                                outcomes=None,
-                                resources=None,
-                                submitted_resources=None,
-                                unsubmitted_by_user_display_name=None,
-                                unsubmitted_by_user_id=None,
-                                unsubmitted_by_device_display_name=None,
-                                unsubmitted_by_device_id=None,
-                                unsubmitted_by_application_display_name=None,
-                                unsubmitted_by_application_id=None,
-                                submitted_by_user_display_name=None,
-                                submitted_by_user_id=None,
-                                submitted_by_device_display_name=None,
-                                submitted_by_device_id=None,
-                                submitted_by_application_display_name=None,
-                                submitted_by_application_id=None,
-                                returned_by_user_display_name=None,
-                                returned_by_user_id=None,
-                                returned_by_device_display_name=None,
-                                returned_by_device_id=None,
-                                returned_by_application_display_name=None,
-                                returned_by_application_id=None,
-                                released_by_user_display_name=None,
-                                released_by_user_id=None,
-                                released_by_device_display_name=None,
-                                released_by_device_id=None,
-                                released_by_application_display_name=None,
-                                released_by_application_id=None):
-    return client.create_submission(education_class_id=education_class_id,
-                                    education_assignment_id=education_assignment_id,
-                                    id=id_,
-                                    recipient=recipient,
-                                    released_date_time=released_date_time,
-                                    resources_folder_url=resources_folder_url,
-                                    returned_date_time=returned_date_time,
-                                    status=status,
-                                    submitted_date_time=submitted_date_time,
-                                    unsubmitted_date_time=unsubmitted_date_time,
-                                    outcomes=outcomes,
-                                    resources=resources,
-                                    submitted_resources=submitted_resources,
-                                    display_name=unsubmitted_by_user_display_name,
-                                    microsoft_graph_identity_id=unsubmitted_by_user_id,
-                                    microsoft_graph_identity_display_name=unsubmitted_by_device_display_name,
-                                    id1=unsubmitted_by_device_id,
-                                    display_name1=unsubmitted_by_application_display_name,
-                                    id2=unsubmitted_by_application_id,
-                                    display_name2=submitted_by_user_display_name,
-                                    id3=submitted_by_user_id,
-                                    display_name3=submitted_by_device_display_name,
-                                    id4=submitted_by_device_id,
-                                    display_name4=submitted_by_application_display_name,
-                                    id5=submitted_by_application_id,
-                                    display_name5=returned_by_user_display_name,
-                                    id6=returned_by_user_id,
-                                    display_name6=returned_by_device_display_name,
-                                    id7=returned_by_device_id,
-                                    display_name7=returned_by_application_display_name,
-                                    id8=returned_by_application_id,
-                                    display_name8=released_by_user_display_name,
-                                    id9=released_by_user_id,
-                                    display_name9=released_by_device_display_name,
-                                    id10=released_by_device_id,
-                                    display_name10=released_by_application_display_name,
-                                    id11=released_by_application_id)
+def education_educationclassesassignment_list_submission(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         orderby=None,
+                                                         select=None,
+                                                         expand=None):
+    return client.list_submissions(education_class_id=education_class_id,
+                                   education_assignment_id=education_assignment_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
-def education_get_category(client,
-                           education_class_id,
-                           education_assignment_id,
-                           education_category_id,
-                           select=None,
-                           expand=None):
-    return client.get_category(education_class_id=education_class_id,
-                               education_assignment_id=education_assignment_id,
-                               education_category_id=education_category_id,
-                               select=select,
-                               expand=expand)
+def education_educationclassesassignment_publish(client,
+                                                 education_class_id,
+                                                 education_assignment_id):
+    return client.publish(education_class_id=education_class_id,
+                          education_assignment_id=education_assignment_id)
 
 
-def education_get_resource(client,
-                           education_class_id,
-                           education_assignment_id,
-                           education_assignment_resource_id,
-                           select=None,
-                           expand=None):
-    return client.get_resource(education_class_id=education_class_id,
-                               education_assignment_id=education_assignment_id,
-                               education_assignment_resource_id=education_assignment_resource_id,
-                               select=select,
-                               expand=expand)
+def education_educationclassesassignment_show_category(client,
+                                                       education_class_id,
+                                                       education_assignment_id,
+                                                       education_category_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_categories(education_class_id=education_class_id,
+                                 education_assignment_id=education_assignment_id,
+                                 education_category_id=education_category_id,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_get_resource_folder_url(client,
-                                      education_class_id,
-                                      education_assignment_id):
-    return client.get_resource_folder_url(education_class_id=education_class_id,
-                                          education_assignment_id=education_assignment_id)
+def education_educationclassesassignment_show_resource(client,
+                                                       education_class_id,
+                                                       education_assignment_id,
+                                                       education_assignment_resource_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_resources(education_class_id=education_class_id,
+                                education_assignment_id=education_assignment_id,
+                                education_assignment_resource_id=education_assignment_resource_id,
+                                select=select,
+                                expand=expand)
 
 
-def education_get_rubric(client,
-                         education_class_id,
-                         education_assignment_id,
-                         select=None,
-                         expand=None):
+def education_educationclassesassignment_show_resource_folder_url(client,
+                                                                  education_class_id,
+                                                                  education_assignment_id):
+    return client.get_resources_folder_url(education_class_id=education_class_id,
+                                           education_assignment_id=education_assignment_id)
+
+
+def education_educationclassesassignment_show_rubric(client,
+                                                     education_class_id,
+                                                     education_assignment_id,
+                                                     select=None,
+                                                     expand=None):
     return client.get_rubric(education_class_id=education_class_id,
                              education_assignment_id=education_assignment_id,
                              select=select,
                              expand=expand)
 
 
-def education_get_submission(client,
-                             education_class_id,
-                             education_assignment_id,
-                             education_submission_id,
-                             select=None,
-                             expand=None):
-    return client.get_submission(education_class_id=education_class_id,
-                                 education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def education_list_category(client,
-                            education_class_id,
-                            education_assignment_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_category(education_class_id=education_class_id,
-                                education_assignment_id=education_assignment_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def education_list_resource(client,
-                            education_class_id,
-                            education_assignment_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_resource(education_class_id=education_class_id,
-                                education_assignment_id=education_assignment_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def education_list_submission(client,
-                              education_class_id,
-                              education_assignment_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
-    return client.list_submission(education_class_id=education_class_id,
+def education_educationclassesassignment_show_submission(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         education_submission_id,
+                                                         select=None,
+                                                         expand=None):
+    return client.get_submissions(education_class_id=education_class_id,
                                   education_assignment_id=education_assignment_id,
-                                  orderby=orderby,
+                                  education_submission_id=education_submission_id,
                                   select=select,
                                   expand=expand)
 
 
-def education_publish(client,
-                      education_class_id,
-                      education_assignment_id):
-    return client.publish(education_class_id=education_class_id,
-                          education_assignment_id=education_assignment_id)
+def education_educationclassesassignment_update_category(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         education_category_id,
+                                                         id_=None,
+                                                         display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.update_categories(education_class_id=education_class_id,
+                                    education_assignment_id=education_assignment_id,
+                                    education_category_id=education_category_id,
+                                    body=body)
 
 
-def education_update_category(client,
-                              education_class_id,
-                              education_assignment_id,
-                              education_category_id,
-                              id_=None,
-                              display_name=None):
-    return client.update_category(education_class_id=education_class_id,
-                                  education_assignment_id=education_assignment_id,
-                                  education_category_id=education_category_id,
-                                  id=id_,
-                                  display_name=display_name)
+def education_educationclassesassignment_update_resource(client,
+                                                         education_class_id,
+                                                         education_assignment_id,
+                                                         education_assignment_resource_id,
+                                                         id_=None,
+                                                         distribute_for_student_work=None,
+                                                         created_date_time=None,
+                                                         display_name=None,
+                                                         last_modified_date_time=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
+                                                         microsoft_graph_identity_application=None,
+                                                         microsoft_graph_identity_device=None,
+                                                         microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['distribute_for_student_work'] = distribute_for_student_work
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_resources(education_class_id=education_class_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_assignment_resource_id=education_assignment_resource_id,
+                                   body=body)
 
 
-def education_update_resource(client,
-                              education_class_id,
-                              education_assignment_id,
-                              education_assignment_resource_id,
-                              id_=None,
-                              distribute_for_student_work=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.update_resource(education_class_id=education_class_id,
-                                  education_assignment_id=education_assignment_id,
-                                  education_assignment_resource_id=education_assignment_resource_id,
-                                  id=id_,
-                                  distribute_for_student_work=distribute_for_student_work,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
-
-
-def education_update_rubric(client,
-                            education_class_id,
-                            education_assignment_id,
-                            id_=None,
-                            created_date_time=None,
-                            description=None,
-                            display_name=None,
-                            grading=None,
-                            last_modified_date_time=None,
-                            levels=None,
-                            qualities=None,
-                            last_modified_by_user_display_name=None,
-                            last_modified_by_user_id=None,
-                            last_modified_by_device_display_name=None,
-                            last_modified_by_device_id=None,
-                            last_modified_by_application_display_name=None,
-                            last_modified_by_application_id=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
+def education_educationclassesassignment_update_rubric(client,
+                                                       education_class_id,
+                                                       education_assignment_id,
+                                                       id_=None,
+                                                       created_date_time=None,
+                                                       description=None,
+                                                       display_name=None,
+                                                       grading=None,
+                                                       last_modified_date_time=None,
+                                                       levels=None,
+                                                       qualities=None,
+                                                       application=None,
+                                                       device=None,
+                                                       user=None,
+                                                       microsoft_graph_identity_application=None,
+                                                       microsoft_graph_identity_device=None,
+                                                       microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['grading'] = grading
+    body['last_modified_date_time'] = last_modified_date_time
+    body['levels'] = levels
+    body['qualities'] = qualities
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
     return client.update_rubric(education_class_id=education_class_id,
                                 education_assignment_id=education_assignment_id,
-                                id=id_,
-                                created_date_time=created_date_time,
-                                description=description,
-                                display_name=display_name,
-                                grading=grading,
-                                last_modified_date_time=last_modified_date_time,
-                                levels=levels,
-                                qualities=qualities,
-                                microsoft_graph_identity_display_name=last_modified_by_user_display_name,
-                                microsoft_graph_identity_id=last_modified_by_user_id,
-                                display_name1=last_modified_by_device_display_name,
-                                id1=last_modified_by_device_id,
-                                display_name2=last_modified_by_application_display_name,
-                                id2=last_modified_by_application_id,
-                                display_name3=created_by_user_display_name,
-                                id3=created_by_user_id,
-                                display_name4=created_by_device_display_name,
-                                id4=created_by_device_id,
-                                display_name5=created_by_application_display_name,
-                                id5=created_by_application_id)
+                                body=body)
 
 
-def education_update_submission(client,
-                                education_class_id,
-                                education_assignment_id,
-                                education_submission_id,
-                                id_=None,
-                                recipient=None,
-                                released_date_time=None,
-                                resources_folder_url=None,
-                                returned_date_time=None,
-                                status=None,
-                                submitted_date_time=None,
-                                unsubmitted_date_time=None,
-                                outcomes=None,
-                                resources=None,
-                                submitted_resources=None,
-                                unsubmitted_by_user_display_name=None,
-                                unsubmitted_by_user_id=None,
-                                unsubmitted_by_device_display_name=None,
-                                unsubmitted_by_device_id=None,
-                                unsubmitted_by_application_display_name=None,
-                                unsubmitted_by_application_id=None,
-                                submitted_by_user_display_name=None,
-                                submitted_by_user_id=None,
-                                submitted_by_device_display_name=None,
-                                submitted_by_device_id=None,
-                                submitted_by_application_display_name=None,
-                                submitted_by_application_id=None,
-                                returned_by_user_display_name=None,
-                                returned_by_user_id=None,
-                                returned_by_device_display_name=None,
-                                returned_by_device_id=None,
-                                returned_by_application_display_name=None,
-                                returned_by_application_id=None,
-                                released_by_user_display_name=None,
-                                released_by_user_id=None,
-                                released_by_device_display_name=None,
-                                released_by_device_id=None,
-                                released_by_application_display_name=None,
-                                released_by_application_id=None):
-    return client.update_submission(education_class_id=education_class_id,
-                                    education_assignment_id=education_assignment_id,
-                                    education_submission_id=education_submission_id,
-                                    id=id_,
-                                    recipient=recipient,
-                                    released_date_time=released_date_time,
-                                    resources_folder_url=resources_folder_url,
-                                    returned_date_time=returned_date_time,
-                                    status=status,
-                                    submitted_date_time=submitted_date_time,
-                                    unsubmitted_date_time=unsubmitted_date_time,
-                                    outcomes=outcomes,
-                                    resources=resources,
-                                    submitted_resources=submitted_resources,
-                                    display_name=unsubmitted_by_user_display_name,
-                                    microsoft_graph_identity_id=unsubmitted_by_user_id,
-                                    microsoft_graph_identity_display_name=unsubmitted_by_device_display_name,
-                                    id1=unsubmitted_by_device_id,
-                                    display_name1=unsubmitted_by_application_display_name,
-                                    id2=unsubmitted_by_application_id,
-                                    display_name2=submitted_by_user_display_name,
-                                    id3=submitted_by_user_id,
-                                    display_name3=submitted_by_device_display_name,
-                                    id4=submitted_by_device_id,
-                                    display_name4=submitted_by_application_display_name,
-                                    id5=submitted_by_application_id,
-                                    display_name5=returned_by_user_display_name,
-                                    id6=returned_by_user_id,
-                                    display_name6=returned_by_device_display_name,
-                                    id7=returned_by_device_id,
-                                    display_name7=returned_by_application_display_name,
-                                    id8=returned_by_application_id,
-                                    display_name8=released_by_user_display_name,
-                                    id9=released_by_user_id,
-                                    display_name9=released_by_device_display_name,
-                                    id10=released_by_device_id,
-                                    display_name10=released_by_application_display_name,
-                                    id11=released_by_application_id)
-
-
-def education_delete(client,
-                     education_class_id,
-                     education_assignment_id,
-                     education_submission_id,
-                     education_outcome_id=None,
-                     if_match=None,
-                     education_submission_resource_id=None):
-    if education_class_id is not None and education_assignment_id is not None and education_submission_id is not None and education_outcome_id is not None:
-        return client.delete_outcome(education_class_id=education_class_id,
+def education_educationclassesassignment_update_submission(client,
+                                                           education_class_id,
+                                                           education_assignment_id,
+                                                           education_submission_id,
+                                                           id_=None,
+                                                           recipient=None,
+                                                           released_date_time=None,
+                                                           resources_folder_url=None,
+                                                           returned_date_time=None,
+                                                           status=None,
+                                                           submitted_date_time=None,
+                                                           unsubmitted_date_time=None,
+                                                           outcomes=None,
+                                                           resources=None,
+                                                           submitted_resources=None,
+                                                           application=None,
+                                                           device=None,
+                                                           user=None,
+                                                           microsoft_graph_identity_application=None,
+                                                           microsoft_graph_identity_device=None,
+                                                           microsoft_graph_identity_user=None,
+                                                           application1=None,
+                                                           device1=None,
+                                                           user1=None,
+                                                           application2=None,
+                                                           device2=None,
+                                                           user2=None):
+    body = {}
+    body['id'] = id_
+    body['recipient'] = recipient
+    body['released_date_time'] = released_date_time
+    body['resources_folder_url'] = resources_folder_url
+    body['returned_date_time'] = returned_date_time
+    body['status'] = status
+    body['submitted_date_time'] = submitted_date_time
+    body['unsubmitted_date_time'] = unsubmitted_date_time
+    body['outcomes'] = outcomes
+    body['resources'] = resources
+    body['submitted_resources'] = submitted_resources
+    body['unsubmitted_by'] = {}
+    body['unsubmitted_by']['application'] = application
+    body['unsubmitted_by']['device'] = device
+    body['unsubmitted_by']['user'] = user
+    body['submitted_by'] = {}
+    body['submitted_by']['application'] = microsoft_graph_identity_application
+    body['submitted_by']['device'] = microsoft_graph_identity_device
+    body['submitted_by']['user'] = microsoft_graph_identity_user
+    body['returned_by'] = {}
+    body['returned_by']['application'] = application1
+    body['returned_by']['device'] = device1
+    body['returned_by']['user'] = user1
+    body['released_by'] = {}
+    body['released_by']['application'] = application2
+    body['released_by']['device'] = device2
+    body['released_by']['user'] = user2
+    return client.update_submissions(education_class_id=education_class_id,
                                      education_assignment_id=education_assignment_id,
                                      education_submission_id=education_submission_id,
-                                     education_outcome_id=education_outcome_id,
-                                     if_match=if_match)
-    elif education_class_id is not None and education_assignment_id is not None and education_submission_id is not None and education_submission_resource_id is not None:
-        return client.delete_resource(education_class_id=education_class_id,
-                                      education_assignment_id=education_assignment_id,
-                                      education_submission_id=education_submission_id,
-                                      education_submission_resource_id=education_submission_resource_id,
-                                      if_match=if_match)
-    return client.delete_submitted_resource(education_class_id=education_class_id,
-                                            education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            education_submission_resource_id=education_submission_resource_id,
-                                            if_match=if_match)
+                                     body=body)
 
 
-def education_create_outcome(client,
-                             education_class_id,
-                             education_assignment_id,
-                             education_submission_id,
-                             id_=None,
-                             last_modified_date_time=None,
-                             last_modified_by_user_display_name=None,
-                             last_modified_by_user_id=None,
-                             last_modified_by_device_display_name=None,
-                             last_modified_by_device_id=None,
-                             last_modified_by_application_display_name=None,
-                             last_modified_by_application_id=None):
-    return client.create_outcome(education_class_id=education_class_id,
-                                 education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 display_name=last_modified_by_user_display_name,
-                                 microsoft_graph_identity_id=last_modified_by_user_id,
-                                 microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                 id1=last_modified_by_device_id,
-                                 display_name1=last_modified_by_application_display_name,
-                                 id2=last_modified_by_application_id)
-
-
-def education_create_resource(client,
-                              education_class_id,
-                              education_assignment_id,
-                              education_submission_id,
-                              id_=None,
-                              assignment_resource_url=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.create_resource(education_class_id=education_class_id,
+def education_educationclassesassignmentssubmission_create_outcome(client,
+                                                                   education_class_id,
+                                                                   education_assignment_id,
+                                                                   education_submission_id,
+                                                                   id_=None,
+                                                                   last_modified_date_time=None,
+                                                                   application=None,
+                                                                   device=None,
+                                                                   user=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    return client.create_outcomes(education_class_id=education_class_id,
                                   education_assignment_id=education_assignment_id,
                                   education_submission_id=education_submission_id,
-                                  id=id_,
-                                  assignment_resource_url=assignment_resource_url,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+                                  body=body)
 
 
-def education_create_submitted_resource(client,
-                                        education_class_id,
-                                        education_assignment_id,
-                                        education_submission_id,
-                                        id_=None,
-                                        assignment_resource_url=None,
-                                        resource_created_date_time=None,
-                                        resource_display_name=None,
-                                        resource_last_modified_date_time=None,
-                                        resource_last_modified_by_user_display_name=None,
-                                        resource_last_modified_by_user_id=None,
-                                        resource_last_modified_by_device_display_name=None,
-                                        resource_last_modified_by_device_id=None,
-                                        resource_last_modified_by_application_display_name=None,
-                                        resource_last_modified_by_application_id=None,
-                                        resource_created_by_user_display_name=None,
-                                        resource_created_by_user_id=None,
-                                        resource_created_by_device_display_name=None,
-                                        resource_created_by_device_id=None,
-                                        resource_created_by_application_display_name=None,
-                                        resource_created_by_application_id=None):
-    return client.create_submitted_resource(education_class_id=education_class_id,
-                                            education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            id=id_,
-                                            assignment_resource_url=assignment_resource_url,
-                                            created_date_time=resource_created_date_time,
-                                            display_name=resource_display_name,
-                                            last_modified_date_time=resource_last_modified_date_time,
-                                            microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                            microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                            display_name1=resource_last_modified_by_device_display_name,
-                                            id1=resource_last_modified_by_device_id,
-                                            display_name2=resource_last_modified_by_application_display_name,
-                                            id2=resource_last_modified_by_application_id,
-                                            display_name3=resource_created_by_user_display_name,
-                                            id3=resource_created_by_user_id,
-                                            display_name4=resource_created_by_device_display_name,
-                                            id4=resource_created_by_device_id,
-                                            display_name5=resource_created_by_application_display_name,
-                                            id5=resource_created_by_application_id)
+def education_educationclassesassignmentssubmission_create_resource(client,
+                                                                    education_class_id,
+                                                                    education_assignment_id,
+                                                                    education_submission_id,
+                                                                    id_=None,
+                                                                    assignment_resource_url=None,
+                                                                    created_date_time=None,
+                                                                    display_name=None,
+                                                                    last_modified_date_time=None,
+                                                                    application=None,
+                                                                    device=None,
+                                                                    user=None,
+                                                                    microsoft_graph_identity_application=None,
+                                                                    microsoft_graph_identity_device=None,
+                                                                    microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_resources(education_class_id=education_class_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   body=body)
 
 
-def education_get_outcome(client,
-                          education_class_id,
-                          education_assignment_id,
-                          education_submission_id,
-                          education_outcome_id,
-                          select=None,
-                          expand=None):
-    return client.get_outcome(education_class_id=education_class_id,
-                              education_assignment_id=education_assignment_id,
-                              education_submission_id=education_submission_id,
-                              education_outcome_id=education_outcome_id,
-                              select=select,
-                              expand=expand)
+def education_educationclassesassignmentssubmission_create_submitted_resource(client,
+                                                                              education_class_id,
+                                                                              education_assignment_id,
+                                                                              education_submission_id,
+                                                                              id_=None,
+                                                                              assignment_resource_url=None,
+                                                                              created_date_time=None,
+                                                                              display_name=None,
+                                                                              last_modified_date_time=None,
+                                                                              application=None,
+                                                                              device=None,
+                                                                              user=None,
+                                                                              microsoft_graph_identity_application=None,
+                                                                              microsoft_graph_identity_device=None,
+                                                                              microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_submitted_resources(education_class_id=education_class_id,
+                                             education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             body=body)
 
 
-def education_get_resource(client,
-                           education_class_id,
-                           education_assignment_id,
-                           education_submission_id,
-                           education_submission_resource_id,
-                           select=None,
-                           expand=None):
-    return client.get_resource(education_class_id=education_class_id,
-                               education_assignment_id=education_assignment_id,
-                               education_submission_id=education_submission_id,
-                               education_submission_resource_id=education_submission_resource_id,
-                               select=select,
-                               expand=expand)
+def education_educationclassesassignmentssubmission_delete_outcome(client,
+                                                                   education_class_id,
+                                                                   education_assignment_id,
+                                                                   education_submission_id,
+                                                                   education_outcome_id,
+                                                                   if_match=None):
+    return client.delete_outcomes(education_class_id=education_class_id,
+                                  education_assignment_id=education_assignment_id,
+                                  education_submission_id=education_submission_id,
+                                  education_outcome_id=education_outcome_id,
+                                  if_match=if_match)
 
 
-def education_get_submitted_resource(client,
-                                     education_class_id,
-                                     education_assignment_id,
-                                     education_submission_id,
-                                     education_submission_resource_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_submitted_resource(education_class_id=education_class_id,
-                                         education_assignment_id=education_assignment_id,
-                                         education_submission_id=education_submission_id,
-                                         education_submission_resource_id=education_submission_resource_id,
-                                         select=select,
-                                         expand=expand)
+def education_educationclassesassignmentssubmission_delete_resource(client,
+                                                                    education_class_id,
+                                                                    education_assignment_id,
+                                                                    education_submission_id,
+                                                                    education_submission_resource_id,
+                                                                    if_match=None):
+    return client.delete_resources(education_class_id=education_class_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   education_submission_resource_id=education_submission_resource_id,
+                                   if_match=if_match)
 
 
-def education_list_outcome(client,
-                           education_class_id,
-                           education_assignment_id,
-                           education_submission_id,
-                           orderby=None,
-                           select=None,
-                           expand=None):
-    return client.list_outcome(education_class_id=education_class_id,
-                               education_assignment_id=education_assignment_id,
-                               education_submission_id=education_submission_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+def education_educationclassesassignmentssubmission_delete_submitted_resource(client,
+                                                                              education_class_id,
+                                                                              education_assignment_id,
+                                                                              education_submission_id,
+                                                                              education_submission_resource_id,
+                                                                              if_match=None):
+    return client.delete_submitted_resources(education_class_id=education_class_id,
+                                             education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             education_submission_resource_id=education_submission_resource_id,
+                                             if_match=if_match)
 
 
-def education_list_resource(client,
-                            education_class_id,
-                            education_assignment_id,
-                            education_submission_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_resource(education_class_id=education_class_id,
+def education_educationclassesassignmentssubmission_list_outcome(client,
+                                                                 education_class_id,
+                                                                 education_assignment_id,
+                                                                 education_submission_id,
+                                                                 orderby=None,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.list_outcomes(education_class_id=education_class_id,
                                 education_assignment_id=education_assignment_id,
                                 education_submission_id=education_submission_id,
                                 orderby=orderby,
@@ -1480,2673 +1363,2472 @@ def education_list_resource(client,
                                 expand=expand)
 
 
-def education_list_submitted_resource(client,
-                                      education_class_id,
-                                      education_assignment_id,
-                                      education_submission_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
-    return client.list_submitted_resource(education_class_id=education_class_id,
-                                          education_assignment_id=education_assignment_id,
-                                          education_submission_id=education_submission_id,
-                                          orderby=orderby,
-                                          select=select,
-                                          expand=expand)
+def education_educationclassesassignmentssubmission_list_resource(client,
+                                                                  education_class_id,
+                                                                  education_assignment_id,
+                                                                  education_submission_id,
+                                                                  orderby=None,
+                                                                  select=None,
+                                                                  expand=None):
+    return client.list_resources(education_class_id=education_class_id,
+                                 education_assignment_id=education_assignment_id,
+                                 education_submission_id=education_submission_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_return(client,
-                     education_class_id,
-                     education_assignment_id,
-                     education_submission_id):
+def education_educationclassesassignmentssubmission_list_submitted_resource(client,
+                                                                            education_class_id,
+                                                                            education_assignment_id,
+                                                                            education_submission_id,
+                                                                            orderby=None,
+                                                                            select=None,
+                                                                            expand=None):
+    return client.list_submitted_resources(education_class_id=education_class_id,
+                                           education_assignment_id=education_assignment_id,
+                                           education_submission_id=education_submission_id,
+                                           orderby=orderby,
+                                           select=select,
+                                           expand=expand)
+
+
+def education_educationclassesassignmentssubmission_return(client,
+                                                           education_class_id,
+                                                           education_assignment_id,
+                                                           education_submission_id):
     return client.return_method(education_class_id=education_class_id,
                                 education_assignment_id=education_assignment_id,
                                 education_submission_id=education_submission_id)
 
 
-def education_submit(client,
-                     education_class_id,
-                     education_assignment_id,
-                     education_submission_id):
+def education_educationclassesassignmentssubmission_show_outcome(client,
+                                                                 education_class_id,
+                                                                 education_assignment_id,
+                                                                 education_submission_id,
+                                                                 education_outcome_id,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.get_outcomes(education_class_id=education_class_id,
+                               education_assignment_id=education_assignment_id,
+                               education_submission_id=education_submission_id,
+                               education_outcome_id=education_outcome_id,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationclassesassignmentssubmission_show_resource(client,
+                                                                  education_class_id,
+                                                                  education_assignment_id,
+                                                                  education_submission_id,
+                                                                  education_submission_resource_id,
+                                                                  select=None,
+                                                                  expand=None):
+    return client.get_resources(education_class_id=education_class_id,
+                                education_assignment_id=education_assignment_id,
+                                education_submission_id=education_submission_id,
+                                education_submission_resource_id=education_submission_resource_id,
+                                select=select,
+                                expand=expand)
+
+
+def education_educationclassesassignmentssubmission_show_submitted_resource(client,
+                                                                            education_class_id,
+                                                                            education_assignment_id,
+                                                                            education_submission_id,
+                                                                            education_submission_resource_id,
+                                                                            select=None,
+                                                                            expand=None):
+    return client.get_submitted_resources(education_class_id=education_class_id,
+                                          education_assignment_id=education_assignment_id,
+                                          education_submission_id=education_submission_id,
+                                          education_submission_resource_id=education_submission_resource_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def education_educationclassesassignmentssubmission_submit(client,
+                                                           education_class_id,
+                                                           education_assignment_id,
+                                                           education_submission_id):
     return client.submit(education_class_id=education_class_id,
                          education_assignment_id=education_assignment_id,
                          education_submission_id=education_submission_id)
 
 
-def education_unsubmit(client,
-                       education_class_id,
-                       education_assignment_id,
-                       education_submission_id):
+def education_educationclassesassignmentssubmission_unsubmit(client,
+                                                             education_class_id,
+                                                             education_assignment_id,
+                                                             education_submission_id):
     return client.unsubmit(education_class_id=education_class_id,
                            education_assignment_id=education_assignment_id,
                            education_submission_id=education_submission_id)
 
 
-def education_update_outcome(client,
-                             education_class_id,
-                             education_assignment_id,
-                             education_submission_id,
-                             education_outcome_id,
-                             id_=None,
-                             last_modified_date_time=None,
-                             last_modified_by_user_display_name=None,
-                             last_modified_by_user_id=None,
-                             last_modified_by_device_display_name=None,
-                             last_modified_by_device_id=None,
-                             last_modified_by_application_display_name=None,
-                             last_modified_by_application_id=None):
-    return client.update_outcome(education_class_id=education_class_id,
-                                 education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 education_outcome_id=education_outcome_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 display_name=last_modified_by_user_display_name,
-                                 microsoft_graph_identity_id=last_modified_by_user_id,
-                                 microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                 id1=last_modified_by_device_id,
-                                 display_name1=last_modified_by_application_display_name,
-                                 id2=last_modified_by_application_id)
-
-
-def education_update_resource(client,
-                              education_class_id,
-                              education_assignment_id,
-                              education_submission_id,
-                              education_submission_resource_id,
-                              id_=None,
-                              assignment_resource_url=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.update_resource(education_class_id=education_class_id,
+def education_educationclassesassignmentssubmission_update_outcome(client,
+                                                                   education_class_id,
+                                                                   education_assignment_id,
+                                                                   education_submission_id,
+                                                                   education_outcome_id,
+                                                                   id_=None,
+                                                                   last_modified_date_time=None,
+                                                                   application=None,
+                                                                   device=None,
+                                                                   user=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    return client.update_outcomes(education_class_id=education_class_id,
                                   education_assignment_id=education_assignment_id,
                                   education_submission_id=education_submission_id,
-                                  education_submission_resource_id=education_submission_resource_id,
-                                  id=id_,
-                                  assignment_resource_url=assignment_resource_url,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+                                  education_outcome_id=education_outcome_id,
+                                  body=body)
 
 
-def education_update_submitted_resource(client,
-                                        education_class_id,
-                                        education_assignment_id,
-                                        education_submission_id,
-                                        education_submission_resource_id,
+def education_educationclassesassignmentssubmission_update_resource(client,
+                                                                    education_class_id,
+                                                                    education_assignment_id,
+                                                                    education_submission_id,
+                                                                    education_submission_resource_id,
+                                                                    id_=None,
+                                                                    assignment_resource_url=None,
+                                                                    created_date_time=None,
+                                                                    display_name=None,
+                                                                    last_modified_date_time=None,
+                                                                    application=None,
+                                                                    device=None,
+                                                                    user=None,
+                                                                    microsoft_graph_identity_application=None,
+                                                                    microsoft_graph_identity_device=None,
+                                                                    microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_resources(education_class_id=education_class_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   education_submission_resource_id=education_submission_resource_id,
+                                   body=body)
+
+
+def education_educationclassesassignmentssubmission_update_submitted_resource(client,
+                                                                              education_class_id,
+                                                                              education_assignment_id,
+                                                                              education_submission_id,
+                                                                              education_submission_resource_id,
+                                                                              id_=None,
+                                                                              assignment_resource_url=None,
+                                                                              created_date_time=None,
+                                                                              display_name=None,
+                                                                              last_modified_date_time=None,
+                                                                              application=None,
+                                                                              device=None,
+                                                                              user=None,
+                                                                              microsoft_graph_identity_application=None,
+                                                                              microsoft_graph_identity_device=None,
+                                                                              microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_submitted_resources(education_class_id=education_class_id,
+                                             education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             education_submission_resource_id=education_submission_resource_id,
+                                             body=body)
+
+
+def education_educationclassesmember_delta(client,
+                                           education_class_id):
+    return client.delta(education_class_id=education_class_id)
+
+
+def education_educationclassesschool_delta(client,
+                                           education_class_id):
+    return client.delta(education_class_id=education_class_id)
+
+
+def education_educationclassesteacher_delta(client,
+                                            education_class_id):
+    return client.delta(education_class_id=education_class_id)
+
+
+def education_educationme_create_assignment(client,
+                                            id_=None,
+                                            allow_late_submissions=None,
+                                            allow_students_to_add_resources_to_submission=None,
+                                            assign_date_time=None,
+                                            assigned_date_time=None,
+                                            assign_to=None,
+                                            class_id=None,
+                                            close_date_time=None,
+                                            created_date_time=None,
+                                            display_name=None,
+                                            due_date_time=None,
+                                            grading=None,
+                                            instructions=None,
+                                            last_modified_date_time=None,
+                                            status=None,
+                                            categories=None,
+                                            resources=None,
+                                            submissions=None,
+                                            microsoft_graph_entity_id=None,
+                                            microsoft_graph_education_rubric_created_date_time_created_date_time=None,
+                                            description=None,
+                                            microsoft_graph_education_rubric_display_name=None,
+                                            microsoft_graph_education_assignment_grade_type_grading=None,
+                                            microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=None,
+                                            levels=None,
+                                            qualities=None,
+                                            application=None,
+                                            device=None,
+                                            user=None,
+                                            microsoft_graph_identity_application=None,
+                                            microsoft_graph_identity_device=None,
+                                            microsoft_graph_identity_user=None,
+                                            application1=None,
+                                            device1=None,
+                                            user1=None,
+                                            application2=None,
+                                            device2=None,
+                                            user2=None):
+    body = {}
+    body['id'] = id_
+    body['allow_late_submissions'] = allow_late_submissions
+    body['allow_students_to_add_resources_to_submission'] = allow_students_to_add_resources_to_submission
+    body['assign_date_time'] = assign_date_time
+    body['assigned_date_time'] = assigned_date_time
+    body['assign_to'] = assign_to
+    body['class_id'] = class_id
+    body['close_date_time'] = close_date_time
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['due_date_time'] = due_date_time
+    body['grading'] = grading
+    body['instructions'] = instructions
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['categories'] = categories
+    body['resources'] = resources
+    body['submissions'] = submissions
+    body['rubric'] = {}
+    body['rubric']['id'] = microsoft_graph_entity_id
+    body['rubric']['created_date_time'] = microsoft_graph_education_rubric_created_date_time_created_date_time
+    body['rubric']['description'] = description
+    body['rubric']['display_name'] = microsoft_graph_education_rubric_display_name
+    body['rubric']['grading'] = microsoft_graph_education_assignment_grade_type_grading
+    body['rubric']['last_modified_date_time'] = microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time
+    body['rubric']['levels'] = levels
+    body['rubric']['qualities'] = qualities
+    body['rubric']['last_modified_by'] = {}
+    body['rubric']['last_modified_by']['application'] = application
+    body['rubric']['last_modified_by']['device'] = device
+    body['rubric']['last_modified_by']['user'] = user
+    body['rubric']['created_by'] = {}
+    body['rubric']['created_by']['application'] = microsoft_graph_identity_application
+    body['rubric']['created_by']['device'] = microsoft_graph_identity_device
+    body['rubric']['created_by']['user'] = microsoft_graph_identity_user
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application1
+    body['last_modified_by']['device'] = device1
+    body['last_modified_by']['user'] = user1
+    body['created_by'] = {}
+    body['created_by']['application'] = application2
+    body['created_by']['device'] = device2
+    body['created_by']['user'] = user2
+    return client.create_assignments(body=body)
+
+
+def education_educationme_create_ref_class(client,
+                                           body):
+    return client.create_ref_classes(body=body)
+
+
+def education_educationme_create_ref_school(client,
+                                            body):
+    return client.create_ref_schools(body=body)
+
+
+def education_educationme_create_ref_taught_class(client,
+                                                  body):
+    return client.create_ref_taught_classes(body=body)
+
+
+def education_educationme_create_rubric(client,
                                         id_=None,
-                                        assignment_resource_url=None,
-                                        resource_created_date_time=None,
-                                        resource_display_name=None,
-                                        resource_last_modified_date_time=None,
-                                        resource_last_modified_by_user_display_name=None,
-                                        resource_last_modified_by_user_id=None,
-                                        resource_last_modified_by_device_display_name=None,
-                                        resource_last_modified_by_device_id=None,
-                                        resource_last_modified_by_application_display_name=None,
-                                        resource_last_modified_by_application_id=None,
-                                        resource_created_by_user_display_name=None,
-                                        resource_created_by_user_id=None,
-                                        resource_created_by_device_display_name=None,
-                                        resource_created_by_device_id=None,
-                                        resource_created_by_application_display_name=None,
-                                        resource_created_by_application_id=None):
-    return client.update_submitted_resource(education_class_id=education_class_id,
-                                            education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            education_submission_resource_id=education_submission_resource_id,
-                                            id=id_,
-                                            assignment_resource_url=assignment_resource_url,
-                                            created_date_time=resource_created_date_time,
-                                            display_name=resource_display_name,
-                                            last_modified_date_time=resource_last_modified_date_time,
-                                            microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                            microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                            display_name1=resource_last_modified_by_device_display_name,
-                                            id1=resource_last_modified_by_device_id,
-                                            display_name2=resource_last_modified_by_application_display_name,
-                                            id2=resource_last_modified_by_application_id,
-                                            display_name3=resource_created_by_user_display_name,
-                                            id3=resource_created_by_user_id,
-                                            display_name4=resource_created_by_device_display_name,
-                                            id4=resource_created_by_device_id,
-                                            display_name5=resource_created_by_application_display_name,
-                                            id5=resource_created_by_application_id)
+                                        created_date_time=None,
+                                        description=None,
+                                        display_name=None,
+                                        grading=None,
+                                        last_modified_date_time=None,
+                                        levels=None,
+                                        qualities=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_identity_application=None,
+                                        microsoft_graph_identity_device=None,
+                                        microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['grading'] = grading
+    body['last_modified_date_time'] = last_modified_date_time
+    body['levels'] = levels
+    body['qualities'] = qualities
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_rubrics(body=body)
 
 
-def education_delta(client,
-                    education_class_id):
-    return client.delta(education_class_id=education_class_id)
+def education_educationme_delete_assignment(client,
+                                            education_assignment_id,
+                                            if_match=None):
+    return client.delete_assignments(education_assignment_id=education_assignment_id,
+                                     if_match=if_match)
 
 
-def education_delta(client,
-                    education_class_id):
-    return client.delta(education_class_id=education_class_id)
-
-
-def education_delta(client,
-                    education_class_id):
-    return client.delta(education_class_id=education_class_id)
-
-
-def education_delete(client,
-                     education_assignment_id=None,
-                     if_match=None,
-                     education_rubric_id=None):
-    if education_assignment_id is not None:
-        return client.delete_assignment(education_assignment_id=education_assignment_id,
-                                        if_match=if_match)
-    elif education_rubric_id is not None:
-        return client.delete_rubric(education_rubric_id=education_rubric_id,
-                                    if_match=if_match)
+def education_educationme_delete_ref_user(client,
+                                          if_match=None):
     return client.delete_ref_user(if_match=if_match)
 
 
-def education_create_assignment(client,
-                                id_=None,
-                                allow_late_submissions=None,
-                                allow_students_to_add_resources_to_submission=None,
-                                assign_date_time=None,
-                                assigned_date_time=None,
-                                assign_to=None,
-                                class_id=None,
-                                close_date_time=None,
-                                created_date_time=None,
-                                display_name=None,
-                                due_date_time=None,
-                                grading=None,
-                                instructions=None,
-                                last_modified_date_time=None,
-                                status=None,
-                                categories=None,
-                                resources=None,
-                                submissions=None,
-                                rubric_id=None,
-                                rubric_created_date_time=None,
-                                rubric_description=None,
-                                rubric_display_name=None,
-                                rubric_grading=None,
-                                rubric_last_modified_date_time=None,
-                                rubric_levels=None,
-                                rubric_qualities=None,
-                                rubric_last_modified_by_user_display_name=None,
-                                rubric_last_modified_by_user_id=None,
-                                rubric_last_modified_by_device_display_name=None,
-                                rubric_last_modified_by_device_id=None,
-                                rubric_last_modified_by_application_display_name=None,
-                                rubric_last_modified_by_application_id=None,
-                                rubric_created_by_user_display_name=None,
-                                rubric_created_by_user_id=None,
-                                rubric_created_by_device_display_name=None,
-                                rubric_created_by_device_id=None,
-                                rubric_created_by_application_display_name=None,
-                                rubric_created_by_application_id=None,
-                                last_modified_by_user_display_name=None,
-                                last_modified_by_user_id=None,
-                                last_modified_by_device_display_name=None,
-                                last_modified_by_device_id=None,
-                                last_modified_by_application_display_name=None,
-                                last_modified_by_application_id=None,
-                                created_by_user_display_name=None,
-                                created_by_user_id=None,
-                                created_by_device_display_name=None,
-                                created_by_device_id=None,
-                                created_by_application_display_name=None,
-                                created_by_application_id=None):
-    return client.create_assignment(id=id_,
-                                    allow_late_submissions=allow_late_submissions,
-                                    allow_students_to_add_resources_to_submission=allow_students_to_add_resources_to_submission,
-                                    assign_date_time=assign_date_time,
-                                    assigned_date_time=assigned_date_time,
-                                    assign_to=assign_to,
-                                    class_id=class_id,
-                                    close_date_time=close_date_time,
-                                    created_date_time=created_date_time,
-                                    display_name=display_name,
-                                    due_date_time=due_date_time,
-                                    grading=grading,
-                                    instructions=instructions,
-                                    last_modified_date_time=last_modified_date_time,
-                                    status=status,
-                                    categories=categories,
-                                    resources=resources,
-                                    submissions=submissions,
-                                    microsoft_graph_entity_id=rubric_id,
-                                    microsoft_graph_education_rubric_created_date_time_created_date_time=rubric_created_date_time,
-                                    description=rubric_description,
-                                    microsoft_graph_education_rubric_display_name=rubric_display_name,
-                                    microsoft_graph_education_assignment_grade_type_grading=rubric_grading,
-                                    microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=rubric_last_modified_date_time,
-                                    levels=rubric_levels,
-                                    qualities=rubric_qualities,
-                                    microsoft_graph_identity_display_name=rubric_last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=rubric_last_modified_by_user_id,
-                                    display_name1=rubric_last_modified_by_device_display_name,
-                                    id1=rubric_last_modified_by_device_id,
-                                    display_name2=rubric_last_modified_by_application_display_name,
-                                    id2=rubric_last_modified_by_application_id,
-                                    display_name3=rubric_created_by_user_display_name,
-                                    id3=rubric_created_by_user_id,
-                                    display_name4=rubric_created_by_device_display_name,
-                                    id4=rubric_created_by_device_id,
-                                    display_name5=rubric_created_by_application_display_name,
-                                    id5=rubric_created_by_application_id,
-                                    display_name6=last_modified_by_user_display_name,
-                                    id6=last_modified_by_user_id,
-                                    display_name7=last_modified_by_device_display_name,
-                                    id7=last_modified_by_device_id,
-                                    display_name8=last_modified_by_application_display_name,
-                                    id8=last_modified_by_application_id,
-                                    display_name9=created_by_user_display_name,
-                                    id9=created_by_user_id,
-                                    display_name10=created_by_device_display_name,
-                                    id10=created_by_device_id,
-                                    display_name11=created_by_application_display_name,
-                                    id11=created_by_application_id)
+def education_educationme_delete_rubric(client,
+                                        education_rubric_id,
+                                        if_match=None):
+    return client.delete_rubrics(education_rubric_id=education_rubric_id,
+                                 if_match=if_match)
 
 
-def education_create_ref_class(client,
-                               body):
-    return client.create_ref_class(body=body)
+def education_educationme_list_assignment(client,
+                                          orderby=None,
+                                          select=None,
+                                          expand=None):
+    return client.list_assignments(orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
-def education_create_ref_school(client,
-                                body):
-    return client.create_ref_school(body=body)
+def education_educationme_list_class(client,
+                                     orderby=None,
+                                     select=None,
+                                     expand=None):
+    return client.list_classes(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
-def education_create_ref_taught_class(client,
-                                      body):
-    return client.create_ref_taught_class(body=body)
+def education_educationme_list_ref_class(client,
+                                         orderby=None):
+    return client.list_ref_classes(orderby=orderby)
 
 
-def education_create_rubric(client,
-                            id_=None,
-                            created_date_time=None,
-                            description=None,
-                            display_name=None,
-                            grading=None,
-                            last_modified_date_time=None,
-                            levels=None,
-                            qualities=None,
-                            last_modified_by_user_display_name=None,
-                            last_modified_by_user_id=None,
-                            last_modified_by_device_display_name=None,
-                            last_modified_by_device_id=None,
-                            last_modified_by_application_display_name=None,
-                            last_modified_by_application_id=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
-    return client.create_rubric(id=id_,
-                                created_date_time=created_date_time,
-                                description=description,
-                                display_name=display_name,
-                                grading=grading,
-                                last_modified_date_time=last_modified_date_time,
-                                levels=levels,
-                                qualities=qualities,
-                                microsoft_graph_identity_display_name=last_modified_by_user_display_name,
-                                microsoft_graph_identity_id=last_modified_by_user_id,
-                                display_name1=last_modified_by_device_display_name,
-                                id1=last_modified_by_device_id,
-                                display_name2=last_modified_by_application_display_name,
-                                id2=last_modified_by_application_id,
-                                display_name3=created_by_user_display_name,
-                                id3=created_by_user_id,
-                                display_name4=created_by_device_display_name,
-                                id4=created_by_device_id,
-                                display_name5=created_by_application_display_name,
-                                id5=created_by_application_id)
+def education_educationme_list_ref_school(client,
+                                          orderby=None):
+    return client.list_ref_schools(orderby=orderby)
 
 
-def education_get_assignment(client,
-                             education_assignment_id,
-                             select=None,
-                             expand=None):
-    return client.get_assignment(education_assignment_id=education_assignment_id,
-                                 select=select,
-                                 expand=expand)
+def education_educationme_list_ref_taught_class(client,
+                                                orderby=None):
+    return client.list_ref_taught_classes(orderby=orderby)
 
 
-def education_get_ref_user(client):
-    return client.get_ref_user()
+def education_educationme_list_rubric(client,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
+    return client.list_rubrics(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
-def education_get_rubric(client,
-                         education_rubric_id,
-                         select=None,
-                         expand=None):
-    return client.get_rubric(education_rubric_id=education_rubric_id,
-                             select=select,
-                             expand=expand)
+def education_educationme_list_school(client,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
+    return client.list_schools(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
-def education_get_user(client,
-                       select=None,
-                       expand=None):
-    return client.get_user(select=select,
-                           expand=expand)
+def education_educationme_list_taught_class(client,
+                                            orderby=None,
+                                            select=None,
+                                            expand=None):
+    return client.list_taught_classes(orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
-def education_list_assignment(client,
-                              orderby=None,
-                              select=None,
-                              expand=None):
-    return client.list_assignment(orderby=orderby,
+def education_educationme_set_ref_user(client,
+                                       body):
+    return client.set_ref_user(body=body)
+
+
+def education_educationme_show_assignment(client,
+                                          education_assignment_id,
+                                          select=None,
+                                          expand=None):
+    return client.get_assignments(education_assignment_id=education_assignment_id,
                                   select=select,
                                   expand=expand)
 
 
-def education_list_class(client,
-                         orderby=None,
-                         select=None,
-                         expand=None):
-    return client.list_class(orderby=orderby,
-                             select=select,
-                             expand=expand)
+def education_educationme_show_ref_user(client):
+    return client.get_ref_user()
 
 
-def education_list_ref_class(client,
-                             orderby=None):
-    return client.list_ref_class(orderby=orderby)
-
-
-def education_list_ref_school(client,
-                              orderby=None):
-    return client.list_ref_school(orderby=orderby)
-
-
-def education_list_ref_taught_class(client,
-                                    orderby=None):
-    return client.list_ref_taught_class(orderby=orderby)
-
-
-def education_list_rubric(client,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_rubric(orderby=orderby,
+def education_educationme_show_rubric(client,
+                                      education_rubric_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_rubrics(education_rubric_id=education_rubric_id,
                               select=select,
                               expand=expand)
 
 
-def education_list_school(client,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_school(orderby=orderby,
-                              select=select,
-                              expand=expand)
+def education_educationme_show_user(client,
+                                    select=None,
+                                    expand=None):
+    return client.get_user(select=select,
+                           expand=expand)
 
 
-def education_list_taught_class(client,
-                                orderby=None,
-                                select=None,
-                                expand=None):
-    return client.list_taught_class(orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+def education_educationme_update_assignment(client,
+                                            education_assignment_id,
+                                            id_=None,
+                                            allow_late_submissions=None,
+                                            allow_students_to_add_resources_to_submission=None,
+                                            assign_date_time=None,
+                                            assigned_date_time=None,
+                                            assign_to=None,
+                                            class_id=None,
+                                            close_date_time=None,
+                                            created_date_time=None,
+                                            display_name=None,
+                                            due_date_time=None,
+                                            grading=None,
+                                            instructions=None,
+                                            last_modified_date_time=None,
+                                            status=None,
+                                            categories=None,
+                                            resources=None,
+                                            submissions=None,
+                                            microsoft_graph_entity_id=None,
+                                            microsoft_graph_education_rubric_created_date_time_created_date_time=None,
+                                            description=None,
+                                            microsoft_graph_education_rubric_display_name=None,
+                                            microsoft_graph_education_assignment_grade_type_grading=None,
+                                            microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=None,
+                                            levels=None,
+                                            qualities=None,
+                                            application=None,
+                                            device=None,
+                                            user=None,
+                                            microsoft_graph_identity_application=None,
+                                            microsoft_graph_identity_device=None,
+                                            microsoft_graph_identity_user=None,
+                                            application1=None,
+                                            device1=None,
+                                            user1=None,
+                                            application2=None,
+                                            device2=None,
+                                            user2=None):
+    body = {}
+    body['id'] = id_
+    body['allow_late_submissions'] = allow_late_submissions
+    body['allow_students_to_add_resources_to_submission'] = allow_students_to_add_resources_to_submission
+    body['assign_date_time'] = assign_date_time
+    body['assigned_date_time'] = assigned_date_time
+    body['assign_to'] = assign_to
+    body['class_id'] = class_id
+    body['close_date_time'] = close_date_time
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['due_date_time'] = due_date_time
+    body['grading'] = grading
+    body['instructions'] = instructions
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['categories'] = categories
+    body['resources'] = resources
+    body['submissions'] = submissions
+    body['rubric'] = {}
+    body['rubric']['id'] = microsoft_graph_entity_id
+    body['rubric']['created_date_time'] = microsoft_graph_education_rubric_created_date_time_created_date_time
+    body['rubric']['description'] = description
+    body['rubric']['display_name'] = microsoft_graph_education_rubric_display_name
+    body['rubric']['grading'] = microsoft_graph_education_assignment_grade_type_grading
+    body['rubric']['last_modified_date_time'] = microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time
+    body['rubric']['levels'] = levels
+    body['rubric']['qualities'] = qualities
+    body['rubric']['last_modified_by'] = {}
+    body['rubric']['last_modified_by']['application'] = application
+    body['rubric']['last_modified_by']['device'] = device
+    body['rubric']['last_modified_by']['user'] = user
+    body['rubric']['created_by'] = {}
+    body['rubric']['created_by']['application'] = microsoft_graph_identity_application
+    body['rubric']['created_by']['device'] = microsoft_graph_identity_device
+    body['rubric']['created_by']['user'] = microsoft_graph_identity_user
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application1
+    body['last_modified_by']['device'] = device1
+    body['last_modified_by']['user'] = user1
+    body['created_by'] = {}
+    body['created_by']['application'] = application2
+    body['created_by']['device'] = device2
+    body['created_by']['user'] = user2
+    return client.update_assignments(education_assignment_id=education_assignment_id,
+                                     body=body)
 
 
-def education_set_ref_user(client,
-                           body):
-    return client.set_ref_user(body=body)
+def education_educationme_update_rubric(client,
+                                        education_rubric_id,
+                                        id_=None,
+                                        created_date_time=None,
+                                        description=None,
+                                        display_name=None,
+                                        grading=None,
+                                        last_modified_date_time=None,
+                                        levels=None,
+                                        qualities=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_identity_application=None,
+                                        microsoft_graph_identity_device=None,
+                                        microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['grading'] = grading
+    body['last_modified_date_time'] = last_modified_date_time
+    body['levels'] = levels
+    body['qualities'] = qualities
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_rubrics(education_rubric_id=education_rubric_id,
+                                 body=body)
 
 
-def education_update_assignment(client,
-                                education_assignment_id,
-                                id_=None,
-                                allow_late_submissions=None,
-                                allow_students_to_add_resources_to_submission=None,
-                                assign_date_time=None,
-                                assigned_date_time=None,
-                                assign_to=None,
-                                class_id=None,
-                                close_date_time=None,
-                                created_date_time=None,
-                                display_name=None,
-                                due_date_time=None,
-                                grading=None,
-                                instructions=None,
-                                last_modified_date_time=None,
-                                status=None,
-                                categories=None,
-                                resources=None,
-                                submissions=None,
-                                rubric_id=None,
-                                rubric_created_date_time=None,
-                                rubric_description=None,
-                                rubric_display_name=None,
-                                rubric_grading=None,
-                                rubric_last_modified_date_time=None,
-                                rubric_levels=None,
-                                rubric_qualities=None,
-                                rubric_last_modified_by_user_display_name=None,
-                                rubric_last_modified_by_user_id=None,
-                                rubric_last_modified_by_device_display_name=None,
-                                rubric_last_modified_by_device_id=None,
-                                rubric_last_modified_by_application_display_name=None,
-                                rubric_last_modified_by_application_id=None,
-                                rubric_created_by_user_display_name=None,
-                                rubric_created_by_user_id=None,
-                                rubric_created_by_device_display_name=None,
-                                rubric_created_by_device_id=None,
-                                rubric_created_by_application_display_name=None,
-                                rubric_created_by_application_id=None,
-                                last_modified_by_user_display_name=None,
-                                last_modified_by_user_id=None,
-                                last_modified_by_device_display_name=None,
-                                last_modified_by_device_id=None,
-                                last_modified_by_application_display_name=None,
-                                last_modified_by_application_id=None,
-                                created_by_user_display_name=None,
-                                created_by_user_id=None,
-                                created_by_device_display_name=None,
-                                created_by_device_id=None,
-                                created_by_application_display_name=None,
-                                created_by_application_id=None):
-    return client.update_assignment(education_assignment_id=education_assignment_id,
-                                    id=id_,
-                                    allow_late_submissions=allow_late_submissions,
-                                    allow_students_to_add_resources_to_submission=allow_students_to_add_resources_to_submission,
-                                    assign_date_time=assign_date_time,
-                                    assigned_date_time=assigned_date_time,
-                                    assign_to=assign_to,
-                                    class_id=class_id,
-                                    close_date_time=close_date_time,
-                                    created_date_time=created_date_time,
-                                    display_name=display_name,
-                                    due_date_time=due_date_time,
-                                    grading=grading,
-                                    instructions=instructions,
-                                    last_modified_date_time=last_modified_date_time,
-                                    status=status,
-                                    categories=categories,
-                                    resources=resources,
-                                    submissions=submissions,
-                                    microsoft_graph_entity_id=rubric_id,
-                                    microsoft_graph_education_rubric_created_date_time_created_date_time=rubric_created_date_time,
-                                    description=rubric_description,
-                                    microsoft_graph_education_rubric_display_name=rubric_display_name,
-                                    microsoft_graph_education_assignment_grade_type_grading=rubric_grading,
-                                    microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=rubric_last_modified_date_time,
-                                    levels=rubric_levels,
-                                    qualities=rubric_qualities,
-                                    microsoft_graph_identity_display_name=rubric_last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=rubric_last_modified_by_user_id,
-                                    display_name1=rubric_last_modified_by_device_display_name,
-                                    id1=rubric_last_modified_by_device_id,
-                                    display_name2=rubric_last_modified_by_application_display_name,
-                                    id2=rubric_last_modified_by_application_id,
-                                    display_name3=rubric_created_by_user_display_name,
-                                    id3=rubric_created_by_user_id,
-                                    display_name4=rubric_created_by_device_display_name,
-                                    id4=rubric_created_by_device_id,
-                                    display_name5=rubric_created_by_application_display_name,
-                                    id5=rubric_created_by_application_id,
-                                    display_name6=last_modified_by_user_display_name,
-                                    id6=last_modified_by_user_id,
-                                    display_name7=last_modified_by_device_display_name,
-                                    id7=last_modified_by_device_id,
-                                    display_name8=last_modified_by_application_display_name,
-                                    id8=last_modified_by_application_id,
-                                    display_name9=created_by_user_display_name,
-                                    id9=created_by_user_id,
-                                    display_name10=created_by_device_display_name,
-                                    id10=created_by_device_id,
-                                    display_name11=created_by_application_display_name,
-                                    id11=created_by_application_id)
+def education_educationmeassignment_create_category(client,
+                                                    education_assignment_id,
+                                                    id_=None,
+                                                    display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.create_categories(education_assignment_id=education_assignment_id,
+                                    body=body)
 
 
-def education_update_rubric(client,
-                            education_rubric_id,
-                            id_=None,
-                            created_date_time=None,
-                            description=None,
-                            display_name=None,
-                            grading=None,
-                            last_modified_date_time=None,
-                            levels=None,
-                            qualities=None,
-                            last_modified_by_user_display_name=None,
-                            last_modified_by_user_id=None,
-                            last_modified_by_device_display_name=None,
-                            last_modified_by_device_id=None,
-                            last_modified_by_application_display_name=None,
-                            last_modified_by_application_id=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
-    return client.update_rubric(education_rubric_id=education_rubric_id,
-                                id=id_,
-                                created_date_time=created_date_time,
-                                description=description,
-                                display_name=display_name,
-                                grading=grading,
-                                last_modified_date_time=last_modified_date_time,
-                                levels=levels,
-                                qualities=qualities,
-                                microsoft_graph_identity_display_name=last_modified_by_user_display_name,
-                                microsoft_graph_identity_id=last_modified_by_user_id,
-                                display_name1=last_modified_by_device_display_name,
-                                id1=last_modified_by_device_id,
-                                display_name2=last_modified_by_application_display_name,
-                                id2=last_modified_by_application_id,
-                                display_name3=created_by_user_display_name,
-                                id3=created_by_user_id,
-                                display_name4=created_by_device_display_name,
-                                id4=created_by_device_id,
-                                display_name5=created_by_application_display_name,
-                                id5=created_by_application_id)
+def education_educationmeassignment_create_resource(client,
+                                                    education_assignment_id,
+                                                    id_=None,
+                                                    distribute_for_student_work=None,
+                                                    created_date_time=None,
+                                                    display_name=None,
+                                                    last_modified_date_time=None,
+                                                    application=None,
+                                                    device=None,
+                                                    user=None,
+                                                    microsoft_graph_identity_application=None,
+                                                    microsoft_graph_identity_device=None,
+                                                    microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['distribute_for_student_work'] = distribute_for_student_work
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_resources(education_assignment_id=education_assignment_id,
+                                   body=body)
 
 
-def education_delete(client,
-                     education_assignment_id,
-                     education_category_id=None,
-                     if_match=None,
-                     education_assignment_resource_id=None,
-                     education_submission_id=None):
-    if education_assignment_id is not None and education_category_id is not None:
-        return client.delete_category(education_assignment_id=education_assignment_id,
-                                      education_category_id=education_category_id,
-                                      if_match=if_match)
-    elif education_assignment_id is not None and education_assignment_resource_id is not None:
-        return client.delete_resource(education_assignment_id=education_assignment_id,
-                                      education_assignment_resource_id=education_assignment_resource_id,
-                                      if_match=if_match)
-    elif education_assignment_id is not None and education_submission_id is not None:
-        return client.delete_submission(education_assignment_id=education_assignment_id,
-                                        education_submission_id=education_submission_id,
-                                        if_match=if_match)
+def education_educationmeassignment_create_submission(client,
+                                                      education_assignment_id,
+                                                      id_=None,
+                                                      recipient=None,
+                                                      released_date_time=None,
+                                                      resources_folder_url=None,
+                                                      returned_date_time=None,
+                                                      status=None,
+                                                      submitted_date_time=None,
+                                                      unsubmitted_date_time=None,
+                                                      outcomes=None,
+                                                      resources=None,
+                                                      submitted_resources=None,
+                                                      application=None,
+                                                      device=None,
+                                                      user=None,
+                                                      microsoft_graph_identity_application=None,
+                                                      microsoft_graph_identity_device=None,
+                                                      microsoft_graph_identity_user=None,
+                                                      application1=None,
+                                                      device1=None,
+                                                      user1=None,
+                                                      application2=None,
+                                                      device2=None,
+                                                      user2=None):
+    body = {}
+    body['id'] = id_
+    body['recipient'] = recipient
+    body['released_date_time'] = released_date_time
+    body['resources_folder_url'] = resources_folder_url
+    body['returned_date_time'] = returned_date_time
+    body['status'] = status
+    body['submitted_date_time'] = submitted_date_time
+    body['unsubmitted_date_time'] = unsubmitted_date_time
+    body['outcomes'] = outcomes
+    body['resources'] = resources
+    body['submitted_resources'] = submitted_resources
+    body['unsubmitted_by'] = {}
+    body['unsubmitted_by']['application'] = application
+    body['unsubmitted_by']['device'] = device
+    body['unsubmitted_by']['user'] = user
+    body['submitted_by'] = {}
+    body['submitted_by']['application'] = microsoft_graph_identity_application
+    body['submitted_by']['device'] = microsoft_graph_identity_device
+    body['submitted_by']['user'] = microsoft_graph_identity_user
+    body['returned_by'] = {}
+    body['returned_by']['application'] = application1
+    body['returned_by']['device'] = device1
+    body['returned_by']['user'] = user1
+    body['released_by'] = {}
+    body['released_by']['application'] = application2
+    body['released_by']['device'] = device2
+    body['released_by']['user'] = user2
+    return client.create_submissions(education_assignment_id=education_assignment_id,
+                                     body=body)
+
+
+def education_educationmeassignment_delete_category(client,
+                                                    education_assignment_id,
+                                                    education_category_id,
+                                                    if_match=None):
+    return client.delete_categories(education_assignment_id=education_assignment_id,
+                                    education_category_id=education_category_id,
+                                    if_match=if_match)
+
+
+def education_educationmeassignment_delete_resource(client,
+                                                    education_assignment_id,
+                                                    education_assignment_resource_id,
+                                                    if_match=None):
+    return client.delete_resources(education_assignment_id=education_assignment_id,
+                                   education_assignment_resource_id=education_assignment_resource_id,
+                                   if_match=if_match)
+
+
+def education_educationmeassignment_delete_rubric(client,
+                                                  education_assignment_id,
+                                                  if_match=None):
     return client.delete_rubric(education_assignment_id=education_assignment_id,
                                 if_match=if_match)
 
 
-def education_create_category(client,
-                              education_assignment_id,
-                              id_=None,
-                              display_name=None):
-    return client.create_category(education_assignment_id=education_assignment_id,
-                                  id=id_,
-                                  display_name=display_name)
+def education_educationmeassignment_delete_submission(client,
+                                                      education_assignment_id,
+                                                      education_submission_id,
+                                                      if_match=None):
+    return client.delete_submissions(education_assignment_id=education_assignment_id,
+                                     education_submission_id=education_submission_id,
+                                     if_match=if_match)
 
 
-def education_create_resource(client,
-                              education_assignment_id,
-                              id_=None,
-                              distribute_for_student_work=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.create_resource(education_assignment_id=education_assignment_id,
-                                  id=id_,
-                                  distribute_for_student_work=distribute_for_student_work,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
-
-
-def education_create_submission(client,
-                                education_assignment_id,
-                                id_=None,
-                                recipient=None,
-                                released_date_time=None,
-                                resources_folder_url=None,
-                                returned_date_time=None,
-                                status=None,
-                                submitted_date_time=None,
-                                unsubmitted_date_time=None,
-                                outcomes=None,
-                                resources=None,
-                                submitted_resources=None,
-                                unsubmitted_by_user_display_name=None,
-                                unsubmitted_by_user_id=None,
-                                unsubmitted_by_device_display_name=None,
-                                unsubmitted_by_device_id=None,
-                                unsubmitted_by_application_display_name=None,
-                                unsubmitted_by_application_id=None,
-                                submitted_by_user_display_name=None,
-                                submitted_by_user_id=None,
-                                submitted_by_device_display_name=None,
-                                submitted_by_device_id=None,
-                                submitted_by_application_display_name=None,
-                                submitted_by_application_id=None,
-                                returned_by_user_display_name=None,
-                                returned_by_user_id=None,
-                                returned_by_device_display_name=None,
-                                returned_by_device_id=None,
-                                returned_by_application_display_name=None,
-                                returned_by_application_id=None,
-                                released_by_user_display_name=None,
-                                released_by_user_id=None,
-                                released_by_device_display_name=None,
-                                released_by_device_id=None,
-                                released_by_application_display_name=None,
-                                released_by_application_id=None):
-    return client.create_submission(education_assignment_id=education_assignment_id,
-                                    id=id_,
-                                    recipient=recipient,
-                                    released_date_time=released_date_time,
-                                    resources_folder_url=resources_folder_url,
-                                    returned_date_time=returned_date_time,
-                                    status=status,
-                                    submitted_date_time=submitted_date_time,
-                                    unsubmitted_date_time=unsubmitted_date_time,
-                                    outcomes=outcomes,
-                                    resources=resources,
-                                    submitted_resources=submitted_resources,
-                                    display_name=unsubmitted_by_user_display_name,
-                                    microsoft_graph_identity_id=unsubmitted_by_user_id,
-                                    microsoft_graph_identity_display_name=unsubmitted_by_device_display_name,
-                                    id1=unsubmitted_by_device_id,
-                                    display_name1=unsubmitted_by_application_display_name,
-                                    id2=unsubmitted_by_application_id,
-                                    display_name2=submitted_by_user_display_name,
-                                    id3=submitted_by_user_id,
-                                    display_name3=submitted_by_device_display_name,
-                                    id4=submitted_by_device_id,
-                                    display_name4=submitted_by_application_display_name,
-                                    id5=submitted_by_application_id,
-                                    display_name5=returned_by_user_display_name,
-                                    id6=returned_by_user_id,
-                                    display_name6=returned_by_device_display_name,
-                                    id7=returned_by_device_id,
-                                    display_name7=returned_by_application_display_name,
-                                    id8=returned_by_application_id,
-                                    display_name8=released_by_user_display_name,
-                                    id9=released_by_user_id,
-                                    display_name9=released_by_device_display_name,
-                                    id10=released_by_device_id,
-                                    display_name10=released_by_application_display_name,
-                                    id11=released_by_application_id)
-
-
-def education_get_category(client,
-                           education_assignment_id,
-                           education_category_id,
-                           select=None,
-                           expand=None):
-    return client.get_category(education_assignment_id=education_assignment_id,
-                               education_category_id=education_category_id,
-                               select=select,
-                               expand=expand)
-
-
-def education_get_resource(client,
-                           education_assignment_id,
-                           education_assignment_resource_id,
-                           select=None,
-                           expand=None):
-    return client.get_resource(education_assignment_id=education_assignment_id,
-                               education_assignment_resource_id=education_assignment_resource_id,
-                               select=select,
-                               expand=expand)
-
-
-def education_get_resource_folder_url(client,
-                                      education_assignment_id):
-    return client.get_resource_folder_url(education_assignment_id=education_assignment_id)
-
-
-def education_get_rubric(client,
-                         education_assignment_id,
-                         select=None,
-                         expand=None):
-    return client.get_rubric(education_assignment_id=education_assignment_id,
-                             select=select,
-                             expand=expand)
-
-
-def education_get_submission(client,
-                             education_assignment_id,
-                             education_submission_id,
-                             select=None,
-                             expand=None):
-    return client.get_submission(education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def education_list_category(client,
-                            education_assignment_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_category(education_assignment_id=education_assignment_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def education_list_resource(client,
-                            education_assignment_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_resource(education_assignment_id=education_assignment_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def education_list_submission(client,
-                              education_assignment_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
-    return client.list_submission(education_assignment_id=education_assignment_id,
+def education_educationmeassignment_list_category(client,
+                                                  education_assignment_id,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
+    return client.list_categories(education_assignment_id=education_assignment_id,
                                   orderby=orderby,
                                   select=select,
                                   expand=expand)
 
 
-def education_publish(client,
-                      education_assignment_id):
+def education_educationmeassignment_list_resource(client,
+                                                  education_assignment_id,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
+    return client.list_resources(education_assignment_id=education_assignment_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def education_educationmeassignment_list_submission(client,
+                                                    education_assignment_id,
+                                                    orderby=None,
+                                                    select=None,
+                                                    expand=None):
+    return client.list_submissions(education_assignment_id=education_assignment_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
+
+
+def education_educationmeassignment_publish(client,
+                                            education_assignment_id):
     return client.publish(education_assignment_id=education_assignment_id)
 
 
-def education_update_category(client,
-                              education_assignment_id,
-                              education_category_id,
-                              id_=None,
-                              display_name=None):
-    return client.update_category(education_assignment_id=education_assignment_id,
-                                  education_category_id=education_category_id,
-                                  id=id_,
-                                  display_name=display_name)
+def education_educationmeassignment_show_category(client,
+                                                  education_assignment_id,
+                                                  education_category_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_categories(education_assignment_id=education_assignment_id,
+                                 education_category_id=education_category_id,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_update_resource(client,
-                              education_assignment_id,
-                              education_assignment_resource_id,
-                              id_=None,
-                              distribute_for_student_work=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.update_resource(education_assignment_id=education_assignment_id,
-                                  education_assignment_resource_id=education_assignment_resource_id,
-                                  id=id_,
-                                  distribute_for_student_work=distribute_for_student_work,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+def education_educationmeassignment_show_resource(client,
+                                                  education_assignment_id,
+                                                  education_assignment_resource_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_resources(education_assignment_id=education_assignment_id,
+                                education_assignment_resource_id=education_assignment_resource_id,
+                                select=select,
+                                expand=expand)
 
 
-def education_update_rubric(client,
-                            education_assignment_id,
-                            id_=None,
-                            created_date_time=None,
-                            description=None,
-                            display_name=None,
-                            grading=None,
-                            last_modified_date_time=None,
-                            levels=None,
-                            qualities=None,
-                            last_modified_by_user_display_name=None,
-                            last_modified_by_user_id=None,
-                            last_modified_by_device_display_name=None,
-                            last_modified_by_device_id=None,
-                            last_modified_by_application_display_name=None,
-                            last_modified_by_application_id=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
-    return client.update_rubric(education_assignment_id=education_assignment_id,
-                                id=id_,
-                                created_date_time=created_date_time,
-                                description=description,
-                                display_name=display_name,
-                                grading=grading,
-                                last_modified_date_time=last_modified_date_time,
-                                levels=levels,
-                                qualities=qualities,
-                                microsoft_graph_identity_display_name=last_modified_by_user_display_name,
-                                microsoft_graph_identity_id=last_modified_by_user_id,
-                                display_name1=last_modified_by_device_display_name,
-                                id1=last_modified_by_device_id,
-                                display_name2=last_modified_by_application_display_name,
-                                id2=last_modified_by_application_id,
-                                display_name3=created_by_user_display_name,
-                                id3=created_by_user_id,
-                                display_name4=created_by_device_display_name,
-                                id4=created_by_device_id,
-                                display_name5=created_by_application_display_name,
-                                id5=created_by_application_id)
+def education_educationmeassignment_show_resource_folder_url(client,
+                                                             education_assignment_id):
+    return client.get_resources_folder_url(education_assignment_id=education_assignment_id)
 
 
-def education_update_submission(client,
-                                education_assignment_id,
-                                education_submission_id,
-                                id_=None,
-                                recipient=None,
-                                released_date_time=None,
-                                resources_folder_url=None,
-                                returned_date_time=None,
-                                status=None,
-                                submitted_date_time=None,
-                                unsubmitted_date_time=None,
-                                outcomes=None,
-                                resources=None,
-                                submitted_resources=None,
-                                unsubmitted_by_user_display_name=None,
-                                unsubmitted_by_user_id=None,
-                                unsubmitted_by_device_display_name=None,
-                                unsubmitted_by_device_id=None,
-                                unsubmitted_by_application_display_name=None,
-                                unsubmitted_by_application_id=None,
-                                submitted_by_user_display_name=None,
-                                submitted_by_user_id=None,
-                                submitted_by_device_display_name=None,
-                                submitted_by_device_id=None,
-                                submitted_by_application_display_name=None,
-                                submitted_by_application_id=None,
-                                returned_by_user_display_name=None,
-                                returned_by_user_id=None,
-                                returned_by_device_display_name=None,
-                                returned_by_device_id=None,
-                                returned_by_application_display_name=None,
-                                returned_by_application_id=None,
-                                released_by_user_display_name=None,
-                                released_by_user_id=None,
-                                released_by_device_display_name=None,
-                                released_by_device_id=None,
-                                released_by_application_display_name=None,
-                                released_by_application_id=None):
-    return client.update_submission(education_assignment_id=education_assignment_id,
-                                    education_submission_id=education_submission_id,
-                                    id=id_,
-                                    recipient=recipient,
-                                    released_date_time=released_date_time,
-                                    resources_folder_url=resources_folder_url,
-                                    returned_date_time=returned_date_time,
-                                    status=status,
-                                    submitted_date_time=submitted_date_time,
-                                    unsubmitted_date_time=unsubmitted_date_time,
-                                    outcomes=outcomes,
-                                    resources=resources,
-                                    submitted_resources=submitted_resources,
-                                    display_name=unsubmitted_by_user_display_name,
-                                    microsoft_graph_identity_id=unsubmitted_by_user_id,
-                                    microsoft_graph_identity_display_name=unsubmitted_by_device_display_name,
-                                    id1=unsubmitted_by_device_id,
-                                    display_name1=unsubmitted_by_application_display_name,
-                                    id2=unsubmitted_by_application_id,
-                                    display_name2=submitted_by_user_display_name,
-                                    id3=submitted_by_user_id,
-                                    display_name3=submitted_by_device_display_name,
-                                    id4=submitted_by_device_id,
-                                    display_name4=submitted_by_application_display_name,
-                                    id5=submitted_by_application_id,
-                                    display_name5=returned_by_user_display_name,
-                                    id6=returned_by_user_id,
-                                    display_name6=returned_by_device_display_name,
-                                    id7=returned_by_device_id,
-                                    display_name7=returned_by_application_display_name,
-                                    id8=returned_by_application_id,
-                                    display_name8=released_by_user_display_name,
-                                    id9=released_by_user_id,
-                                    display_name9=released_by_device_display_name,
-                                    id10=released_by_device_id,
-                                    display_name10=released_by_application_display_name,
-                                    id11=released_by_application_id)
+def education_educationmeassignment_show_rubric(client,
+                                                education_assignment_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_rubric(education_assignment_id=education_assignment_id,
+                             select=select,
+                             expand=expand)
 
 
-def education_delete(client,
-                     education_assignment_id,
-                     education_submission_id,
-                     education_outcome_id=None,
-                     if_match=None,
-                     education_submission_resource_id=None):
-    if education_assignment_id is not None and education_submission_id is not None and education_outcome_id is not None:
-        return client.delete_outcome(education_assignment_id=education_assignment_id,
-                                     education_submission_id=education_submission_id,
-                                     education_outcome_id=education_outcome_id,
-                                     if_match=if_match)
-    elif education_assignment_id is not None and education_submission_id is not None and education_submission_resource_id is not None:
-        return client.delete_resource(education_assignment_id=education_assignment_id,
-                                      education_submission_id=education_submission_id,
-                                      education_submission_resource_id=education_submission_resource_id,
-                                      if_match=if_match)
-    return client.delete_submitted_resource(education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            education_submission_resource_id=education_submission_resource_id,
-                                            if_match=if_match)
-
-
-def education_create_outcome(client,
-                             education_assignment_id,
-                             education_submission_id,
-                             id_=None,
-                             last_modified_date_time=None,
-                             last_modified_by_user_display_name=None,
-                             last_modified_by_user_id=None,
-                             last_modified_by_device_display_name=None,
-                             last_modified_by_device_id=None,
-                             last_modified_by_application_display_name=None,
-                             last_modified_by_application_id=None):
-    return client.create_outcome(education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 display_name=last_modified_by_user_display_name,
-                                 microsoft_graph_identity_id=last_modified_by_user_id,
-                                 microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                 id1=last_modified_by_device_id,
-                                 display_name1=last_modified_by_application_display_name,
-                                 id2=last_modified_by_application_id)
-
-
-def education_create_resource(client,
-                              education_assignment_id,
-                              education_submission_id,
-                              id_=None,
-                              assignment_resource_url=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.create_resource(education_assignment_id=education_assignment_id,
+def education_educationmeassignment_show_submission(client,
+                                                    education_assignment_id,
+                                                    education_submission_id,
+                                                    select=None,
+                                                    expand=None):
+    return client.get_submissions(education_assignment_id=education_assignment_id,
                                   education_submission_id=education_submission_id,
-                                  id=id_,
-                                  assignment_resource_url=assignment_resource_url,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+                                  select=select,
+                                  expand=expand)
 
 
-def education_create_submitted_resource(client,
-                                        education_assignment_id,
-                                        education_submission_id,
-                                        id_=None,
-                                        assignment_resource_url=None,
-                                        resource_created_date_time=None,
-                                        resource_display_name=None,
-                                        resource_last_modified_date_time=None,
-                                        resource_last_modified_by_user_display_name=None,
-                                        resource_last_modified_by_user_id=None,
-                                        resource_last_modified_by_device_display_name=None,
-                                        resource_last_modified_by_device_id=None,
-                                        resource_last_modified_by_application_display_name=None,
-                                        resource_last_modified_by_application_id=None,
-                                        resource_created_by_user_display_name=None,
-                                        resource_created_by_user_id=None,
-                                        resource_created_by_device_display_name=None,
-                                        resource_created_by_device_id=None,
-                                        resource_created_by_application_display_name=None,
-                                        resource_created_by_application_id=None):
-    return client.create_submitted_resource(education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            id=id_,
-                                            assignment_resource_url=assignment_resource_url,
-                                            created_date_time=resource_created_date_time,
-                                            display_name=resource_display_name,
-                                            last_modified_date_time=resource_last_modified_date_time,
-                                            microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                            microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                            display_name1=resource_last_modified_by_device_display_name,
-                                            id1=resource_last_modified_by_device_id,
-                                            display_name2=resource_last_modified_by_application_display_name,
-                                            id2=resource_last_modified_by_application_id,
-                                            display_name3=resource_created_by_user_display_name,
-                                            id3=resource_created_by_user_id,
-                                            display_name4=resource_created_by_device_display_name,
-                                            id4=resource_created_by_device_id,
-                                            display_name5=resource_created_by_application_display_name,
-                                            id5=resource_created_by_application_id)
+def education_educationmeassignment_update_category(client,
+                                                    education_assignment_id,
+                                                    education_category_id,
+                                                    id_=None,
+                                                    display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.update_categories(education_assignment_id=education_assignment_id,
+                                    education_category_id=education_category_id,
+                                    body=body)
 
 
-def education_get_outcome(client,
-                          education_assignment_id,
-                          education_submission_id,
-                          education_outcome_id,
-                          select=None,
-                          expand=None):
-    return client.get_outcome(education_assignment_id=education_assignment_id,
-                              education_submission_id=education_submission_id,
-                              education_outcome_id=education_outcome_id,
-                              select=select,
-                              expand=expand)
+def education_educationmeassignment_update_resource(client,
+                                                    education_assignment_id,
+                                                    education_assignment_resource_id,
+                                                    id_=None,
+                                                    distribute_for_student_work=None,
+                                                    created_date_time=None,
+                                                    display_name=None,
+                                                    last_modified_date_time=None,
+                                                    application=None,
+                                                    device=None,
+                                                    user=None,
+                                                    microsoft_graph_identity_application=None,
+                                                    microsoft_graph_identity_device=None,
+                                                    microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['distribute_for_student_work'] = distribute_for_student_work
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_resources(education_assignment_id=education_assignment_id,
+                                   education_assignment_resource_id=education_assignment_resource_id,
+                                   body=body)
 
 
-def education_get_resource(client,
-                           education_assignment_id,
-                           education_submission_id,
-                           education_submission_resource_id,
-                           select=None,
-                           expand=None):
-    return client.get_resource(education_assignment_id=education_assignment_id,
-                               education_submission_id=education_submission_id,
-                               education_submission_resource_id=education_submission_resource_id,
-                               select=select,
-                               expand=expand)
+def education_educationmeassignment_update_rubric(client,
+                                                  education_assignment_id,
+                                                  id_=None,
+                                                  created_date_time=None,
+                                                  description=None,
+                                                  display_name=None,
+                                                  grading=None,
+                                                  last_modified_date_time=None,
+                                                  levels=None,
+                                                  qualities=None,
+                                                  application=None,
+                                                  device=None,
+                                                  user=None,
+                                                  microsoft_graph_identity_application=None,
+                                                  microsoft_graph_identity_device=None,
+                                                  microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['grading'] = grading
+    body['last_modified_date_time'] = last_modified_date_time
+    body['levels'] = levels
+    body['qualities'] = qualities
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_rubric(education_assignment_id=education_assignment_id,
+                                body=body)
 
 
-def education_get_submitted_resource(client,
-                                     education_assignment_id,
-                                     education_submission_id,
-                                     education_submission_resource_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_submitted_resource(education_assignment_id=education_assignment_id,
-                                         education_submission_id=education_submission_id,
-                                         education_submission_resource_id=education_submission_resource_id,
-                                         select=select,
-                                         expand=expand)
+def education_educationmeassignment_update_submission(client,
+                                                      education_assignment_id,
+                                                      education_submission_id,
+                                                      id_=None,
+                                                      recipient=None,
+                                                      released_date_time=None,
+                                                      resources_folder_url=None,
+                                                      returned_date_time=None,
+                                                      status=None,
+                                                      submitted_date_time=None,
+                                                      unsubmitted_date_time=None,
+                                                      outcomes=None,
+                                                      resources=None,
+                                                      submitted_resources=None,
+                                                      application=None,
+                                                      device=None,
+                                                      user=None,
+                                                      microsoft_graph_identity_application=None,
+                                                      microsoft_graph_identity_device=None,
+                                                      microsoft_graph_identity_user=None,
+                                                      application1=None,
+                                                      device1=None,
+                                                      user1=None,
+                                                      application2=None,
+                                                      device2=None,
+                                                      user2=None):
+    body = {}
+    body['id'] = id_
+    body['recipient'] = recipient
+    body['released_date_time'] = released_date_time
+    body['resources_folder_url'] = resources_folder_url
+    body['returned_date_time'] = returned_date_time
+    body['status'] = status
+    body['submitted_date_time'] = submitted_date_time
+    body['unsubmitted_date_time'] = unsubmitted_date_time
+    body['outcomes'] = outcomes
+    body['resources'] = resources
+    body['submitted_resources'] = submitted_resources
+    body['unsubmitted_by'] = {}
+    body['unsubmitted_by']['application'] = application
+    body['unsubmitted_by']['device'] = device
+    body['unsubmitted_by']['user'] = user
+    body['submitted_by'] = {}
+    body['submitted_by']['application'] = microsoft_graph_identity_application
+    body['submitted_by']['device'] = microsoft_graph_identity_device
+    body['submitted_by']['user'] = microsoft_graph_identity_user
+    body['returned_by'] = {}
+    body['returned_by']['application'] = application1
+    body['returned_by']['device'] = device1
+    body['returned_by']['user'] = user1
+    body['released_by'] = {}
+    body['released_by']['application'] = application2
+    body['released_by']['device'] = device2
+    body['released_by']['user'] = user2
+    return client.update_submissions(education_assignment_id=education_assignment_id,
+                                     education_submission_id=education_submission_id,
+                                     body=body)
 
 
-def education_list_outcome(client,
-                           education_assignment_id,
-                           education_submission_id,
-                           orderby=None,
-                           select=None,
-                           expand=None):
-    return client.list_outcome(education_assignment_id=education_assignment_id,
-                               education_submission_id=education_submission_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+def education_educationmeassignmentssubmission_create_outcome(client,
+                                                              education_assignment_id,
+                                                              education_submission_id,
+                                                              id_=None,
+                                                              last_modified_date_time=None,
+                                                              application=None,
+                                                              device=None,
+                                                              user=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    return client.create_outcomes(education_assignment_id=education_assignment_id,
+                                  education_submission_id=education_submission_id,
+                                  body=body)
 
 
-def education_list_resource(client,
-                            education_assignment_id,
-                            education_submission_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_resource(education_assignment_id=education_assignment_id,
+def education_educationmeassignmentssubmission_create_resource(client,
+                                                               education_assignment_id,
+                                                               education_submission_id,
+                                                               id_=None,
+                                                               assignment_resource_url=None,
+                                                               created_date_time=None,
+                                                               display_name=None,
+                                                               last_modified_date_time=None,
+                                                               application=None,
+                                                               device=None,
+                                                               user=None,
+                                                               microsoft_graph_identity_application=None,
+                                                               microsoft_graph_identity_device=None,
+                                                               microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_resources(education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   body=body)
+
+
+def education_educationmeassignmentssubmission_create_submitted_resource(client,
+                                                                         education_assignment_id,
+                                                                         education_submission_id,
+                                                                         id_=None,
+                                                                         assignment_resource_url=None,
+                                                                         created_date_time=None,
+                                                                         display_name=None,
+                                                                         last_modified_date_time=None,
+                                                                         application=None,
+                                                                         device=None,
+                                                                         user=None,
+                                                                         microsoft_graph_identity_application=None,
+                                                                         microsoft_graph_identity_device=None,
+                                                                         microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_submitted_resources(education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             body=body)
+
+
+def education_educationmeassignmentssubmission_delete_outcome(client,
+                                                              education_assignment_id,
+                                                              education_submission_id,
+                                                              education_outcome_id,
+                                                              if_match=None):
+    return client.delete_outcomes(education_assignment_id=education_assignment_id,
+                                  education_submission_id=education_submission_id,
+                                  education_outcome_id=education_outcome_id,
+                                  if_match=if_match)
+
+
+def education_educationmeassignmentssubmission_delete_resource(client,
+                                                               education_assignment_id,
+                                                               education_submission_id,
+                                                               education_submission_resource_id,
+                                                               if_match=None):
+    return client.delete_resources(education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   education_submission_resource_id=education_submission_resource_id,
+                                   if_match=if_match)
+
+
+def education_educationmeassignmentssubmission_delete_submitted_resource(client,
+                                                                         education_assignment_id,
+                                                                         education_submission_id,
+                                                                         education_submission_resource_id,
+                                                                         if_match=None):
+    return client.delete_submitted_resources(education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             education_submission_resource_id=education_submission_resource_id,
+                                             if_match=if_match)
+
+
+def education_educationmeassignmentssubmission_list_outcome(client,
+                                                            education_assignment_id,
+                                                            education_submission_id,
+                                                            orderby=None,
+                                                            select=None,
+                                                            expand=None):
+    return client.list_outcomes(education_assignment_id=education_assignment_id,
                                 education_submission_id=education_submission_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def education_list_submitted_resource(client,
-                                      education_assignment_id,
-                                      education_submission_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
-    return client.list_submitted_resource(education_assignment_id=education_assignment_id,
-                                          education_submission_id=education_submission_id,
-                                          orderby=orderby,
-                                          select=select,
-                                          expand=expand)
+def education_educationmeassignmentssubmission_list_resource(client,
+                                                             education_assignment_id,
+                                                             education_submission_id,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
+    return client.list_resources(education_assignment_id=education_assignment_id,
+                                 education_submission_id=education_submission_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_return(client,
-                     education_assignment_id,
-                     education_submission_id):
+def education_educationmeassignmentssubmission_list_submitted_resource(client,
+                                                                       education_assignment_id,
+                                                                       education_submission_id,
+                                                                       orderby=None,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.list_submitted_resources(education_assignment_id=education_assignment_id,
+                                           education_submission_id=education_submission_id,
+                                           orderby=orderby,
+                                           select=select,
+                                           expand=expand)
+
+
+def education_educationmeassignmentssubmission_return(client,
+                                                      education_assignment_id,
+                                                      education_submission_id):
     return client.return_method(education_assignment_id=education_assignment_id,
                                 education_submission_id=education_submission_id)
 
 
-def education_submit(client,
-                     education_assignment_id,
-                     education_submission_id):
+def education_educationmeassignmentssubmission_show_outcome(client,
+                                                            education_assignment_id,
+                                                            education_submission_id,
+                                                            education_outcome_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_outcomes(education_assignment_id=education_assignment_id,
+                               education_submission_id=education_submission_id,
+                               education_outcome_id=education_outcome_id,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationmeassignmentssubmission_show_resource(client,
+                                                             education_assignment_id,
+                                                             education_submission_id,
+                                                             education_submission_resource_id,
+                                                             select=None,
+                                                             expand=None):
+    return client.get_resources(education_assignment_id=education_assignment_id,
+                                education_submission_id=education_submission_id,
+                                education_submission_resource_id=education_submission_resource_id,
+                                select=select,
+                                expand=expand)
+
+
+def education_educationmeassignmentssubmission_show_submitted_resource(client,
+                                                                       education_assignment_id,
+                                                                       education_submission_id,
+                                                                       education_submission_resource_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_submitted_resources(education_assignment_id=education_assignment_id,
+                                          education_submission_id=education_submission_id,
+                                          education_submission_resource_id=education_submission_resource_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def education_educationmeassignmentssubmission_submit(client,
+                                                      education_assignment_id,
+                                                      education_submission_id):
     return client.submit(education_assignment_id=education_assignment_id,
                          education_submission_id=education_submission_id)
 
 
-def education_unsubmit(client,
-                       education_assignment_id,
-                       education_submission_id):
+def education_educationmeassignmentssubmission_unsubmit(client,
+                                                        education_assignment_id,
+                                                        education_submission_id):
     return client.unsubmit(education_assignment_id=education_assignment_id,
                            education_submission_id=education_submission_id)
 
 
-def education_update_outcome(client,
-                             education_assignment_id,
-                             education_submission_id,
-                             education_outcome_id,
-                             id_=None,
-                             last_modified_date_time=None,
-                             last_modified_by_user_display_name=None,
-                             last_modified_by_user_id=None,
-                             last_modified_by_device_display_name=None,
-                             last_modified_by_device_id=None,
-                             last_modified_by_application_display_name=None,
-                             last_modified_by_application_id=None):
-    return client.update_outcome(education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 education_outcome_id=education_outcome_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 display_name=last_modified_by_user_display_name,
-                                 microsoft_graph_identity_id=last_modified_by_user_id,
-                                 microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                 id1=last_modified_by_device_id,
-                                 display_name1=last_modified_by_application_display_name,
-                                 id2=last_modified_by_application_id)
-
-
-def education_update_resource(client,
-                              education_assignment_id,
-                              education_submission_id,
-                              education_submission_resource_id,
-                              id_=None,
-                              assignment_resource_url=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.update_resource(education_assignment_id=education_assignment_id,
+def education_educationmeassignmentssubmission_update_outcome(client,
+                                                              education_assignment_id,
+                                                              education_submission_id,
+                                                              education_outcome_id,
+                                                              id_=None,
+                                                              last_modified_date_time=None,
+                                                              application=None,
+                                                              device=None,
+                                                              user=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    return client.update_outcomes(education_assignment_id=education_assignment_id,
                                   education_submission_id=education_submission_id,
-                                  education_submission_resource_id=education_submission_resource_id,
-                                  id=id_,
-                                  assignment_resource_url=assignment_resource_url,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+                                  education_outcome_id=education_outcome_id,
+                                  body=body)
 
 
-def education_update_submitted_resource(client,
-                                        education_assignment_id,
-                                        education_submission_id,
-                                        education_submission_resource_id,
-                                        id_=None,
-                                        assignment_resource_url=None,
-                                        resource_created_date_time=None,
-                                        resource_display_name=None,
-                                        resource_last_modified_date_time=None,
-                                        resource_last_modified_by_user_display_name=None,
-                                        resource_last_modified_by_user_id=None,
-                                        resource_last_modified_by_device_display_name=None,
-                                        resource_last_modified_by_device_id=None,
-                                        resource_last_modified_by_application_display_name=None,
-                                        resource_last_modified_by_application_id=None,
-                                        resource_created_by_user_display_name=None,
-                                        resource_created_by_user_id=None,
-                                        resource_created_by_device_display_name=None,
-                                        resource_created_by_device_id=None,
-                                        resource_created_by_application_display_name=None,
-                                        resource_created_by_application_id=None):
-    return client.update_submitted_resource(education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            education_submission_resource_id=education_submission_resource_id,
-                                            id=id_,
-                                            assignment_resource_url=assignment_resource_url,
-                                            created_date_time=resource_created_date_time,
-                                            display_name=resource_display_name,
-                                            last_modified_date_time=resource_last_modified_date_time,
-                                            microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                            microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                            display_name1=resource_last_modified_by_device_display_name,
-                                            id1=resource_last_modified_by_device_id,
-                                            display_name2=resource_last_modified_by_application_display_name,
-                                            id2=resource_last_modified_by_application_id,
-                                            display_name3=resource_created_by_user_display_name,
-                                            id3=resource_created_by_user_id,
-                                            display_name4=resource_created_by_device_display_name,
-                                            id4=resource_created_by_device_id,
-                                            display_name5=resource_created_by_application_display_name,
-                                            id5=resource_created_by_application_id)
+def education_educationmeassignmentssubmission_update_resource(client,
+                                                               education_assignment_id,
+                                                               education_submission_id,
+                                                               education_submission_resource_id,
+                                                               id_=None,
+                                                               assignment_resource_url=None,
+                                                               created_date_time=None,
+                                                               display_name=None,
+                                                               last_modified_date_time=None,
+                                                               application=None,
+                                                               device=None,
+                                                               user=None,
+                                                               microsoft_graph_identity_application=None,
+                                                               microsoft_graph_identity_device=None,
+                                                               microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_resources(education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   education_submission_resource_id=education_submission_resource_id,
+                                   body=body)
 
 
-def education_delta(client):
+def education_educationmeassignmentssubmission_update_submitted_resource(client,
+                                                                         education_assignment_id,
+                                                                         education_submission_id,
+                                                                         education_submission_resource_id,
+                                                                         id_=None,
+                                                                         assignment_resource_url=None,
+                                                                         created_date_time=None,
+                                                                         display_name=None,
+                                                                         last_modified_date_time=None,
+                                                                         application=None,
+                                                                         device=None,
+                                                                         user=None,
+                                                                         microsoft_graph_identity_application=None,
+                                                                         microsoft_graph_identity_device=None,
+                                                                         microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_submitted_resources(education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             education_submission_resource_id=education_submission_resource_id,
+                                             body=body)
+
+
+def education_educationmeclass_delta(client):
     return client.delta()
 
 
-def education_delta(client):
+def education_educationmeschool_delta(client):
     return client.delta()
 
 
-def education_delta(client):
+def education_educationmetaughtclass_delta(client):
     return client.delta()
 
 
-def education_delete(client,
-                     education_school_id,
-                     if_match=None):
+def education_educationschool_create_ref_class(client,
+                                               education_school_id,
+                                               body):
+    return client.create_ref_classes(education_school_id=education_school_id,
+                                     body=body)
+
+
+def education_educationschool_create_ref_user(client,
+                                              education_school_id,
+                                              body):
+    return client.create_ref_users(education_school_id=education_school_id,
+                                   body=body)
+
+
+def education_educationschool_delete_ref_administrative_unit(client,
+                                                             education_school_id,
+                                                             if_match=None):
     return client.delete_ref_administrative_unit(education_school_id=education_school_id,
                                                  if_match=if_match)
 
 
-def education_create_ref_class(client,
-                               education_school_id,
-                               body):
-    return client.create_ref_class(education_school_id=education_school_id,
-                                   body=body)
-
-
-def education_create_ref_user(client,
-                              education_school_id,
-                              body):
-    return client.create_ref_user(education_school_id=education_school_id,
-                                  body=body)
-
-
-def education_delta(client):
+def education_educationschool_delta(client):
     return client.delta()
 
 
-def education_get_administrative_unit(client,
-                                      education_school_id,
-                                      select=None,
-                                      expand=None):
+def education_educationschool_list_class(client,
+                                         education_school_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
+    return client.list_classes(education_school_id=education_school_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationschool_list_ref_class(client,
+                                             education_school_id,
+                                             orderby=None):
+    return client.list_ref_classes(education_school_id=education_school_id,
+                                   orderby=orderby)
+
+
+def education_educationschool_list_ref_user(client,
+                                            education_school_id,
+                                            orderby=None):
+    return client.list_ref_users(education_school_id=education_school_id,
+                                 orderby=orderby)
+
+
+def education_educationschool_list_user(client,
+                                        education_school_id,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
+    return client.list_users(education_school_id=education_school_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
+
+
+def education_educationschool_set_ref_administrative_unit(client,
+                                                          education_school_id,
+                                                          body):
+    return client.set_ref_administrative_unit(education_school_id=education_school_id,
+                                              body=body)
+
+
+def education_educationschool_show_administrative_unit(client,
+                                                       education_school_id,
+                                                       select=None,
+                                                       expand=None):
     return client.get_administrative_unit(education_school_id=education_school_id,
                                           select=select,
                                           expand=expand)
 
 
-def education_get_ref_administrative_unit(client,
-                                          education_school_id):
+def education_educationschool_show_ref_administrative_unit(client,
+                                                           education_school_id):
     return client.get_ref_administrative_unit(education_school_id=education_school_id)
 
 
-def education_list_class(client,
-                         education_school_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
-    return client.list_class(education_school_id=education_school_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
-
-
-def education_list_ref_class(client,
-                             education_school_id,
-                             orderby=None):
-    return client.list_ref_class(education_school_id=education_school_id,
-                                 orderby=orderby)
-
-
-def education_list_ref_user(client,
-                            education_school_id,
-                            orderby=None):
-    return client.list_ref_user(education_school_id=education_school_id,
-                                orderby=orderby)
-
-
-def education_list_user(client,
-                        education_school_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_user(education_school_id=education_school_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
-
-
-def education_set_ref_administrative_unit(client,
-                                          education_school_id,
-                                          body):
-    return client.set_ref_administrative_unit(education_school_id=education_school_id,
-                                              body=body)
-
-
-def education_delta(client,
-                    education_school_id):
+def education_educationschoolsclass_delta(client,
+                                          education_school_id):
     return client.delta(education_school_id=education_school_id)
 
 
-def education_delta(client,
-                    education_school_id):
+def education_educationschoolsuser_delta(client,
+                                         education_school_id):
     return client.delta(education_school_id=education_school_id)
 
 
-def education_delete(client,
-                     education_synchronization_profile_id,
-                     education_synchronization_error_id=None,
-                     if_match=None):
-    if education_synchronization_profile_id is not None and education_synchronization_error_id is not None:
-        return client.delete_error(education_synchronization_profile_id=education_synchronization_profile_id,
-                                   education_synchronization_error_id=education_synchronization_error_id,
-                                   if_match=if_match)
+def education_educationsynchronizationprofile_create_error(client,
+                                                           education_synchronization_profile_id,
+                                                           id_=None,
+                                                           entry_type=None,
+                                                           error_code=None,
+                                                           error_message=None,
+                                                           joining_value=None,
+                                                           recorded_date_time=None,
+                                                           reportable_identifier=None):
+    body = {}
+    body['id'] = id_
+    body['entry_type'] = entry_type
+    body['error_code'] = error_code
+    body['error_message'] = error_message
+    body['joining_value'] = joining_value
+    body['recorded_date_time'] = recorded_date_time
+    body['reportable_identifier'] = reportable_identifier
+    return client.create_errors(education_synchronization_profile_id=education_synchronization_profile_id,
+                                body=body)
+
+
+def education_educationsynchronizationprofile_delete_error(client,
+                                                           education_synchronization_profile_id,
+                                                           education_synchronization_error_id,
+                                                           if_match=None):
+    return client.delete_errors(education_synchronization_profile_id=education_synchronization_profile_id,
+                                education_synchronization_error_id=education_synchronization_error_id,
+                                if_match=if_match)
+
+
+def education_educationsynchronizationprofile_delete_profile_status(client,
+                                                                    education_synchronization_profile_id,
+                                                                    if_match=None):
     return client.delete_profile_status(education_synchronization_profile_id=education_synchronization_profile_id,
                                         if_match=if_match)
 
 
-def education_create_error(client,
-                           education_synchronization_profile_id,
-                           id_=None,
-                           entry_type=None,
-                           error_code=None,
-                           error_message=None,
-                           joining_value=None,
-                           recorded_date_time=None,
-                           reportable_identifier=None):
-    return client.create_error(education_synchronization_profile_id=education_synchronization_profile_id,
-                               id=id_,
-                               entry_type=entry_type,
-                               error_code=error_code,
-                               error_message=error_message,
-                               joining_value=joining_value,
-                               recorded_date_time=recorded_date_time,
-                               reportable_identifier=reportable_identifier)
+def education_educationsynchronizationprofile_list_error(client,
+                                                         education_synchronization_profile_id,
+                                                         orderby=None,
+                                                         select=None,
+                                                         expand=None):
+    return client.list_errors(education_synchronization_profile_id=education_synchronization_profile_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
-def education_get_error(client,
-                        education_synchronization_profile_id,
-                        education_synchronization_error_id,
-                        select=None,
-                        expand=None):
-    return client.get_error(education_synchronization_profile_id=education_synchronization_profile_id,
-                            education_synchronization_error_id=education_synchronization_error_id,
-                            select=select,
-                            expand=expand)
+def education_educationsynchronizationprofile_pause(client,
+                                                    education_synchronization_profile_id):
+    return client.pause(education_synchronization_profile_id=education_synchronization_profile_id)
 
 
-def education_get_profile_status(client,
-                                 education_synchronization_profile_id,
-                                 select=None,
-                                 expand=None):
+def education_educationsynchronizationprofile_reset(client,
+                                                    education_synchronization_profile_id):
+    return client.reset(education_synchronization_profile_id=education_synchronization_profile_id)
+
+
+def education_educationsynchronizationprofile_resume(client,
+                                                     education_synchronization_profile_id):
+    return client.resume(education_synchronization_profile_id=education_synchronization_profile_id)
+
+
+def education_educationsynchronizationprofile_show_error(client,
+                                                         education_synchronization_profile_id,
+                                                         education_synchronization_error_id,
+                                                         select=None,
+                                                         expand=None):
+    return client.get_errors(education_synchronization_profile_id=education_synchronization_profile_id,
+                             education_synchronization_error_id=education_synchronization_error_id,
+                             select=select,
+                             expand=expand)
+
+
+def education_educationsynchronizationprofile_show_profile_status(client,
+                                                                  education_synchronization_profile_id,
+                                                                  select=None,
+                                                                  expand=None):
     return client.get_profile_status(education_synchronization_profile_id=education_synchronization_profile_id,
                                      select=select,
                                      expand=expand)
 
 
-def education_list_error(client,
-                         education_synchronization_profile_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
-    return client.list_error(education_synchronization_profile_id=education_synchronization_profile_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
-
-
-def education_pause(client,
-                    education_synchronization_profile_id):
-    return client.pause(education_synchronization_profile_id=education_synchronization_profile_id)
-
-
-def education_reset(client,
-                    education_synchronization_profile_id):
-    return client.reset(education_synchronization_profile_id=education_synchronization_profile_id)
-
-
-def education_resume(client,
-                     education_synchronization_profile_id):
-    return client.resume(education_synchronization_profile_id=education_synchronization_profile_id)
-
-
-def education_start(client,
-                    education_synchronization_profile_id):
+def education_educationsynchronizationprofile_start(client,
+                                                    education_synchronization_profile_id):
     return client.start(education_synchronization_profile_id=education_synchronization_profile_id)
 
 
-def education_update_error(client,
-                           education_synchronization_profile_id,
-                           education_synchronization_error_id,
-                           id_=None,
-                           entry_type=None,
-                           error_code=None,
-                           error_message=None,
-                           joining_value=None,
-                           recorded_date_time=None,
-                           reportable_identifier=None):
-    return client.update_error(education_synchronization_profile_id=education_synchronization_profile_id,
-                               education_synchronization_error_id=education_synchronization_error_id,
-                               id=id_,
-                               entry_type=entry_type,
-                               error_code=error_code,
-                               error_message=error_message,
-                               joining_value=joining_value,
-                               recorded_date_time=recorded_date_time,
-                               reportable_identifier=reportable_identifier)
+def education_educationsynchronizationprofile_update_error(client,
+                                                           education_synchronization_profile_id,
+                                                           education_synchronization_error_id,
+                                                           id_=None,
+                                                           entry_type=None,
+                                                           error_code=None,
+                                                           error_message=None,
+                                                           joining_value=None,
+                                                           recorded_date_time=None,
+                                                           reportable_identifier=None):
+    body = {}
+    body['id'] = id_
+    body['entry_type'] = entry_type
+    body['error_code'] = error_code
+    body['error_message'] = error_message
+    body['joining_value'] = joining_value
+    body['recorded_date_time'] = recorded_date_time
+    body['reportable_identifier'] = reportable_identifier
+    return client.update_errors(education_synchronization_profile_id=education_synchronization_profile_id,
+                                education_synchronization_error_id=education_synchronization_error_id,
+                                body=body)
 
 
-def education_update_profile_status(client,
-                                    education_synchronization_profile_id,
-                                    id_=None,
-                                    last_synchronization_date_time=None,
-                                    status=None):
+def education_educationsynchronizationprofile_update_profile_status(client,
+                                                                    education_synchronization_profile_id,
+                                                                    id_=None,
+                                                                    last_synchronization_date_time=None,
+                                                                    status=None):
+    body = {}
+    body['id'] = id_
+    body['last_synchronization_date_time'] = last_synchronization_date_time
+    body['status'] = status
     return client.update_profile_status(education_synchronization_profile_id=education_synchronization_profile_id,
-                                        id=id_,
-                                        last_synchronization_date_time=last_synchronization_date_time,
-                                        status=status)
+                                        body=body)
 
 
-def education_upload_url(client,
-                         education_synchronization_profile_id):
+def education_educationsynchronizationprofile_upload_url(client,
+                                                         education_synchronization_profile_id):
     return client.upload_url(education_synchronization_profile_id=education_synchronization_profile_id)
 
 
-def education_delete(client,
-                     education_user_id,
-                     education_assignment_id=None,
-                     if_match=None,
-                     education_rubric_id=None):
-    if education_user_id is not None and education_assignment_id is not None:
-        return client.delete_assignment(education_user_id=education_user_id,
-                                        education_assignment_id=education_assignment_id,
-                                        if_match=if_match)
-    elif education_user_id is not None and education_rubric_id is not None:
-        return client.delete_rubric(education_user_id=education_user_id,
-                                    education_rubric_id=education_rubric_id,
-                                    if_match=if_match)
+def education_educationuser_create_assignment(client,
+                                              education_user_id,
+                                              id_=None,
+                                              allow_late_submissions=None,
+                                              allow_students_to_add_resources_to_submission=None,
+                                              assign_date_time=None,
+                                              assigned_date_time=None,
+                                              assign_to=None,
+                                              class_id=None,
+                                              close_date_time=None,
+                                              created_date_time=None,
+                                              display_name=None,
+                                              due_date_time=None,
+                                              grading=None,
+                                              instructions=None,
+                                              last_modified_date_time=None,
+                                              status=None,
+                                              categories=None,
+                                              resources=None,
+                                              submissions=None,
+                                              microsoft_graph_entity_id=None,
+                                              microsoft_graph_education_rubric_created_date_time_created_date_time=None,
+                                              description=None,
+                                              microsoft_graph_education_rubric_display_name=None,
+                                              microsoft_graph_education_assignment_grade_type_grading=None,
+                                              microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=None,
+                                              levels=None,
+                                              qualities=None,
+                                              application=None,
+                                              device=None,
+                                              user=None,
+                                              microsoft_graph_identity_application=None,
+                                              microsoft_graph_identity_device=None,
+                                              microsoft_graph_identity_user=None,
+                                              application1=None,
+                                              device1=None,
+                                              user1=None,
+                                              application2=None,
+                                              device2=None,
+                                              user2=None):
+    body = {}
+    body['id'] = id_
+    body['allow_late_submissions'] = allow_late_submissions
+    body['allow_students_to_add_resources_to_submission'] = allow_students_to_add_resources_to_submission
+    body['assign_date_time'] = assign_date_time
+    body['assigned_date_time'] = assigned_date_time
+    body['assign_to'] = assign_to
+    body['class_id'] = class_id
+    body['close_date_time'] = close_date_time
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['due_date_time'] = due_date_time
+    body['grading'] = grading
+    body['instructions'] = instructions
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['categories'] = categories
+    body['resources'] = resources
+    body['submissions'] = submissions
+    body['rubric'] = {}
+    body['rubric']['id'] = microsoft_graph_entity_id
+    body['rubric']['created_date_time'] = microsoft_graph_education_rubric_created_date_time_created_date_time
+    body['rubric']['description'] = description
+    body['rubric']['display_name'] = microsoft_graph_education_rubric_display_name
+    body['rubric']['grading'] = microsoft_graph_education_assignment_grade_type_grading
+    body['rubric']['last_modified_date_time'] = microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time
+    body['rubric']['levels'] = levels
+    body['rubric']['qualities'] = qualities
+    body['rubric']['last_modified_by'] = {}
+    body['rubric']['last_modified_by']['application'] = application
+    body['rubric']['last_modified_by']['device'] = device
+    body['rubric']['last_modified_by']['user'] = user
+    body['rubric']['created_by'] = {}
+    body['rubric']['created_by']['application'] = microsoft_graph_identity_application
+    body['rubric']['created_by']['device'] = microsoft_graph_identity_device
+    body['rubric']['created_by']['user'] = microsoft_graph_identity_user
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application1
+    body['last_modified_by']['device'] = device1
+    body['last_modified_by']['user'] = user1
+    body['created_by'] = {}
+    body['created_by']['application'] = application2
+    body['created_by']['device'] = device2
+    body['created_by']['user'] = user2
+    return client.create_assignments(education_user_id=education_user_id,
+                                     body=body)
+
+
+def education_educationuser_create_ref_class(client,
+                                             education_user_id,
+                                             body):
+    return client.create_ref_classes(education_user_id=education_user_id,
+                                     body=body)
+
+
+def education_educationuser_create_ref_school(client,
+                                              education_user_id,
+                                              body):
+    return client.create_ref_schools(education_user_id=education_user_id,
+                                     body=body)
+
+
+def education_educationuser_create_ref_taught_class(client,
+                                                    education_user_id,
+                                                    body):
+    return client.create_ref_taught_classes(education_user_id=education_user_id,
+                                            body=body)
+
+
+def education_educationuser_create_rubric(client,
+                                          education_user_id,
+                                          id_=None,
+                                          created_date_time=None,
+                                          description=None,
+                                          display_name=None,
+                                          grading=None,
+                                          last_modified_date_time=None,
+                                          levels=None,
+                                          qualities=None,
+                                          application=None,
+                                          device=None,
+                                          user=None,
+                                          microsoft_graph_identity_application=None,
+                                          microsoft_graph_identity_device=None,
+                                          microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['grading'] = grading
+    body['last_modified_date_time'] = last_modified_date_time
+    body['levels'] = levels
+    body['qualities'] = qualities
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_rubrics(education_user_id=education_user_id,
+                                 body=body)
+
+
+def education_educationuser_delete_assignment(client,
+                                              education_user_id,
+                                              education_assignment_id,
+                                              if_match=None):
+    return client.delete_assignments(education_user_id=education_user_id,
+                                     education_assignment_id=education_assignment_id,
+                                     if_match=if_match)
+
+
+def education_educationuser_delete_ref_user(client,
+                                            education_user_id,
+                                            if_match=None):
     return client.delete_ref_user(education_user_id=education_user_id,
                                   if_match=if_match)
 
 
-def education_create_assignment(client,
-                                education_user_id,
-                                id_=None,
-                                allow_late_submissions=None,
-                                allow_students_to_add_resources_to_submission=None,
-                                assign_date_time=None,
-                                assigned_date_time=None,
-                                assign_to=None,
-                                class_id=None,
-                                close_date_time=None,
-                                created_date_time=None,
-                                display_name=None,
-                                due_date_time=None,
-                                grading=None,
-                                instructions=None,
-                                last_modified_date_time=None,
-                                status=None,
-                                categories=None,
-                                resources=None,
-                                submissions=None,
-                                rubric_id=None,
-                                rubric_created_date_time=None,
-                                rubric_description=None,
-                                rubric_display_name=None,
-                                rubric_grading=None,
-                                rubric_last_modified_date_time=None,
-                                rubric_levels=None,
-                                rubric_qualities=None,
-                                rubric_last_modified_by_user_display_name=None,
-                                rubric_last_modified_by_user_id=None,
-                                rubric_last_modified_by_device_display_name=None,
-                                rubric_last_modified_by_device_id=None,
-                                rubric_last_modified_by_application_display_name=None,
-                                rubric_last_modified_by_application_id=None,
-                                rubric_created_by_user_display_name=None,
-                                rubric_created_by_user_id=None,
-                                rubric_created_by_device_display_name=None,
-                                rubric_created_by_device_id=None,
-                                rubric_created_by_application_display_name=None,
-                                rubric_created_by_application_id=None,
-                                last_modified_by_user_display_name=None,
-                                last_modified_by_user_id=None,
-                                last_modified_by_device_display_name=None,
-                                last_modified_by_device_id=None,
-                                last_modified_by_application_display_name=None,
-                                last_modified_by_application_id=None,
-                                created_by_user_display_name=None,
-                                created_by_user_id=None,
-                                created_by_device_display_name=None,
-                                created_by_device_id=None,
-                                created_by_application_display_name=None,
-                                created_by_application_id=None):
-    return client.create_assignment(education_user_id=education_user_id,
-                                    id=id_,
-                                    allow_late_submissions=allow_late_submissions,
-                                    allow_students_to_add_resources_to_submission=allow_students_to_add_resources_to_submission,
-                                    assign_date_time=assign_date_time,
-                                    assigned_date_time=assigned_date_time,
-                                    assign_to=assign_to,
-                                    class_id=class_id,
-                                    close_date_time=close_date_time,
-                                    created_date_time=created_date_time,
-                                    display_name=display_name,
-                                    due_date_time=due_date_time,
-                                    grading=grading,
-                                    instructions=instructions,
-                                    last_modified_date_time=last_modified_date_time,
-                                    status=status,
-                                    categories=categories,
-                                    resources=resources,
-                                    submissions=submissions,
-                                    microsoft_graph_entity_id=rubric_id,
-                                    microsoft_graph_education_rubric_created_date_time_created_date_time=rubric_created_date_time,
-                                    description=rubric_description,
-                                    microsoft_graph_education_rubric_display_name=rubric_display_name,
-                                    microsoft_graph_education_assignment_grade_type_grading=rubric_grading,
-                                    microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=rubric_last_modified_date_time,
-                                    levels=rubric_levels,
-                                    qualities=rubric_qualities,
-                                    microsoft_graph_identity_display_name=rubric_last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=rubric_last_modified_by_user_id,
-                                    display_name1=rubric_last_modified_by_device_display_name,
-                                    id1=rubric_last_modified_by_device_id,
-                                    display_name2=rubric_last_modified_by_application_display_name,
-                                    id2=rubric_last_modified_by_application_id,
-                                    display_name3=rubric_created_by_user_display_name,
-                                    id3=rubric_created_by_user_id,
-                                    display_name4=rubric_created_by_device_display_name,
-                                    id4=rubric_created_by_device_id,
-                                    display_name5=rubric_created_by_application_display_name,
-                                    id5=rubric_created_by_application_id,
-                                    display_name6=last_modified_by_user_display_name,
-                                    id6=last_modified_by_user_id,
-                                    display_name7=last_modified_by_device_display_name,
-                                    id7=last_modified_by_device_id,
-                                    display_name8=last_modified_by_application_display_name,
-                                    id8=last_modified_by_application_id,
-                                    display_name9=created_by_user_display_name,
-                                    id9=created_by_user_id,
-                                    display_name10=created_by_device_display_name,
-                                    id10=created_by_device_id,
-                                    display_name11=created_by_application_display_name,
-                                    id11=created_by_application_id)
+def education_educationuser_delete_rubric(client,
+                                          education_user_id,
+                                          education_rubric_id,
+                                          if_match=None):
+    return client.delete_rubrics(education_user_id=education_user_id,
+                                 education_rubric_id=education_rubric_id,
+                                 if_match=if_match)
 
 
-def education_create_ref_class(client,
-                               education_user_id,
-                               body):
-    return client.create_ref_class(education_user_id=education_user_id,
-                                   body=body)
-
-
-def education_create_ref_school(client,
-                                education_user_id,
-                                body):
-    return client.create_ref_school(education_user_id=education_user_id,
-                                    body=body)
-
-
-def education_create_ref_taught_class(client,
-                                      education_user_id,
-                                      body):
-    return client.create_ref_taught_class(education_user_id=education_user_id,
-                                          body=body)
-
-
-def education_create_rubric(client,
-                            education_user_id,
-                            id_=None,
-                            created_date_time=None,
-                            description=None,
-                            display_name=None,
-                            grading=None,
-                            last_modified_date_time=None,
-                            levels=None,
-                            qualities=None,
-                            last_modified_by_user_display_name=None,
-                            last_modified_by_user_id=None,
-                            last_modified_by_device_display_name=None,
-                            last_modified_by_device_id=None,
-                            last_modified_by_application_display_name=None,
-                            last_modified_by_application_id=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
-    return client.create_rubric(education_user_id=education_user_id,
-                                id=id_,
-                                created_date_time=created_date_time,
-                                description=description,
-                                display_name=display_name,
-                                grading=grading,
-                                last_modified_date_time=last_modified_date_time,
-                                levels=levels,
-                                qualities=qualities,
-                                microsoft_graph_identity_display_name=last_modified_by_user_display_name,
-                                microsoft_graph_identity_id=last_modified_by_user_id,
-                                display_name1=last_modified_by_device_display_name,
-                                id1=last_modified_by_device_id,
-                                display_name2=last_modified_by_application_display_name,
-                                id2=last_modified_by_application_id,
-                                display_name3=created_by_user_display_name,
-                                id3=created_by_user_id,
-                                display_name4=created_by_device_display_name,
-                                id4=created_by_device_id,
-                                display_name5=created_by_application_display_name,
-                                id5=created_by_application_id)
-
-
-def education_delta(client):
+def education_educationuser_delta(client):
     return client.delta()
 
 
-def education_get_assignment(client,
-                             education_user_id,
-                             education_assignment_id,
-                             select=None,
-                             expand=None):
-    return client.get_assignment(education_user_id=education_user_id,
-                                 education_assignment_id=education_assignment_id,
-                                 select=select,
-                                 expand=expand)
+def education_educationuser_list_assignment(client,
+                                            education_user_id,
+                                            orderby=None,
+                                            select=None,
+                                            expand=None):
+    return client.list_assignments(education_user_id=education_user_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
-def education_get_ref_user(client,
-                           education_user_id):
+def education_educationuser_list_class(client,
+                                       education_user_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_classes(education_user_id=education_user_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationuser_list_ref_class(client,
+                                           education_user_id,
+                                           orderby=None):
+    return client.list_ref_classes(education_user_id=education_user_id,
+                                   orderby=orderby)
+
+
+def education_educationuser_list_ref_school(client,
+                                            education_user_id,
+                                            orderby=None):
+    return client.list_ref_schools(education_user_id=education_user_id,
+                                   orderby=orderby)
+
+
+def education_educationuser_list_ref_taught_class(client,
+                                                  education_user_id,
+                                                  orderby=None):
+    return client.list_ref_taught_classes(education_user_id=education_user_id,
+                                          orderby=orderby)
+
+
+def education_educationuser_list_rubric(client,
+                                        education_user_id,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
+    return client.list_rubrics(education_user_id=education_user_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationuser_list_school(client,
+                                        education_user_id,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
+    return client.list_schools(education_user_id=education_user_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationuser_list_taught_class(client,
+                                              education_user_id,
+                                              orderby=None,
+                                              select=None,
+                                              expand=None):
+    return client.list_taught_classes(education_user_id=education_user_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
+
+
+def education_educationuser_set_ref_user(client,
+                                         education_user_id,
+                                         body):
+    return client.set_ref_user(education_user_id=education_user_id,
+                               body=body)
+
+
+def education_educationuser_show_assignment(client,
+                                            education_user_id,
+                                            education_assignment_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_assignments(education_user_id=education_user_id,
+                                  education_assignment_id=education_assignment_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def education_educationuser_show_ref_user(client,
+                                          education_user_id):
     return client.get_ref_user(education_user_id=education_user_id)
 
 
-def education_get_rubric(client,
-                         education_user_id,
-                         education_rubric_id,
-                         select=None,
-                         expand=None):
-    return client.get_rubric(education_user_id=education_user_id,
-                             education_rubric_id=education_rubric_id,
-                             select=select,
-                             expand=expand)
+def education_educationuser_show_rubric(client,
+                                        education_user_id,
+                                        education_rubric_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_rubrics(education_user_id=education_user_id,
+                              education_rubric_id=education_rubric_id,
+                              select=select,
+                              expand=expand)
 
 
-def education_get_user(client,
-                       education_user_id,
-                       select=None,
-                       expand=None):
+def education_educationuser_show_user(client,
+                                      education_user_id,
+                                      select=None,
+                                      expand=None):
     return client.get_user(education_user_id=education_user_id,
                            select=select,
                            expand=expand)
 
 
-def education_list_assignment(client,
-                              education_user_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
-    return client.list_assignment(education_user_id=education_user_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+def education_educationuser_update_assignment(client,
+                                              education_user_id,
+                                              education_assignment_id,
+                                              id_=None,
+                                              allow_late_submissions=None,
+                                              allow_students_to_add_resources_to_submission=None,
+                                              assign_date_time=None,
+                                              assigned_date_time=None,
+                                              assign_to=None,
+                                              class_id=None,
+                                              close_date_time=None,
+                                              created_date_time=None,
+                                              display_name=None,
+                                              due_date_time=None,
+                                              grading=None,
+                                              instructions=None,
+                                              last_modified_date_time=None,
+                                              status=None,
+                                              categories=None,
+                                              resources=None,
+                                              submissions=None,
+                                              microsoft_graph_entity_id=None,
+                                              microsoft_graph_education_rubric_created_date_time_created_date_time=None,
+                                              description=None,
+                                              microsoft_graph_education_rubric_display_name=None,
+                                              microsoft_graph_education_assignment_grade_type_grading=None,
+                                              microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=None,
+                                              levels=None,
+                                              qualities=None,
+                                              application=None,
+                                              device=None,
+                                              user=None,
+                                              microsoft_graph_identity_application=None,
+                                              microsoft_graph_identity_device=None,
+                                              microsoft_graph_identity_user=None,
+                                              application1=None,
+                                              device1=None,
+                                              user1=None,
+                                              application2=None,
+                                              device2=None,
+                                              user2=None):
+    body = {}
+    body['id'] = id_
+    body['allow_late_submissions'] = allow_late_submissions
+    body['allow_students_to_add_resources_to_submission'] = allow_students_to_add_resources_to_submission
+    body['assign_date_time'] = assign_date_time
+    body['assigned_date_time'] = assigned_date_time
+    body['assign_to'] = assign_to
+    body['class_id'] = class_id
+    body['close_date_time'] = close_date_time
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['due_date_time'] = due_date_time
+    body['grading'] = grading
+    body['instructions'] = instructions
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['categories'] = categories
+    body['resources'] = resources
+    body['submissions'] = submissions
+    body['rubric'] = {}
+    body['rubric']['id'] = microsoft_graph_entity_id
+    body['rubric']['created_date_time'] = microsoft_graph_education_rubric_created_date_time_created_date_time
+    body['rubric']['description'] = description
+    body['rubric']['display_name'] = microsoft_graph_education_rubric_display_name
+    body['rubric']['grading'] = microsoft_graph_education_assignment_grade_type_grading
+    body['rubric']['last_modified_date_time'] = microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time
+    body['rubric']['levels'] = levels
+    body['rubric']['qualities'] = qualities
+    body['rubric']['last_modified_by'] = {}
+    body['rubric']['last_modified_by']['application'] = application
+    body['rubric']['last_modified_by']['device'] = device
+    body['rubric']['last_modified_by']['user'] = user
+    body['rubric']['created_by'] = {}
+    body['rubric']['created_by']['application'] = microsoft_graph_identity_application
+    body['rubric']['created_by']['device'] = microsoft_graph_identity_device
+    body['rubric']['created_by']['user'] = microsoft_graph_identity_user
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application1
+    body['last_modified_by']['device'] = device1
+    body['last_modified_by']['user'] = user1
+    body['created_by'] = {}
+    body['created_by']['application'] = application2
+    body['created_by']['device'] = device2
+    body['created_by']['user'] = user2
+    return client.update_assignments(education_user_id=education_user_id,
+                                     education_assignment_id=education_assignment_id,
+                                     body=body)
 
 
-def education_list_class(client,
-                         education_user_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
-    return client.list_class(education_user_id=education_user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+def education_educationuser_update_rubric(client,
+                                          education_user_id,
+                                          education_rubric_id,
+                                          id_=None,
+                                          created_date_time=None,
+                                          description=None,
+                                          display_name=None,
+                                          grading=None,
+                                          last_modified_date_time=None,
+                                          levels=None,
+                                          qualities=None,
+                                          application=None,
+                                          device=None,
+                                          user=None,
+                                          microsoft_graph_identity_application=None,
+                                          microsoft_graph_identity_device=None,
+                                          microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['grading'] = grading
+    body['last_modified_date_time'] = last_modified_date_time
+    body['levels'] = levels
+    body['qualities'] = qualities
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_rubrics(education_user_id=education_user_id,
+                                 education_rubric_id=education_rubric_id,
+                                 body=body)
 
 
-def education_list_ref_class(client,
-                             education_user_id,
-                             orderby=None):
-    return client.list_ref_class(education_user_id=education_user_id,
-                                 orderby=orderby)
-
-
-def education_list_ref_school(client,
-                              education_user_id,
-                              orderby=None):
-    return client.list_ref_school(education_user_id=education_user_id,
-                                  orderby=orderby)
-
-
-def education_list_ref_taught_class(client,
-                                    education_user_id,
-                                    orderby=None):
-    return client.list_ref_taught_class(education_user_id=education_user_id,
-                                        orderby=orderby)
-
-
-def education_list_rubric(client,
-                          education_user_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_rubric(education_user_id=education_user_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
-
-
-def education_list_school(client,
-                          education_user_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_school(education_user_id=education_user_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
-
-
-def education_list_taught_class(client,
-                                education_user_id,
-                                orderby=None,
-                                select=None,
-                                expand=None):
-    return client.list_taught_class(education_user_id=education_user_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
-
-
-def education_set_ref_user(client,
-                           education_user_id,
-                           body):
-    return client.set_ref_user(education_user_id=education_user_id,
-                               body=body)
-
-
-def education_update_assignment(client,
-                                education_user_id,
-                                education_assignment_id,
-                                id_=None,
-                                allow_late_submissions=None,
-                                allow_students_to_add_resources_to_submission=None,
-                                assign_date_time=None,
-                                assigned_date_time=None,
-                                assign_to=None,
-                                class_id=None,
-                                close_date_time=None,
-                                created_date_time=None,
-                                display_name=None,
-                                due_date_time=None,
-                                grading=None,
-                                instructions=None,
-                                last_modified_date_time=None,
-                                status=None,
-                                categories=None,
-                                resources=None,
-                                submissions=None,
-                                rubric_id=None,
-                                rubric_created_date_time=None,
-                                rubric_description=None,
-                                rubric_display_name=None,
-                                rubric_grading=None,
-                                rubric_last_modified_date_time=None,
-                                rubric_levels=None,
-                                rubric_qualities=None,
-                                rubric_last_modified_by_user_display_name=None,
-                                rubric_last_modified_by_user_id=None,
-                                rubric_last_modified_by_device_display_name=None,
-                                rubric_last_modified_by_device_id=None,
-                                rubric_last_modified_by_application_display_name=None,
-                                rubric_last_modified_by_application_id=None,
-                                rubric_created_by_user_display_name=None,
-                                rubric_created_by_user_id=None,
-                                rubric_created_by_device_display_name=None,
-                                rubric_created_by_device_id=None,
-                                rubric_created_by_application_display_name=None,
-                                rubric_created_by_application_id=None,
-                                last_modified_by_user_display_name=None,
-                                last_modified_by_user_id=None,
-                                last_modified_by_device_display_name=None,
-                                last_modified_by_device_id=None,
-                                last_modified_by_application_display_name=None,
-                                last_modified_by_application_id=None,
-                                created_by_user_display_name=None,
-                                created_by_user_id=None,
-                                created_by_device_display_name=None,
-                                created_by_device_id=None,
-                                created_by_application_display_name=None,
-                                created_by_application_id=None):
-    return client.update_assignment(education_user_id=education_user_id,
+def education_educationusersassignment_create_category(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       id_=None,
+                                                       display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.create_categories(education_user_id=education_user_id,
                                     education_assignment_id=education_assignment_id,
-                                    id=id_,
-                                    allow_late_submissions=allow_late_submissions,
-                                    allow_students_to_add_resources_to_submission=allow_students_to_add_resources_to_submission,
-                                    assign_date_time=assign_date_time,
-                                    assigned_date_time=assigned_date_time,
-                                    assign_to=assign_to,
-                                    class_id=class_id,
-                                    close_date_time=close_date_time,
-                                    created_date_time=created_date_time,
-                                    display_name=display_name,
-                                    due_date_time=due_date_time,
-                                    grading=grading,
-                                    instructions=instructions,
-                                    last_modified_date_time=last_modified_date_time,
-                                    status=status,
-                                    categories=categories,
-                                    resources=resources,
-                                    submissions=submissions,
-                                    microsoft_graph_entity_id=rubric_id,
-                                    microsoft_graph_education_rubric_created_date_time_created_date_time=rubric_created_date_time,
-                                    description=rubric_description,
-                                    microsoft_graph_education_rubric_display_name=rubric_display_name,
-                                    microsoft_graph_education_assignment_grade_type_grading=rubric_grading,
-                                    microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time=rubric_last_modified_date_time,
-                                    levels=rubric_levels,
-                                    qualities=rubric_qualities,
-                                    microsoft_graph_identity_display_name=rubric_last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=rubric_last_modified_by_user_id,
-                                    display_name1=rubric_last_modified_by_device_display_name,
-                                    id1=rubric_last_modified_by_device_id,
-                                    display_name2=rubric_last_modified_by_application_display_name,
-                                    id2=rubric_last_modified_by_application_id,
-                                    display_name3=rubric_created_by_user_display_name,
-                                    id3=rubric_created_by_user_id,
-                                    display_name4=rubric_created_by_device_display_name,
-                                    id4=rubric_created_by_device_id,
-                                    display_name5=rubric_created_by_application_display_name,
-                                    id5=rubric_created_by_application_id,
-                                    display_name6=last_modified_by_user_display_name,
-                                    id6=last_modified_by_user_id,
-                                    display_name7=last_modified_by_device_display_name,
-                                    id7=last_modified_by_device_id,
-                                    display_name8=last_modified_by_application_display_name,
-                                    id8=last_modified_by_application_id,
-                                    display_name9=created_by_user_display_name,
-                                    id9=created_by_user_id,
-                                    display_name10=created_by_device_display_name,
-                                    id10=created_by_device_id,
-                                    display_name11=created_by_application_display_name,
-                                    id11=created_by_application_id)
+                                    body=body)
 
 
-def education_update_rubric(client,
-                            education_user_id,
-                            education_rubric_id,
-                            id_=None,
-                            created_date_time=None,
-                            description=None,
-                            display_name=None,
-                            grading=None,
-                            last_modified_date_time=None,
-                            levels=None,
-                            qualities=None,
-                            last_modified_by_user_display_name=None,
-                            last_modified_by_user_id=None,
-                            last_modified_by_device_display_name=None,
-                            last_modified_by_device_id=None,
-                            last_modified_by_application_display_name=None,
-                            last_modified_by_application_id=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
-    return client.update_rubric(education_user_id=education_user_id,
-                                education_rubric_id=education_rubric_id,
-                                id=id_,
-                                created_date_time=created_date_time,
-                                description=description,
-                                display_name=display_name,
-                                grading=grading,
-                                last_modified_date_time=last_modified_date_time,
-                                levels=levels,
-                                qualities=qualities,
-                                microsoft_graph_identity_display_name=last_modified_by_user_display_name,
-                                microsoft_graph_identity_id=last_modified_by_user_id,
-                                display_name1=last_modified_by_device_display_name,
-                                id1=last_modified_by_device_id,
-                                display_name2=last_modified_by_application_display_name,
-                                id2=last_modified_by_application_id,
-                                display_name3=created_by_user_display_name,
-                                id3=created_by_user_id,
-                                display_name4=created_by_device_display_name,
-                                id4=created_by_device_id,
-                                display_name5=created_by_application_display_name,
-                                id5=created_by_application_id)
+def education_educationusersassignment_create_resource(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       id_=None,
+                                                       distribute_for_student_work=None,
+                                                       created_date_time=None,
+                                                       display_name=None,
+                                                       last_modified_date_time=None,
+                                                       application=None,
+                                                       device=None,
+                                                       user=None,
+                                                       microsoft_graph_identity_application=None,
+                                                       microsoft_graph_identity_device=None,
+                                                       microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['distribute_for_student_work'] = distribute_for_student_work
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_resources(education_user_id=education_user_id,
+                                   education_assignment_id=education_assignment_id,
+                                   body=body)
 
 
-def education_delete(client,
-                     education_user_id,
-                     education_assignment_id,
-                     education_category_id=None,
-                     if_match=None,
-                     education_assignment_resource_id=None,
-                     education_submission_id=None):
-    if education_user_id is not None and education_assignment_id is not None and education_category_id is not None:
-        return client.delete_category(education_user_id=education_user_id,
-                                      education_assignment_id=education_assignment_id,
-                                      education_category_id=education_category_id,
-                                      if_match=if_match)
-    elif education_user_id is not None and education_assignment_id is not None and education_assignment_resource_id is not None:
-        return client.delete_resource(education_user_id=education_user_id,
-                                      education_assignment_id=education_assignment_id,
-                                      education_assignment_resource_id=education_assignment_resource_id,
-                                      if_match=if_match)
-    elif education_user_id is not None and education_assignment_id is not None and education_submission_id is not None:
-        return client.delete_submission(education_user_id=education_user_id,
-                                        education_assignment_id=education_assignment_id,
-                                        education_submission_id=education_submission_id,
-                                        if_match=if_match)
+def education_educationusersassignment_create_submission(client,
+                                                         education_user_id,
+                                                         education_assignment_id,
+                                                         id_=None,
+                                                         recipient=None,
+                                                         released_date_time=None,
+                                                         resources_folder_url=None,
+                                                         returned_date_time=None,
+                                                         status=None,
+                                                         submitted_date_time=None,
+                                                         unsubmitted_date_time=None,
+                                                         outcomes=None,
+                                                         resources=None,
+                                                         submitted_resources=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
+                                                         microsoft_graph_identity_application=None,
+                                                         microsoft_graph_identity_device=None,
+                                                         microsoft_graph_identity_user=None,
+                                                         application1=None,
+                                                         device1=None,
+                                                         user1=None,
+                                                         application2=None,
+                                                         device2=None,
+                                                         user2=None):
+    body = {}
+    body['id'] = id_
+    body['recipient'] = recipient
+    body['released_date_time'] = released_date_time
+    body['resources_folder_url'] = resources_folder_url
+    body['returned_date_time'] = returned_date_time
+    body['status'] = status
+    body['submitted_date_time'] = submitted_date_time
+    body['unsubmitted_date_time'] = unsubmitted_date_time
+    body['outcomes'] = outcomes
+    body['resources'] = resources
+    body['submitted_resources'] = submitted_resources
+    body['unsubmitted_by'] = {}
+    body['unsubmitted_by']['application'] = application
+    body['unsubmitted_by']['device'] = device
+    body['unsubmitted_by']['user'] = user
+    body['submitted_by'] = {}
+    body['submitted_by']['application'] = microsoft_graph_identity_application
+    body['submitted_by']['device'] = microsoft_graph_identity_device
+    body['submitted_by']['user'] = microsoft_graph_identity_user
+    body['returned_by'] = {}
+    body['returned_by']['application'] = application1
+    body['returned_by']['device'] = device1
+    body['returned_by']['user'] = user1
+    body['released_by'] = {}
+    body['released_by']['application'] = application2
+    body['released_by']['device'] = device2
+    body['released_by']['user'] = user2
+    return client.create_submissions(education_user_id=education_user_id,
+                                     education_assignment_id=education_assignment_id,
+                                     body=body)
+
+
+def education_educationusersassignment_delete_category(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       education_category_id,
+                                                       if_match=None):
+    return client.delete_categories(education_user_id=education_user_id,
+                                    education_assignment_id=education_assignment_id,
+                                    education_category_id=education_category_id,
+                                    if_match=if_match)
+
+
+def education_educationusersassignment_delete_resource(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       education_assignment_resource_id,
+                                                       if_match=None):
+    return client.delete_resources(education_user_id=education_user_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_assignment_resource_id=education_assignment_resource_id,
+                                   if_match=if_match)
+
+
+def education_educationusersassignment_delete_rubric(client,
+                                                     education_user_id,
+                                                     education_assignment_id,
+                                                     if_match=None):
     return client.delete_rubric(education_user_id=education_user_id,
                                 education_assignment_id=education_assignment_id,
                                 if_match=if_match)
 
 
-def education_create_category(client,
-                              education_user_id,
-                              education_assignment_id,
-                              id_=None,
-                              display_name=None):
-    return client.create_category(education_user_id=education_user_id,
+def education_educationusersassignment_delete_submission(client,
+                                                         education_user_id,
+                                                         education_assignment_id,
+                                                         education_submission_id,
+                                                         if_match=None):
+    return client.delete_submissions(education_user_id=education_user_id,
+                                     education_assignment_id=education_assignment_id,
+                                     education_submission_id=education_submission_id,
+                                     if_match=if_match)
+
+
+def education_educationusersassignment_list_category(client,
+                                                     education_user_id,
+                                                     education_assignment_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
+    return client.list_categories(education_user_id=education_user_id,
                                   education_assignment_id=education_assignment_id,
-                                  id=id_,
-                                  display_name=display_name)
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
-def education_create_resource(client,
-                              education_user_id,
-                              education_assignment_id,
-                              id_=None,
-                              distribute_for_student_work=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.create_resource(education_user_id=education_user_id,
-                                  education_assignment_id=education_assignment_id,
-                                  id=id_,
-                                  distribute_for_student_work=distribute_for_student_work,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+def education_educationusersassignment_list_resource(client,
+                                                     education_user_id,
+                                                     education_assignment_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
+    return client.list_resources(education_user_id=education_user_id,
+                                 education_assignment_id=education_assignment_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_create_submission(client,
-                                education_user_id,
-                                education_assignment_id,
-                                id_=None,
-                                recipient=None,
-                                released_date_time=None,
-                                resources_folder_url=None,
-                                returned_date_time=None,
-                                status=None,
-                                submitted_date_time=None,
-                                unsubmitted_date_time=None,
-                                outcomes=None,
-                                resources=None,
-                                submitted_resources=None,
-                                unsubmitted_by_user_display_name=None,
-                                unsubmitted_by_user_id=None,
-                                unsubmitted_by_device_display_name=None,
-                                unsubmitted_by_device_id=None,
-                                unsubmitted_by_application_display_name=None,
-                                unsubmitted_by_application_id=None,
-                                submitted_by_user_display_name=None,
-                                submitted_by_user_id=None,
-                                submitted_by_device_display_name=None,
-                                submitted_by_device_id=None,
-                                submitted_by_application_display_name=None,
-                                submitted_by_application_id=None,
-                                returned_by_user_display_name=None,
-                                returned_by_user_id=None,
-                                returned_by_device_display_name=None,
-                                returned_by_device_id=None,
-                                returned_by_application_display_name=None,
-                                returned_by_application_id=None,
-                                released_by_user_display_name=None,
-                                released_by_user_id=None,
-                                released_by_device_display_name=None,
-                                released_by_device_id=None,
-                                released_by_application_display_name=None,
-                                released_by_application_id=None):
-    return client.create_submission(education_user_id=education_user_id,
-                                    education_assignment_id=education_assignment_id,
-                                    id=id_,
-                                    recipient=recipient,
-                                    released_date_time=released_date_time,
-                                    resources_folder_url=resources_folder_url,
-                                    returned_date_time=returned_date_time,
-                                    status=status,
-                                    submitted_date_time=submitted_date_time,
-                                    unsubmitted_date_time=unsubmitted_date_time,
-                                    outcomes=outcomes,
-                                    resources=resources,
-                                    submitted_resources=submitted_resources,
-                                    display_name=unsubmitted_by_user_display_name,
-                                    microsoft_graph_identity_id=unsubmitted_by_user_id,
-                                    microsoft_graph_identity_display_name=unsubmitted_by_device_display_name,
-                                    id1=unsubmitted_by_device_id,
-                                    display_name1=unsubmitted_by_application_display_name,
-                                    id2=unsubmitted_by_application_id,
-                                    display_name2=submitted_by_user_display_name,
-                                    id3=submitted_by_user_id,
-                                    display_name3=submitted_by_device_display_name,
-                                    id4=submitted_by_device_id,
-                                    display_name4=submitted_by_application_display_name,
-                                    id5=submitted_by_application_id,
-                                    display_name5=returned_by_user_display_name,
-                                    id6=returned_by_user_id,
-                                    display_name6=returned_by_device_display_name,
-                                    id7=returned_by_device_id,
-                                    display_name7=returned_by_application_display_name,
-                                    id8=returned_by_application_id,
-                                    display_name8=released_by_user_display_name,
-                                    id9=released_by_user_id,
-                                    display_name9=released_by_device_display_name,
-                                    id10=released_by_device_id,
-                                    display_name10=released_by_application_display_name,
-                                    id11=released_by_application_id)
+def education_educationusersassignment_list_submission(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
+    return client.list_submissions(education_user_id=education_user_id,
+                                   education_assignment_id=education_assignment_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
-def education_get_category(client,
-                           education_user_id,
-                           education_assignment_id,
-                           education_category_id,
-                           select=None,
-                           expand=None):
-    return client.get_category(education_user_id=education_user_id,
-                               education_assignment_id=education_assignment_id,
-                               education_category_id=education_category_id,
-                               select=select,
-                               expand=expand)
+def education_educationusersassignment_publish(client,
+                                               education_user_id,
+                                               education_assignment_id):
+    return client.publish(education_user_id=education_user_id,
+                          education_assignment_id=education_assignment_id)
 
 
-def education_get_resource(client,
-                           education_user_id,
-                           education_assignment_id,
-                           education_assignment_resource_id,
-                           select=None,
-                           expand=None):
-    return client.get_resource(education_user_id=education_user_id,
-                               education_assignment_id=education_assignment_id,
-                               education_assignment_resource_id=education_assignment_resource_id,
-                               select=select,
-                               expand=expand)
+def education_educationusersassignment_show_category(client,
+                                                     education_user_id,
+                                                     education_assignment_id,
+                                                     education_category_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_categories(education_user_id=education_user_id,
+                                 education_assignment_id=education_assignment_id,
+                                 education_category_id=education_category_id,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_get_resource_folder_url(client,
-                                      education_user_id,
-                                      education_assignment_id):
-    return client.get_resource_folder_url(education_user_id=education_user_id,
-                                          education_assignment_id=education_assignment_id)
+def education_educationusersassignment_show_resource(client,
+                                                     education_user_id,
+                                                     education_assignment_id,
+                                                     education_assignment_resource_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_resources(education_user_id=education_user_id,
+                                education_assignment_id=education_assignment_id,
+                                education_assignment_resource_id=education_assignment_resource_id,
+                                select=select,
+                                expand=expand)
 
 
-def education_get_rubric(client,
-                         education_user_id,
-                         education_assignment_id,
-                         select=None,
-                         expand=None):
+def education_educationusersassignment_show_resource_folder_url(client,
+                                                                education_user_id,
+                                                                education_assignment_id):
+    return client.get_resources_folder_url(education_user_id=education_user_id,
+                                           education_assignment_id=education_assignment_id)
+
+
+def education_educationusersassignment_show_rubric(client,
+                                                   education_user_id,
+                                                   education_assignment_id,
+                                                   select=None,
+                                                   expand=None):
     return client.get_rubric(education_user_id=education_user_id,
                              education_assignment_id=education_assignment_id,
                              select=select,
                              expand=expand)
 
 
-def education_get_submission(client,
-                             education_user_id,
-                             education_assignment_id,
-                             education_submission_id,
-                             select=None,
-                             expand=None):
-    return client.get_submission(education_user_id=education_user_id,
-                                 education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def education_list_category(client,
-                            education_user_id,
-                            education_assignment_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_category(education_user_id=education_user_id,
-                                education_assignment_id=education_assignment_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def education_list_resource(client,
-                            education_user_id,
-                            education_assignment_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_resource(education_user_id=education_user_id,
-                                education_assignment_id=education_assignment_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def education_list_submission(client,
-                              education_user_id,
-                              education_assignment_id,
-                              orderby=None,
-                              select=None,
-                              expand=None):
-    return client.list_submission(education_user_id=education_user_id,
+def education_educationusersassignment_show_submission(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       education_submission_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_submissions(education_user_id=education_user_id,
                                   education_assignment_id=education_assignment_id,
-                                  orderby=orderby,
+                                  education_submission_id=education_submission_id,
                                   select=select,
                                   expand=expand)
 
 
-def education_publish(client,
-                      education_user_id,
-                      education_assignment_id):
-    return client.publish(education_user_id=education_user_id,
-                          education_assignment_id=education_assignment_id)
+def education_educationusersassignment_update_category(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       education_category_id,
+                                                       id_=None,
+                                                       display_name=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.update_categories(education_user_id=education_user_id,
+                                    education_assignment_id=education_assignment_id,
+                                    education_category_id=education_category_id,
+                                    body=body)
 
 
-def education_update_category(client,
-                              education_user_id,
-                              education_assignment_id,
-                              education_category_id,
-                              id_=None,
-                              display_name=None):
-    return client.update_category(education_user_id=education_user_id,
-                                  education_assignment_id=education_assignment_id,
-                                  education_category_id=education_category_id,
-                                  id=id_,
-                                  display_name=display_name)
+def education_educationusersassignment_update_resource(client,
+                                                       education_user_id,
+                                                       education_assignment_id,
+                                                       education_assignment_resource_id,
+                                                       id_=None,
+                                                       distribute_for_student_work=None,
+                                                       created_date_time=None,
+                                                       display_name=None,
+                                                       last_modified_date_time=None,
+                                                       application=None,
+                                                       device=None,
+                                                       user=None,
+                                                       microsoft_graph_identity_application=None,
+                                                       microsoft_graph_identity_device=None,
+                                                       microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['distribute_for_student_work'] = distribute_for_student_work
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_resources(education_user_id=education_user_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_assignment_resource_id=education_assignment_resource_id,
+                                   body=body)
 
 
-def education_update_resource(client,
-                              education_user_id,
-                              education_assignment_id,
-                              education_assignment_resource_id,
-                              id_=None,
-                              distribute_for_student_work=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.update_resource(education_user_id=education_user_id,
-                                  education_assignment_id=education_assignment_id,
-                                  education_assignment_resource_id=education_assignment_resource_id,
-                                  id=id_,
-                                  distribute_for_student_work=distribute_for_student_work,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
-
-
-def education_update_rubric(client,
-                            education_user_id,
-                            education_assignment_id,
-                            id_=None,
-                            created_date_time=None,
-                            description=None,
-                            display_name=None,
-                            grading=None,
-                            last_modified_date_time=None,
-                            levels=None,
-                            qualities=None,
-                            last_modified_by_user_display_name=None,
-                            last_modified_by_user_id=None,
-                            last_modified_by_device_display_name=None,
-                            last_modified_by_device_id=None,
-                            last_modified_by_application_display_name=None,
-                            last_modified_by_application_id=None,
-                            created_by_user_display_name=None,
-                            created_by_user_id=None,
-                            created_by_device_display_name=None,
-                            created_by_device_id=None,
-                            created_by_application_display_name=None,
-                            created_by_application_id=None):
+def education_educationusersassignment_update_rubric(client,
+                                                     education_user_id,
+                                                     education_assignment_id,
+                                                     id_=None,
+                                                     created_date_time=None,
+                                                     description=None,
+                                                     display_name=None,
+                                                     grading=None,
+                                                     last_modified_date_time=None,
+                                                     levels=None,
+                                                     qualities=None,
+                                                     application=None,
+                                                     device=None,
+                                                     user=None,
+                                                     microsoft_graph_identity_application=None,
+                                                     microsoft_graph_identity_device=None,
+                                                     microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['grading'] = grading
+    body['last_modified_date_time'] = last_modified_date_time
+    body['levels'] = levels
+    body['qualities'] = qualities
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
     return client.update_rubric(education_user_id=education_user_id,
                                 education_assignment_id=education_assignment_id,
-                                id=id_,
-                                created_date_time=created_date_time,
-                                description=description,
-                                display_name=display_name,
-                                grading=grading,
-                                last_modified_date_time=last_modified_date_time,
-                                levels=levels,
-                                qualities=qualities,
-                                microsoft_graph_identity_display_name=last_modified_by_user_display_name,
-                                microsoft_graph_identity_id=last_modified_by_user_id,
-                                display_name1=last_modified_by_device_display_name,
-                                id1=last_modified_by_device_id,
-                                display_name2=last_modified_by_application_display_name,
-                                id2=last_modified_by_application_id,
-                                display_name3=created_by_user_display_name,
-                                id3=created_by_user_id,
-                                display_name4=created_by_device_display_name,
-                                id4=created_by_device_id,
-                                display_name5=created_by_application_display_name,
-                                id5=created_by_application_id)
+                                body=body)
 
 
-def education_update_submission(client,
-                                education_user_id,
-                                education_assignment_id,
-                                education_submission_id,
-                                id_=None,
-                                recipient=None,
-                                released_date_time=None,
-                                resources_folder_url=None,
-                                returned_date_time=None,
-                                status=None,
-                                submitted_date_time=None,
-                                unsubmitted_date_time=None,
-                                outcomes=None,
-                                resources=None,
-                                submitted_resources=None,
-                                unsubmitted_by_user_display_name=None,
-                                unsubmitted_by_user_id=None,
-                                unsubmitted_by_device_display_name=None,
-                                unsubmitted_by_device_id=None,
-                                unsubmitted_by_application_display_name=None,
-                                unsubmitted_by_application_id=None,
-                                submitted_by_user_display_name=None,
-                                submitted_by_user_id=None,
-                                submitted_by_device_display_name=None,
-                                submitted_by_device_id=None,
-                                submitted_by_application_display_name=None,
-                                submitted_by_application_id=None,
-                                returned_by_user_display_name=None,
-                                returned_by_user_id=None,
-                                returned_by_device_display_name=None,
-                                returned_by_device_id=None,
-                                returned_by_application_display_name=None,
-                                returned_by_application_id=None,
-                                released_by_user_display_name=None,
-                                released_by_user_id=None,
-                                released_by_device_display_name=None,
-                                released_by_device_id=None,
-                                released_by_application_display_name=None,
-                                released_by_application_id=None):
-    return client.update_submission(education_user_id=education_user_id,
-                                    education_assignment_id=education_assignment_id,
-                                    education_submission_id=education_submission_id,
-                                    id=id_,
-                                    recipient=recipient,
-                                    released_date_time=released_date_time,
-                                    resources_folder_url=resources_folder_url,
-                                    returned_date_time=returned_date_time,
-                                    status=status,
-                                    submitted_date_time=submitted_date_time,
-                                    unsubmitted_date_time=unsubmitted_date_time,
-                                    outcomes=outcomes,
-                                    resources=resources,
-                                    submitted_resources=submitted_resources,
-                                    display_name=unsubmitted_by_user_display_name,
-                                    microsoft_graph_identity_id=unsubmitted_by_user_id,
-                                    microsoft_graph_identity_display_name=unsubmitted_by_device_display_name,
-                                    id1=unsubmitted_by_device_id,
-                                    display_name1=unsubmitted_by_application_display_name,
-                                    id2=unsubmitted_by_application_id,
-                                    display_name2=submitted_by_user_display_name,
-                                    id3=submitted_by_user_id,
-                                    display_name3=submitted_by_device_display_name,
-                                    id4=submitted_by_device_id,
-                                    display_name4=submitted_by_application_display_name,
-                                    id5=submitted_by_application_id,
-                                    display_name5=returned_by_user_display_name,
-                                    id6=returned_by_user_id,
-                                    display_name6=returned_by_device_display_name,
-                                    id7=returned_by_device_id,
-                                    display_name7=returned_by_application_display_name,
-                                    id8=returned_by_application_id,
-                                    display_name8=released_by_user_display_name,
-                                    id9=released_by_user_id,
-                                    display_name9=released_by_device_display_name,
-                                    id10=released_by_device_id,
-                                    display_name10=released_by_application_display_name,
-                                    id11=released_by_application_id)
-
-
-def education_delete(client,
-                     education_user_id,
-                     education_assignment_id,
-                     education_submission_id,
-                     education_outcome_id=None,
-                     if_match=None,
-                     education_submission_resource_id=None):
-    if education_user_id is not None and education_assignment_id is not None and education_submission_id is not None and education_outcome_id is not None:
-        return client.delete_outcome(education_user_id=education_user_id,
+def education_educationusersassignment_update_submission(client,
+                                                         education_user_id,
+                                                         education_assignment_id,
+                                                         education_submission_id,
+                                                         id_=None,
+                                                         recipient=None,
+                                                         released_date_time=None,
+                                                         resources_folder_url=None,
+                                                         returned_date_time=None,
+                                                         status=None,
+                                                         submitted_date_time=None,
+                                                         unsubmitted_date_time=None,
+                                                         outcomes=None,
+                                                         resources=None,
+                                                         submitted_resources=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
+                                                         microsoft_graph_identity_application=None,
+                                                         microsoft_graph_identity_device=None,
+                                                         microsoft_graph_identity_user=None,
+                                                         application1=None,
+                                                         device1=None,
+                                                         user1=None,
+                                                         application2=None,
+                                                         device2=None,
+                                                         user2=None):
+    body = {}
+    body['id'] = id_
+    body['recipient'] = recipient
+    body['released_date_time'] = released_date_time
+    body['resources_folder_url'] = resources_folder_url
+    body['returned_date_time'] = returned_date_time
+    body['status'] = status
+    body['submitted_date_time'] = submitted_date_time
+    body['unsubmitted_date_time'] = unsubmitted_date_time
+    body['outcomes'] = outcomes
+    body['resources'] = resources
+    body['submitted_resources'] = submitted_resources
+    body['unsubmitted_by'] = {}
+    body['unsubmitted_by']['application'] = application
+    body['unsubmitted_by']['device'] = device
+    body['unsubmitted_by']['user'] = user
+    body['submitted_by'] = {}
+    body['submitted_by']['application'] = microsoft_graph_identity_application
+    body['submitted_by']['device'] = microsoft_graph_identity_device
+    body['submitted_by']['user'] = microsoft_graph_identity_user
+    body['returned_by'] = {}
+    body['returned_by']['application'] = application1
+    body['returned_by']['device'] = device1
+    body['returned_by']['user'] = user1
+    body['released_by'] = {}
+    body['released_by']['application'] = application2
+    body['released_by']['device'] = device2
+    body['released_by']['user'] = user2
+    return client.update_submissions(education_user_id=education_user_id,
                                      education_assignment_id=education_assignment_id,
                                      education_submission_id=education_submission_id,
-                                     education_outcome_id=education_outcome_id,
-                                     if_match=if_match)
-    elif education_user_id is not None and education_assignment_id is not None and education_submission_id is not None and education_submission_resource_id is not None:
-        return client.delete_resource(education_user_id=education_user_id,
-                                      education_assignment_id=education_assignment_id,
-                                      education_submission_id=education_submission_id,
-                                      education_submission_resource_id=education_submission_resource_id,
-                                      if_match=if_match)
-    return client.delete_submitted_resource(education_user_id=education_user_id,
-                                            education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            education_submission_resource_id=education_submission_resource_id,
-                                            if_match=if_match)
+                                     body=body)
 
 
-def education_create_outcome(client,
-                             education_user_id,
-                             education_assignment_id,
-                             education_submission_id,
-                             id_=None,
-                             last_modified_date_time=None,
-                             last_modified_by_user_display_name=None,
-                             last_modified_by_user_id=None,
-                             last_modified_by_device_display_name=None,
-                             last_modified_by_device_id=None,
-                             last_modified_by_application_display_name=None,
-                             last_modified_by_application_id=None):
-    return client.create_outcome(education_user_id=education_user_id,
-                                 education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 display_name=last_modified_by_user_display_name,
-                                 microsoft_graph_identity_id=last_modified_by_user_id,
-                                 microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                 id1=last_modified_by_device_id,
-                                 display_name1=last_modified_by_application_display_name,
-                                 id2=last_modified_by_application_id)
-
-
-def education_create_resource(client,
-                              education_user_id,
-                              education_assignment_id,
-                              education_submission_id,
-                              id_=None,
-                              assignment_resource_url=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.create_resource(education_user_id=education_user_id,
+def education_educationusersassignmentssubmission_create_outcome(client,
+                                                                 education_user_id,
+                                                                 education_assignment_id,
+                                                                 education_submission_id,
+                                                                 id_=None,
+                                                                 last_modified_date_time=None,
+                                                                 application=None,
+                                                                 device=None,
+                                                                 user=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    return client.create_outcomes(education_user_id=education_user_id,
                                   education_assignment_id=education_assignment_id,
                                   education_submission_id=education_submission_id,
-                                  id=id_,
-                                  assignment_resource_url=assignment_resource_url,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+                                  body=body)
 
 
-def education_create_submitted_resource(client,
-                                        education_user_id,
-                                        education_assignment_id,
-                                        education_submission_id,
-                                        id_=None,
-                                        assignment_resource_url=None,
-                                        resource_created_date_time=None,
-                                        resource_display_name=None,
-                                        resource_last_modified_date_time=None,
-                                        resource_last_modified_by_user_display_name=None,
-                                        resource_last_modified_by_user_id=None,
-                                        resource_last_modified_by_device_display_name=None,
-                                        resource_last_modified_by_device_id=None,
-                                        resource_last_modified_by_application_display_name=None,
-                                        resource_last_modified_by_application_id=None,
-                                        resource_created_by_user_display_name=None,
-                                        resource_created_by_user_id=None,
-                                        resource_created_by_device_display_name=None,
-                                        resource_created_by_device_id=None,
-                                        resource_created_by_application_display_name=None,
-                                        resource_created_by_application_id=None):
-    return client.create_submitted_resource(education_user_id=education_user_id,
-                                            education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            id=id_,
-                                            assignment_resource_url=assignment_resource_url,
-                                            created_date_time=resource_created_date_time,
-                                            display_name=resource_display_name,
-                                            last_modified_date_time=resource_last_modified_date_time,
-                                            microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                            microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                            display_name1=resource_last_modified_by_device_display_name,
-                                            id1=resource_last_modified_by_device_id,
-                                            display_name2=resource_last_modified_by_application_display_name,
-                                            id2=resource_last_modified_by_application_id,
-                                            display_name3=resource_created_by_user_display_name,
-                                            id3=resource_created_by_user_id,
-                                            display_name4=resource_created_by_device_display_name,
-                                            id4=resource_created_by_device_id,
-                                            display_name5=resource_created_by_application_display_name,
-                                            id5=resource_created_by_application_id)
+def education_educationusersassignmentssubmission_create_resource(client,
+                                                                  education_user_id,
+                                                                  education_assignment_id,
+                                                                  education_submission_id,
+                                                                  id_=None,
+                                                                  assignment_resource_url=None,
+                                                                  created_date_time=None,
+                                                                  display_name=None,
+                                                                  last_modified_date_time=None,
+                                                                  application=None,
+                                                                  device=None,
+                                                                  user=None,
+                                                                  microsoft_graph_identity_application=None,
+                                                                  microsoft_graph_identity_device=None,
+                                                                  microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_resources(education_user_id=education_user_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   body=body)
 
 
-def education_get_outcome(client,
-                          education_user_id,
-                          education_assignment_id,
-                          education_submission_id,
-                          education_outcome_id,
-                          select=None,
-                          expand=None):
-    return client.get_outcome(education_user_id=education_user_id,
-                              education_assignment_id=education_assignment_id,
-                              education_submission_id=education_submission_id,
-                              education_outcome_id=education_outcome_id,
-                              select=select,
-                              expand=expand)
+def education_educationusersassignmentssubmission_create_submitted_resource(client,
+                                                                            education_user_id,
+                                                                            education_assignment_id,
+                                                                            education_submission_id,
+                                                                            id_=None,
+                                                                            assignment_resource_url=None,
+                                                                            created_date_time=None,
+                                                                            display_name=None,
+                                                                            last_modified_date_time=None,
+                                                                            application=None,
+                                                                            device=None,
+                                                                            user=None,
+                                                                            microsoft_graph_identity_application=None,
+                                                                            microsoft_graph_identity_device=None,
+                                                                            microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_submitted_resources(education_user_id=education_user_id,
+                                             education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             body=body)
 
 
-def education_get_resource(client,
-                           education_user_id,
-                           education_assignment_id,
-                           education_submission_id,
-                           education_submission_resource_id,
-                           select=None,
-                           expand=None):
-    return client.get_resource(education_user_id=education_user_id,
-                               education_assignment_id=education_assignment_id,
-                               education_submission_id=education_submission_id,
-                               education_submission_resource_id=education_submission_resource_id,
-                               select=select,
-                               expand=expand)
+def education_educationusersassignmentssubmission_delete_outcome(client,
+                                                                 education_user_id,
+                                                                 education_assignment_id,
+                                                                 education_submission_id,
+                                                                 education_outcome_id,
+                                                                 if_match=None):
+    return client.delete_outcomes(education_user_id=education_user_id,
+                                  education_assignment_id=education_assignment_id,
+                                  education_submission_id=education_submission_id,
+                                  education_outcome_id=education_outcome_id,
+                                  if_match=if_match)
 
 
-def education_get_submitted_resource(client,
-                                     education_user_id,
-                                     education_assignment_id,
-                                     education_submission_id,
-                                     education_submission_resource_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_submitted_resource(education_user_id=education_user_id,
-                                         education_assignment_id=education_assignment_id,
-                                         education_submission_id=education_submission_id,
-                                         education_submission_resource_id=education_submission_resource_id,
-                                         select=select,
-                                         expand=expand)
+def education_educationusersassignmentssubmission_delete_resource(client,
+                                                                  education_user_id,
+                                                                  education_assignment_id,
+                                                                  education_submission_id,
+                                                                  education_submission_resource_id,
+                                                                  if_match=None):
+    return client.delete_resources(education_user_id=education_user_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   education_submission_resource_id=education_submission_resource_id,
+                                   if_match=if_match)
 
 
-def education_list_outcome(client,
-                           education_user_id,
-                           education_assignment_id,
-                           education_submission_id,
-                           orderby=None,
-                           select=None,
-                           expand=None):
-    return client.list_outcome(education_user_id=education_user_id,
-                               education_assignment_id=education_assignment_id,
-                               education_submission_id=education_submission_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+def education_educationusersassignmentssubmission_delete_submitted_resource(client,
+                                                                            education_user_id,
+                                                                            education_assignment_id,
+                                                                            education_submission_id,
+                                                                            education_submission_resource_id,
+                                                                            if_match=None):
+    return client.delete_submitted_resources(education_user_id=education_user_id,
+                                             education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             education_submission_resource_id=education_submission_resource_id,
+                                             if_match=if_match)
 
 
-def education_list_resource(client,
-                            education_user_id,
-                            education_assignment_id,
-                            education_submission_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_resource(education_user_id=education_user_id,
+def education_educationusersassignmentssubmission_list_outcome(client,
+                                                               education_user_id,
+                                                               education_assignment_id,
+                                                               education_submission_id,
+                                                               orderby=None,
+                                                               select=None,
+                                                               expand=None):
+    return client.list_outcomes(education_user_id=education_user_id,
                                 education_assignment_id=education_assignment_id,
                                 education_submission_id=education_submission_id,
                                 orderby=orderby,
@@ -4154,175 +3836,218 @@ def education_list_resource(client,
                                 expand=expand)
 
 
-def education_list_submitted_resource(client,
-                                      education_user_id,
-                                      education_assignment_id,
-                                      education_submission_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
-    return client.list_submitted_resource(education_user_id=education_user_id,
-                                          education_assignment_id=education_assignment_id,
-                                          education_submission_id=education_submission_id,
-                                          orderby=orderby,
-                                          select=select,
-                                          expand=expand)
+def education_educationusersassignmentssubmission_list_resource(client,
+                                                                education_user_id,
+                                                                education_assignment_id,
+                                                                education_submission_id,
+                                                                orderby=None,
+                                                                select=None,
+                                                                expand=None):
+    return client.list_resources(education_user_id=education_user_id,
+                                 education_assignment_id=education_assignment_id,
+                                 education_submission_id=education_submission_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
-def education_return(client,
-                     education_user_id,
-                     education_assignment_id,
-                     education_submission_id):
+def education_educationusersassignmentssubmission_list_submitted_resource(client,
+                                                                          education_user_id,
+                                                                          education_assignment_id,
+                                                                          education_submission_id,
+                                                                          orderby=None,
+                                                                          select=None,
+                                                                          expand=None):
+    return client.list_submitted_resources(education_user_id=education_user_id,
+                                           education_assignment_id=education_assignment_id,
+                                           education_submission_id=education_submission_id,
+                                           orderby=orderby,
+                                           select=select,
+                                           expand=expand)
+
+
+def education_educationusersassignmentssubmission_return(client,
+                                                         education_user_id,
+                                                         education_assignment_id,
+                                                         education_submission_id):
     return client.return_method(education_user_id=education_user_id,
                                 education_assignment_id=education_assignment_id,
                                 education_submission_id=education_submission_id)
 
 
-def education_submit(client,
-                     education_user_id,
-                     education_assignment_id,
-                     education_submission_id):
+def education_educationusersassignmentssubmission_show_outcome(client,
+                                                               education_user_id,
+                                                               education_assignment_id,
+                                                               education_submission_id,
+                                                               education_outcome_id,
+                                                               select=None,
+                                                               expand=None):
+    return client.get_outcomes(education_user_id=education_user_id,
+                               education_assignment_id=education_assignment_id,
+                               education_submission_id=education_submission_id,
+                               education_outcome_id=education_outcome_id,
+                               select=select,
+                               expand=expand)
+
+
+def education_educationusersassignmentssubmission_show_resource(client,
+                                                                education_user_id,
+                                                                education_assignment_id,
+                                                                education_submission_id,
+                                                                education_submission_resource_id,
+                                                                select=None,
+                                                                expand=None):
+    return client.get_resources(education_user_id=education_user_id,
+                                education_assignment_id=education_assignment_id,
+                                education_submission_id=education_submission_id,
+                                education_submission_resource_id=education_submission_resource_id,
+                                select=select,
+                                expand=expand)
+
+
+def education_educationusersassignmentssubmission_show_submitted_resource(client,
+                                                                          education_user_id,
+                                                                          education_assignment_id,
+                                                                          education_submission_id,
+                                                                          education_submission_resource_id,
+                                                                          select=None,
+                                                                          expand=None):
+    return client.get_submitted_resources(education_user_id=education_user_id,
+                                          education_assignment_id=education_assignment_id,
+                                          education_submission_id=education_submission_id,
+                                          education_submission_resource_id=education_submission_resource_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def education_educationusersassignmentssubmission_submit(client,
+                                                         education_user_id,
+                                                         education_assignment_id,
+                                                         education_submission_id):
     return client.submit(education_user_id=education_user_id,
                          education_assignment_id=education_assignment_id,
                          education_submission_id=education_submission_id)
 
 
-def education_unsubmit(client,
-                       education_user_id,
-                       education_assignment_id,
-                       education_submission_id):
+def education_educationusersassignmentssubmission_unsubmit(client,
+                                                           education_user_id,
+                                                           education_assignment_id,
+                                                           education_submission_id):
     return client.unsubmit(education_user_id=education_user_id,
                            education_assignment_id=education_assignment_id,
                            education_submission_id=education_submission_id)
 
 
-def education_update_outcome(client,
-                             education_user_id,
-                             education_assignment_id,
-                             education_submission_id,
-                             education_outcome_id,
-                             id_=None,
-                             last_modified_date_time=None,
-                             last_modified_by_user_display_name=None,
-                             last_modified_by_user_id=None,
-                             last_modified_by_device_display_name=None,
-                             last_modified_by_device_id=None,
-                             last_modified_by_application_display_name=None,
-                             last_modified_by_application_id=None):
-    return client.update_outcome(education_user_id=education_user_id,
-                                 education_assignment_id=education_assignment_id,
-                                 education_submission_id=education_submission_id,
-                                 education_outcome_id=education_outcome_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 display_name=last_modified_by_user_display_name,
-                                 microsoft_graph_identity_id=last_modified_by_user_id,
-                                 microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                 id1=last_modified_by_device_id,
-                                 display_name1=last_modified_by_application_display_name,
-                                 id2=last_modified_by_application_id)
-
-
-def education_update_resource(client,
-                              education_user_id,
-                              education_assignment_id,
-                              education_submission_id,
-                              education_submission_resource_id,
-                              id_=None,
-                              assignment_resource_url=None,
-                              resource_created_date_time=None,
-                              resource_display_name=None,
-                              resource_last_modified_date_time=None,
-                              resource_last_modified_by_user_display_name=None,
-                              resource_last_modified_by_user_id=None,
-                              resource_last_modified_by_device_display_name=None,
-                              resource_last_modified_by_device_id=None,
-                              resource_last_modified_by_application_display_name=None,
-                              resource_last_modified_by_application_id=None,
-                              resource_created_by_user_display_name=None,
-                              resource_created_by_user_id=None,
-                              resource_created_by_device_display_name=None,
-                              resource_created_by_device_id=None,
-                              resource_created_by_application_display_name=None,
-                              resource_created_by_application_id=None):
-    return client.update_resource(education_user_id=education_user_id,
+def education_educationusersassignmentssubmission_update_outcome(client,
+                                                                 education_user_id,
+                                                                 education_assignment_id,
+                                                                 education_submission_id,
+                                                                 education_outcome_id,
+                                                                 id_=None,
+                                                                 last_modified_date_time=None,
+                                                                 application=None,
+                                                                 device=None,
+                                                                 user=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    return client.update_outcomes(education_user_id=education_user_id,
                                   education_assignment_id=education_assignment_id,
                                   education_submission_id=education_submission_id,
-                                  education_submission_resource_id=education_submission_resource_id,
-                                  id=id_,
-                                  assignment_resource_url=assignment_resource_url,
-                                  created_date_time=resource_created_date_time,
-                                  display_name=resource_display_name,
-                                  last_modified_date_time=resource_last_modified_date_time,
-                                  microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                  display_name1=resource_last_modified_by_device_display_name,
-                                  id1=resource_last_modified_by_device_id,
-                                  display_name2=resource_last_modified_by_application_display_name,
-                                  id2=resource_last_modified_by_application_id,
-                                  display_name3=resource_created_by_user_display_name,
-                                  id3=resource_created_by_user_id,
-                                  display_name4=resource_created_by_device_display_name,
-                                  id4=resource_created_by_device_id,
-                                  display_name5=resource_created_by_application_display_name,
-                                  id5=resource_created_by_application_id)
+                                  education_outcome_id=education_outcome_id,
+                                  body=body)
 
 
-def education_update_submitted_resource(client,
-                                        education_user_id,
-                                        education_assignment_id,
-                                        education_submission_id,
-                                        education_submission_resource_id,
-                                        id_=None,
-                                        assignment_resource_url=None,
-                                        resource_created_date_time=None,
-                                        resource_display_name=None,
-                                        resource_last_modified_date_time=None,
-                                        resource_last_modified_by_user_display_name=None,
-                                        resource_last_modified_by_user_id=None,
-                                        resource_last_modified_by_device_display_name=None,
-                                        resource_last_modified_by_device_id=None,
-                                        resource_last_modified_by_application_display_name=None,
-                                        resource_last_modified_by_application_id=None,
-                                        resource_created_by_user_display_name=None,
-                                        resource_created_by_user_id=None,
-                                        resource_created_by_device_display_name=None,
-                                        resource_created_by_device_id=None,
-                                        resource_created_by_application_display_name=None,
-                                        resource_created_by_application_id=None):
-    return client.update_submitted_resource(education_user_id=education_user_id,
-                                            education_assignment_id=education_assignment_id,
-                                            education_submission_id=education_submission_id,
-                                            education_submission_resource_id=education_submission_resource_id,
-                                            id=id_,
-                                            assignment_resource_url=assignment_resource_url,
-                                            created_date_time=resource_created_date_time,
-                                            display_name=resource_display_name,
-                                            last_modified_date_time=resource_last_modified_date_time,
-                                            microsoft_graph_identity_display_name=resource_last_modified_by_user_display_name,
-                                            microsoft_graph_identity_id=resource_last_modified_by_user_id,
-                                            display_name1=resource_last_modified_by_device_display_name,
-                                            id1=resource_last_modified_by_device_id,
-                                            display_name2=resource_last_modified_by_application_display_name,
-                                            id2=resource_last_modified_by_application_id,
-                                            display_name3=resource_created_by_user_display_name,
-                                            id3=resource_created_by_user_id,
-                                            display_name4=resource_created_by_device_display_name,
-                                            id4=resource_created_by_device_id,
-                                            display_name5=resource_created_by_application_display_name,
-                                            id5=resource_created_by_application_id)
+def education_educationusersassignmentssubmission_update_resource(client,
+                                                                  education_user_id,
+                                                                  education_assignment_id,
+                                                                  education_submission_id,
+                                                                  education_submission_resource_id,
+                                                                  id_=None,
+                                                                  assignment_resource_url=None,
+                                                                  created_date_time=None,
+                                                                  display_name=None,
+                                                                  last_modified_date_time=None,
+                                                                  application=None,
+                                                                  device=None,
+                                                                  user=None,
+                                                                  microsoft_graph_identity_application=None,
+                                                                  microsoft_graph_identity_device=None,
+                                                                  microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_resources(education_user_id=education_user_id,
+                                   education_assignment_id=education_assignment_id,
+                                   education_submission_id=education_submission_id,
+                                   education_submission_resource_id=education_submission_resource_id,
+                                   body=body)
 
 
-def education_delta(client,
-                    education_user_id):
+def education_educationusersassignmentssubmission_update_submitted_resource(client,
+                                                                            education_user_id,
+                                                                            education_assignment_id,
+                                                                            education_submission_id,
+                                                                            education_submission_resource_id,
+                                                                            id_=None,
+                                                                            assignment_resource_url=None,
+                                                                            created_date_time=None,
+                                                                            display_name=None,
+                                                                            last_modified_date_time=None,
+                                                                            application=None,
+                                                                            device=None,
+                                                                            user=None,
+                                                                            microsoft_graph_identity_application=None,
+                                                                            microsoft_graph_identity_device=None,
+                                                                            microsoft_graph_identity_user=None):
+    body = {}
+    body['id'] = id_
+    body['assignment_resource_url'] = assignment_resource_url
+    body['resource'] = {}
+    body['resource']['created_date_time'] = created_date_time
+    body['resource']['display_name'] = display_name
+    body['resource']['last_modified_date_time'] = last_modified_date_time
+    body['resource']['last_modified_by'] = {}
+    body['resource']['last_modified_by']['application'] = application
+    body['resource']['last_modified_by']['device'] = device
+    body['resource']['last_modified_by']['user'] = user
+    body['resource']['created_by'] = {}
+    body['resource']['created_by']['application'] = microsoft_graph_identity_application
+    body['resource']['created_by']['device'] = microsoft_graph_identity_device
+    body['resource']['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_submitted_resources(education_user_id=education_user_id,
+                                             education_assignment_id=education_assignment_id,
+                                             education_submission_id=education_submission_id,
+                                             education_submission_resource_id=education_submission_resource_id,
+                                             body=body)
+
+
+def education_educationusersclass_delta(client,
+                                        education_user_id):
     return client.delta(education_user_id=education_user_id)
 
 
-def education_delta(client,
-                    education_user_id):
+def education_educationusersschool_delta(client,
+                                         education_user_id):
     return client.delta(education_user_id=education_user_id)
 
 
-def education_delta(client,
-                    education_user_id):
+def education_educationuserstaughtclass_delta(client,
+                                              education_user_id):
     return client.delta(education_user_id=education_user_id)

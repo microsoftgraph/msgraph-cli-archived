@@ -9,37 +9,59 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_directoryobjects_beta.generated._client_factory import cf_directoryobjectsdirectoryobject, cf_directoryobject
+
+
+directoryobjects_beta_directoryobjectsdirectoryobject = CliCommandType(
+    operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directoryobjectsdirectoryobject_operations#directoryobjectsdirectoryobjectOperations.{}',
+    client_factory=cf_directoryobjectsdirectoryobject,
+)
+
+
+directoryobjects_beta_directoryobject = CliCommandType(
+    operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directoryobjects_operations#directoryobjectsOperations.{}',
+    client_factory=cf_directoryobject,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_directoryobjects_beta.generated._client_factory import cf_directory_object_directory_object
-    directoryobjects_beta_directory_object_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_direct'
-        'ory_object_operations#DirectoryObjectDirectoryObjectOperations.{}',
-        client_factory=cf_directory_object_directory_object)
-    with self.command_group('directoryobjects', directoryobjects_beta_directory_object_directory_object,
-                            client_factory=cf_directory_object_directory_object) as g:
-        g.custom_command('delete', 'directoryobjects_delete', confirmation=True)
-        g.custom_command('create-directory-object', 'directoryobjects_create_directory_object')
-        g.custom_command('get-directory-object', 'directoryobjects_get_directory_object')
-        g.custom_command('list-directory-object', 'directoryobjects_list_directory_object')
-        g.custom_command('update-directory-object', 'directoryobjects_update_directory_object')
+    with self.command_group(
+        'directoryobjects directoryobjectsdirectoryobject',
+        directoryobjects_beta_directoryobjectsdirectoryobject,
+        client_factory=cf_directoryobjectsdirectoryobject,
+    ) as g:
+        g.custom_command(
+            'create-directory-object', 'directoryobjects_directoryobjectsdirectoryobject_create_directory_object'
+        )
+        g.custom_command(
+            'delete-directory-object', 'directoryobjects_directoryobjectsdirectoryobject_delete_directory_object'
+        )
+        g.custom_command(
+            'list-directory-object', 'directoryobjects_directoryobjectsdirectoryobject_list_directory_object'
+        )
+        g.custom_command(
+            'show-directory-object', 'directoryobjects_directoryobjectsdirectoryobject_show_directory_object'
+        )
+        g.custom_command(
+            'update-directory-object', 'directoryobjects_directoryobjectsdirectoryobject_update_directory_object'
+        )
 
-    from azext_directoryobjects_beta.generated._client_factory import cf_directory_object
-    directoryobjects_beta_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_operat'
-        'ions#DirectoryObjectOperations.{}',
-        client_factory=cf_directory_object)
-    with self.command_group('directoryobjects', directoryobjects_beta_directory_object,
-                            client_factory=cf_directory_object) as g:
-        g.custom_command('check-member-group', 'directoryobjects_check_member_group')
-        g.custom_command('check-member-object', 'directoryobjects_check_member_object')
-        g.custom_command('get-by-id', 'directoryobjects_get_by_id')
-        g.custom_command('get-member-group', 'directoryobjects_get_member_group')
-        g.custom_command('get-member-object', 'directoryobjects_get_member_object')
-        g.custom_command('get-user-owned-object', 'directoryobjects_get_user_owned_object')
-        g.custom_command('restore', 'directoryobjects_restore')
-        g.custom_command('validate-property', 'directoryobjects_validate_property')
+    with self.command_group(
+        'directoryobjects directoryobject', directoryobjects_beta_directoryobject, client_factory=cf_directoryobject
+    ) as g:
+        g.custom_command('check-member-group', 'directoryobjects_directoryobject_check_member_group')
+        g.custom_command('check-member-object', 'directoryobjects_directoryobject_check_member_object')
+        g.custom_command('get-by-id', 'directoryobjects_directoryobject_get_by_id')
+        g.custom_command('get-member-group', 'directoryobjects_directoryobject_get_member_group')
+        g.custom_command('get-member-object', 'directoryobjects_directoryobject_get_member_object')
+        g.custom_command('get-user-owned-object', 'directoryobjects_directoryobject_get_user_owned_object')
+        g.custom_command('restore', 'directoryobjects_directoryobject_restore')
+        g.custom_command('validate-property', 'directoryobjects_directoryobject_validate_property')
+
+    with self.command_group('directoryobjects_beta', is_experimental=True):
+        pass

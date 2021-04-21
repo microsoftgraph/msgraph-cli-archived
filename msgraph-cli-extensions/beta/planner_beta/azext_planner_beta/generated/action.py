@@ -14,10 +14,10 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddDetailsCategoryDescriptions(argparse.Action):
+class AddCategoryDescriptions(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.details_category_descriptions = action
+        namespace.category_descriptions = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -43,13 +43,16 @@ class AddDetailsCategoryDescriptions(argparse.Action):
                 d['category5'] = v[0]
             elif kl == 'category6':
                 d['category6'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter category_descriptions. All possible keys '
+                               'are: category1, category2, category3, category4, category5, category6'.format(k))
         return d
 
 
-class AddCreatedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.created_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -67,6 +70,9 @@ class AddCreatedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -89,4 +95,6 @@ class AddAll(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter all_. All possible keys are: id'.format(k))
         return d

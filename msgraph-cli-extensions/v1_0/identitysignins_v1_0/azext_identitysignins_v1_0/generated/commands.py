@@ -9,226 +9,393 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_identitysignins_v1_0.generated._client_factory import (
+    cf_datapolicyoperationsdatapolicyoperation,
+    cf_identity,
+    cf_identityconditionalaccess,
+    cf_identityprovidersidentityprovider,
+    cf_informationprotection,
+    cf_informationprotection,
+    cf_informationprotectionthreatassessmentrequest,
+    cf_invitationsinvitation,
+    cf_invitation,
+    cf_oauth2permissiongrantsoauth2permissiongrant,
+    cf_oauth2permissiongrant,
+    cf_organization,
+    cf_policiespolicyroot,
+    cf_policy,
+    cf_policiespermissiongrantpolicy,
+)
+
+
+identitysignins_v1_0_datapolicyoperationsdatapolicyoperation = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._datapolicyoperationsdatapolicyoperation_operations#datapolicyoperationsdatapolicyoperationOperations.{}',
+    client_factory=cf_datapolicyoperationsdatapolicyoperation,
+)
+
+
+identitysignins_v1_0_identity = CliCommandType(
+    operations_tmpl=(
+        'azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identity_operations#identityOperations.{}'
+    ),
+    client_factory=cf_identity,
+)
+
+
+identitysignins_v1_0_identityconditionalaccess = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identityconditionalaccess_operations#identityconditionalaccessOperations.{}',
+    client_factory=cf_identityconditionalaccess,
+)
+
+
+identitysignins_v1_0_identityprovidersidentityprovider = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identityprovidersidentityprovider_operations#identityprovidersidentityproviderOperations.{}',
+    client_factory=cf_identityprovidersidentityprovider,
+)
+
+
+identitysignins_v1_0_informationprotection = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._informationprotectioninformationprotection_operations#informationprotectioninformationprotectionOperations.{}',
+    client_factory=cf_informationprotection,
+)
+
+
+identitysignins_v1_0_informationprotection = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._informationprotection_operations#informationprotectionOperations.{}',
+    client_factory=cf_informationprotection,
+)
+
+
+identitysignins_v1_0_informationprotectionthreatassessmentrequest = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._informationprotectionthreatassessmentrequests_operations#informationprotectionthreatassessmentrequestsOperations.{}',
+    client_factory=cf_informationprotectionthreatassessmentrequest,
+)
+
+
+identitysignins_v1_0_invitationsinvitation = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitationsinvitation_operations#invitationsinvitationOperations.{}',
+    client_factory=cf_invitationsinvitation,
+)
+
+
+identitysignins_v1_0_invitation = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitations_operations#invitationsOperations.{}',
+    client_factory=cf_invitation,
+)
+
+
+identitysignins_v1_0_oauth2permissiongrantsoauth2permissiongrant = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2permissiongrantsoauth2permissiongrant_operations#oauth2permissiongrantsoauth2permissiongrantOperations.{}',
+    client_factory=cf_oauth2permissiongrantsoauth2permissiongrant,
+)
+
+
+identitysignins_v1_0_oauth2permissiongrant = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2permissiongrants_operations#oauth2permissiongrantsOperations.{}',
+    client_factory=cf_oauth2permissiongrant,
+)
+
+
+identitysignins_v1_0_organization = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._organization_operations#organizationOperations.{}',
+    client_factory=cf_organization,
+)
+
+
+identitysignins_v1_0_policiespolicyroot = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policiespolicyroot_operations#policiespolicyrootOperations.{}',
+    client_factory=cf_policiespolicyroot,
+)
+
+
+identitysignins_v1_0_policy = CliCommandType(
+    operations_tmpl=(
+        'azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policies_operations#policiesOperations.{}'
+    ),
+    client_factory=cf_policy,
+)
+
+
+identitysignins_v1_0_policiespermissiongrantpolicy = CliCommandType(
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policiespermissiongrantpolicies_operations#policiespermissiongrantpoliciesOperations.{}',
+    client_factory=cf_policiespermissiongrantpolicy,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_data_policy_operation_data_policy_operation
-    identitysignins_v1_0_data_policy_operation_data_policy_operation = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._data_policy_operation_dat'
-        'a_policy_operation_operations#DataPolicyOperationDataPolicyOperationOperations.{}',
-        client_factory=cf_data_policy_operation_data_policy_operation)
-    with self.command_group('identitysignins', identitysignins_v1_0_data_policy_operation_data_policy_operation,
-                            client_factory=cf_data_policy_operation_data_policy_operation) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-data-policy-operation', 'identitysignins_create_data_policy_operation')
-        g.custom_command('get-data-policy-operation', 'identitysignins_get_data_policy_operation')
-        g.custom_command('list-data-policy-operation', 'identitysignins_list_data_policy_operation')
-        g.custom_command('update-data-policy-operation', 'identitysignins_update_data_policy_operation')
+    with self.command_group(
+        'identitysignins datapolicyoperationsdatapolicyoperation',
+        identitysignins_v1_0_datapolicyoperationsdatapolicyoperation,
+        client_factory=cf_datapolicyoperationsdatapolicyoperation,
+    ) as g:
+        g.custom_command(
+            'create-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_create_data_policy_operation',
+        )
+        g.custom_command(
+            'delete-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_delete_data_policy_operation',
+        )
+        g.custom_command(
+            'list-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_list_data_policy_operation',
+        )
+        g.custom_command(
+            'show-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_show_data_policy_operation',
+        )
+        g.custom_command(
+            'update-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_update_data_policy_operation',
+        )
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_identity
-    identitysignins_v1_0_identity = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identity_operations#Ident'
-        'ityOperations.{}',
-        client_factory=cf_identity)
-    with self.command_group('identitysignins', identitysignins_v1_0_identity, client_factory=cf_identity) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('get-conditional-access', 'identitysignins_get_conditional_access')
-        g.custom_command('update-conditional-access', 'identitysignins_update_conditional_access')
+    with self.command_group('identitysignins identity', identitysignins_v1_0_identity, client_factory=cf_identity) as g:
+        g.custom_command('delete-conditional-access', 'identitysignins_identity_delete_conditional_access')
+        g.custom_command('show-conditional-access', 'identitysignins_identity_show_conditional_access')
+        g.custom_command('update-conditional-access', 'identitysignins_identity_update_conditional_access')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_identity_conditional_access
-    identitysignins_v1_0_identity_conditional_access = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identity_conditional_acce'
-        'ss_operations#IdentityConditionalAccessOperations.{}',
-        client_factory=cf_identity_conditional_access)
-    with self.command_group('identitysignins', identitysignins_v1_0_identity_conditional_access,
-                            client_factory=cf_identity_conditional_access) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-named-location', 'identitysignins_create_named_location')
-        g.custom_command('create-policy', 'identitysignins_create_policy')
-        g.custom_command('get-named-location', 'identitysignins_get_named_location')
-        g.custom_command('get-policy', 'identitysignins_get_policy')
-        g.custom_command('list-named-location', 'identitysignins_list_named_location')
-        g.custom_command('list-policy', 'identitysignins_list_policy')
-        g.custom_command('update-named-location', 'identitysignins_update_named_location')
-        g.custom_command('update-policy', 'identitysignins_update_policy')
+    with self.command_group(
+        'identitysignins identityconditionalaccess',
+        identitysignins_v1_0_identityconditionalaccess,
+        client_factory=cf_identityconditionalaccess,
+    ) as g:
+        g.custom_command('create-named-location', 'identitysignins_identityconditionalaccess_create_named_location')
+        g.custom_command('create-policy', 'identitysignins_identityconditionalaccess_create_policy')
+        g.custom_command('delete-named-location', 'identitysignins_identityconditionalaccess_delete_named_location')
+        g.custom_command('delete-policy', 'identitysignins_identityconditionalaccess_delete_policy')
+        g.custom_command('list-named-location', 'identitysignins_identityconditionalaccess_list_named_location')
+        g.custom_command('list-policy', 'identitysignins_identityconditionalaccess_list_policy')
+        g.custom_command('show-named-location', 'identitysignins_identityconditionalaccess_show_named_location')
+        g.custom_command('show-policy', 'identitysignins_identityconditionalaccess_show_policy')
+        g.custom_command('update-named-location', 'identitysignins_identityconditionalaccess_update_named_location')
+        g.custom_command('update-policy', 'identitysignins_identityconditionalaccess_update_policy')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_identity_provider_identity_provider
-    identitysignins_v1_0_identity_provider_identity_provider = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identity_provider_identit'
-        'y_provider_operations#IdentityProviderIdentityProviderOperations.{}',
-        client_factory=cf_identity_provider_identity_provider)
-    with self.command_group('identitysignins', identitysignins_v1_0_identity_provider_identity_provider,
-                            client_factory=cf_identity_provider_identity_provider) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-identity-provider', 'identitysignins_create_identity_provider')
-        g.custom_command('get-identity-provider', 'identitysignins_get_identity_provider')
-        g.custom_command('list-identity-provider', 'identitysignins_list_identity_provider')
-        g.custom_command('update-identity-provider', 'identitysignins_update_identity_provider')
+    with self.command_group(
+        'identitysignins identityprovidersidentityprovider',
+        identitysignins_v1_0_identityprovidersidentityprovider,
+        client_factory=cf_identityprovidersidentityprovider,
+    ) as g:
+        g.custom_command(
+            'create-identity-provider', 'identitysignins_identityprovidersidentityprovider_create_identity_provider'
+        )
+        g.custom_command(
+            'delete-identity-provider', 'identitysignins_identityprovidersidentityprovider_delete_identity_provider'
+        )
+        g.custom_command(
+            'list-identity-provider', 'identitysignins_identityprovidersidentityprovider_list_identity_provider'
+        )
+        g.custom_command(
+            'show-identity-provider', 'identitysignins_identityprovidersidentityprovider_show_identity_provider'
+        )
+        g.custom_command(
+            'update-identity-provider', 'identitysignins_identityprovidersidentityprovider_update_identity_provider'
+        )
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_information_protection_information_protection
-    identitysignins_v1_0_information_protection_information_protection = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._information_protection_in'
-        'formation_protection_operations#InformationProtectionInformationProtectionOperations.{}',
-        client_factory=cf_information_protection_information_protection)
-    with self.command_group('identitysignins', identitysignins_v1_0_information_protection_information_protection,
-                            client_factory=cf_information_protection_information_protection) as g:
-        g.custom_command('get-information-protection', 'identitysignins_get_information_protection')
-        g.custom_command('update-information-protection', 'identitysignins_update_information_protection')
+    with self.command_group(
+        'identitysignins informationprotection',
+        identitysignins_v1_0_informationprotection,
+        client_factory=cf_informationprotection,
+    ) as g:
+        g.custom_command(
+            'show-information-protection', 'identitysignins_informationprotection_show_information_protection'
+        )
+        g.custom_command(
+            'update-information-protection', 'identitysignins_informationprotection_update_information_protection'
+        )
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_information_protection
-    identitysignins_v1_0_information_protection = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._information_protection_op'
-        'erations#InformationProtectionOperations.{}',
-        client_factory=cf_information_protection)
-    with self.command_group('identitysignins', identitysignins_v1_0_information_protection,
-                            client_factory=cf_information_protection) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-threat-assessment-request', 'identitysignins_create_threat_assessment_request')
-        g.custom_command('get-threat-assessment-request', 'identitysignins_get_threat_assessment_request')
-        g.custom_command('list-threat-assessment-request', 'identitysignins_list_threat_assessment_request')
-        g.custom_command('update-threat-assessment-request', 'identitysignins_update_threat_assessment_request')
+    with self.command_group(
+        'identitysignins informationprotection',
+        identitysignins_v1_0_informationprotection,
+        client_factory=cf_informationprotection,
+    ) as g:
+        g.custom_command(
+            'create-threat-assessment-request', 'identitysignins_informationprotection_create_threat_assessment_request'
+        )
+        g.custom_command(
+            'delete-threat-assessment-request', 'identitysignins_informationprotection_delete_threat_assessment_request'
+        )
+        g.custom_command(
+            'list-threat-assessment-request', 'identitysignins_informationprotection_list_threat_assessment_request'
+        )
+        g.custom_command(
+            'show-threat-assessment-request', 'identitysignins_informationprotection_show_threat_assessment_request'
+        )
+        g.custom_command(
+            'update-threat-assessment-request', 'identitysignins_informationprotection_update_threat_assessment_request'
+        )
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_information_protection_threat_assessment_request
-    identitysignins_v1_0_information_protection_threat_assessment_request = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._information_protection_th'
-        'reat_assessment_request_operations#InformationProtectionThreatAssessmentRequestOperations.{}',
-        client_factory=cf_information_protection_threat_assessment_request)
-    with self.command_group('identitysignins', identitysignins_v1_0_information_protection_threat_assessment_request,
-                            client_factory=cf_information_protection_threat_assessment_request) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-result', 'identitysignins_create_result')
-        g.custom_command('get-result', 'identitysignins_get_result')
-        g.custom_command('list-result', 'identitysignins_list_result')
-        g.custom_command('update-result', 'identitysignins_update_result')
+    with self.command_group(
+        'identitysignins informationprotectionthreatassessmentrequest',
+        identitysignins_v1_0_informationprotectionthreatassessmentrequest,
+        client_factory=cf_informationprotectionthreatassessmentrequest,
+    ) as g:
+        g.custom_command('create-result', 'identitysignins_informationprotectionthreatassessmentrequest_create_result')
+        g.custom_command('delete-result', 'identitysignins_informationprotectionthreatassessmentrequest_delete_result')
+        g.custom_command('list-result', 'identitysignins_informationprotectionthreatassessmentrequest_list_result')
+        g.custom_command('show-result', 'identitysignins_informationprotectionthreatassessmentrequest_show_result')
+        g.custom_command('update-result', 'identitysignins_informationprotectionthreatassessmentrequest_update_result')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_invitation_invitation
-    identitysignins_v1_0_invitation_invitation = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitation_invitation_ope'
-        'rations#InvitationInvitationOperations.{}',
-        client_factory=cf_invitation_invitation)
-    with self.command_group('identitysignins', identitysignins_v1_0_invitation_invitation,
-                            client_factory=cf_invitation_invitation) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-invitation', 'identitysignins_create_invitation')
-        g.custom_command('get-invitation', 'identitysignins_get_invitation')
-        g.custom_command('list-invitation', 'identitysignins_list_invitation')
-        g.custom_command('update-invitation', 'identitysignins_update_invitation')
+    with self.command_group(
+        'identitysignins invitationsinvitation',
+        identitysignins_v1_0_invitationsinvitation,
+        client_factory=cf_invitationsinvitation,
+    ) as g:
+        g.custom_command('create-invitation', 'identitysignins_invitationsinvitation_create_invitation')
+        g.custom_command('delete-invitation', 'identitysignins_invitationsinvitation_delete_invitation')
+        g.custom_command('list-invitation', 'identitysignins_invitationsinvitation_list_invitation')
+        g.custom_command('show-invitation', 'identitysignins_invitationsinvitation_show_invitation')
+        g.custom_command('update-invitation', 'identitysignins_invitationsinvitation_update_invitation')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_invitation
-    identitysignins_v1_0_invitation = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitation_operations#Inv'
-        'itationOperations.{}',
-        client_factory=cf_invitation)
-    with self.command_group('identitysignins', identitysignins_v1_0_invitation, client_factory=cf_invitation) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('get-invited-user', 'identitysignins_get_invited_user')
-        g.custom_command('get-ref-invited-user', 'identitysignins_get_ref_invited_user')
-        g.custom_command('set-ref-invited-user', 'identitysignins_set_ref_invited_user')
+    with self.command_group(
+        'identitysignins invitation', identitysignins_v1_0_invitation, client_factory=cf_invitation
+    ) as g:
+        g.custom_command('delete-ref-invited-user', 'identitysignins_invitation_delete_ref_invited_user')
+        g.custom_command('set-ref-invited-user', 'identitysignins_invitation_set_ref_invited_user')
+        g.custom_command('show-invited-user', 'identitysignins_invitation_show_invited_user')
+        g.custom_command('show-ref-invited-user', 'identitysignins_invitation_show_ref_invited_user')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_oauth2permission_grant_oauth2permission_grant
-    identitysignins_v1_0_oauth2permission_grant_oauth2permission_grant = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2_permission_grant_o'
-        'auth2_permission_grant_operations#Oauth2PermissionGrantOAuth2PermissionGrantOperations.{}',
-        client_factory=cf_oauth2permission_grant_oauth2permission_grant)
-    with self.command_group('identitysignins', identitysignins_v1_0_oauth2permission_grant_oauth2permission_grant,
-                            client_factory=cf_oauth2permission_grant_oauth2permission_grant) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-o-auth2-permission-grant', 'identitysignins_create_o_auth2_permission_grant')
-        g.custom_command('get-o-auth2-permission-grant', 'identitysignins_get_o_auth2_permission_grant')
-        g.custom_command('list-o-auth2-permission-grant', 'identitysignins_list_o_auth2_permission_grant')
-        g.custom_command('update-o-auth2-permission-grant', 'identitysignins_update_o_auth2_permission_grant')
+    with self.command_group(
+        'identitysignins oauth2permissiongrantsoauth2permissiongrant',
+        identitysignins_v1_0_oauth2permissiongrantsoauth2permissiongrant,
+        client_factory=cf_oauth2permissiongrantsoauth2permissiongrant,
+    ) as g:
+        g.custom_command(
+            'create-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_create_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'delete-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_delete_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'list-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_list_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'show-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_show_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'update-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_update_o_auth2_permission_grant',
+        )
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_oauth2permission_grant
-    identitysignins_v1_0_oauth2permission_grant = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2_permission_grant_o'
-        'perations#Oauth2PermissionGrantOperations.{}',
-        client_factory=cf_oauth2permission_grant)
-    with self.command_group('identitysignins', identitysignins_v1_0_oauth2permission_grant,
-                            client_factory=cf_oauth2permission_grant) as g:
-        g.custom_command('delta', 'identitysignins_delta')
+    with self.command_group(
+        'identitysignins oauth2permissiongrant',
+        identitysignins_v1_0_oauth2permissiongrant,
+        client_factory=cf_oauth2permissiongrant,
+    ) as g:
+        g.custom_command('delta', 'identitysignins_oauth2permissiongrant_delta')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_organization
-    identitysignins_v1_0_organization = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._organization_operations#O'
-        'rganizationOperations.{}',
-        client_factory=cf_organization)
-    with self.command_group('identitysignins', identitysignins_v1_0_organization,
-                            client_factory=cf_organization) as g:
-        g.custom_command('create-ref-certificate-based-auth-configuration', 'identitysignins_create_ref_certificate_bas'
-                         'ed_auth_configuration')
-        g.custom_command('list-certificate-based-auth-configuration', 'identitysignins_list_certificate_based_auth_conf'
-                         'iguration')
-        g.custom_command('list-ref-certificate-based-auth-configuration', 'identitysignins_list_ref_certificate_based_a'
-                         'uth_configuration')
+    with self.command_group(
+        'identitysignins organization', identitysignins_v1_0_organization, client_factory=cf_organization
+    ) as g:
+        g.custom_command(
+            'create-ref-certificate-based-auth-configuration',
+            'identitysignins_organization_create_ref_certificate_based_auth_configuration',
+        )
+        g.custom_command(
+            'list-certificate-based-auth-configuration',
+            'identitysignins_organization_list_certificate_based_auth_configuration',
+        )
+        g.custom_command(
+            'list-ref-certificate-based-auth-configuration',
+            'identitysignins_organization_list_ref_certificate_based_auth_configuration',
+        )
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_policy_policy_root
-    identitysignins_v1_0_policy_policy_root = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policy_policy_root_operat'
-        'ions#PolicyPolicyRootOperations.{}',
-        client_factory=cf_policy_policy_root)
-    with self.command_group('identitysignins', identitysignins_v1_0_policy_policy_root,
-                            client_factory=cf_policy_policy_root) as g:
-        g.custom_command('get-policy-root', 'identitysignins_get_policy_root')
-        g.custom_command('update-policy-root', 'identitysignins_update_policy_root')
+    with self.command_group(
+        'identitysignins policiespolicyroot',
+        identitysignins_v1_0_policiespolicyroot,
+        client_factory=cf_policiespolicyroot,
+    ) as g:
+        g.custom_command('show-policy-root', 'identitysignins_policiespolicyroot_show_policy_root')
+        g.custom_command('update-policy-root', 'identitysignins_policiespolicyroot_update_policy_root')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_policy
-    identitysignins_v1_0_policy = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policy_operations#PolicyO'
-        'perations.{}',
-        client_factory=cf_policy)
-    with self.command_group('identitysignins', identitysignins_v1_0_policy, client_factory=cf_policy) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-activity-based-timeout-policy',
-                         'identitysignins_create_activity_based_timeout_policy')
-        g.custom_command('create-claim-mapping-policy', 'identitysignins_create_claim_mapping_policy')
-        g.custom_command('create-conditional-access-policy', 'identitysignins_create_conditional_access_policy')
-        g.custom_command('create-home-realm-discovery-policy', 'identitysignins_create_home_realm_discovery_policy')
-        g.custom_command('create-permission-grant-policy', 'identitysignins_create_permission_grant_policy')
-        g.custom_command('create-token-issuance-policy', 'identitysignins_create_token_issuance_policy')
-        g.custom_command('create-token-lifetime-policy', 'identitysignins_create_token_lifetime_policy')
-        g.custom_command('get-activity-based-timeout-policy', 'identitysignins_get_activity_based_timeout_policy')
-        g.custom_command('get-claim-mapping-policy', 'identitysignins_get_claim_mapping_policy')
-        g.custom_command('get-conditional-access-policy', 'identitysignins_get_conditional_access_policy')
-        g.custom_command('get-home-realm-discovery-policy', 'identitysignins_get_home_realm_discovery_policy')
-        g.custom_command('get-identity-security-default-enforcement-policy', 'identitysignins_get_identity_security_def'
-                         'ault_enforcement_policy')
-        g.custom_command('get-permission-grant-policy', 'identitysignins_get_permission_grant_policy')
-        g.custom_command('get-token-issuance-policy', 'identitysignins_get_token_issuance_policy')
-        g.custom_command('get-token-lifetime-policy', 'identitysignins_get_token_lifetime_policy')
-        g.custom_command('list-activity-based-timeout-policy', 'identitysignins_list_activity_based_timeout_policy')
-        g.custom_command('list-claim-mapping-policy', 'identitysignins_list_claim_mapping_policy')
-        g.custom_command('list-conditional-access-policy', 'identitysignins_list_conditional_access_policy')
-        g.custom_command('list-home-realm-discovery-policy', 'identitysignins_list_home_realm_discovery_policy')
-        g.custom_command('list-permission-grant-policy', 'identitysignins_list_permission_grant_policy')
-        g.custom_command('list-token-issuance-policy', 'identitysignins_list_token_issuance_policy')
-        g.custom_command('list-token-lifetime-policy', 'identitysignins_list_token_lifetime_policy')
-        g.custom_command('update-activity-based-timeout-policy',
-                         'identitysignins_update_activity_based_timeout_policy')
-        g.custom_command('update-claim-mapping-policy', 'identitysignins_update_claim_mapping_policy')
-        g.custom_command('update-conditional-access-policy', 'identitysignins_update_conditional_access_policy')
-        g.custom_command('update-home-realm-discovery-policy', 'identitysignins_update_home_realm_discovery_policy')
-        g.custom_command('update-identity-security-default-enforcement-policy', 'identitysignins_update_identity_securi'
-                         'ty_default_enforcement_policy')
-        g.custom_command('update-permission-grant-policy', 'identitysignins_update_permission_grant_policy')
-        g.custom_command('update-token-issuance-policy', 'identitysignins_update_token_issuance_policy')
-        g.custom_command('update-token-lifetime-policy', 'identitysignins_update_token_lifetime_policy')
+    with self.command_group('identitysignins policy', identitysignins_v1_0_policy, client_factory=cf_policy) as g:
+        g.custom_command(
+            'create-activity-based-timeout-policy', 'identitysignins_policy_create_activity_based_timeout_policy'
+        )
+        g.custom_command('create-claim-mapping-policy', 'identitysignins_policy_create_claim_mapping_policy')
+        g.custom_command('create-conditional-access-policy', 'identitysignins_policy_create_conditional_access_policy')
+        g.custom_command(
+            'create-home-realm-discovery-policy', 'identitysignins_policy_create_home_realm_discovery_policy'
+        )
+        g.custom_command('create-permission-grant-policy', 'identitysignins_policy_create_permission_grant_policy')
+        g.custom_command('create-token-issuance-policy', 'identitysignins_policy_create_token_issuance_policy')
+        g.custom_command('create-token-lifetime-policy', 'identitysignins_policy_create_token_lifetime_policy')
+        g.custom_command(
+            'delete-activity-based-timeout-policy', 'identitysignins_policy_delete_activity_based_timeout_policy'
+        )
+        g.custom_command('delete-claim-mapping-policy', 'identitysignins_policy_delete_claim_mapping_policy')
+        g.custom_command('delete-conditional-access-policy', 'identitysignins_policy_delete_conditional_access_policy')
+        g.custom_command(
+            'delete-home-realm-discovery-policy', 'identitysignins_policy_delete_home_realm_discovery_policy'
+        )
+        g.custom_command(
+            'delete-identity-security-default-enforcement-policy',
+            'identitysignins_policy_delete_identity_security_default_enforcement_policy',
+        )
+        g.custom_command('delete-permission-grant-policy', 'identitysignins_policy_delete_permission_grant_policy')
+        g.custom_command('delete-token-issuance-policy', 'identitysignins_policy_delete_token_issuance_policy')
+        g.custom_command('delete-token-lifetime-policy', 'identitysignins_policy_delete_token_lifetime_policy')
+        g.custom_command(
+            'list-activity-based-timeout-policy', 'identitysignins_policy_list_activity_based_timeout_policy'
+        )
+        g.custom_command('list-claim-mapping-policy', 'identitysignins_policy_list_claim_mapping_policy')
+        g.custom_command('list-conditional-access-policy', 'identitysignins_policy_list_conditional_access_policy')
+        g.custom_command('list-home-realm-discovery-policy', 'identitysignins_policy_list_home_realm_discovery_policy')
+        g.custom_command('list-permission-grant-policy', 'identitysignins_policy_list_permission_grant_policy')
+        g.custom_command('list-token-issuance-policy', 'identitysignins_policy_list_token_issuance_policy')
+        g.custom_command('list-token-lifetime-policy', 'identitysignins_policy_list_token_lifetime_policy')
+        g.custom_command(
+            'show-activity-based-timeout-policy', 'identitysignins_policy_show_activity_based_timeout_policy'
+        )
+        g.custom_command('show-claim-mapping-policy', 'identitysignins_policy_show_claim_mapping_policy')
+        g.custom_command('show-conditional-access-policy', 'identitysignins_policy_show_conditional_access_policy')
+        g.custom_command('show-home-realm-discovery-policy', 'identitysignins_policy_show_home_realm_discovery_policy')
+        g.custom_command(
+            'show-identity-security-default-enforcement-policy',
+            'identitysignins_policy_show_identity_security_default_enforcement_policy',
+        )
+        g.custom_command('show-permission-grant-policy', 'identitysignins_policy_show_permission_grant_policy')
+        g.custom_command('show-token-issuance-policy', 'identitysignins_policy_show_token_issuance_policy')
+        g.custom_command('show-token-lifetime-policy', 'identitysignins_policy_show_token_lifetime_policy')
+        g.custom_command(
+            'update-activity-based-timeout-policy', 'identitysignins_policy_update_activity_based_timeout_policy'
+        )
+        g.custom_command('update-claim-mapping-policy', 'identitysignins_policy_update_claim_mapping_policy')
+        g.custom_command('update-conditional-access-policy', 'identitysignins_policy_update_conditional_access_policy')
+        g.custom_command(
+            'update-home-realm-discovery-policy', 'identitysignins_policy_update_home_realm_discovery_policy'
+        )
+        g.custom_command(
+            'update-identity-security-default-enforcement-policy',
+            'identitysignins_policy_update_identity_security_default_enforcement_policy',
+        )
+        g.custom_command('update-permission-grant-policy', 'identitysignins_policy_update_permission_grant_policy')
+        g.custom_command('update-token-issuance-policy', 'identitysignins_policy_update_token_issuance_policy')
+        g.custom_command('update-token-lifetime-policy', 'identitysignins_policy_update_token_lifetime_policy')
 
-    from azext_identitysignins_v1_0.generated._client_factory import cf_policy_permission_grant_policy
-    identitysignins_v1_0_policy_permission_grant_policy = CliCommandType(
-        operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policy_permission_grant_p'
-        'olicy_operations#PolicyPermissionGrantPolicyOperations.{}',
-        client_factory=cf_policy_permission_grant_policy)
-    with self.command_group('identitysignins', identitysignins_v1_0_policy_permission_grant_policy,
-                            client_factory=cf_policy_permission_grant_policy) as g:
-        g.custom_command('delete', 'identitysignins_delete', confirmation=True)
-        g.custom_command('create-exclude', 'identitysignins_create_exclude')
-        g.custom_command('create-include', 'identitysignins_create_include')
-        g.custom_command('get-exclude', 'identitysignins_get_exclude')
-        g.custom_command('get-include', 'identitysignins_get_include')
-        g.custom_command('list-exclude', 'identitysignins_list_exclude')
-        g.custom_command('list-include', 'identitysignins_list_include')
-        g.custom_command('update-exclude', 'identitysignins_update_exclude')
-        g.custom_command('update-include', 'identitysignins_update_include')
+    with self.command_group(
+        'identitysignins policiespermissiongrantpolicy',
+        identitysignins_v1_0_policiespermissiongrantpolicy,
+        client_factory=cf_policiespermissiongrantpolicy,
+    ) as g:
+        g.custom_command('create-exclude', 'identitysignins_policiespermissiongrantpolicy_create_exclude')
+        g.custom_command('create-include', 'identitysignins_policiespermissiongrantpolicy_create_include')
+        g.custom_command('delete-exclude', 'identitysignins_policiespermissiongrantpolicy_delete_exclude')
+        g.custom_command('delete-include', 'identitysignins_policiespermissiongrantpolicy_delete_include')
+        g.custom_command('list-exclude', 'identitysignins_policiespermissiongrantpolicy_list_exclude')
+        g.custom_command('list-include', 'identitysignins_policiespermissiongrantpolicy_list_include')
+        g.custom_command('show-exclude', 'identitysignins_policiespermissiongrantpolicy_show_exclude')
+        g.custom_command('show-include', 'identitysignins_policiespermissiongrantpolicy_show_include')
+        g.custom_command('update-exclude', 'identitysignins_policiespermissiongrantpolicy_update_exclude')
+        g.custom_command('update-include', 'identitysignins_policiespermissiongrantpolicy_update_include')
+
+    with self.command_group('identitysignins_v1_0', is_experimental=True):
+        pass

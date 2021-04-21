@@ -8,10 +8,9 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
-from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +21,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class ComplianceOperations(object):
-    """ComplianceOperations operations.
+class complianceOperations(object):
+    """complianceOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -50,7 +49,7 @@ class ComplianceOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum126"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEdiscovery"
+        # type: (...) -> "models.microsoftgraphediscovery"
         """Get ediscovery from compliance.
 
         Get ediscovery from compliance.
@@ -60,12 +59,14 @@ class ComplianceOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~compliance.models.Enum126]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEdiscovery, or the result of cls(response)
-        :rtype: ~compliance.models.MicrosoftGraphEdiscovery
+        :return: microsoftgraphediscovery, or the result of cls(response)
+        :rtype: ~compliance.models.microsoftgraphediscovery
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEdiscovery"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphediscovery"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +83,6 @@ class ComplianceOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -90,10 +90,10 @@ class ComplianceOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEdiscovery', pipeline_response)
+        deserialized = self._deserialize('microsoftgraphediscovery', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -103,8 +103,7 @@ class ComplianceOperations(object):
 
     def update_ediscovery(
         self,
-        id=None,  # type: Optional[str]
-        cases=None,  # type: Optional[List["models.MicrosoftGraphEdiscoveryCase"]]
+        body,  # type: "models.microsoftgraphediscovery"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -112,20 +111,18 @@ class ComplianceOperations(object):
 
         Update the navigation property ediscovery in compliance.
 
-        :param id: Read-only.
-        :type id: str
-        :param cases:
-        :type cases: list[~compliance.models.MicrosoftGraphEdiscoveryCase]
+        :param body: New navigation property values.
+        :type body: ~compliance.models.microsoftgraphediscovery
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphEdiscovery(id=id, cases=cases)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -141,17 +138,16 @@ class ComplianceOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEdiscovery')
+        body_content = self._serialize.body(body, 'microsoftgraphediscovery')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -176,7 +172,9 @@ class ComplianceOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -198,8 +196,8 @@ class ComplianceOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})

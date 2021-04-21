@@ -15,7 +15,7 @@ import msrest.serialization
 from ._devices_corporate_management_enums import *
 
 
-class CollectionOfAndroidManagedAppProtection(msrest.serialization.Model):
+class collectionofandroidmanagedappprotection(msrest.serialization.Model):
     """Collection of androidManagedAppProtection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -23,14 +23,14 @@ class CollectionOfAndroidManagedAppProtection(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphAndroidManagedAppProtection]
+     list[~devices_corporate_management.models.microsoftgraphandroidmanagedappprotection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphAndroidManagedAppProtection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphandroidmanagedappprotection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -38,17 +38,17 @@ class CollectionOfAndroidManagedAppProtection(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphAndroidManagedAppProtection"]] = None,
+        value: Optional[List["microsoftgraphandroidmanagedappprotection"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfAndroidManagedAppProtection, self).__init__(**kwargs)
+        super(collectionofandroidmanagedappprotection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfDefaultManagedAppProtection(msrest.serialization.Model):
+class collectionofdefaultmanagedappprotection(msrest.serialization.Model):
     """Collection of defaultManagedAppProtection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -56,14 +56,14 @@ class CollectionOfDefaultManagedAppProtection(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphDefaultManagedAppProtection]
+     list[~devices_corporate_management.models.microsoftgraphdefaultmanagedappprotection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphDefaultManagedAppProtection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphdefaultmanagedappprotection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -71,17 +71,17 @@ class CollectionOfDefaultManagedAppProtection(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphDefaultManagedAppProtection"]] = None,
+        value: Optional[List["microsoftgraphdefaultmanagedappprotection"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfDefaultManagedAppProtection, self).__init__(**kwargs)
+        super(collectionofdefaultmanagedappprotection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfDeviceCompliancePolicyState(msrest.serialization.Model):
+class collectionofdevicecompliancepolicystate(msrest.serialization.Model):
     """Collection of deviceCompliancePolicyState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -89,14 +89,14 @@ class CollectionOfDeviceCompliancePolicyState(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceCompliancePolicyState]
+     list[~devices_corporate_management.models.microsoftgraphdevicecompliancepolicystate]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphDeviceCompliancePolicyState]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphdevicecompliancepolicystate]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -104,31 +104,31 @@ class CollectionOfDeviceCompliancePolicyState(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphDeviceCompliancePolicyState"]] = None,
+        value: Optional[List["microsoftgraphdevicecompliancepolicystate"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfDeviceCompliancePolicyState, self).__init__(**kwargs)
+        super(collectionofdevicecompliancepolicystate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfDeviceConfigurationState(msrest.serialization.Model):
+class collectionofdeviceconfigurationstate(msrest.serialization.Model):
     """Collection of deviceConfigurationState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphDeviceConfigurationState]
+    :type value: list[~devices_corporate_management.models.microsoftgraphdeviceconfigurationstate]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphDeviceConfigurationState]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphdeviceconfigurationstate]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -136,31 +136,31 @@ class CollectionOfDeviceConfigurationState(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphDeviceConfigurationState"]] = None,
+        value: Optional[List["microsoftgraphdeviceconfigurationstate"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfDeviceConfigurationState, self).__init__(**kwargs)
+        super(collectionofdeviceconfigurationstate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfDeviceInstallState(msrest.serialization.Model):
+class collectionofdeviceinstallstate(msrest.serialization.Model):
     """Collection of deviceInstallState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphDeviceInstallState]
+    :type value: list[~devices_corporate_management.models.microsoftgraphdeviceinstallstate]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphDeviceInstallState]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphdeviceinstallstate]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -168,31 +168,31 @@ class CollectionOfDeviceInstallState(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphDeviceInstallState"]] = None,
+        value: Optional[List["microsoftgraphdeviceinstallstate"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfDeviceInstallState, self).__init__(**kwargs)
+        super(collectionofdeviceinstallstate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfDeviceInstallState0(msrest.serialization.Model):
+class collectionofdeviceinstallstate0(msrest.serialization.Model):
     """Collection of deviceInstallState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphDeviceInstallState]
+    :type value: list[~devices_corporate_management.models.microsoftgraphdeviceinstallstate]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphDeviceInstallState]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphdeviceinstallstate]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,17 +200,17 @@ class CollectionOfDeviceInstallState0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphDeviceInstallState"]] = None,
+        value: Optional[List["microsoftgraphdeviceinstallstate"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfDeviceInstallState0, self).__init__(**kwargs)
+        super(collectionofdeviceinstallstate0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfDeviceManagementTroubleshootingEvent(msrest.serialization.Model):
+class collectionofdevicemanagementtroubleshootingevent(msrest.serialization.Model):
     """Collection of deviceManagementTroubleshootingEvent.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -218,14 +218,14 @@ class CollectionOfDeviceManagementTroubleshootingEvent(msrest.serialization.Mode
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceManagementTroubleshootingEvent]
+     list[~devices_corporate_management.models.microsoftgraphdevicemanagementtroubleshootingevent]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphDeviceManagementTroubleshootingEvent]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphdevicemanagementtroubleshootingevent]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -233,31 +233,31 @@ class CollectionOfDeviceManagementTroubleshootingEvent(msrest.serialization.Mode
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphDeviceManagementTroubleshootingEvent"]] = None,
+        value: Optional[List["microsoftgraphdevicemanagementtroubleshootingevent"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfDeviceManagementTroubleshootingEvent, self).__init__(**kwargs)
+        super(collectionofdevicemanagementtroubleshootingevent, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfIosManagedAppProtection(msrest.serialization.Model):
+class collectionofiosmanagedappprotection(msrest.serialization.Model):
     """Collection of iosManagedAppProtection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphIosManagedAppProtection]
+    :type value: list[~devices_corporate_management.models.microsoftgraphiosmanagedappprotection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphIosManagedAppProtection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphiosmanagedappprotection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -265,17 +265,17 @@ class CollectionOfIosManagedAppProtection(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphIosManagedAppProtection"]] = None,
+        value: Optional[List["microsoftgraphiosmanagedappprotection"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfIosManagedAppProtection, self).__init__(**kwargs)
+        super(collectionofiosmanagedappprotection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfLinksOfManagedAppRegistration(msrest.serialization.Model):
+class collectionoflinksofmanagedappregistration(msrest.serialization.Model):
     """Collection of links of managedAppRegistration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -301,13 +301,13 @@ class CollectionOfLinksOfManagedAppRegistration(msrest.serialization.Model):
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfLinksOfManagedAppRegistration, self).__init__(**kwargs)
+        super(collectionoflinksofmanagedappregistration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfLinksOfMobileAppCategory(msrest.serialization.Model):
+class collectionoflinksofmobileappcategory(msrest.serialization.Model):
     """Collection of links of mobileAppCategory.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -333,27 +333,27 @@ class CollectionOfLinksOfMobileAppCategory(msrest.serialization.Model):
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfLinksOfMobileAppCategory, self).__init__(**kwargs)
+        super(collectionoflinksofmobileappcategory, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedAppOperation(msrest.serialization.Model):
+class collectionofmanagedappoperation(msrest.serialization.Model):
     """Collection of managedAppOperation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedAppOperation]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedappoperation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedAppOperation]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedappoperation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -361,31 +361,31 @@ class CollectionOfManagedAppOperation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedAppOperation"]] = None,
+        value: Optional[List["microsoftgraphmanagedappoperation"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedAppOperation, self).__init__(**kwargs)
+        super(collectionofmanagedappoperation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedAppPolicy(msrest.serialization.Model):
+class collectionofmanagedapppolicy(msrest.serialization.Model):
     """Collection of managedAppPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicy]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedapppolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedAppPolicy]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedapppolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -393,31 +393,31 @@ class CollectionOfManagedAppPolicy(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
+        value: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedAppPolicy, self).__init__(**kwargs)
+        super(collectionofmanagedapppolicy, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedAppPolicy0(msrest.serialization.Model):
+class collectionofmanagedapppolicy0(msrest.serialization.Model):
     """Collection of managedAppPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicy]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedapppolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedAppPolicy]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedapppolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -425,31 +425,31 @@ class CollectionOfManagedAppPolicy0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
+        value: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedAppPolicy0, self).__init__(**kwargs)
+        super(collectionofmanagedapppolicy0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedAppPolicy1(msrest.serialization.Model):
+class collectionofmanagedapppolicy1(msrest.serialization.Model):
     """Collection of managedAppPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicy]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedapppolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedAppPolicy]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedapppolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -457,31 +457,31 @@ class CollectionOfManagedAppPolicy1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
+        value: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedAppPolicy1, self).__init__(**kwargs)
+        super(collectionofmanagedapppolicy1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedAppRegistration(msrest.serialization.Model):
+class collectionofmanagedappregistration(msrest.serialization.Model):
     """Collection of managedAppRegistration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedAppRegistration]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedappregistration]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedAppRegistration]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedappregistration]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -489,31 +489,31 @@ class CollectionOfManagedAppRegistration(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedAppRegistration"]] = None,
+        value: Optional[List["microsoftgraphmanagedappregistration"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedAppRegistration, self).__init__(**kwargs)
+        super(collectionofmanagedappregistration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedAppRegistration0(msrest.serialization.Model):
+class collectionofmanagedappregistration0(msrest.serialization.Model):
     """Collection of managedAppRegistration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedAppRegistration]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedappregistration]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedAppRegistration]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedappregistration]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -521,31 +521,31 @@ class CollectionOfManagedAppRegistration0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedAppRegistration"]] = None,
+        value: Optional[List["microsoftgraphmanagedappregistration"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedAppRegistration0, self).__init__(**kwargs)
+        super(collectionofmanagedappregistration0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedAppStatus(msrest.serialization.Model):
+class collectionofmanagedappstatus(msrest.serialization.Model):
     """Collection of managedAppStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedAppStatus]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedappstatus]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedAppStatus]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedappstatus]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -553,31 +553,31 @@ class CollectionOfManagedAppStatus(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedAppStatus"]] = None,
+        value: Optional[List["microsoftgraphmanagedappstatus"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedAppStatus, self).__init__(**kwargs)
+        super(collectionofmanagedappstatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedDevice(msrest.serialization.Model):
+class collectionofmanageddevice(msrest.serialization.Model):
     """Collection of managedDevice.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedDevice]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanageddevice]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedDevice]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanageddevice]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -585,17 +585,17 @@ class CollectionOfManagedDevice(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedDevice"]] = None,
+        value: Optional[List["microsoftgraphmanageddevice"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedDevice, self).__init__(**kwargs)
+        super(collectionofmanageddevice, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedDeviceMobileAppConfiguration(msrest.serialization.Model):
+class collectionofmanageddevicemobileappconfiguration(msrest.serialization.Model):
     """Collection of managedDeviceMobileAppConfiguration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -603,14 +603,14 @@ class CollectionOfManagedDeviceMobileAppConfiguration(msrest.serialization.Model
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfiguration]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfiguration]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfiguration]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanageddevicemobileappconfiguration]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -618,17 +618,17 @@ class CollectionOfManagedDeviceMobileAppConfiguration(msrest.serialization.Model
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfiguration"]] = None,
+        value: Optional[List["microsoftgraphmanageddevicemobileappconfiguration"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedDeviceMobileAppConfiguration, self).__init__(**kwargs)
+        super(collectionofmanageddevicemobileappconfiguration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedDeviceMobileAppConfigurationAssignment(msrest.serialization.Model):
+class collectionofmanageddevicemobileappconfigurationassignment(msrest.serialization.Model):
     """Collection of managedDeviceMobileAppConfigurationAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -636,14 +636,14 @@ class CollectionOfManagedDeviceMobileAppConfigurationAssignment(msrest.serializa
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationassignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanageddevicemobileappconfigurationassignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -651,17 +651,17 @@ class CollectionOfManagedDeviceMobileAppConfigurationAssignment(msrest.serializa
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment"]] = None,
+        value: Optional[List["microsoftgraphmanageddevicemobileappconfigurationassignment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedDeviceMobileAppConfigurationAssignment, self).__init__(**kwargs)
+        super(collectionofmanageddevicemobileappconfigurationassignment, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedDeviceMobileAppConfigurationDeviceStatus(msrest.serialization.Model):
+class collectionofmanageddevicemobileappconfigurationdevicestatus(msrest.serialization.Model):
     """Collection of managedDeviceMobileAppConfigurationDeviceStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -669,14 +669,14 @@ class CollectionOfManagedDeviceMobileAppConfigurationDeviceStatus(msrest.seriali
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationdevicestatus]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanageddevicemobileappconfigurationdevicestatus]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -684,17 +684,17 @@ class CollectionOfManagedDeviceMobileAppConfigurationDeviceStatus(msrest.seriali
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus"]] = None,
+        value: Optional[List["microsoftgraphmanageddevicemobileappconfigurationdevicestatus"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedDeviceMobileAppConfigurationDeviceStatus, self).__init__(**kwargs)
+        super(collectionofmanageddevicemobileappconfigurationdevicestatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedDeviceMobileAppConfigurationUserStatus(msrest.serialization.Model):
+class collectionofmanageddevicemobileappconfigurationuserstatus(msrest.serialization.Model):
     """Collection of managedDeviceMobileAppConfigurationUserStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -702,14 +702,14 @@ class CollectionOfManagedDeviceMobileAppConfigurationUserStatus(msrest.serializa
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationuserstatus]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanageddevicemobileappconfigurationuserstatus]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -717,31 +717,31 @@ class CollectionOfManagedDeviceMobileAppConfigurationUserStatus(msrest.serializa
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus"]] = None,
+        value: Optional[List["microsoftgraphmanageddevicemobileappconfigurationuserstatus"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedDeviceMobileAppConfigurationUserStatus, self).__init__(**kwargs)
+        super(collectionofmanageddevicemobileappconfigurationuserstatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedEBook(msrest.serialization.Model):
+class collectionofmanagedebook(msrest.serialization.Model):
     """Collection of managedEBook.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedEBook]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedebook]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedEBook]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedebook]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -749,31 +749,31 @@ class CollectionOfManagedEBook(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedEBook"]] = None,
+        value: Optional[List["microsoftgraphmanagedebook"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedEBook, self).__init__(**kwargs)
+        super(collectionofmanagedebook, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedEBookAssignment(msrest.serialization.Model):
+class collectionofmanagedebookassignment(msrest.serialization.Model):
     """Collection of managedEBookAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedEBookAssignment]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedebookassignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedEBookAssignment]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedebookassignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -781,31 +781,31 @@ class CollectionOfManagedEBookAssignment(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedEBookAssignment"]] = None,
+        value: Optional[List["microsoftgraphmanagedebookassignment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedEBookAssignment, self).__init__(**kwargs)
+        super(collectionofmanagedebookassignment, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedMobileApp(msrest.serialization.Model):
+class collectionofmanagedmobileapp(msrest.serialization.Model):
     """Collection of managedMobileApp.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedmobileapp]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -813,31 +813,31 @@ class CollectionOfManagedMobileApp(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        value: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedMobileApp, self).__init__(**kwargs)
+        super(collectionofmanagedmobileapp, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedMobileApp0(msrest.serialization.Model):
+class collectionofmanagedmobileapp0(msrest.serialization.Model):
     """Collection of managedMobileApp.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedmobileapp]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -845,31 +845,31 @@ class CollectionOfManagedMobileApp0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        value: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedMobileApp0, self).__init__(**kwargs)
+        super(collectionofmanagedmobileapp0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedMobileApp1(msrest.serialization.Model):
+class collectionofmanagedmobileapp1(msrest.serialization.Model):
     """Collection of managedMobileApp.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedmobileapp]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -877,31 +877,31 @@ class CollectionOfManagedMobileApp1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        value: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedMobileApp1, self).__init__(**kwargs)
+        super(collectionofmanagedmobileapp1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfManagedMobileApp2(msrest.serialization.Model):
+class collectionofmanagedmobileapp2(msrest.serialization.Model):
     """Collection of managedMobileApp.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmanagedmobileapp]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -909,17 +909,17 @@ class CollectionOfManagedMobileApp2(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        value: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfManagedMobileApp2, self).__init__(**kwargs)
+        super(collectionofmanagedmobileapp2, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfMdmWindowsInformationProtectionPolicy(msrest.serialization.Model):
+class collectionofmdmwindowsinformationprotectionpolicy(msrest.serialization.Model):
     """Collection of mdmWindowsInformationProtectionPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -927,14 +927,14 @@ class CollectionOfMdmWindowsInformationProtectionPolicy(msrest.serialization.Mod
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphMdmWindowsInformationProtectionPolicy]
+     list[~devices_corporate_management.models.microsoftgraphmdmwindowsinformationprotectionpolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMdmWindowsInformationProtectionPolicy]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmdmwindowsinformationprotectionpolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -942,31 +942,31 @@ class CollectionOfMdmWindowsInformationProtectionPolicy(msrest.serialization.Mod
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphMdmWindowsInformationProtectionPolicy"]] = None,
+        value: Optional[List["microsoftgraphmdmwindowsinformationprotectionpolicy"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfMdmWindowsInformationProtectionPolicy, self).__init__(**kwargs)
+        super(collectionofmdmwindowsinformationprotectionpolicy, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfMobileApp(msrest.serialization.Model):
+class collectionofmobileapp(msrest.serialization.Model):
     """Collection of mobileApp.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphMobileApp]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmobileapp]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMobileApp]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmobileapp]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -974,31 +974,31 @@ class CollectionOfMobileApp(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphMobileApp"]] = None,
+        value: Optional[List["microsoftgraphmobileapp"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfMobileApp, self).__init__(**kwargs)
+        super(collectionofmobileapp, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfMobileAppAssignment(msrest.serialization.Model):
+class collectionofmobileappassignment(msrest.serialization.Model):
     """Collection of mobileAppAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphMobileAppAssignment]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmobileappassignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMobileAppAssignment]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmobileappassignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1006,31 +1006,31 @@ class CollectionOfMobileAppAssignment(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphMobileAppAssignment"]] = None,
+        value: Optional[List["microsoftgraphmobileappassignment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfMobileAppAssignment, self).__init__(**kwargs)
+        super(collectionofmobileappassignment, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfMobileAppCategory(msrest.serialization.Model):
+class collectionofmobileappcategory(msrest.serialization.Model):
     """Collection of mobileAppCategory.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphMobileAppCategory]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmobileappcategory]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMobileAppCategory]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmobileappcategory]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1038,31 +1038,31 @@ class CollectionOfMobileAppCategory(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphMobileAppCategory"]] = None,
+        value: Optional[List["microsoftgraphmobileappcategory"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfMobileAppCategory, self).__init__(**kwargs)
+        super(collectionofmobileappcategory, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfMobileAppCategory0(msrest.serialization.Model):
+class collectionofmobileappcategory0(msrest.serialization.Model):
     """Collection of mobileAppCategory.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphMobileAppCategory]
+    :type value: list[~devices_corporate_management.models.microsoftgraphmobileappcategory]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMobileAppCategory]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmobileappcategory]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1070,17 +1070,17 @@ class CollectionOfMobileAppCategory0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphMobileAppCategory"]] = None,
+        value: Optional[List["microsoftgraphmobileappcategory"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfMobileAppCategory0, self).__init__(**kwargs)
+        super(collectionofmobileappcategory0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfTargetedManagedAppConfiguration(msrest.serialization.Model):
+class collectionoftargetedmanagedappconfiguration(msrest.serialization.Model):
     """Collection of targetedManagedAppConfiguration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1088,14 +1088,14 @@ class CollectionOfTargetedManagedAppConfiguration(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppConfiguration]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedappconfiguration]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphTargetedManagedAppConfiguration]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphtargetedmanagedappconfiguration]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1103,17 +1103,17 @@ class CollectionOfTargetedManagedAppConfiguration(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphTargetedManagedAppConfiguration"]] = None,
+        value: Optional[List["microsoftgraphtargetedmanagedappconfiguration"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfTargetedManagedAppConfiguration, self).__init__(**kwargs)
+        super(collectionoftargetedmanagedappconfiguration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfTargetedManagedAppPolicyAssignment(msrest.serialization.Model):
+class collectionoftargetedmanagedapppolicyassignment(msrest.serialization.Model):
     """Collection of targetedManagedAppPolicyAssignment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1121,14 +1121,14 @@ class CollectionOfTargetedManagedAppPolicyAssignment(msrest.serialization.Model)
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1136,31 +1136,31 @@ class CollectionOfTargetedManagedAppPolicyAssignment(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
+        value: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfTargetedManagedAppPolicyAssignment, self).__init__(**kwargs)
+        super(collectionoftargetedmanagedapppolicyassignment, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfUserInstallStateSummary(msrest.serialization.Model):
+class collectionofuserinstallstatesummary(msrest.serialization.Model):
     """Collection of userInstallStateSummary.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphUserInstallStateSummary]
+    :type value: list[~devices_corporate_management.models.microsoftgraphuserinstallstatesummary]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphUserInstallStateSummary]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphuserinstallstatesummary]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1168,31 +1168,31 @@ class CollectionOfUserInstallStateSummary(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphUserInstallStateSummary"]] = None,
+        value: Optional[List["microsoftgraphuserinstallstatesummary"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfUserInstallStateSummary, self).__init__(**kwargs)
+        super(collectionofuserinstallstatesummary, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfVppToken(msrest.serialization.Model):
+class collectionofvpptoken(msrest.serialization.Model):
     """Collection of vppToken.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_corporate_management.models.MicrosoftGraphVppToken]
+    :type value: list[~devices_corporate_management.models.microsoftgraphvpptoken]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphVppToken]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphvpptoken]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1200,17 +1200,17 @@ class CollectionOfVppToken(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphVppToken"]] = None,
+        value: Optional[List["microsoftgraphvpptoken"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfVppToken, self).__init__(**kwargs)
+        super(collectionofvpptoken, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfWindowsInformationProtectionPolicy(msrest.serialization.Model):
+class collectionofwindowsinformationprotectionpolicy(msrest.serialization.Model):
     """Collection of windowsInformationProtectionPolicy.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1218,14 +1218,14 @@ class CollectionOfWindowsInformationProtectionPolicy(msrest.serialization.Model)
     :type additional_properties: dict[str, object]
     :param value:
     :type value:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionPolicy]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionpolicy]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphWindowsInformationProtectionPolicy]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphwindowsinformationprotectionpolicy]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1233,17 +1233,17 @@ class CollectionOfWindowsInformationProtectionPolicy(msrest.serialization.Model)
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphWindowsInformationProtectionPolicy"]] = None,
+        value: Optional[List["microsoftgraphwindowsinformationprotectionpolicy"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfWindowsInformationProtectionPolicy, self).__init__(**kwargs)
+        super(collectionofwindowsinformationprotectionpolicy, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
+class microsoftgraphentity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1265,12 +1265,12 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(microsoftgraphentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class MicrosoftGraphManagedAppPolicy(MicrosoftGraphEntity):
+class microsoftgraphmanagedapppolicy(microsoftgraphentity):
     """The ManagedAppPolicy resource represents a base type for platform specific policies.
 
     :param id: Read-only.
@@ -1312,7 +1312,7 @@ class MicrosoftGraphManagedAppPolicy(MicrosoftGraphEntity):
         version: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppPolicy, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedapppolicy, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.description = description
@@ -1321,12 +1321,9 @@ class MicrosoftGraphManagedAppPolicy(MicrosoftGraphEntity):
         self.version = version
 
 
-class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
+class microsoftgraphmanagedappprotection(microsoftgraphmanagedapppolicy):
     """Policy used to configure detailed management settings for a specified set of apps.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -1345,19 +1342,19 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatastoragelocation]
     :param allowed_inbound_data_transfer_sources:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_inbound_data_transfer_sources: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param allowed_outbound_clipboard_sharing_level:  Possible values include: "allApps",
      "managedAppsWithPasteIn", "managedApps", "blocked".
     :type allowed_outbound_clipboard_sharing_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappclipboardsharinglevel
     :param allowed_outbound_data_transfer_destinations:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_outbound_data_transfer_destinations: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
     :type contact_sync_blocked: bool
     :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
@@ -1372,7 +1369,7 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     :type fingerprint_blocked: bool
     :param managed_browser:  Possible values include: "notConfigured", "microsoftEdge".
     :type managed_browser: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+     ~devices_corporate_management.models.Microsoftgraphmanagedbrowsertype
     :param managed_browser_to_open_links_required: Indicates whether internet links should be
      opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
      (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
@@ -1412,7 +1409,7 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     :type period_online_before_access_check: ~datetime.timedelta
     :param pin_character_set:  Possible values include: "numeric", "alphanumericAndSymbol".
     :type pin_character_set: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+     ~devices_corporate_management.models.Microsoftgraphmanagedapppincharacterset
     :param pin_required: Indicates whether an app-level pin is required.
     :type pin_required: bool
     :param print_blocked: Indicates whether printing is allowed from managed apps.
@@ -1430,7 +1427,6 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -1470,7 +1466,6 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -1478,16 +1473,16 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        allowed_data_storage_locations: Optional[List[Union[str, "MicrosoftGraphManagedAppDataStorageLocation"]]] = None,
-        allowed_inbound_data_transfer_sources: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
-        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "MicrosoftGraphManagedAppClipboardSharingLevel"]] = None,
-        allowed_outbound_data_transfer_destinations: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
+        allowed_data_storage_locations: Optional[List[Union[str, "Microsoftgraphmanagedappdatastoragelocation"]]] = None,
+        allowed_inbound_data_transfer_sources: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
+        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "Microsoftgraphmanagedappclipboardsharinglevel"]] = None,
+        allowed_outbound_data_transfer_destinations: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
         contact_sync_blocked: Optional[bool] = None,
         data_backup_blocked: Optional[bool] = None,
         device_compliance_required: Optional[bool] = None,
         disable_app_pin_if_device_pin_is_set: Optional[bool] = None,
         fingerprint_blocked: Optional[bool] = None,
-        managed_browser: Optional[Union[str, "MicrosoftGraphManagedBrowserType"]] = None,
+        managed_browser: Optional[Union[str, "Microsoftgraphmanagedbrowsertype"]] = None,
         managed_browser_to_open_links_required: Optional[bool] = None,
         maximum_pin_retries: Optional[int] = None,
         minimum_pin_length: Optional[int] = None,
@@ -1500,15 +1495,14 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
         period_offline_before_access_check: Optional[datetime.timedelta] = None,
         period_offline_before_wipe_is_enforced: Optional[datetime.timedelta] = None,
         period_online_before_access_check: Optional[datetime.timedelta] = None,
-        pin_character_set: Optional[Union[str, "MicrosoftGraphManagedAppPinCharacterSet"]] = None,
+        pin_character_set: Optional[Union[str, "Microsoftgraphmanagedapppincharacterset"]] = None,
         pin_required: Optional[bool] = None,
         print_blocked: Optional[bool] = None,
         save_as_blocked: Optional[bool] = None,
         simple_pin_blocked: Optional[bool] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphmanagedappprotection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
         self.additional_properties = additional_properties
         self.allowed_data_storage_locations = allowed_data_storage_locations
         self.allowed_inbound_data_transfer_sources = allowed_inbound_data_transfer_sources
@@ -1539,14 +1533,11 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
         self.simple_pin_blocked = simple_pin_blocked
 
 
-class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtection):
+class microsoftgraphtargetedmanagedappprotection(microsoftgraphmanagedappprotection):
     """Policy used to configure detailed management settings targeted to specific security groups.
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -1560,19 +1551,19 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatastoragelocation]
     :param allowed_inbound_data_transfer_sources:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_inbound_data_transfer_sources: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param allowed_outbound_clipboard_sharing_level:  Possible values include: "allApps",
      "managedAppsWithPasteIn", "managedApps", "blocked".
     :type allowed_outbound_clipboard_sharing_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappclipboardsharinglevel
     :param allowed_outbound_data_transfer_destinations:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_outbound_data_transfer_destinations: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
     :type contact_sync_blocked: bool
     :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
@@ -1587,7 +1578,7 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
     :type fingerprint_blocked: bool
     :param managed_browser:  Possible values include: "notConfigured", "microsoftEdge".
     :type managed_browser: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+     ~devices_corporate_management.models.Microsoftgraphmanagedbrowsertype
     :param managed_browser_to_open_links_required: Indicates whether internet links should be
      opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
      (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
@@ -1627,7 +1618,7 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
     :type period_online_before_access_check: ~datetime.timedelta
     :param pin_character_set:  Possible values include: "numeric", "alphanumericAndSymbol".
     :type pin_character_set: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+     ~devices_corporate_management.models.Microsoftgraphmanagedapppincharacterset
     :param pin_required: Indicates whether an app-level pin is required.
     :type pin_required: bool
     :param print_blocked: Indicates whether printing is allowed from managed apps.
@@ -1645,7 +1636,7 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
     :param assignments: Navigation property to list of inclusion and exclusion groups to which the
      policy is deployed.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     """
 
     _validation = {
@@ -1655,7 +1646,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1690,29 +1680,28 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
         'simple_pin_blocked': {'key': 'simplePinBlocked', 'type': 'bool'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
-        allowed_data_storage_locations: Optional[List[Union[str, "MicrosoftGraphManagedAppDataStorageLocation"]]] = None,
-        allowed_inbound_data_transfer_sources: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
-        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "MicrosoftGraphManagedAppClipboardSharingLevel"]] = None,
-        allowed_outbound_data_transfer_destinations: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
+        allowed_data_storage_locations: Optional[List[Union[str, "Microsoftgraphmanagedappdatastoragelocation"]]] = None,
+        allowed_inbound_data_transfer_sources: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
+        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "Microsoftgraphmanagedappclipboardsharinglevel"]] = None,
+        allowed_outbound_data_transfer_destinations: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
         contact_sync_blocked: Optional[bool] = None,
         data_backup_blocked: Optional[bool] = None,
         device_compliance_required: Optional[bool] = None,
         disable_app_pin_if_device_pin_is_set: Optional[bool] = None,
         fingerprint_blocked: Optional[bool] = None,
-        managed_browser: Optional[Union[str, "MicrosoftGraphManagedBrowserType"]] = None,
+        managed_browser: Optional[Union[str, "Microsoftgraphmanagedbrowsertype"]] = None,
         managed_browser_to_open_links_required: Optional[bool] = None,
         maximum_pin_retries: Optional[int] = None,
         minimum_pin_length: Optional[int] = None,
@@ -1725,29 +1714,25 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
         period_offline_before_access_check: Optional[datetime.timedelta] = None,
         period_offline_before_wipe_is_enforced: Optional[datetime.timedelta] = None,
         period_online_before_access_check: Optional[datetime.timedelta] = None,
-        pin_character_set: Optional[Union[str, "MicrosoftGraphManagedAppPinCharacterSet"]] = None,
+        pin_character_set: Optional[Union[str, "Microsoftgraphmanagedapppincharacterset"]] = None,
         pin_required: Optional[bool] = None,
         print_blocked: Optional[bool] = None,
         save_as_blocked: Optional[bool] = None,
         simple_pin_blocked: Optional[bool] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         is_assigned: Optional[bool] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphTargetedManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphtargetedmanagedappprotection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, **kwargs)
         self.additional_properties = additional_properties
         self.is_assigned = is_assigned
         self.assignments = assignments
 
 
-class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedAppProtection):
+class microsoftgraphandroidmanagedappprotection(microsoftgraphtargetedmanagedappprotection):
     """Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -1760,25 +1745,22 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :type last_modified_date_time: ~datetime.datetime
     :param version: Version of the entity.
     :type version: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatastoragelocation]
     :param allowed_inbound_data_transfer_sources:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_inbound_data_transfer_sources: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param allowed_outbound_clipboard_sharing_level:  Possible values include: "allApps",
      "managedAppsWithPasteIn", "managedApps", "blocked".
     :type allowed_outbound_clipboard_sharing_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappclipboardsharinglevel
     :param allowed_outbound_data_transfer_destinations:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_outbound_data_transfer_destinations: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
     :type contact_sync_blocked: bool
     :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
@@ -1793,7 +1775,7 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :type fingerprint_blocked: bool
     :param managed_browser:  Possible values include: "notConfigured", "microsoftEdge".
     :type managed_browser: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+     ~devices_corporate_management.models.Microsoftgraphmanagedbrowsertype
     :param managed_browser_to_open_links_required: Indicates whether internet links should be
      opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
      (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
@@ -1833,7 +1815,7 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :type period_online_before_access_check: ~datetime.timedelta
     :param pin_character_set:  Possible values include: "numeric", "alphanumericAndSymbol".
     :type pin_character_set: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+     ~devices_corporate_management.models.Microsoftgraphmanagedapppincharacterset
     :param pin_required: Indicates whether an app-level pin is required.
     :type pin_required: bool
     :param print_blocked: Indicates whether printing is allowed from managed apps.
@@ -1848,7 +1830,7 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :param assignments: Navigation property to list of inclusion and exclusion groups to which the
      policy is deployed.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1878,11 +1860,11 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
      managed apps.
     :type screen_capture_blocked: bool
     :param apps: List of apps to which the policy is deployed.
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
      types under app management workflow.
     :type deployment_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
+     ~devices_corporate_management.models.microsoftgraphmanagedapppolicydeploymentsummary
     """
 
     _validation = {
@@ -1892,14 +1874,12 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_data_storage_locations': {'key': 'allowedDataStorageLocations', 'type': '[str]'},
         'allowed_inbound_data_transfer_sources': {'key': 'allowedInboundDataTransferSources', 'type': 'str'},
         'allowed_outbound_clipboard_sharing_level': {'key': 'allowedOutboundClipboardSharingLevel', 'type': 'str'},
@@ -1928,7 +1908,7 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         'save_as_blocked': {'key': 'saveAsBlocked', 'type': 'bool'},
         'simple_pin_blocked': {'key': 'simplePinBlocked', 'type': 'bool'},
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'custom_browser_display_name': {'key': 'customBrowserDisplayName', 'type': 'str'},
         'custom_browser_package_id': {'key': 'customBrowserPackageId', 'type': 'str'},
@@ -1938,31 +1918,29 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         'minimum_required_patch_version': {'key': 'minimumRequiredPatchVersion', 'type': 'str'},
         'minimum_warning_patch_version': {'key': 'minimumWarningPatchVersion', 'type': 'str'},
         'screen_capture_blocked': {'key': 'screenCaptureBlocked', 'type': 'bool'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'microsoftgraphmanagedapppolicydeploymentsummary'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
-        allowed_data_storage_locations: Optional[List[Union[str, "MicrosoftGraphManagedAppDataStorageLocation"]]] = None,
-        allowed_inbound_data_transfer_sources: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
-        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "MicrosoftGraphManagedAppClipboardSharingLevel"]] = None,
-        allowed_outbound_data_transfer_destinations: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
+        allowed_data_storage_locations: Optional[List[Union[str, "Microsoftgraphmanagedappdatastoragelocation"]]] = None,
+        allowed_inbound_data_transfer_sources: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
+        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "Microsoftgraphmanagedappclipboardsharinglevel"]] = None,
+        allowed_outbound_data_transfer_destinations: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
         contact_sync_blocked: Optional[bool] = None,
         data_backup_blocked: Optional[bool] = None,
         device_compliance_required: Optional[bool] = None,
         disable_app_pin_if_device_pin_is_set: Optional[bool] = None,
         fingerprint_blocked: Optional[bool] = None,
-        managed_browser: Optional[Union[str, "MicrosoftGraphManagedBrowserType"]] = None,
+        managed_browser: Optional[Union[str, "Microsoftgraphmanagedbrowsertype"]] = None,
         managed_browser_to_open_links_required: Optional[bool] = None,
         maximum_pin_retries: Optional[int] = None,
         minimum_pin_length: Optional[int] = None,
@@ -1975,13 +1953,13 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         period_offline_before_access_check: Optional[datetime.timedelta] = None,
         period_offline_before_wipe_is_enforced: Optional[datetime.timedelta] = None,
         period_online_before_access_check: Optional[datetime.timedelta] = None,
-        pin_character_set: Optional[Union[str, "MicrosoftGraphManagedAppPinCharacterSet"]] = None,
+        pin_character_set: Optional[Union[str, "Microsoftgraphmanagedapppincharacterset"]] = None,
         pin_required: Optional[bool] = None,
         print_blocked: Optional[bool] = None,
         save_as_blocked: Optional[bool] = None,
         simple_pin_blocked: Optional[bool] = None,
         is_assigned: Optional[bool] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         custom_browser_display_name: Optional[str] = None,
         custom_browser_package_id: Optional[str] = None,
@@ -1991,13 +1969,11 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         minimum_required_patch_version: Optional[str] = None,
         minimum_warning_patch_version: Optional[str] = None,
         screen_capture_blocked: Optional[bool] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
-        deployment_summary: Optional["MicrosoftGraphManagedAppPolicyDeploymentSummary"] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
+        deployment_summary: Optional["microsoftgraphmanagedapppolicydeploymentsummary"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphAndroidManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, **kwargs)
-        self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
+        super(microsoftgraphandroidmanagedappprotection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, **kwargs)
         self.additional_properties = additional_properties
         self.custom_browser_display_name = custom_browser_display_name
         self.custom_browser_package_id = custom_browser_package_id
@@ -2011,7 +1987,7 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         self.deployment_summary = deployment_summary
 
 
-class MicrosoftGraphConfigurationManagerClientEnabledFeatures(msrest.serialization.Model):
+class microsoftgraphconfigurationmanagerclientenabledfeatures(msrest.serialization.Model):
     """configuration Manager client enabled features.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2053,7 +2029,7 @@ class MicrosoftGraphConfigurationManagerClientEnabledFeatures(msrest.serializati
         windows_update_for_business: Optional[bool] = None,
         **kwargs
     ):
-        super(MicrosoftGraphConfigurationManagerClientEnabledFeatures, self).__init__(**kwargs)
+        super(microsoftgraphconfigurationmanagerclientenabledfeatures, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.compliance_policy = compliance_policy
         self.device_configuration = device_configuration
@@ -2063,14 +2039,11 @@ class MicrosoftGraphConfigurationManagerClientEnabledFeatures(msrest.serializati
         self.windows_update_for_business = windows_update_for_business
 
 
-class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtection):
+class microsoftgraphdefaultmanagedappprotection(microsoftgraphmanagedappprotection):
     """Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy.
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -2084,19 +2057,19 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatastoragelocation]
     :param allowed_inbound_data_transfer_sources:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_inbound_data_transfer_sources: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param allowed_outbound_clipboard_sharing_level:  Possible values include: "allApps",
      "managedAppsWithPasteIn", "managedApps", "blocked".
     :type allowed_outbound_clipboard_sharing_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappclipboardsharinglevel
     :param allowed_outbound_data_transfer_destinations:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_outbound_data_transfer_destinations: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
     :type contact_sync_blocked: bool
     :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
@@ -2111,7 +2084,7 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
     :type fingerprint_blocked: bool
     :param managed_browser:  Possible values include: "notConfigured", "microsoftEdge".
     :type managed_browser: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+     ~devices_corporate_management.models.Microsoftgraphmanagedbrowsertype
     :param managed_browser_to_open_links_required: Indicates whether internet links should be
      opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
      (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
@@ -2151,7 +2124,7 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
     :type period_online_before_access_check: ~datetime.timedelta
     :param pin_character_set:  Possible values include: "numeric", "alphanumericAndSymbol".
     :type pin_character_set: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+     ~devices_corporate_management.models.Microsoftgraphmanagedapppincharacterset
     :param pin_required: Indicates whether an app-level pin is required.
     :type pin_required: bool
     :param print_blocked: Indicates whether printing is allowed from managed apps.
@@ -2167,10 +2140,10 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
     :param app_data_encryption_type:  Possible values include: "useDeviceSettings",
      "afterDeviceRestart", "whenDeviceLockedExceptOpenFiles", "whenDeviceLocked".
     :type app_data_encryption_type: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataEncryptionType
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdataencryptiontype
     :param custom_settings: A set of string key and string value pairs to be sent to the affected
      users, unalterned by this service.
-    :type custom_settings: list[~devices_corporate_management.models.MicrosoftGraphKeyValuePair]
+    :type custom_settings: list[~devices_corporate_management.models.microsoftgraphkeyvaluepair]
     :param deployed_app_count: Count of apps to which the current policy is deployed.
     :type deployed_app_count: int
     :param disable_app_encryption_if_device_encryption_is_enabled: When this setting is enabled,
@@ -2194,11 +2167,11 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
     :param screen_capture_blocked: Indicates whether screen capture is blocked. (Android only).
     :type screen_capture_blocked: bool
     :param apps: List of apps to which the policy is deployed.
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
      types under app management workflow.
     :type deployment_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
+     ~devices_corporate_management.models.microsoftgraphmanagedapppolicydeploymentsummary
     """
 
     _validation = {
@@ -2209,7 +2182,6 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -2244,7 +2216,7 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         'simple_pin_blocked': {'key': 'simplePinBlocked', 'type': 'bool'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'app_data_encryption_type': {'key': 'appDataEncryptionType', 'type': 'str'},
-        'custom_settings': {'key': 'customSettings', 'type': '[MicrosoftGraphKeyValuePair]'},
+        'custom_settings': {'key': 'customSettings', 'type': '[microsoftgraphkeyvaluepair]'},
         'deployed_app_count': {'key': 'deployedAppCount', 'type': 'int'},
         'disable_app_encryption_if_device_encryption_is_enabled': {'key': 'disableAppEncryptionIfDeviceEncryptionIsEnabled', 'type': 'bool'},
         'encrypt_app_data': {'key': 'encryptAppData', 'type': 'bool'},
@@ -2253,30 +2225,29 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         'minimum_required_sdk_version': {'key': 'minimumRequiredSdkVersion', 'type': 'str'},
         'minimum_warning_patch_version': {'key': 'minimumWarningPatchVersion', 'type': 'str'},
         'screen_capture_blocked': {'key': 'screenCaptureBlocked', 'type': 'bool'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'microsoftgraphmanagedapppolicydeploymentsummary'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
-        allowed_data_storage_locations: Optional[List[Union[str, "MicrosoftGraphManagedAppDataStorageLocation"]]] = None,
-        allowed_inbound_data_transfer_sources: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
-        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "MicrosoftGraphManagedAppClipboardSharingLevel"]] = None,
-        allowed_outbound_data_transfer_destinations: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
+        allowed_data_storage_locations: Optional[List[Union[str, "Microsoftgraphmanagedappdatastoragelocation"]]] = None,
+        allowed_inbound_data_transfer_sources: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
+        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "Microsoftgraphmanagedappclipboardsharinglevel"]] = None,
+        allowed_outbound_data_transfer_destinations: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
         contact_sync_blocked: Optional[bool] = None,
         data_backup_blocked: Optional[bool] = None,
         device_compliance_required: Optional[bool] = None,
         disable_app_pin_if_device_pin_is_set: Optional[bool] = None,
         fingerprint_blocked: Optional[bool] = None,
-        managed_browser: Optional[Union[str, "MicrosoftGraphManagedBrowserType"]] = None,
+        managed_browser: Optional[Union[str, "Microsoftgraphmanagedbrowsertype"]] = None,
         managed_browser_to_open_links_required: Optional[bool] = None,
         maximum_pin_retries: Optional[int] = None,
         minimum_pin_length: Optional[int] = None,
@@ -2289,14 +2260,14 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         period_offline_before_access_check: Optional[datetime.timedelta] = None,
         period_offline_before_wipe_is_enforced: Optional[datetime.timedelta] = None,
         period_online_before_access_check: Optional[datetime.timedelta] = None,
-        pin_character_set: Optional[Union[str, "MicrosoftGraphManagedAppPinCharacterSet"]] = None,
+        pin_character_set: Optional[Union[str, "Microsoftgraphmanagedapppincharacterset"]] = None,
         pin_required: Optional[bool] = None,
         print_blocked: Optional[bool] = None,
         save_as_blocked: Optional[bool] = None,
         simple_pin_blocked: Optional[bool] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        app_data_encryption_type: Optional[Union[str, "MicrosoftGraphManagedAppDataEncryptionType"]] = None,
-        custom_settings: Optional[List["MicrosoftGraphKeyValuePair"]] = None,
+        app_data_encryption_type: Optional[Union[str, "Microsoftgraphmanagedappdataencryptiontype"]] = None,
+        custom_settings: Optional[List["microsoftgraphkeyvaluepair"]] = None,
         deployed_app_count: Optional[int] = None,
         disable_app_encryption_if_device_encryption_is_enabled: Optional[bool] = None,
         encrypt_app_data: Optional[bool] = None,
@@ -2305,12 +2276,11 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         minimum_required_sdk_version: Optional[str] = None,
         minimum_warning_patch_version: Optional[str] = None,
         screen_capture_blocked: Optional[bool] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
-        deployment_summary: Optional["MicrosoftGraphManagedAppPolicyDeploymentSummary"] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
+        deployment_summary: Optional["microsoftgraphmanagedapppolicydeploymentsummary"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDefaultManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphdefaultmanagedappprotection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, **kwargs)
         self.additional_properties = additional_properties
         self.app_data_encryption_type = app_data_encryption_type
         self.custom_settings = custom_settings
@@ -2326,7 +2296,7 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         self.deployment_summary = deployment_summary
 
 
-class MicrosoftGraphDeviceActionResult(msrest.serialization.Model):
+class microsoftgraphdeviceactionresult(msrest.serialization.Model):
     """Device action result.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2336,7 +2306,7 @@ class MicrosoftGraphDeviceActionResult(msrest.serialization.Model):
     :type action_name: str
     :param action_state:  Possible values include: "none", "pending", "canceled", "active", "done",
      "failed", "notSupported".
-    :type action_state: str or ~devices_corporate_management.models.MicrosoftGraphActionState
+    :type action_state: str or ~devices_corporate_management.models.Microsoftgraphactionstate
     :param last_updated_date_time: Time the action state was last updated.
     :type last_updated_date_time: ~datetime.datetime
     :param start_date_time: Time the action was initiated.
@@ -2356,12 +2326,12 @@ class MicrosoftGraphDeviceActionResult(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         action_name: Optional[str] = None,
-        action_state: Optional[Union[str, "MicrosoftGraphActionState"]] = None,
+        action_state: Optional[Union[str, "Microsoftgraphactionstate"]] = None,
         last_updated_date_time: Optional[datetime.datetime] = None,
         start_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceActionResult, self).__init__(**kwargs)
+        super(microsoftgraphdeviceactionresult, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.action_name = action_name
         self.action_state = action_state
@@ -2369,7 +2339,7 @@ class MicrosoftGraphDeviceActionResult(msrest.serialization.Model):
         self.start_date_time = start_date_time
 
 
-class MicrosoftGraphDeviceAppManagement(MicrosoftGraphEntity):
+class microsoftgraphdeviceappmanagement(microsoftgraphentity):
     """Singleton entity that acts as a container for all device app management functionality.
 
     :param id: Read-only.
@@ -2394,46 +2364,46 @@ class MicrosoftGraphDeviceAppManagement(MicrosoftGraphEntity):
      the Microsoft Store for Business were synced successfully for the account.
     :type microsoft_store_for_business_last_successful_sync_date_time: ~datetime.datetime
     :param managed_e_books: The Managed eBook.
-    :type managed_e_books: list[~devices_corporate_management.models.MicrosoftGraphManagedEBook]
+    :type managed_e_books: list[~devices_corporate_management.models.microsoftgraphmanagedebook]
     :param mobile_app_categories: The mobile app categories.
     :type mobile_app_categories:
-     list[~devices_corporate_management.models.MicrosoftGraphMobileAppCategory]
+     list[~devices_corporate_management.models.microsoftgraphmobileappcategory]
     :param mobile_app_configurations: The Managed Device Mobile Application Configurations.
     :type mobile_app_configurations:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfiguration]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfiguration]
     :param mobile_apps: The mobile apps.
-    :type mobile_apps: list[~devices_corporate_management.models.MicrosoftGraphMobileApp]
+    :type mobile_apps: list[~devices_corporate_management.models.microsoftgraphmobileapp]
     :param vpp_tokens: List of Vpp tokens for this organization.
-    :type vpp_tokens: list[~devices_corporate_management.models.MicrosoftGraphVppToken]
+    :type vpp_tokens: list[~devices_corporate_management.models.microsoftgraphvpptoken]
     :param android_managed_app_protections: Android managed app policies.
     :type android_managed_app_protections:
-     list[~devices_corporate_management.models.MicrosoftGraphAndroidManagedAppProtection]
+     list[~devices_corporate_management.models.microsoftgraphandroidmanagedappprotection]
     :param default_managed_app_protections: Default managed app policies.
     :type default_managed_app_protections:
-     list[~devices_corporate_management.models.MicrosoftGraphDefaultManagedAppProtection]
+     list[~devices_corporate_management.models.microsoftgraphdefaultmanagedappprotection]
     :param ios_managed_app_protections: iOS managed app policies.
     :type ios_managed_app_protections:
-     list[~devices_corporate_management.models.MicrosoftGraphIosManagedAppProtection]
+     list[~devices_corporate_management.models.microsoftgraphiosmanagedappprotection]
     :param managed_app_policies: Managed app policies.
     :type managed_app_policies:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicy]
+     list[~devices_corporate_management.models.microsoftgraphmanagedapppolicy]
     :param managed_app_registrations: The managed app registrations.
     :type managed_app_registrations:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppRegistration]
+     list[~devices_corporate_management.models.microsoftgraphmanagedappregistration]
     :param managed_app_statuses: The managed app statuses.
     :type managed_app_statuses:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppStatus]
+     list[~devices_corporate_management.models.microsoftgraphmanagedappstatus]
     :param mdm_windows_information_protection_policies: Windows information protection for apps
      running on devices which are MDM enrolled.
     :type mdm_windows_information_protection_policies:
-     list[~devices_corporate_management.models.MicrosoftGraphMdmWindowsInformationProtectionPolicy]
+     list[~devices_corporate_management.models.microsoftgraphmdmwindowsinformationprotectionpolicy]
     :param targeted_managed_app_configurations: Targeted managed app configurations.
     :type targeted_managed_app_configurations:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppConfiguration]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedappconfiguration]
     :param windows_information_protection_policies: Windows information protection for apps running
      on devices which are not MDM enrolled.
     :type windows_information_protection_policies:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionPolicy]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionpolicy]
     """
 
     _attribute_map = {
@@ -2443,20 +2413,20 @@ class MicrosoftGraphDeviceAppManagement(MicrosoftGraphEntity):
         'microsoft_store_for_business_language': {'key': 'microsoftStoreForBusinessLanguage', 'type': 'str'},
         'microsoft_store_for_business_last_completed_application_sync_time': {'key': 'microsoftStoreForBusinessLastCompletedApplicationSyncTime', 'type': 'iso-8601'},
         'microsoft_store_for_business_last_successful_sync_date_time': {'key': 'microsoftStoreForBusinessLastSuccessfulSyncDateTime', 'type': 'iso-8601'},
-        'managed_e_books': {'key': 'managedEBooks', 'type': '[MicrosoftGraphManagedEBook]'},
-        'mobile_app_categories': {'key': 'mobileAppCategories', 'type': '[MicrosoftGraphMobileAppCategory]'},
-        'mobile_app_configurations': {'key': 'mobileAppConfigurations', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfiguration]'},
-        'mobile_apps': {'key': 'mobileApps', 'type': '[MicrosoftGraphMobileApp]'},
-        'vpp_tokens': {'key': 'vppTokens', 'type': '[MicrosoftGraphVppToken]'},
-        'android_managed_app_protections': {'key': 'androidManagedAppProtections', 'type': '[MicrosoftGraphAndroidManagedAppProtection]'},
-        'default_managed_app_protections': {'key': 'defaultManagedAppProtections', 'type': '[MicrosoftGraphDefaultManagedAppProtection]'},
-        'ios_managed_app_protections': {'key': 'iosManagedAppProtections', 'type': '[MicrosoftGraphIosManagedAppProtection]'},
-        'managed_app_policies': {'key': 'managedAppPolicies', 'type': '[MicrosoftGraphManagedAppPolicy]'},
-        'managed_app_registrations': {'key': 'managedAppRegistrations', 'type': '[MicrosoftGraphManagedAppRegistration]'},
-        'managed_app_statuses': {'key': 'managedAppStatuses', 'type': '[MicrosoftGraphManagedAppStatus]'},
-        'mdm_windows_information_protection_policies': {'key': 'mdmWindowsInformationProtectionPolicies', 'type': '[MicrosoftGraphMdmWindowsInformationProtectionPolicy]'},
-        'targeted_managed_app_configurations': {'key': 'targetedManagedAppConfigurations', 'type': '[MicrosoftGraphTargetedManagedAppConfiguration]'},
-        'windows_information_protection_policies': {'key': 'windowsInformationProtectionPolicies', 'type': '[MicrosoftGraphWindowsInformationProtectionPolicy]'},
+        'managed_e_books': {'key': 'managedEBooks', 'type': '[microsoftgraphmanagedebook]'},
+        'mobile_app_categories': {'key': 'mobileAppCategories', 'type': '[microsoftgraphmobileappcategory]'},
+        'mobile_app_configurations': {'key': 'mobileAppConfigurations', 'type': '[microsoftgraphmanageddevicemobileappconfiguration]'},
+        'mobile_apps': {'key': 'mobileApps', 'type': '[microsoftgraphmobileapp]'},
+        'vpp_tokens': {'key': 'vppTokens', 'type': '[microsoftgraphvpptoken]'},
+        'android_managed_app_protections': {'key': 'androidManagedAppProtections', 'type': '[microsoftgraphandroidmanagedappprotection]'},
+        'default_managed_app_protections': {'key': 'defaultManagedAppProtections', 'type': '[microsoftgraphdefaultmanagedappprotection]'},
+        'ios_managed_app_protections': {'key': 'iosManagedAppProtections', 'type': '[microsoftgraphiosmanagedappprotection]'},
+        'managed_app_policies': {'key': 'managedAppPolicies', 'type': '[microsoftgraphmanagedapppolicy]'},
+        'managed_app_registrations': {'key': 'managedAppRegistrations', 'type': '[microsoftgraphmanagedappregistration]'},
+        'managed_app_statuses': {'key': 'managedAppStatuses', 'type': '[microsoftgraphmanagedappstatus]'},
+        'mdm_windows_information_protection_policies': {'key': 'mdmWindowsInformationProtectionPolicies', 'type': '[microsoftgraphmdmwindowsinformationprotectionpolicy]'},
+        'targeted_managed_app_configurations': {'key': 'targetedManagedAppConfigurations', 'type': '[microsoftgraphtargetedmanagedappconfiguration]'},
+        'windows_information_protection_policies': {'key': 'windowsInformationProtectionPolicies', 'type': '[microsoftgraphwindowsinformationprotectionpolicy]'},
     }
 
     def __init__(
@@ -2468,23 +2438,23 @@ class MicrosoftGraphDeviceAppManagement(MicrosoftGraphEntity):
         microsoft_store_for_business_language: Optional[str] = None,
         microsoft_store_for_business_last_completed_application_sync_time: Optional[datetime.datetime] = None,
         microsoft_store_for_business_last_successful_sync_date_time: Optional[datetime.datetime] = None,
-        managed_e_books: Optional[List["MicrosoftGraphManagedEBook"]] = None,
-        mobile_app_categories: Optional[List["MicrosoftGraphMobileAppCategory"]] = None,
-        mobile_app_configurations: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfiguration"]] = None,
-        mobile_apps: Optional[List["MicrosoftGraphMobileApp"]] = None,
-        vpp_tokens: Optional[List["MicrosoftGraphVppToken"]] = None,
-        android_managed_app_protections: Optional[List["MicrosoftGraphAndroidManagedAppProtection"]] = None,
-        default_managed_app_protections: Optional[List["MicrosoftGraphDefaultManagedAppProtection"]] = None,
-        ios_managed_app_protections: Optional[List["MicrosoftGraphIosManagedAppProtection"]] = None,
-        managed_app_policies: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
-        managed_app_registrations: Optional[List["MicrosoftGraphManagedAppRegistration"]] = None,
-        managed_app_statuses: Optional[List["MicrosoftGraphManagedAppStatus"]] = None,
-        mdm_windows_information_protection_policies: Optional[List["MicrosoftGraphMdmWindowsInformationProtectionPolicy"]] = None,
-        targeted_managed_app_configurations: Optional[List["MicrosoftGraphTargetedManagedAppConfiguration"]] = None,
-        windows_information_protection_policies: Optional[List["MicrosoftGraphWindowsInformationProtectionPolicy"]] = None,
+        managed_e_books: Optional[List["microsoftgraphmanagedebook"]] = None,
+        mobile_app_categories: Optional[List["microsoftgraphmobileappcategory"]] = None,
+        mobile_app_configurations: Optional[List["microsoftgraphmanageddevicemobileappconfiguration"]] = None,
+        mobile_apps: Optional[List["microsoftgraphmobileapp"]] = None,
+        vpp_tokens: Optional[List["microsoftgraphvpptoken"]] = None,
+        android_managed_app_protections: Optional[List["microsoftgraphandroidmanagedappprotection"]] = None,
+        default_managed_app_protections: Optional[List["microsoftgraphdefaultmanagedappprotection"]] = None,
+        ios_managed_app_protections: Optional[List["microsoftgraphiosmanagedappprotection"]] = None,
+        managed_app_policies: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
+        managed_app_registrations: Optional[List["microsoftgraphmanagedappregistration"]] = None,
+        managed_app_statuses: Optional[List["microsoftgraphmanagedappstatus"]] = None,
+        mdm_windows_information_protection_policies: Optional[List["microsoftgraphmdmwindowsinformationprotectionpolicy"]] = None,
+        targeted_managed_app_configurations: Optional[List["microsoftgraphtargetedmanagedappconfiguration"]] = None,
+        windows_information_protection_policies: Optional[List["microsoftgraphwindowsinformationprotectionpolicy"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceAppManagement, self).__init__(id=id, **kwargs)
+        super(microsoftgraphdeviceappmanagement, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.is_enabled_for_microsoft_store_for_business = is_enabled_for_microsoft_store_for_business
         self.microsoft_store_for_business_language = microsoft_store_for_business_language
@@ -2506,7 +2476,7 @@ class MicrosoftGraphDeviceAppManagement(MicrosoftGraphEntity):
         self.windows_information_protection_policies = windows_information_protection_policies
 
 
-class MicrosoftGraphDeviceCategory(MicrosoftGraphEntity):
+class microsoftgraphdevicecategory(microsoftgraphentity):
     """Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.
 
     :param id: Read-only.
@@ -2536,13 +2506,13 @@ class MicrosoftGraphDeviceCategory(MicrosoftGraphEntity):
         display_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceCategory, self).__init__(id=id, **kwargs)
+        super(microsoftgraphdevicecategory, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
 
 
-class MicrosoftGraphDeviceCompliancePolicySettingState(msrest.serialization.Model):
+class microsoftgraphdevicecompliancepolicysettingstate(msrest.serialization.Model):
     """Device Compilance Policy Setting State for a given device.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2561,10 +2531,10 @@ class MicrosoftGraphDeviceCompliancePolicySettingState(msrest.serialization.Mode
     :param setting_name: Localized/user friendly setting name that is being reported.
     :type setting_name: str
     :param sources: Contributing policies.
-    :type sources: list[~devices_corporate_management.models.MicrosoftGraphSettingSource]
+    :type sources: list[~devices_corporate_management.models.microsoftgraphsettingsource]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~devices_corporate_management.models.MicrosoftGraphComplianceStatus
+    :type state: str or ~devices_corporate_management.models.Microsoftgraphcompliancestatus
     :param user_email: UserEmail.
     :type user_email: str
     :param user_id: UserId.
@@ -2583,7 +2553,7 @@ class MicrosoftGraphDeviceCompliancePolicySettingState(msrest.serialization.Mode
         'instance_display_name': {'key': 'instanceDisplayName', 'type': 'str'},
         'setting': {'key': 'setting', 'type': 'str'},
         'setting_name': {'key': 'settingName', 'type': 'str'},
-        'sources': {'key': 'sources', 'type': '[MicrosoftGraphSettingSource]'},
+        'sources': {'key': 'sources', 'type': '[microsoftgraphsettingsource]'},
         'state': {'key': 'state', 'type': 'str'},
         'user_email': {'key': 'userEmail', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
@@ -2601,15 +2571,15 @@ class MicrosoftGraphDeviceCompliancePolicySettingState(msrest.serialization.Mode
         instance_display_name: Optional[str] = None,
         setting: Optional[str] = None,
         setting_name: Optional[str] = None,
-        sources: Optional[List["MicrosoftGraphSettingSource"]] = None,
-        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
+        sources: Optional[List["microsoftgraphsettingsource"]] = None,
+        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
         user_email: Optional[str] = None,
         user_id: Optional[str] = None,
         user_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceCompliancePolicySettingState, self).__init__(**kwargs)
+        super(microsoftgraphdevicecompliancepolicysettingstate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.current_value = current_value
         self.error_code = error_code
@@ -2625,7 +2595,7 @@ class MicrosoftGraphDeviceCompliancePolicySettingState(msrest.serialization.Mode
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphDeviceCompliancePolicyState(MicrosoftGraphEntity):
+class microsoftgraphdevicecompliancepolicystate(microsoftgraphentity):
     """Device Compliance Policy State for a given device.
 
     :param id: Read-only.
@@ -2638,15 +2608,15 @@ class MicrosoftGraphDeviceCompliancePolicyState(MicrosoftGraphEntity):
     :param platform_type:  Possible values include: "android", "iOS", "macOS", "windowsPhone81",
      "windows81AndLater", "windows10AndLater", "androidWorkProfile", "all".
     :type platform_type: str or
-     ~devices_corporate_management.models.MicrosoftGraphPolicyPlatformType
+     ~devices_corporate_management.models.Microsoftgraphpolicyplatformtype
     :param setting_count: Count of how many setting a policy holds.
     :type setting_count: int
     :param setting_states:
     :type setting_states:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceCompliancePolicySettingState]
+     list[~devices_corporate_management.models.microsoftgraphdevicecompliancepolicysettingstate]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~devices_corporate_management.models.MicrosoftGraphComplianceStatus
+    :type state: str or ~devices_corporate_management.models.Microsoftgraphcompliancestatus
     :param version: The version of the policy.
     :type version: int
     """
@@ -2662,7 +2632,7 @@ class MicrosoftGraphDeviceCompliancePolicyState(MicrosoftGraphEntity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'platform_type': {'key': 'platformType', 'type': 'str'},
         'setting_count': {'key': 'settingCount', 'type': 'int'},
-        'setting_states': {'key': 'settingStates', 'type': '[MicrosoftGraphDeviceCompliancePolicySettingState]'},
+        'setting_states': {'key': 'settingStates', 'type': '[microsoftgraphdevicecompliancepolicysettingstate]'},
         'state': {'key': 'state', 'type': 'str'},
         'version': {'key': 'version', 'type': 'int'},
     }
@@ -2673,14 +2643,14 @@ class MicrosoftGraphDeviceCompliancePolicyState(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        platform_type: Optional[Union[str, "MicrosoftGraphPolicyPlatformType"]] = None,
+        platform_type: Optional[Union[str, "Microsoftgraphpolicyplatformtype"]] = None,
         setting_count: Optional[int] = None,
-        setting_states: Optional[List["MicrosoftGraphDeviceCompliancePolicySettingState"]] = None,
-        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
+        setting_states: Optional[List["microsoftgraphdevicecompliancepolicysettingstate"]] = None,
+        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
         version: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceCompliancePolicyState, self).__init__(id=id, **kwargs)
+        super(microsoftgraphdevicecompliancepolicystate, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.platform_type = platform_type
@@ -2690,7 +2660,7 @@ class MicrosoftGraphDeviceCompliancePolicyState(MicrosoftGraphEntity):
         self.version = version
 
 
-class MicrosoftGraphDeviceConfigurationSettingState(msrest.serialization.Model):
+class microsoftgraphdeviceconfigurationsettingstate(msrest.serialization.Model):
     """Device Configuration Setting State for a given device.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2709,10 +2679,10 @@ class MicrosoftGraphDeviceConfigurationSettingState(msrest.serialization.Model):
     :param setting_name: Localized/user friendly setting name that is being reported.
     :type setting_name: str
     :param sources: Contributing policies.
-    :type sources: list[~devices_corporate_management.models.MicrosoftGraphSettingSource]
+    :type sources: list[~devices_corporate_management.models.microsoftgraphsettingsource]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~devices_corporate_management.models.MicrosoftGraphComplianceStatus
+    :type state: str or ~devices_corporate_management.models.Microsoftgraphcompliancestatus
     :param user_email: UserEmail.
     :type user_email: str
     :param user_id: UserId.
@@ -2731,7 +2701,7 @@ class MicrosoftGraphDeviceConfigurationSettingState(msrest.serialization.Model):
         'instance_display_name': {'key': 'instanceDisplayName', 'type': 'str'},
         'setting': {'key': 'setting', 'type': 'str'},
         'setting_name': {'key': 'settingName', 'type': 'str'},
-        'sources': {'key': 'sources', 'type': '[MicrosoftGraphSettingSource]'},
+        'sources': {'key': 'sources', 'type': '[microsoftgraphsettingsource]'},
         'state': {'key': 'state', 'type': 'str'},
         'user_email': {'key': 'userEmail', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
@@ -2749,15 +2719,15 @@ class MicrosoftGraphDeviceConfigurationSettingState(msrest.serialization.Model):
         instance_display_name: Optional[str] = None,
         setting: Optional[str] = None,
         setting_name: Optional[str] = None,
-        sources: Optional[List["MicrosoftGraphSettingSource"]] = None,
-        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
+        sources: Optional[List["microsoftgraphsettingsource"]] = None,
+        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
         user_email: Optional[str] = None,
         user_id: Optional[str] = None,
         user_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceConfigurationSettingState, self).__init__(**kwargs)
+        super(microsoftgraphdeviceconfigurationsettingstate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.current_value = current_value
         self.error_code = error_code
@@ -2773,7 +2743,7 @@ class MicrosoftGraphDeviceConfigurationSettingState(msrest.serialization.Model):
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphDeviceConfigurationState(MicrosoftGraphEntity):
+class microsoftgraphdeviceconfigurationstate(microsoftgraphentity):
     """Device Configuration State for a given device.
 
     :param id: Read-only.
@@ -2786,15 +2756,15 @@ class MicrosoftGraphDeviceConfigurationState(MicrosoftGraphEntity):
     :param platform_type:  Possible values include: "android", "iOS", "macOS", "windowsPhone81",
      "windows81AndLater", "windows10AndLater", "androidWorkProfile", "all".
     :type platform_type: str or
-     ~devices_corporate_management.models.MicrosoftGraphPolicyPlatformType
+     ~devices_corporate_management.models.Microsoftgraphpolicyplatformtype
     :param setting_count: Count of how many setting a policy holds.
     :type setting_count: int
     :param setting_states:
     :type setting_states:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceConfigurationSettingState]
+     list[~devices_corporate_management.models.microsoftgraphdeviceconfigurationsettingstate]
     :param state:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type state: str or ~devices_corporate_management.models.MicrosoftGraphComplianceStatus
+    :type state: str or ~devices_corporate_management.models.Microsoftgraphcompliancestatus
     :param version: The version of the policy.
     :type version: int
     """
@@ -2810,7 +2780,7 @@ class MicrosoftGraphDeviceConfigurationState(MicrosoftGraphEntity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'platform_type': {'key': 'platformType', 'type': 'str'},
         'setting_count': {'key': 'settingCount', 'type': 'int'},
-        'setting_states': {'key': 'settingStates', 'type': '[MicrosoftGraphDeviceConfigurationSettingState]'},
+        'setting_states': {'key': 'settingStates', 'type': '[microsoftgraphdeviceconfigurationsettingstate]'},
         'state': {'key': 'state', 'type': 'str'},
         'version': {'key': 'version', 'type': 'int'},
     }
@@ -2821,14 +2791,14 @@ class MicrosoftGraphDeviceConfigurationState(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        platform_type: Optional[Union[str, "MicrosoftGraphPolicyPlatformType"]] = None,
+        platform_type: Optional[Union[str, "Microsoftgraphpolicyplatformtype"]] = None,
         setting_count: Optional[int] = None,
-        setting_states: Optional[List["MicrosoftGraphDeviceConfigurationSettingState"]] = None,
-        state: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
+        setting_states: Optional[List["microsoftgraphdeviceconfigurationsettingstate"]] = None,
+        state: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
         version: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceConfigurationState, self).__init__(id=id, **kwargs)
+        super(microsoftgraphdeviceconfigurationstate, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.platform_type = platform_type
@@ -2838,7 +2808,7 @@ class MicrosoftGraphDeviceConfigurationState(MicrosoftGraphEntity):
         self.version = version
 
 
-class MicrosoftGraphDeviceHealthAttestationState(msrest.serialization.Model):
+class microsoftgraphdevicehealthattestationstate(msrest.serialization.Model):
     """deviceHealthAttestationState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3002,7 +2972,7 @@ class MicrosoftGraphDeviceHealthAttestationState(msrest.serialization.Model):
         windows_pe: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceHealthAttestationState, self).__init__(**kwargs)
+        super(microsoftgraphdevicehealthattestationstate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.attestation_identity_key = attestation_identity_key
         self.bit_locker_status = bit_locker_status
@@ -3038,7 +3008,7 @@ class MicrosoftGraphDeviceHealthAttestationState(msrest.serialization.Model):
         self.windows_pe = windows_pe
 
 
-class MicrosoftGraphDeviceInstallState(MicrosoftGraphEntity):
+class microsoftgraphdeviceinstallstate(microsoftgraphentity):
     """Contains properties for the installation state for a device.
 
     :param id: Read-only.
@@ -3054,7 +3024,7 @@ class MicrosoftGraphDeviceInstallState(MicrosoftGraphEntity):
     :type error_code: str
     :param install_state:  Possible values include: "notApplicable", "installed", "failed",
      "notInstalled", "uninstallFailed", "unknown".
-    :type install_state: str or ~devices_corporate_management.models.MicrosoftGraphInstallState
+    :type install_state: str or ~devices_corporate_management.models.Microsoftgraphinstallstate
     :param last_sync_date_time: Last sync date and time.
     :type last_sync_date_time: ~datetime.datetime
     :param os_description: OS Description.
@@ -3086,14 +3056,14 @@ class MicrosoftGraphDeviceInstallState(MicrosoftGraphEntity):
         device_id: Optional[str] = None,
         device_name: Optional[str] = None,
         error_code: Optional[str] = None,
-        install_state: Optional[Union[str, "MicrosoftGraphInstallState"]] = None,
+        install_state: Optional[Union[str, "Microsoftgraphinstallstate"]] = None,
         last_sync_date_time: Optional[datetime.datetime] = None,
         os_description: Optional[str] = None,
         os_version: Optional[str] = None,
         user_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceInstallState, self).__init__(id=id, **kwargs)
+        super(microsoftgraphdeviceinstallstate, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.device_id = device_id
         self.device_name = device_name
@@ -3105,7 +3075,7 @@ class MicrosoftGraphDeviceInstallState(MicrosoftGraphEntity):
         self.user_name = user_name
 
 
-class MicrosoftGraphDeviceManagementTroubleshootingEvent(MicrosoftGraphEntity):
+class microsoftgraphdevicemanagementtroubleshootingevent(microsoftgraphentity):
     """Event representing an general failure.
 
     :param id: Read-only.
@@ -3135,13 +3105,13 @@ class MicrosoftGraphDeviceManagementTroubleshootingEvent(MicrosoftGraphEntity):
         event_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceManagementTroubleshootingEvent, self).__init__(id=id, **kwargs)
+        super(microsoftgraphdevicemanagementtroubleshootingevent, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.correlation_id = correlation_id
         self.event_date_time = event_date_time
 
 
-class MicrosoftGraphEBookInstallSummary(MicrosoftGraphEntity):
+class microsoftgraphebookinstallsummary(microsoftgraphentity):
     """Contains properties for the installation summary of a book for a device.
 
     :param id: Read-only.
@@ -3198,7 +3168,7 @@ class MicrosoftGraphEBookInstallSummary(MicrosoftGraphEntity):
         not_installed_user_count: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphEBookInstallSummary, self).__init__(id=id, **kwargs)
+        super(microsoftgraphebookinstallsummary, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.failed_device_count = failed_device_count
         self.failed_user_count = failed_user_count
@@ -3208,12 +3178,9 @@ class MicrosoftGraphEBookInstallSummary(MicrosoftGraphEntity):
         self.not_installed_user_count = not_installed_user_count
 
 
-class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProtection):
+class microsoftgraphiosmanagedappprotection(microsoftgraphtargetedmanagedappprotection):
     """Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -3226,25 +3193,22 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :type last_modified_date_time: ~datetime.datetime
     :param version: Version of the entity.
     :type version: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataStorageLocation]
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatastoragelocation]
     :param allowed_inbound_data_transfer_sources:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_inbound_data_transfer_sources: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param allowed_outbound_clipboard_sharing_level:  Possible values include: "allApps",
      "managedAppsWithPasteIn", "managedApps", "blocked".
     :type allowed_outbound_clipboard_sharing_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppClipboardSharingLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappclipboardsharinglevel
     :param allowed_outbound_data_transfer_destinations:  Possible values include: "allApps",
      "managedApps", "none".
     :type allowed_outbound_data_transfer_destinations: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataTransferLevel
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdatatransferlevel
     :param contact_sync_blocked: Indicates whether contacts can be synced to the user's device.
     :type contact_sync_blocked: bool
     :param data_backup_blocked: Indicates whether the backup of a managed app's data is blocked.
@@ -3259,7 +3223,7 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :type fingerprint_blocked: bool
     :param managed_browser:  Possible values include: "notConfigured", "microsoftEdge".
     :type managed_browser: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedBrowserType
+     ~devices_corporate_management.models.Microsoftgraphmanagedbrowsertype
     :param managed_browser_to_open_links_required: Indicates whether internet links should be
      opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol
      (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android).
@@ -3299,7 +3263,7 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :type period_online_before_access_check: ~datetime.timedelta
     :param pin_character_set:  Possible values include: "numeric", "alphanumericAndSymbol".
     :type pin_character_set: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPinCharacterSet
+     ~devices_corporate_management.models.Microsoftgraphmanagedapppincharacterset
     :param pin_required: Indicates whether an app-level pin is required.
     :type pin_required: bool
     :param print_blocked: Indicates whether printing is allowed from managed apps.
@@ -3314,14 +3278,14 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :param assignments: Navigation property to list of inclusion and exclusion groups to which the
      policy is deployed.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param app_data_encryption_type:  Possible values include: "useDeviceSettings",
      "afterDeviceRestart", "whenDeviceLockedExceptOpenFiles", "whenDeviceLocked".
     :type app_data_encryption_type: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppDataEncryptionType
+     ~devices_corporate_management.models.Microsoftgraphmanagedappdataencryptiontype
     :param custom_browser_protocol: A custom browser protocol to open weblink on iOS. When this
      property is configured, ManagedBrowserToOpenLinksRequired should be true.
     :type custom_browser_protocol: str
@@ -3334,11 +3298,11 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
      managed app from accessing company data.
     :type minimum_required_sdk_version: str
     :param apps: List of apps to which the policy is deployed.
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
      types under app management workflow.
     :type deployment_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
+     ~devices_corporate_management.models.microsoftgraphmanagedapppolicydeploymentsummary
     """
 
     _validation = {
@@ -3348,14 +3312,12 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_data_storage_locations': {'key': 'allowedDataStorageLocations', 'type': '[str]'},
         'allowed_inbound_data_transfer_sources': {'key': 'allowedInboundDataTransferSources', 'type': 'str'},
         'allowed_outbound_clipboard_sharing_level': {'key': 'allowedOutboundClipboardSharingLevel', 'type': 'str'},
@@ -3384,38 +3346,36 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         'save_as_blocked': {'key': 'saveAsBlocked', 'type': 'bool'},
         'simple_pin_blocked': {'key': 'simplePinBlocked', 'type': 'bool'},
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'app_data_encryption_type': {'key': 'appDataEncryptionType', 'type': 'str'},
         'custom_browser_protocol': {'key': 'customBrowserProtocol', 'type': 'str'},
         'deployed_app_count': {'key': 'deployedAppCount', 'type': 'int'},
         'face_id_blocked': {'key': 'faceIdBlocked', 'type': 'bool'},
         'minimum_required_sdk_version': {'key': 'minimumRequiredSdkVersion', 'type': 'str'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'microsoftgraphmanagedapppolicydeploymentsummary'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
-        allowed_data_storage_locations: Optional[List[Union[str, "MicrosoftGraphManagedAppDataStorageLocation"]]] = None,
-        allowed_inbound_data_transfer_sources: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
-        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "MicrosoftGraphManagedAppClipboardSharingLevel"]] = None,
-        allowed_outbound_data_transfer_destinations: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
+        allowed_data_storage_locations: Optional[List[Union[str, "Microsoftgraphmanagedappdatastoragelocation"]]] = None,
+        allowed_inbound_data_transfer_sources: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
+        allowed_outbound_clipboard_sharing_level: Optional[Union[str, "Microsoftgraphmanagedappclipboardsharinglevel"]] = None,
+        allowed_outbound_data_transfer_destinations: Optional[Union[str, "Microsoftgraphmanagedappdatatransferlevel"]] = None,
         contact_sync_blocked: Optional[bool] = None,
         data_backup_blocked: Optional[bool] = None,
         device_compliance_required: Optional[bool] = None,
         disable_app_pin_if_device_pin_is_set: Optional[bool] = None,
         fingerprint_blocked: Optional[bool] = None,
-        managed_browser: Optional[Union[str, "MicrosoftGraphManagedBrowserType"]] = None,
+        managed_browser: Optional[Union[str, "Microsoftgraphmanagedbrowsertype"]] = None,
         managed_browser_to_open_links_required: Optional[bool] = None,
         maximum_pin_retries: Optional[int] = None,
         minimum_pin_length: Optional[int] = None,
@@ -3428,26 +3388,24 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         period_offline_before_access_check: Optional[datetime.timedelta] = None,
         period_offline_before_wipe_is_enforced: Optional[datetime.timedelta] = None,
         period_online_before_access_check: Optional[datetime.timedelta] = None,
-        pin_character_set: Optional[Union[str, "MicrosoftGraphManagedAppPinCharacterSet"]] = None,
+        pin_character_set: Optional[Union[str, "Microsoftgraphmanagedapppincharacterset"]] = None,
         pin_required: Optional[bool] = None,
         print_blocked: Optional[bool] = None,
         save_as_blocked: Optional[bool] = None,
         simple_pin_blocked: Optional[bool] = None,
         is_assigned: Optional[bool] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        app_data_encryption_type: Optional[Union[str, "MicrosoftGraphManagedAppDataEncryptionType"]] = None,
+        app_data_encryption_type: Optional[Union[str, "Microsoftgraphmanagedappdataencryptiontype"]] = None,
         custom_browser_protocol: Optional[str] = None,
         deployed_app_count: Optional[int] = None,
         face_id_blocked: Optional[bool] = None,
         minimum_required_sdk_version: Optional[str] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
-        deployment_summary: Optional["MicrosoftGraphManagedAppPolicyDeploymentSummary"] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
+        deployment_summary: Optional["microsoftgraphmanagedapppolicydeploymentsummary"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphIosManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, **kwargs)
-        self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
+        super(microsoftgraphiosmanagedappprotection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, **kwargs)
         self.additional_properties = additional_properties
         self.app_data_encryption_type = app_data_encryption_type
         self.custom_browser_protocol = custom_browser_protocol
@@ -3458,7 +3416,7 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         self.deployment_summary = deployment_summary
 
 
-class MicrosoftGraphKeyValuePair(msrest.serialization.Model):
+class microsoftgraphkeyvaluepair(msrest.serialization.Model):
     """Key value pair for storing custom settings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3484,18 +3442,15 @@ class MicrosoftGraphKeyValuePair(msrest.serialization.Model):
         value: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphKeyValuePair, self).__init__(**kwargs)
+        super(microsoftgraphkeyvaluepair, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.name = name
         self.value = value
 
 
-class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
+class microsoftgraphmanagedappconfiguration(microsoftgraphmanagedapppolicy):
     """Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -3513,11 +3468,10 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
     :type additional_properties: dict[str, object]
     :param custom_settings: A set of string key and string value pairs to be sent to apps for users
      to whom the configuration is scoped, unalterned by this service.
-    :type custom_settings: list[~devices_corporate_management.models.MicrosoftGraphKeyValuePair]
+    :type custom_settings: list[~devices_corporate_management.models.microsoftgraphkeyvaluepair]
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -3525,13 +3479,12 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'custom_settings': {'key': 'customSettings', 'type': '[MicrosoftGraphKeyValuePair]'},
+        'custom_settings': {'key': 'customSettings', 'type': '[microsoftgraphkeyvaluepair]'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -3539,16 +3492,15 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        custom_settings: Optional[List["MicrosoftGraphKeyValuePair"]] = None,
+        custom_settings: Optional[List["microsoftgraphkeyvaluepair"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppConfiguration, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphmanagedappconfiguration, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
         self.additional_properties = additional_properties
         self.custom_settings = custom_settings
 
 
-class MicrosoftGraphManagedAppOperation(MicrosoftGraphEntity):
+class microsoftgraphmanagedappoperation(microsoftgraphentity):
     """Represents an operation applied against an app registration.
 
     :param id: Read-only.
@@ -3586,7 +3538,7 @@ class MicrosoftGraphManagedAppOperation(MicrosoftGraphEntity):
         version: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppOperation, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedappoperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.last_modified_date_time = last_modified_date_time
@@ -3594,7 +3546,7 @@ class MicrosoftGraphManagedAppOperation(MicrosoftGraphEntity):
         self.version = version
 
 
-class MicrosoftGraphManagedAppPolicyDeploymentSummary(MicrosoftGraphEntity):
+class microsoftgraphmanagedapppolicydeploymentsummary(microsoftgraphentity):
     """The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
 
     :param id: Read-only.
@@ -3606,7 +3558,7 @@ class MicrosoftGraphManagedAppPolicyDeploymentSummary(MicrosoftGraphEntity):
     :type configuration_deployed_user_count: int
     :param configuration_deployment_summary_per_app: Not yet documented.
     :type configuration_deployment_summary_per_app:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
+     list[~devices_corporate_management.models.microsoftgraphmanagedapppolicydeploymentsummaryperapp]
     :param display_name: Not yet documented.
     :type display_name: str
     :param last_refresh_time: Not yet documented.
@@ -3623,7 +3575,7 @@ class MicrosoftGraphManagedAppPolicyDeploymentSummary(MicrosoftGraphEntity):
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'configuration_deployed_user_count': {'key': 'configurationDeployedUserCount', 'type': 'int'},
-        'configuration_deployment_summary_per_app': {'key': 'configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
+        'configuration_deployment_summary_per_app': {'key': 'configurationDeploymentSummaryPerApp', 'type': '[microsoftgraphmanagedapppolicydeploymentsummaryperapp]'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_refresh_time': {'key': 'lastRefreshTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
@@ -3635,13 +3587,13 @@ class MicrosoftGraphManagedAppPolicyDeploymentSummary(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         configuration_deployed_user_count: Optional[int] = None,
-        configuration_deployment_summary_per_app: Optional[List["MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]] = None,
+        configuration_deployment_summary_per_app: Optional[List["microsoftgraphmanagedapppolicydeploymentsummaryperapp"]] = None,
         display_name: Optional[str] = None,
         last_refresh_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppPolicyDeploymentSummary, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedapppolicydeploymentsummary, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.configuration_deployed_user_count = configuration_deployed_user_count
         self.configuration_deployment_summary_per_app = configuration_deployment_summary_per_app
@@ -3650,7 +3602,7 @@ class MicrosoftGraphManagedAppPolicyDeploymentSummary(MicrosoftGraphEntity):
         self.version = version
 
 
-class MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp(msrest.serialization.Model):
+class microsoftgraphmanagedapppolicydeploymentsummaryperapp(msrest.serialization.Model):
     """Represents policy deployment summary per app.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3680,13 +3632,13 @@ class MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp(msrest.serialization
         mobile_app_identifier: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp, self).__init__(**kwargs)
+        super(microsoftgraphmanagedapppolicydeploymentsummaryperapp, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.configuration_applied_user_count = configuration_applied_user_count
         self.mobile_app_identifier = mobile_app_identifier
 
 
-class MicrosoftGraphManagedAppRegistration(MicrosoftGraphEntity):
+class microsoftgraphmanagedappregistration(microsoftgraphentity):
     """The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
 
     :param id: Read-only.
@@ -3710,7 +3662,7 @@ class MicrosoftGraphManagedAppRegistration(MicrosoftGraphEntity):
     :param flagged_reasons: Zero or more reasons an app registration is flagged. E.g. app running
      on rooted device.
     :type flagged_reasons: list[str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedAppFlaggedReason]
+     ~devices_corporate_management.models.Microsoftgraphmanagedappflaggedreason]
     :param last_sync_date_time: Date and time of last the app synced with management service.
     :type last_sync_date_time: ~datetime.datetime
     :param management_sdk_version: App management SDK version.
@@ -3724,12 +3676,12 @@ class MicrosoftGraphManagedAppRegistration(MicrosoftGraphEntity):
     :param applied_policies: Zero or more policys already applied on the registered app when it
      last synchronized with managment service.
     :type applied_policies:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicy]
+     list[~devices_corporate_management.models.microsoftgraphmanagedapppolicy]
     :param intended_policies: Zero or more policies admin intended for the app as of now.
     :type intended_policies:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicy]
+     list[~devices_corporate_management.models.microsoftgraphmanagedapppolicy]
     :param operations: Zero or more long running operations triggered on the app registration.
-    :type operations: list[~devices_corporate_management.models.MicrosoftGraphManagedAppOperation]
+    :type operations: list[~devices_corporate_management.models.microsoftgraphmanagedappoperation]
     """
 
     _attribute_map = {
@@ -3747,9 +3699,9 @@ class MicrosoftGraphManagedAppRegistration(MicrosoftGraphEntity):
         'platform_version': {'key': 'platformVersion', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'version': {'key': 'version', 'type': 'str'},
-        'applied_policies': {'key': 'appliedPolicies', 'type': '[MicrosoftGraphManagedAppPolicy]'},
-        'intended_policies': {'key': 'intendedPolicies', 'type': '[MicrosoftGraphManagedAppPolicy]'},
-        'operations': {'key': 'operations', 'type': '[MicrosoftGraphManagedAppOperation]'},
+        'applied_policies': {'key': 'appliedPolicies', 'type': '[microsoftgraphmanagedapppolicy]'},
+        'intended_policies': {'key': 'intendedPolicies', 'type': '[microsoftgraphmanagedapppolicy]'},
+        'operations': {'key': 'operations', 'type': '[microsoftgraphmanagedappoperation]'},
     }
 
     def __init__(
@@ -3763,18 +3715,18 @@ class MicrosoftGraphManagedAppRegistration(MicrosoftGraphEntity):
         device_name: Optional[str] = None,
         device_tag: Optional[str] = None,
         device_type: Optional[str] = None,
-        flagged_reasons: Optional[List[Union[str, "MicrosoftGraphManagedAppFlaggedReason"]]] = None,
+        flagged_reasons: Optional[List[Union[str, "Microsoftgraphmanagedappflaggedreason"]]] = None,
         last_sync_date_time: Optional[datetime.datetime] = None,
         management_sdk_version: Optional[str] = None,
         platform_version: Optional[str] = None,
         user_id: Optional[str] = None,
         version: Optional[str] = None,
-        applied_policies: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
-        intended_policies: Optional[List["MicrosoftGraphManagedAppPolicy"]] = None,
-        operations: Optional[List["MicrosoftGraphManagedAppOperation"]] = None,
+        applied_policies: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
+        intended_policies: Optional[List["microsoftgraphmanagedapppolicy"]] = None,
+        operations: Optional[List["microsoftgraphmanagedappoperation"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppRegistration, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedappregistration, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.app_identifier = app_identifier
         self.application_version = application_version
@@ -3793,7 +3745,7 @@ class MicrosoftGraphManagedAppRegistration(MicrosoftGraphEntity):
         self.operations = operations
 
 
-class MicrosoftGraphManagedAppStatus(MicrosoftGraphEntity):
+class microsoftgraphmanagedappstatus(microsoftgraphentity):
     """Represents app protection and configuration status for the organization.
 
     :param id: Read-only.
@@ -3823,13 +3775,13 @@ class MicrosoftGraphManagedAppStatus(MicrosoftGraphEntity):
         version: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedAppStatus, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedappstatus, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.version = version
 
 
-class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
+class microsoftgraphmanageddevice(microsoftgraphentity):
     """Devices that are managed or pre-enrolled through Intune.
 
     :param id: Read-only.
@@ -3853,14 +3805,14 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
     :param compliance_state:  Possible values include: "unknown", "compliant", "noncompliant",
      "conflict", "error", "inGracePeriod", "configManager".
     :type compliance_state: str or
-     ~devices_corporate_management.models.MicrosoftGraphComplianceState
+     ~devices_corporate_management.models.Microsoftgraphcompliancestate
     :param configuration_manager_client_enabled_features: configuration Manager client enabled
      features.
     :type configuration_manager_client_enabled_features:
-     ~devices_corporate_management.models.MicrosoftGraphConfigurationManagerClientEnabledFeatures
+     ~devices_corporate_management.models.microsoftgraphconfigurationmanagerclientenabledfeatures
     :param device_action_results: List of ComplexType deviceActionResult objects.
     :type device_action_results:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceActionResult]
+     list[~devices_corporate_management.models.microsoftgraphdeviceactionresult]
     :param device_category_display_name: Device category display name.
     :type device_category_display_name: str
     :param device_enrollment_type:  Possible values include: "unknown", "userEnrollment",
@@ -3868,17 +3820,17 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
      "windowsBulkUserless", "windowsAutoEnrollment", "windowsBulkAzureDomainJoin",
      "windowsCoManagement".
     :type device_enrollment_type: str or
-     ~devices_corporate_management.models.MicrosoftGraphDeviceEnrollmentType
+     ~devices_corporate_management.models.Microsoftgraphdeviceenrollmenttype
     :param device_health_attestation_state: deviceHealthAttestationState.
     :type device_health_attestation_state:
-     ~devices_corporate_management.models.MicrosoftGraphDeviceHealthAttestationState
+     ~devices_corporate_management.models.microsoftgraphdevicehealthattestationstate
     :param device_name: Name of the device.
     :type device_name: str
     :param device_registration_state:  Possible values include: "notRegistered", "registered",
      "revoked", "keyConflict", "approvalPending", "certificateReset",
      "notRegisteredPendingEnrollment", "unknown".
     :type device_registration_state: str or
-     ~devices_corporate_management.models.MicrosoftGraphDeviceRegistrationState
+     ~devices_corporate_management.models.Microsoftgraphdeviceregistrationstate
     :param eas_activated: Whether the device is Exchange ActiveSync activated.
     :type eas_activated: bool
     :param eas_activation_date_time: Exchange ActivationSync activation time of the device.
@@ -3892,14 +3844,14 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
     :param exchange_access_state:  Possible values include: "none", "unknown", "allowed",
      "blocked", "quarantined".
     :type exchange_access_state: str or
-     ~devices_corporate_management.models.MicrosoftGraphDeviceManagementExchangeAccessState
+     ~devices_corporate_management.models.Microsoftgraphdevicemanagementexchangeaccessstate
     :param exchange_access_state_reason:  Possible values include: "none", "unknown",
      "exchangeGlobalRule", "exchangeIndividualRule", "exchangeDeviceRule", "exchangeUpgrade",
      "exchangeMailboxPolicy", "other", "compliant", "notCompliant", "notEnrolled",
      "unknownLocation", "mfaRequired", "azureADBlockDueToAccessPolicy", "compromisedPassword",
      "deviceNotKnownWithManagedApp".
     :type exchange_access_state_reason: str or
-     ~devices_corporate_management.models.MicrosoftGraphDeviceManagementExchangeAccessStateReason
+     ~devices_corporate_management.models.Microsoftgraphdevicemanagementexchangeaccessstatereason
     :param exchange_last_successful_sync_date_time: Last time the device contacted Exchange.
     :type exchange_last_successful_sync_date_time: ~datetime.datetime
     :param free_storage_space_in_bytes: Free Storage in Bytes.
@@ -3920,12 +3872,12 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
     :type managed_device_name: str
     :param managed_device_owner_type:  Possible values include: "unknown", "company", "personal".
     :type managed_device_owner_type: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedDeviceOwnerType
+     ~devices_corporate_management.models.Microsoftgraphmanageddeviceownertype
     :param management_agent:  Possible values include: "eas", "mdm", "easMdm", "intuneClient",
      "easIntuneClient", "configurationManagerClient", "configurationManagerClientMdm",
      "configurationManagerClientMdmEas", "unknown", "jamf", "googleCloudDevicePolicyController".
     :type management_agent: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagementAgentType
+     ~devices_corporate_management.models.Microsoftgraphmanagementagenttype
     :param manufacturer: Manufacturer of the device.
     :type manufacturer: str
     :param meid: MEID.
@@ -3940,7 +3892,7 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
      "deactivated", "secured", "lowSeverity", "mediumSeverity", "highSeverity", "unresponsive",
      "compromised", "misconfigured".
     :type partner_reported_threat_state: str or
-     ~devices_corporate_management.models.MicrosoftGraphManagedDevicePartnerReportedHealthState
+     ~devices_corporate_management.models.Microsoftgraphmanageddevicepartnerreportedhealthstate
     :param phone_number: Phone number of the device.
     :type phone_number: str
     :param remote_assistance_session_error_details: An error string that identifies issues when
@@ -3965,16 +3917,16 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
     :type wi_fi_mac_address: str
     :param device_compliance_policy_states: Device compliance policy states for this device.
     :type device_compliance_policy_states:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceCompliancePolicyState]
+     list[~devices_corporate_management.models.microsoftgraphdevicecompliancepolicystate]
     :param device_configuration_states: Device configuration states for this device.
     :type device_configuration_states:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceConfigurationState]
+     list[~devices_corporate_management.models.microsoftgraphdeviceconfigurationstate]
     :param device_category: Device categories provides a way to organize your devices. Using device
      categories, company administrators can define their own categories that make sense to their
      company. These categories can then be applied to a device in the Intune Azure console or
      selected by a user during device enrollment. You can filter reports and create dynamic Azure
      Active Directory device groups based on device categories.
-    :type device_category: ~devices_corporate_management.models.MicrosoftGraphDeviceCategory
+    :type device_category: ~devices_corporate_management.models.microsoftgraphdevicecategory
     """
 
     _attribute_map = {
@@ -3986,11 +3938,11 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
         'azure_ad_registered': {'key': 'azureADRegistered', 'type': 'bool'},
         'compliance_grace_period_expiration_date_time': {'key': 'complianceGracePeriodExpirationDateTime', 'type': 'iso-8601'},
         'compliance_state': {'key': 'complianceState', 'type': 'str'},
-        'configuration_manager_client_enabled_features': {'key': 'configurationManagerClientEnabledFeatures', 'type': 'MicrosoftGraphConfigurationManagerClientEnabledFeatures'},
-        'device_action_results': {'key': 'deviceActionResults', 'type': '[MicrosoftGraphDeviceActionResult]'},
+        'configuration_manager_client_enabled_features': {'key': 'configurationManagerClientEnabledFeatures', 'type': 'microsoftgraphconfigurationmanagerclientenabledfeatures'},
+        'device_action_results': {'key': 'deviceActionResults', 'type': '[microsoftgraphdeviceactionresult]'},
         'device_category_display_name': {'key': 'deviceCategoryDisplayName', 'type': 'str'},
         'device_enrollment_type': {'key': 'deviceEnrollmentType', 'type': 'str'},
-        'device_health_attestation_state': {'key': 'deviceHealthAttestationState', 'type': 'MicrosoftGraphDeviceHealthAttestationState'},
+        'device_health_attestation_state': {'key': 'deviceHealthAttestationState', 'type': 'microsoftgraphdevicehealthattestationstate'},
         'device_name': {'key': 'deviceName', 'type': 'str'},
         'device_registration_state': {'key': 'deviceRegistrationState', 'type': 'str'},
         'eas_activated': {'key': 'easActivated', 'type': 'bool'},
@@ -4026,9 +3978,9 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
         'wi_fi_mac_address': {'key': 'wiFiMacAddress', 'type': 'str'},
-        'device_compliance_policy_states': {'key': 'deviceCompliancePolicyStates', 'type': '[MicrosoftGraphDeviceCompliancePolicyState]'},
-        'device_configuration_states': {'key': 'deviceConfigurationStates', 'type': '[MicrosoftGraphDeviceConfigurationState]'},
-        'device_category': {'key': 'deviceCategory', 'type': 'MicrosoftGraphDeviceCategory'},
+        'device_compliance_policy_states': {'key': 'deviceCompliancePolicyStates', 'type': '[microsoftgraphdevicecompliancepolicystate]'},
+        'device_configuration_states': {'key': 'deviceConfigurationStates', 'type': '[microsoftgraphdeviceconfigurationstate]'},
+        'device_category': {'key': 'deviceCategory', 'type': 'microsoftgraphdevicecategory'},
     }
 
     def __init__(
@@ -4041,21 +3993,21 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
         azure_ad_device_id: Optional[str] = None,
         azure_ad_registered: Optional[bool] = None,
         compliance_grace_period_expiration_date_time: Optional[datetime.datetime] = None,
-        compliance_state: Optional[Union[str, "MicrosoftGraphComplianceState"]] = None,
-        configuration_manager_client_enabled_features: Optional["MicrosoftGraphConfigurationManagerClientEnabledFeatures"] = None,
-        device_action_results: Optional[List["MicrosoftGraphDeviceActionResult"]] = None,
+        compliance_state: Optional[Union[str, "Microsoftgraphcompliancestate"]] = None,
+        configuration_manager_client_enabled_features: Optional["microsoftgraphconfigurationmanagerclientenabledfeatures"] = None,
+        device_action_results: Optional[List["microsoftgraphdeviceactionresult"]] = None,
         device_category_display_name: Optional[str] = None,
-        device_enrollment_type: Optional[Union[str, "MicrosoftGraphDeviceEnrollmentType"]] = None,
-        device_health_attestation_state: Optional["MicrosoftGraphDeviceHealthAttestationState"] = None,
+        device_enrollment_type: Optional[Union[str, "Microsoftgraphdeviceenrollmenttype"]] = None,
+        device_health_attestation_state: Optional["microsoftgraphdevicehealthattestationstate"] = None,
         device_name: Optional[str] = None,
-        device_registration_state: Optional[Union[str, "MicrosoftGraphDeviceRegistrationState"]] = None,
+        device_registration_state: Optional[Union[str, "Microsoftgraphdeviceregistrationstate"]] = None,
         eas_activated: Optional[bool] = None,
         eas_activation_date_time: Optional[datetime.datetime] = None,
         eas_device_id: Optional[str] = None,
         email_address: Optional[str] = None,
         enrolled_date_time: Optional[datetime.datetime] = None,
-        exchange_access_state: Optional[Union[str, "MicrosoftGraphDeviceManagementExchangeAccessState"]] = None,
-        exchange_access_state_reason: Optional[Union[str, "MicrosoftGraphDeviceManagementExchangeAccessStateReason"]] = None,
+        exchange_access_state: Optional[Union[str, "Microsoftgraphdevicemanagementexchangeaccessstate"]] = None,
+        exchange_access_state_reason: Optional[Union[str, "Microsoftgraphdevicemanagementexchangeaccessstatereason"]] = None,
         exchange_last_successful_sync_date_time: Optional[datetime.datetime] = None,
         free_storage_space_in_bytes: Optional[int] = None,
         imei: Optional[str] = None,
@@ -4064,14 +4016,14 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
         jail_broken: Optional[str] = None,
         last_sync_date_time: Optional[datetime.datetime] = None,
         managed_device_name: Optional[str] = None,
-        managed_device_owner_type: Optional[Union[str, "MicrosoftGraphManagedDeviceOwnerType"]] = None,
-        management_agent: Optional[Union[str, "MicrosoftGraphManagementAgentType"]] = None,
+        managed_device_owner_type: Optional[Union[str, "Microsoftgraphmanageddeviceownertype"]] = None,
+        management_agent: Optional[Union[str, "Microsoftgraphmanagementagenttype"]] = None,
         manufacturer: Optional[str] = None,
         meid: Optional[str] = None,
         model: Optional[str] = None,
         operating_system: Optional[str] = None,
         os_version: Optional[str] = None,
-        partner_reported_threat_state: Optional[Union[str, "MicrosoftGraphManagedDevicePartnerReportedHealthState"]] = None,
+        partner_reported_threat_state: Optional[Union[str, "Microsoftgraphmanageddevicepartnerreportedhealthstate"]] = None,
         phone_number: Optional[str] = None,
         remote_assistance_session_error_details: Optional[str] = None,
         remote_assistance_session_url: Optional[str] = None,
@@ -4082,12 +4034,12 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         wi_fi_mac_address: Optional[str] = None,
-        device_compliance_policy_states: Optional[List["MicrosoftGraphDeviceCompliancePolicyState"]] = None,
-        device_configuration_states: Optional[List["MicrosoftGraphDeviceConfigurationState"]] = None,
-        device_category: Optional["MicrosoftGraphDeviceCategory"] = None,
+        device_compliance_policy_states: Optional[List["microsoftgraphdevicecompliancepolicystate"]] = None,
+        device_configuration_states: Optional[List["microsoftgraphdeviceconfigurationstate"]] = None,
+        device_category: Optional["microsoftgraphdevicecategory"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedDevice, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanageddevice, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.activation_lock_bypass_code = activation_lock_bypass_code
         self.android_security_patch_level = android_security_patch_level
@@ -4140,7 +4092,7 @@ class MicrosoftGraphManagedDevice(MicrosoftGraphEntity):
         self.device_category = device_category
 
 
-class MicrosoftGraphManagedDeviceMobileAppConfiguration(MicrosoftGraphEntity):
+class microsoftgraphmanageddevicemobileappconfiguration(microsoftgraphentity):
     """An abstract class for Mobile app configuration for enrolled devices.
 
     :param id: Read-only.
@@ -4162,21 +4114,21 @@ class MicrosoftGraphManagedDeviceMobileAppConfiguration(MicrosoftGraphEntity):
     :type version: int
     :param assignments: The list of group assignemenets for app configration.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationassignment]
     :param device_statuses: List of ManagedDeviceMobileAppConfigurationDeviceStatus.
     :type device_statuses:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationdevicestatus]
     :param device_status_summary: Contains properties, inherited properties and actions for an MDM
      mobile app configuration device status summary.
     :type device_status_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary
+     ~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationdevicesummary
     :param user_statuses: List of ManagedDeviceMobileAppConfigurationUserStatus.
     :type user_statuses:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationuserstatus]
     :param user_status_summary: Contains properties, inherited properties and actions for an MDM
      mobile app configuration user status summary.
     :type user_status_summary:
-     ~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary
+     ~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationusersummary
     """
 
     _validation = {
@@ -4192,11 +4144,11 @@ class MicrosoftGraphManagedDeviceMobileAppConfiguration(MicrosoftGraphEntity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'targeted_mobile_apps': {'key': 'targetedMobileApps', 'type': '[str]'},
         'version': {'key': 'version', 'type': 'int'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment]'},
-        'device_statuses': {'key': 'deviceStatuses', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus]'},
-        'device_status_summary': {'key': 'deviceStatusSummary', 'type': 'MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary'},
-        'user_statuses': {'key': 'userStatuses', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus]'},
-        'user_status_summary': {'key': 'userStatusSummary', 'type': 'MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphmanageddevicemobileappconfigurationassignment]'},
+        'device_statuses': {'key': 'deviceStatuses', 'type': '[microsoftgraphmanageddevicemobileappconfigurationdevicestatus]'},
+        'device_status_summary': {'key': 'deviceStatusSummary', 'type': 'microsoftgraphmanageddevicemobileappconfigurationdevicesummary'},
+        'user_statuses': {'key': 'userStatuses', 'type': '[microsoftgraphmanageddevicemobileappconfigurationuserstatus]'},
+        'user_status_summary': {'key': 'userStatusSummary', 'type': 'microsoftgraphmanageddevicemobileappconfigurationusersummary'},
     }
 
     def __init__(
@@ -4210,14 +4162,14 @@ class MicrosoftGraphManagedDeviceMobileAppConfiguration(MicrosoftGraphEntity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         targeted_mobile_apps: Optional[List[str]] = None,
         version: Optional[int] = None,
-        assignments: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment"]] = None,
-        device_statuses: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus"]] = None,
-        device_status_summary: Optional["MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary"] = None,
-        user_statuses: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus"]] = None,
-        user_status_summary: Optional["MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary"] = None,
+        assignments: Optional[List["microsoftgraphmanageddevicemobileappconfigurationassignment"]] = None,
+        device_statuses: Optional[List["microsoftgraphmanageddevicemobileappconfigurationdevicestatus"]] = None,
+        device_status_summary: Optional["microsoftgraphmanageddevicemobileappconfigurationdevicesummary"] = None,
+        user_statuses: Optional[List["microsoftgraphmanageddevicemobileappconfigurationuserstatus"]] = None,
+        user_status_summary: Optional["microsoftgraphmanageddevicemobileappconfigurationusersummary"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedDeviceMobileAppConfiguration, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanageddevicemobileappconfiguration, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.description = description
@@ -4232,7 +4184,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfiguration(MicrosoftGraphEntity):
         self.user_status_summary = user_status_summary
 
 
-class MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment(MicrosoftGraphEntity):
+class microsoftgraphmanageddevicemobileappconfigurationassignment(microsoftgraphentity):
     """Contains the properties used to assign an MDM app configuration to a group.
 
     :param id: Read-only.
@@ -4258,12 +4210,12 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment(MicrosoftGraph
         target: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanageddevicemobileappconfigurationassignment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.target = target
 
 
-class MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(MicrosoftGraphEntity):
+class microsoftgraphmanageddevicemobileappconfigurationdevicestatus(microsoftgraphentity):
     """Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device.
 
     :param id: Read-only.
@@ -4282,7 +4234,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(MicrosoftGra
     :type last_reported_date_time: ~datetime.datetime
     :param status:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type status: str or ~devices_corporate_management.models.MicrosoftGraphComplianceStatus
+    :type status: str or ~devices_corporate_management.models.Microsoftgraphcompliancestatus
     :param user_name: The User Name that is being reported.
     :type user_name: str
     :param user_principal_name: UserPrincipalName.
@@ -4310,12 +4262,12 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(MicrosoftGra
         device_display_name: Optional[str] = None,
         device_model: Optional[str] = None,
         last_reported_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
+        status: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
         user_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanageddevicemobileappconfigurationdevicestatus, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.compliance_grace_period_expiration_date_time = compliance_grace_period_expiration_date_time
         self.device_display_name = device_display_name
@@ -4326,7 +4278,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(MicrosoftGra
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary(MicrosoftGraphEntity):
+class microsoftgraphmanageddevicemobileappconfigurationdevicesummary(microsoftgraphentity):
     """Contains properties, inherited properties and actions for an MDM mobile app configuration device status summary.
 
     :param id: Read-only.
@@ -4385,7 +4337,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary(MicrosoftGr
         success_count: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanageddevicemobileappconfigurationdevicesummary, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.configuration_version = configuration_version
         self.error_count = error_count
@@ -4396,7 +4348,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary(MicrosoftGr
         self.success_count = success_count
 
 
-class MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(MicrosoftGraphEntity):
+class microsoftgraphmanageddevicemobileappconfigurationuserstatus(microsoftgraphentity):
     """Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user.
 
     :param id: Read-only.
@@ -4410,7 +4362,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(MicrosoftGraph
     :type last_reported_date_time: ~datetime.datetime
     :param status:  Possible values include: "unknown", "notApplicable", "compliant", "remediated",
      "nonCompliant", "error", "conflict", "notAssigned".
-    :type status: str or ~devices_corporate_management.models.MicrosoftGraphComplianceStatus
+    :type status: str or ~devices_corporate_management.models.Microsoftgraphcompliancestatus
     :param user_display_name: User name of the DevicePolicyStatus.
     :type user_display_name: str
     :param user_principal_name: UserPrincipalName.
@@ -4438,12 +4390,12 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(MicrosoftGraph
         additional_properties: Optional[Dict[str, object]] = None,
         devices_count: Optional[int] = None,
         last_reported_date_time: Optional[datetime.datetime] = None,
-        status: Optional[Union[str, "MicrosoftGraphComplianceStatus"]] = None,
+        status: Optional[Union[str, "Microsoftgraphcompliancestatus"]] = None,
         user_display_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanageddevicemobileappconfigurationuserstatus, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.devices_count = devices_count
         self.last_reported_date_time = last_reported_date_time
@@ -4452,7 +4404,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(MicrosoftGraph
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary(MicrosoftGraphEntity):
+class microsoftgraphmanageddevicemobileappconfigurationusersummary(microsoftgraphentity):
     """Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary.
 
     :param id: Read-only.
@@ -4511,7 +4463,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary(MicrosoftGrap
         success_count: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanageddevicemobileappconfigurationusersummary, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.configuration_version = configuration_version
         self.error_count = error_count
@@ -4522,7 +4474,7 @@ class MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary(MicrosoftGrap
         self.success_count = success_count
 
 
-class MicrosoftGraphManagedEBook(MicrosoftGraphEntity):
+class microsoftgraphmanagedebook(microsoftgraphentity):
     """An abstract class containing the base properties for Managed eBook.
 
     :param id: Read-only.
@@ -4539,7 +4491,7 @@ class MicrosoftGraphManagedEBook(MicrosoftGraphEntity):
     :param information_url: The more information Url.
     :type information_url: str
     :param large_cover: Contains properties for a generic mime content.
-    :type large_cover: ~devices_corporate_management.models.MicrosoftGraphMimeContent
+    :type large_cover: ~devices_corporate_management.models.microsoftgraphmimecontent
     :param last_modified_date_time: The date and time when the eBook was last modified.
     :type last_modified_date_time: ~datetime.datetime
     :param privacy_information_url: The privacy statement Url.
@@ -4550,16 +4502,16 @@ class MicrosoftGraphManagedEBook(MicrosoftGraphEntity):
     :type publisher: str
     :param assignments: The list of assignments for this eBook.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedEBookAssignment]
+     list[~devices_corporate_management.models.microsoftgraphmanagedebookassignment]
     :param device_states: The list of installation states for this eBook.
     :type device_states:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceInstallState]
+     list[~devices_corporate_management.models.microsoftgraphdeviceinstallstate]
     :param install_summary: Contains properties for the installation summary of a book for a
      device.
-    :type install_summary: ~devices_corporate_management.models.MicrosoftGraphEBookInstallSummary
+    :type install_summary: ~devices_corporate_management.models.microsoftgraphebookinstallsummary
     :param user_state_summary: The list of installation states for this eBook.
     :type user_state_summary:
-     list[~devices_corporate_management.models.MicrosoftGraphUserInstallStateSummary]
+     list[~devices_corporate_management.models.microsoftgraphuserinstallstatesummary]
     """
 
     _attribute_map = {
@@ -4569,15 +4521,15 @@ class MicrosoftGraphManagedEBook(MicrosoftGraphEntity):
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'information_url': {'key': 'informationUrl', 'type': 'str'},
-        'large_cover': {'key': 'largeCover', 'type': 'MicrosoftGraphMimeContent'},
+        'large_cover': {'key': 'largeCover', 'type': 'microsoftgraphmimecontent'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'privacy_information_url': {'key': 'privacyInformationUrl', 'type': 'str'},
         'published_date_time': {'key': 'publishedDateTime', 'type': 'iso-8601'},
         'publisher': {'key': 'publisher', 'type': 'str'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphManagedEBookAssignment]'},
-        'device_states': {'key': 'deviceStates', 'type': '[MicrosoftGraphDeviceInstallState]'},
-        'install_summary': {'key': 'installSummary', 'type': 'MicrosoftGraphEBookInstallSummary'},
-        'user_state_summary': {'key': 'userStateSummary', 'type': '[MicrosoftGraphUserInstallStateSummary]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphmanagedebookassignment]'},
+        'device_states': {'key': 'deviceStates', 'type': '[microsoftgraphdeviceinstallstate]'},
+        'install_summary': {'key': 'installSummary', 'type': 'microsoftgraphebookinstallsummary'},
+        'user_state_summary': {'key': 'userStateSummary', 'type': '[microsoftgraphuserinstallstatesummary]'},
     }
 
     def __init__(
@@ -4589,18 +4541,18 @@ class MicrosoftGraphManagedEBook(MicrosoftGraphEntity):
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         information_url: Optional[str] = None,
-        large_cover: Optional["MicrosoftGraphMimeContent"] = None,
+        large_cover: Optional["microsoftgraphmimecontent"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         privacy_information_url: Optional[str] = None,
         published_date_time: Optional[datetime.datetime] = None,
         publisher: Optional[str] = None,
-        assignments: Optional[List["MicrosoftGraphManagedEBookAssignment"]] = None,
-        device_states: Optional[List["MicrosoftGraphDeviceInstallState"]] = None,
-        install_summary: Optional["MicrosoftGraphEBookInstallSummary"] = None,
-        user_state_summary: Optional[List["MicrosoftGraphUserInstallStateSummary"]] = None,
+        assignments: Optional[List["microsoftgraphmanagedebookassignment"]] = None,
+        device_states: Optional[List["microsoftgraphdeviceinstallstate"]] = None,
+        install_summary: Optional["microsoftgraphebookinstallsummary"] = None,
+        user_state_summary: Optional[List["microsoftgraphuserinstallstatesummary"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedEBook, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedebook, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.description = description
@@ -4617,7 +4569,7 @@ class MicrosoftGraphManagedEBook(MicrosoftGraphEntity):
         self.user_state_summary = user_state_summary
 
 
-class MicrosoftGraphManagedEBookAssignment(MicrosoftGraphEntity):
+class microsoftgraphmanagedebookassignment(microsoftgraphentity):
     """Contains properties used to assign a eBook to a group.
 
     :param id: Read-only.
@@ -4627,7 +4579,7 @@ class MicrosoftGraphManagedEBookAssignment(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param install_intent:  Possible values include: "available", "required", "uninstall",
      "availableWithoutEnrollment".
-    :type install_intent: str or ~devices_corporate_management.models.MicrosoftGraphInstallIntent
+    :type install_intent: str or ~devices_corporate_management.models.Microsoftgraphinstallintent
     :param target: Base type for assignment targets.
     :type target: dict[str, object]
     """
@@ -4644,17 +4596,17 @@ class MicrosoftGraphManagedEBookAssignment(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        install_intent: Optional[Union[str, "MicrosoftGraphInstallIntent"]] = None,
+        install_intent: Optional[Union[str, "Microsoftgraphinstallintent"]] = None,
         target: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedEBookAssignment, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedebookassignment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.install_intent = install_intent
         self.target = target
 
 
-class MicrosoftGraphManagedMobileApp(MicrosoftGraphEntity):
+class microsoftgraphmanagedmobileapp(microsoftgraphentity):
     """The identifier for the deployment an app.
 
     :param id: Read-only.
@@ -4684,18 +4636,15 @@ class MicrosoftGraphManagedMobileApp(MicrosoftGraphEntity):
         version: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphManagedMobileApp, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmanagedmobileapp, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.mobile_app_identifier = mobile_app_identifier
         self.version = version
 
 
-class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy):
+class microsoftgraphwindowsinformationprotection(microsoftgraphmanagedapppolicy):
     """Policy for Windows information protection to configure detailed management settings.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -4716,11 +4665,11 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
     :type azure_rights_management_services_allowed: bool
     :param data_recovery_certificate: Windows Information Protection DataRecoveryCertificate.
     :type data_recovery_certificate:
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate
+     ~devices_corporate_management.models.microsoftgraphwindowsinformationprotectiondatarecoverycertificate
     :param enforcement_level:  Possible values include: "noProtection", "encryptAndAuditOnly",
      "encryptAuditAndPrompt", "encryptAuditAndBlock".
     :type enforcement_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionEnforcementLevel
+     ~devices_corporate_management.models.Microsoftgraphwindowsinformationprotectionenforcementlevel
     :param enterprise_domain: Primary enterprise domain.
     :type enterprise_domain: str
     :param enterprise_internal_proxy_servers: This is the comma-separated list of internal proxy
@@ -4730,13 +4679,13 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
      are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the
      matched domains through these proxies.
     :type enterprise_internal_proxy_servers:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_ip_ranges: Sets the enterprise IP ranges that define the computers in the
      enterprise network. Data that comes from those computers will be considered part of the
      enterprise and protected. These locations will be considered a safe destination for enterprise
      data to be shared to.
     :type enterprise_ip_ranges:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionIpRangeCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectioniprangecollection]
     :param enterprise_ip_ranges_are_authoritative: Boolean value that tells the client to accept
      the configured list and not to use heuristics to attempt to find other subnets. Default is
      false.
@@ -4746,21 +4695,21 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
      considered enterprise data and protected These locations will be considered a safe destination
      for enterprise data to be shared to.
     :type enterprise_network_domain_names:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_protected_domain_names: List of enterprise domains to be protected.
     :type enterprise_protected_domain_names:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_proxied_domains: Contains a list of Enterprise resource domains hosted in the
      cloud that need to be protected. Connections to these resources are considered enterprise data.
      If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed
      through the enterprise network via the denoted proxy server (on Port 80). A proxy server used
      for this purpose must also be configured using the EnterpriseInternalProxyServers policy.
     :type enterprise_proxied_domains:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionproxieddomaincollection]
     :param enterprise_proxy_servers: This is a list of proxy servers. Any server not on this list
      is considered non-enterprise.
     :type enterprise_proxy_servers:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_proxy_servers_are_authoritative: Boolean value that tells the client to
      accept the configured list of proxies and not try to detect other work proxies. Default is
      false.
@@ -4769,7 +4718,7 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
      by those applications are not protected. This is because some critical enterprise applications
      may have compatibility problems with encrypted data.
     :type exempt_apps:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionApp]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapp]
     :param icons_visible: Determines whether overlays are added to icons for WIP protected files in
      Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703
      this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected
@@ -4783,11 +4732,11 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
     :param neutral_domain_resources: List of domain names that can used for work or personal
      resource.
     :type neutral_domain_resources:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param protected_apps: Protected applications can access enterprise data and the data handled
      by those applications are protected with encryption.
     :type protected_apps:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionApp]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapp]
     :param protection_under_lock_config_required: Specifies whether the protection under lock
      feature (also known as encrypt under pin) should be configured.
     :type protection_under_lock_config_required: bool
@@ -4804,20 +4753,19 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
      with these extensions are encrypted when copying from an SMB share within the corporate
      boundary.
     :type smb_auto_encrypted_file_extensions:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param assignments: Navigation property to list of security groups targeted for policy.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     :param exempt_app_locker_files: Another way to input exempt apps through xml files.
     :type exempt_app_locker_files:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionAppLockerFile]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapplockerfile]
     :param protected_app_locker_files: Another way to input protected apps through xml files.
     :type protected_app_locker_files:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionAppLockerFile]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapplockerfile]
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -4826,36 +4774,35 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
         'version': {'key': 'version', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'azure_rights_management_services_allowed': {'key': 'azureRightsManagementServicesAllowed', 'type': 'bool'},
-        'data_recovery_certificate': {'key': 'dataRecoveryCertificate', 'type': 'MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate'},
+        'data_recovery_certificate': {'key': 'dataRecoveryCertificate', 'type': 'microsoftgraphwindowsinformationprotectiondatarecoverycertificate'},
         'enforcement_level': {'key': 'enforcementLevel', 'type': 'str'},
         'enterprise_domain': {'key': 'enterpriseDomain', 'type': 'str'},
-        'enterprise_internal_proxy_servers': {'key': 'enterpriseInternalProxyServers', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_ip_ranges': {'key': 'enterpriseIPRanges', 'type': '[MicrosoftGraphWindowsInformationProtectionIpRangeCollection]'},
+        'enterprise_internal_proxy_servers': {'key': 'enterpriseInternalProxyServers', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_ip_ranges': {'key': 'enterpriseIPRanges', 'type': '[microsoftgraphwindowsinformationprotectioniprangecollection]'},
         'enterprise_ip_ranges_are_authoritative': {'key': 'enterpriseIPRangesAreAuthoritative', 'type': 'bool'},
-        'enterprise_network_domain_names': {'key': 'enterpriseNetworkDomainNames', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_protected_domain_names': {'key': 'enterpriseProtectedDomainNames', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_proxied_domains': {'key': 'enterpriseProxiedDomains', 'type': '[MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection]'},
-        'enterprise_proxy_servers': {'key': 'enterpriseProxyServers', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
+        'enterprise_network_domain_names': {'key': 'enterpriseNetworkDomainNames', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_protected_domain_names': {'key': 'enterpriseProtectedDomainNames', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_proxied_domains': {'key': 'enterpriseProxiedDomains', 'type': '[microsoftgraphwindowsinformationprotectionproxieddomaincollection]'},
+        'enterprise_proxy_servers': {'key': 'enterpriseProxyServers', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
         'enterprise_proxy_servers_are_authoritative': {'key': 'enterpriseProxyServersAreAuthoritative', 'type': 'bool'},
-        'exempt_apps': {'key': 'exemptApps', 'type': '[MicrosoftGraphWindowsInformationProtectionApp]'},
+        'exempt_apps': {'key': 'exemptApps', 'type': '[microsoftgraphwindowsinformationprotectionapp]'},
         'icons_visible': {'key': 'iconsVisible', 'type': 'bool'},
         'indexing_encrypted_stores_or_items_blocked': {'key': 'indexingEncryptedStoresOrItemsBlocked', 'type': 'bool'},
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
-        'neutral_domain_resources': {'key': 'neutralDomainResources', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'protected_apps': {'key': 'protectedApps', 'type': '[MicrosoftGraphWindowsInformationProtectionApp]'},
+        'neutral_domain_resources': {'key': 'neutralDomainResources', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'protected_apps': {'key': 'protectedApps', 'type': '[microsoftgraphwindowsinformationprotectionapp]'},
         'protection_under_lock_config_required': {'key': 'protectionUnderLockConfigRequired', 'type': 'bool'},
         'revoke_on_unenroll_disabled': {'key': 'revokeOnUnenrollDisabled', 'type': 'bool'},
         'rights_management_services_template_id': {'key': 'rightsManagementServicesTemplateId', 'type': 'str'},
-        'smb_auto_encrypted_file_extensions': {'key': 'smbAutoEncryptedFileExtensions', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
-        'exempt_app_locker_files': {'key': 'exemptAppLockerFiles', 'type': '[MicrosoftGraphWindowsInformationProtectionAppLockerFile]'},
-        'protected_app_locker_files': {'key': 'protectedAppLockerFiles', 'type': '[MicrosoftGraphWindowsInformationProtectionAppLockerFile]'},
+        'smb_auto_encrypted_file_extensions': {'key': 'smbAutoEncryptedFileExtensions', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
+        'exempt_app_locker_files': {'key': 'exemptAppLockerFiles', 'type': '[microsoftgraphwindowsinformationprotectionapplockerfile]'},
+        'protected_app_locker_files': {'key': 'protectedAppLockerFiles', 'type': '[microsoftgraphwindowsinformationprotectionapplockerfile]'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -4864,34 +4811,33 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
         version: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         azure_rights_management_services_allowed: Optional[bool] = None,
-        data_recovery_certificate: Optional["MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate"] = None,
-        enforcement_level: Optional[Union[str, "MicrosoftGraphWindowsInformationProtectionEnforcementLevel"]] = None,
+        data_recovery_certificate: Optional["microsoftgraphwindowsinformationprotectiondatarecoverycertificate"] = None,
+        enforcement_level: Optional[Union[str, "Microsoftgraphwindowsinformationprotectionenforcementlevel"]] = None,
         enterprise_domain: Optional[str] = None,
-        enterprise_internal_proxy_servers: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_ip_ranges: Optional[List["MicrosoftGraphWindowsInformationProtectionIpRangeCollection"]] = None,
+        enterprise_internal_proxy_servers: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_ip_ranges: Optional[List["microsoftgraphwindowsinformationprotectioniprangecollection"]] = None,
         enterprise_ip_ranges_are_authoritative: Optional[bool] = None,
-        enterprise_network_domain_names: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_protected_domain_names: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_proxied_domains: Optional[List["MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection"]] = None,
-        enterprise_proxy_servers: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
+        enterprise_network_domain_names: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_protected_domain_names: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_proxied_domains: Optional[List["microsoftgraphwindowsinformationprotectionproxieddomaincollection"]] = None,
+        enterprise_proxy_servers: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
         enterprise_proxy_servers_are_authoritative: Optional[bool] = None,
-        exempt_apps: Optional[List["MicrosoftGraphWindowsInformationProtectionApp"]] = None,
+        exempt_apps: Optional[List["microsoftgraphwindowsinformationprotectionapp"]] = None,
         icons_visible: Optional[bool] = None,
         indexing_encrypted_stores_or_items_blocked: Optional[bool] = None,
         is_assigned: Optional[bool] = None,
-        neutral_domain_resources: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        protected_apps: Optional[List["MicrosoftGraphWindowsInformationProtectionApp"]] = None,
+        neutral_domain_resources: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        protected_apps: Optional[List["microsoftgraphwindowsinformationprotectionapp"]] = None,
         protection_under_lock_config_required: Optional[bool] = None,
         revoke_on_unenroll_disabled: Optional[bool] = None,
         rights_management_services_template_id: Optional[str] = None,
-        smb_auto_encrypted_file_extensions: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
-        exempt_app_locker_files: Optional[List["MicrosoftGraphWindowsInformationProtectionAppLockerFile"]] = None,
-        protected_app_locker_files: Optional[List["MicrosoftGraphWindowsInformationProtectionAppLockerFile"]] = None,
+        smb_auto_encrypted_file_extensions: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
+        exempt_app_locker_files: Optional[List["microsoftgraphwindowsinformationprotectionapplockerfile"]] = None,
+        protected_app_locker_files: Optional[List["microsoftgraphwindowsinformationprotectionapplockerfile"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphwindowsinformationprotection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
         self.additional_properties = additional_properties
         self.azure_rights_management_services_allowed = azure_rights_management_services_allowed
         self.data_recovery_certificate = data_recovery_certificate
@@ -4920,14 +4866,11 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
         self.protected_app_locker_files = protected_app_locker_files
 
 
-class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInformationProtection):
+class microsoftgraphmdmwindowsinformationprotectionpolicy(microsoftgraphwindowsinformationprotection):
     """Policy for Windows information protection with MDM.
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -4943,11 +4886,11 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
     :type azure_rights_management_services_allowed: bool
     :param data_recovery_certificate: Windows Information Protection DataRecoveryCertificate.
     :type data_recovery_certificate:
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate
+     ~devices_corporate_management.models.microsoftgraphwindowsinformationprotectiondatarecoverycertificate
     :param enforcement_level:  Possible values include: "noProtection", "encryptAndAuditOnly",
      "encryptAuditAndPrompt", "encryptAuditAndBlock".
     :type enforcement_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionEnforcementLevel
+     ~devices_corporate_management.models.Microsoftgraphwindowsinformationprotectionenforcementlevel
     :param enterprise_domain: Primary enterprise domain.
     :type enterprise_domain: str
     :param enterprise_internal_proxy_servers: This is the comma-separated list of internal proxy
@@ -4957,13 +4900,13 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
      are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the
      matched domains through these proxies.
     :type enterprise_internal_proxy_servers:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_ip_ranges: Sets the enterprise IP ranges that define the computers in the
      enterprise network. Data that comes from those computers will be considered part of the
      enterprise and protected. These locations will be considered a safe destination for enterprise
      data to be shared to.
     :type enterprise_ip_ranges:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionIpRangeCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectioniprangecollection]
     :param enterprise_ip_ranges_are_authoritative: Boolean value that tells the client to accept
      the configured list and not to use heuristics to attempt to find other subnets. Default is
      false.
@@ -4973,21 +4916,21 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
      considered enterprise data and protected These locations will be considered a safe destination
      for enterprise data to be shared to.
     :type enterprise_network_domain_names:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_protected_domain_names: List of enterprise domains to be protected.
     :type enterprise_protected_domain_names:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_proxied_domains: Contains a list of Enterprise resource domains hosted in the
      cloud that need to be protected. Connections to these resources are considered enterprise data.
      If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed
      through the enterprise network via the denoted proxy server (on Port 80). A proxy server used
      for this purpose must also be configured using the EnterpriseInternalProxyServers policy.
     :type enterprise_proxied_domains:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionproxieddomaincollection]
     :param enterprise_proxy_servers: This is a list of proxy servers. Any server not on this list
      is considered non-enterprise.
     :type enterprise_proxy_servers:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_proxy_servers_are_authoritative: Boolean value that tells the client to
      accept the configured list of proxies and not try to detect other work proxies. Default is
      false.
@@ -4996,7 +4939,7 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
      by those applications are not protected. This is because some critical enterprise applications
      may have compatibility problems with encrypted data.
     :type exempt_apps:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionApp]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapp]
     :param icons_visible: Determines whether overlays are added to icons for WIP protected files in
      Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703
      this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected
@@ -5010,11 +4953,11 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
     :param neutral_domain_resources: List of domain names that can used for work or personal
      resource.
     :type neutral_domain_resources:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param protected_apps: Protected applications can access enterprise data and the data handled
      by those applications are protected with encryption.
     :type protected_apps:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionApp]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapp]
     :param protection_under_lock_config_required: Specifies whether the protection under lock
      feature (also known as encrypt under pin) should be configured.
     :type protection_under_lock_config_required: bool
@@ -5031,16 +4974,16 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
      with these extensions are encrypted when copying from an SMB share within the corporate
      boundary.
     :type smb_auto_encrypted_file_extensions:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param assignments: Navigation property to list of security groups targeted for policy.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     :param exempt_app_locker_files: Another way to input exempt apps through xml files.
     :type exempt_app_locker_files:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionAppLockerFile]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapplockerfile]
     :param protected_app_locker_files: Another way to input protected apps through xml files.
     :type protected_app_locker_files:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionAppLockerFile]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapplockerfile]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -5048,37 +4991,36 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
         'azure_rights_management_services_allowed': {'key': 'azureRightsManagementServicesAllowed', 'type': 'bool'},
-        'data_recovery_certificate': {'key': 'dataRecoveryCertificate', 'type': 'MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate'},
+        'data_recovery_certificate': {'key': 'dataRecoveryCertificate', 'type': 'microsoftgraphwindowsinformationprotectiondatarecoverycertificate'},
         'enforcement_level': {'key': 'enforcementLevel', 'type': 'str'},
         'enterprise_domain': {'key': 'enterpriseDomain', 'type': 'str'},
-        'enterprise_internal_proxy_servers': {'key': 'enterpriseInternalProxyServers', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_ip_ranges': {'key': 'enterpriseIPRanges', 'type': '[MicrosoftGraphWindowsInformationProtectionIpRangeCollection]'},
+        'enterprise_internal_proxy_servers': {'key': 'enterpriseInternalProxyServers', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_ip_ranges': {'key': 'enterpriseIPRanges', 'type': '[microsoftgraphwindowsinformationprotectioniprangecollection]'},
         'enterprise_ip_ranges_are_authoritative': {'key': 'enterpriseIPRangesAreAuthoritative', 'type': 'bool'},
-        'enterprise_network_domain_names': {'key': 'enterpriseNetworkDomainNames', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_protected_domain_names': {'key': 'enterpriseProtectedDomainNames', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_proxied_domains': {'key': 'enterpriseProxiedDomains', 'type': '[MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection]'},
-        'enterprise_proxy_servers': {'key': 'enterpriseProxyServers', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
+        'enterprise_network_domain_names': {'key': 'enterpriseNetworkDomainNames', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_protected_domain_names': {'key': 'enterpriseProtectedDomainNames', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_proxied_domains': {'key': 'enterpriseProxiedDomains', 'type': '[microsoftgraphwindowsinformationprotectionproxieddomaincollection]'},
+        'enterprise_proxy_servers': {'key': 'enterpriseProxyServers', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
         'enterprise_proxy_servers_are_authoritative': {'key': 'enterpriseProxyServersAreAuthoritative', 'type': 'bool'},
-        'exempt_apps': {'key': 'exemptApps', 'type': '[MicrosoftGraphWindowsInformationProtectionApp]'},
+        'exempt_apps': {'key': 'exemptApps', 'type': '[microsoftgraphwindowsinformationprotectionapp]'},
         'icons_visible': {'key': 'iconsVisible', 'type': 'bool'},
         'indexing_encrypted_stores_or_items_blocked': {'key': 'indexingEncryptedStoresOrItemsBlocked', 'type': 'bool'},
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
-        'neutral_domain_resources': {'key': 'neutralDomainResources', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'protected_apps': {'key': 'protectedApps', 'type': '[MicrosoftGraphWindowsInformationProtectionApp]'},
+        'neutral_domain_resources': {'key': 'neutralDomainResources', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'protected_apps': {'key': 'protectedApps', 'type': '[microsoftgraphwindowsinformationprotectionapp]'},
         'protection_under_lock_config_required': {'key': 'protectionUnderLockConfigRequired', 'type': 'bool'},
         'revoke_on_unenroll_disabled': {'key': 'revokeOnUnenrollDisabled', 'type': 'bool'},
         'rights_management_services_template_id': {'key': 'rightsManagementServicesTemplateId', 'type': 'str'},
-        'smb_auto_encrypted_file_extensions': {'key': 'smbAutoEncryptedFileExtensions', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
-        'exempt_app_locker_files': {'key': 'exemptAppLockerFiles', 'type': '[MicrosoftGraphWindowsInformationProtectionAppLockerFile]'},
-        'protected_app_locker_files': {'key': 'protectedAppLockerFiles', 'type': '[MicrosoftGraphWindowsInformationProtectionAppLockerFile]'},
+        'smb_auto_encrypted_file_extensions': {'key': 'smbAutoEncryptedFileExtensions', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
+        'exempt_app_locker_files': {'key': 'exemptAppLockerFiles', 'type': '[microsoftgraphwindowsinformationprotectionapplockerfile]'},
+        'protected_app_locker_files': {'key': 'protectedAppLockerFiles', 'type': '[microsoftgraphwindowsinformationprotectionapplockerfile]'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -5086,46 +5028,44 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
         azure_rights_management_services_allowed: Optional[bool] = None,
-        data_recovery_certificate: Optional["MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate"] = None,
-        enforcement_level: Optional[Union[str, "MicrosoftGraphWindowsInformationProtectionEnforcementLevel"]] = None,
+        data_recovery_certificate: Optional["microsoftgraphwindowsinformationprotectiondatarecoverycertificate"] = None,
+        enforcement_level: Optional[Union[str, "Microsoftgraphwindowsinformationprotectionenforcementlevel"]] = None,
         enterprise_domain: Optional[str] = None,
-        enterprise_internal_proxy_servers: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_ip_ranges: Optional[List["MicrosoftGraphWindowsInformationProtectionIpRangeCollection"]] = None,
+        enterprise_internal_proxy_servers: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_ip_ranges: Optional[List["microsoftgraphwindowsinformationprotectioniprangecollection"]] = None,
         enterprise_ip_ranges_are_authoritative: Optional[bool] = None,
-        enterprise_network_domain_names: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_protected_domain_names: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_proxied_domains: Optional[List["MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection"]] = None,
-        enterprise_proxy_servers: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
+        enterprise_network_domain_names: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_protected_domain_names: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_proxied_domains: Optional[List["microsoftgraphwindowsinformationprotectionproxieddomaincollection"]] = None,
+        enterprise_proxy_servers: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
         enterprise_proxy_servers_are_authoritative: Optional[bool] = None,
-        exempt_apps: Optional[List["MicrosoftGraphWindowsInformationProtectionApp"]] = None,
+        exempt_apps: Optional[List["microsoftgraphwindowsinformationprotectionapp"]] = None,
         icons_visible: Optional[bool] = None,
         indexing_encrypted_stores_or_items_blocked: Optional[bool] = None,
         is_assigned: Optional[bool] = None,
-        neutral_domain_resources: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        protected_apps: Optional[List["MicrosoftGraphWindowsInformationProtectionApp"]] = None,
+        neutral_domain_resources: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        protected_apps: Optional[List["microsoftgraphwindowsinformationprotectionapp"]] = None,
         protection_under_lock_config_required: Optional[bool] = None,
         revoke_on_unenroll_disabled: Optional[bool] = None,
         rights_management_services_template_id: Optional[str] = None,
-        smb_auto_encrypted_file_extensions: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
-        exempt_app_locker_files: Optional[List["MicrosoftGraphWindowsInformationProtectionAppLockerFile"]] = None,
-        protected_app_locker_files: Optional[List["MicrosoftGraphWindowsInformationProtectionAppLockerFile"]] = None,
+        smb_auto_encrypted_file_extensions: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
+        exempt_app_locker_files: Optional[List["microsoftgraphwindowsinformationprotectionapplockerfile"]] = None,
+        protected_app_locker_files: Optional[List["microsoftgraphwindowsinformationprotectionapplockerfile"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphMdmWindowsInformationProtectionPolicy, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphmdmwindowsinformationprotectionpolicy, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, **kwargs)
         self.additional_properties = additional_properties
 
 
-class MicrosoftGraphMimeContent(msrest.serialization.Model):
+class microsoftgraphmimecontent(msrest.serialization.Model):
     """Contains properties for a generic mime content.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5151,13 +5091,13 @@ class MicrosoftGraphMimeContent(msrest.serialization.Model):
         value: Optional[bytes] = None,
         **kwargs
     ):
-        super(MicrosoftGraphMimeContent, self).__init__(**kwargs)
+        super(microsoftgraphmimecontent, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.type = type
         self.value = value
 
 
-class MicrosoftGraphMobileApp(MicrosoftGraphEntity):
+class microsoftgraphmobileapp(microsoftgraphentity):
     """An abstract class containing the base properties for Intune mobile apps.
 
     :param id: Read-only.
@@ -5178,7 +5118,7 @@ class MicrosoftGraphMobileApp(MicrosoftGraphEntity):
     :param is_featured: The value indicating whether the app is marked as featured by the admin.
     :type is_featured: bool
     :param large_icon: Contains properties for a generic mime content.
-    :type large_icon: ~devices_corporate_management.models.MicrosoftGraphMimeContent
+    :type large_icon: ~devices_corporate_management.models.microsoftgraphmimecontent
     :param last_modified_date_time: The date and time the app was last modified.
     :type last_modified_date_time: ~datetime.datetime
     :param notes: Notes for the app.
@@ -5191,11 +5131,11 @@ class MicrosoftGraphMobileApp(MicrosoftGraphEntity):
     :type publisher: str
     :param publishing_state:  Possible values include: "notPublished", "processing", "published".
     :type publishing_state: str or
-     ~devices_corporate_management.models.MicrosoftGraphMobileAppPublishingState
+     ~devices_corporate_management.models.Microsoftgraphmobileapppublishingstate
     :param assignments: The list of group assignments for this mobile app.
-    :type assignments: list[~devices_corporate_management.models.MicrosoftGraphMobileAppAssignment]
+    :type assignments: list[~devices_corporate_management.models.microsoftgraphmobileappassignment]
     :param categories: The list of categories for this app.
-    :type categories: list[~devices_corporate_management.models.MicrosoftGraphMobileAppCategory]
+    :type categories: list[~devices_corporate_management.models.microsoftgraphmobileappcategory]
     """
 
     _attribute_map = {
@@ -5207,15 +5147,15 @@ class MicrosoftGraphMobileApp(MicrosoftGraphEntity):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'information_url': {'key': 'informationUrl', 'type': 'str'},
         'is_featured': {'key': 'isFeatured', 'type': 'bool'},
-        'large_icon': {'key': 'largeIcon', 'type': 'MicrosoftGraphMimeContent'},
+        'large_icon': {'key': 'largeIcon', 'type': 'microsoftgraphmimecontent'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'notes': {'key': 'notes', 'type': 'str'},
         'owner': {'key': 'owner', 'type': 'str'},
         'privacy_information_url': {'key': 'privacyInformationUrl', 'type': 'str'},
         'publisher': {'key': 'publisher', 'type': 'str'},
         'publishing_state': {'key': 'publishingState', 'type': 'str'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphMobileAppAssignment]'},
-        'categories': {'key': 'categories', 'type': '[MicrosoftGraphMobileAppCategory]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphmobileappassignment]'},
+        'categories': {'key': 'categories', 'type': '[microsoftgraphmobileappcategory]'},
     }
 
     def __init__(
@@ -5229,18 +5169,18 @@ class MicrosoftGraphMobileApp(MicrosoftGraphEntity):
         display_name: Optional[str] = None,
         information_url: Optional[str] = None,
         is_featured: Optional[bool] = None,
-        large_icon: Optional["MicrosoftGraphMimeContent"] = None,
+        large_icon: Optional["microsoftgraphmimecontent"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         notes: Optional[str] = None,
         owner: Optional[str] = None,
         privacy_information_url: Optional[str] = None,
         publisher: Optional[str] = None,
-        publishing_state: Optional[Union[str, "MicrosoftGraphMobileAppPublishingState"]] = None,
-        assignments: Optional[List["MicrosoftGraphMobileAppAssignment"]] = None,
-        categories: Optional[List["MicrosoftGraphMobileAppCategory"]] = None,
+        publishing_state: Optional[Union[str, "Microsoftgraphmobileapppublishingstate"]] = None,
+        assignments: Optional[List["microsoftgraphmobileappassignment"]] = None,
+        categories: Optional[List["microsoftgraphmobileappcategory"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphMobileApp, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmobileapp, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.description = description
@@ -5259,7 +5199,7 @@ class MicrosoftGraphMobileApp(MicrosoftGraphEntity):
         self.categories = categories
 
 
-class MicrosoftGraphMobileAppAssignment(MicrosoftGraphEntity):
+class microsoftgraphmobileappassignment(microsoftgraphentity):
     """A class containing the properties used for Group Assignment of a Mobile App.
 
     :param id: Read-only.
@@ -5269,7 +5209,7 @@ class MicrosoftGraphMobileAppAssignment(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param intent:  Possible values include: "available", "required", "uninstall",
      "availableWithoutEnrollment".
-    :type intent: str or ~devices_corporate_management.models.MicrosoftGraphInstallIntent
+    :type intent: str or ~devices_corporate_management.models.Microsoftgraphinstallintent
     :param settings: Abstract class to contain properties used to assign a mobile app to a group.
     :type settings: dict[str, object]
     :param target: Base type for assignment targets.
@@ -5289,19 +5229,19 @@ class MicrosoftGraphMobileAppAssignment(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        intent: Optional[Union[str, "MicrosoftGraphInstallIntent"]] = None,
+        intent: Optional[Union[str, "Microsoftgraphinstallintent"]] = None,
         settings: Optional[Dict[str, object]] = None,
         target: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphMobileAppAssignment, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmobileappassignment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.intent = intent
         self.settings = settings
         self.target = target
 
 
-class MicrosoftGraphMobileAppCategory(MicrosoftGraphEntity):
+class microsoftgraphmobileappcategory(microsoftgraphentity):
     """Contains properties for a single Intune app category.
 
     :param id: Read-only.
@@ -5331,13 +5271,13 @@ class MicrosoftGraphMobileAppCategory(MicrosoftGraphEntity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(MicrosoftGraphMobileAppCategory, self).__init__(id=id, **kwargs)
+        super(microsoftgraphmobileappcategory, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.last_modified_date_time = last_modified_date_time
 
 
-class MicrosoftGraphProxiedDomain(msrest.serialization.Model):
+class microsoftgraphproxieddomain(msrest.serialization.Model):
     """Proxied Domain.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5363,13 +5303,13 @@ class MicrosoftGraphProxiedDomain(msrest.serialization.Model):
         proxy: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphProxiedDomain, self).__init__(**kwargs)
+        super(microsoftgraphproxieddomain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.ip_address_or_fqdn = ip_address_or_fqdn
         self.proxy = proxy
 
 
-class MicrosoftGraphSettingSource(msrest.serialization.Model):
+class microsoftgraphsettingsource(msrest.serialization.Model):
     """settingSource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5395,20 +5335,17 @@ class MicrosoftGraphSettingSource(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSettingSource, self).__init__(**kwargs)
+        super(microsoftgraphsettingsource, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.id = id
 
 
-class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConfiguration):
+class microsoftgraphtargetedmanagedappconfiguration(microsoftgraphmanagedappconfiguration):
     """Configuration used to deliver a set of custom settings as-is to all users in the targeted security group.
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -5421,7 +5358,7 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
     :type version: str
     :param custom_settings: A set of string key and string value pairs to be sent to apps for users
      to whom the configuration is scoped, unalterned by this service.
-    :type custom_settings: list[~devices_corporate_management.models.MicrosoftGraphKeyValuePair]
+    :type custom_settings: list[~devices_corporate_management.models.microsoftgraphkeyvaluepair]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -5430,93 +5367,65 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
     :param is_assigned: Indicates if the policy is deployed to any inclusion groups or not.
     :type is_assigned: bool
     :param apps: List of apps to which the policy is deployed.
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     :param assignments: Navigation property to list of inclusion and exclusion groups to which the
      policy is deployed.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
-    :param id_deployment_summary_id: Read-only.
-    :type id_deployment_summary_id: str
-    :param configuration_deployed_user_count: Not yet documented.
-    :type configuration_deployed_user_count: int
-    :param configuration_deployment_summary_per_app: Not yet documented.
-    :type configuration_deployment_summary_per_app:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
-    :param display_name_deployment_summary_display_name: Not yet documented.
-    :type display_name_deployment_summary_display_name: str
-    :param last_refresh_time: Not yet documented.
-    :type last_refresh_time: ~datetime.datetime
-    :param version_deployment_summary_version: Version of the entity.
-    :type version_deployment_summary_version: str
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
+    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
+     types under app management workflow.
+    :type deployment_summary:
+     ~devices_corporate_management.models.microsoftgraphmanagedapppolicydeploymentsummary
     """
 
     _validation = {
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
-        'custom_settings': {'key': 'customSettings', 'type': '[MicrosoftGraphKeyValuePair]'},
+        'custom_settings': {'key': 'customSettings', 'type': '[microsoftgraphkeyvaluepair]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'deployed_app_count': {'key': 'deployedAppCount', 'type': 'int'},
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
-        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
-        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
-        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
-        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
-        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
-        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'microsoftgraphmanagedapppolicydeploymentsummary'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
-        custom_settings: Optional[List["MicrosoftGraphKeyValuePair"]] = None,
+        custom_settings: Optional[List["microsoftgraphkeyvaluepair"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         deployed_app_count: Optional[int] = None,
         is_assigned: Optional[bool] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
-        id_deployment_summary_id: Optional[str] = None,
-        configuration_deployed_user_count: Optional[int] = None,
-        configuration_deployment_summary_per_app: Optional[List["MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]] = None,
-        display_name_deployment_summary_display_name: Optional[str] = None,
-        last_refresh_time: Optional[datetime.datetime] = None,
-        version_deployment_summary_version: Optional[str] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
+        deployment_summary: Optional["microsoftgraphmanagedapppolicydeploymentsummary"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphTargetedManagedAppConfiguration, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, custom_settings=custom_settings, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphtargetedmanagedappconfiguration, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, custom_settings=custom_settings, **kwargs)
         self.additional_properties = additional_properties
         self.deployed_app_count = deployed_app_count
         self.is_assigned = is_assigned
         self.apps = apps
         self.assignments = assignments
-        self.id_deployment_summary_id = id_deployment_summary_id
-        self.configuration_deployed_user_count = configuration_deployed_user_count
-        self.configuration_deployment_summary_per_app = configuration_deployment_summary_per_app
-        self.display_name_deployment_summary_display_name = display_name_deployment_summary_display_name
-        self.last_refresh_time = last_refresh_time
-        self.version_deployment_summary_version = version_deployment_summary_version
+        self.deployment_summary = deployment_summary
 
 
-class MicrosoftGraphTargetedManagedAppPolicyAssignment(MicrosoftGraphEntity):
+class microsoftgraphtargetedmanagedapppolicyassignment(microsoftgraphentity):
     """The type for deployment of groups or apps.
 
     :param id: Read-only.
@@ -5542,12 +5451,12 @@ class MicrosoftGraphTargetedManagedAppPolicyAssignment(MicrosoftGraphEntity):
         target: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphTargetedManagedAppPolicyAssignment, self).__init__(id=id, **kwargs)
+        super(microsoftgraphtargetedmanagedapppolicyassignment, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.target = target
 
 
-class MicrosoftGraphUserInstallStateSummary(MicrosoftGraphEntity):
+class microsoftgraphuserinstallstatesummary(microsoftgraphentity):
     """Contains properties for the installation state summary for a user.
 
     :param id: Read-only.
@@ -5565,7 +5474,7 @@ class MicrosoftGraphUserInstallStateSummary(MicrosoftGraphEntity):
     :type user_name: str
     :param device_states: The install state of the eBook.
     :type device_states:
-     list[~devices_corporate_management.models.MicrosoftGraphDeviceInstallState]
+     list[~devices_corporate_management.models.microsoftgraphdeviceinstallstate]
     """
 
     _validation = {
@@ -5581,7 +5490,7 @@ class MicrosoftGraphUserInstallStateSummary(MicrosoftGraphEntity):
         'installed_device_count': {'key': 'installedDeviceCount', 'type': 'int'},
         'not_installed_device_count': {'key': 'notInstalledDeviceCount', 'type': 'int'},
         'user_name': {'key': 'userName', 'type': 'str'},
-        'device_states': {'key': 'deviceStates', 'type': '[MicrosoftGraphDeviceInstallState]'},
+        'device_states': {'key': 'deviceStates', 'type': '[microsoftgraphdeviceinstallstate]'},
     }
 
     def __init__(
@@ -5593,10 +5502,10 @@ class MicrosoftGraphUserInstallStateSummary(MicrosoftGraphEntity):
         installed_device_count: Optional[int] = None,
         not_installed_device_count: Optional[int] = None,
         user_name: Optional[str] = None,
-        device_states: Optional[List["MicrosoftGraphDeviceInstallState"]] = None,
+        device_states: Optional[List["microsoftgraphdeviceinstallstate"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphUserInstallStateSummary, self).__init__(id=id, **kwargs)
+        super(microsoftgraphuserinstallstatesummary, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.failed_device_count = failed_device_count
         self.installed_device_count = installed_device_count
@@ -5605,7 +5514,7 @@ class MicrosoftGraphUserInstallStateSummary(MicrosoftGraphEntity):
         self.device_states = device_states
 
 
-class MicrosoftGraphVppToken(MicrosoftGraphEntity):
+class microsoftgraphvpptoken(microsoftgraphentity):
     """You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens.
 
     :param id: Read-only.
@@ -5631,19 +5540,19 @@ class MicrosoftGraphVppToken(MicrosoftGraphEntity):
     :type last_sync_date_time: ~datetime.datetime
     :param last_sync_status:  Possible values include: "none", "inProgress", "completed", "failed".
     :type last_sync_status: str or
-     ~devices_corporate_management.models.MicrosoftGraphVppTokenSyncStatus
+     ~devices_corporate_management.models.Microsoftgraphvpptokensyncstatus
     :param organization_name: The organization associated with the Apple Volume Purchase Program
      Token.
     :type organization_name: str
     :param state:  Possible values include: "unknown", "valid", "expired", "invalid",
      "assignedToExternalMDM".
-    :type state: str or ~devices_corporate_management.models.MicrosoftGraphVppTokenState
+    :type state: str or ~devices_corporate_management.models.Microsoftgraphvpptokenstate
     :param token: The Apple Volume Purchase Program Token string downloaded from the Apple Volume
      Purchase Program.
     :type token: str
     :param vpp_token_account_type:  Possible values include: "business", "education".
     :type vpp_token_account_type: str or
-     ~devices_corporate_management.models.MicrosoftGraphVppTokenAccountType
+     ~devices_corporate_management.models.Microsoftgraphvpptokenaccounttype
     """
 
     _attribute_map = {
@@ -5673,14 +5582,14 @@ class MicrosoftGraphVppToken(MicrosoftGraphEntity):
         expiration_date_time: Optional[datetime.datetime] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         last_sync_date_time: Optional[datetime.datetime] = None,
-        last_sync_status: Optional[Union[str, "MicrosoftGraphVppTokenSyncStatus"]] = None,
+        last_sync_status: Optional[Union[str, "Microsoftgraphvpptokensyncstatus"]] = None,
         organization_name: Optional[str] = None,
-        state: Optional[Union[str, "MicrosoftGraphVppTokenState"]] = None,
+        state: Optional[Union[str, "Microsoftgraphvpptokenstate"]] = None,
         token: Optional[str] = None,
-        vpp_token_account_type: Optional[Union[str, "MicrosoftGraphVppTokenAccountType"]] = None,
+        vpp_token_account_type: Optional[Union[str, "Microsoftgraphvpptokenaccounttype"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphVppToken, self).__init__(id=id, **kwargs)
+        super(microsoftgraphvpptoken, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.apple_id = apple_id
         self.automatically_update_apps = automatically_update_apps
@@ -5695,7 +5604,7 @@ class MicrosoftGraphVppToken(MicrosoftGraphEntity):
         self.vpp_token_account_type = vpp_token_account_type
 
 
-class MicrosoftGraphWindowsInformationProtectionApp(msrest.serialization.Model):
+class microsoftgraphwindowsinformationprotectionapp(msrest.serialization.Model):
     """App for Windows information protection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5733,7 +5642,7 @@ class MicrosoftGraphWindowsInformationProtectionApp(msrest.serialization.Model):
         publisher_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtectionApp, self).__init__(**kwargs)
+        super(microsoftgraphwindowsinformationprotectionapp, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.denied = denied
         self.description = description
@@ -5742,7 +5651,7 @@ class MicrosoftGraphWindowsInformationProtectionApp(msrest.serialization.Model):
         self.publisher_name = publisher_name
 
 
-class MicrosoftGraphWindowsInformationProtectionAppLockerFile(MicrosoftGraphEntity):
+class microsoftgraphwindowsinformationprotectionapplockerfile(microsoftgraphentity):
     """Windows Information Protection AppLocker File.
 
     :param id: Read-only.
@@ -5780,7 +5689,7 @@ class MicrosoftGraphWindowsInformationProtectionAppLockerFile(MicrosoftGraphEnti
         version: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtectionAppLockerFile, self).__init__(id=id, **kwargs)
+        super(microsoftgraphwindowsinformationprotectionapplockerfile, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.file = file
@@ -5788,7 +5697,7 @@ class MicrosoftGraphWindowsInformationProtectionAppLockerFile(MicrosoftGraphEnti
         self.version = version
 
 
-class MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate(msrest.serialization.Model):
+class microsoftgraphwindowsinformationprotectiondatarecoverycertificate(msrest.serialization.Model):
     """Windows Information Protection DataRecoveryCertificate.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5822,7 +5731,7 @@ class MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate(msrest.s
         subject_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate, self).__init__(**kwargs)
+        super(microsoftgraphwindowsinformationprotectiondatarecoverycertificate, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.certificate = certificate
         self.description = description
@@ -5830,7 +5739,7 @@ class MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate(msrest.s
         self.subject_name = subject_name
 
 
-class MicrosoftGraphWindowsInformationProtectionIpRangeCollection(msrest.serialization.Model):
+class microsoftgraphwindowsinformationprotectioniprangecollection(msrest.serialization.Model):
     """Windows Information Protection IP Range Collection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5856,20 +5765,17 @@ class MicrosoftGraphWindowsInformationProtectionIpRangeCollection(msrest.seriali
         ranges: Optional[List[Dict[str, object]]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtectionIpRangeCollection, self).__init__(**kwargs)
+        super(microsoftgraphwindowsinformationprotectioniprangecollection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.ranges = ranges
 
 
-class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInformationProtection):
+class microsoftgraphwindowsinformationprotectionpolicy(microsoftgraphwindowsinformationprotection):
     """Policy for Windows information protection without MDM.
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -5885,11 +5791,11 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
     :type azure_rights_management_services_allowed: bool
     :param data_recovery_certificate: Windows Information Protection DataRecoveryCertificate.
     :type data_recovery_certificate:
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate
+     ~devices_corporate_management.models.microsoftgraphwindowsinformationprotectiondatarecoverycertificate
     :param enforcement_level:  Possible values include: "noProtection", "encryptAndAuditOnly",
      "encryptAuditAndPrompt", "encryptAuditAndBlock".
     :type enforcement_level: str or
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionEnforcementLevel
+     ~devices_corporate_management.models.Microsoftgraphwindowsinformationprotectionenforcementlevel
     :param enterprise_domain: Primary enterprise domain.
     :type enterprise_domain: str
     :param enterprise_internal_proxy_servers: This is the comma-separated list of internal proxy
@@ -5899,13 +5805,13 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
      are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the
      matched domains through these proxies.
     :type enterprise_internal_proxy_servers:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_ip_ranges: Sets the enterprise IP ranges that define the computers in the
      enterprise network. Data that comes from those computers will be considered part of the
      enterprise and protected. These locations will be considered a safe destination for enterprise
      data to be shared to.
     :type enterprise_ip_ranges:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionIpRangeCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectioniprangecollection]
     :param enterprise_ip_ranges_are_authoritative: Boolean value that tells the client to accept
      the configured list and not to use heuristics to attempt to find other subnets. Default is
      false.
@@ -5915,21 +5821,21 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
      considered enterprise data and protected These locations will be considered a safe destination
      for enterprise data to be shared to.
     :type enterprise_network_domain_names:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_protected_domain_names: List of enterprise domains to be protected.
     :type enterprise_protected_domain_names:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_proxied_domains: Contains a list of Enterprise resource domains hosted in the
      cloud that need to be protected. Connections to these resources are considered enterprise data.
      If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed
      through the enterprise network via the denoted proxy server (on Port 80). A proxy server used
      for this purpose must also be configured using the EnterpriseInternalProxyServers policy.
     :type enterprise_proxied_domains:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionproxieddomaincollection]
     :param enterprise_proxy_servers: This is a list of proxy servers. Any server not on this list
      is considered non-enterprise.
     :type enterprise_proxy_servers:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param enterprise_proxy_servers_are_authoritative: Boolean value that tells the client to
      accept the configured list of proxies and not try to detect other work proxies. Default is
      false.
@@ -5938,7 +5844,7 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
      by those applications are not protected. This is because some critical enterprise applications
      may have compatibility problems with encrypted data.
     :type exempt_apps:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionApp]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapp]
     :param icons_visible: Determines whether overlays are added to icons for WIP protected files in
      Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703
      this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected
@@ -5952,11 +5858,11 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
     :param neutral_domain_resources: List of domain names that can used for work or personal
      resource.
     :type neutral_domain_resources:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param protected_apps: Protected applications can access enterprise data and the data handled
      by those applications are protected with encryption.
     :type protected_apps:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionApp]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapp]
     :param protection_under_lock_config_required: Specifies whether the protection under lock
      feature (also known as encrypt under pin) should be configured.
     :type protection_under_lock_config_required: bool
@@ -5973,16 +5879,16 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
      with these extensions are encrypted when copying from an SMB share within the corporate
      boundary.
     :type smb_auto_encrypted_file_extensions:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionResourceCollection]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionresourcecollection]
     :param assignments: Navigation property to list of security groups targeted for policy.
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     :param exempt_app_locker_files: Another way to input exempt apps through xml files.
     :type exempt_app_locker_files:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionAppLockerFile]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapplockerfile]
     :param protected_app_locker_files: Another way to input protected apps through xml files.
     :type protected_app_locker_files:
-     list[~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionAppLockerFile]
+     list[~devices_corporate_management.models.microsoftgraphwindowsinformationprotectionapplockerfile]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6013,7 +5919,7 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
     :param pin_lowercase_letters:  Possible values include: "notAllow", "requireAtLeastOne",
      "allow".
     :type pin_lowercase_letters: str or
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionPinCharacterRequirements
+     ~devices_corporate_management.models.Microsoftgraphwindowsinformationprotectionpincharacterrequirements
     :param pin_minimum_length: Integer value that sets the minimum number of characters required
      for the PIN. Default value is 4. The lowest number you can configure for this policy setting is
      4. The largest number you can configure must be less than the number configured in the Maximum
@@ -6022,11 +5928,11 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
     :param pin_special_characters:  Possible values include: "notAllow", "requireAtLeastOne",
      "allow".
     :type pin_special_characters: str or
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionPinCharacterRequirements
+     ~devices_corporate_management.models.Microsoftgraphwindowsinformationprotectionpincharacterrequirements
     :param pin_uppercase_letters:  Possible values include: "notAllow", "requireAtLeastOne",
      "allow".
     :type pin_uppercase_letters: str or
-     ~devices_corporate_management.models.MicrosoftGraphWindowsInformationProtectionPinCharacterRequirements
+     ~devices_corporate_management.models.Microsoftgraphwindowsinformationprotectionpincharacterrequirements
     :param revoke_on_mdm_handoff_disabled: New property in RS2, pending documentation.
     :type revoke_on_mdm_handoff_disabled: bool
     :param windows_hello_for_business_blocked: Boolean value that sets Windows Hello for Business
@@ -6045,37 +5951,36 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
         'azure_rights_management_services_allowed': {'key': 'azureRightsManagementServicesAllowed', 'type': 'bool'},
-        'data_recovery_certificate': {'key': 'dataRecoveryCertificate', 'type': 'MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate'},
+        'data_recovery_certificate': {'key': 'dataRecoveryCertificate', 'type': 'microsoftgraphwindowsinformationprotectiondatarecoverycertificate'},
         'enforcement_level': {'key': 'enforcementLevel', 'type': 'str'},
         'enterprise_domain': {'key': 'enterpriseDomain', 'type': 'str'},
-        'enterprise_internal_proxy_servers': {'key': 'enterpriseInternalProxyServers', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_ip_ranges': {'key': 'enterpriseIPRanges', 'type': '[MicrosoftGraphWindowsInformationProtectionIpRangeCollection]'},
+        'enterprise_internal_proxy_servers': {'key': 'enterpriseInternalProxyServers', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_ip_ranges': {'key': 'enterpriseIPRanges', 'type': '[microsoftgraphwindowsinformationprotectioniprangecollection]'},
         'enterprise_ip_ranges_are_authoritative': {'key': 'enterpriseIPRangesAreAuthoritative', 'type': 'bool'},
-        'enterprise_network_domain_names': {'key': 'enterpriseNetworkDomainNames', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_protected_domain_names': {'key': 'enterpriseProtectedDomainNames', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'enterprise_proxied_domains': {'key': 'enterpriseProxiedDomains', 'type': '[MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection]'},
-        'enterprise_proxy_servers': {'key': 'enterpriseProxyServers', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
+        'enterprise_network_domain_names': {'key': 'enterpriseNetworkDomainNames', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_protected_domain_names': {'key': 'enterpriseProtectedDomainNames', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'enterprise_proxied_domains': {'key': 'enterpriseProxiedDomains', 'type': '[microsoftgraphwindowsinformationprotectionproxieddomaincollection]'},
+        'enterprise_proxy_servers': {'key': 'enterpriseProxyServers', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
         'enterprise_proxy_servers_are_authoritative': {'key': 'enterpriseProxyServersAreAuthoritative', 'type': 'bool'},
-        'exempt_apps': {'key': 'exemptApps', 'type': '[MicrosoftGraphWindowsInformationProtectionApp]'},
+        'exempt_apps': {'key': 'exemptApps', 'type': '[microsoftgraphwindowsinformationprotectionapp]'},
         'icons_visible': {'key': 'iconsVisible', 'type': 'bool'},
         'indexing_encrypted_stores_or_items_blocked': {'key': 'indexingEncryptedStoresOrItemsBlocked', 'type': 'bool'},
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
-        'neutral_domain_resources': {'key': 'neutralDomainResources', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'protected_apps': {'key': 'protectedApps', 'type': '[MicrosoftGraphWindowsInformationProtectionApp]'},
+        'neutral_domain_resources': {'key': 'neutralDomainResources', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'protected_apps': {'key': 'protectedApps', 'type': '[microsoftgraphwindowsinformationprotectionapp]'},
         'protection_under_lock_config_required': {'key': 'protectionUnderLockConfigRequired', 'type': 'bool'},
         'revoke_on_unenroll_disabled': {'key': 'revokeOnUnenrollDisabled', 'type': 'bool'},
         'rights_management_services_template_id': {'key': 'rightsManagementServicesTemplateId', 'type': 'str'},
-        'smb_auto_encrypted_file_extensions': {'key': 'smbAutoEncryptedFileExtensions', 'type': '[MicrosoftGraphWindowsInformationProtectionResourceCollection]'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
-        'exempt_app_locker_files': {'key': 'exemptAppLockerFiles', 'type': '[MicrosoftGraphWindowsInformationProtectionAppLockerFile]'},
-        'protected_app_locker_files': {'key': 'protectedAppLockerFiles', 'type': '[MicrosoftGraphWindowsInformationProtectionAppLockerFile]'},
+        'smb_auto_encrypted_file_extensions': {'key': 'smbAutoEncryptedFileExtensions', 'type': '[microsoftgraphwindowsinformationprotectionresourcecollection]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
+        'exempt_app_locker_files': {'key': 'exemptAppLockerFiles', 'type': '[microsoftgraphwindowsinformationprotectionapplockerfile]'},
+        'protected_app_locker_files': {'key': 'protectedAppLockerFiles', 'type': '[microsoftgraphwindowsinformationprotectionapplockerfile]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'days_without_contact_before_unenroll': {'key': 'daysWithoutContactBeforeUnenroll', 'type': 'int'},
         'mdm_enrollment_url': {'key': 'mdmEnrollmentUrl', 'type': 'str'},
@@ -6095,37 +6000,36 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
         azure_rights_management_services_allowed: Optional[bool] = None,
-        data_recovery_certificate: Optional["MicrosoftGraphWindowsInformationProtectionDataRecoveryCertificate"] = None,
-        enforcement_level: Optional[Union[str, "MicrosoftGraphWindowsInformationProtectionEnforcementLevel"]] = None,
+        data_recovery_certificate: Optional["microsoftgraphwindowsinformationprotectiondatarecoverycertificate"] = None,
+        enforcement_level: Optional[Union[str, "Microsoftgraphwindowsinformationprotectionenforcementlevel"]] = None,
         enterprise_domain: Optional[str] = None,
-        enterprise_internal_proxy_servers: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_ip_ranges: Optional[List["MicrosoftGraphWindowsInformationProtectionIpRangeCollection"]] = None,
+        enterprise_internal_proxy_servers: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_ip_ranges: Optional[List["microsoftgraphwindowsinformationprotectioniprangecollection"]] = None,
         enterprise_ip_ranges_are_authoritative: Optional[bool] = None,
-        enterprise_network_domain_names: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_protected_domain_names: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        enterprise_proxied_domains: Optional[List["MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection"]] = None,
-        enterprise_proxy_servers: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
+        enterprise_network_domain_names: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_protected_domain_names: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        enterprise_proxied_domains: Optional[List["microsoftgraphwindowsinformationprotectionproxieddomaincollection"]] = None,
+        enterprise_proxy_servers: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
         enterprise_proxy_servers_are_authoritative: Optional[bool] = None,
-        exempt_apps: Optional[List["MicrosoftGraphWindowsInformationProtectionApp"]] = None,
+        exempt_apps: Optional[List["microsoftgraphwindowsinformationprotectionapp"]] = None,
         icons_visible: Optional[bool] = None,
         indexing_encrypted_stores_or_items_blocked: Optional[bool] = None,
         is_assigned: Optional[bool] = None,
-        neutral_domain_resources: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        protected_apps: Optional[List["MicrosoftGraphWindowsInformationProtectionApp"]] = None,
+        neutral_domain_resources: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        protected_apps: Optional[List["microsoftgraphwindowsinformationprotectionapp"]] = None,
         protection_under_lock_config_required: Optional[bool] = None,
         revoke_on_unenroll_disabled: Optional[bool] = None,
         rights_management_services_template_id: Optional[str] = None,
-        smb_auto_encrypted_file_extensions: Optional[List["MicrosoftGraphWindowsInformationProtectionResourceCollection"]] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
-        exempt_app_locker_files: Optional[List["MicrosoftGraphWindowsInformationProtectionAppLockerFile"]] = None,
-        protected_app_locker_files: Optional[List["MicrosoftGraphWindowsInformationProtectionAppLockerFile"]] = None,
+        smb_auto_encrypted_file_extensions: Optional[List["microsoftgraphwindowsinformationprotectionresourcecollection"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
+        exempt_app_locker_files: Optional[List["microsoftgraphwindowsinformationprotectionapplockerfile"]] = None,
+        protected_app_locker_files: Optional[List["microsoftgraphwindowsinformationprotectionapplockerfile"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         days_without_contact_before_unenroll: Optional[int] = None,
         mdm_enrollment_url: Optional[str] = None,
@@ -6133,16 +6037,15 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
         number_of_past_pins_remembered: Optional[int] = None,
         password_maximum_attempt_count: Optional[int] = None,
         pin_expiration_days: Optional[int] = None,
-        pin_lowercase_letters: Optional[Union[str, "MicrosoftGraphWindowsInformationProtectionPinCharacterRequirements"]] = None,
+        pin_lowercase_letters: Optional[Union[str, "Microsoftgraphwindowsinformationprotectionpincharacterrequirements"]] = None,
         pin_minimum_length: Optional[int] = None,
-        pin_special_characters: Optional[Union[str, "MicrosoftGraphWindowsInformationProtectionPinCharacterRequirements"]] = None,
-        pin_uppercase_letters: Optional[Union[str, "MicrosoftGraphWindowsInformationProtectionPinCharacterRequirements"]] = None,
+        pin_special_characters: Optional[Union[str, "Microsoftgraphwindowsinformationprotectionpincharacterrequirements"]] = None,
+        pin_uppercase_letters: Optional[Union[str, "Microsoftgraphwindowsinformationprotectionpincharacterrequirements"]] = None,
         revoke_on_mdm_handoff_disabled: Optional[bool] = None,
         windows_hello_for_business_blocked: Optional[bool] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtectionPolicy, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, **kwargs)
-        self.additional_properties = additional_properties
+        super(microsoftgraphwindowsinformationprotectionpolicy, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, **kwargs)
         self.additional_properties = additional_properties
         self.days_without_contact_before_unenroll = days_without_contact_before_unenroll
         self.mdm_enrollment_url = mdm_enrollment_url
@@ -6158,7 +6061,7 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
         self.windows_hello_for_business_blocked = windows_hello_for_business_blocked
 
 
-class MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection(msrest.serialization.Model):
+class microsoftgraphwindowsinformationprotectionproxieddomaincollection(msrest.serialization.Model):
     """Windows Information Protection Proxied Domain Collection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6167,13 +6070,13 @@ class MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection(msrest.s
     :param display_name: Display name.
     :type display_name: str
     :param proxied_domains: Collection of proxied domains.
-    :type proxied_domains: list[~devices_corporate_management.models.MicrosoftGraphProxiedDomain]
+    :type proxied_domains: list[~devices_corporate_management.models.microsoftgraphproxieddomain]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'proxied_domains': {'key': 'proxiedDomains', 'type': '[MicrosoftGraphProxiedDomain]'},
+        'proxied_domains': {'key': 'proxiedDomains', 'type': '[microsoftgraphproxieddomain]'},
     }
 
     def __init__(
@@ -6181,16 +6084,16 @@ class MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection(msrest.s
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
-        proxied_domains: Optional[List["MicrosoftGraphProxiedDomain"]] = None,
+        proxied_domains: Optional[List["microsoftgraphproxieddomain"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtectionProxiedDomainCollection, self).__init__(**kwargs)
+        super(microsoftgraphwindowsinformationprotectionproxieddomaincollection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.proxied_domains = proxied_domains
 
 
-class MicrosoftGraphWindowsInformationProtectionResourceCollection(msrest.serialization.Model):
+class microsoftgraphwindowsinformationprotectionresourcecollection(msrest.serialization.Model):
     """Windows Information Protection Resource Collection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6216,14 +6119,14 @@ class MicrosoftGraphWindowsInformationProtectionResourceCollection(msrest.serial
         resources: Optional[List[str]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWindowsInformationProtectionResourceCollection, self).__init__(**kwargs)
+        super(microsoftgraphwindowsinformationprotectionresourcecollection, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.resources = resources
 
 
-class OdataError(msrest.serialization.Model):
-    """OdataError.
+class odataerror(msrest.serialization.Model):
+    """odataerror.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -6231,7 +6134,7 @@ class OdataError(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~devices_corporate_management.models.OdataErrorMain
+    :type error: ~devices_corporate_management.models.odataerrormain
     """
 
     _validation = {
@@ -6240,23 +6143,23 @@ class OdataError(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'OdataErrorMain'},
+        'error': {'key': 'error', 'type': 'odataerrormain'},
     }
 
     def __init__(
         self,
         *,
-        error: "OdataErrorMain",
+        error: "odataerrormain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(OdataError, self).__init__(**kwargs)
+        super(odataerror, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class OdataErrorDetail(msrest.serialization.Model):
-    """OdataErrorDetail.
+class odataerrordetail(msrest.serialization.Model):
+    """odataerrordetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -6292,15 +6195,15 @@ class OdataErrorDetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(OdataErrorDetail, self).__init__(**kwargs)
+        super(odataerrordetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class OdataErrorMain(msrest.serialization.Model):
-    """OdataErrorMain.
+class odataerrormain(msrest.serialization.Model):
+    """odataerrormain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -6314,7 +6217,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~devices_corporate_management.models.OdataErrorDetail]
+    :type details: list[~devices_corporate_management.models.odataerrordetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -6329,7 +6232,7 @@ class OdataErrorMain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
+        'details': {'key': 'details', 'type': '[odataerrordetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -6340,11 +6243,11 @@ class OdataErrorMain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["OdataErrorDetail"]] = None,
+        details: Optional[List["odataerrordetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(OdataErrorMain, self).__init__(**kwargs)
+        super(odataerrormain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
@@ -6353,221 +6256,221 @@ class OdataErrorMain(msrest.serialization.Model):
         self.innererror = innererror
 
 
-class Paths12NzrcrDeviceappmanagementMobileappsMobileappIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """Paths12NzrcrDeviceappmanagementMobileappsMobileappIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema.
+class paths12nzrcrdeviceappmanagementmobileappsmobileappidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """paths12nzrcrdeviceappmanagementmobileappsmobileappidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param mobile_app_assignments:
     :type mobile_app_assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphMobileAppAssignment]
+     list[~devices_corporate_management.models.microsoftgraphmobileappassignment]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'mobile_app_assignments': {'key': 'mobileAppAssignments', 'type': '[MicrosoftGraphMobileAppAssignment]'},
+        'mobile_app_assignments': {'key': 'mobileAppAssignments', 'type': '[microsoftgraphmobileappassignment]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        mobile_app_assignments: Optional[List["MicrosoftGraphMobileAppAssignment"]] = None,
+        mobile_app_assignments: Optional[List["microsoftgraphmobileappassignment"]] = None,
         **kwargs
     ):
-        super(Paths12NzrcrDeviceappmanagementMobileappsMobileappIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(paths12nzrcrdeviceappmanagementmobileappsmobileappidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.mobile_app_assignments = mobile_app_assignments
 
 
-class Paths14Nj8OcDeviceappmanagementManagedapppoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """Paths14Nj8OcDeviceappmanagementManagedapppoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema.
+class paths14nj8ocdeviceappmanagementmanagedapppoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """paths14nj8ocdeviceappmanagementmanagedapppoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param apps:
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         **kwargs
     ):
-        super(Paths14Nj8OcDeviceappmanagementManagedapppoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(paths14nj8ocdeviceappmanagementmanagedapppoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.apps = apps
 
 
-class Paths1Mv9GnvDeviceappmanagementManagedappregistrationsManagedappregistrationIdIntendedpoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """Paths1Mv9GnvDeviceappmanagementManagedappregistrationsManagedappregistrationIdIntendedpoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema.
+class paths1mv9gnvdeviceappmanagementmanagedappregistrationsmanagedappregistrationidintendedpoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """paths1mv9gnvdeviceappmanagementmanagedappregistrationsmanagedappregistrationidintendedpoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param apps:
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         **kwargs
     ):
-        super(Paths1Mv9GnvDeviceappmanagementManagedappregistrationsManagedappregistrationIdIntendedpoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(paths1mv9gnvdeviceappmanagementmanagedappregistrationsmanagedappregistrationidintendedpoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.apps = apps
 
 
-class Paths1Pwcjs5DeviceappmanagementMobileappconfigurationsManageddevicemobileappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """Paths1Pwcjs5DeviceappmanagementMobileappconfigurationsManageddevicemobileappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema.
+class paths1pwcjs5deviceappmanagementmobileappconfigurationsmanageddevicemobileappconfigurationidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """paths1pwcjs5deviceappmanagementmobileappconfigurationsmanageddevicemobileappconfigurationidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param assignments:
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment]
+     list[~devices_corporate_management.models.microsoftgraphmanageddevicemobileappconfigurationassignment]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphmanageddevicemobileappconfigurationassignment]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        assignments: Optional[List["MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment"]] = None,
+        assignments: Optional[List["microsoftgraphmanageddevicemobileappconfigurationassignment"]] = None,
         **kwargs
     ):
-        super(Paths1Pwcjs5DeviceappmanagementMobileappconfigurationsManageddevicemobileappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(paths1pwcjs5deviceappmanagementmobileappconfigurationsmanageddevicemobileappconfigurationidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.assignments = assignments
 
 
-class PathsVf2Dh9DeviceappmanagementManagedappregistrationsManagedappregistrationIdAppliedpoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """PathsVf2Dh9DeviceappmanagementManagedappregistrationsManagedappregistrationIdAppliedpoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema.
+class pathsvf2dh9deviceappmanagementmanagedappregistrationsmanagedappregistrationidappliedpoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """pathsvf2dh9deviceappmanagementmanagedappregistrationsmanagedappregistrationidappliedpoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param apps:
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         **kwargs
     ):
-        super(PathsVf2Dh9DeviceappmanagementManagedappregistrationsManagedappregistrationIdAppliedpoliciesManagedapppolicyIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(pathsvf2dh9deviceappmanagementmanagedappregistrationsmanagedappregistrationidappliedpoliciesmanagedapppolicyidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.apps = apps
 
 
-class PathsWfdti0DeviceappmanagementManagedebooksManagedebookIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """PathsWfdti0DeviceappmanagementManagedebooksManagedebookIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema.
+class pathswfdti0deviceappmanagementmanagedebooksmanagedebookidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """pathswfdti0deviceappmanagementmanagedebooksmanagedebookidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param managed_e_book_assignments:
     :type managed_e_book_assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedEBookAssignment]
+     list[~devices_corporate_management.models.microsoftgraphmanagedebookassignment]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'managed_e_book_assignments': {'key': 'managedEBookAssignments', 'type': '[MicrosoftGraphManagedEBookAssignment]'},
+        'managed_e_book_assignments': {'key': 'managedEBookAssignments', 'type': '[microsoftgraphmanagedebookassignment]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        managed_e_book_assignments: Optional[List["MicrosoftGraphManagedEBookAssignment"]] = None,
+        managed_e_book_assignments: Optional[List["microsoftgraphmanagedebookassignment"]] = None,
         **kwargs
     ):
-        super(PathsWfdti0DeviceappmanagementManagedebooksManagedebookIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(pathswfdti0deviceappmanagementmanagedebooksmanagedebookidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.managed_e_book_assignments = managed_e_book_assignments
 
 
-class PathsXzr66BDeviceappmanagementTargetedmanagedappconfigurationsTargetedmanagedappconfigurationIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """PathsXzr66BDeviceappmanagementTargetedmanagedappconfigurationsTargetedmanagedappconfigurationIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema.
+class pathsxzr66bdeviceappmanagementtargetedmanagedappconfigurationstargetedmanagedappconfigurationidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """pathsxzr66bdeviceappmanagementtargetedmanagedappconfigurationstargetedmanagedappconfigurationidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param apps:
-    :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
+    :type apps: list[~devices_corporate_management.models.microsoftgraphmanagedmobileapp]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
+        'apps': {'key': 'apps', 'type': '[microsoftgraphmanagedmobileapp]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
+        apps: Optional[List["microsoftgraphmanagedmobileapp"]] = None,
         **kwargs
     ):
-        super(PathsXzr66BDeviceappmanagementTargetedmanagedappconfigurationsTargetedmanagedappconfigurationIdMicrosoftGraphTargetappsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(pathsxzr66bdeviceappmanagementtargetedmanagedappconfigurationstargetedmanagedappconfigurationidmicrosoftgraphtargetappspostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.apps = apps
 
 
-class PathsZxn05FDeviceappmanagementTargetedmanagedappconfigurationsTargetedmanagedappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """PathsZxn05FDeviceappmanagementTargetedmanagedappconfigurationsTargetedmanagedappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema.
+class pathszxn05fdeviceappmanagementtargetedmanagedappconfigurationstargetedmanagedappconfigurationidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """pathszxn05fdeviceappmanagementtargetedmanagedappconfigurationstargetedmanagedappconfigurationidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param assignments:
     :type assignments:
-     list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
+     list[~devices_corporate_management.models.microsoftgraphtargetedmanagedapppolicyassignment]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
+        'assignments': {'key': 'assignments', 'type': '[microsoftgraphtargetedmanagedapppolicyassignment]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
+        assignments: Optional[List["microsoftgraphtargetedmanagedapppolicyassignment"]] = None,
         **kwargs
     ):
-        super(PathsZxn05FDeviceappmanagementTargetedmanagedappconfigurationsTargetedmanagedappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(pathszxn05fdeviceappmanagementtargetedmanagedappconfigurationstargetedmanagedappconfigurationidmicrosoftgraphassignpostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.assignments = assignments

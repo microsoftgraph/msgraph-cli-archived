@@ -11,28 +11,28 @@
 
 def cf_bookings_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.bookings import Bookings
+    from azext_bookings_beta.vendored_sdks.bookings import Bookings
     return get_mgmt_service_client(cli_ctx,
                                    Bookings,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_booking_business_booking_business(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business_booking_business
+def cf_bookingbusinessesbookingbusiness(cli_ctx, *_):
+    return cf_bookings_beta_cl(cli_ctx).bookingbusinessesbookingbusiness
 
 
-def cf_booking_business(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business
+def cf_bookingbusiness(cli_ctx, *_):
+    return cf_bookings_beta_cl(cli_ctx).bookingbusinesses
 
 
-def cf_booking_business_appointment(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business_appointment
+def cf_bookingbusinessesappointment(cli_ctx, *_):
+    return cf_bookings_beta_cl(cli_ctx).bookingbusinessesappointments
 
 
-def cf_booking_business_calendar_view(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business_calendar_view
+def cf_bookingbusinessescalendarview(cli_ctx, *_):
+    return cf_bookings_beta_cl(cli_ctx).bookingbusinessescalendarview
 
 
-def cf_booking_currency_booking_currency(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_currency_booking_currency
+def cf_bookingcurrenciesbookingcurrency(cli_ctx, *_):
+    return cf_bookings_beta_cl(cli_ctx).bookingcurrenciesbookingcurrency

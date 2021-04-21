@@ -1,5 +1,15 @@
-Microsoft Azure CLI 'security_beta' Extension
-==========================================
+# Azure CLI security_beta Extension #
+This is the extension for security_beta
 
-This package is for the 'security_beta' extension.
-i.e. 'az security_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name security_beta
+```
+
+### Included Features ###
+#### security security ####
+#### security security ####
+#### security securityalert ####
+#### security securityaction ####
+#### security securitytiindicator ####

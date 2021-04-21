@@ -9,114 +9,216 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_personalcontacts_beta.generated._client_factory import (
+    cf_user,
+    cf_userscontactfolder,
+    cf_userscontactfolderscontact,
+    cf_userscontact,
+)
+
+
+personalcontacts_beta_user = CliCommandType(
+    operations_tmpl=(
+        'azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._users_operations#usersOperations.{}'
+    ),
+    client_factory=cf_user,
+)
+
+
+personalcontacts_beta_userscontactfolder = CliCommandType(
+    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._userscontactfolders_operations#userscontactfoldersOperations.{}',
+    client_factory=cf_userscontactfolder,
+)
+
+
+personalcontacts_beta_userscontactfolderscontact = CliCommandType(
+    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._userscontactfolderscontacts_operations#userscontactfolderscontactsOperations.{}',
+    client_factory=cf_userscontactfolderscontact,
+)
+
+
+personalcontacts_beta_userscontact = CliCommandType(
+    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._userscontacts_operations#userscontactsOperations.{}',
+    client_factory=cf_userscontact,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_personalcontacts_beta.generated._client_factory import cf_user
-    personalcontacts_beta_user = CliCommandType(
-        operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_operations#UserOpe'
-        'rations.{}',
-        client_factory=cf_user)
-    with self.command_group('personalcontacts', personalcontacts_beta_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'personalcontacts_delete', confirmation=True)
-        g.custom_command('create-contact', 'personalcontacts_create_contact')
-        g.custom_command('create-contact-folder', 'personalcontacts_create_contact_folder')
-        g.custom_command('get-contact', 'personalcontacts_get_contact')
-        g.custom_command('get-contact-folder', 'personalcontacts_get_contact_folder')
-        g.custom_command('list-contact', 'personalcontacts_list_contact')
-        g.custom_command('list-contact-folder', 'personalcontacts_list_contact_folder')
-        g.custom_command('update-contact', 'personalcontacts_update_contact')
-        g.custom_command('update-contact-folder', 'personalcontacts_update_contact_folder')
+    with self.command_group('personalcontacts user', personalcontacts_beta_user, client_factory=cf_user) as g:
+        g.custom_command('create-contact', 'personalcontacts_user_create_contact')
+        g.custom_command('create-contact-folder', 'personalcontacts_user_create_contact_folder')
+        g.custom_command('delete-contact', 'personalcontacts_user_delete_contact')
+        g.custom_command('delete-contact-folder', 'personalcontacts_user_delete_contact_folder')
+        g.custom_command('list-contact', 'personalcontacts_user_list_contact')
+        g.custom_command('list-contact-folder', 'personalcontacts_user_list_contact_folder')
+        g.custom_command('show-contact', 'personalcontacts_user_show_contact')
+        g.custom_command('show-contact-folder', 'personalcontacts_user_show_contact_folder')
+        g.custom_command('update-contact', 'personalcontacts_user_update_contact')
+        g.custom_command('update-contact-folder', 'personalcontacts_user_update_contact_folder')
 
-    from azext_personalcontacts_beta.generated._client_factory import cf_user_contact_folder
-    personalcontacts_beta_user_contact_folder = CliCommandType(
-        operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_contact_folder_ope'
-        'rations#UserContactFolderOperations.{}',
-        client_factory=cf_user_contact_folder)
-    with self.command_group('personalcontacts', personalcontacts_beta_user_contact_folder,
-                            client_factory=cf_user_contact_folder) as g:
-        g.custom_command('delete', 'personalcontacts_delete', confirmation=True)
-        g.custom_command('create-child-folder', 'personalcontacts_create_child_folder')
-        g.custom_command('create-contact', 'personalcontacts_create_contact')
-        g.custom_command('create-multi-value-extended-property', 'personalcontacts_create_multi_value_extended_property'
-                         '')
-        g.custom_command('create-single-value-extended-property', 'personalcontacts_create_single_value_extended_proper'
-                         'ty')
-        g.custom_command('get-child-folder', 'personalcontacts_get_child_folder')
-        g.custom_command('get-contact', 'personalcontacts_get_contact')
-        g.custom_command('get-multi-value-extended-property', 'personalcontacts_get_multi_value_extended_property')
-        g.custom_command('get-single-value-extended-property', 'personalcontacts_get_single_value_extended_property')
-        g.custom_command('list-child-folder', 'personalcontacts_list_child_folder')
-        g.custom_command('list-contact', 'personalcontacts_list_contact')
-        g.custom_command('list-multi-value-extended-property', 'personalcontacts_list_multi_value_extended_property')
-        g.custom_command('list-single-value-extended-property',
-                         'personalcontacts_list_single_value_extended_property')
-        g.custom_command('update-child-folder', 'personalcontacts_update_child_folder')
-        g.custom_command('update-contact', 'personalcontacts_update_contact')
-        g.custom_command('update-multi-value-extended-property', 'personalcontacts_update_multi_value_extended_property'
-                         '')
-        g.custom_command('update-single-value-extended-property', 'personalcontacts_update_single_value_extended_proper'
-                         'ty')
+    with self.command_group(
+        'personalcontacts userscontactfolder',
+        personalcontacts_beta_userscontactfolder,
+        client_factory=cf_userscontactfolder,
+    ) as g:
+        g.custom_command('create-child-folder', 'personalcontacts_userscontactfolder_create_child_folder')
+        g.custom_command('create-contact', 'personalcontacts_userscontactfolder_create_contact')
+        g.custom_command(
+            'create-multi-value-extended-property',
+            'personalcontacts_userscontactfolder_create_multi_value_extended_property',
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'personalcontacts_userscontactfolder_create_single_value_extended_property',
+        )
+        g.custom_command('delete-child-folder', 'personalcontacts_userscontactfolder_delete_child_folder')
+        g.custom_command('delete-contact', 'personalcontacts_userscontactfolder_delete_contact')
+        g.custom_command(
+            'delete-multi-value-extended-property',
+            'personalcontacts_userscontactfolder_delete_multi_value_extended_property',
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'personalcontacts_userscontactfolder_delete_single_value_extended_property',
+        )
+        g.custom_command('list-child-folder', 'personalcontacts_userscontactfolder_list_child_folder')
+        g.custom_command('list-contact', 'personalcontacts_userscontactfolder_list_contact')
+        g.custom_command(
+            'list-multi-value-extended-property',
+            'personalcontacts_userscontactfolder_list_multi_value_extended_property',
+        )
+        g.custom_command(
+            'list-single-value-extended-property',
+            'personalcontacts_userscontactfolder_list_single_value_extended_property',
+        )
+        g.custom_command('show-child-folder', 'personalcontacts_userscontactfolder_show_child_folder')
+        g.custom_command('show-contact', 'personalcontacts_userscontactfolder_show_contact')
+        g.custom_command(
+            'show-multi-value-extended-property',
+            'personalcontacts_userscontactfolder_show_multi_value_extended_property',
+        )
+        g.custom_command(
+            'show-single-value-extended-property',
+            'personalcontacts_userscontactfolder_show_single_value_extended_property',
+        )
+        g.custom_command('update-child-folder', 'personalcontacts_userscontactfolder_update_child_folder')
+        g.custom_command('update-contact', 'personalcontacts_userscontactfolder_update_contact')
+        g.custom_command(
+            'update-multi-value-extended-property',
+            'personalcontacts_userscontactfolder_update_multi_value_extended_property',
+        )
+        g.custom_command(
+            'update-single-value-extended-property',
+            'personalcontacts_userscontactfolder_update_single_value_extended_property',
+        )
 
-    from azext_personalcontacts_beta.generated._client_factory import cf_user_contact_folder_contact
-    personalcontacts_beta_user_contact_folder_contact = CliCommandType(
-        operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_contact_folder_con'
-        'tact_operations#UserContactFolderContactOperations.{}',
-        client_factory=cf_user_contact_folder_contact)
-    with self.command_group('personalcontacts', personalcontacts_beta_user_contact_folder_contact,
-                            client_factory=cf_user_contact_folder_contact) as g:
-        g.custom_command('delete', 'personalcontacts_delete', confirmation=True)
-        g.custom_command('create-extension', 'personalcontacts_create_extension')
-        g.custom_command('create-multi-value-extended-property', 'personalcontacts_create_multi_value_extended_property'
-                         '')
-        g.custom_command('create-single-value-extended-property', 'personalcontacts_create_single_value_extended_proper'
-                         'ty')
-        g.custom_command('get-extension', 'personalcontacts_get_extension')
-        g.custom_command('get-multi-value-extended-property', 'personalcontacts_get_multi_value_extended_property')
-        g.custom_command('get-photo', 'personalcontacts_get_photo')
-        g.custom_command('get-photo-content', 'personalcontacts_get_photo_content')
-        g.custom_command('get-single-value-extended-property', 'personalcontacts_get_single_value_extended_property')
-        g.custom_command('list-extension', 'personalcontacts_list_extension')
-        g.custom_command('list-multi-value-extended-property', 'personalcontacts_list_multi_value_extended_property')
-        g.custom_command('list-single-value-extended-property',
-                         'personalcontacts_list_single_value_extended_property')
-        g.custom_command('set-photo-content', 'personalcontacts_set_photo_content')
-        g.custom_command('update-extension', 'personalcontacts_update_extension')
-        g.custom_command('update-multi-value-extended-property', 'personalcontacts_update_multi_value_extended_property'
-                         '')
-        g.custom_command('update-photo', 'personalcontacts_update_photo')
-        g.custom_command('update-single-value-extended-property', 'personalcontacts_update_single_value_extended_proper'
-                         'ty')
+    with self.command_group(
+        'personalcontacts userscontactfolderscontact',
+        personalcontacts_beta_userscontactfolderscontact,
+        client_factory=cf_userscontactfolderscontact,
+    ) as g:
+        g.custom_command('create-extension', 'personalcontacts_userscontactfolderscontact_create_extension')
+        g.custom_command(
+            'create-multi-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_create_multi_value_extended_property',
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_create_single_value_extended_property',
+        )
+        g.custom_command('delete-extension', 'personalcontacts_userscontactfolderscontact_delete_extension')
+        g.custom_command(
+            'delete-multi-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_delete_multi_value_extended_property',
+        )
+        g.custom_command('delete-photo', 'personalcontacts_userscontactfolderscontact_delete_photo')
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_delete_single_value_extended_property',
+        )
+        g.custom_command('list-extension', 'personalcontacts_userscontactfolderscontact_list_extension')
+        g.custom_command(
+            'list-multi-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_list_multi_value_extended_property',
+        )
+        g.custom_command(
+            'list-single-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_list_single_value_extended_property',
+        )
+        g.custom_command('set-photo-content', 'personalcontacts_userscontactfolderscontact_set_photo_content')
+        g.custom_command('show-extension', 'personalcontacts_userscontactfolderscontact_show_extension')
+        g.custom_command(
+            'show-multi-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_show_multi_value_extended_property',
+        )
+        g.custom_command('show-photo', 'personalcontacts_userscontactfolderscontact_show_photo')
+        g.custom_command('show-photo-content', 'personalcontacts_userscontactfolderscontact_show_photo_content')
+        g.custom_command(
+            'show-single-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_show_single_value_extended_property',
+        )
+        g.custom_command('update-extension', 'personalcontacts_userscontactfolderscontact_update_extension')
+        g.custom_command(
+            'update-multi-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_update_multi_value_extended_property',
+        )
+        g.custom_command('update-photo', 'personalcontacts_userscontactfolderscontact_update_photo')
+        g.custom_command(
+            'update-single-value-extended-property',
+            'personalcontacts_userscontactfolderscontact_update_single_value_extended_property',
+        )
 
-    from azext_personalcontacts_beta.generated._client_factory import cf_user_contact
-    personalcontacts_beta_user_contact = CliCommandType(
-        operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_contact_operations'
-        '#UserContactOperations.{}',
-        client_factory=cf_user_contact)
-    with self.command_group('personalcontacts', personalcontacts_beta_user_contact,
-                            client_factory=cf_user_contact) as g:
-        g.custom_command('delete', 'personalcontacts_delete', confirmation=True)
-        g.custom_command('create-extension', 'personalcontacts_create_extension')
-        g.custom_command('create-multi-value-extended-property', 'personalcontacts_create_multi_value_extended_property'
-                         '')
-        g.custom_command('create-single-value-extended-property', 'personalcontacts_create_single_value_extended_proper'
-                         'ty')
-        g.custom_command('get-extension', 'personalcontacts_get_extension')
-        g.custom_command('get-multi-value-extended-property', 'personalcontacts_get_multi_value_extended_property')
-        g.custom_command('get-photo', 'personalcontacts_get_photo')
-        g.custom_command('get-photo-content', 'personalcontacts_get_photo_content')
-        g.custom_command('get-single-value-extended-property', 'personalcontacts_get_single_value_extended_property')
-        g.custom_command('list-extension', 'personalcontacts_list_extension')
-        g.custom_command('list-multi-value-extended-property', 'personalcontacts_list_multi_value_extended_property')
-        g.custom_command('list-single-value-extended-property',
-                         'personalcontacts_list_single_value_extended_property')
-        g.custom_command('set-photo-content', 'personalcontacts_set_photo_content')
-        g.custom_command('update-extension', 'personalcontacts_update_extension')
-        g.custom_command('update-multi-value-extended-property', 'personalcontacts_update_multi_value_extended_property'
-                         '')
-        g.custom_command('update-photo', 'personalcontacts_update_photo')
-        g.custom_command('update-single-value-extended-property', 'personalcontacts_update_single_value_extended_proper'
-                         'ty')
+    with self.command_group(
+        'personalcontacts userscontact', personalcontacts_beta_userscontact, client_factory=cf_userscontact
+    ) as g:
+        g.custom_command('create-extension', 'personalcontacts_userscontact_create_extension')
+        g.custom_command(
+            'create-multi-value-extended-property', 'personalcontacts_userscontact_create_multi_value_extended_property'
+        )
+        g.custom_command(
+            'create-single-value-extended-property',
+            'personalcontacts_userscontact_create_single_value_extended_property',
+        )
+        g.custom_command('delete-extension', 'personalcontacts_userscontact_delete_extension')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'personalcontacts_userscontact_delete_multi_value_extended_property'
+        )
+        g.custom_command('delete-photo', 'personalcontacts_userscontact_delete_photo')
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'personalcontacts_userscontact_delete_single_value_extended_property',
+        )
+        g.custom_command('list-extension', 'personalcontacts_userscontact_list_extension')
+        g.custom_command(
+            'list-multi-value-extended-property', 'personalcontacts_userscontact_list_multi_value_extended_property'
+        )
+        g.custom_command(
+            'list-single-value-extended-property', 'personalcontacts_userscontact_list_single_value_extended_property'
+        )
+        g.custom_command('set-photo-content', 'personalcontacts_userscontact_set_photo_content')
+        g.custom_command('show-extension', 'personalcontacts_userscontact_show_extension')
+        g.custom_command(
+            'show-multi-value-extended-property', 'personalcontacts_userscontact_show_multi_value_extended_property'
+        )
+        g.custom_command('show-photo', 'personalcontacts_userscontact_show_photo')
+        g.custom_command('show-photo-content', 'personalcontacts_userscontact_show_photo_content')
+        g.custom_command(
+            'show-single-value-extended-property', 'personalcontacts_userscontact_show_single_value_extended_property'
+        )
+        g.custom_command('update-extension', 'personalcontacts_userscontact_update_extension')
+        g.custom_command(
+            'update-multi-value-extended-property', 'personalcontacts_userscontact_update_multi_value_extended_property'
+        )
+        g.custom_command('update-photo', 'personalcontacts_userscontact_update_photo')
+        g.custom_command(
+            'update-single-value-extended-property',
+            'personalcontacts_userscontact_update_single_value_extended_property',
+        )
+
+    with self.command_group('personalcontacts_beta', is_experimental=True):
+        pass

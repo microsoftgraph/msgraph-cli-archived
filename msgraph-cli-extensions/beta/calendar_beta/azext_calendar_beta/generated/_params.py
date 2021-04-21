@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -26,423 +27,480 @@ from azext_calendar_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar group create-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar group create-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar group delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group delete-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar group delete-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar group list-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
+                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
+        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
+                   'format. For example, 2019-11-08T20:00:00-08:00')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar group list-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar group show-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar group show-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
                    '8601 format. For example, 2019-11-08T19:00:00-08:00')
         c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
                    'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar group show-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-view') as c:
+    with self.argument_context('calendar group update-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
+                   'that can be used to create online meetings in this calendar. Possible values are: unknown, '
+                   'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
+        c.argument('calendar_group_id', type=str, help='')
+        c.argument('can_edit', arg_type=get_three_state_flag(), help='True if the user can write to the calendar, '
+                   'false otherwise. This property is true for the user who created the calendar. This property is '
+                   'also true for a user who has been shared a calendar and granted write access.')
+        c.argument('can_share', arg_type=get_three_state_flag(), help='True if the user has the permission to share '
+                   'the calendar, false otherwise. Only the user who created the calendar can share it.')
+        c.argument('can_view_private_items', arg_type=get_three_state_flag(), help='True if the user can read calendar '
+                   'items that have been marked private, false otherwise.')
+        c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
+                   'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
+                   'correct version of the object. Read-only.')
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
+                                                    'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
+                                                    'maxColor']), help='')
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                              'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
+        c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
+                   'deleted from the user mailbox.')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='')
+        c.argument('is_shared_with_me', arg_type=get_three_state_flag(), help='')
+        c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
+                   'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
+                   'calendars support tracking of meeting responses.')
+        c.argument('name', type=str, help='The calendar name.')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
+        c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
+                   'the calendar is shared. Expected value: json-string/@json-file.')
+        c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
+                   'property. Read-only. Expected value: json-string/@json-file.')
+        c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
+                   'Read-only. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
+                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
+                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+
+    with self.argument_context('calendar group update-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar group update-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendar create-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
+                   'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
+                   'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
+        c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
+                   '(sharee or delegate) is inside the same organization as the calendar owner.')
+        c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
+                   'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
+                   'user determines the permissions other people within your organization have to the given calendar. '
+                   'You cannot remove \'My organization\' as a sharee to a calendar.')
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
+                                                   'delegateWithPrivateEventAccess', 'custom']), help='')
+
+    with self.argument_context('calendar groupscalendar create-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendar create-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendar create-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar groupscalendar create-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar groupscalendar delete-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendar delete-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendar delete-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendar delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendar delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendar list-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupscalendar list-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
                    '8601 format. For example, 2019-11-08T19:00:00-08:00')
         c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
                    'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-event') as c:
+    with self.argument_context('calendar groupscalendar list-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar groupscalendar list-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
-                   'that can be used to create online meetings in this calendar. Possible values are: unknown, '
-                   'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
-        c.argument('calendar_group_id', type=str, help='')
-        c.argument('can_edit', arg_type=get_three_state_flag(), help='True if the user can write to the calendar, '
-                   'false otherwise. This property is true for the user who created the calendar. This property is '
-                   'also true for a user who has been shared a calendar and granted write access.')
-        c.argument('can_share', arg_type=get_three_state_flag(), help='True if the user has the permission to share '
-                   'the calendar, false otherwise. Only the user who created the calendar can share it.')
-        c.argument('can_view_private_items', arg_type=get_three_state_flag(), help='True if the user can read calendar '
-                   'items that have been marked private, false otherwise.')
-        c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
-                   'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
-                   'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
-                                                    'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
-                                                    'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
-                                                                              'skypeForConsumer', 'teamsForBusiness']),
-                   help='')
-        c.argument('hex_color', type=str, help='')
-        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
-        c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
-                   'deleted from the user mailbox.')
-        c.argument('is_shared', arg_type=get_three_state_flag(), help='')
-        c.argument('is_shared_with_me', arg_type=get_three_state_flag(), help='')
-        c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
-                   'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
-                   'calendars support tracking of meeting responses.')
-        c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
-        c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
-                   'the calendar is shared. Expected value: json-string/@json-file.')
-        c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
-                   'property. Read-only. Expected value: json-string/@json-file.')
-        c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
-                   'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar groupscalendar list-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-event') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar groupscalendar show-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-calendar-permission') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
-                   'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
-                   'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
-        c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
-                   '(sharee or delegate) is inside the same organization as the calendar owner.')
-        c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
-                   'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
-                   'user determines the permissions other people within your organization have to the given calendar. '
-                   'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
-                                                   'delegateWithPrivateEventAccess', 'custom']), help='')
-
-    with self.argument_context('calendar create-calendar-view') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('calendar create-event') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
-
-    with self.argument_context('calendar create-single-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
-
-    with self.argument_context('calendar get-calendar-permission') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar groupscalendar show-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
                    '8601 format. For example, 2019-11-08T19:00:00-08:00')
         c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
                    'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar groupscalendar show-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendar show-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendar show-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-permission') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-calendar-view') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
-                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
-        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
-                   'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-event') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-calendar-permission') as c:
+    with self.argument_context('calendar groupscalendar update-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar groupscalendar update-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar groupscalendar update-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendar update-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar groupscalendarview create-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar groupscalendarview create-exception-occurrence') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendarview create-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar groupscalendarview create-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendarview create-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar groupscalendarview create-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar groupscalendarview delete-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-exception-occurrence') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar groupscalendarview list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarview list-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar groupscalendarview list-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar groupscalendarview list-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview list-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview list-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar groupscalendarview show-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar groupscalendarview show-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarview show-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar groupscalendarview show-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar groupscalendarview show-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview show-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview show-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar groupscalendarview update-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -456,11 +514,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar groupscalendarview update-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -474,10 +532,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -490,47 +548,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarview update-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar groupscalendarview update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar groupscalendarview update-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview update-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -538,153 +596,184 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar groupscalendarevent create-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar groupscalendarevent create-exception-occurrence') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendarevent create-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar groupscalendarevent create-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendarevent create-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar groupscalendarevent create-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar groupscalendarevent delete-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarevent delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarevent delete-exception-occurrence') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarevent delete-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarevent delete-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarevent delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarevent delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar groupscalendarevent list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarevent list-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar groupscalendarevent list-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar groupscalendarevent list-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarevent list-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarevent list-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar groupscalendarevent show-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar groupscalendarevent show-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarevent show-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar groupscalendarevent show-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar groupscalendarevent show-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarevent show-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarevent show-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar groupscalendarevent update-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -698,11 +787,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar groupscalendarevent update-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -716,10 +805,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -732,47 +821,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarevent update-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar groupscalendarevent update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar groupscalendarevent update-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarevent update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarevent update-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -780,153 +869,184 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar groupscalendarview create-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar groupscalendarview create-exception-occurrence') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendarview create-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar groupscalendarview create-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar groupscalendarview create-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar groupscalendarview create-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar groupscalendarview delete-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-exception-occurrence') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar groupscalendarview delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar groupscalendarview list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarview list-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar groupscalendarview list-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar groupscalendarview list-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview list-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview list-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar groupscalendarview show-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar groupscalendarview show-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarview show-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar groupscalendarview show-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar groupscalendarview show-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview show-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview show-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar groupscalendarview update-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -940,11 +1060,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar groupscalendarview update-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -958,10 +1078,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -974,47 +1094,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar groupscalendarview update-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar groupscalendarview update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar groupscalendarview update-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarview update-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1022,173 +1142,194 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-calendar-permission') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar create-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar create-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar create-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar create-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-calendar-permission') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar delete-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar delete-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar delete-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar delete-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar delete-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-calendar-permission') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar list-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-view') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar list-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-event') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar list-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar list-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar list-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar-permission') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar show-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupscalendarviewcalendar show-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupscalendarviewcalendar show-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupscalendarviewcalendar show-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupscalendarviewcalendar show-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupscalendarviewcalendar update-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar update-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar update-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar groupscalendarviewcalendar update-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1196,19 +1337,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar groupsevent create-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1221,128 +1350,171 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar groupsevent create-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar groupsevent create-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar groupsevent create-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent create-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar groupsevent delete-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar groupsevent delete-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar groupsevent delete-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar groupsevent delete-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar groupsevent delete-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent delete-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent delete-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-attachment') as c:
+    with self.argument_context('calendar groupsevent list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-exception-occurrence') as c:
+    with self.argument_context('calendar groupsevent list-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-extension') as c:
+    with self.argument_context('calendar groupsevent list-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-instance') as c:
+    with self.argument_context('calendar groupsevent list-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent list-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent list-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar groupsevent show-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupsevent show-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupsevent show-exception-occurrence') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupsevent show-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupsevent show-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupsevent show-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupsevent show-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupsevent update-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -1356,11 +1528,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar groupsevent update-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -1374,10 +1546,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -1390,47 +1562,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar groupsevent update-exception-occurrence') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar groupsevent update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar groupsevent update-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar groupsevent update-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1438,173 +1610,194 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-calendar-permission') as c:
+    with self.argument_context('calendar groupseventscalendar create-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar groupseventscalendar create-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar groupseventscalendar create-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar create-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-calendar-permission') as c:
+    with self.argument_context('calendar groupseventscalendar delete-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar groupseventscalendar delete-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar groupseventscalendar delete-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar delete-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar delete-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-calendar-permission') as c:
+    with self.argument_context('calendar groupseventscalendar list-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-view') as c:
+    with self.argument_context('calendar groupseventscalendar list-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-event') as c:
+    with self.argument_context('calendar groupseventscalendar list-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar list-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar list-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar-permission') as c:
+    with self.argument_context('calendar groupseventscalendar show-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupseventscalendar show-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupseventscalendar show-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupseventscalendar show-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupseventscalendar show-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar groupseventscalendar update-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar groupseventscalendar update-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar groupseventscalendar update-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar groupseventscalendar update-single-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -1612,46 +1805,39 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('place_id', type=str, help='key: id of place')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('calendar create-place') as c:
+    with self.argument_context('calendar placesplace create-place') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
         c.argument('display_name', type=str, help='The name associated with the place.')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='outlookGeoCoordinates')
         c.argument('phone', type=str, help='The phone number of the place.')
 
-    with self.argument_context('calendar get-place') as c:
+    with self.argument_context('calendar placesplace delete-place') as c:
         c.argument('place_id', type=str, help='key: id of place')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-place') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('calendar placesplace list-place') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-place') as c:
+    with self.argument_context('calendar placesplace show-place') as c:
+        c.argument('place_id', type=str, help='key: id of place')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar placesplace update-place') as c:
         c.argument('place_id', type=str, help='key: id of place')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
         c.argument('display_name', type=str, help='The name associated with the place.')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='outlookGeoCoordinates')
         c.argument('phone', type=str, help='The phone number of the place.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-
-    with self.argument_context('calendar create-calendar') as c:
+    with self.argument_context('calendar user create-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -1665,10 +1851,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -1681,19 +1867,19 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar create-calendar-group') as c:
+    with self.argument_context('calendar user create-calendar-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('change_key', type=str, help='Identifies the version of the calendar group. Every time the calendar '
@@ -1704,77 +1890,97 @@ def load_arguments(self, _):
         c.argument('calendars', type=validate_file_or_dict, help='The calendars in the calendar group. Navigation '
                    'property. Read-only. Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar user create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar user create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar user delete-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-group') as c:
+    with self.argument_context('calendar user delete-calendar-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar user delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user list-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar user list-calendar-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar user list-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
+                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
+        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
+                   'format. For example, 2019-11-08T20:00:00-08:00')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar user list-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar user show-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar user show-calendar-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar user show-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
                    '8601 format. For example, 2019-11-08T19:00:00-08:00')
         c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
                    'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar user show-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-calendar-group') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-calendar-view') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
-                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
-        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
-                   'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-event') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar user update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -1788,10 +1994,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -1804,19 +2010,19 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-calendar-group') as c:
+    with self.argument_context('calendar user update-calendar-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1828,192 +2034,197 @@ def load_arguments(self, _):
         c.argument('calendars', type=validate_file_or_dict, help='The calendars in the calendar group. Navigation '
                    'property. Read-only. Nullable. Expected value: json-string/@json-file.')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar user update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar user update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-calendar-permission') as c:
+    with self.argument_context('calendar userscalendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar userscalendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar userscalendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-calendar-permission') as c:
+    with self.argument_context('calendar userscalendar delete-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar userscalendar delete-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
-                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
-        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
-                   'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar userscalendar delete-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-calendar-permission') as c:
+    with self.argument_context('calendar userscalendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-view') as c:
+    with self.argument_context('calendar userscalendar list-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
                    '8601 format. For example, 2019-11-08T19:00:00-08:00')
         c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
                    'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-event') as c:
+    with self.argument_context('calendar userscalendar list-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar-permission') as c:
+    with self.argument_context('calendar userscalendar show-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar show-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
+                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
+        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
+                   'format. For example, 2019-11-08T20:00:00-08:00')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar show-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar show-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar show-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar update-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar userscalendar update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar userscalendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar userscalendarview create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2026,128 +2237,171 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarview create-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar userscalendarview create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar userscalendarview create-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar userscalendarview delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendarview delete-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarview delete-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar userscalendarview delete-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar userscalendarview delete-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-attachment') as c:
+    with self.argument_context('calendar userscalendarview list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarview list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-extension') as c:
+    with self.argument_context('calendar userscalendarview list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-instance') as c:
+    with self.argument_context('calendar userscalendarview list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar userscalendarview show-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarview show-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarview show-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarview show-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarview show-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarview show-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarview show-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarview update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -2161,11 +2415,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendarview update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -2179,10 +2433,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -2195,47 +2449,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarview update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar userscalendarview update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar userscalendarview update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -2243,153 +2497,184 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar userscalendarevent create-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar userscalendarevent create-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarevent create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar userscalendarevent create-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarevent create-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar userscalendarevent create-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar userscalendarevent delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarevent delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarevent delete-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarevent delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarevent delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarevent delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarevent delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar userscalendarevent list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarevent list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar userscalendarevent list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar userscalendarevent list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarevent list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarevent list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar userscalendarevent show-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendarevent show-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarevent show-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar userscalendarevent show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar userscalendarevent show-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarevent show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarevent show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar userscalendarevent update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -2403,11 +2688,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendarevent update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -2421,10 +2706,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -2437,47 +2722,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarevent update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar userscalendarevent update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar userscalendarevent update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarevent update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarevent update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -2485,17 +2770,11 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('calendar create-calendar') as c:
+    with self.argument_context('calendar userscalendargroup create-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('microsoft_graph_calendar_group_id_calendar_group_id', type=str, help='')
@@ -2509,10 +2788,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -2525,38 +2804,44 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendargroup delete-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-calendar') as c:
+    with self.argument_context('calendar userscalendargroup list-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendargroup show-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroup update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('microsoft_graph_calendar_group_id_calendar_group_id', type=str, help='')
@@ -2570,10 +2855,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -2586,180 +2871,205 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-calendar-permission') as c:
+    with self.argument_context('calendar userscalendargroupscalendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar userscalendargroupscalendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar userscalendargroupscalendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-calendar-permission') as c:
+    with self.argument_context('calendar userscalendargroupscalendar delete-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar userscalendargroupscalendar delete-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar userscalendargroupscalendar delete-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-calendar-permission') as c:
+    with self.argument_context('calendar userscalendargroupscalendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-view') as c:
+    with self.argument_context('calendar userscalendargroupscalendar list-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-event') as c:
+    with self.argument_context('calendar userscalendargroupscalendar list-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar-permission') as c:
+    with self.argument_context('calendar userscalendargroupscalendar show-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendar show-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendar show-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendar show-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendar show-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendar update-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar userscalendargroupscalendar update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2767,7 +3077,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar userscalendargroupscalendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2775,16 +3085,16 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendar update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2793,21 +3103,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2822,7 +3118,7 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview create-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2830,14 +3126,14 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview create-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2845,15 +3141,15 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2861,125 +3157,182 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview delete-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview delete-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview delete-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview delete-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-attachment') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-extension') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-instance') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview show-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview show-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview show-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview show-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview show-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview show-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview show-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -2995,13 +3348,13 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('microsoft_graph_calendar_group_id_calendar_group_id', type=str, help='')
@@ -3015,10 +3368,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -3031,19 +3384,19 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3052,7 +3405,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3060,7 +3413,7 @@ def load_arguments(self, _):
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3069,7 +3422,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3077,9 +3430,9 @@ def load_arguments(self, _):
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarscalendarview update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3089,193 +3442,236 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent create-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent create-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent create-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent create-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent create-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent delete-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendargroupscalendarsevent delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent show-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent show-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent show-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent show-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3291,13 +3687,13 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('microsoft_graph_calendar_group_id_calendar_group_id', type=str, help='')
@@ -3311,10 +3707,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -3327,19 +3723,19 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3348,7 +3744,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3356,7 +3752,7 @@ def load_arguments(self, _):
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3365,7 +3761,7 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3373,9 +3769,9 @@ def load_arguments(self, _):
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendargroupscalendarsevent update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -3385,67 +3781,127 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-calendar-permission') as c:
+    with self.argument_context('calendar userscalendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar userscalendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar userscalendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-calendar-permission') as c:
+    with self.argument_context('calendar userscalendar delete-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar userscalendar delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendar delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendar delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendar delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendar list-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar list-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
+                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
+        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
+                   'format. For example, 2019-11-08T20:00:00-08:00')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar list-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar list-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar list-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar show-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendar show-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -3453,113 +3909,74 @@ def load_arguments(self, _):
                    '8601 format. For example, 2019-11-08T19:00:00-08:00')
         c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
                    'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar userscalendar show-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-permission') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-calendar-view') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('start_date_time', type=str, help='The start date and time of the time range, represented in ISO '
-                   '8601 format. For example, 2019-11-08T19:00:00-08:00')
-        c.argument('end_date_time', type=str, help='The end date and time of the time range, represented in ISO 8601 '
-                   'format. For example, 2019-11-08T20:00:00-08:00')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-event') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-calendar-permission') as c:
+    with self.argument_context('calendar userscalendar update-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar userscalendar update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar userscalendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendar update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -3567,173 +3984,210 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar userscalendarscalendarview create-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar userscalendarscalendarview create-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarscalendarview create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar userscalendarscalendarview create-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarscalendarview create-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar userscalendarscalendarview create-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar userscalendarscalendarview delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarscalendarview delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarscalendarview delete-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarscalendarview delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarscalendarview delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarscalendarview delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarscalendarview delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar userscalendarscalendarview list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarscalendarview list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar userscalendarscalendarview list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar userscalendarscalendarview list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarscalendarview list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarscalendarview list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar userscalendarscalendarview show-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendarscalendarview show-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarscalendarview show-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar userscalendarscalendarview show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar userscalendarscalendarview show-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarscalendarview show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarscalendarview show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar userscalendarscalendarview update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -3748,12 +4202,12 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendarscalendarview update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -3767,10 +4221,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -3783,19 +4237,19 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarscalendarview update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -3803,14 +4257,14 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar userscalendarscalendarview update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar userscalendarscalendarview update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -3818,16 +4272,16 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarscalendarview update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarscalendarview update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -3836,173 +4290,210 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar userscalendarsevent create-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar userscalendarsevent create-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarsevent create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar userscalendarsevent create-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarsevent create-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar userscalendarsevent create-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar userscalendarsevent delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarsevent delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarsevent delete-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarsevent delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarsevent delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarsevent delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarsevent delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar userscalendarsevent list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarsevent list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar userscalendarsevent list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar userscalendarsevent list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarsevent list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarsevent list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar userscalendarsevent show-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendarsevent show-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarsevent show-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar userscalendarsevent show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar userscalendarsevent show-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarsevent show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarsevent show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar userscalendarsevent update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -4017,12 +4508,12 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendarsevent update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -4036,10 +4527,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -4052,19 +4543,19 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarsevent update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -4072,14 +4563,14 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar userscalendarsevent update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar userscalendarsevent update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -4087,16 +4578,16 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarsevent update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarsevent update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
@@ -4105,153 +4596,184 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar userscalendarview create-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+
+    with self.argument_context('calendar userscalendarview create-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarview create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('calendar userscalendarview create-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userscalendarview create-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar userscalendarview create-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar userscalendarview delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarview delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarview delete-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarview delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarview delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarview delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userscalendarview delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar userscalendarview list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('content_type', type=str, help='The MIME type.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', type=str, help='The attachment\'s file name.')
-        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarview list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar userscalendarview list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar userscalendarview list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar userscalendarview show-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar userscalendarview show-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarview show-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar userscalendarview show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar userscalendarview show-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-attachment') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-exception-occurrence') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-extension') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-instance') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar userscalendarview update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -4265,11 +4787,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar userscalendarview update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -4283,10 +4805,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -4299,47 +4821,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar userscalendarview update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar userscalendarview update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar userscalendarview update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarview update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -4347,173 +4869,194 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-calendar-permission') as c:
+    with self.argument_context('calendar userscalendarviewcalendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar create-calendar-view') as c:
+    with self.argument_context('calendar userscalendarviewcalendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-event') as c:
+    with self.argument_context('calendar userscalendarviewcalendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-calendar-permission') as c:
+    with self.argument_context('calendar userscalendarviewcalendar delete-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar-view') as c:
+    with self.argument_context('calendar userscalendarviewcalendar delete-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-event') as c:
+    with self.argument_context('calendar userscalendarviewcalendar delete-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-calendar-permission') as c:
+    with self.argument_context('calendar userscalendarviewcalendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-calendar-view') as c:
+    with self.argument_context('calendar userscalendarviewcalendar list-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-event') as c:
+    with self.argument_context('calendar userscalendarviewcalendar list-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-calendar-permission') as c:
+    with self.argument_context('calendar userscalendarviewcalendar show-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarviewcalendar show-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarviewcalendar show-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarviewcalendar show-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarviewcalendar show-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userscalendarviewcalendar update-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar userscalendarviewcalendar update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar userscalendarviewcalendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userscalendarviewcalendar update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -4521,19 +5064,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('calendar create-attachment') as c:
+    with self.argument_context('calendar usersevent create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -4546,128 +5077,171 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar create-exception-occurrence') as c:
+    with self.argument_context('calendar usersevent create-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-extension') as c:
+    with self.argument_context('calendar usersevent create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar create-instance') as c:
+    with self.argument_context('calendar usersevent create-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
+    with self.argument_context('calendar usersevent create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar create-single-value-extended-property') as c:
+    with self.argument_context('calendar usersevent create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar get-attachment') as c:
+    with self.argument_context('calendar usersevent delete-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-calendar') as c:
+    with self.argument_context('calendar usersevent delete-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-exception-occurrence') as c:
+    with self.argument_context('calendar usersevent delete-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-extension') as c:
+    with self.argument_context('calendar usersevent delete-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-instance') as c:
+    with self.argument_context('calendar usersevent delete-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
+    with self.argument_context('calendar usersevent delete-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar get-single-value-extended-property') as c:
+    with self.argument_context('calendar usersevent delete-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('calendar list-attachment') as c:
+    with self.argument_context('calendar usersevent list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-exception-occurrence') as c:
+    with self.argument_context('calendar usersevent list-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-extension') as c:
+    with self.argument_context('calendar usersevent list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-instance') as c:
+    with self.argument_context('calendar usersevent list-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
+    with self.argument_context('calendar usersevent list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar list-single-value-extended-property') as c:
+    with self.argument_context('calendar usersevent list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('calendar update-attachment') as c:
+    with self.argument_context('calendar usersevent show-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar usersevent show-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar usersevent show-exception-occurrence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar usersevent show-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar usersevent show-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar usersevent show-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar usersevent show-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar usersevent update-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('attachment_id', type=str, help='key: id of attachment')
@@ -4681,11 +5255,11 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='The attachment\'s file name.')
         c.argument('size', type=int, help='The length of the attachment in bytes.')
 
-    with self.argument_context('calendar update-calendar') as c:
+    with self.argument_context('calendar usersevent update-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_online_meeting_providers', nargs='*', help='Represent the online meeting service providers '
+        c.argument('allowed_online_meeting_providers', nargs='+', help='Represent the online meeting service providers '
                    'that can be used to create online meetings in this calendar. Possible values are: unknown, '
                    'skypeForBusiness, skypeForConsumer, teamsForBusiness.')
         c.argument('calendar_group_id', type=str, help='')
@@ -4699,10 +5273,10 @@ def load_arguments(self, _):
         c.argument('change_key', type=str, help='Identifies the version of the calendar object. Every time the '
                    'calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the '
                    'correct version of the object. Read-only.')
-        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray', ''
+        c.argument('color', arg_type=get_enum_type(['lightBlue', 'lightGreen', 'auto', 'lightOrange', 'lightGray',
                                                     'lightYellow', 'lightTeal', 'lightPink', 'lightBrown', 'lightRed',
                                                     'maxColor']), help='')
-        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
+        c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
         c.argument('hex_color', type=str, help='')
@@ -4715,47 +5289,47 @@ def load_arguments(self, _):
                    'calendar supports tracking of meeting responses. Only meeting invites sent from users\' primary '
                    'calendars support tracking of meeting responses.')
         c.argument('name', type=str, help='The calendar name.')
-        c.argument('owner', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('owner', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('calendar_permissions', type=validate_file_or_dict, help='The permissions of the users with whom '
                    'the calendar is shared. Expected value: json-string/@json-file.')
         c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Navigation '
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
                    'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
 
-    with self.argument_context('calendar update-exception-occurrence') as c:
+    with self.argument_context('calendar usersevent update-exception-occurrence') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-extension') as c:
+    with self.argument_context('calendar usersevent update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('calendar update-instance') as c:
+    with self.argument_context('calendar usersevent update-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar usersevent update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar usersevent update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -4763,173 +5337,194 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar delete') as c:
+    with self.argument_context('calendar userseventscalendar create-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
+                   'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
+                   'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
+        c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
+                   '(sharee or delegate) is inside the same organization as the calendar owner.')
+        c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
+                   'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
+                   'user determines the permissions other people within your organization have to the given calendar. '
+                   'You cannot remove \'My organization\' as a sharee to a calendar.')
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
+                                                   'delegateWithPrivateEventAccess', 'custom']), help='')
+
+    with self.argument_context('calendar userseventscalendar create-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userseventscalendar create-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('calendar userseventscalendar create-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('calendar userseventscalendar create-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar userseventscalendar delete-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
 
-    with self.argument_context('calendar create-calendar-permission') as c:
+    with self.argument_context('calendar userseventscalendar delete-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userseventscalendar delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userseventscalendar delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userseventscalendar delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar userseventscalendar list-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar list-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar list-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar list-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar list-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar show-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar show-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar show-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar show-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar show-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('calendar userseventscalendar update-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
+        c.argument('allowed_roles', nargs='+', help='List of allowed sharing or delegating permission levels for the '
                    'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
                    'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('email_address', action=AddOwner, nargs='+', help='emailAddress')
         c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
                    '(sharee or delegate) is inside the same organization as the calendar owner.')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
                    'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
                    'user determines the permissions other people within your organization have to the given calendar. '
                    'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
+        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write',
+                                                   'delegateWithoutPrivateEventAccess',
                                                    'delegateWithPrivateEventAccess', 'custom']), help='')
 
-    with self.argument_context('calendar create-calendar-view') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('calendar create-event') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('calendar create-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
-
-    with self.argument_context('calendar create-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
-
-    with self.argument_context('calendar get-calendar-permission') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar get-calendar-view') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar get-event') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar get-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar get-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-calendar-permission') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-calendar-view') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-event') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar list-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('calendar update-calendar-permission') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_roles', nargs='*', help='List of allowed sharing or delegating permission levels for the '
-                   'calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, '
-                   'delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.')
-        c.argument('email_address', action=AddOwner, nargs='*', help='emailAddress')
-        c.argument('is_inside_organization', arg_type=get_three_state_flag(), help='True if the user in context '
-                   '(sharee or delegate) is inside the same organization as the calendar owner.')
-        c.argument('is_removable', arg_type=get_three_state_flag(), help='True if the user can be removed from the '
-                   'list of sharees or delegates for the specified calendar, false otherwise. The \'My organization\' '
-                   'user determines the permissions other people within your organization have to the given calendar. '
-                   'You cannot remove \'My organization\' as a sharee to a calendar.')
-        c.argument('role', arg_type=get_enum_type(['none', 'freeBusyRead', 'limitedRead', 'read', 'write', ''
-                                                   'delegateWithoutPrivateEventAccess', ''
-                                                   'delegateWithPrivateEventAccess', 'custom']), help='')
-
-    with self.argument_context('calendar update-calendar-view') as c:
+    with self.argument_context('calendar userseventscalendar update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-event') as c:
+    with self.argument_context('calendar userseventscalendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('calendar update-multi-value-extended-property') as c:
+    with self.argument_context('calendar userseventscalendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='*', help='A collection of property values.')
+        c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('calendar update-single-value-extended-property') as c:
+    with self.argument_context('calendar userseventscalendar update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '

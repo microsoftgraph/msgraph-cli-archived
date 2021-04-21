@@ -39,6 +39,9 @@ class AddAudioConferencing(argparse.Action):
                 d['toll_free_number'] = v[0]
             elif kl == 'toll-number':
                 d['toll_number'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter audio_conferencing. All possible keys '
+                               'are: conference-id, dialin-url, toll-free-number, toll-number'.format(k))
         return d
 
 
@@ -65,6 +68,9 @@ class AddChatInfo(argparse.Action):
                 d['reply_chain_message_id'] = v[0]
             elif kl == 'thread-id':
                 d['thread_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter chat_info. All possible keys are: '
+                               'message-id, reply-chain-message-id, thread-id'.format(k))
         return d
 
 
@@ -89,4 +95,7 @@ class AddJoinInformation(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter join_information. All possible keys are: '
+                               'content, content-type'.format(k))
         return d

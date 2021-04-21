@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._applications_async import Applications
+from ._applications import Applications
 __all__ = ['Applications']

@@ -87,6 +87,14 @@ class AddRestrictedSignIns(argparse._AppendAction):
                 d['state'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter restricted_sign_ins. All possible keys '
+                               'are: target-tenant-id, app-display-name, app-id, applied-conditional-access-policies, '
+                               'client-app-used, conditional-access-status, correlation-id, created-date-time, '
+                               'device-detail, ip-address, is-interactive, resource-display-name, resource-id, '
+                               'risk-detail, risk-event-types, risk-event-types-v2, risk-level-aggregated, '
+                               'risk-level-during-sign-in, risk-state, status, user-display-name, user-id, '
+                               'user-principal-name, city, country-or-region, geo-coordinates, state, id'.format(k))
         return d
 
 
@@ -111,45 +119,16 @@ class AddAdditionalDetails(argparse._AppendAction):
                 d['key'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter additional_details. All possible keys '
+                               'are: key, value'.format(k))
         return d
 
 
-class AddTargetResources(argparse._AppendAction):
+class AddApp(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddTargetResources, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'group-type':
-                d['group_type'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'modified-properties':
-                d['modified_properties'] = v
-            elif kl == 'type':
-                d['type'] = v[0]
-            elif kl == 'user-principal-name':
-                d['user_principal_name'] = v[0]
-        return d
-
-
-class AddInitiatedByApp(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.initiated_by_app = action
+        namespace.app = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -171,13 +150,16 @@ class AddInitiatedByApp(argparse.Action):
                 d['service_principal_id'] = v[0]
             elif kl == 'service-principal-name':
                 d['service_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app. All possible keys are: app-id, '
+                               'display-name, service-principal-id, service-principal-name'.format(k))
         return d
 
 
-class AddInitiatedByUser(argparse.Action):
+class AddUser(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.initiated_by_user = action
+        namespace.user = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -199,6 +181,9 @@ class AddInitiatedByUser(argparse.Action):
                 d['ip_address'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user. All possible keys are: '
+                               'display-name, id, ip-address, user-principal-name'.format(k))
         return d
 
 
@@ -229,6 +214,10 @@ class AddAppliedConditionalAccessPolicies(argparse._AppendAction):
                 d['id'] = v[0]
             elif kl == 'result':
                 d['result'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter applied_conditional_access_policies. All '
+                               'possible keys are: display-name, enforced-grant-controls, enforced-session-controls, '
+                               'id, result'.format(k))
         return d
 
 
@@ -263,6 +252,10 @@ class AddDeviceDetail(argparse.Action):
                 d['operating_system'] = v[0]
             elif kl == 'trust-type':
                 d['trust_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_detail. All possible keys are: '
+                               'browser, device-id, display-name, is-compliant, is-managed, operating-system, '
+                               'trust-type'.format(k))
         return d
 
 
@@ -289,13 +282,16 @@ class AddStatus(argparse.Action):
                 d['error_code'] = v[0]
             elif kl == 'failure-reason':
                 d['failure_reason'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter status. All possible keys are: '
+                               'additional-details, error-code, failure-reason'.format(k))
         return d
 
 
-class AddLocationGeoCoordinates(argparse.Action):
+class AddGeoCoordinates(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.location_geo_coordinates = action
+        namespace.geo_coordinates = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -315,4 +311,7 @@ class AddLocationGeoCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter geo_coordinates. All possible keys are: '
+                               'altitude, latitude, longitude'.format(k))
         return d

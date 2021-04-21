@@ -32,26 +32,25 @@ from azext_security_beta.action import (
     AddIpReferenceData,
     AddAverageComparativeScores,
     AddControlScores,
-    AddComplianceInformation,
     AddControlStateUpdates,
     AddErrorInfo,
     AddParameters,
     AddStates,
     AddAccounts,
-    AddSecuritySubmitTiIndicatorValue,
-    AddSecurityUpdateTiIndicatorValue
+    AddSecuritySecuritytiindicatorSubmitTiIndicatorValue,
+    AddSecuritySecuritytiindicatorUpdateTiIndicatorValue
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('security get-security') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security show-security') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security update-security') as c:
+    with self.argument_context('security security update-security') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('provider_status', action=AddProviderStatus, nargs='*', help='')
+        c.argument('provider_status', action=AddProviderStatus, nargs='+', help='')
         c.argument('alerts', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
         c.argument('cloud_app_security_profiles', type=validate_file_or_dict, help=' Expected value: '
@@ -64,35 +63,20 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('ip_security_profiles', type=validate_file_or_dict,
                    help=' Expected value: json-string/@json-file.')
-        c.argument('provider_tenant_settings', action=AddProviderTenantSettings, nargs='*', help='')
+        c.argument('provider_tenant_settings', action=AddProviderTenantSettings, nargs='+', help='')
         c.argument('secure_score_control_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('secure_scores', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('security_actions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('ti_indicators', action=AddTiIndicators, nargs='*', help='')
+        c.argument('ti_indicators', action=AddTiIndicators, nargs='+', help='')
         c.argument('user_security_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('security delete') as c:
-        c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
-        c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
-        c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
-        c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
-        c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
-        c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
-        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
-        c.argument('secure_score_id', type=str, help='key: id of secureScore')
-        c.argument('security_action_id', type=str, help='key: id of securityAction')
-        c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
-        c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
-
-    with self.argument_context('security create-alert') as c:
+    with self.argument_context('security security create-alert') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('security create-cloud-app-security-profile') as c:
+    with self.argument_context('security security create-cloud-app-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
@@ -103,7 +87,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('manifest', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('permissions_required', arg_type=get_enum_type(['unknown', 'anonymous', 'guest', 'user', ''
+        c.argument('permissions_required', arg_type=get_enum_type(['unknown', 'anonymous', 'guest', 'user',
                                                                    'administrator', 'system', 'unknownFutureValue']),
                    help='')
         c.argument('platform', type=str, help='')
@@ -112,45 +96,45 @@ def load_arguments(self, _):
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
         c.argument('type_', options_list=['--type'], type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-domain-security-profile') as c:
+    with self.argument_context('security security create-domain-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('count_hits', type=int, help='')
         c.argument('count_in_org', type=int, help='')
-        c.argument('domain_categories', action=AddDomainCategories, nargs='*', help='')
+        c.argument('domain_categories', action=AddDomainCategories, nargs='+', help='')
         c.argument('domain_registered_date_time', help='')
         c.argument('first_seen_date_time', help='')
         c.argument('last_seen_date_time', help='')
         c.argument('name', type=str, help='')
-        c.argument('registrant', action=AddRegistrant, nargs='*', help='domainRegistrant')
+        c.argument('registrant', action=AddRegistrant, nargs='+', help='domainRegistrant')
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-file-security-profile') as c:
+    with self.argument_context('security security create-file-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('certificate_thumbprint', type=str, help='')
-        c.argument('extensions', nargs='*', help='')
+        c.argument('extensions', nargs='+', help='')
         c.argument('file_type', type=str, help='')
         c.argument('first_seen_date_time', help='')
-        c.argument('hashes', action=AddHashes, nargs='*', help='')
+        c.argument('hashes', action=AddHashes, nargs='+', help='')
         c.argument('last_seen_date_time', help='')
-        c.argument('malware_states', action=AddMalwareStates, nargs='*', help='')
-        c.argument('names', nargs='*', help='')
+        c.argument('malware_states', action=AddMalwareStates, nargs='+', help='')
+        c.argument('names', nargs='+', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('size', type=int, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
-        c.argument('vulnerability_states', action=AddVulnerabilityStates, nargs='*', help='')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
+        c.argument('vulnerability_states', action=AddVulnerabilityStates, nargs='+', help='')
 
-    with self.argument_context('security create-host-security-profile') as c:
+    with self.argument_context('security security create-host-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
@@ -160,34 +144,34 @@ def load_arguments(self, _):
         c.argument('is_azure_ad_registered', arg_type=get_three_state_flag(), help='')
         c.argument('is_hybrid_azure_domain_joined', arg_type=get_three_state_flag(), help='')
         c.argument('last_seen_date_time', help='')
-        c.argument('logon_users', action=AddLogonUsers, nargs='*', help='')
+        c.argument('logon_users', action=AddLogonUsers, nargs='+', help='')
         c.argument('net_bios_name', type=str, help='')
-        c.argument('network_interfaces', action=AddNetworkInterfaces, nargs='*', help='')
+        c.argument('network_interfaces', action=AddNetworkInterfaces, nargs='+', help='')
         c.argument('os', type=str, help='')
         c.argument('os_version', type=str, help='')
         c.argument('parent_host', type=str, help='')
-        c.argument('related_host_ids', nargs='*', help='')
+        c.argument('related_host_ids', nargs='+', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-ip-security-profile') as c:
+    with self.argument_context('security security create-ip-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('address', type=str, help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('count_hits', type=int, help='')
         c.argument('count_hosts', type=int, help='')
         c.argument('first_seen_date_time', help='')
-        c.argument('ip_categories', action=AddIpCategories, nargs='*', help='')
-        c.argument('ip_reference_data', action=AddIpReferenceData, nargs='*', help='')
+        c.argument('ip_categories', action=AddIpCategories, nargs='+', help='')
+        c.argument('ip_reference_data', action=AddIpReferenceData, nargs='+', help='')
         c.argument('last_seen_date_time', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-provider-tenant-setting') as c:
+    with self.argument_context('security security create-provider-tenant-setting') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('enabled', arg_type=get_three_state_flag(), help='')
@@ -195,32 +179,33 @@ def load_arguments(self, _):
         c.argument('provider', type=str, help='')
         c.argument('vendor', type=str, help='')
 
-    with self.argument_context('security create-secure-score') as c:
+    with self.argument_context('security security create-secure-score') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('active_user_count', type=int, help='Active user count of the given tenant.')
-        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='*', help='Average score by '
+        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='+', help='Average score by '
                    'different scopes (for example, average by industry, average by seating) and control category '
                    '(Identity, Data, Device, Apps, Infrastructure) within the scope.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('control_scores', action=AddControlScores, nargs='*', help='Contains tenant scores for a set of '
+        c.argument('control_scores', action=AddControlScores, nargs='+', help='Contains tenant scores for a set of '
                    'controls.')
         c.argument('created_date_time', help='The date when the entity is created.')
         c.argument('current_score', type=float, help='Tenant current attained score on specified date.')
-        c.argument('enabled_services', nargs='*', help='Microsoft-provided services for the tenant (for example, '
+        c.argument('enabled_services', nargs='+', help='Microsoft-provided services for the tenant (for example, '
                    'Exchange online, Skype, Sharepoint).')
         c.argument('licensed_user_count', type=int, help='Licensed user count of the given tenant.')
         c.argument('max_score', type=float, help='Tenant maximum possible score on specified date.')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-secure-score-control-profile') as c:
+    with self.argument_context('security security create-secure-score-control-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='*', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
-        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='*', help='')
+        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
         c.argument('deprecated', arg_type=get_three_state_flag(),
                    help='Flag to indicate if a control is depreciated.')
         c.argument('implementation_cost', type=str, help='Resource cost of implemmentating control (low, moderate, '
@@ -232,14 +217,14 @@ def load_arguments(self, _):
         c.argument('remediation', type=str, help='Description of what the control will help remediate.')
         c.argument('remediation_impact', type=str, help='Description of the impact on users of the remediation.')
         c.argument('service', type=str, help='Service that owns the control (Exchange, Sharepoint, Azure AD).')
-        c.argument('threats', nargs='*', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
+        c.argument('threats', nargs='+', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
                    'filtration,dataSpillage,')
         c.argument('tier', type=str, help='')
         c.argument('title', type=str, help='Title of the control.')
         c.argument('user_impact', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-security-action') as c:
+    with self.argument_context('security security create-security-action') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action_reason', type=str, help='')
         c.argument('app_id', type=str, help='')
@@ -247,25 +232,25 @@ def load_arguments(self, _):
         c.argument('client_context', type=str, help='')
         c.argument('completed_date_time', help='')
         c.argument('created_date_time', help='')
-        c.argument('error_info', action=AddErrorInfo, nargs='*', help='ResultInfo')
+        c.argument('error_info', action=AddErrorInfo, nargs='+', help='ResultInfo')
         c.argument('last_action_date_time', help='')
         c.argument('name', type=str, help='')
-        c.argument('parameters', action=AddParameters, nargs='*', help='')
-        c.argument('states', action=AddStates, nargs='*', help='')
+        c.argument('parameters', action=AddParameters, nargs='+', help='')
+        c.argument('states', action=AddStates, nargs='+', help='')
         c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
         c.argument('user', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-ti-indicator') as c:
+    with self.argument_context('security security create-ti-indicator') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action', arg_type=get_enum_type(['unknown', 'allow', 'block', 'alert', 'unknownFutureValue']),
                    help='')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('additional_information', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('confidence', type=int, help='')
         c.argument('description', type=str, help='')
-        c.argument('diamond_model', arg_type=get_enum_type(['unknown', 'adversary', 'capability', 'infrastructure', ''
+        c.argument('diamond_model', arg_type=get_enum_type(['unknown', 'adversary', 'capability', 'infrastructure',
                                                             'victim', 'unknownFutureValue']), help='')
         c.argument('domain_name', type=str, help='')
         c.argument('email_encoding', type=str, help='')
@@ -292,10 +277,10 @@ def load_arguments(self, _):
         c.argument('file_type', type=str, help='')
         c.argument('ingested_date_time', help='')
         c.argument('is_active', arg_type=get_three_state_flag(), help='')
-        c.argument('kill_chain', nargs='*', help='')
+        c.argument('kill_chain', nargs='+', help='')
         c.argument('known_false_positives', type=str, help='')
         c.argument('last_reported_date_time', help='')
-        c.argument('malware_family_names', nargs='*', help='')
+        c.argument('malware_family_names', nargs='+', help='')
         c.argument('network_cidr_block', type=str, help='')
         c.argument('network_destination_asn', type=int, help='')
         c.argument('network_destination_cidr_block', type=str, help='')
@@ -316,14 +301,14 @@ def load_arguments(self, _):
         c.argument('tags', tags_type)
         c.argument('target_product', type=str, help='')
         c.argument('threat_type', type=str, help='')
-        c.argument('tlp_level', arg_type=get_enum_type(['unknown', 'white', 'green', 'amber', 'red', ''
+        c.argument('tlp_level', arg_type=get_enum_type(['unknown', 'white', 'green', 'amber', 'red',
                                                         'unknownFutureValue']), help='')
         c.argument('url', type=str, help='')
         c.argument('user_agent', type=str, help='')
 
-    with self.argument_context('security create-user-security-profile') as c:
+    with self.argument_context('security security create-user-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('accounts', action=AddAccounts, nargs='*', help='')
+        c.argument('accounts', action=AddAccounts, nargs='+', help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('created_date_time', help='')
@@ -332,134 +317,182 @@ def load_arguments(self, _):
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
         c.argument('user_principal_name', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security get-alert') as c:
+    with self.argument_context('security security delete-alert') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-cloud-app-security-profile') as c:
+    with self.argument_context('security security delete-cloud-app-security-profile') as c:
         c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-domain-security-profile') as c:
+    with self.argument_context('security security delete-domain-security-profile') as c:
         c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-file-security-profile') as c:
+    with self.argument_context('security security delete-file-security-profile') as c:
         c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-host-security-profile') as c:
+    with self.argument_context('security security delete-host-security-profile') as c:
         c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-ip-security-profile') as c:
+    with self.argument_context('security security delete-ip-security-profile') as c:
         c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-provider-tenant-setting') as c:
+    with self.argument_context('security security delete-provider-tenant-setting') as c:
         c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-secure-score') as c:
+    with self.argument_context('security security delete-secure-score') as c:
         c.argument('secure_score_id', type=str, help='key: id of secureScore')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-secure-score-control-profile') as c:
+    with self.argument_context('security security delete-secure-score-control-profile') as c:
         c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-security-action') as c:
+    with self.argument_context('security security delete-security-action') as c:
         c.argument('security_action_id', type=str, help='key: id of securityAction')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-ti-indicator') as c:
+    with self.argument_context('security security delete-ti-indicator') as c:
         c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-user-security-profile') as c:
+    with self.argument_context('security security delete-user-security-profile') as c:
         c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security list-alert') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-alert') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-cloud-app-security-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-cloud-app-security-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-domain-security-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-domain-security-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-file-security-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-file-security-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-host-security-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-host-security-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-ip-security-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-ip-security-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-provider-tenant-setting') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-provider-tenant-setting') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-secure-score') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-secure-score') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-secure-score-control-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-secure-score-control-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-security-action') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-security-action') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-ti-indicator') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-ti-indicator') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-user-security-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-user-security-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security update-alert') as c:
+    with self.argument_context('security security show-alert') as c:
+        c.argument('alert_id', type=str, help='key: id of alert')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-cloud-app-security-profile') as c:
+        c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-domain-security-profile') as c:
+        c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-file-security-profile') as c:
+        c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-host-security-profile') as c:
+        c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-ip-security-profile') as c:
+        c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-provider-tenant-setting') as c:
+        c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-secure-score') as c:
+        c.argument('secure_score_id', type=str, help='key: id of secureScore')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-secure-score-control-profile') as c:
+        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-security-action') as c:
+        c.argument('security_action_id', type=str, help='key: id of securityAction')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-ti-indicator') as c:
+        c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-user-security-profile') as c:
+        c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security update-alert') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('security update-cloud-app-security-profile') as c:
+    with self.argument_context('security security update-cloud-app-security-profile') as c:
         c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('azure_subscription_id', type=str, help='')
@@ -471,7 +504,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('manifest', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('permissions_required', arg_type=get_enum_type(['unknown', 'anonymous', 'guest', 'user', ''
+        c.argument('permissions_required', arg_type=get_enum_type(['unknown', 'anonymous', 'guest', 'user',
                                                                    'administrator', 'system', 'unknownFutureValue']),
                    help='')
         c.argument('platform', type=str, help='')
@@ -480,47 +513,47 @@ def load_arguments(self, _):
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
         c.argument('type_', options_list=['--type'], type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-domain-security-profile') as c:
+    with self.argument_context('security security update-domain-security-profile') as c:
         c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('count_hits', type=int, help='')
         c.argument('count_in_org', type=int, help='')
-        c.argument('domain_categories', action=AddDomainCategories, nargs='*', help='')
+        c.argument('domain_categories', action=AddDomainCategories, nargs='+', help='')
         c.argument('domain_registered_date_time', help='')
         c.argument('first_seen_date_time', help='')
         c.argument('last_seen_date_time', help='')
         c.argument('name', type=str, help='')
-        c.argument('registrant', action=AddRegistrant, nargs='*', help='domainRegistrant')
+        c.argument('registrant', action=AddRegistrant, nargs='+', help='domainRegistrant')
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-file-security-profile') as c:
+    with self.argument_context('security security update-file-security-profile') as c:
         c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('certificate_thumbprint', type=str, help='')
-        c.argument('extensions', nargs='*', help='')
+        c.argument('extensions', nargs='+', help='')
         c.argument('file_type', type=str, help='')
         c.argument('first_seen_date_time', help='')
-        c.argument('hashes', action=AddHashes, nargs='*', help='')
+        c.argument('hashes', action=AddHashes, nargs='+', help='')
         c.argument('last_seen_date_time', help='')
-        c.argument('malware_states', action=AddMalwareStates, nargs='*', help='')
-        c.argument('names', nargs='*', help='')
+        c.argument('malware_states', action=AddMalwareStates, nargs='+', help='')
+        c.argument('names', nargs='+', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('size', type=int, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
-        c.argument('vulnerability_states', action=AddVulnerabilityStates, nargs='*', help='')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
+        c.argument('vulnerability_states', action=AddVulnerabilityStates, nargs='+', help='')
 
-    with self.argument_context('security update-host-security-profile') as c:
+    with self.argument_context('security security update-host-security-profile') as c:
         c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('azure_subscription_id', type=str, help='')
@@ -531,35 +564,35 @@ def load_arguments(self, _):
         c.argument('is_azure_ad_registered', arg_type=get_three_state_flag(), help='')
         c.argument('is_hybrid_azure_domain_joined', arg_type=get_three_state_flag(), help='')
         c.argument('last_seen_date_time', help='')
-        c.argument('logon_users', action=AddLogonUsers, nargs='*', help='')
+        c.argument('logon_users', action=AddLogonUsers, nargs='+', help='')
         c.argument('net_bios_name', type=str, help='')
-        c.argument('network_interfaces', action=AddNetworkInterfaces, nargs='*', help='')
+        c.argument('network_interfaces', action=AddNetworkInterfaces, nargs='+', help='')
         c.argument('os', type=str, help='')
         c.argument('os_version', type=str, help='')
         c.argument('parent_host', type=str, help='')
-        c.argument('related_host_ids', nargs='*', help='')
+        c.argument('related_host_ids', nargs='+', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-ip-security-profile') as c:
+    with self.argument_context('security security update-ip-security-profile') as c:
         c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('address', type=str, help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('count_hits', type=int, help='')
         c.argument('count_hosts', type=int, help='')
         c.argument('first_seen_date_time', help='')
-        c.argument('ip_categories', action=AddIpCategories, nargs='*', help='')
-        c.argument('ip_reference_data', action=AddIpReferenceData, nargs='*', help='')
+        c.argument('ip_categories', action=AddIpCategories, nargs='+', help='')
+        c.argument('ip_reference_data', action=AddIpReferenceData, nargs='+', help='')
         c.argument('last_seen_date_time', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-provider-tenant-setting') as c:
+    with self.argument_context('security security update-provider-tenant-setting') as c:
         c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('azure_tenant_id', type=str, help='')
@@ -568,34 +601,35 @@ def load_arguments(self, _):
         c.argument('provider', type=str, help='')
         c.argument('vendor', type=str, help='')
 
-    with self.argument_context('security update-secure-score') as c:
+    with self.argument_context('security security update-secure-score') as c:
         c.argument('secure_score_id', type=str, help='key: id of secureScore')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('active_user_count', type=int, help='Active user count of the given tenant.')
-        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='*', help='Average score by '
+        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='+', help='Average score by '
                    'different scopes (for example, average by industry, average by seating) and control category '
                    '(Identity, Data, Device, Apps, Infrastructure) within the scope.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('control_scores', action=AddControlScores, nargs='*', help='Contains tenant scores for a set of '
+        c.argument('control_scores', action=AddControlScores, nargs='+', help='Contains tenant scores for a set of '
                    'controls.')
         c.argument('created_date_time', help='The date when the entity is created.')
         c.argument('current_score', type=float, help='Tenant current attained score on specified date.')
-        c.argument('enabled_services', nargs='*', help='Microsoft-provided services for the tenant (for example, '
+        c.argument('enabled_services', nargs='+', help='Microsoft-provided services for the tenant (for example, '
                    'Exchange online, Skype, Sharepoint).')
         c.argument('licensed_user_count', type=int, help='Licensed user count of the given tenant.')
         c.argument('max_score', type=float, help='Tenant maximum possible score on specified date.')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-secure-score-control-profile') as c:
+    with self.argument_context('security security update-secure-score-control-profile') as c:
         c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='*', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
-        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='*', help='')
+        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
         c.argument('deprecated', arg_type=get_three_state_flag(),
                    help='Flag to indicate if a control is depreciated.')
         c.argument('implementation_cost', type=str, help='Resource cost of implemmentating control (low, moderate, '
@@ -607,14 +641,14 @@ def load_arguments(self, _):
         c.argument('remediation', type=str, help='Description of what the control will help remediate.')
         c.argument('remediation_impact', type=str, help='Description of the impact on users of the remediation.')
         c.argument('service', type=str, help='Service that owns the control (Exchange, Sharepoint, Azure AD).')
-        c.argument('threats', nargs='*', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
+        c.argument('threats', nargs='+', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
                    'filtration,dataSpillage,')
         c.argument('tier', type=str, help='')
         c.argument('title', type=str, help='Title of the control.')
         c.argument('user_impact', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-security-action') as c:
+    with self.argument_context('security security update-security-action') as c:
         c.argument('security_action_id', type=str, help='key: id of securityAction')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action_reason', type=str, help='')
@@ -623,26 +657,26 @@ def load_arguments(self, _):
         c.argument('client_context', type=str, help='')
         c.argument('completed_date_time', help='')
         c.argument('created_date_time', help='')
-        c.argument('error_info', action=AddErrorInfo, nargs='*', help='ResultInfo')
+        c.argument('error_info', action=AddErrorInfo, nargs='+', help='ResultInfo')
         c.argument('last_action_date_time', help='')
         c.argument('name', type=str, help='')
-        c.argument('parameters', action=AddParameters, nargs='*', help='')
-        c.argument('states', action=AddStates, nargs='*', help='')
+        c.argument('parameters', action=AddParameters, nargs='+', help='')
+        c.argument('states', action=AddStates, nargs='+', help='')
         c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
         c.argument('user', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-ti-indicator') as c:
+    with self.argument_context('security security update-ti-indicator') as c:
         c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action', arg_type=get_enum_type(['unknown', 'allow', 'block', 'alert', 'unknownFutureValue']),
                    help='')
-        c.argument('activity_group_names', nargs='*', help='')
+        c.argument('activity_group_names', nargs='+', help='')
         c.argument('additional_information', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('confidence', type=int, help='')
         c.argument('description', type=str, help='')
-        c.argument('diamond_model', arg_type=get_enum_type(['unknown', 'adversary', 'capability', 'infrastructure', ''
+        c.argument('diamond_model', arg_type=get_enum_type(['unknown', 'adversary', 'capability', 'infrastructure',
                                                             'victim', 'unknownFutureValue']), help='')
         c.argument('domain_name', type=str, help='')
         c.argument('email_encoding', type=str, help='')
@@ -669,10 +703,10 @@ def load_arguments(self, _):
         c.argument('file_type', type=str, help='')
         c.argument('ingested_date_time', help='')
         c.argument('is_active', arg_type=get_three_state_flag(), help='')
-        c.argument('kill_chain', nargs='*', help='')
+        c.argument('kill_chain', nargs='+', help='')
         c.argument('known_false_positives', type=str, help='')
         c.argument('last_reported_date_time', help='')
-        c.argument('malware_family_names', nargs='*', help='')
+        c.argument('malware_family_names', nargs='+', help='')
         c.argument('network_cidr_block', type=str, help='')
         c.argument('network_destination_asn', type=int, help='')
         c.argument('network_destination_cidr_block', type=str, help='')
@@ -693,15 +727,15 @@ def load_arguments(self, _):
         c.argument('tags', tags_type)
         c.argument('target_product', type=str, help='')
         c.argument('threat_type', type=str, help='')
-        c.argument('tlp_level', arg_type=get_enum_type(['unknown', 'white', 'green', 'amber', 'red', ''
+        c.argument('tlp_level', arg_type=get_enum_type(['unknown', 'white', 'green', 'amber', 'red',
                                                         'unknownFutureValue']), help='')
         c.argument('url', type=str, help='')
         c.argument('user_agent', type=str, help='')
 
-    with self.argument_context('security update-user-security-profile') as c:
+    with self.argument_context('security security update-user-security-profile') as c:
         c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('accounts', action=AddAccounts, nargs='*', help='')
+        c.argument('accounts', action=AddAccounts, nargs='+', help='')
         c.argument('azure_subscription_id', type=str, help='')
         c.argument('azure_tenant_id', type=str, help='')
         c.argument('created_date_time', help='')
@@ -710,22 +744,22 @@ def load_arguments(self, _):
         c.argument('risk_score', type=str, help='')
         c.argument('tags', tags_type)
         c.argument('user_principal_name', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-alert') as c:
+    with self.argument_context('security securityalert update-alert') as c:
         c.argument('value', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('security cancel-security-action') as c:
+    with self.argument_context('security securityaction cancel-security-action') as c:
         c.argument('security_action_id', type=str, help='key: id of securityAction')
 
-    with self.argument_context('security delete-ti-indicator') as c:
-        c.argument('value', nargs='*', help='')
+    with self.argument_context('security securitytiindicator delete-ti-indicator') as c:
+        c.argument('value', nargs='+', help='')
 
-    with self.argument_context('security delete-ti-indicator-by-external-id') as c:
-        c.argument('value', nargs='*', help='')
+    with self.argument_context('security securitytiindicator delete-ti-indicator-by-external-id') as c:
+        c.argument('value', nargs='+', help='')
 
-    with self.argument_context('security submit-ti-indicator') as c:
-        c.argument('value', action=AddSecuritySubmitTiIndicatorValue, nargs='*', help='')
+    with self.argument_context('security securitytiindicator submit-ti-indicator') as c:
+        c.argument('value', action=AddSecuritySecuritytiindicatorSubmitTiIndicatorValue, nargs='+', help='')
 
-    with self.argument_context('security update-ti-indicator') as c:
-        c.argument('value', action=AddSecurityUpdateTiIndicatorValue, nargs='*', help='')
+    with self.argument_context('security securitytiindicator update-ti-indicator') as c:
+        c.argument('value', action=AddSecuritySecuritytiindicatorUpdateTiIndicatorValue, nargs='+', help='')

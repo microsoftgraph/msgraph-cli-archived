@@ -1,86 +1,623 @@
 # Azure CLI Module Creation Report
 
-### identitydirmgt check-member-group
-
-check-member-group a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|identitydirmgt|organization|
+|az identitydirmgt_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|check-member-group|checkMemberGroups|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az identitydirmgt_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az identitydirmgt contactsorgcontact|contacts.orgContact|[commands](#CommandsIncontacts.orgContact)|
+|az identitydirmgt contact|contacts|[commands](#CommandsIncontacts)|
+|az identitydirmgt contractscontract|contracts.contract|[commands](#CommandsIncontracts.contract)|
+|az identitydirmgt contract|contracts|[commands](#CommandsIncontracts)|
+|az identitydirmgt devicesdevice|devices.device|[commands](#CommandsIndevices.device)|
+|az identitydirmgt device|devices|[commands](#CommandsIndevices)|
+|az identitydirmgt directory|directory.directory|[commands](#CommandsIndirectory.directory)|
+|az identitydirmgt directory|directory|[commands](#CommandsIndirectory)|
+|az identitydirmgt directoryadministrativeunit|directory.administrativeUnits|[commands](#CommandsIndirectory.administrativeUnits)|
+|az identitydirmgt directoryrolesdirectoryrole|directoryRoles.directoryRole|[commands](#CommandsIndirectoryRoles.directoryRole)|
+|az identitydirmgt directoryrole|directoryRoles|[commands](#CommandsIndirectoryRoles)|
+|az identitydirmgt directoryroletemplatesdirectoryroletemplate|directoryRoleTemplates.directoryRoleTemplate|[commands](#CommandsIndirectoryRoleTemplates.directoryRoleTemplate)|
+|az identitydirmgt directoryroletemplate|directoryRoleTemplates|[commands](#CommandsIndirectoryRoleTemplates)|
+|az identitydirmgt domainsdomain|domains.domain|[commands](#CommandsIndomains.domain)|
+|az identitydirmgt domain|domains|[commands](#CommandsIndomains)|
+|az identitydirmgt organization|organization.organization|[commands](#CommandsInorganization.organization)|
+|az identitydirmgt organization|organization|[commands](#CommandsInorganization)|
+|az identitydirmgt subscribedskussubscribedsku|subscribedSkus.subscribedSku|[commands](#CommandsInsubscribedSkus.subscribedSku)|
+|az identitydirmgt user|users|[commands](#CommandsInusers)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsIncontacts">Commands in `az identitydirmgt contact` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt contact check-member-group](#contactscheckMemberGroups)|checkMemberGroups|[Parameters](#ParameterscontactscheckMemberGroups)|Not Found|
+|[az identitydirmgt contact check-member-object](#contactscheckMemberObjects)|checkMemberObjects|[Parameters](#ParameterscontactscheckMemberObjects)|Not Found|
+|[az identitydirmgt contact create-ref-direct-report](#contactsCreateRefDirectReports)|CreateRefDirectReports|[Parameters](#ParameterscontactsCreateRefDirectReports)|Not Found|
+|[az identitydirmgt contact create-ref-member-of](#contactsCreateRefMemberOf)|CreateRefMemberOf|[Parameters](#ParameterscontactsCreateRefMemberOf)|Not Found|
+|[az identitydirmgt contact create-ref-transitive-member-of](#contactsCreateRefTransitiveMemberOf)|CreateRefTransitiveMemberOf|[Parameters](#ParameterscontactsCreateRefTransitiveMemberOf)|Not Found|
+|[az identitydirmgt contact delete-ref-manager](#contactsDeleteRefManager)|DeleteRefManager|[Parameters](#ParameterscontactsDeleteRefManager)|Not Found|
+|[az identitydirmgt contact delta](#contactsdelta)|delta|[Parameters](#Parameterscontactsdelta)|Not Found|
+|[az identitydirmgt contact get-available-extension-property](#contactsgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParameterscontactsgetAvailableExtensionProperties)|Not Found|
+|[az identitydirmgt contact get-by-id](#contactsgetByIds)|getByIds|[Parameters](#ParameterscontactsgetByIds)|Not Found|
+|[az identitydirmgt contact get-member-group](#contactsgetMemberGroups)|getMemberGroups|[Parameters](#ParameterscontactsgetMemberGroups)|Not Found|
+|[az identitydirmgt contact get-member-object](#contactsgetMemberObjects)|getMemberObjects|[Parameters](#ParameterscontactsgetMemberObjects)|Not Found|
+|[az identitydirmgt contact list-direct-report](#contactsListDirectReports)|ListDirectReports|[Parameters](#ParameterscontactsListDirectReports)|Not Found|
+|[az identitydirmgt contact list-member-of](#contactsListMemberOf)|ListMemberOf|[Parameters](#ParameterscontactsListMemberOf)|Not Found|
+|[az identitydirmgt contact list-ref-direct-report](#contactsListRefDirectReports)|ListRefDirectReports|[Parameters](#ParameterscontactsListRefDirectReports)|Not Found|
+|[az identitydirmgt contact list-ref-member-of](#contactsListRefMemberOf)|ListRefMemberOf|[Parameters](#ParameterscontactsListRefMemberOf)|Not Found|
+|[az identitydirmgt contact list-ref-transitive-member-of](#contactsListRefTransitiveMemberOf)|ListRefTransitiveMemberOf|[Parameters](#ParameterscontactsListRefTransitiveMemberOf)|Not Found|
+|[az identitydirmgt contact list-transitive-member-of](#contactsListTransitiveMemberOf)|ListTransitiveMemberOf|[Parameters](#ParameterscontactsListTransitiveMemberOf)|Not Found|
+|[az identitydirmgt contact restore](#contactsrestore)|restore|[Parameters](#Parameterscontactsrestore)|Not Found|
+|[az identitydirmgt contact set-ref-manager](#contactsSetRefManager)|SetRefManager|[Parameters](#ParameterscontactsSetRefManager)|Not Found|
+|[az identitydirmgt contact show-manager](#contactsGetManager)|GetManager|[Parameters](#ParameterscontactsGetManager)|Not Found|
+|[az identitydirmgt contact show-ref-manager](#contactsGetRefManager)|GetRefManager|[Parameters](#ParameterscontactsGetRefManager)|Not Found|
+|[az identitydirmgt contact validate-property](#contactsvalidateProperties)|validateProperties|[Parameters](#ParameterscontactsvalidateProperties)|Not Found|
+
+### <a name="CommandsIncontacts.orgContact">Commands in `az identitydirmgt contactsorgcontact` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt contactsorgcontact create-org-contact](#contacts.orgContactCreateOrgContact)|CreateOrgContact|[Parameters](#Parameterscontacts.orgContactCreateOrgContact)|Not Found|
+|[az identitydirmgt contactsorgcontact delete-org-contact](#contacts.orgContactDeleteOrgContact)|DeleteOrgContact|[Parameters](#Parameterscontacts.orgContactDeleteOrgContact)|Not Found|
+|[az identitydirmgt contactsorgcontact list-org-contact](#contacts.orgContactListOrgContact)|ListOrgContact|[Parameters](#Parameterscontacts.orgContactListOrgContact)|Not Found|
+|[az identitydirmgt contactsorgcontact show-org-contact](#contacts.orgContactGetOrgContact)|GetOrgContact|[Parameters](#Parameterscontacts.orgContactGetOrgContact)|Not Found|
+|[az identitydirmgt contactsorgcontact update-org-contact](#contacts.orgContactUpdateOrgContact)|UpdateOrgContact|[Parameters](#Parameterscontacts.orgContactUpdateOrgContact)|Not Found|
+
+### <a name="CommandsIncontracts">Commands in `az identitydirmgt contract` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt contract check-member-group](#contractscheckMemberGroups)|checkMemberGroups|[Parameters](#ParameterscontractscheckMemberGroups)|Not Found|
+|[az identitydirmgt contract check-member-object](#contractscheckMemberObjects)|checkMemberObjects|[Parameters](#ParameterscontractscheckMemberObjects)|Not Found|
+|[az identitydirmgt contract get-available-extension-property](#contractsgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParameterscontractsgetAvailableExtensionProperties)|Not Found|
+|[az identitydirmgt contract get-by-id](#contractsgetByIds)|getByIds|[Parameters](#ParameterscontractsgetByIds)|Not Found|
+|[az identitydirmgt contract get-member-group](#contractsgetMemberGroups)|getMemberGroups|[Parameters](#ParameterscontractsgetMemberGroups)|Not Found|
+|[az identitydirmgt contract get-member-object](#contractsgetMemberObjects)|getMemberObjects|[Parameters](#ParameterscontractsgetMemberObjects)|Not Found|
+|[az identitydirmgt contract restore](#contractsrestore)|restore|[Parameters](#Parameterscontractsrestore)|Not Found|
+|[az identitydirmgt contract validate-property](#contractsvalidateProperties)|validateProperties|[Parameters](#ParameterscontractsvalidateProperties)|Not Found|
+
+### <a name="CommandsIncontracts.contract">Commands in `az identitydirmgt contractscontract` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt contractscontract create-contract](#contracts.contractCreateContract)|CreateContract|[Parameters](#Parameterscontracts.contractCreateContract)|Not Found|
+|[az identitydirmgt contractscontract delete-contract](#contracts.contractDeleteContract)|DeleteContract|[Parameters](#Parameterscontracts.contractDeleteContract)|Not Found|
+|[az identitydirmgt contractscontract list-contract](#contracts.contractListContract)|ListContract|[Parameters](#Parameterscontracts.contractListContract)|Not Found|
+|[az identitydirmgt contractscontract show-contract](#contracts.contractGetContract)|GetContract|[Parameters](#Parameterscontracts.contractGetContract)|Not Found|
+|[az identitydirmgt contractscontract update-contract](#contracts.contractUpdateContract)|UpdateContract|[Parameters](#Parameterscontracts.contractUpdateContract)|Not Found|
+
+### <a name="CommandsIndevices">Commands in `az identitydirmgt device` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt device check-member-group](#devicescheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersdevicescheckMemberGroups)|Not Found|
+|[az identitydirmgt device check-member-object](#devicescheckMemberObjects)|checkMemberObjects|[Parameters](#ParametersdevicescheckMemberObjects)|Not Found|
+|[az identitydirmgt device create-extension](#devicesCreateExtensions)|CreateExtensions|[Parameters](#ParametersdevicesCreateExtensions)|Not Found|
+|[az identitydirmgt device create-ref-member-of](#devicesCreateRefMemberOf)|CreateRefMemberOf|[Parameters](#ParametersdevicesCreateRefMemberOf)|Not Found|
+|[az identitydirmgt device create-ref-registered-owner](#devicesCreateRefRegisteredOwners)|CreateRefRegisteredOwners|[Parameters](#ParametersdevicesCreateRefRegisteredOwners)|Not Found|
+|[az identitydirmgt device create-ref-registered-user](#devicesCreateRefRegisteredUsers)|CreateRefRegisteredUsers|[Parameters](#ParametersdevicesCreateRefRegisteredUsers)|Not Found|
+|[az identitydirmgt device create-ref-transitive-member-of](#devicesCreateRefTransitiveMemberOf)|CreateRefTransitiveMemberOf|[Parameters](#ParametersdevicesCreateRefTransitiveMemberOf)|Not Found|
+|[az identitydirmgt device delete-extension](#devicesDeleteExtensions)|DeleteExtensions|[Parameters](#ParametersdevicesDeleteExtensions)|Not Found|
+|[az identitydirmgt device get-available-extension-property](#devicesgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersdevicesgetAvailableExtensionProperties)|Not Found|
+|[az identitydirmgt device get-by-id](#devicesgetByIds)|getByIds|[Parameters](#ParametersdevicesgetByIds)|Not Found|
+|[az identitydirmgt device get-member-group](#devicesgetMemberGroups)|getMemberGroups|[Parameters](#ParametersdevicesgetMemberGroups)|Not Found|
+|[az identitydirmgt device get-member-object](#devicesgetMemberObjects)|getMemberObjects|[Parameters](#ParametersdevicesgetMemberObjects)|Not Found|
+|[az identitydirmgt device list-extension](#devicesListExtensions)|ListExtensions|[Parameters](#ParametersdevicesListExtensions)|Not Found|
+|[az identitydirmgt device list-member-of](#devicesListMemberOf)|ListMemberOf|[Parameters](#ParametersdevicesListMemberOf)|Not Found|
+|[az identitydirmgt device list-ref-member-of](#devicesListRefMemberOf)|ListRefMemberOf|[Parameters](#ParametersdevicesListRefMemberOf)|Not Found|
+|[az identitydirmgt device list-ref-registered-owner](#devicesListRefRegisteredOwners)|ListRefRegisteredOwners|[Parameters](#ParametersdevicesListRefRegisteredOwners)|Not Found|
+|[az identitydirmgt device list-ref-registered-user](#devicesListRefRegisteredUsers)|ListRefRegisteredUsers|[Parameters](#ParametersdevicesListRefRegisteredUsers)|Not Found|
+|[az identitydirmgt device list-ref-transitive-member-of](#devicesListRefTransitiveMemberOf)|ListRefTransitiveMemberOf|[Parameters](#ParametersdevicesListRefTransitiveMemberOf)|Not Found|
+|[az identitydirmgt device list-registered-owner](#devicesListRegisteredOwners)|ListRegisteredOwners|[Parameters](#ParametersdevicesListRegisteredOwners)|Not Found|
+|[az identitydirmgt device list-registered-user](#devicesListRegisteredUsers)|ListRegisteredUsers|[Parameters](#ParametersdevicesListRegisteredUsers)|Not Found|
+|[az identitydirmgt device list-transitive-member-of](#devicesListTransitiveMemberOf)|ListTransitiveMemberOf|[Parameters](#ParametersdevicesListTransitiveMemberOf)|Not Found|
+|[az identitydirmgt device restore](#devicesrestore)|restore|[Parameters](#Parametersdevicesrestore)|Not Found|
+|[az identitydirmgt device show-extension](#devicesGetExtensions)|GetExtensions|[Parameters](#ParametersdevicesGetExtensions)|Not Found|
+|[az identitydirmgt device update-extension](#devicesUpdateExtensions)|UpdateExtensions|[Parameters](#ParametersdevicesUpdateExtensions)|Not Found|
+|[az identitydirmgt device validate-property](#devicesvalidateProperties)|validateProperties|[Parameters](#ParametersdevicesvalidateProperties)|Not Found|
+
+### <a name="CommandsIndevices.device">Commands in `az identitydirmgt devicesdevice` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt devicesdevice create-device](#devices.deviceCreateDevice)|CreateDevice|[Parameters](#Parametersdevices.deviceCreateDevice)|Not Found|
+|[az identitydirmgt devicesdevice delete-device](#devices.deviceDeleteDevice)|DeleteDevice|[Parameters](#Parametersdevices.deviceDeleteDevice)|Not Found|
+|[az identitydirmgt devicesdevice list-device](#devices.deviceListDevice)|ListDevice|[Parameters](#Parametersdevices.deviceListDevice)|Not Found|
+|[az identitydirmgt devicesdevice show-device](#devices.deviceGetDevice)|GetDevice|[Parameters](#Parametersdevices.deviceGetDevice)|Not Found|
+|[az identitydirmgt devicesdevice update-device](#devices.deviceUpdateDevice)|UpdateDevice|[Parameters](#Parametersdevices.deviceUpdateDevice)|Not Found|
+
+### <a name="CommandsIndirectory.directory">Commands in `az identitydirmgt directory` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt directory show-directory](#directory.directoryGetDirectory)|GetDirectory|[Parameters](#Parametersdirectory.directoryGetDirectory)|Not Found|
+|[az identitydirmgt directory update-directory](#directory.directoryUpdateDirectory)|UpdateDirectory|[Parameters](#Parametersdirectory.directoryUpdateDirectory)|Not Found|
+
+### <a name="CommandsIndirectory">Commands in `az identitydirmgt directory` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt directory create-administrative-unit](#directoryCreateAdministrativeUnits)|CreateAdministrativeUnits|[Parameters](#ParametersdirectoryCreateAdministrativeUnits)|Not Found|
+|[az identitydirmgt directory create-deleted-item](#directoryCreateDeletedItems)|CreateDeletedItems|[Parameters](#ParametersdirectoryCreateDeletedItems)|Not Found|
+|[az identitydirmgt directory delete-administrative-unit](#directoryDeleteAdministrativeUnits)|DeleteAdministrativeUnits|[Parameters](#ParametersdirectoryDeleteAdministrativeUnits)|Not Found|
+|[az identitydirmgt directory delete-deleted-item](#directoryDeleteDeletedItems)|DeleteDeletedItems|[Parameters](#ParametersdirectoryDeleteDeletedItems)|Not Found|
+|[az identitydirmgt directory list-administrative-unit](#directoryListAdministrativeUnits)|ListAdministrativeUnits|[Parameters](#ParametersdirectoryListAdministrativeUnits)|Not Found|
+|[az identitydirmgt directory list-deleted-item](#directoryListDeletedItems)|ListDeletedItems|[Parameters](#ParametersdirectoryListDeletedItems)|Not Found|
+|[az identitydirmgt directory show-administrative-unit](#directoryGetAdministrativeUnits)|GetAdministrativeUnits|[Parameters](#ParametersdirectoryGetAdministrativeUnits)|Not Found|
+|[az identitydirmgt directory show-deleted-item](#directoryGetDeletedItems)|GetDeletedItems|[Parameters](#ParametersdirectoryGetDeletedItems)|Not Found|
+|[az identitydirmgt directory update-administrative-unit](#directoryUpdateAdministrativeUnits)|UpdateAdministrativeUnits|[Parameters](#ParametersdirectoryUpdateAdministrativeUnits)|Not Found|
+|[az identitydirmgt directory update-deleted-item](#directoryUpdateDeletedItems)|UpdateDeletedItems|[Parameters](#ParametersdirectoryUpdateDeletedItems)|Not Found|
+
+### <a name="CommandsIndirectory.administrativeUnits">Commands in `az identitydirmgt directoryadministrativeunit` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt directoryadministrativeunit create-extension](#directory.administrativeUnitsCreateExtensions)|CreateExtensions|[Parameters](#Parametersdirectory.administrativeUnitsCreateExtensions)|Not Found|
+|[az identitydirmgt directoryadministrativeunit create-ref-member](#directory.administrativeUnitsCreateRefMembers)|CreateRefMembers|[Parameters](#Parametersdirectory.administrativeUnitsCreateRefMembers)|Not Found|
+|[az identitydirmgt directoryadministrativeunit create-scoped-role-member](#directory.administrativeUnitsCreateScopedRoleMembers)|CreateScopedRoleMembers|[Parameters](#Parametersdirectory.administrativeUnitsCreateScopedRoleMembers)|Not Found|
+|[az identitydirmgt directoryadministrativeunit delete-extension](#directory.administrativeUnitsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersdirectory.administrativeUnitsDeleteExtensions)|Not Found|
+|[az identitydirmgt directoryadministrativeunit delete-scoped-role-member](#directory.administrativeUnitsDeleteScopedRoleMembers)|DeleteScopedRoleMembers|[Parameters](#Parametersdirectory.administrativeUnitsDeleteScopedRoleMembers)|Not Found|
+|[az identitydirmgt directoryadministrativeunit delta](#directory.administrativeUnitsdelta)|delta|[Parameters](#Parametersdirectory.administrativeUnitsdelta)|Not Found|
+|[az identitydirmgt directoryadministrativeunit list-extension](#directory.administrativeUnitsListExtensions)|ListExtensions|[Parameters](#Parametersdirectory.administrativeUnitsListExtensions)|Not Found|
+|[az identitydirmgt directoryadministrativeunit list-member](#directory.administrativeUnitsListMembers)|ListMembers|[Parameters](#Parametersdirectory.administrativeUnitsListMembers)|Not Found|
+|[az identitydirmgt directoryadministrativeunit list-ref-member](#directory.administrativeUnitsListRefMembers)|ListRefMembers|[Parameters](#Parametersdirectory.administrativeUnitsListRefMembers)|Not Found|
+|[az identitydirmgt directoryadministrativeunit list-scoped-role-member](#directory.administrativeUnitsListScopedRoleMembers)|ListScopedRoleMembers|[Parameters](#Parametersdirectory.administrativeUnitsListScopedRoleMembers)|Not Found|
+|[az identitydirmgt directoryadministrativeunit show-extension](#directory.administrativeUnitsGetExtensions)|GetExtensions|[Parameters](#Parametersdirectory.administrativeUnitsGetExtensions)|Not Found|
+|[az identitydirmgt directoryadministrativeunit show-scoped-role-member](#directory.administrativeUnitsGetScopedRoleMembers)|GetScopedRoleMembers|[Parameters](#Parametersdirectory.administrativeUnitsGetScopedRoleMembers)|Not Found|
+|[az identitydirmgt directoryadministrativeunit update-extension](#directory.administrativeUnitsUpdateExtensions)|UpdateExtensions|[Parameters](#Parametersdirectory.administrativeUnitsUpdateExtensions)|Not Found|
+|[az identitydirmgt directoryadministrativeunit update-scoped-role-member](#directory.administrativeUnitsUpdateScopedRoleMembers)|UpdateScopedRoleMembers|[Parameters](#Parametersdirectory.administrativeUnitsUpdateScopedRoleMembers)|Not Found|
+
+### <a name="CommandsIndirectoryRoles">Commands in `az identitydirmgt directoryrole` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt directoryrole check-member-group](#directoryRolescheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersdirectoryRolescheckMemberGroups)|Not Found|
+|[az identitydirmgt directoryrole check-member-object](#directoryRolescheckMemberObjects)|checkMemberObjects|[Parameters](#ParametersdirectoryRolescheckMemberObjects)|Not Found|
+|[az identitydirmgt directoryrole create-ref-member](#directoryRolesCreateRefMembers)|CreateRefMembers|[Parameters](#ParametersdirectoryRolesCreateRefMembers)|Not Found|
+|[az identitydirmgt directoryrole create-scoped-member](#directoryRolesCreateScopedMembers)|CreateScopedMembers|[Parameters](#ParametersdirectoryRolesCreateScopedMembers)|Not Found|
+|[az identitydirmgt directoryrole delete-scoped-member](#directoryRolesDeleteScopedMembers)|DeleteScopedMembers|[Parameters](#ParametersdirectoryRolesDeleteScopedMembers)|Not Found|
+|[az identitydirmgt directoryrole delta](#directoryRolesdelta)|delta|[Parameters](#ParametersdirectoryRolesdelta)|Not Found|
+|[az identitydirmgt directoryrole get-available-extension-property](#directoryRolesgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersdirectoryRolesgetAvailableExtensionProperties)|Not Found|
+|[az identitydirmgt directoryrole get-by-id](#directoryRolesgetByIds)|getByIds|[Parameters](#ParametersdirectoryRolesgetByIds)|Not Found|
+|[az identitydirmgt directoryrole get-member-group](#directoryRolesgetMemberGroups)|getMemberGroups|[Parameters](#ParametersdirectoryRolesgetMemberGroups)|Not Found|
+|[az identitydirmgt directoryrole get-member-object](#directoryRolesgetMemberObjects)|getMemberObjects|[Parameters](#ParametersdirectoryRolesgetMemberObjects)|Not Found|
+|[az identitydirmgt directoryrole list-member](#directoryRolesListMembers)|ListMembers|[Parameters](#ParametersdirectoryRolesListMembers)|Not Found|
+|[az identitydirmgt directoryrole list-ref-member](#directoryRolesListRefMembers)|ListRefMembers|[Parameters](#ParametersdirectoryRolesListRefMembers)|Not Found|
+|[az identitydirmgt directoryrole list-scoped-member](#directoryRolesListScopedMembers)|ListScopedMembers|[Parameters](#ParametersdirectoryRolesListScopedMembers)|Not Found|
+|[az identitydirmgt directoryrole restore](#directoryRolesrestore)|restore|[Parameters](#ParametersdirectoryRolesrestore)|Not Found|
+|[az identitydirmgt directoryrole show-scoped-member](#directoryRolesGetScopedMembers)|GetScopedMembers|[Parameters](#ParametersdirectoryRolesGetScopedMembers)|Not Found|
+|[az identitydirmgt directoryrole update-scoped-member](#directoryRolesUpdateScopedMembers)|UpdateScopedMembers|[Parameters](#ParametersdirectoryRolesUpdateScopedMembers)|Not Found|
+|[az identitydirmgt directoryrole validate-property](#directoryRolesvalidateProperties)|validateProperties|[Parameters](#ParametersdirectoryRolesvalidateProperties)|Not Found|
+
+### <a name="CommandsIndirectoryRoles.directoryRole">Commands in `az identitydirmgt directoryrolesdirectoryrole` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt directoryrolesdirectoryrole create-directory-role](#directoryRoles.directoryRoleCreateDirectoryRole)|CreateDirectoryRole|[Parameters](#ParametersdirectoryRoles.directoryRoleCreateDirectoryRole)|Not Found|
+|[az identitydirmgt directoryrolesdirectoryrole delete-directory-role](#directoryRoles.directoryRoleDeleteDirectoryRole)|DeleteDirectoryRole|[Parameters](#ParametersdirectoryRoles.directoryRoleDeleteDirectoryRole)|Not Found|
+|[az identitydirmgt directoryrolesdirectoryrole list-directory-role](#directoryRoles.directoryRoleListDirectoryRole)|ListDirectoryRole|[Parameters](#ParametersdirectoryRoles.directoryRoleListDirectoryRole)|Not Found|
+|[az identitydirmgt directoryrolesdirectoryrole show-directory-role](#directoryRoles.directoryRoleGetDirectoryRole)|GetDirectoryRole|[Parameters](#ParametersdirectoryRoles.directoryRoleGetDirectoryRole)|Not Found|
+|[az identitydirmgt directoryrolesdirectoryrole update-directory-role](#directoryRoles.directoryRoleUpdateDirectoryRole)|UpdateDirectoryRole|[Parameters](#ParametersdirectoryRoles.directoryRoleUpdateDirectoryRole)|Not Found|
+
+### <a name="CommandsIndirectoryRoleTemplates">Commands in `az identitydirmgt directoryroletemplate` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt directoryroletemplate check-member-group](#directoryRoleTemplatescheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersdirectoryRoleTemplatescheckMemberGroups)|Not Found|
+|[az identitydirmgt directoryroletemplate check-member-object](#directoryRoleTemplatescheckMemberObjects)|checkMemberObjects|[Parameters](#ParametersdirectoryRoleTemplatescheckMemberObjects)|Not Found|
+|[az identitydirmgt directoryroletemplate get-available-extension-property](#directoryRoleTemplatesgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersdirectoryRoleTemplatesgetAvailableExtensionProperties)|Not Found|
+|[az identitydirmgt directoryroletemplate get-by-id](#directoryRoleTemplatesgetByIds)|getByIds|[Parameters](#ParametersdirectoryRoleTemplatesgetByIds)|Not Found|
+|[az identitydirmgt directoryroletemplate get-member-group](#directoryRoleTemplatesgetMemberGroups)|getMemberGroups|[Parameters](#ParametersdirectoryRoleTemplatesgetMemberGroups)|Not Found|
+|[az identitydirmgt directoryroletemplate get-member-object](#directoryRoleTemplatesgetMemberObjects)|getMemberObjects|[Parameters](#ParametersdirectoryRoleTemplatesgetMemberObjects)|Not Found|
+|[az identitydirmgt directoryroletemplate restore](#directoryRoleTemplatesrestore)|restore|[Parameters](#ParametersdirectoryRoleTemplatesrestore)|Not Found|
+|[az identitydirmgt directoryroletemplate validate-property](#directoryRoleTemplatesvalidateProperties)|validateProperties|[Parameters](#ParametersdirectoryRoleTemplatesvalidateProperties)|Not Found|
+
+### <a name="CommandsIndirectoryRoleTemplates.directoryRoleTemplate">Commands in `az identitydirmgt directoryroletemplatesdirectoryroletemplate` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt directoryroletemplatesdirectoryroletemplate create-directory-role-template](#directoryRoleTemplates.directoryRoleTemplateCreateDirectoryRoleTemplate)|CreateDirectoryRoleTemplate|[Parameters](#ParametersdirectoryRoleTemplates.directoryRoleTemplateCreateDirectoryRoleTemplate)|Not Found|
+|[az identitydirmgt directoryroletemplatesdirectoryroletemplate delete-directory-role-template](#directoryRoleTemplates.directoryRoleTemplateDeleteDirectoryRoleTemplate)|DeleteDirectoryRoleTemplate|[Parameters](#ParametersdirectoryRoleTemplates.directoryRoleTemplateDeleteDirectoryRoleTemplate)|Not Found|
+|[az identitydirmgt directoryroletemplatesdirectoryroletemplate list-directory-role-template](#directoryRoleTemplates.directoryRoleTemplateListDirectoryRoleTemplate)|ListDirectoryRoleTemplate|[Parameters](#ParametersdirectoryRoleTemplates.directoryRoleTemplateListDirectoryRoleTemplate)|Not Found|
+|[az identitydirmgt directoryroletemplatesdirectoryroletemplate show-directory-role-template](#directoryRoleTemplates.directoryRoleTemplateGetDirectoryRoleTemplate)|GetDirectoryRoleTemplate|[Parameters](#ParametersdirectoryRoleTemplates.directoryRoleTemplateGetDirectoryRoleTemplate)|Not Found|
+|[az identitydirmgt directoryroletemplatesdirectoryroletemplate update-directory-role-template](#directoryRoleTemplates.directoryRoleTemplateUpdateDirectoryRoleTemplate)|UpdateDirectoryRoleTemplate|[Parameters](#ParametersdirectoryRoleTemplates.directoryRoleTemplateUpdateDirectoryRoleTemplate)|Not Found|
+
+### <a name="CommandsIndomains">Commands in `az identitydirmgt domain` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt domain create-ref-domain-name-reference](#domainsCreateRefDomainNameReferences)|CreateRefDomainNameReferences|[Parameters](#ParametersdomainsCreateRefDomainNameReferences)|Not Found|
+|[az identitydirmgt domain create-service-configuration-record](#domainsCreateServiceConfigurationRecords)|CreateServiceConfigurationRecords|[Parameters](#ParametersdomainsCreateServiceConfigurationRecords)|Not Found|
+|[az identitydirmgt domain create-verification-dns-record](#domainsCreateVerificationDnsRecords)|CreateVerificationDnsRecords|[Parameters](#ParametersdomainsCreateVerificationDnsRecords)|Not Found|
+|[az identitydirmgt domain delete-service-configuration-record](#domainsDeleteServiceConfigurationRecords)|DeleteServiceConfigurationRecords|[Parameters](#ParametersdomainsDeleteServiceConfigurationRecords)|Not Found|
+|[az identitydirmgt domain delete-verification-dns-record](#domainsDeleteVerificationDnsRecords)|DeleteVerificationDnsRecords|[Parameters](#ParametersdomainsDeleteVerificationDnsRecords)|Not Found|
+|[az identitydirmgt domain force-delete](#domainsforceDelete)|forceDelete|[Parameters](#ParametersdomainsforceDelete)|Not Found|
+|[az identitydirmgt domain list-domain-name-reference](#domainsListDomainNameReferences)|ListDomainNameReferences|[Parameters](#ParametersdomainsListDomainNameReferences)|Not Found|
+|[az identitydirmgt domain list-ref-domain-name-reference](#domainsListRefDomainNameReferences)|ListRefDomainNameReferences|[Parameters](#ParametersdomainsListRefDomainNameReferences)|Not Found|
+|[az identitydirmgt domain list-service-configuration-record](#domainsListServiceConfigurationRecords)|ListServiceConfigurationRecords|[Parameters](#ParametersdomainsListServiceConfigurationRecords)|Not Found|
+|[az identitydirmgt domain list-verification-dns-record](#domainsListVerificationDnsRecords)|ListVerificationDnsRecords|[Parameters](#ParametersdomainsListVerificationDnsRecords)|Not Found|
+|[az identitydirmgt domain show-service-configuration-record](#domainsGetServiceConfigurationRecords)|GetServiceConfigurationRecords|[Parameters](#ParametersdomainsGetServiceConfigurationRecords)|Not Found|
+|[az identitydirmgt domain show-verification-dns-record](#domainsGetVerificationDnsRecords)|GetVerificationDnsRecords|[Parameters](#ParametersdomainsGetVerificationDnsRecords)|Not Found|
+|[az identitydirmgt domain update-service-configuration-record](#domainsUpdateServiceConfigurationRecords)|UpdateServiceConfigurationRecords|[Parameters](#ParametersdomainsUpdateServiceConfigurationRecords)|Not Found|
+|[az identitydirmgt domain update-verification-dns-record](#domainsUpdateVerificationDnsRecords)|UpdateVerificationDnsRecords|[Parameters](#ParametersdomainsUpdateVerificationDnsRecords)|Not Found|
+|[az identitydirmgt domain verify](#domainsverify)|verify|[Parameters](#Parametersdomainsverify)|Not Found|
+
+### <a name="CommandsIndomains.domain">Commands in `az identitydirmgt domainsdomain` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt domainsdomain create-domain](#domains.domainCreateDomain)|CreateDomain|[Parameters](#Parametersdomains.domainCreateDomain)|Not Found|
+|[az identitydirmgt domainsdomain delete-domain](#domains.domainDeleteDomain)|DeleteDomain|[Parameters](#Parametersdomains.domainDeleteDomain)|Not Found|
+|[az identitydirmgt domainsdomain list-domain](#domains.domainListDomain)|ListDomain|[Parameters](#Parametersdomains.domainListDomain)|Not Found|
+|[az identitydirmgt domainsdomain show-domain](#domains.domainGetDomain)|GetDomain|[Parameters](#Parametersdomains.domainGetDomain)|Not Found|
+|[az identitydirmgt domainsdomain update-domain](#domains.domainUpdateDomain)|UpdateDomain|[Parameters](#Parametersdomains.domainUpdateDomain)|Not Found|
+
+### <a name="CommandsInorganization.organization">Commands in `az identitydirmgt organization` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt organization create-organization](#organization.organizationCreateOrganization)|CreateOrganization|[Parameters](#Parametersorganization.organizationCreateOrganization)|Not Found|
+|[az identitydirmgt organization delete-organization](#organization.organizationDeleteOrganization)|DeleteOrganization|[Parameters](#Parametersorganization.organizationDeleteOrganization)|Not Found|
+|[az identitydirmgt organization list-organization](#organization.organizationListOrganization)|ListOrganization|[Parameters](#Parametersorganization.organizationListOrganization)|Not Found|
+|[az identitydirmgt organization show-organization](#organization.organizationGetOrganization)|GetOrganization|[Parameters](#Parametersorganization.organizationGetOrganization)|Not Found|
+|[az identitydirmgt organization update-organization](#organization.organizationUpdateOrganization)|UpdateOrganization|[Parameters](#Parametersorganization.organizationUpdateOrganization)|Not Found|
+
+### <a name="CommandsInorganization">Commands in `az identitydirmgt organization` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt organization check-member-group](#organizationcheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersorganizationcheckMemberGroups)|Not Found|
+|[az identitydirmgt organization check-member-object](#organizationcheckMemberObjects)|checkMemberObjects|[Parameters](#ParametersorganizationcheckMemberObjects)|Not Found|
+|[az identitydirmgt organization create-extension](#organizationCreateExtensions)|CreateExtensions|[Parameters](#ParametersorganizationCreateExtensions)|Not Found|
+|[az identitydirmgt organization delete-extension](#organizationDeleteExtensions)|DeleteExtensions|[Parameters](#ParametersorganizationDeleteExtensions)|Not Found|
+|[az identitydirmgt organization get-available-extension-property](#organizationgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersorganizationgetAvailableExtensionProperties)|Not Found|
+|[az identitydirmgt organization get-by-id](#organizationgetByIds)|getByIds|[Parameters](#ParametersorganizationgetByIds)|Not Found|
+|[az identitydirmgt organization get-member-group](#organizationgetMemberGroups)|getMemberGroups|[Parameters](#ParametersorganizationgetMemberGroups)|Not Found|
+|[az identitydirmgt organization get-member-object](#organizationgetMemberObjects)|getMemberObjects|[Parameters](#ParametersorganizationgetMemberObjects)|Not Found|
+|[az identitydirmgt organization list-extension](#organizationListExtensions)|ListExtensions|[Parameters](#ParametersorganizationListExtensions)|Not Found|
+|[az identitydirmgt organization restore](#organizationrestore)|restore|[Parameters](#Parametersorganizationrestore)|Not Found|
+|[az identitydirmgt organization set-mobile-device-management-authority](#organizationsetMobileDeviceManagementAuthority)|setMobileDeviceManagementAuthority|[Parameters](#ParametersorganizationsetMobileDeviceManagementAuthority)|Not Found|
+|[az identitydirmgt organization show-extension](#organizationGetExtensions)|GetExtensions|[Parameters](#ParametersorganizationGetExtensions)|Not Found|
+|[az identitydirmgt organization update-extension](#organizationUpdateExtensions)|UpdateExtensions|[Parameters](#ParametersorganizationUpdateExtensions)|Not Found|
+|[az identitydirmgt organization validate-property](#organizationvalidateProperties)|validateProperties|[Parameters](#ParametersorganizationvalidateProperties)|Not Found|
+
+### <a name="CommandsInsubscribedSkus.subscribedSku">Commands in `az identitydirmgt subscribedskussubscribedsku` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt subscribedskussubscribedsku create-subscribed-sku](#subscribedSkus.subscribedSkuCreateSubscribedSku)|CreateSubscribedSku|[Parameters](#ParameterssubscribedSkus.subscribedSkuCreateSubscribedSku)|Not Found|
+|[az identitydirmgt subscribedskussubscribedsku delete-subscribed-sku](#subscribedSkus.subscribedSkuDeleteSubscribedSku)|DeleteSubscribedSku|[Parameters](#ParameterssubscribedSkus.subscribedSkuDeleteSubscribedSku)|Not Found|
+|[az identitydirmgt subscribedskussubscribedsku list-subscribed-sku](#subscribedSkus.subscribedSkuListSubscribedSku)|ListSubscribedSku|[Parameters](#ParameterssubscribedSkus.subscribedSkuListSubscribedSku)|Not Found|
+|[az identitydirmgt subscribedskussubscribedsku show-subscribed-sku](#subscribedSkus.subscribedSkuGetSubscribedSku)|GetSubscribedSku|[Parameters](#ParameterssubscribedSkus.subscribedSkuGetSubscribedSku)|Not Found|
+|[az identitydirmgt subscribedskussubscribedsku update-subscribed-sku](#subscribedSkus.subscribedSkuUpdateSubscribedSku)|UpdateSubscribedSku|[Parameters](#ParameterssubscribedSkus.subscribedSkuUpdateSubscribedSku)|Not Found|
+
+### <a name="CommandsInusers">Commands in `az identitydirmgt user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az identitydirmgt user create-scoped-role-member-of](#usersCreateScopedRoleMemberOf)|CreateScopedRoleMemberOf|[Parameters](#ParametersusersCreateScopedRoleMemberOf)|Not Found|
+|[az identitydirmgt user delete-scoped-role-member-of](#usersDeleteScopedRoleMemberOf)|DeleteScopedRoleMemberOf|[Parameters](#ParametersusersDeleteScopedRoleMemberOf)|Not Found|
+|[az identitydirmgt user list-scoped-role-member-of](#usersListScopedRoleMemberOf)|ListScopedRoleMemberOf|[Parameters](#ParametersusersListScopedRoleMemberOf)|Not Found|
+|[az identitydirmgt user show-scoped-role-member-of](#usersGetScopedRoleMemberOf)|GetScopedRoleMemberOf|[Parameters](#ParametersusersGetScopedRoleMemberOf)|Not Found|
+|[az identitydirmgt user update-scoped-role-member-of](#usersUpdateScopedRoleMemberOf)|UpdateScopedRoleMemberOf|[Parameters](#ParametersusersUpdateScopedRoleMemberOf)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az identitydirmgt contact`
+#### <a name="contactscheckMemberGroups">Command `az identitydirmgt contact check-member-group`</a>
+
+##### <a name="ParameterscontactscheckMemberGroups">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
 |**--group-ids**|array||group_ids|groupIds|
 
-### identitydirmgt check-member-object
+#### <a name="contactscheckMemberObjects">Command `az identitydirmgt contact check-member-object`</a>
 
-check-member-object a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|check-member-object|checkMemberObjects|
-
-#### Parameters
+##### <a name="ParameterscontactscheckMemberObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
 |**--ids**|array||ids|ids|
 
-### identitydirmgt create-administrative-unit
+#### <a name="contactsCreateRefDirectReports">Command `az identitydirmgt contact create-ref-direct-report`</a>
 
-create-administrative-unit a identitydirmgt.
+##### <a name="ParameterscontactsCreateRefDirectReports">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
+#### <a name="contactsCreateRefMemberOf">Command `az identitydirmgt contact create-ref-member-of`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-administrative-unit|CreateAdministrativeUnits|
+##### <a name="ParameterscontactsCreateRefMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-#### Parameters
+#### <a name="contactsCreateRefTransitiveMemberOf">Command `az identitydirmgt contact create-ref-transitive-member-of`</a>
+
+##### <a name="ParameterscontactsCreateRefTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="contactsDeleteRefManager">Command `az identitydirmgt contact delete-ref-manager`</a>
+
+##### <a name="ParameterscontactsDeleteRefManager">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="contactsdelta">Command `az identitydirmgt contact delta`</a>
+
+##### <a name="Parameterscontactsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="contactsgetAvailableExtensionProperties">Command `az identitydirmgt contact get-available-extension-property`</a>
+
+##### <a name="ParameterscontactsgetAvailableExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
+
+#### <a name="contactsgetByIds">Command `az identitydirmgt contact get-by-id`</a>
+
+##### <a name="ParameterscontactsgetByIds">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ids**|array||ids|ids|
+|**--types**|array||types|types|
+
+#### <a name="contactsgetMemberGroups">Command `az identitydirmgt contact get-member-group`</a>
+
+##### <a name="ParameterscontactsgetMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="contactsgetMemberObjects">Command `az identitydirmgt contact get-member-object`</a>
+
+##### <a name="ParameterscontactsgetMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="contactsListDirectReports">Command `az identitydirmgt contact list-direct-report`</a>
+
+##### <a name="ParameterscontactsListDirectReports">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="contactsListMemberOf">Command `az identitydirmgt contact list-member-of`</a>
+
+##### <a name="ParameterscontactsListMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="contactsListRefDirectReports">Command `az identitydirmgt contact list-ref-direct-report`</a>
+
+##### <a name="ParameterscontactsListRefDirectReports">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="contactsListRefMemberOf">Command `az identitydirmgt contact list-ref-member-of`</a>
+
+##### <a name="ParameterscontactsListRefMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="contactsListRefTransitiveMemberOf">Command `az identitydirmgt contact list-ref-transitive-member-of`</a>
+
+##### <a name="ParameterscontactsListRefTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="contactsListTransitiveMemberOf">Command `az identitydirmgt contact list-transitive-member-of`</a>
+
+##### <a name="ParameterscontactsListTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="contactsrestore">Command `az identitydirmgt contact restore`</a>
+
+##### <a name="Parameterscontactsrestore">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+
+#### <a name="contactsSetRefManager">Command `az identitydirmgt contact set-ref-manager`</a>
+
+##### <a name="ParameterscontactsSetRefManager">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="contactsGetManager">Command `az identitydirmgt contact show-manager`</a>
+
+##### <a name="ParameterscontactsGetManager">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="contactsGetRefManager">Command `az identitydirmgt contact show-ref-manager`</a>
+
+##### <a name="ParameterscontactsGetRefManager">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+
+#### <a name="contactsvalidateProperties">Command `az identitydirmgt contact validate-property`</a>
+
+##### <a name="ParameterscontactsvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### group `az identitydirmgt contactsorgcontact`
+#### <a name="contacts.orgContactCreateOrgContact">Command `az identitydirmgt contactsorgcontact create-org-contact`</a>
+
+##### <a name="Parameterscontacts.orgContactCreateOrgContact">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--description**|string|An optional description for the administrative unit.|description|description|
-|**--display-name**|string|Display name for the administrative unit.|display_name|displayName|
-|**--visibility**|string|Controls whether the adminstrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
-|**--members**|array|Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).|members|members|
-|**--scoped-role-members**|array|Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).|scoped_role_members|scopedRoleMembers|
-|**--extensions**|array||extensions|extensions|
+|**--addresses**|array||addresses|addresses|
+|**--company-name**|string||company_name|companyName|
+|**--department**|string||department|department|
+|**--display-name**|string||display_name|displayName|
+|**--given-name**|string||given_name|givenName|
+|**--job-title**|string||job_title|jobTitle|
+|**--mail**|string||mail|mail|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
+|**--on-premises-sync-enabled**|boolean||on_premises_sync_enabled|onPremisesSyncEnabled|
+|**--phones**|array||phones|phones|
+|**--proxy-addresses**|array||proxy_addresses|proxyAddresses|
+|**--surname**|string||surname|surname|
+|**--direct-reports**|array||direct_reports|directReports|
+|**--manager**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|manager|manager|
+|**--member-of**|array||member_of|memberOf|
+|**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
 
-### identitydirmgt create-contract
+#### <a name="contacts.orgContactDeleteOrgContact">Command `az identitydirmgt contactsorgcontact delete-org-contact`</a>
 
-create-contract a identitydirmgt.
+##### <a name="Parameterscontacts.orgContactDeleteOrgContact">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contracts.contract|
+#### <a name="contacts.orgContactListOrgContact">Command `az identitydirmgt contactsorgcontact list-org-contact`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-contract|CreateContract|
+##### <a name="Parameterscontacts.orgContactListOrgContact">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="contacts.orgContactGetOrgContact">Command `az identitydirmgt contactsorgcontact show-org-contact`</a>
+
+##### <a name="Parameterscontacts.orgContactGetOrgContact">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="contacts.orgContactUpdateOrgContact">Command `az identitydirmgt contactsorgcontact update-org-contact`</a>
+
+##### <a name="Parameterscontacts.orgContactUpdateOrgContact">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--addresses**|array||addresses|addresses|
+|**--company-name**|string||company_name|companyName|
+|**--department**|string||department|department|
+|**--display-name**|string||display_name|displayName|
+|**--given-name**|string||given_name|givenName|
+|**--job-title**|string||job_title|jobTitle|
+|**--mail**|string||mail|mail|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
+|**--on-premises-sync-enabled**|boolean||on_premises_sync_enabled|onPremisesSyncEnabled|
+|**--phones**|array||phones|phones|
+|**--proxy-addresses**|array||proxy_addresses|proxyAddresses|
+|**--surname**|string||surname|surname|
+|**--direct-reports**|array||direct_reports|directReports|
+|**--manager**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|manager|manager|
+|**--member-of**|array||member_of|memberOf|
+|**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
+
+### group `az identitydirmgt contract`
+#### <a name="contractscheckMemberGroups">Command `az identitydirmgt contract check-member-group`</a>
+
+##### <a name="ParameterscontractscheckMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
+|**--group-ids**|array||group_ids|groupIds|
+
+#### <a name="contractscheckMemberObjects">Command `az identitydirmgt contract check-member-object`</a>
+
+##### <a name="ParameterscontractscheckMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
+|**--ids**|array||ids|ids|
+
+#### <a name="contractsgetAvailableExtensionProperties">Command `az identitydirmgt contract get-available-extension-property`</a>
+
+##### <a name="ParameterscontractsgetAvailableExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
+
+#### <a name="contractsgetByIds">Command `az identitydirmgt contract get-by-id`</a>
+
+##### <a name="ParameterscontractsgetByIds">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ids**|array||ids|ids|
+|**--types**|array||types|types|
+
+#### <a name="contractsgetMemberGroups">Command `az identitydirmgt contract get-member-group`</a>
+
+##### <a name="ParameterscontractsgetMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="contractsgetMemberObjects">Command `az identitydirmgt contract get-member-object`</a>
+
+##### <a name="ParameterscontractsgetMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="contractsrestore">Command `az identitydirmgt contract restore`</a>
+
+##### <a name="Parameterscontractsrestore">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
+
+#### <a name="contractsvalidateProperties">Command `az identitydirmgt contract validate-property`</a>
+
+##### <a name="ParameterscontractsvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### group `az identitydirmgt contractscontract`
+#### <a name="contracts.contractCreateContract">Command `az identitydirmgt contractscontract create-contract`</a>
+
+##### <a name="Parameterscontracts.contractCreateContract">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -90,41 +627,264 @@ create-contract a identitydirmgt.
 |**--default-domain-name**|string|A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.|default_domain_name|defaultDomainName|
 |**--display-name**|string|A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.|display_name|displayName|
 
-### identitydirmgt create-deleted-item
+#### <a name="contracts.contractDeleteContract">Command `az identitydirmgt contractscontract delete-contract`</a>
 
-create-deleted-item a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-deleted-item|CreateDeletedItems|
-
-#### Parameters
+##### <a name="Parameterscontracts.contractDeleteContract">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="contracts.contractListContract">Command `az identitydirmgt contractscontract list-contract`</a>
+
+##### <a name="Parameterscontracts.contractListContract">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="contracts.contractGetContract">Command `az identitydirmgt contractscontract show-contract`</a>
+
+##### <a name="Parameterscontracts.contractGetContract">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="contracts.contractUpdateContract">Command `az identitydirmgt contractscontract update-contract`</a>
+
+##### <a name="Parameterscontracts.contractUpdateContract">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--contract-id**|string|key: id of contract|contract_id|contract-id|
 |**--id**|string|Read-only.|id|id|
 |**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--contract-type**|string|Type of contract.Possible values are: SyndicationPartner - Partner that exclusively resells and manages O365 and Intune for this customer. They resell and support their customers. BreadthPartner - Partner has the ability to provide administrative support for this customer. However, the partner is not allowed to resell to the customer.ResellerPartner - Partner that is similar to a syndication partner, except that the partner doesn’t have exclusive access to a tenant. In the syndication case, the customer cannot buy additional direct subscriptions from Microsoft or from other partners.|contract_type|contractType|
+|**--customer-id**|uuid|The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.|customer_id|customerId|
+|**--default-domain-name**|string|A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.|default_domain_name|defaultDomainName|
+|**--display-name**|string|A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.|display_name|displayName|
 
-### identitydirmgt create-device
+### group `az identitydirmgt device`
+#### <a name="devicescheckMemberGroups">Command `az identitydirmgt device check-member-group`</a>
 
-create-device a identitydirmgt.
+##### <a name="ParametersdevicescheckMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--group-ids**|array||group_ids|groupIds|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices.device|
+#### <a name="devicescheckMemberObjects">Command `az identitydirmgt device check-member-object`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device|CreateDevice|
+##### <a name="ParametersdevicescheckMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--ids**|array||ids|ids|
 
-#### Parameters
+#### <a name="devicesCreateExtensions">Command `az identitydirmgt device create-extension`</a>
+
+##### <a name="ParametersdevicesCreateExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--id**|string|Read-only.|id|id|
+
+#### <a name="devicesCreateRefMemberOf">Command `az identitydirmgt device create-ref-member-of`</a>
+
+##### <a name="ParametersdevicesCreateRefMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="devicesCreateRefRegisteredOwners">Command `az identitydirmgt device create-ref-registered-owner`</a>
+
+##### <a name="ParametersdevicesCreateRefRegisteredOwners">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="devicesCreateRefRegisteredUsers">Command `az identitydirmgt device create-ref-registered-user`</a>
+
+##### <a name="ParametersdevicesCreateRefRegisteredUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="devicesCreateRefTransitiveMemberOf">Command `az identitydirmgt device create-ref-transitive-member-of`</a>
+
+##### <a name="ParametersdevicesCreateRefTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="devicesDeleteExtensions">Command `az identitydirmgt device delete-extension`</a>
+
+##### <a name="ParametersdevicesDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="devicesgetAvailableExtensionProperties">Command `az identitydirmgt device get-available-extension-property`</a>
+
+##### <a name="ParametersdevicesgetAvailableExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
+
+#### <a name="devicesgetByIds">Command `az identitydirmgt device get-by-id`</a>
+
+##### <a name="ParametersdevicesgetByIds">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ids**|array||ids|ids|
+|**--types**|array||types|types|
+
+#### <a name="devicesgetMemberGroups">Command `az identitydirmgt device get-member-group`</a>
+
+##### <a name="ParametersdevicesgetMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="devicesgetMemberObjects">Command `az identitydirmgt device get-member-object`</a>
+
+##### <a name="ParametersdevicesgetMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="devicesListExtensions">Command `az identitydirmgt device list-extension`</a>
+
+##### <a name="ParametersdevicesListExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="devicesListMemberOf">Command `az identitydirmgt device list-member-of`</a>
+
+##### <a name="ParametersdevicesListMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="devicesListRefMemberOf">Command `az identitydirmgt device list-ref-member-of`</a>
+
+##### <a name="ParametersdevicesListRefMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="devicesListRefRegisteredOwners">Command `az identitydirmgt device list-ref-registered-owner`</a>
+
+##### <a name="ParametersdevicesListRefRegisteredOwners">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="devicesListRefRegisteredUsers">Command `az identitydirmgt device list-ref-registered-user`</a>
+
+##### <a name="ParametersdevicesListRefRegisteredUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="devicesListRefTransitiveMemberOf">Command `az identitydirmgt device list-ref-transitive-member-of`</a>
+
+##### <a name="ParametersdevicesListRefTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="devicesListRegisteredOwners">Command `az identitydirmgt device list-registered-owner`</a>
+
+##### <a name="ParametersdevicesListRegisteredOwners">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="devicesListRegisteredUsers">Command `az identitydirmgt device list-registered-user`</a>
+
+##### <a name="ParametersdevicesListRegisteredUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="devicesListTransitiveMemberOf">Command `az identitydirmgt device list-transitive-member-of`</a>
+
+##### <a name="ParametersdevicesListTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="devicesrestore">Command `az identitydirmgt device restore`</a>
+
+##### <a name="Parametersdevicesrestore">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+
+#### <a name="devicesGetExtensions">Command `az identitydirmgt device show-extension`</a>
+
+##### <a name="ParametersdevicesGetExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="devicesUpdateExtensions">Command `az identitydirmgt device update-extension`</a>
+
+##### <a name="ParametersdevicesUpdateExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--id**|string|Read-only.|id|id|
+
+#### <a name="devicesvalidateProperties">Command `az identitydirmgt device validate-property`</a>
+
+##### <a name="ParametersdevicesvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### group `az identitydirmgt devicesdevice`
+#### <a name="devices.deviceCreateDevice">Command `az identitydirmgt devicesdevice create-device`</a>
+
+##### <a name="Parametersdevices.deviceCreateDevice">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -154,1800 +914,35 @@ create-device a identitydirmgt.
 |**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
 |**--extensions**|array|The collection of open extensions defined for the device. Read-only. Nullable.|extensions|extensions|
 
-### identitydirmgt create-directory-role
+#### <a name="devices.deviceDeleteDevice">Command `az identitydirmgt devicesdevice delete-device`</a>
 
-create-directory-role a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles.directoryRole|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-directory-role|CreateDirectoryRole|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--description**|string|The description for the directory role. Read-only.|description|description|
-|**--display-name**|string|The display name for the directory role. Read-only.|display_name|displayName|
-|**--role-template-id**|string|The id of the directoryRoleTemplate that this role is based on. The property must be specified when activating a directory role in a tenant with a POST operation. After the directory role has been activated, the property is read only.|role_template_id|roleTemplateId|
-|**--members**|array|Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.|members|members|
-|**--scoped-members**|array||scoped_members|scopedMembers|
-
-### identitydirmgt create-directory-role-template
-
-create-directory-role-template a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoleTemplates.directoryRoleTemplate|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-directory-role-template|CreateDirectoryRoleTemplate|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--description**|string|The description to set for the directory role. Read-only.|description|description|
-|**--display-name**|string|The display name to set for the directory role. Read-only.|display_name|displayName|
-
-### identitydirmgt create-domain
-
-create-domain a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains.domain|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-domain|CreateDomain|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--authentication-type**|string|Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication.Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.|authentication_type|authenticationType|
-|**--availability-status**|string|This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled.|availability_status|availabilityStatus|
-|**--is-admin-managed**|boolean|The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable|is_admin_managed|isAdminManaged|
-|**--is-default**|boolean|True if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable|is_default|isDefault|
-|**--is-initial**|boolean|True if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable|is_initial|isInitial|
-|**--is-root**|boolean|True if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable|is_root|isRoot|
-|**--is-verified**|boolean|True if the domain has completed domain ownership verification. Not nullable|is_verified|isVerified|
-|**--manufacturer**|string||manufacturer|manufacturer|
-|**--model**|string||model|model|
-|**--password-notification-window-in-days**|integer|Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.|password_notification_window_in_days|passwordNotificationWindowInDays|
-|**--password-validity-period-in-days**|integer|Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used.|password_validity_period_in_days|passwordValidityPeriodInDays|
-|**--state**|object|domainState|state|state|
-|**--supported-services**|array|The capabilities assigned to the domain.Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, YammerNot nullable|supported_services|supportedServices|
-|**--domain-name-references**|array|Read-only, Nullable|domain_name_references|domainNameReferences|
-|**--service-configuration-records**|array|DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services.Read-only, Nullable|service_configuration_records|serviceConfigurationRecords|
-|**--verification-dns-records**|array|DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD.Read-only, Nullable|verification_dns_records|verificationDnsRecords|
-
-### identitydirmgt create-extension
-
-create-extension a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-extension|CreateExtensions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-|**--id**|string|Read-only.|id|id|
-
-### identitydirmgt create-org-contact
-
-create-org-contact a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts.orgContact|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-org-contact|CreateOrgContact|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--addresses**|array||addresses|addresses|
-|**--company-name**|string||company_name|companyName|
-|**--department**|string||department|department|
-|**--display-name**|string||display_name|displayName|
-|**--given-name**|string||given_name|givenName|
-|**--job-title**|string||job_title|jobTitle|
-|**--mail**|string||mail|mail|
-|**--mail-nickname**|string||mail_nickname|mailNickname|
-|**--on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
-|**--on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
-|**--on-premises-sync-enabled**|boolean||on_premises_sync_enabled|onPremisesSyncEnabled|
-|**--phones**|array||phones|phones|
-|**--proxy-addresses**|array||proxy_addresses|proxyAddresses|
-|**--surname**|string||surname|surname|
-|**--direct-reports**|array||direct_reports|directReports|
-|**--manager**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|manager|manager|
-|**--member-of**|array||member_of|memberOf|
-|**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
-
-### identitydirmgt create-organization
-
-create-organization a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization.organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-organization|CreateOrganization|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--assigned-plans**|array|The collection of service plans associated with the tenant. Not nullable.|assigned_plans|assignedPlans|
-|**--business-phones**|array|Telephone number for the organization. NOTE: Although this is a string collection, only one number can be set for this property.|business_phones|businessPhones|
-|**--city**|string|City name of the address for the organization.|city|city|
-|**--country**|string|Country/region name of the address for the organization.|country|country|
-|**--country-letter-code**|string|Country/region abbreviation for the organization.|country_letter_code|countryLetterCode|
-|**--created-date-time**|date-time|Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|created_date_time|createdDateTime|
-|**--display-name**|string|The display name for the tenant.|display_name|displayName|
-|**--marketing-notification-emails**|array|Not nullable.|marketing_notification_emails|marketingNotificationEmails|
-|**--on-premises-last-sync-date-time**|date-time|The time and date at which the tenant was last synced with the on-premise directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
-|**--on-premises-sync-enabled**|boolean|true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default).|on_premises_sync_enabled|onPremisesSyncEnabled|
-|**--postal-code**|string|Postal code of the address for the organization.|postal_code|postalCode|
-|**--preferred-language**|string|The preferred language for the organization. Should follow ISO 639-1 Code; for example 'en'.|preferred_language|preferredLanguage|
-|**--privacy-profile**|object|privacyProfile|privacy_profile|privacyProfile|
-|**--provisioned-plans**|array|Not nullable.|provisioned_plans|provisionedPlans|
-|**--security-compliance-notification-mails**|array||security_compliance_notification_mails|securityComplianceNotificationMails|
-|**--security-compliance-notification-phones**|array||security_compliance_notification_phones|securityComplianceNotificationPhones|
-|**--state**|string|State name of the address for the organization.|state|state|
-|**--street**|string|Street name of the address for organization.|street|street|
-|**--technical-notification-mails**|array|Not nullable.|technical_notification_mails|technicalNotificationMails|
-|**--tenant-type**|string||tenant_type|tenantType|
-|**--verified-domains**|array|The collection of domains associated with this tenant. Not nullable.|verified_domains|verifiedDomains|
-|**--mobile-device-management-authority**|choice||mobile_device_management_authority|mobileDeviceManagementAuthority|
-|**--certificate-based-auth-configuration**|array|Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.|certificate_based_auth_configuration|certificateBasedAuthConfiguration|
-|**--extensions**|array|The collection of open extensions defined for the organization. Read-only. Nullable.|extensions|extensions|
-
-### identitydirmgt create-ref-direct-report
-
-create-ref-direct-report a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-direct-report|CreateRefDirectReports|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### identitydirmgt create-ref-domain-name-reference
-
-create-ref-domain-name-reference a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-domain-name-reference|CreateRefDomainNameReferences|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### identitydirmgt create-ref-member
-
-create-ref-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-member|CreateRefMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### identitydirmgt create-ref-member-of
-
-create-ref-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-member-of|CreateRefMemberOf|
-
-#### Parameters
+##### <a name="Parametersdevices.deviceDeleteDevice">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--device-id**|string|key: id of device|device_id|device-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### identitydirmgt create-ref-registered-owner
-
-create-ref-registered-owner a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-registered-owner|CreateRefRegisteredOwners|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### identitydirmgt create-ref-registered-user
-
-create-ref-registered-user a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-registered-user|CreateRefRegisteredUsers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### identitydirmgt create-ref-transitive-member-of
-
-create-ref-transitive-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-transitive-member-of|CreateRefTransitiveMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### identitydirmgt create-scoped-member
-
-create-scoped-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-scoped-member|CreateScopedMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--id**|string|Read-only.|id|id|
-|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
-|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
-|**--role-member-info-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--role-member-info-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-
-### identitydirmgt create-scoped-role-member
-
-create-scoped-role-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory.administrativeUnits|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-scoped-role-member|CreateScopedRoleMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
-|**--id**|string|Read-only.|id|id|
-|**--microsoft-graph-scoped-role-membership-administrative-unit-id-administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id|administrativeUnitId|
-|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
-|**--role-member-info-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--role-member-info-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-
-### identitydirmgt create-scoped-role-member-of
-
-create-scoped-role-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-scoped-role-member-of|CreateScopedRoleMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--id**|string|Read-only.|id|id|
-|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
-|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
-|**--role-member-info-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--role-member-info-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-
-### identitydirmgt create-service-configuration-record
-
-create-service-configuration-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-service-configuration-record|CreateServiceConfigurationRecords|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--id**|string|Read-only.|id|id|
-|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
-|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
-|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
-|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
-|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
-
-### identitydirmgt create-subscribed-sku
-
-create-subscribed-sku a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|subscribedSkus.subscribedSku|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-subscribed-sku|CreateSubscribedSku|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--applies-to**|string|For example, 'User' or 'Company'.|applies_to|appliesTo|
-|**--capability-status**|string|Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.|capability_status|capabilityStatus|
-|**--consumed-units**|integer|The number of licenses that have been assigned.|consumed_units|consumedUnits|
-|**--prepaid-units**|object|licenseUnitsDetail|prepaid_units|prepaidUnits|
-|**--service-plans**|array|Information about the service plans that are available with the SKU. Not nullable|service_plans|servicePlans|
-|**--sku-id**|uuid|The unique identifier (GUID) for the service SKU.|sku_id|skuId|
-|**--sku-part-number**|string|The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.|sku_part_number|skuPartNumber|
-
-### identitydirmgt create-verification-dns-record
-
-create-verification-dns-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-verification-dns-record|CreateVerificationDnsRecords|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--id**|string|Read-only.|id|id|
-|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
-|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
-|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
-|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
-|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
-
-### identitydirmgt delete
-
-delete a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteScopedRoleMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### identitydirmgt delta
+#### <a name="devices.deviceListDevice">Command `az identitydirmgt devicesdevice list-device`</a>
 
-delta a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="Parametersdevices.deviceListDevice">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-
-### identitydirmgt force-delete
-
-force-delete a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|force-delete|forceDelete|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--disable-user-accounts**|boolean||disable_user_accounts|disableUserAccounts|
-
-### identitydirmgt get-administrative-unit
-
-get-administrative-unit a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-administrative-unit|GetAdministrativeUnits|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### identitydirmgt get-available-extension-property
+#### <a name="devices.deviceGetDevice">Command `az identitydirmgt devicesdevice show-device`</a>
 
-get-available-extension-property a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-available-extension-property|getAvailableExtensionProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
-
-### identitydirmgt get-by-id
-
-get-by-id a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-by-id|getByIds|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ids**|array||ids|ids|
-|**--types**|array||types|types|
-
-### identitydirmgt get-contract
-
-get-contract a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contracts.contract|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-contract|GetContract|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--contract-id**|string|key: id of contract|contract_id|contract-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-deleted-item
-
-get-deleted-item a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-deleted-item|GetDeletedItems|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-device
-
-get-device a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices.device|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device|GetDevice|
-
-#### Parameters
+##### <a name="Parametersdevices.deviceGetDevice">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--device-id**|string|key: id of device|device_id|device-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### identitydirmgt get-directory
+#### <a name="devices.deviceUpdateDevice">Command `az identitydirmgt devicesdevice update-device`</a>
 
-get-directory a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory.directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-directory|GetDirectory|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-directory-role
-
-get-directory-role a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles.directoryRole|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-directory-role|GetDirectoryRole|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-directory-role-template
-
-get-directory-role-template a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoleTemplates.directoryRoleTemplate|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-directory-role-template|GetDirectoryRoleTemplate|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-domain
-
-get-domain a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains.domain|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-domain|GetDomain|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-extension
-
-get-extension a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-extension|GetExtensions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-manager
-
-get-manager a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-manager|GetManager|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-member-group
-
-get-member-group a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member-group|getMemberGroups|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
-
-### identitydirmgt get-member-object
-
-get-member-object a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member-object|getMemberObjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
-
-### identitydirmgt get-org-contact
-
-get-org-contact a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts.orgContact|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-org-contact|GetOrgContact|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-organization
-
-get-organization a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization.organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-organization|GetOrganization|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-ref-manager
-
-get-ref-manager a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-manager|GetRefManager|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-
-### identitydirmgt get-scoped-member
-
-get-scoped-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-scoped-member|GetScopedMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-scoped-role-member
-
-get-scoped-role-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory.administrativeUnits|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-scoped-role-member|GetScopedRoleMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
-|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-scoped-role-member-of
-
-get-scoped-role-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-scoped-role-member-of|GetScopedRoleMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-service-configuration-record
-
-get-service-configuration-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-service-configuration-record|GetServiceConfigurationRecords|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-subscribed-sku
-
-get-subscribed-sku a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|subscribedSkus.subscribedSku|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-subscribed-sku|GetSubscribedSku|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--subscribed-sku-id**|string|key: id of subscribedSku|subscribed_sku_id|subscribedSku-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt get-verification-dns-record
-
-get-verification-dns-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-verification-dns-record|GetVerificationDnsRecords|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-administrative-unit
-
-list-administrative-unit a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-administrative-unit|ListAdministrativeUnits|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-contract
-
-list-contract a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contracts.contract|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-contract|ListContract|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-deleted-item
-
-list-deleted-item a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-deleted-item|ListDeletedItems|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-device
-
-list-device a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices.device|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device|ListDevice|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-direct-report
-
-list-direct-report a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-direct-report|ListDirectReports|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-directory-role
-
-list-directory-role a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles.directoryRole|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-directory-role|ListDirectoryRole|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-directory-role-template
-
-list-directory-role-template a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoleTemplates.directoryRoleTemplate|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-directory-role-template|ListDirectoryRoleTemplate|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-domain
-
-list-domain a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains.domain|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-domain|ListDomain|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-domain-name-reference
-
-list-domain-name-reference a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-domain-name-reference|ListDomainNameReferences|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-extension
-
-list-extension a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-extension|ListExtensions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-member
-
-list-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member|ListMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-member-of
-
-list-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member-of|ListMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-org-contact
-
-list-org-contact a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts.orgContact|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-org-contact|ListOrgContact|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-organization
-
-list-organization a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization.organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-organization|ListOrganization|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-ref-direct-report
-
-list-ref-direct-report a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-direct-report|ListRefDirectReports|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### identitydirmgt list-ref-domain-name-reference
-
-list-ref-domain-name-reference a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-domain-name-reference|ListRefDomainNameReferences|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### identitydirmgt list-ref-member
-
-list-ref-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-member|ListRefMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### identitydirmgt list-ref-member-of
-
-list-ref-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-member-of|ListRefMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### identitydirmgt list-ref-registered-owner
-
-list-ref-registered-owner a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-registered-owner|ListRefRegisteredOwners|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### identitydirmgt list-ref-registered-user
-
-list-ref-registered-user a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-registered-user|ListRefRegisteredUsers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### identitydirmgt list-ref-transitive-member-of
-
-list-ref-transitive-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-transitive-member-of|ListRefTransitiveMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### identitydirmgt list-registered-owner
-
-list-registered-owner a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-registered-owner|ListRegisteredOwners|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-registered-user
-
-list-registered-user a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-registered-user|ListRegisteredUsers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-scoped-member
-
-list-scoped-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-scoped-member|ListScopedMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-scoped-role-member
-
-list-scoped-role-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory.administrativeUnits|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-scoped-role-member|ListScopedRoleMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-scoped-role-member-of
-
-list-scoped-role-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-scoped-role-member-of|ListScopedRoleMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-service-configuration-record
-
-list-service-configuration-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-service-configuration-record|ListServiceConfigurationRecords|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-subscribed-sku
-
-list-subscribed-sku a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|subscribedSkus.subscribedSku|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-subscribed-sku|ListSubscribedSku|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-transitive-member-of
-
-list-transitive-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-transitive-member-of|ListTransitiveMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt list-verification-dns-record
-
-list-verification-dns-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-verification-dns-record|ListVerificationDnsRecords|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### identitydirmgt restore
-
-restore a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|restore|restore|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-
-### identitydirmgt set-mobile-device-management-authority
-
-set-mobile-device-management-authority a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-mobile-device-management-authority|setMobileDeviceManagementAuthority|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--organization-id**|string|key: id of organization|organization_id|organization-id|
-
-### identitydirmgt set-ref-manager
-
-set-ref-manager a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-manager|SetRefManager|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### identitydirmgt update-administrative-unit
-
-update-administrative-unit a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-administrative-unit|UpdateAdministrativeUnits|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--description**|string|An optional description for the administrative unit.|description|description|
-|**--display-name**|string|Display name for the administrative unit.|display_name|displayName|
-|**--visibility**|string|Controls whether the adminstrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
-|**--members**|array|Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).|members|members|
-|**--scoped-role-members**|array|Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).|scoped_role_members|scopedRoleMembers|
-|**--extensions**|array||extensions|extensions|
-
-### identitydirmgt update-contract
-
-update-contract a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contracts.contract|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-contract|UpdateContract|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--contract-id**|string|key: id of contract|contract_id|contract-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--contract-type**|string|Type of contract.Possible values are: SyndicationPartner - Partner that exclusively resells and manages O365 and Intune for this customer. They resell and support their customers. BreadthPartner - Partner has the ability to provide administrative support for this customer. However, the partner is not allowed to resell to the customer.ResellerPartner - Partner that is similar to a syndication partner, except that the partner doesn’t have exclusive access to a tenant. In the syndication case, the customer cannot buy additional direct subscriptions from Microsoft or from other partners.|contract_type|contractType|
-|**--customer-id**|uuid|The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.|customer_id|customerId|
-|**--default-domain-name**|string|A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.|default_domain_name|defaultDomainName|
-|**--display-name**|string|A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.|display_name|displayName|
-
-### identitydirmgt update-deleted-item
-
-update-deleted-item a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-deleted-item|UpdateDeletedItems|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-
-### identitydirmgt update-device
-
-update-device a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|devices.device|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device|UpdateDevice|
-
-#### Parameters
+##### <a name="Parametersdevices.deviceUpdateDevice">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--device-id**|string|key: id of device|device_id|device-id|
@@ -1978,42 +973,444 @@ update-device a identitydirmgt.
 |**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
 |**--extensions**|array|The collection of open extensions defined for the device. Read-only. Nullable.|extensions|extensions|
 
-### identitydirmgt update-directory
+### group `az identitydirmgt directory`
+#### <a name="directory.directoryGetDirectory">Command `az identitydirmgt directory show-directory`</a>
 
-update-directory a identitydirmgt.
+##### <a name="Parametersdirectory.directoryGetDirectory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory.directory|
+#### <a name="directory.directoryUpdateDirectory">Command `az identitydirmgt directory update-directory`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-directory|UpdateDirectory|
-
-#### Parameters
+##### <a name="Parametersdirectory.directoryUpdateDirectory">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--administrative-units**|array||administrative_units|administrativeUnits|
 |**--deleted-items**|array|Recently deleted items. Read-only. Nullable.|deleted_items|deletedItems|
 
-### identitydirmgt update-directory-role
+### group `az identitydirmgt directory`
+#### <a name="directoryCreateAdministrativeUnits">Command `az identitydirmgt directory create-administrative-unit`</a>
 
-update-directory-role a identitydirmgt.
+##### <a name="ParametersdirectoryCreateAdministrativeUnits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--description**|string|An optional description for the administrative unit.|description|description|
+|**--display-name**|string|Display name for the administrative unit.|display_name|displayName|
+|**--visibility**|string|Controls whether the adminstrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
+|**--members**|array|Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).|members|members|
+|**--scoped-role-members**|array|Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).|scoped_role_members|scopedRoleMembers|
+|**--extensions**|array||extensions|extensions|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles.directoryRole|
+#### <a name="directoryCreateDeletedItems">Command `az identitydirmgt directory create-deleted-item`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-directory-role|UpdateDirectoryRole|
+##### <a name="ParametersdirectoryCreateDeletedItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
 
-#### Parameters
+#### <a name="directoryDeleteAdministrativeUnits">Command `az identitydirmgt directory delete-administrative-unit`</a>
+
+##### <a name="ParametersdirectoryDeleteAdministrativeUnits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="directoryDeleteDeletedItems">Command `az identitydirmgt directory delete-deleted-item`</a>
+
+##### <a name="ParametersdirectoryDeleteDeletedItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="directoryListAdministrativeUnits">Command `az identitydirmgt directory list-administrative-unit`</a>
+
+##### <a name="ParametersdirectoryListAdministrativeUnits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryListDeletedItems">Command `az identitydirmgt directory list-deleted-item`</a>
+
+##### <a name="ParametersdirectoryListDeletedItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryGetAdministrativeUnits">Command `az identitydirmgt directory show-administrative-unit`</a>
+
+##### <a name="ParametersdirectoryGetAdministrativeUnits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryGetDeletedItems">Command `az identitydirmgt directory show-deleted-item`</a>
+
+##### <a name="ParametersdirectoryGetDeletedItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryUpdateAdministrativeUnits">Command `az identitydirmgt directory update-administrative-unit`</a>
+
+##### <a name="ParametersdirectoryUpdateAdministrativeUnits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--description**|string|An optional description for the administrative unit.|description|description|
+|**--display-name**|string|Display name for the administrative unit.|display_name|displayName|
+|**--visibility**|string|Controls whether the adminstrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
+|**--members**|array|Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).|members|members|
+|**--scoped-role-members**|array|Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).|scoped_role_members|scopedRoleMembers|
+|**--extensions**|array||extensions|extensions|
+
+#### <a name="directoryUpdateDeletedItems">Command `az identitydirmgt directory update-deleted-item`</a>
+
+##### <a name="ParametersdirectoryUpdateDeletedItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+
+### group `az identitydirmgt directoryadministrativeunit`
+#### <a name="directory.administrativeUnitsCreateExtensions">Command `az identitydirmgt directoryadministrativeunit create-extension`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsCreateExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--id**|string|Read-only.|id|id|
+
+#### <a name="directory.administrativeUnitsCreateRefMembers">Command `az identitydirmgt directoryadministrativeunit create-ref-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsCreateRefMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="directory.administrativeUnitsCreateScopedRoleMembers">Command `az identitydirmgt directoryadministrativeunit create-scoped-role-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsCreateScopedRoleMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--id**|string|Read-only.|id|id|
+|**--microsoft-graph-scoped-role-membership-administrative-unit-id-administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id|administrativeUnitId|
+|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
+|**--role-member-info**|object|identity|role_member_info|roleMemberInfo|
+
+#### <a name="directory.administrativeUnitsDeleteExtensions">Command `az identitydirmgt directoryadministrativeunit delete-extension`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="directory.administrativeUnitsDeleteScopedRoleMembers">Command `az identitydirmgt directoryadministrativeunit delete-scoped-role-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsDeleteScopedRoleMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="directory.administrativeUnitsdelta">Command `az identitydirmgt directoryadministrativeunit delta`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="directory.administrativeUnitsListExtensions">Command `az identitydirmgt directoryadministrativeunit list-extension`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsListExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directory.administrativeUnitsListMembers">Command `az identitydirmgt directoryadministrativeunit list-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsListMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directory.administrativeUnitsListRefMembers">Command `az identitydirmgt directoryadministrativeunit list-ref-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsListRefMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="directory.administrativeUnitsListScopedRoleMembers">Command `az identitydirmgt directoryadministrativeunit list-scoped-role-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsListScopedRoleMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directory.administrativeUnitsGetExtensions">Command `az identitydirmgt directoryadministrativeunit show-extension`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsGetExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directory.administrativeUnitsGetScopedRoleMembers">Command `az identitydirmgt directoryadministrativeunit show-scoped-role-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsGetScopedRoleMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directory.administrativeUnitsUpdateExtensions">Command `az identitydirmgt directoryadministrativeunit update-extension`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsUpdateExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--id**|string|Read-only.|id|id|
+
+#### <a name="directory.administrativeUnitsUpdateScopedRoleMembers">Command `az identitydirmgt directoryadministrativeunit update-scoped-role-member`</a>
+
+##### <a name="Parametersdirectory.administrativeUnitsUpdateScopedRoleMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--id**|string|Read-only.|id|id|
+|**--microsoft-graph-scoped-role-membership-administrative-unit-id-administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id|administrativeUnitId|
+|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
+|**--role-member-info**|object|identity|role_member_info|roleMemberInfo|
+
+### group `az identitydirmgt directoryrole`
+#### <a name="directoryRolescheckMemberGroups">Command `az identitydirmgt directoryrole check-member-group`</a>
+
+##### <a name="ParametersdirectoryRolescheckMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--group-ids**|array||group_ids|groupIds|
+
+#### <a name="directoryRolescheckMemberObjects">Command `az identitydirmgt directoryrole check-member-object`</a>
+
+##### <a name="ParametersdirectoryRolescheckMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--ids**|array||ids|ids|
+
+#### <a name="directoryRolesCreateRefMembers">Command `az identitydirmgt directoryrole create-ref-member`</a>
+
+##### <a name="ParametersdirectoryRolesCreateRefMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="directoryRolesCreateScopedMembers">Command `az identitydirmgt directoryrole create-scoped-member`</a>
+
+##### <a name="ParametersdirectoryRolesCreateScopedMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--id**|string|Read-only.|id|id|
+|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
+|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
+|**--role-member-info**|object|identity|role_member_info|roleMemberInfo|
+
+#### <a name="directoryRolesDeleteScopedMembers">Command `az identitydirmgt directoryrole delete-scoped-member`</a>
+
+##### <a name="ParametersdirectoryRolesDeleteScopedMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="directoryRolesdelta">Command `az identitydirmgt directoryrole delta`</a>
+
+##### <a name="ParametersdirectoryRolesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="directoryRolesgetAvailableExtensionProperties">Command `az identitydirmgt directoryrole get-available-extension-property`</a>
+
+##### <a name="ParametersdirectoryRolesgetAvailableExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
+
+#### <a name="directoryRolesgetByIds">Command `az identitydirmgt directoryrole get-by-id`</a>
+
+##### <a name="ParametersdirectoryRolesgetByIds">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ids**|array||ids|ids|
+|**--types**|array||types|types|
+
+#### <a name="directoryRolesgetMemberGroups">Command `az identitydirmgt directoryrole get-member-group`</a>
+
+##### <a name="ParametersdirectoryRolesgetMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="directoryRolesgetMemberObjects">Command `az identitydirmgt directoryrole get-member-object`</a>
+
+##### <a name="ParametersdirectoryRolesgetMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="directoryRolesListMembers">Command `az identitydirmgt directoryrole list-member`</a>
+
+##### <a name="ParametersdirectoryRolesListMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryRolesListRefMembers">Command `az identitydirmgt directoryrole list-ref-member`</a>
+
+##### <a name="ParametersdirectoryRolesListRefMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="directoryRolesListScopedMembers">Command `az identitydirmgt directoryrole list-scoped-member`</a>
+
+##### <a name="ParametersdirectoryRolesListScopedMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryRolesrestore">Command `az identitydirmgt directoryrole restore`</a>
+
+##### <a name="ParametersdirectoryRolesrestore">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+
+#### <a name="directoryRolesGetScopedMembers">Command `az identitydirmgt directoryrole show-scoped-member`</a>
+
+##### <a name="ParametersdirectoryRolesGetScopedMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryRolesUpdateScopedMembers">Command `az identitydirmgt directoryrole update-scoped-member`</a>
+
+##### <a name="ParametersdirectoryRolesUpdateScopedMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--id**|string|Read-only.|id|id|
+|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
+|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
+|**--role-member-info**|object|identity|role_member_info|roleMemberInfo|
+
+#### <a name="directoryRolesvalidateProperties">Command `az identitydirmgt directoryrole validate-property`</a>
+
+##### <a name="ParametersdirectoryRolesvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### group `az identitydirmgt directoryrolesdirectoryrole`
+#### <a name="directoryRoles.directoryRoleCreateDirectoryRole">Command `az identitydirmgt directoryrolesdirectoryrole create-directory-role`</a>
+
+##### <a name="ParametersdirectoryRoles.directoryRoleCreateDirectoryRole">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--description**|string|The description for the directory role. Read-only.|description|description|
+|**--display-name**|string|The display name for the directory role. Read-only.|display_name|displayName|
+|**--role-template-id**|string|The id of the directoryRoleTemplate that this role is based on. The property must be specified when activating a directory role in a tenant with a POST operation. After the directory role has been activated, the property is read only.|role_template_id|roleTemplateId|
+|**--members**|array|Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.|members|members|
+|**--scoped-members**|array||scoped_members|scopedMembers|
+
+#### <a name="directoryRoles.directoryRoleDeleteDirectoryRole">Command `az identitydirmgt directoryrolesdirectoryrole delete-directory-role`</a>
+
+##### <a name="ParametersdirectoryRoles.directoryRoleDeleteDirectoryRole">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="directoryRoles.directoryRoleListDirectoryRole">Command `az identitydirmgt directoryrolesdirectoryrole list-directory-role`</a>
+
+##### <a name="ParametersdirectoryRoles.directoryRoleListDirectoryRole">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryRoles.directoryRoleGetDirectoryRole">Command `az identitydirmgt directoryrolesdirectoryrole show-directory-role`</a>
+
+##### <a name="ParametersdirectoryRoles.directoryRoleGetDirectoryRole">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryRoles.directoryRoleUpdateDirectoryRole">Command `az identitydirmgt directoryrolesdirectoryrole update-directory-role`</a>
+
+##### <a name="ParametersdirectoryRoles.directoryRoleUpdateDirectoryRole">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
@@ -2025,21 +1422,111 @@ update-directory-role a identitydirmgt.
 |**--members**|array|Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.|members|members|
 |**--scoped-members**|array||scoped_members|scopedMembers|
 
-### identitydirmgt update-directory-role-template
+### group `az identitydirmgt directoryroletemplate`
+#### <a name="directoryRoleTemplatescheckMemberGroups">Command `az identitydirmgt directoryroletemplate check-member-group`</a>
 
-update-directory-role-template a identitydirmgt.
+##### <a name="ParametersdirectoryRoleTemplatescheckMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
+|**--group-ids**|array||group_ids|groupIds|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoleTemplates.directoryRoleTemplate|
+#### <a name="directoryRoleTemplatescheckMemberObjects">Command `az identitydirmgt directoryroletemplate check-member-object`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-directory-role-template|UpdateDirectoryRoleTemplate|
+##### <a name="ParametersdirectoryRoleTemplatescheckMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
+|**--ids**|array||ids|ids|
 
-#### Parameters
+#### <a name="directoryRoleTemplatesgetAvailableExtensionProperties">Command `az identitydirmgt directoryroletemplate get-available-extension-property`</a>
+
+##### <a name="ParametersdirectoryRoleTemplatesgetAvailableExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
+
+#### <a name="directoryRoleTemplatesgetByIds">Command `az identitydirmgt directoryroletemplate get-by-id`</a>
+
+##### <a name="ParametersdirectoryRoleTemplatesgetByIds">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ids**|array||ids|ids|
+|**--types**|array||types|types|
+
+#### <a name="directoryRoleTemplatesgetMemberGroups">Command `az identitydirmgt directoryroletemplate get-member-group`</a>
+
+##### <a name="ParametersdirectoryRoleTemplatesgetMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="directoryRoleTemplatesgetMemberObjects">Command `az identitydirmgt directoryroletemplate get-member-object`</a>
+
+##### <a name="ParametersdirectoryRoleTemplatesgetMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="directoryRoleTemplatesrestore">Command `az identitydirmgt directoryroletemplate restore`</a>
+
+##### <a name="ParametersdirectoryRoleTemplatesrestore">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
+
+#### <a name="directoryRoleTemplatesvalidateProperties">Command `az identitydirmgt directoryroletemplate validate-property`</a>
+
+##### <a name="ParametersdirectoryRoleTemplatesvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### group `az identitydirmgt directoryroletemplatesdirectoryroletemplate`
+#### <a name="directoryRoleTemplates.directoryRoleTemplateCreateDirectoryRoleTemplate">Command `az identitydirmgt directoryroletemplatesdirectoryroletemplate create-directory-role-template`</a>
+
+##### <a name="ParametersdirectoryRoleTemplates.directoryRoleTemplateCreateDirectoryRoleTemplate">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--description**|string|The description to set for the directory role. Read-only.|description|description|
+|**--display-name**|string|The display name to set for the directory role. Read-only.|display_name|displayName|
+
+#### <a name="directoryRoleTemplates.directoryRoleTemplateDeleteDirectoryRoleTemplate">Command `az identitydirmgt directoryroletemplatesdirectoryroletemplate delete-directory-role-template`</a>
+
+##### <a name="ParametersdirectoryRoleTemplates.directoryRoleTemplateDeleteDirectoryRoleTemplate">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="directoryRoleTemplates.directoryRoleTemplateListDirectoryRoleTemplate">Command `az identitydirmgt directoryroletemplatesdirectoryroletemplate list-directory-role-template`</a>
+
+##### <a name="ParametersdirectoryRoleTemplates.directoryRoleTemplateListDirectoryRoleTemplate">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryRoleTemplates.directoryRoleTemplateGetDirectoryRoleTemplate">Command `az identitydirmgt directoryroletemplatesdirectoryroletemplate show-directory-role-template`</a>
+
+##### <a name="ParametersdirectoryRoleTemplates.directoryRoleTemplateGetDirectoryRoleTemplate">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="directoryRoleTemplates.directoryRoleTemplateUpdateDirectoryRoleTemplate">Command `az identitydirmgt directoryroletemplatesdirectoryroletemplate update-directory-role-template`</a>
+
+##### <a name="ParametersdirectoryRoleTemplates.directoryRoleTemplateUpdateDirectoryRoleTemplate">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--directory-role-template-id**|string|key: id of directoryRoleTemplate|directory_role_template_id|directoryRoleTemplate-id|
@@ -2048,21 +1535,213 @@ update-directory-role-template a identitydirmgt.
 |**--description**|string|The description to set for the directory role. Read-only.|description|description|
 |**--display-name**|string|The display name to set for the directory role. Read-only.|display_name|displayName|
 
-### identitydirmgt update-domain
+### group `az identitydirmgt domain`
+#### <a name="domainsCreateRefDomainNameReferences">Command `az identitydirmgt domain create-ref-domain-name-reference`</a>
 
-update-domain a identitydirmgt.
+##### <a name="ParametersdomainsCreateRefDomainNameReferences">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains.domain|
+#### <a name="domainsCreateServiceConfigurationRecords">Command `az identitydirmgt domain create-service-configuration-record`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-domain|UpdateDomain|
+##### <a name="ParametersdomainsCreateServiceConfigurationRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--id**|string|Read-only.|id|id|
+|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
+|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
+|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
+|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
+|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
 
-#### Parameters
+#### <a name="domainsCreateVerificationDnsRecords">Command `az identitydirmgt domain create-verification-dns-record`</a>
+
+##### <a name="ParametersdomainsCreateVerificationDnsRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--id**|string|Read-only.|id|id|
+|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
+|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
+|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
+|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
+|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
+
+#### <a name="domainsDeleteServiceConfigurationRecords">Command `az identitydirmgt domain delete-service-configuration-record`</a>
+
+##### <a name="ParametersdomainsDeleteServiceConfigurationRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="domainsDeleteVerificationDnsRecords">Command `az identitydirmgt domain delete-verification-dns-record`</a>
+
+##### <a name="ParametersdomainsDeleteVerificationDnsRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="domainsforceDelete">Command `az identitydirmgt domain force-delete`</a>
+
+##### <a name="ParametersdomainsforceDelete">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--disable-user-accounts**|boolean||disable_user_accounts|disableUserAccounts|
+
+#### <a name="domainsListDomainNameReferences">Command `az identitydirmgt domain list-domain-name-reference`</a>
+
+##### <a name="ParametersdomainsListDomainNameReferences">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="domainsListRefDomainNameReferences">Command `az identitydirmgt domain list-ref-domain-name-reference`</a>
+
+##### <a name="ParametersdomainsListRefDomainNameReferences">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="domainsListServiceConfigurationRecords">Command `az identitydirmgt domain list-service-configuration-record`</a>
+
+##### <a name="ParametersdomainsListServiceConfigurationRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="domainsListVerificationDnsRecords">Command `az identitydirmgt domain list-verification-dns-record`</a>
+
+##### <a name="ParametersdomainsListVerificationDnsRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="domainsGetServiceConfigurationRecords">Command `az identitydirmgt domain show-service-configuration-record`</a>
+
+##### <a name="ParametersdomainsGetServiceConfigurationRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="domainsGetVerificationDnsRecords">Command `az identitydirmgt domain show-verification-dns-record`</a>
+
+##### <a name="ParametersdomainsGetVerificationDnsRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="domainsUpdateServiceConfigurationRecords">Command `az identitydirmgt domain update-service-configuration-record`</a>
+
+##### <a name="ParametersdomainsUpdateServiceConfigurationRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--id**|string|Read-only.|id|id|
+|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
+|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
+|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
+|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
+|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
+
+#### <a name="domainsUpdateVerificationDnsRecords">Command `az identitydirmgt domain update-verification-dns-record`</a>
+
+##### <a name="ParametersdomainsUpdateVerificationDnsRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--id**|string|Read-only.|id|id|
+|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
+|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
+|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
+|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
+|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
+
+#### <a name="domainsverify">Command `az identitydirmgt domain verify`</a>
+
+##### <a name="Parametersdomainsverify">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+
+### group `az identitydirmgt domainsdomain`
+#### <a name="domains.domainCreateDomain">Command `az identitydirmgt domainsdomain create-domain`</a>
+
+##### <a name="Parametersdomains.domainCreateDomain">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--authentication-type**|string|Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication.Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.|authentication_type|authenticationType|
+|**--availability-status**|string|This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled.|availability_status|availabilityStatus|
+|**--is-admin-managed**|boolean|The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable|is_admin_managed|isAdminManaged|
+|**--is-default**|boolean|True if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable|is_default|isDefault|
+|**--is-initial**|boolean|True if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable|is_initial|isInitial|
+|**--is-root**|boolean|True if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable|is_root|isRoot|
+|**--is-verified**|boolean|True if the domain has completed domain ownership verification. Not nullable|is_verified|isVerified|
+|**--manufacturer**|string||manufacturer|manufacturer|
+|**--model**|string||model|model|
+|**--password-notification-window-in-days**|integer|Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.|password_notification_window_in_days|passwordNotificationWindowInDays|
+|**--password-validity-period-in-days**|integer|Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used.|password_validity_period_in_days|passwordValidityPeriodInDays|
+|**--state**|object|domainState|state|state|
+|**--supported-services**|array|The capabilities assigned to the domain.Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, YammerNot nullable|supported_services|supportedServices|
+|**--domain-name-references**|array|Read-only, Nullable|domain_name_references|domainNameReferences|
+|**--service-configuration-records**|array|DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services.Read-only, Nullable|service_configuration_records|serviceConfigurationRecords|
+|**--verification-dns-records**|array|DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD.Read-only, Nullable|verification_dns_records|verificationDnsRecords|
+
+#### <a name="domains.domainDeleteDomain">Command `az identitydirmgt domainsdomain delete-domain`</a>
+
+##### <a name="Parametersdomains.domainDeleteDomain">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="domains.domainListDomain">Command `az identitydirmgt domainsdomain list-domain`</a>
+
+##### <a name="Parametersdomains.domainListDomain">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="domains.domainGetDomain">Command `az identitydirmgt domainsdomain show-domain`</a>
+
+##### <a name="Parametersdomains.domainGetDomain">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="domains.domainUpdateDomain">Command `az identitydirmgt domainsdomain update-domain`</a>
+
+##### <a name="Parametersdomains.domainUpdateDomain">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--domain-id**|string|key: id of domain|domain_id|domain-id|
@@ -2084,81 +1763,68 @@ update-domain a identitydirmgt.
 |**--service-configuration-records**|array|DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services.Read-only, Nullable|service_configuration_records|serviceConfigurationRecords|
 |**--verification-dns-records**|array|DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD.Read-only, Nullable|verification_dns_records|verificationDnsRecords|
 
-### identitydirmgt update-extension
+### group `az identitydirmgt organization`
+#### <a name="organization.organizationCreateOrganization">Command `az identitydirmgt organization create-organization`</a>
 
-update-extension a identitydirmgt.
+##### <a name="Parametersorganization.organizationCreateOrganization">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--assigned-plans**|array|The collection of service plans associated with the tenant. Not nullable.|assigned_plans|assignedPlans|
+|**--business-phones**|array|Telephone number for the organization. NOTE: Although this is a string collection, only one number can be set for this property.|business_phones|businessPhones|
+|**--city**|string|City name of the address for the organization.|city|city|
+|**--country**|string|Country/region name of the address for the organization.|country|country|
+|**--country-letter-code**|string|Country/region abbreviation for the organization.|country_letter_code|countryLetterCode|
+|**--created-date-time**|date-time|Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|created_date_time|createdDateTime|
+|**--display-name**|string|The display name for the tenant.|display_name|displayName|
+|**--marketing-notification-emails**|array|Not nullable.|marketing_notification_emails|marketingNotificationEmails|
+|**--on-premises-last-sync-date-time**|date-time|The time and date at which the tenant was last synced with the on-premise directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--on-premises-sync-enabled**|boolean|true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default).|on_premises_sync_enabled|onPremisesSyncEnabled|
+|**--postal-code**|string|Postal code of the address for the organization.|postal_code|postalCode|
+|**--preferred-language**|string|The preferred language for the organization. Should follow ISO 639-1 Code; for example 'en'.|preferred_language|preferredLanguage|
+|**--privacy-profile**|object|privacyProfile|privacy_profile|privacyProfile|
+|**--provisioned-plans**|array|Not nullable.|provisioned_plans|provisionedPlans|
+|**--security-compliance-notification-mails**|array||security_compliance_notification_mails|securityComplianceNotificationMails|
+|**--security-compliance-notification-phones**|array||security_compliance_notification_phones|securityComplianceNotificationPhones|
+|**--state**|string|State name of the address for the organization.|state|state|
+|**--street**|string|Street name of the address for organization.|street|street|
+|**--technical-notification-mails**|array|Not nullable.|technical_notification_mails|technicalNotificationMails|
+|**--tenant-type**|string||tenant_type|tenantType|
+|**--verified-domains**|array|The collection of domains associated with this tenant. Not nullable.|verified_domains|verifiedDomains|
+|**--mobile-device-management-authority**|choice||mobile_device_management_authority|mobileDeviceManagementAuthority|
+|**--certificate-based-auth-configuration**|array|Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.|certificate_based_auth_configuration|certificateBasedAuthConfiguration|
+|**--extensions**|array|The collection of open extensions defined for the organization. Read-only. Nullable.|extensions|extensions|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
+#### <a name="organization.organizationDeleteOrganization">Command `az identitydirmgt organization delete-organization`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-extension|UpdateExtensions|
-
-#### Parameters
+##### <a name="Parametersorganization.organizationDeleteOrganization">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--organization-id**|string|key: id of organization|organization_id|organization-id|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-|**--id**|string|Read-only.|id|id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### identitydirmgt update-org-contact
+#### <a name="organization.organizationListOrganization">Command `az identitydirmgt organization list-organization`</a>
 
-update-org-contact a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|contacts.orgContact|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-org-contact|UpdateOrgContact|
-
-#### Parameters
+##### <a name="Parametersorganization.organizationListOrganization">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--addresses**|array||addresses|addresses|
-|**--company-name**|string||company_name|companyName|
-|**--department**|string||department|department|
-|**--display-name**|string||display_name|displayName|
-|**--given-name**|string||given_name|givenName|
-|**--job-title**|string||job_title|jobTitle|
-|**--mail**|string||mail|mail|
-|**--mail-nickname**|string||mail_nickname|mailNickname|
-|**--on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
-|**--on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
-|**--on-premises-sync-enabled**|boolean||on_premises_sync_enabled|onPremisesSyncEnabled|
-|**--phones**|array||phones|phones|
-|**--proxy-addresses**|array||proxy_addresses|proxyAddresses|
-|**--surname**|string||surname|surname|
-|**--direct-reports**|array||direct_reports|directReports|
-|**--manager**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|manager|manager|
-|**--member-of**|array||member_of|memberOf|
-|**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### identitydirmgt update-organization
+#### <a name="organization.organizationGetOrganization">Command `az identitydirmgt organization show-organization`</a>
 
-update-organization a identitydirmgt.
+##### <a name="Parametersorganization.organizationGetOrganization">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization.organization|
+#### <a name="organization.organizationUpdateOrganization">Command `az identitydirmgt organization update-organization`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-organization|UpdateOrganization|
-
-#### Parameters
+##### <a name="Parametersorganization.organizationUpdateOrganization">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--organization-id**|string|key: id of organization|organization_id|organization-id|
@@ -2189,122 +1855,168 @@ update-organization a identitydirmgt.
 |**--certificate-based-auth-configuration**|array|Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.|certificate_based_auth_configuration|certificateBasedAuthConfiguration|
 |**--extensions**|array|The collection of open extensions defined for the organization. Read-only. Nullable.|extensions|extensions|
 
-### identitydirmgt update-scoped-member
+### group `az identitydirmgt organization`
+#### <a name="organizationcheckMemberGroups">Command `az identitydirmgt organization check-member-group`</a>
 
-update-scoped-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directoryRoles|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-scoped-member|UpdateScopedMembers|
-
-#### Parameters
+##### <a name="ParametersorganizationcheckMemberGroups">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--directory-role-id**|string|key: id of directoryRole|directory_role_id|directoryRole-id|
-|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
-|**--id**|string|Read-only.|id|id|
-|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
-|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
-|**--role-member-info-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--role-member-info-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--group-ids**|array||group_ids|groupIds|
 
-### identitydirmgt update-scoped-role-member
+#### <a name="organizationcheckMemberObjects">Command `az identitydirmgt organization check-member-object`</a>
 
-update-scoped-role-member a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|directory.administrativeUnits|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-scoped-role-member|UpdateScopedRoleMembers|
-
-#### Parameters
+##### <a name="ParametersorganizationcheckMemberObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--administrative-unit-id**|string|key: id of administrativeUnit|administrative_unit_id|administrativeUnit-id|
-|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
-|**--id**|string|Read-only.|id|id|
-|**--microsoft-graph-scoped-role-membership-administrative-unit-id-administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id|administrativeUnitId|
-|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
-|**--role-member-info-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--role-member-info-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--ids**|array||ids|ids|
 
-### identitydirmgt update-scoped-role-member-of
+#### <a name="organizationCreateExtensions">Command `az identitydirmgt organization create-extension`</a>
 
-update-scoped-role-member-of a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-scoped-role-member-of|UpdateScopedRoleMemberOf|
-
-#### Parameters
+##### <a name="ParametersorganizationCreateExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
 |**--id**|string|Read-only.|id|id|
-|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
-|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
-|**--role-member-info-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--role-member-info-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
 
-### identitydirmgt update-service-configuration-record
+#### <a name="organizationDeleteExtensions">Command `az identitydirmgt organization delete-extension`</a>
 
-update-service-configuration-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-service-configuration-record|UpdateServiceConfigurationRecords|
-
-#### Parameters
+##### <a name="ParametersorganizationDeleteExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="organizationgetAvailableExtensionProperties">Command `az identitydirmgt organization get-available-extension-property`</a>
+
+##### <a name="ParametersorganizationgetAvailableExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
+
+#### <a name="organizationgetByIds">Command `az identitydirmgt organization get-by-id`</a>
+
+##### <a name="ParametersorganizationgetByIds">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ids**|array||ids|ids|
+|**--types**|array||types|types|
+
+#### <a name="organizationgetMemberGroups">Command `az identitydirmgt organization get-member-group`</a>
+
+##### <a name="ParametersorganizationgetMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="organizationgetMemberObjects">Command `az identitydirmgt organization get-member-object`</a>
+
+##### <a name="ParametersorganizationgetMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="organizationListExtensions">Command `az identitydirmgt organization list-extension`</a>
+
+##### <a name="ParametersorganizationListExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="organizationrestore">Command `az identitydirmgt organization restore`</a>
+
+##### <a name="Parametersorganizationrestore">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+
+#### <a name="organizationsetMobileDeviceManagementAuthority">Command `az identitydirmgt organization set-mobile-device-management-authority`</a>
+
+##### <a name="ParametersorganizationsetMobileDeviceManagementAuthority">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+
+#### <a name="organizationGetExtensions">Command `az identitydirmgt organization show-extension`</a>
+
+##### <a name="ParametersorganizationGetExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="organizationUpdateExtensions">Command `az identitydirmgt organization update-extension`</a>
+
+##### <a name="ParametersorganizationUpdateExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--organization-id**|string|key: id of organization|organization_id|organization-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
 |**--id**|string|Read-only.|id|id|
-|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
-|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
-|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
-|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
-|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
 
-### identitydirmgt update-subscribed-sku
+#### <a name="organizationvalidateProperties">Command `az identitydirmgt organization validate-property`</a>
 
-update-subscribed-sku a identitydirmgt.
+##### <a name="ParametersorganizationvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|subscribedSkus.subscribedSku|
+### group `az identitydirmgt subscribedskussubscribedsku`
+#### <a name="subscribedSkus.subscribedSkuCreateSubscribedSku">Command `az identitydirmgt subscribedskussubscribedsku create-subscribed-sku`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-subscribed-sku|UpdateSubscribedSku|
+##### <a name="ParameterssubscribedSkus.subscribedSkuCreateSubscribedSku">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--applies-to**|string|For example, 'User' or 'Company'.|applies_to|appliesTo|
+|**--capability-status**|string|Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.|capability_status|capabilityStatus|
+|**--consumed-units**|integer|The number of licenses that have been assigned.|consumed_units|consumedUnits|
+|**--prepaid-units**|object|licenseUnitsDetail|prepaid_units|prepaidUnits|
+|**--service-plans**|array|Information about the service plans that are available with the SKU. Not nullable|service_plans|servicePlans|
+|**--sku-id**|uuid|The unique identifier (GUID) for the service SKU.|sku_id|skuId|
+|**--sku-part-number**|string|The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.|sku_part_number|skuPartNumber|
 
-#### Parameters
+#### <a name="subscribedSkus.subscribedSkuDeleteSubscribedSku">Command `az identitydirmgt subscribedskussubscribedsku delete-subscribed-sku`</a>
+
+##### <a name="ParameterssubscribedSkus.subscribedSkuDeleteSubscribedSku">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--subscribed-sku-id**|string|key: id of subscribedSku|subscribed_sku_id|subscribedSku-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="subscribedSkus.subscribedSkuListSubscribedSku">Command `az identitydirmgt subscribedskussubscribedsku list-subscribed-sku`</a>
+
+##### <a name="ParameterssubscribedSkus.subscribedSkuListSubscribedSku">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="subscribedSkus.subscribedSkuGetSubscribedSku">Command `az identitydirmgt subscribedskussubscribedsku show-subscribed-sku`</a>
+
+##### <a name="ParameterssubscribedSkus.subscribedSkuGetSubscribedSku">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--subscribed-sku-id**|string|key: id of subscribedSku|subscribed_sku_id|subscribedSku-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="subscribedSkus.subscribedSkuUpdateSubscribedSku">Command `az identitydirmgt subscribedskussubscribedsku update-subscribed-sku`</a>
+
+##### <a name="ParameterssubscribedSkus.subscribedSkuUpdateSubscribedSku">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--subscribed-sku-id**|string|key: id of subscribedSku|subscribed_sku_id|subscribedSku-id|
@@ -2317,69 +2029,55 @@ update-subscribed-sku a identitydirmgt.
 |**--sku-id**|uuid|The unique identifier (GUID) for the service SKU.|sku_id|skuId|
 |**--sku-part-number**|string|The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.|sku_part_number|skuPartNumber|
 
-### identitydirmgt update-verification-dns-record
+### group `az identitydirmgt user`
+#### <a name="usersCreateScopedRoleMemberOf">Command `az identitydirmgt user create-scoped-role-member-of`</a>
 
-update-verification-dns-record a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-verification-dns-record|UpdateVerificationDnsRecords|
-
-#### Parameters
+##### <a name="ParametersusersCreateScopedRoleMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
-|**--domain-dns-record-id**|string|key: id of domainDnsRecord|domain_dns_record_id|domainDnsRecord-id|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
-|**--is-optional**|boolean|If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.|is_optional|isOptional|
-|**--label**|string|Value used when configuring the name of the DNS record at the DNS host.|label|label|
-|**--record-type**|string|Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey|record_type|recordType|
-|**--supported-service**|string|Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune|supported_service|supportedService|
-|**--ttl**|integer|Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable|ttl|ttl|
+|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
+|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
+|**--role-member-info**|object|identity|role_member_info|roleMemberInfo|
 
-### identitydirmgt validate-property
+#### <a name="usersDeleteScopedRoleMemberOf">Command `az identitydirmgt user delete-scoped-role-member-of`</a>
 
-validate-property a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|organization|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|validate-property|validateProperties|
-
-#### Parameters
+##### <a name="ParametersusersDeleteScopedRoleMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--entity-type**|string||entity_type|entityType|
-|**--display-name**|string||display_name|displayName|
-|**--mail-nickname**|string||mail_nickname|mailNickname|
-|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### identitydirmgt verify
+#### <a name="usersListScopedRoleMemberOf">Command `az identitydirmgt user list-scoped-role-member-of`</a>
 
-verify a identitydirmgt.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|identitydirmgt|domains|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|verify|verify|
-
-#### Parameters
+##### <a name="ParametersusersListScopedRoleMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--domain-id**|string|key: id of domain|domain_id|domain-id|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersGetScopedRoleMemberOf">Command `az identitydirmgt user show-scoped-role-member-of`</a>
+
+##### <a name="ParametersusersGetScopedRoleMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersUpdateScopedRoleMemberOf">Command `az identitydirmgt user update-scoped-role-member-of`</a>
+
+##### <a name="ParametersusersUpdateScopedRoleMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--scoped-role-membership-id**|string|key: id of scopedRoleMembership|scoped_role_membership_id|scopedRoleMembership-id|
+|**--id**|string|Read-only.|id|id|
+|**--administrative-unit-id**|string|Unique identifier for the administrative unit that the directory role is scoped to|administrative_unit_id|administrativeUnitId|
+|**--role-id**|string|Unique identifier for the directory role that the member is in.|role_id|roleId|
+|**--role-member-info**|object|identity|role_member_info|roleMemberInfo|

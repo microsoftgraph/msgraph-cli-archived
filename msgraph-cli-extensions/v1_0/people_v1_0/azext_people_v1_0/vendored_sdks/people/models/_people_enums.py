@@ -29,9 +29,9 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
 class Enum10(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
+    LASTMODIFIEDDATETIME = "lastModifiedDateTime"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEVISUALIZATION = "resourceVisualization"
     WEIGHT = "weight"
     RESOURCE = "resource"
 
@@ -43,20 +43,20 @@ class Enum11(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum12(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    LAST_USED = "lastUsed"
-    LAST_USED_DESC = "lastUsed desc"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_REFERENCE_DESC = "resourceReference desc"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
-    RESOURCE_VISUALIZATION_DESC = "resourceVisualization desc"
+    IDDESC = "id desc"
+    LASTUSED = "lastUsed"
+    LASTUSEDDESC = "lastUsed desc"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEREFERENCEDESC = "resourceReference desc"
+    RESOURCEVISUALIZATION = "resourceVisualization"
+    RESOURCEVISUALIZATIONDESC = "resourceVisualization desc"
 
 class Enum13(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    LAST_USED = "lastUsed"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
+    LASTUSED = "lastUsed"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEVISUALIZATION = "resourceVisualization"
     RESOURCE = "resource"
 
 class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -67,9 +67,9 @@ class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    LAST_USED = "lastUsed"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
+    LASTUSED = "lastUsed"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEVISUALIZATION = "resourceVisualization"
     RESOURCE = "resource"
 
 class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -80,121 +80,121 @@ class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     BIRTHDAY = "birthday"
-    BIRTHDAY_DESC = "birthday desc"
-    COMPANY_NAME = "companyName"
-    COMPANY_NAME_DESC = "companyName desc"
+    BIRTHDAYDESC = "birthday desc"
+    COMPANYNAME = "companyName"
+    COMPANYNAMEDESC = "companyName desc"
     DEPARTMENT = "department"
-    DEPARTMENT_DESC = "department desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    GIVEN_NAME = "givenName"
-    GIVEN_NAME_DESC = "givenName desc"
-    IM_ADDRESS = "imAddress"
-    IM_ADDRESS_DESC = "imAddress desc"
-    IS_FAVORITE = "isFavorite"
-    IS_FAVORITE_DESC = "isFavorite desc"
-    JOB_TITLE = "jobTitle"
-    JOB_TITLE_DESC = "jobTitle desc"
-    OFFICE_LOCATION = "officeLocation"
-    OFFICE_LOCATION_DESC = "officeLocation desc"
-    PERSON_NOTES = "personNotes"
-    PERSON_NOTES_DESC = "personNotes desc"
-    PERSON_TYPE = "personType"
-    PERSON_TYPE_DESC = "personType desc"
+    DEPARTMENTDESC = "department desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    GIVENNAME = "givenName"
+    GIVENNAMEDESC = "givenName desc"
+    IMADDRESS = "imAddress"
+    IMADDRESSDESC = "imAddress desc"
+    ISFAVORITE = "isFavorite"
+    ISFAVORITEDESC = "isFavorite desc"
+    JOBTITLE = "jobTitle"
+    JOBTITLEDESC = "jobTitle desc"
+    OFFICELOCATION = "officeLocation"
+    OFFICELOCATIONDESC = "officeLocation desc"
+    PERSONNOTES = "personNotes"
+    PERSONNOTESDESC = "personNotes desc"
+    PERSONTYPE = "personType"
+    PERSONTYPEDESC = "personType desc"
     PHONES = "phones"
-    PHONES_DESC = "phones desc"
-    POSTAL_ADDRESSES = "postalAddresses"
-    POSTAL_ADDRESSES_DESC = "postalAddresses desc"
+    PHONESDESC = "phones desc"
+    POSTALADDRESSES = "postalAddresses"
+    POSTALADDRESSESDESC = "postalAddresses desc"
     PROFESSION = "profession"
-    PROFESSION_DESC = "profession desc"
-    SCORED_EMAIL_ADDRESSES = "scoredEmailAddresses"
-    SCORED_EMAIL_ADDRESSES_DESC = "scoredEmailAddresses desc"
+    PROFESSIONDESC = "profession desc"
+    SCOREDEMAILADDRESSES = "scoredEmailAddresses"
+    SCOREDEMAILADDRESSESDESC = "scoredEmailAddresses desc"
     SURNAME = "surname"
-    SURNAME_DESC = "surname desc"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    SURNAMEDESC = "surname desc"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERPRINCIPALNAMEDESC = "userPrincipalName desc"
     WEBSITES = "websites"
-    WEBSITES_DESC = "websites desc"
-    YOMI_COMPANY = "yomiCompany"
-    YOMI_COMPANY_DESC = "yomiCompany desc"
+    WEBSITESDESC = "websites desc"
+    YOMICOMPANY = "yomiCompany"
+    YOMICOMPANYDESC = "yomiCompany desc"
 
 class Enum18(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     BIRTHDAY = "birthday"
-    COMPANY_NAME = "companyName"
+    COMPANYNAME = "companyName"
     DEPARTMENT = "department"
-    DISPLAY_NAME = "displayName"
-    GIVEN_NAME = "givenName"
-    IM_ADDRESS = "imAddress"
-    IS_FAVORITE = "isFavorite"
-    JOB_TITLE = "jobTitle"
-    OFFICE_LOCATION = "officeLocation"
-    PERSON_NOTES = "personNotes"
-    PERSON_TYPE = "personType"
+    DISPLAYNAME = "displayName"
+    GIVENNAME = "givenName"
+    IMADDRESS = "imAddress"
+    ISFAVORITE = "isFavorite"
+    JOBTITLE = "jobTitle"
+    OFFICELOCATION = "officeLocation"
+    PERSONNOTES = "personNotes"
+    PERSONTYPE = "personType"
     PHONES = "phones"
-    POSTAL_ADDRESSES = "postalAddresses"
+    POSTALADDRESSES = "postalAddresses"
     PROFESSION = "profession"
-    SCORED_EMAIL_ADDRESSES = "scoredEmailAddresses"
+    SCOREDEMAILADDRESSES = "scoredEmailAddresses"
     SURNAME = "surname"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USERPRINCIPALNAME = "userPrincipalName"
     WEBSITES = "websites"
-    YOMI_COMPANY = "yomiCompany"
+    YOMICOMPANY = "yomiCompany"
 
 class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     BIRTHDAY = "birthday"
-    COMPANY_NAME = "companyName"
+    COMPANYNAME = "companyName"
     DEPARTMENT = "department"
-    DISPLAY_NAME = "displayName"
-    GIVEN_NAME = "givenName"
-    IM_ADDRESS = "imAddress"
-    IS_FAVORITE = "isFavorite"
-    JOB_TITLE = "jobTitle"
-    OFFICE_LOCATION = "officeLocation"
-    PERSON_NOTES = "personNotes"
-    PERSON_TYPE = "personType"
+    DISPLAYNAME = "displayName"
+    GIVENNAME = "givenName"
+    IMADDRESS = "imAddress"
+    ISFAVORITE = "isFavorite"
+    JOBTITLE = "jobTitle"
+    OFFICELOCATION = "officeLocation"
+    PERSONNOTES = "personNotes"
+    PERSONTYPE = "personType"
     PHONES = "phones"
-    POSTAL_ADDRESSES = "postalAddresses"
+    POSTALADDRESSES = "postalAddresses"
     PROFESSION = "profession"
-    SCORED_EMAIL_ADDRESSES = "scoredEmailAddresses"
+    SCOREDEMAILADDRESSES = "scoredEmailAddresses"
     SURNAME = "surname"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USERPRINCIPALNAME = "userPrincipalName"
     WEBSITES = "websites"
-    YOMI_COMPANY = "yomiCompany"
+    YOMICOMPANY = "yomiCompany"
 
 class Enum5(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    LAST_SHARED = "lastShared"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
-    SHARING_HISTORY = "sharingHistory"
-    LAST_SHARED_METHOD = "lastSharedMethod"
+    LASTSHARED = "lastShared"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEVISUALIZATION = "resourceVisualization"
+    SHARINGHISTORY = "sharingHistory"
+    LASTSHAREDMETHOD = "lastSharedMethod"
     RESOURCE = "resource"
 
 class Enum7(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_REFERENCE_DESC = "resourceReference desc"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
-    RESOURCE_VISUALIZATION_DESC = "resourceVisualization desc"
+    IDDESC = "id desc"
+    LASTMODIFIEDDATETIME = "lastModifiedDateTime"
+    LASTMODIFIEDDATETIMEDESC = "lastModifiedDateTime desc"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEREFERENCEDESC = "resourceReference desc"
+    RESOURCEVISUALIZATION = "resourceVisualization"
+    RESOURCEVISUALIZATIONDESC = "resourceVisualization desc"
     WEIGHT = "weight"
-    WEIGHT_DESC = "weight desc"
+    WEIGHTDESC = "weight desc"
 
 class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
+    LASTMODIFIEDDATETIME = "lastModifiedDateTime"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEVISUALIZATION = "resourceVisualization"
     WEIGHT = "weight"
     RESOURCE = "resource"
 
@@ -203,95 +203,95 @@ class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ASTERISK = "*"
     RESOURCE = "resource"
 
-class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get1itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     SHARED = "shared"
     TRENDING = "trending"
     USED = "used"
 
-class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get2itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     SHARED = "shared"
     TRENDING = "trending"
     USED = "used"
 
-class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get3itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    LAST_SHARED_METHOD = "lastSharedMethod"
+    LASTSHAREDMETHOD = "lastSharedMethod"
     RESOURCE = "resource"
 
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get6itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    LAST_SHARED = "lastShared"
-    LAST_SHARED_DESC = "lastShared desc"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_REFERENCE_DESC = "resourceReference desc"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
-    RESOURCE_VISUALIZATION_DESC = "resourceVisualization desc"
-    SHARING_HISTORY = "sharingHistory"
-    SHARING_HISTORY_DESC = "sharingHistory desc"
+    IDDESC = "id desc"
+    LASTSHARED = "lastShared"
+    LASTSHAREDDESC = "lastShared desc"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEREFERENCEDESC = "resourceReference desc"
+    RESOURCEVISUALIZATION = "resourceVisualization"
+    RESOURCEVISUALIZATIONDESC = "resourceVisualization desc"
+    SHARINGHISTORY = "sharingHistory"
+    SHARINGHISTORYDESC = "sharingHistory desc"
 
-class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get7itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    LAST_SHARED = "lastShared"
-    RESOURCE_REFERENCE = "resourceReference"
-    RESOURCE_VISUALIZATION = "resourceVisualization"
-    SHARING_HISTORY = "sharingHistory"
-    LAST_SHARED_METHOD = "lastSharedMethod"
+    LASTSHARED = "lastShared"
+    RESOURCEREFERENCE = "resourceReference"
+    RESOURCEVISUALIZATION = "resourceVisualization"
+    SHARINGHISTORY = "sharingHistory"
+    LASTSHAREDMETHOD = "lastSharedMethod"
     RESOURCE = "resource"
 
-class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get8itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    LAST_SHARED_METHOD = "lastSharedMethod"
+    LASTSHAREDMETHOD = "lastSharedMethod"
     RESOURCE = "resource"
 
-class MicrosoftGraphLocationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlocationtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DEFAULT = "default"
-    CONFERENCE_ROOM = "conferenceRoom"
-    HOME_ADDRESS = "homeAddress"
-    BUSINESS_ADDRESS = "businessAddress"
-    GEO_COORDINATES = "geoCoordinates"
-    STREET_ADDRESS = "streetAddress"
+    CONFERENCEROOM = "conferenceRoom"
+    HOMEADDRESS = "homeAddress"
+    BUSINESSADDRESS = "businessAddress"
+    GEOCOORDINATES = "geoCoordinates"
+    STREETADDRESS = "streetAddress"
     HOTEL = "hotel"
     RESTAURANT = "restaurant"
-    LOCAL_BUSINESS = "localBusiness"
-    POSTAL_ADDRESS = "postalAddress"
+    LOCALBUSINESS = "localBusiness"
+    POSTALADDRESS = "postalAddress"
 
-class MicrosoftGraphLocationUniqueIdType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlocationuniqueidtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    LOCATION_STORE = "locationStore"
+    LOCATIONSTORE = "locationStore"
     DIRECTORY = "directory"
     PRIVATE = "private"
     BING = "bing"
 
-class MicrosoftGraphPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphphonetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     HOME = "home"
     BUSINESS = "business"
     MOBILE = "mobile"
     OTHER = "other"
     ASSISTANT = "assistant"
-    HOME_FAX = "homeFax"
-    BUSINESS_FAX = "businessFax"
-    OTHER_FAX = "otherFax"
+    HOMEFAX = "homeFax"
+    BUSINESSFAX = "businessFax"
+    OTHERFAX = "otherFax"
     PAGER = "pager"
     RADIO = "radio"
 
-class MicrosoftGraphSelectionLikelihoodInfo(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphselectionlikelihoodinfo(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_SPECIFIED = "notSpecified"
+    NOTSPECIFIED = "notSpecified"
     HIGH = "high"
 
-class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwebsitetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     OTHER = "other"
     HOME = "home"

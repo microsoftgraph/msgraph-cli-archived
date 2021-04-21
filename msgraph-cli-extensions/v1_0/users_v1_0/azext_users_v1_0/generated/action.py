@@ -39,6 +39,9 @@ class AddServicePlans(argparse._AppendAction):
                 d['service_plan_id'] = v[0]
             elif kl == 'service-plan-name':
                 d['service_plan_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter service_plans. All possible keys are: '
+                               'applies-to, provisioning-status, service-plan-id, service-plan-name'.format(k))
         return d
 
 
@@ -65,13 +68,16 @@ class AddMasterCategories(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter master_categories. All possible keys are: '
+                               'color, display-name, id'.format(k))
         return d
 
 
-class AddShiftPreferencesLastModifiedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.shift_preferences_last_modified_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -89,4 +95,7 @@ class AddShiftPreferencesLastModifiedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d

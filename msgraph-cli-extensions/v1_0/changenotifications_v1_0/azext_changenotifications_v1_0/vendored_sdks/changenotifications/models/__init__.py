@@ -7,34 +7,34 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfSubscription
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphSubscription
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionofsubscription
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphsubscription
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfSubscription  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphSubscription  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionofsubscription  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphsubscription  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._change_notifications_enums import (
-    Get1ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
+    Get1itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
 )
 
 __all__ = [
-    'CollectionOfSubscription',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphSubscription',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
-    'Get1ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
+    'collectionofsubscription',
+    'microsoftgraphentity',
+    'microsoftgraphsubscription',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
+    'Get1itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
 ]

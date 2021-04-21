@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._schema_extensions_async import SchemaExtensions
+from ._schema_extensions import SchemaExtensions
 __all__ = ['SchemaExtensions']

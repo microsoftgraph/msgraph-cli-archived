@@ -7,257 +7,257 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfApplicationSignInDetailedSummary
-    from ._models_py3 import CollectionOfCredentialUserRegistrationDetails
-    from ._models_py3 import CollectionOfDirectoryAudit
-    from ._models_py3 import CollectionOfPrintUsageSummaryByPrinter
-    from ._models_py3 import CollectionOfPrintUsageSummaryByPrinter0
-    from ._models_py3 import CollectionOfPrintUsageSummaryByUser
-    from ._models_py3 import CollectionOfPrintUsageSummaryByUser0
-    from ._models_py3 import CollectionOfProvisioningObjectSummary
-    from ._models_py3 import CollectionOfProvisioningObjectSummary0
-    from ._models_py3 import CollectionOfRestrictedSignIn
-    from ._models_py3 import CollectionOfSignIn
-    from ._models_py3 import CollectionOfUserCredentialUsageDetails
-    from ._models_py3 import MicrosoftGraphAppIdentity
-    from ._models_py3 import MicrosoftGraphApplicationSignInDetailedSummary
-    from ._models_py3 import MicrosoftGraphApplicationSignInSummary
-    from ._models_py3 import MicrosoftGraphAppliedConditionalAccessPolicy
-    from ._models_py3 import MicrosoftGraphAuditActivityInitiator
-    from ._models_py3 import MicrosoftGraphAuditLogRoot
-    from ._models_py3 import MicrosoftGraphAuthenticationDetail
-    from ._models_py3 import MicrosoftGraphAuthenticationRequirementPolicy
-    from ._models_py3 import MicrosoftGraphAzureAdFeatureUsage
-    from ._models_py3 import MicrosoftGraphAzureAdLicenseUsage
-    from ._models_py3 import MicrosoftGraphAzureAdUserFeatureUsage
-    from ._models_py3 import MicrosoftGraphCredentialUsageSummary
-    from ._models_py3 import MicrosoftGraphCredentialUserRegistrationCount
-    from ._models_py3 import MicrosoftGraphCredentialUserRegistrationDetails
-    from ._models_py3 import MicrosoftGraphDeviceDetail
-    from ._models_py3 import MicrosoftGraphDirectoryAudit
-    from ._models_py3 import MicrosoftGraphEmailActivitySummary
-    from ._models_py3 import MicrosoftGraphEmailActivityUserDetail
-    from ._models_py3 import MicrosoftGraphEmailAppUsageAppsUserCounts
-    from ._models_py3 import MicrosoftGraphEmailAppUsageUserCounts
-    from ._models_py3 import MicrosoftGraphEmailAppUsageUserDetail
-    from ._models_py3 import MicrosoftGraphEmailAppUsageVersionsUserCounts
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphFeatureUsageDetail
-    from ._models_py3 import MicrosoftGraphGeoCoordinates
-    from ._models_py3 import MicrosoftGraphIdentity
-    from ._models_py3 import MicrosoftGraphInitiator
-    from ._models_py3 import MicrosoftGraphKeyValue
-    from ._models_py3 import MicrosoftGraphKeyValuePair
-    from ._models_py3 import MicrosoftGraphLicenseInfoDetail
-    from ._models_py3 import MicrosoftGraphMailboxUsageDetail
-    from ._models_py3 import MicrosoftGraphMailboxUsageMailboxCounts
-    from ._models_py3 import MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts
-    from ._models_py3 import MicrosoftGraphMailboxUsageStorage
-    from ._models_py3 import MicrosoftGraphMfaDetail
-    from ._models_py3 import MicrosoftGraphModifiedProperty
-    from ._models_py3 import MicrosoftGraphNetworkLocationDetail
-    from ._models_py3 import MicrosoftGraphOffice365ActivationCounts
-    from ._models_py3 import MicrosoftGraphOffice365ActivationsUserCounts
-    from ._models_py3 import MicrosoftGraphOffice365ActivationsUserDetail
-    from ._models_py3 import MicrosoftGraphOffice365ActiveUserCounts
-    from ._models_py3 import MicrosoftGraphOffice365ActiveUserDetail
-    from ._models_py3 import MicrosoftGraphOffice365GroupsActivityCounts
-    from ._models_py3 import MicrosoftGraphOffice365GroupsActivityDetail
-    from ._models_py3 import MicrosoftGraphOffice365GroupsActivityFileCounts
-    from ._models_py3 import MicrosoftGraphOffice365GroupsActivityGroupCounts
-    from ._models_py3 import MicrosoftGraphOffice365GroupsActivityStorage
-    from ._models_py3 import MicrosoftGraphOffice365ServicesUserCounts
-    from ._models_py3 import MicrosoftGraphOneDriveActivityUserDetail
-    from ._models_py3 import MicrosoftGraphOneDriveUsageAccountCounts
-    from ._models_py3 import MicrosoftGraphOneDriveUsageAccountDetail
-    from ._models_py3 import MicrosoftGraphOneDriveUsageFileCounts
-    from ._models_py3 import MicrosoftGraphPrintUsageSummaryByPrinter
-    from ._models_py3 import MicrosoftGraphPrintUsageSummaryByUser
-    from ._models_py3 import MicrosoftGraphProvisionedIdentity
-    from ._models_py3 import MicrosoftGraphProvisioningObjectSummary
-    from ._models_py3 import MicrosoftGraphProvisioningServicePrincipal
-    from ._models_py3 import MicrosoftGraphProvisioningStep
-    from ._models_py3 import MicrosoftGraphProvisioningSystemDetails
-    from ._models_py3 import MicrosoftGraphRelyingPartyDetailedSummary
-    from ._models_py3 import MicrosoftGraphReport
-    from ._models_py3 import MicrosoftGraphReportRoot
-    from ._models_py3 import MicrosoftGraphRestrictedSignIn
-    from ._models_py3 import MicrosoftGraphSharePointActivityPages
-    from ._models_py3 import MicrosoftGraphSharePointActivityUserCounts
-    from ._models_py3 import MicrosoftGraphSharePointActivityUserDetail
-    from ._models_py3 import MicrosoftGraphSharePointSiteUsageDetail
-    from ._models_py3 import MicrosoftGraphSharePointSiteUsageFileCounts
-    from ._models_py3 import MicrosoftGraphSharePointSiteUsagePages
-    from ._models_py3 import MicrosoftGraphSharePointSiteUsageSiteCounts
-    from ._models_py3 import MicrosoftGraphSignIn
-    from ._models_py3 import MicrosoftGraphSignInLocation
-    from ._models_py3 import MicrosoftGraphSignInStatus
-    from ._models_py3 import MicrosoftGraphSiteActivitySummary
-    from ._models_py3 import MicrosoftGraphSiteUsageStorage
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessActivityCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessActivityUserCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessActivityUserDetail
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessOrganizerActivityCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessParticipantActivityCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts
-    from ._models_py3 import MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts
-    from ._models_py3 import MicrosoftGraphStatusBase
-    from ._models_py3 import MicrosoftGraphTargetResource
-    from ._models_py3 import MicrosoftGraphTeamsDeviceUsageDistributionUserCounts
-    from ._models_py3 import MicrosoftGraphTeamsDeviceUsageUserCounts
-    from ._models_py3 import MicrosoftGraphTeamsDeviceUsageUserDetail
-    from ._models_py3 import MicrosoftGraphTeamsUserActivityCounts
-    from ._models_py3 import MicrosoftGraphTeamsUserActivityUserCounts
-    from ._models_py3 import MicrosoftGraphTeamsUserActivityUserDetail
-    from ._models_py3 import MicrosoftGraphUserActivationCounts
-    from ._models_py3 import MicrosoftGraphUserCredentialUsageDetails
-    from ._models_py3 import MicrosoftGraphUserIdentity
-    from ._models_py3 import MicrosoftGraphUserRegistrationCount
-    from ._models_py3 import MicrosoftGraphYammerActivitySummary
-    from ._models_py3 import MicrosoftGraphYammerActivityUserDetail
-    from ._models_py3 import MicrosoftGraphYammerDeviceUsageDistributionUserCounts
-    from ._models_py3 import MicrosoftGraphYammerDeviceUsageUserCounts
-    from ._models_py3 import MicrosoftGraphYammerDeviceUsageUserDetail
-    from ._models_py3 import MicrosoftGraphYammerGroupsActivityCounts
-    from ._models_py3 import MicrosoftGraphYammerGroupsActivityDetail
-    from ._models_py3 import MicrosoftGraphYammerGroupsActivityGroupCounts
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionofapplicationsignindetailedsummary
+    from ._models_py3 import collectionofcredentialuserregistrationdetails
+    from ._models_py3 import collectionofdirectoryaudit
+    from ._models_py3 import collectionofprintusagesummarybyprinter
+    from ._models_py3 import collectionofprintusagesummarybyprinter0
+    from ._models_py3 import collectionofprintusagesummarybyuser
+    from ._models_py3 import collectionofprintusagesummarybyuser0
+    from ._models_py3 import collectionofprovisioningobjectsummary
+    from ._models_py3 import collectionofprovisioningobjectsummary0
+    from ._models_py3 import collectionofrestrictedsignin
+    from ._models_py3 import collectionofsignin
+    from ._models_py3 import collectionofusercredentialusagedetails
+    from ._models_py3 import microsoftgraphappidentity
+    from ._models_py3 import microsoftgraphapplicationsignindetailedsummary
+    from ._models_py3 import microsoftgraphapplicationsigninsummary
+    from ._models_py3 import microsoftgraphappliedconditionalaccesspolicy
+    from ._models_py3 import microsoftgraphauditactivityinitiator
+    from ._models_py3 import microsoftgraphauditlogroot
+    from ._models_py3 import microsoftgraphauthenticationdetail
+    from ._models_py3 import microsoftgraphauthenticationrequirementpolicy
+    from ._models_py3 import microsoftgraphazureadfeatureusage
+    from ._models_py3 import microsoftgraphazureadlicenseusage
+    from ._models_py3 import microsoftgraphazureaduserfeatureusage
+    from ._models_py3 import microsoftgraphcredentialusagesummary
+    from ._models_py3 import microsoftgraphcredentialuserregistrationcount
+    from ._models_py3 import microsoftgraphcredentialuserregistrationdetails
+    from ._models_py3 import microsoftgraphdevicedetail
+    from ._models_py3 import microsoftgraphdirectoryaudit
+    from ._models_py3 import microsoftgraphemailactivitysummary
+    from ._models_py3 import microsoftgraphemailactivityuserdetail
+    from ._models_py3 import microsoftgraphemailappusageappsusercounts
+    from ._models_py3 import microsoftgraphemailappusageusercounts
+    from ._models_py3 import microsoftgraphemailappusageuserdetail
+    from ._models_py3 import microsoftgraphemailappusageversionsusercounts
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphfeatureusagedetail
+    from ._models_py3 import microsoftgraphgeocoordinates
+    from ._models_py3 import microsoftgraphidentity
+    from ._models_py3 import microsoftgraphinitiator
+    from ._models_py3 import microsoftgraphkeyvalue
+    from ._models_py3 import microsoftgraphkeyvaluepair
+    from ._models_py3 import microsoftgraphlicenseinfodetail
+    from ._models_py3 import microsoftgraphmailboxusagedetail
+    from ._models_py3 import microsoftgraphmailboxusagemailboxcounts
+    from ._models_py3 import microsoftgraphmailboxusagequotastatusmailboxcounts
+    from ._models_py3 import microsoftgraphmailboxusagestorage
+    from ._models_py3 import microsoftgraphmfadetail
+    from ._models_py3 import microsoftgraphmodifiedproperty
+    from ._models_py3 import microsoftgraphnetworklocationdetail
+    from ._models_py3 import microsoftgraphoffice365activationcounts
+    from ._models_py3 import microsoftgraphoffice365activationsusercounts
+    from ._models_py3 import microsoftgraphoffice365activationsuserdetail
+    from ._models_py3 import microsoftgraphoffice365activeusercounts
+    from ._models_py3 import microsoftgraphoffice365activeuserdetail
+    from ._models_py3 import microsoftgraphoffice365groupsactivitycounts
+    from ._models_py3 import microsoftgraphoffice365groupsactivitydetail
+    from ._models_py3 import microsoftgraphoffice365groupsactivityfilecounts
+    from ._models_py3 import microsoftgraphoffice365groupsactivitygroupcounts
+    from ._models_py3 import microsoftgraphoffice365groupsactivitystorage
+    from ._models_py3 import microsoftgraphoffice365servicesusercounts
+    from ._models_py3 import microsoftgraphonedriveactivityuserdetail
+    from ._models_py3 import microsoftgraphonedriveusageaccountcounts
+    from ._models_py3 import microsoftgraphonedriveusageaccountdetail
+    from ._models_py3 import microsoftgraphonedriveusagefilecounts
+    from ._models_py3 import microsoftgraphprintusagesummarybyprinter
+    from ._models_py3 import microsoftgraphprintusagesummarybyuser
+    from ._models_py3 import microsoftgraphprovisionedidentity
+    from ._models_py3 import microsoftgraphprovisioningobjectsummary
+    from ._models_py3 import microsoftgraphprovisioningserviceprincipal
+    from ._models_py3 import microsoftgraphprovisioningstep
+    from ._models_py3 import microsoftgraphprovisioningsystemdetails
+    from ._models_py3 import microsoftgraphrelyingpartydetailedsummary
+    from ._models_py3 import microsoftgraphreport
+    from ._models_py3 import microsoftgraphreportroot
+    from ._models_py3 import microsoftgraphrestrictedsignin
+    from ._models_py3 import microsoftgraphsharepointactivitypages
+    from ._models_py3 import microsoftgraphsharepointactivityusercounts
+    from ._models_py3 import microsoftgraphsharepointactivityuserdetail
+    from ._models_py3 import microsoftgraphsharepointsiteusagedetail
+    from ._models_py3 import microsoftgraphsharepointsiteusagefilecounts
+    from ._models_py3 import microsoftgraphsharepointsiteusagepages
+    from ._models_py3 import microsoftgraphsharepointsiteusagesitecounts
+    from ._models_py3 import microsoftgraphsignin
+    from ._models_py3 import microsoftgraphsigninlocation
+    from ._models_py3 import microsoftgraphsigninstatus
+    from ._models_py3 import microsoftgraphsiteactivitysummary
+    from ._models_py3 import microsoftgraphsiteusagestorage
+    from ._models_py3 import microsoftgraphskypeforbusinessactivitycounts
+    from ._models_py3 import microsoftgraphskypeforbusinessactivityusercounts
+    from ._models_py3 import microsoftgraphskypeforbusinessactivityuserdetail
+    from ._models_py3 import microsoftgraphskypeforbusinessdeviceusagedistributionusercounts
+    from ._models_py3 import microsoftgraphskypeforbusinessdeviceusageusercounts
+    from ._models_py3 import microsoftgraphskypeforbusinessdeviceusageuserdetail
+    from ._models_py3 import microsoftgraphskypeforbusinessorganizeractivitycounts
+    from ._models_py3 import microsoftgraphskypeforbusinessorganizeractivityminutecounts
+    from ._models_py3 import microsoftgraphskypeforbusinessorganizeractivityusercounts
+    from ._models_py3 import microsoftgraphskypeforbusinessparticipantactivitycounts
+    from ._models_py3 import microsoftgraphskypeforbusinessparticipantactivityminutecounts
+    from ._models_py3 import microsoftgraphskypeforbusinessparticipantactivityusercounts
+    from ._models_py3 import microsoftgraphskypeforbusinesspeertopeeractivitycounts
+    from ._models_py3 import microsoftgraphskypeforbusinesspeertopeeractivityminutecounts
+    from ._models_py3 import microsoftgraphskypeforbusinesspeertopeeractivityusercounts
+    from ._models_py3 import microsoftgraphstatusbase
+    from ._models_py3 import microsoftgraphtargetresource
+    from ._models_py3 import microsoftgraphteamsdeviceusagedistributionusercounts
+    from ._models_py3 import microsoftgraphteamsdeviceusageusercounts
+    from ._models_py3 import microsoftgraphteamsdeviceusageuserdetail
+    from ._models_py3 import microsoftgraphteamsuseractivitycounts
+    from ._models_py3 import microsoftgraphteamsuseractivityusercounts
+    from ._models_py3 import microsoftgraphteamsuseractivityuserdetail
+    from ._models_py3 import microsoftgraphuseractivationcounts
+    from ._models_py3 import microsoftgraphusercredentialusagedetails
+    from ._models_py3 import microsoftgraphuseridentity
+    from ._models_py3 import microsoftgraphuserregistrationcount
+    from ._models_py3 import microsoftgraphyammeractivitysummary
+    from ._models_py3 import microsoftgraphyammeractivityuserdetail
+    from ._models_py3 import microsoftgraphyammerdeviceusagedistributionusercounts
+    from ._models_py3 import microsoftgraphyammerdeviceusageusercounts
+    from ._models_py3 import microsoftgraphyammerdeviceusageuserdetail
+    from ._models_py3 import microsoftgraphyammergroupsactivitycounts
+    from ._models_py3 import microsoftgraphyammergroupsactivitydetail
+    from ._models_py3 import microsoftgraphyammergroupsactivitygroupcounts
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfApplicationSignInDetailedSummary  # type: ignore
-    from ._models import CollectionOfCredentialUserRegistrationDetails  # type: ignore
-    from ._models import CollectionOfDirectoryAudit  # type: ignore
-    from ._models import CollectionOfPrintUsageSummaryByPrinter  # type: ignore
-    from ._models import CollectionOfPrintUsageSummaryByPrinter0  # type: ignore
-    from ._models import CollectionOfPrintUsageSummaryByUser  # type: ignore
-    from ._models import CollectionOfPrintUsageSummaryByUser0  # type: ignore
-    from ._models import CollectionOfProvisioningObjectSummary  # type: ignore
-    from ._models import CollectionOfProvisioningObjectSummary0  # type: ignore
-    from ._models import CollectionOfRestrictedSignIn  # type: ignore
-    from ._models import CollectionOfSignIn  # type: ignore
-    from ._models import CollectionOfUserCredentialUsageDetails  # type: ignore
-    from ._models import MicrosoftGraphAppIdentity  # type: ignore
-    from ._models import MicrosoftGraphApplicationSignInDetailedSummary  # type: ignore
-    from ._models import MicrosoftGraphApplicationSignInSummary  # type: ignore
-    from ._models import MicrosoftGraphAppliedConditionalAccessPolicy  # type: ignore
-    from ._models import MicrosoftGraphAuditActivityInitiator  # type: ignore
-    from ._models import MicrosoftGraphAuditLogRoot  # type: ignore
-    from ._models import MicrosoftGraphAuthenticationDetail  # type: ignore
-    from ._models import MicrosoftGraphAuthenticationRequirementPolicy  # type: ignore
-    from ._models import MicrosoftGraphAzureAdFeatureUsage  # type: ignore
-    from ._models import MicrosoftGraphAzureAdLicenseUsage  # type: ignore
-    from ._models import MicrosoftGraphAzureAdUserFeatureUsage  # type: ignore
-    from ._models import MicrosoftGraphCredentialUsageSummary  # type: ignore
-    from ._models import MicrosoftGraphCredentialUserRegistrationCount  # type: ignore
-    from ._models import MicrosoftGraphCredentialUserRegistrationDetails  # type: ignore
-    from ._models import MicrosoftGraphDeviceDetail  # type: ignore
-    from ._models import MicrosoftGraphDirectoryAudit  # type: ignore
-    from ._models import MicrosoftGraphEmailActivitySummary  # type: ignore
-    from ._models import MicrosoftGraphEmailActivityUserDetail  # type: ignore
-    from ._models import MicrosoftGraphEmailAppUsageAppsUserCounts  # type: ignore
-    from ._models import MicrosoftGraphEmailAppUsageUserCounts  # type: ignore
-    from ._models import MicrosoftGraphEmailAppUsageUserDetail  # type: ignore
-    from ._models import MicrosoftGraphEmailAppUsageVersionsUserCounts  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphFeatureUsageDetail  # type: ignore
-    from ._models import MicrosoftGraphGeoCoordinates  # type: ignore
-    from ._models import MicrosoftGraphIdentity  # type: ignore
-    from ._models import MicrosoftGraphInitiator  # type: ignore
-    from ._models import MicrosoftGraphKeyValue  # type: ignore
-    from ._models import MicrosoftGraphKeyValuePair  # type: ignore
-    from ._models import MicrosoftGraphLicenseInfoDetail  # type: ignore
-    from ._models import MicrosoftGraphMailboxUsageDetail  # type: ignore
-    from ._models import MicrosoftGraphMailboxUsageMailboxCounts  # type: ignore
-    from ._models import MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts  # type: ignore
-    from ._models import MicrosoftGraphMailboxUsageStorage  # type: ignore
-    from ._models import MicrosoftGraphMfaDetail  # type: ignore
-    from ._models import MicrosoftGraphModifiedProperty  # type: ignore
-    from ._models import MicrosoftGraphNetworkLocationDetail  # type: ignore
-    from ._models import MicrosoftGraphOffice365ActivationCounts  # type: ignore
-    from ._models import MicrosoftGraphOffice365ActivationsUserCounts  # type: ignore
-    from ._models import MicrosoftGraphOffice365ActivationsUserDetail  # type: ignore
-    from ._models import MicrosoftGraphOffice365ActiveUserCounts  # type: ignore
-    from ._models import MicrosoftGraphOffice365ActiveUserDetail  # type: ignore
-    from ._models import MicrosoftGraphOffice365GroupsActivityCounts  # type: ignore
-    from ._models import MicrosoftGraphOffice365GroupsActivityDetail  # type: ignore
-    from ._models import MicrosoftGraphOffice365GroupsActivityFileCounts  # type: ignore
-    from ._models import MicrosoftGraphOffice365GroupsActivityGroupCounts  # type: ignore
-    from ._models import MicrosoftGraphOffice365GroupsActivityStorage  # type: ignore
-    from ._models import MicrosoftGraphOffice365ServicesUserCounts  # type: ignore
-    from ._models import MicrosoftGraphOneDriveActivityUserDetail  # type: ignore
-    from ._models import MicrosoftGraphOneDriveUsageAccountCounts  # type: ignore
-    from ._models import MicrosoftGraphOneDriveUsageAccountDetail  # type: ignore
-    from ._models import MicrosoftGraphOneDriveUsageFileCounts  # type: ignore
-    from ._models import MicrosoftGraphPrintUsageSummaryByPrinter  # type: ignore
-    from ._models import MicrosoftGraphPrintUsageSummaryByUser  # type: ignore
-    from ._models import MicrosoftGraphProvisionedIdentity  # type: ignore
-    from ._models import MicrosoftGraphProvisioningObjectSummary  # type: ignore
-    from ._models import MicrosoftGraphProvisioningServicePrincipal  # type: ignore
-    from ._models import MicrosoftGraphProvisioningStep  # type: ignore
-    from ._models import MicrosoftGraphProvisioningSystemDetails  # type: ignore
-    from ._models import MicrosoftGraphRelyingPartyDetailedSummary  # type: ignore
-    from ._models import MicrosoftGraphReport  # type: ignore
-    from ._models import MicrosoftGraphReportRoot  # type: ignore
-    from ._models import MicrosoftGraphRestrictedSignIn  # type: ignore
-    from ._models import MicrosoftGraphSharePointActivityPages  # type: ignore
-    from ._models import MicrosoftGraphSharePointActivityUserCounts  # type: ignore
-    from ._models import MicrosoftGraphSharePointActivityUserDetail  # type: ignore
-    from ._models import MicrosoftGraphSharePointSiteUsageDetail  # type: ignore
-    from ._models import MicrosoftGraphSharePointSiteUsageFileCounts  # type: ignore
-    from ._models import MicrosoftGraphSharePointSiteUsagePages  # type: ignore
-    from ._models import MicrosoftGraphSharePointSiteUsageSiteCounts  # type: ignore
-    from ._models import MicrosoftGraphSignIn  # type: ignore
-    from ._models import MicrosoftGraphSignInLocation  # type: ignore
-    from ._models import MicrosoftGraphSignInStatus  # type: ignore
-    from ._models import MicrosoftGraphSiteActivitySummary  # type: ignore
-    from ._models import MicrosoftGraphSiteUsageStorage  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessActivityCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessActivityUserCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessActivityUserDetail  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessOrganizerActivityCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessParticipantActivityCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts  # type: ignore
-    from ._models import MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts  # type: ignore
-    from ._models import MicrosoftGraphStatusBase  # type: ignore
-    from ._models import MicrosoftGraphTargetResource  # type: ignore
-    from ._models import MicrosoftGraphTeamsDeviceUsageDistributionUserCounts  # type: ignore
-    from ._models import MicrosoftGraphTeamsDeviceUsageUserCounts  # type: ignore
-    from ._models import MicrosoftGraphTeamsDeviceUsageUserDetail  # type: ignore
-    from ._models import MicrosoftGraphTeamsUserActivityCounts  # type: ignore
-    from ._models import MicrosoftGraphTeamsUserActivityUserCounts  # type: ignore
-    from ._models import MicrosoftGraphTeamsUserActivityUserDetail  # type: ignore
-    from ._models import MicrosoftGraphUserActivationCounts  # type: ignore
-    from ._models import MicrosoftGraphUserCredentialUsageDetails  # type: ignore
-    from ._models import MicrosoftGraphUserIdentity  # type: ignore
-    from ._models import MicrosoftGraphUserRegistrationCount  # type: ignore
-    from ._models import MicrosoftGraphYammerActivitySummary  # type: ignore
-    from ._models import MicrosoftGraphYammerActivityUserDetail  # type: ignore
-    from ._models import MicrosoftGraphYammerDeviceUsageDistributionUserCounts  # type: ignore
-    from ._models import MicrosoftGraphYammerDeviceUsageUserCounts  # type: ignore
-    from ._models import MicrosoftGraphYammerDeviceUsageUserDetail  # type: ignore
-    from ._models import MicrosoftGraphYammerGroupsActivityCounts  # type: ignore
-    from ._models import MicrosoftGraphYammerGroupsActivityDetail  # type: ignore
-    from ._models import MicrosoftGraphYammerGroupsActivityGroupCounts  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionofapplicationsignindetailedsummary  # type: ignore
+    from ._models import collectionofcredentialuserregistrationdetails  # type: ignore
+    from ._models import collectionofdirectoryaudit  # type: ignore
+    from ._models import collectionofprintusagesummarybyprinter  # type: ignore
+    from ._models import collectionofprintusagesummarybyprinter0  # type: ignore
+    from ._models import collectionofprintusagesummarybyuser  # type: ignore
+    from ._models import collectionofprintusagesummarybyuser0  # type: ignore
+    from ._models import collectionofprovisioningobjectsummary  # type: ignore
+    from ._models import collectionofprovisioningobjectsummary0  # type: ignore
+    from ._models import collectionofrestrictedsignin  # type: ignore
+    from ._models import collectionofsignin  # type: ignore
+    from ._models import collectionofusercredentialusagedetails  # type: ignore
+    from ._models import microsoftgraphappidentity  # type: ignore
+    from ._models import microsoftgraphapplicationsignindetailedsummary  # type: ignore
+    from ._models import microsoftgraphapplicationsigninsummary  # type: ignore
+    from ._models import microsoftgraphappliedconditionalaccesspolicy  # type: ignore
+    from ._models import microsoftgraphauditactivityinitiator  # type: ignore
+    from ._models import microsoftgraphauditlogroot  # type: ignore
+    from ._models import microsoftgraphauthenticationdetail  # type: ignore
+    from ._models import microsoftgraphauthenticationrequirementpolicy  # type: ignore
+    from ._models import microsoftgraphazureadfeatureusage  # type: ignore
+    from ._models import microsoftgraphazureadlicenseusage  # type: ignore
+    from ._models import microsoftgraphazureaduserfeatureusage  # type: ignore
+    from ._models import microsoftgraphcredentialusagesummary  # type: ignore
+    from ._models import microsoftgraphcredentialuserregistrationcount  # type: ignore
+    from ._models import microsoftgraphcredentialuserregistrationdetails  # type: ignore
+    from ._models import microsoftgraphdevicedetail  # type: ignore
+    from ._models import microsoftgraphdirectoryaudit  # type: ignore
+    from ._models import microsoftgraphemailactivitysummary  # type: ignore
+    from ._models import microsoftgraphemailactivityuserdetail  # type: ignore
+    from ._models import microsoftgraphemailappusageappsusercounts  # type: ignore
+    from ._models import microsoftgraphemailappusageusercounts  # type: ignore
+    from ._models import microsoftgraphemailappusageuserdetail  # type: ignore
+    from ._models import microsoftgraphemailappusageversionsusercounts  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphfeatureusagedetail  # type: ignore
+    from ._models import microsoftgraphgeocoordinates  # type: ignore
+    from ._models import microsoftgraphidentity  # type: ignore
+    from ._models import microsoftgraphinitiator  # type: ignore
+    from ._models import microsoftgraphkeyvalue  # type: ignore
+    from ._models import microsoftgraphkeyvaluepair  # type: ignore
+    from ._models import microsoftgraphlicenseinfodetail  # type: ignore
+    from ._models import microsoftgraphmailboxusagedetail  # type: ignore
+    from ._models import microsoftgraphmailboxusagemailboxcounts  # type: ignore
+    from ._models import microsoftgraphmailboxusagequotastatusmailboxcounts  # type: ignore
+    from ._models import microsoftgraphmailboxusagestorage  # type: ignore
+    from ._models import microsoftgraphmfadetail  # type: ignore
+    from ._models import microsoftgraphmodifiedproperty  # type: ignore
+    from ._models import microsoftgraphnetworklocationdetail  # type: ignore
+    from ._models import microsoftgraphoffice365activationcounts  # type: ignore
+    from ._models import microsoftgraphoffice365activationsusercounts  # type: ignore
+    from ._models import microsoftgraphoffice365activationsuserdetail  # type: ignore
+    from ._models import microsoftgraphoffice365activeusercounts  # type: ignore
+    from ._models import microsoftgraphoffice365activeuserdetail  # type: ignore
+    from ._models import microsoftgraphoffice365groupsactivitycounts  # type: ignore
+    from ._models import microsoftgraphoffice365groupsactivitydetail  # type: ignore
+    from ._models import microsoftgraphoffice365groupsactivityfilecounts  # type: ignore
+    from ._models import microsoftgraphoffice365groupsactivitygroupcounts  # type: ignore
+    from ._models import microsoftgraphoffice365groupsactivitystorage  # type: ignore
+    from ._models import microsoftgraphoffice365servicesusercounts  # type: ignore
+    from ._models import microsoftgraphonedriveactivityuserdetail  # type: ignore
+    from ._models import microsoftgraphonedriveusageaccountcounts  # type: ignore
+    from ._models import microsoftgraphonedriveusageaccountdetail  # type: ignore
+    from ._models import microsoftgraphonedriveusagefilecounts  # type: ignore
+    from ._models import microsoftgraphprintusagesummarybyprinter  # type: ignore
+    from ._models import microsoftgraphprintusagesummarybyuser  # type: ignore
+    from ._models import microsoftgraphprovisionedidentity  # type: ignore
+    from ._models import microsoftgraphprovisioningobjectsummary  # type: ignore
+    from ._models import microsoftgraphprovisioningserviceprincipal  # type: ignore
+    from ._models import microsoftgraphprovisioningstep  # type: ignore
+    from ._models import microsoftgraphprovisioningsystemdetails  # type: ignore
+    from ._models import microsoftgraphrelyingpartydetailedsummary  # type: ignore
+    from ._models import microsoftgraphreport  # type: ignore
+    from ._models import microsoftgraphreportroot  # type: ignore
+    from ._models import microsoftgraphrestrictedsignin  # type: ignore
+    from ._models import microsoftgraphsharepointactivitypages  # type: ignore
+    from ._models import microsoftgraphsharepointactivityusercounts  # type: ignore
+    from ._models import microsoftgraphsharepointactivityuserdetail  # type: ignore
+    from ._models import microsoftgraphsharepointsiteusagedetail  # type: ignore
+    from ._models import microsoftgraphsharepointsiteusagefilecounts  # type: ignore
+    from ._models import microsoftgraphsharepointsiteusagepages  # type: ignore
+    from ._models import microsoftgraphsharepointsiteusagesitecounts  # type: ignore
+    from ._models import microsoftgraphsignin  # type: ignore
+    from ._models import microsoftgraphsigninlocation  # type: ignore
+    from ._models import microsoftgraphsigninstatus  # type: ignore
+    from ._models import microsoftgraphsiteactivitysummary  # type: ignore
+    from ._models import microsoftgraphsiteusagestorage  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessactivitycounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessactivityusercounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessactivityuserdetail  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessdeviceusagedistributionusercounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessdeviceusageusercounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessdeviceusageuserdetail  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessorganizeractivitycounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessorganizeractivityminutecounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessorganizeractivityusercounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessparticipantactivitycounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessparticipantactivityminutecounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinessparticipantactivityusercounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinesspeertopeeractivitycounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinesspeertopeeractivityminutecounts  # type: ignore
+    from ._models import microsoftgraphskypeforbusinesspeertopeeractivityusercounts  # type: ignore
+    from ._models import microsoftgraphstatusbase  # type: ignore
+    from ._models import microsoftgraphtargetresource  # type: ignore
+    from ._models import microsoftgraphteamsdeviceusagedistributionusercounts  # type: ignore
+    from ._models import microsoftgraphteamsdeviceusageusercounts  # type: ignore
+    from ._models import microsoftgraphteamsdeviceusageuserdetail  # type: ignore
+    from ._models import microsoftgraphteamsuseractivitycounts  # type: ignore
+    from ._models import microsoftgraphteamsuseractivityusercounts  # type: ignore
+    from ._models import microsoftgraphteamsuseractivityuserdetail  # type: ignore
+    from ._models import microsoftgraphuseractivationcounts  # type: ignore
+    from ._models import microsoftgraphusercredentialusagedetails  # type: ignore
+    from ._models import microsoftgraphuseridentity  # type: ignore
+    from ._models import microsoftgraphuserregistrationcount  # type: ignore
+    from ._models import microsoftgraphyammeractivitysummary  # type: ignore
+    from ._models import microsoftgraphyammeractivityuserdetail  # type: ignore
+    from ._models import microsoftgraphyammerdeviceusagedistributionusercounts  # type: ignore
+    from ._models import microsoftgraphyammerdeviceusageusercounts  # type: ignore
+    from ._models import microsoftgraphyammerdeviceusageuserdetail  # type: ignore
+    from ._models import microsoftgraphyammergroupsactivitycounts  # type: ignore
+    from ._models import microsoftgraphyammergroupsactivitydetail  # type: ignore
+    from ._models import microsoftgraphyammergroupsactivitygroupcounts  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._reports_enums import (
     Enum19,
@@ -296,159 +296,159 @@ from ._reports_enums import (
     Enum58,
     Enum59,
     Enum60,
-    Get0ItemsItem,
-    Get1ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
-    MicrosoftGraphAppliedConditionalAccessPolicyResult,
-    MicrosoftGraphAzureAdLicenseType,
-    MicrosoftGraphConditionalAccessConditions,
-    MicrosoftGraphConditionalAccessStatus,
-    MicrosoftGraphFeatureType,
-    MicrosoftGraphGroupType,
-    MicrosoftGraphInitiatorType,
-    MicrosoftGraphMigrationStatus,
-    MicrosoftGraphNetworkType,
-    MicrosoftGraphOperationResult,
-    MicrosoftGraphProvisioningResult,
-    MicrosoftGraphProvisioningStepType,
-    MicrosoftGraphRegistrationAuthMethod,
-    MicrosoftGraphRegistrationStatusType,
-    MicrosoftGraphRequirementProvider,
-    MicrosoftGraphRiskDetail,
-    MicrosoftGraphRiskEventType,
-    MicrosoftGraphRiskLevel,
-    MicrosoftGraphRiskState,
-    MicrosoftGraphTokenIssuerType,
-    MicrosoftGraphUsageAuthMethod,
+    Get0itemsitem,
+    Get1itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
+    Microsoftgraphappliedconditionalaccesspolicyresult,
+    Microsoftgraphazureadlicensetype,
+    Microsoftgraphconditionalaccessconditions,
+    Microsoftgraphconditionalaccessstatus,
+    Microsoftgraphfeaturetype,
+    Microsoftgraphgrouptype,
+    Microsoftgraphinitiatortype,
+    Microsoftgraphmigrationstatus,
+    Microsoftgraphnetworktype,
+    Microsoftgraphoperationresult,
+    Microsoftgraphprovisioningresult,
+    Microsoftgraphprovisioningsteptype,
+    Microsoftgraphregistrationauthmethod,
+    Microsoftgraphregistrationstatustype,
+    Microsoftgraphrequirementprovider,
+    Microsoftgraphriskdetail,
+    Microsoftgraphriskeventtype,
+    Microsoftgraphrisklevel,
+    Microsoftgraphriskstate,
+    Microsoftgraphtokenissuertype,
+    Microsoftgraphusageauthmethod,
 )
 
 __all__ = [
-    'CollectionOfApplicationSignInDetailedSummary',
-    'CollectionOfCredentialUserRegistrationDetails',
-    'CollectionOfDirectoryAudit',
-    'CollectionOfPrintUsageSummaryByPrinter',
-    'CollectionOfPrintUsageSummaryByPrinter0',
-    'CollectionOfPrintUsageSummaryByUser',
-    'CollectionOfPrintUsageSummaryByUser0',
-    'CollectionOfProvisioningObjectSummary',
-    'CollectionOfProvisioningObjectSummary0',
-    'CollectionOfRestrictedSignIn',
-    'CollectionOfSignIn',
-    'CollectionOfUserCredentialUsageDetails',
-    'MicrosoftGraphAppIdentity',
-    'MicrosoftGraphApplicationSignInDetailedSummary',
-    'MicrosoftGraphApplicationSignInSummary',
-    'MicrosoftGraphAppliedConditionalAccessPolicy',
-    'MicrosoftGraphAuditActivityInitiator',
-    'MicrosoftGraphAuditLogRoot',
-    'MicrosoftGraphAuthenticationDetail',
-    'MicrosoftGraphAuthenticationRequirementPolicy',
-    'MicrosoftGraphAzureAdFeatureUsage',
-    'MicrosoftGraphAzureAdLicenseUsage',
-    'MicrosoftGraphAzureAdUserFeatureUsage',
-    'MicrosoftGraphCredentialUsageSummary',
-    'MicrosoftGraphCredentialUserRegistrationCount',
-    'MicrosoftGraphCredentialUserRegistrationDetails',
-    'MicrosoftGraphDeviceDetail',
-    'MicrosoftGraphDirectoryAudit',
-    'MicrosoftGraphEmailActivitySummary',
-    'MicrosoftGraphEmailActivityUserDetail',
-    'MicrosoftGraphEmailAppUsageAppsUserCounts',
-    'MicrosoftGraphEmailAppUsageUserCounts',
-    'MicrosoftGraphEmailAppUsageUserDetail',
-    'MicrosoftGraphEmailAppUsageVersionsUserCounts',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphFeatureUsageDetail',
-    'MicrosoftGraphGeoCoordinates',
-    'MicrosoftGraphIdentity',
-    'MicrosoftGraphInitiator',
-    'MicrosoftGraphKeyValue',
-    'MicrosoftGraphKeyValuePair',
-    'MicrosoftGraphLicenseInfoDetail',
-    'MicrosoftGraphMailboxUsageDetail',
-    'MicrosoftGraphMailboxUsageMailboxCounts',
-    'MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts',
-    'MicrosoftGraphMailboxUsageStorage',
-    'MicrosoftGraphMfaDetail',
-    'MicrosoftGraphModifiedProperty',
-    'MicrosoftGraphNetworkLocationDetail',
-    'MicrosoftGraphOffice365ActivationCounts',
-    'MicrosoftGraphOffice365ActivationsUserCounts',
-    'MicrosoftGraphOffice365ActivationsUserDetail',
-    'MicrosoftGraphOffice365ActiveUserCounts',
-    'MicrosoftGraphOffice365ActiveUserDetail',
-    'MicrosoftGraphOffice365GroupsActivityCounts',
-    'MicrosoftGraphOffice365GroupsActivityDetail',
-    'MicrosoftGraphOffice365GroupsActivityFileCounts',
-    'MicrosoftGraphOffice365GroupsActivityGroupCounts',
-    'MicrosoftGraphOffice365GroupsActivityStorage',
-    'MicrosoftGraphOffice365ServicesUserCounts',
-    'MicrosoftGraphOneDriveActivityUserDetail',
-    'MicrosoftGraphOneDriveUsageAccountCounts',
-    'MicrosoftGraphOneDriveUsageAccountDetail',
-    'MicrosoftGraphOneDriveUsageFileCounts',
-    'MicrosoftGraphPrintUsageSummaryByPrinter',
-    'MicrosoftGraphPrintUsageSummaryByUser',
-    'MicrosoftGraphProvisionedIdentity',
-    'MicrosoftGraphProvisioningObjectSummary',
-    'MicrosoftGraphProvisioningServicePrincipal',
-    'MicrosoftGraphProvisioningStep',
-    'MicrosoftGraphProvisioningSystemDetails',
-    'MicrosoftGraphRelyingPartyDetailedSummary',
-    'MicrosoftGraphReport',
-    'MicrosoftGraphReportRoot',
-    'MicrosoftGraphRestrictedSignIn',
-    'MicrosoftGraphSharePointActivityPages',
-    'MicrosoftGraphSharePointActivityUserCounts',
-    'MicrosoftGraphSharePointActivityUserDetail',
-    'MicrosoftGraphSharePointSiteUsageDetail',
-    'MicrosoftGraphSharePointSiteUsageFileCounts',
-    'MicrosoftGraphSharePointSiteUsagePages',
-    'MicrosoftGraphSharePointSiteUsageSiteCounts',
-    'MicrosoftGraphSignIn',
-    'MicrosoftGraphSignInLocation',
-    'MicrosoftGraphSignInStatus',
-    'MicrosoftGraphSiteActivitySummary',
-    'MicrosoftGraphSiteUsageStorage',
-    'MicrosoftGraphSkypeForBusinessActivityCounts',
-    'MicrosoftGraphSkypeForBusinessActivityUserCounts',
-    'MicrosoftGraphSkypeForBusinessActivityUserDetail',
-    'MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts',
-    'MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts',
-    'MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail',
-    'MicrosoftGraphSkypeForBusinessOrganizerActivityCounts',
-    'MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts',
-    'MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts',
-    'MicrosoftGraphSkypeForBusinessParticipantActivityCounts',
-    'MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts',
-    'MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts',
-    'MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts',
-    'MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts',
-    'MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts',
-    'MicrosoftGraphStatusBase',
-    'MicrosoftGraphTargetResource',
-    'MicrosoftGraphTeamsDeviceUsageDistributionUserCounts',
-    'MicrosoftGraphTeamsDeviceUsageUserCounts',
-    'MicrosoftGraphTeamsDeviceUsageUserDetail',
-    'MicrosoftGraphTeamsUserActivityCounts',
-    'MicrosoftGraphTeamsUserActivityUserCounts',
-    'MicrosoftGraphTeamsUserActivityUserDetail',
-    'MicrosoftGraphUserActivationCounts',
-    'MicrosoftGraphUserCredentialUsageDetails',
-    'MicrosoftGraphUserIdentity',
-    'MicrosoftGraphUserRegistrationCount',
-    'MicrosoftGraphYammerActivitySummary',
-    'MicrosoftGraphYammerActivityUserDetail',
-    'MicrosoftGraphYammerDeviceUsageDistributionUserCounts',
-    'MicrosoftGraphYammerDeviceUsageUserCounts',
-    'MicrosoftGraphYammerDeviceUsageUserDetail',
-    'MicrosoftGraphYammerGroupsActivityCounts',
-    'MicrosoftGraphYammerGroupsActivityDetail',
-    'MicrosoftGraphYammerGroupsActivityGroupCounts',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
+    'collectionofapplicationsignindetailedsummary',
+    'collectionofcredentialuserregistrationdetails',
+    'collectionofdirectoryaudit',
+    'collectionofprintusagesummarybyprinter',
+    'collectionofprintusagesummarybyprinter0',
+    'collectionofprintusagesummarybyuser',
+    'collectionofprintusagesummarybyuser0',
+    'collectionofprovisioningobjectsummary',
+    'collectionofprovisioningobjectsummary0',
+    'collectionofrestrictedsignin',
+    'collectionofsignin',
+    'collectionofusercredentialusagedetails',
+    'microsoftgraphappidentity',
+    'microsoftgraphapplicationsignindetailedsummary',
+    'microsoftgraphapplicationsigninsummary',
+    'microsoftgraphappliedconditionalaccesspolicy',
+    'microsoftgraphauditactivityinitiator',
+    'microsoftgraphauditlogroot',
+    'microsoftgraphauthenticationdetail',
+    'microsoftgraphauthenticationrequirementpolicy',
+    'microsoftgraphazureadfeatureusage',
+    'microsoftgraphazureadlicenseusage',
+    'microsoftgraphazureaduserfeatureusage',
+    'microsoftgraphcredentialusagesummary',
+    'microsoftgraphcredentialuserregistrationcount',
+    'microsoftgraphcredentialuserregistrationdetails',
+    'microsoftgraphdevicedetail',
+    'microsoftgraphdirectoryaudit',
+    'microsoftgraphemailactivitysummary',
+    'microsoftgraphemailactivityuserdetail',
+    'microsoftgraphemailappusageappsusercounts',
+    'microsoftgraphemailappusageusercounts',
+    'microsoftgraphemailappusageuserdetail',
+    'microsoftgraphemailappusageversionsusercounts',
+    'microsoftgraphentity',
+    'microsoftgraphfeatureusagedetail',
+    'microsoftgraphgeocoordinates',
+    'microsoftgraphidentity',
+    'microsoftgraphinitiator',
+    'microsoftgraphkeyvalue',
+    'microsoftgraphkeyvaluepair',
+    'microsoftgraphlicenseinfodetail',
+    'microsoftgraphmailboxusagedetail',
+    'microsoftgraphmailboxusagemailboxcounts',
+    'microsoftgraphmailboxusagequotastatusmailboxcounts',
+    'microsoftgraphmailboxusagestorage',
+    'microsoftgraphmfadetail',
+    'microsoftgraphmodifiedproperty',
+    'microsoftgraphnetworklocationdetail',
+    'microsoftgraphoffice365activationcounts',
+    'microsoftgraphoffice365activationsusercounts',
+    'microsoftgraphoffice365activationsuserdetail',
+    'microsoftgraphoffice365activeusercounts',
+    'microsoftgraphoffice365activeuserdetail',
+    'microsoftgraphoffice365groupsactivitycounts',
+    'microsoftgraphoffice365groupsactivitydetail',
+    'microsoftgraphoffice365groupsactivityfilecounts',
+    'microsoftgraphoffice365groupsactivitygroupcounts',
+    'microsoftgraphoffice365groupsactivitystorage',
+    'microsoftgraphoffice365servicesusercounts',
+    'microsoftgraphonedriveactivityuserdetail',
+    'microsoftgraphonedriveusageaccountcounts',
+    'microsoftgraphonedriveusageaccountdetail',
+    'microsoftgraphonedriveusagefilecounts',
+    'microsoftgraphprintusagesummarybyprinter',
+    'microsoftgraphprintusagesummarybyuser',
+    'microsoftgraphprovisionedidentity',
+    'microsoftgraphprovisioningobjectsummary',
+    'microsoftgraphprovisioningserviceprincipal',
+    'microsoftgraphprovisioningstep',
+    'microsoftgraphprovisioningsystemdetails',
+    'microsoftgraphrelyingpartydetailedsummary',
+    'microsoftgraphreport',
+    'microsoftgraphreportroot',
+    'microsoftgraphrestrictedsignin',
+    'microsoftgraphsharepointactivitypages',
+    'microsoftgraphsharepointactivityusercounts',
+    'microsoftgraphsharepointactivityuserdetail',
+    'microsoftgraphsharepointsiteusagedetail',
+    'microsoftgraphsharepointsiteusagefilecounts',
+    'microsoftgraphsharepointsiteusagepages',
+    'microsoftgraphsharepointsiteusagesitecounts',
+    'microsoftgraphsignin',
+    'microsoftgraphsigninlocation',
+    'microsoftgraphsigninstatus',
+    'microsoftgraphsiteactivitysummary',
+    'microsoftgraphsiteusagestorage',
+    'microsoftgraphskypeforbusinessactivitycounts',
+    'microsoftgraphskypeforbusinessactivityusercounts',
+    'microsoftgraphskypeforbusinessactivityuserdetail',
+    'microsoftgraphskypeforbusinessdeviceusagedistributionusercounts',
+    'microsoftgraphskypeforbusinessdeviceusageusercounts',
+    'microsoftgraphskypeforbusinessdeviceusageuserdetail',
+    'microsoftgraphskypeforbusinessorganizeractivitycounts',
+    'microsoftgraphskypeforbusinessorganizeractivityminutecounts',
+    'microsoftgraphskypeforbusinessorganizeractivityusercounts',
+    'microsoftgraphskypeforbusinessparticipantactivitycounts',
+    'microsoftgraphskypeforbusinessparticipantactivityminutecounts',
+    'microsoftgraphskypeforbusinessparticipantactivityusercounts',
+    'microsoftgraphskypeforbusinesspeertopeeractivitycounts',
+    'microsoftgraphskypeforbusinesspeertopeeractivityminutecounts',
+    'microsoftgraphskypeforbusinesspeertopeeractivityusercounts',
+    'microsoftgraphstatusbase',
+    'microsoftgraphtargetresource',
+    'microsoftgraphteamsdeviceusagedistributionusercounts',
+    'microsoftgraphteamsdeviceusageusercounts',
+    'microsoftgraphteamsdeviceusageuserdetail',
+    'microsoftgraphteamsuseractivitycounts',
+    'microsoftgraphteamsuseractivityusercounts',
+    'microsoftgraphteamsuseractivityuserdetail',
+    'microsoftgraphuseractivationcounts',
+    'microsoftgraphusercredentialusagedetails',
+    'microsoftgraphuseridentity',
+    'microsoftgraphuserregistrationcount',
+    'microsoftgraphyammeractivitysummary',
+    'microsoftgraphyammeractivityuserdetail',
+    'microsoftgraphyammerdeviceusagedistributionusercounts',
+    'microsoftgraphyammerdeviceusageusercounts',
+    'microsoftgraphyammerdeviceusageuserdetail',
+    'microsoftgraphyammergroupsactivitycounts',
+    'microsoftgraphyammergroupsactivitydetail',
+    'microsoftgraphyammergroupsactivitygroupcounts',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
     'Enum19',
     'Enum20',
     'Enum21',
@@ -485,29 +485,29 @@ __all__ = [
     'Enum58',
     'Enum59',
     'Enum60',
-    'Get0ItemsItem',
-    'Get1ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
-    'MicrosoftGraphAppliedConditionalAccessPolicyResult',
-    'MicrosoftGraphAzureAdLicenseType',
-    'MicrosoftGraphConditionalAccessConditions',
-    'MicrosoftGraphConditionalAccessStatus',
-    'MicrosoftGraphFeatureType',
-    'MicrosoftGraphGroupType',
-    'MicrosoftGraphInitiatorType',
-    'MicrosoftGraphMigrationStatus',
-    'MicrosoftGraphNetworkType',
-    'MicrosoftGraphOperationResult',
-    'MicrosoftGraphProvisioningResult',
-    'MicrosoftGraphProvisioningStepType',
-    'MicrosoftGraphRegistrationAuthMethod',
-    'MicrosoftGraphRegistrationStatusType',
-    'MicrosoftGraphRequirementProvider',
-    'MicrosoftGraphRiskDetail',
-    'MicrosoftGraphRiskEventType',
-    'MicrosoftGraphRiskLevel',
-    'MicrosoftGraphRiskState',
-    'MicrosoftGraphTokenIssuerType',
-    'MicrosoftGraphUsageAuthMethod',
+    'Get0itemsitem',
+    'Get1itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
+    'Microsoftgraphappliedconditionalaccesspolicyresult',
+    'Microsoftgraphazureadlicensetype',
+    'Microsoftgraphconditionalaccessconditions',
+    'Microsoftgraphconditionalaccessstatus',
+    'Microsoftgraphfeaturetype',
+    'Microsoftgraphgrouptype',
+    'Microsoftgraphinitiatortype',
+    'Microsoftgraphmigrationstatus',
+    'Microsoftgraphnetworktype',
+    'Microsoftgraphoperationresult',
+    'Microsoftgraphprovisioningresult',
+    'Microsoftgraphprovisioningsteptype',
+    'Microsoftgraphregistrationauthmethod',
+    'Microsoftgraphregistrationstatustype',
+    'Microsoftgraphrequirementprovider',
+    'Microsoftgraphriskdetail',
+    'Microsoftgraphriskeventtype',
+    'Microsoftgraphrisklevel',
+    'Microsoftgraphriskstate',
+    'Microsoftgraphtokenissuertype',
+    'Microsoftgraphusageauthmethod',
 ]

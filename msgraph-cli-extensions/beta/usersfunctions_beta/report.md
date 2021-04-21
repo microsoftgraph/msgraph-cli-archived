@@ -1,488 +1,1162 @@
 # Azure CLI Module Creation Report
 
-### usersfunctions allowed-calendar-sharing-role
-
-allowed-calendar-sharing-role a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|usersfunctions|users.events.calendar|
+|az usersfunctions_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|allowed-calendar-sharing-role|allowedCalendarSharingRoles|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az usersfunctions_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az usersfunctions usersactivity|users.activities|[commands](#CommandsInusers.activities)|
+|az usersfunctions userscalendarviewcalendar|users.calendar.calendarView.calendar|[commands](#CommandsInusers.calendar.calendarView.calendar)|
+|az usersfunctions userscalendarviewexceptionoccurrence|users.calendar.calendarView.exceptionOccurrences|[commands](#CommandsInusers.calendar.calendarView.exceptionOccurrences)|
+|az usersfunctions userscalendarviewinstance|users.calendar.calendarView.instances|[commands](#CommandsInusers.calendar.calendarView.instances)|
+|az usersfunctions userscalendarview|users.calendar.calendarView|[commands](#CommandsInusers.calendar.calendarView)|
+|az usersfunctions userscalendareventscalendar|users.calendar.events.calendar|[commands](#CommandsInusers.calendar.events.calendar)|
+|az usersfunctions userscalendareventsexceptionoccurrence|users.calendar.events.exceptionOccurrences|[commands](#CommandsInusers.calendar.events.exceptionOccurrences)|
+|az usersfunctions userscalendareventsinstance|users.calendar.events.instances|[commands](#CommandsInusers.calendar.events.instances)|
+|az usersfunctions userscalendarevent|users.calendar.events|[commands](#CommandsInusers.calendar.events)|
+|az usersfunctions userscalendar|users.calendar|[commands](#CommandsInusers.calendar)|
+|az usersfunctions userscalendargroupscalendarscalendarviewcalendar|users.calendarGroups.calendars.calendarView.calendar|[commands](#CommandsInusers.calendarGroups.calendars.calendarView.calendar)|
+|az usersfunctions userscalendargroupscalendarscalendarviewexceptionoccurrence|users.calendarGroups.calendars.calendarView.exceptionOccurrences|[commands](#CommandsInusers.calendarGroups.calendars.calendarView.exceptionOccurrences)|
+|az usersfunctions userscalendargroupscalendarscalendarviewinstance|users.calendarGroups.calendars.calendarView.instances|[commands](#CommandsInusers.calendarGroups.calendars.calendarView.instances)|
+|az usersfunctions userscalendargroupscalendarscalendarview|users.calendarGroups.calendars.calendarView|[commands](#CommandsInusers.calendarGroups.calendars.calendarView)|
+|az usersfunctions userscalendargroupscalendarseventscalendar|users.calendarGroups.calendars.events.calendar|[commands](#CommandsInusers.calendarGroups.calendars.events.calendar)|
+|az usersfunctions userscalendargroupscalendarseventsexceptionoccurrence|users.calendarGroups.calendars.events.exceptionOccurrences|[commands](#CommandsInusers.calendarGroups.calendars.events.exceptionOccurrences)|
+|az usersfunctions userscalendargroupscalendarseventsinstance|users.calendarGroups.calendars.events.instances|[commands](#CommandsInusers.calendarGroups.calendars.events.instances)|
+|az usersfunctions userscalendargroupscalendarsevent|users.calendarGroups.calendars.events|[commands](#CommandsInusers.calendarGroups.calendars.events)|
+|az usersfunctions userscalendargroupscalendar|users.calendarGroups.calendars|[commands](#CommandsInusers.calendarGroups.calendars)|
+|az usersfunctions userscalendarscalendarviewcalendar|users.calendars.calendarView.calendar|[commands](#CommandsInusers.calendars.calendarView.calendar)|
+|az usersfunctions userscalendarscalendarviewexceptionoccurrence|users.calendars.calendarView.exceptionOccurrences|[commands](#CommandsInusers.calendars.calendarView.exceptionOccurrences)|
+|az usersfunctions userscalendarscalendarviewinstance|users.calendars.calendarView.instances|[commands](#CommandsInusers.calendars.calendarView.instances)|
+|az usersfunctions userscalendarscalendarview|users.calendars.calendarView|[commands](#CommandsInusers.calendars.calendarView)|
+|az usersfunctions userscalendarseventscalendar|users.calendars.events.calendar|[commands](#CommandsInusers.calendars.events.calendar)|
+|az usersfunctions userscalendarseventsexceptionoccurrence|users.calendars.events.exceptionOccurrences|[commands](#CommandsInusers.calendars.events.exceptionOccurrences)|
+|az usersfunctions userscalendarseventsinstance|users.calendars.events.instances|[commands](#CommandsInusers.calendars.events.instances)|
+|az usersfunctions userscalendarsevent|users.calendars.events|[commands](#CommandsInusers.calendars.events)|
+|az usersfunctions userscalendar|users.calendars|[commands](#CommandsInusers.calendars)|
+|az usersfunctions userscalendarviewcalendarview|users.calendarView.calendar.calendarView|[commands](#CommandsInusers.calendarView.calendar.calendarView)|
+|az usersfunctions userscalendarviewcalendarevent|users.calendarView.calendar.events|[commands](#CommandsInusers.calendarView.calendar.events)|
+|az usersfunctions userscalendarviewcalendar|users.calendarView.calendar|[commands](#CommandsInusers.calendarView.calendar)|
+|az usersfunctions userscalendarviewexceptionoccurrence|users.calendarView.exceptionOccurrences|[commands](#CommandsInusers.calendarView.exceptionOccurrences)|
+|az usersfunctions userscalendarviewinstance|users.calendarView.instances|[commands](#CommandsInusers.calendarView.instances)|
+|az usersfunctions userscalendarview|users.calendarView|[commands](#CommandsInusers.calendarView)|
+|az usersfunctions userscontactfolderschildfolder|users.contactFolders.childFolders|[commands](#CommandsInusers.contactFolders.childFolders)|
+|az usersfunctions userscontactfolderscontact|users.contactFolders.contacts|[commands](#CommandsInusers.contactFolders.contacts)|
+|az usersfunctions userscontactfolder|users.contactFolders|[commands](#CommandsInusers.contactFolders)|
+|az usersfunctions userscontact|users.contacts|[commands](#CommandsInusers.contacts)|
+|az usersfunctions userseventscalendarview|users.events.calendar.calendarView|[commands](#CommandsInusers.events.calendar.calendarView)|
+|az usersfunctions userseventscalendarevent|users.events.calendar.events|[commands](#CommandsInusers.events.calendar.events)|
+|az usersfunctions userseventscalendar|users.events.calendar|[commands](#CommandsInusers.events.calendar)|
+|az usersfunctions userseventsexceptionoccurrence|users.events.exceptionOccurrences|[commands](#CommandsInusers.events.exceptionOccurrences)|
+|az usersfunctions userseventsinstance|users.events.instances|[commands](#CommandsInusers.events.instances)|
+|az usersfunctions usersevent|users.events|[commands](#CommandsInusers.events)|
+|az usersfunctions usersmailfolderschildfolder|users.mailFolders.childFolders|[commands](#CommandsInusers.mailFolders.childFolders)|
+|az usersfunctions usersmailfoldersmessage|users.mailFolders.messages|[commands](#CommandsInusers.mailFolders.messages)|
+|az usersfunctions usersmailfolder|users.mailFolders|[commands](#CommandsInusers.mailFolders)|
+|az usersfunctions usersmanagedappregistration|users.managedAppRegistrations|[commands](#CommandsInusers.managedAppRegistrations)|
+|az usersfunctions usersmanageddevice|users.managedDevices|[commands](#CommandsInusers.managedDevices)|
+|az usersfunctions usersmessage|users.messages|[commands](#CommandsInusers.messages)|
+|az usersfunctions user|users|[commands](#CommandsInusers)|
+|az usersfunctions usersonenotenotebookssectiongroupssectionspage|users.onenote.notebooks.sectionGroups.sections.pages|[commands](#CommandsInusers.onenote.notebooks.sectionGroups.sections.pages)|
+|az usersfunctions usersonenotenotebookssectionspage|users.onenote.notebooks.sections.pages|[commands](#CommandsInusers.onenote.notebooks.sections.pages)|
+|az usersfunctions usersonenotenotebook|users.onenote.notebooks|[commands](#CommandsInusers.onenote.notebooks)|
+|az usersfunctions usersonenotepage|users.onenote.pages|[commands](#CommandsInusers.onenote.pages)|
+|az usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage|users.onenote.pages.parentNotebook.sectionGroups.sections.pages|[commands](#CommandsInusers.onenote.pages.parentNotebook.sectionGroups.sections.pages)|
+|az usersfunctions usersonenotepagesparentnotebooksectionspage|users.onenote.pages.parentNotebook.sections.pages|[commands](#CommandsInusers.onenote.pages.parentNotebook.sections.pages)|
+|az usersfunctions usersonenotepagesparentsectionpage|users.onenote.pages.parentSection.pages|[commands](#CommandsInusers.onenote.pages.parentSection.pages)|
+|az usersfunctions usersonenotesectiongroupsparentnotebooksectionspage|users.onenote.sectionGroups.parentNotebook.sections.pages|[commands](#CommandsInusers.onenote.sectionGroups.parentNotebook.sections.pages)|
+|az usersfunctions usersonenotesectiongroupssectionspage|users.onenote.sectionGroups.sections.pages|[commands](#CommandsInusers.onenote.sectionGroups.sections.pages)|
+|az usersfunctions usersonenotesectionspage|users.onenote.sections.pages|[commands](#CommandsInusers.onenote.sections.pages)|
+|az usersfunctions usersoutlook|users.outlook|[commands](#CommandsInusers.outlook)|
+|az usersfunctions usersplannerall|users.planner.all|[commands](#CommandsInusers.planner.all)|
+|az usersfunctions userstodoliststask|users.todo.lists.tasks|[commands](#CommandsInusers.todo.lists.tasks)|
+|az usersfunctions userstodolist|users.todo.lists|[commands](#CommandsInusers.todo.lists)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInusers">Commands in `az usersfunctions user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions user delta](#usersdelta)|delta|[Parameters](#Parametersusersdelta)|Not Found|
+|[az usersfunctions user export-device-and-app-management-data-d390](#usersexportDeviceAndAppManagementData-d390)|exportDeviceAndAppManagementData-d390|[Parameters](#ParametersusersexportDeviceAndAppManagementData-d390)|Not Found|
+|[az usersfunctions user export-device-and-app-management-data623-c](#usersexportDeviceAndAppManagementData-623c)|exportDeviceAndAppManagementData-623c|[Parameters](#ParametersusersexportDeviceAndAppManagementData-623c)|Not Found|
+|[az usersfunctions user find-room-ac49](#usersfindRooms-ac49)|findRooms-ac49|[Parameters](#ParametersusersfindRooms-ac49)|Not Found|
+|[az usersfunctions user find-room-d266](#usersfindRooms-d266)|findRooms-d266|[Parameters](#ParametersusersfindRooms-d266)|Not Found|
+|[az usersfunctions user find-room-list](#usersfindRoomLists)|findRoomLists|[Parameters](#ParametersusersfindRoomLists)|Not Found|
+|[az usersfunctions user is-managed-app-user-blocked](#usersisManagedAppUserBlocked)|isManagedAppUserBlocked|[Parameters](#ParametersusersisManagedAppUserBlocked)|Not Found|
+|[az usersfunctions user reminder-view](#usersreminderView)|reminderView|[Parameters](#ParametersusersreminderView)|Not Found|
+|[az usersfunctions user show-effective-device-enrollment-configuration](#usersgetEffectiveDeviceEnrollmentConfigurations)|getEffectiveDeviceEnrollmentConfigurations|[Parameters](#ParametersusersgetEffectiveDeviceEnrollmentConfigurations)|Not Found|
+|[az usersfunctions user show-logged-on-managed-device](#usersgetLoggedOnManagedDevices)|getLoggedOnManagedDevices|[Parameters](#ParametersusersgetLoggedOnManagedDevices)|Not Found|
+|[az usersfunctions user show-managed-app-blocked-user](#usersgetManagedAppBlockedUsers)|getManagedAppBlockedUsers|[Parameters](#ParametersusersgetManagedAppBlockedUsers)|Not Found|
+|[az usersfunctions user show-managed-app-diagnostic-statuses](#usersgetManagedAppDiagnosticStatuses)|getManagedAppDiagnosticStatuses|[Parameters](#ParametersusersgetManagedAppDiagnosticStatuses)|Not Found|
+|[az usersfunctions user show-managed-app-policy](#usersgetManagedAppPolicies)|getManagedAppPolicies|[Parameters](#ParametersusersgetManagedAppPolicies)|Not Found|
+|[az usersfunctions user show-managed-device-with-app-failure](#usersgetManagedDevicesWithAppFailures)|getManagedDevicesWithAppFailures|[Parameters](#ParametersusersgetManagedDevicesWithAppFailures)|Not Found|
+|[az usersfunctions user show-managed-device-with-failed-or-pending-app](#usersgetManagedDevicesWithFailedOrPendingApps)|getManagedDevicesWithFailedOrPendingApps|[Parameters](#ParametersusersgetManagedDevicesWithFailedOrPendingApps)|Not Found|
+
+### <a name="CommandsInusers.activities">Commands in `az usersfunctions usersactivity` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersactivity recent](#users.activitiesrecent)|recent|[Parameters](#Parametersusers.activitiesrecent)|Not Found|
+
+### <a name="CommandsInusers.calendar">Commands in `az usersfunctions userscalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendar allowed-calendar-sharing-role](#users.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendars">Commands in `az usersfunctions userscalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendar allowed-calendar-sharing-role](#users.calendarsallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendarsallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendar.events">Commands in `az usersfunctions userscalendarevent` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarevent delta](#users.calendar.eventsdelta)|delta|[Parameters](#Parametersusers.calendar.eventsdelta)|Not Found|
+
+### <a name="CommandsInusers.calendar.events.calendar">Commands in `az usersfunctions userscalendareventscalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendareventscalendar allowed-calendar-sharing-role](#users.calendar.events.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendar.events.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendar.events.exceptionOccurrences">Commands in `az usersfunctions userscalendareventsexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendareventsexceptionoccurrence delta](#users.calendar.events.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.calendar.events.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendar.events.instances">Commands in `az usersfunctions userscalendareventsinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendareventsinstance delta](#users.calendar.events.instancesdelta)|delta|[Parameters](#Parametersusers.calendar.events.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars">Commands in `az usersfunctions userscalendargroupscalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendar allowed-calendar-sharing-role](#users.calendarGroups.calendarsallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendarGroups.calendarsallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.calendarView">Commands in `az usersfunctions userscalendargroupscalendarscalendarview` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarscalendarview delta](#users.calendarGroups.calendars.calendarViewdelta)|delta|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.calendarView.calendar">Commands in `az usersfunctions userscalendargroupscalendarscalendarviewcalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarscalendarviewcalendar allowed-calendar-sharing-role](#users.calendarGroups.calendars.calendarView.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendarGroups.calendars.calendarView.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.calendarView.exceptionOccurrences">Commands in `az usersfunctions userscalendargroupscalendarscalendarviewexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarscalendarviewexceptionoccurrence delta](#users.calendarGroups.calendars.calendarView.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.calendarGroups.calendars.calendarView.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.calendarView.instances">Commands in `az usersfunctions userscalendargroupscalendarscalendarviewinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarscalendarviewinstance delta](#users.calendarGroups.calendars.calendarView.instancesdelta)|delta|[Parameters](#Parametersusers.calendarGroups.calendars.calendarView.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.events">Commands in `az usersfunctions userscalendargroupscalendarsevent` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarsevent delta](#users.calendarGroups.calendars.eventsdelta)|delta|[Parameters](#Parametersusers.calendarGroups.calendars.eventsdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.events.calendar">Commands in `az usersfunctions userscalendargroupscalendarseventscalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarseventscalendar allowed-calendar-sharing-role](#users.calendarGroups.calendars.events.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendarGroups.calendars.events.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.events.exceptionOccurrences">Commands in `az usersfunctions userscalendargroupscalendarseventsexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarseventsexceptionoccurrence delta](#users.calendarGroups.calendars.events.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.calendarGroups.calendars.events.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarGroups.calendars.events.instances">Commands in `az usersfunctions userscalendargroupscalendarseventsinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendargroupscalendarseventsinstance delta](#users.calendarGroups.calendars.events.instancesdelta)|delta|[Parameters](#Parametersusers.calendarGroups.calendars.events.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendars.calendarView">Commands in `az usersfunctions userscalendarscalendarview` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarscalendarview delta](#users.calendars.calendarViewdelta)|delta|[Parameters](#Parametersusers.calendars.calendarViewdelta)|Not Found|
+
+### <a name="CommandsInusers.calendars.calendarView.calendar">Commands in `az usersfunctions userscalendarscalendarviewcalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarscalendarviewcalendar allowed-calendar-sharing-role](#users.calendars.calendarView.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendars.calendarView.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendars.calendarView.exceptionOccurrences">Commands in `az usersfunctions userscalendarscalendarviewexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarscalendarviewexceptionoccurrence delta](#users.calendars.calendarView.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.calendars.calendarView.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendars.calendarView.instances">Commands in `az usersfunctions userscalendarscalendarviewinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarscalendarviewinstance delta](#users.calendars.calendarView.instancesdelta)|delta|[Parameters](#Parametersusers.calendars.calendarView.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendars.events">Commands in `az usersfunctions userscalendarsevent` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarsevent delta](#users.calendars.eventsdelta)|delta|[Parameters](#Parametersusers.calendars.eventsdelta)|Not Found|
+
+### <a name="CommandsInusers.calendars.events.calendar">Commands in `az usersfunctions userscalendarseventscalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarseventscalendar allowed-calendar-sharing-role](#users.calendars.events.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendars.events.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendars.events.exceptionOccurrences">Commands in `az usersfunctions userscalendarseventsexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarseventsexceptionoccurrence delta](#users.calendars.events.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.calendars.events.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendars.events.instances">Commands in `az usersfunctions userscalendarseventsinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarseventsinstance delta](#users.calendars.events.instancesdelta)|delta|[Parameters](#Parametersusers.calendars.events.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendar.calendarView">Commands in `az usersfunctions userscalendarview` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarview delta](#users.calendar.calendarViewdelta)|delta|[Parameters](#Parametersusers.calendar.calendarViewdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarView">Commands in `az usersfunctions userscalendarview` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarview delta](#users.calendarViewdelta)|delta|[Parameters](#Parametersusers.calendarViewdelta)|Not Found|
+
+### <a name="CommandsInusers.calendar.calendarView.calendar">Commands in `az usersfunctions userscalendarviewcalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role](#users.calendar.calendarView.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendar.calendarView.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendarView.calendar">Commands in `az usersfunctions userscalendarviewcalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role](#users.calendarView.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.calendarView.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.calendarView.calendar.events">Commands in `az usersfunctions userscalendarviewcalendarevent` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewcalendarevent delta](#users.calendarView.calendar.eventsdelta)|delta|[Parameters](#Parametersusers.calendarView.calendar.eventsdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarView.calendar.calendarView">Commands in `az usersfunctions userscalendarviewcalendarview` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewcalendarview delta](#users.calendarView.calendar.calendarViewdelta)|delta|[Parameters](#Parametersusers.calendarView.calendar.calendarViewdelta)|Not Found|
+
+### <a name="CommandsInusers.calendar.calendarView.exceptionOccurrences">Commands in `az usersfunctions userscalendarviewexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewexceptionoccurrence delta](#users.calendar.calendarView.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.calendar.calendarView.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarView.exceptionOccurrences">Commands in `az usersfunctions userscalendarviewexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewexceptionoccurrence delta](#users.calendarView.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.calendarView.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendar.calendarView.instances">Commands in `az usersfunctions userscalendarviewinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewinstance delta](#users.calendar.calendarView.instancesdelta)|delta|[Parameters](#Parametersusers.calendar.calendarView.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.calendarView.instances">Commands in `az usersfunctions userscalendarviewinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscalendarviewinstance delta](#users.calendarView.instancesdelta)|delta|[Parameters](#Parametersusers.calendarView.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.contacts">Commands in `az usersfunctions userscontact` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscontact delta](#users.contactsdelta)|delta|[Parameters](#Parametersusers.contactsdelta)|Not Found|
+
+### <a name="CommandsInusers.contactFolders">Commands in `az usersfunctions userscontactfolder` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscontactfolder delta](#users.contactFoldersdelta)|delta|[Parameters](#Parametersusers.contactFoldersdelta)|Not Found|
+
+### <a name="CommandsInusers.contactFolders.childFolders">Commands in `az usersfunctions userscontactfolderschildfolder` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscontactfolderschildfolder delta](#users.contactFolders.childFoldersdelta)|delta|[Parameters](#Parametersusers.contactFolders.childFoldersdelta)|Not Found|
+
+### <a name="CommandsInusers.contactFolders.contacts">Commands in `az usersfunctions userscontactfolderscontact` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userscontactfolderscontact delta](#users.contactFolders.contactsdelta)|delta|[Parameters](#Parametersusers.contactFolders.contactsdelta)|Not Found|
+
+### <a name="CommandsInusers.events">Commands in `az usersfunctions usersevent` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersevent delta](#users.eventsdelta)|delta|[Parameters](#Parametersusers.eventsdelta)|Not Found|
+
+### <a name="CommandsInusers.events.calendar">Commands in `az usersfunctions userseventscalendar` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userseventscalendar allowed-calendar-sharing-role](#users.events.calendarallowedCalendarSharingRoles)|allowedCalendarSharingRoles|[Parameters](#Parametersusers.events.calendarallowedCalendarSharingRoles)|Not Found|
+
+### <a name="CommandsInusers.events.calendar.events">Commands in `az usersfunctions userseventscalendarevent` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userseventscalendarevent delta](#users.events.calendar.eventsdelta)|delta|[Parameters](#Parametersusers.events.calendar.eventsdelta)|Not Found|
+
+### <a name="CommandsInusers.events.calendar.calendarView">Commands in `az usersfunctions userseventscalendarview` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userseventscalendarview delta](#users.events.calendar.calendarViewdelta)|delta|[Parameters](#Parametersusers.events.calendar.calendarViewdelta)|Not Found|
+
+### <a name="CommandsInusers.events.exceptionOccurrences">Commands in `az usersfunctions userseventsexceptionoccurrence` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userseventsexceptionoccurrence delta](#users.events.exceptionOccurrencesdelta)|delta|[Parameters](#Parametersusers.events.exceptionOccurrencesdelta)|Not Found|
+
+### <a name="CommandsInusers.events.instances">Commands in `az usersfunctions userseventsinstance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userseventsinstance delta](#users.events.instancesdelta)|delta|[Parameters](#Parametersusers.events.instancesdelta)|Not Found|
+
+### <a name="CommandsInusers.mailFolders">Commands in `az usersfunctions usersmailfolder` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersmailfolder delta](#users.mailFoldersdelta)|delta|[Parameters](#Parametersusers.mailFoldersdelta)|Not Found|
+
+### <a name="CommandsInusers.mailFolders.childFolders">Commands in `az usersfunctions usersmailfolderschildfolder` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersmailfolderschildfolder delta](#users.mailFolders.childFoldersdelta)|delta|[Parameters](#Parametersusers.mailFolders.childFoldersdelta)|Not Found|
+
+### <a name="CommandsInusers.mailFolders.messages">Commands in `az usersfunctions usersmailfoldersmessage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersmailfoldersmessage delta](#users.mailFolders.messagesdelta)|delta|[Parameters](#Parametersusers.mailFolders.messagesdelta)|Not Found|
+
+### <a name="CommandsInusers.managedAppRegistrations">Commands in `az usersfunctions usersmanagedappregistration` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersmanagedappregistration show-user-id-with-flagged-app-registration](#users.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration)|getUserIdsWithFlaggedAppRegistration|[Parameters](#Parametersusers.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration)|Not Found|
+
+### <a name="CommandsInusers.managedDevices">Commands in `az usersfunctions usersmanageddevice` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersmanageddevice show-file-vault-key](#users.managedDevicesgetFileVaultKey)|getFileVaultKey|[Parameters](#Parametersusers.managedDevicesgetFileVaultKey)|Not Found|
+|[az usersfunctions usersmanageddevice show-non-compliant-setting](#users.managedDevicesgetNonCompliantSettings)|getNonCompliantSettings|[Parameters](#Parametersusers.managedDevicesgetNonCompliantSettings)|Not Found|
+
+### <a name="CommandsInusers.messages">Commands in `az usersfunctions usersmessage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersmessage delta](#users.messagesdelta)|delta|[Parameters](#Parametersusers.messagesdelta)|Not Found|
+
+### <a name="CommandsInusers.onenote.notebooks">Commands in `az usersfunctions usersonenotenotebook` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotenotebook show-recent-notebook](#users.onenote.notebooksgetRecentNotebooks)|getRecentNotebooks|[Parameters](#Parametersusers.onenote.notebooksgetRecentNotebooks)|Not Found|
+
+### <a name="CommandsInusers.onenote.notebooks.sectionGroups.sections.pages">Commands in `az usersfunctions usersonenotenotebookssectiongroupssectionspage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotenotebookssectiongroupssectionspage preview](#users.onenote.notebooks.sectionGroups.sections.pagespreview)|preview|[Parameters](#Parametersusers.onenote.notebooks.sectionGroups.sections.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.notebooks.sections.pages">Commands in `az usersfunctions usersonenotenotebookssectionspage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotenotebookssectionspage preview](#users.onenote.notebooks.sections.pagespreview)|preview|[Parameters](#Parametersusers.onenote.notebooks.sections.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.pages">Commands in `az usersfunctions usersonenotepage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotepage preview](#users.onenote.pagespreview)|preview|[Parameters](#Parametersusers.onenote.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.pages.parentNotebook.sectionGroups.sections.pages">Commands in `az usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage preview](#users.onenote.pages.parentNotebook.sectionGroups.sections.pagespreview)|preview|[Parameters](#Parametersusers.onenote.pages.parentNotebook.sectionGroups.sections.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.pages.parentNotebook.sections.pages">Commands in `az usersfunctions usersonenotepagesparentnotebooksectionspage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotepagesparentnotebooksectionspage preview](#users.onenote.pages.parentNotebook.sections.pagespreview)|preview|[Parameters](#Parametersusers.onenote.pages.parentNotebook.sections.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.pages.parentSection.pages">Commands in `az usersfunctions usersonenotepagesparentsectionpage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotepagesparentsectionpage preview](#users.onenote.pages.parentSection.pagespreview)|preview|[Parameters](#Parametersusers.onenote.pages.parentSection.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.sectionGroups.parentNotebook.sections.pages">Commands in `az usersfunctions usersonenotesectiongroupsparentnotebooksectionspage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotesectiongroupsparentnotebooksectionspage preview](#users.onenote.sectionGroups.parentNotebook.sections.pagespreview)|preview|[Parameters](#Parametersusers.onenote.sectionGroups.parentNotebook.sections.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.sectionGroups.sections.pages">Commands in `az usersfunctions usersonenotesectiongroupssectionspage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotesectiongroupssectionspage preview](#users.onenote.sectionGroups.sections.pagespreview)|preview|[Parameters](#Parametersusers.onenote.sectionGroups.sections.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.onenote.sections.pages">Commands in `az usersfunctions usersonenotesectionspage` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersonenotesectionspage preview](#users.onenote.sections.pagespreview)|preview|[Parameters](#Parametersusers.onenote.sections.pagespreview)|Not Found|
+
+### <a name="CommandsInusers.outlook">Commands in `az usersfunctions usersoutlook` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersoutlook supported-language](#users.outlooksupportedLanguages)|supportedLanguages|[Parameters](#Parametersusers.outlooksupportedLanguages)|Not Found|
+|[az usersfunctions usersoutlook supported-time-zone-ee48](#users.outlooksupportedTimeZones-ee48)|supportedTimeZones-ee48|[Parameters](#Parametersusers.outlooksupportedTimeZones-ee48)|Not Found|
+|[az usersfunctions usersoutlook supported-time-zones51-c6](#users.outlooksupportedTimeZones-51c6)|supportedTimeZones-51c6|[Parameters](#Parametersusers.outlooksupportedTimeZones-51c6)|Not Found|
+
+### <a name="CommandsInusers.planner.all">Commands in `az usersfunctions usersplannerall` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions usersplannerall delta](#users.planner.alldelta)|delta|[Parameters](#Parametersusers.planner.alldelta)|Not Found|
+
+### <a name="CommandsInusers.todo.lists">Commands in `az usersfunctions userstodolist` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userstodolist delta](#users.todo.listsdelta)|delta|[Parameters](#Parametersusers.todo.listsdelta)|Not Found|
+
+### <a name="CommandsInusers.todo.lists.tasks">Commands in `az usersfunctions userstodoliststask` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az usersfunctions userstodoliststask delta](#users.todo.lists.tasksdelta)|delta|[Parameters](#Parametersusers.todo.lists.tasksdelta)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az usersfunctions user`
+#### <a name="usersdelta">Command `az usersfunctions user delta`</a>
+
+##### <a name="Parametersusersdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersexportDeviceAndAppManagementData-d390">Command `az usersfunctions user export-device-and-app-management-data-d390`</a>
+
+##### <a name="ParametersusersexportDeviceAndAppManagementData-d390">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--user**|string||user|User|
 
-### usersfunctions delta
+#### <a name="usersexportDeviceAndAppManagementData-623c">Command `az usersfunctions user export-device-and-app-management-data623-c`</a>
 
-delta a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.todo.lists|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions export-device-and-app-management-data-d390
-
-export-device-and-app-management-data-d390 a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|export-device-and-app-management-data-d390|exportDeviceAndAppManagementData-d390|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions export-device-and-app-management-data623-c
-
-export-device-and-app-management-data623-c a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|export-device-and-app-management-data623-c|exportDeviceAndAppManagementData-623c|
-
-#### Parameters
+##### <a name="ParametersusersexportDeviceAndAppManagementData-623c">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--skip**|integer||skip|skip|
 |**--top**|integer||top|top|
 
-### usersfunctions find-room-ac49
+#### <a name="usersfindRooms-ac49">Command `az usersfunctions user find-room-ac49`</a>
 
-find-room-ac49 a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|find-room-ac49|findRooms-ac49|
-
-#### Parameters
+##### <a name="ParametersusersfindRooms-ac49">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--room-list**|string||room_list|RoomList|
 
-### usersfunctions find-room-d266
+#### <a name="usersfindRooms-d266">Command `az usersfunctions user find-room-d266`</a>
 
-find-room-d266 a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|find-room-d266|findRooms-d266|
-
-#### Parameters
+##### <a name="ParametersusersfindRooms-d266">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 
-### usersfunctions find-room-list
+#### <a name="usersfindRoomLists">Command `az usersfunctions user find-room-list`</a>
 
-find-room-list a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|find-room-list|findRoomLists|
-
-#### Parameters
+##### <a name="ParametersusersfindRoomLists">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 
-### usersfunctions get-effective-device-enrollment-configuration
+#### <a name="usersisManagedAppUserBlocked">Command `az usersfunctions user is-managed-app-user-blocked`</a>
 
-get-effective-device-enrollment-configuration a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-effective-device-enrollment-configuration|getEffectiveDeviceEnrollmentConfigurations|
-
-#### Parameters
+##### <a name="ParametersusersisManagedAppUserBlocked">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 
-### usersfunctions get-file-vault-key
+#### <a name="usersreminderView">Command `az usersfunctions user reminder-view`</a>
 
-get-file-vault-key a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-file-vault-key|getFileVaultKey|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-
-### usersfunctions get-logged-on-managed-device
-
-get-logged-on-managed-device a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-logged-on-managed-device|getLoggedOnManagedDevices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions get-managed-app-blocked-user
-
-get-managed-app-blocked-user a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-app-blocked-user|getManagedAppBlockedUsers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### usersfunctions get-managed-app-diagnostic-statuses
-
-get-managed-app-diagnostic-statuses a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-app-diagnostic-statuses|getManagedAppDiagnosticStatuses|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions get-managed-app-policy
-
-get-managed-app-policy a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-app-policy|getManagedAppPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions get-managed-device-with-app-failure
-
-get-managed-device-with-app-failure a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-device-with-app-failure|getManagedDevicesWithAppFailures|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions get-managed-device-with-failed-or-pending-app
-
-get-managed-device-with-failed-or-pending-app a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-device-with-failed-or-pending-app|getManagedDevicesWithFailedOrPendingApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions get-non-compliant-setting
-
-get-non-compliant-setting a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-non-compliant-setting|getNonCompliantSettings|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-
-### usersfunctions get-recent-notebook
-
-get-recent-notebook a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.onenote.notebooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-recent-notebook|getRecentNotebooks|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--include-personal-notebooks**|boolean||include_personal_notebooks|includePersonalNotebooks|
-
-### usersfunctions get-user-id-with-flagged-app-registration
-
-get-user-id-with-flagged-app-registration a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-id-with-flagged-app-registration|getUserIdsWithFlaggedAppRegistration|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions is-managed-app-user-blocked
-
-is-managed-app-user-blocked a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|is-managed-app-user-blocked|isManagedAppUserBlocked|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions preview
-
-preview a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.onenote.sections.pages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|preview|preview|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
-|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
-
-### usersfunctions recent
-
-recent a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.activities|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|recent|recent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-
-### usersfunctions reminder-view
-
-reminder-view a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|reminder-view|reminderView|
-
-#### Parameters
+##### <a name="ParametersusersreminderView">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--start-date-time**|string||start_date_time|StartDateTime|
 |**--end-date-time**|string||end_date_time|EndDateTime|
 
-### usersfunctions supported-language
+#### <a name="usersgetEffectiveDeviceEnrollmentConfigurations">Command `az usersfunctions user show-effective-device-enrollment-configuration`</a>
 
-supported-language a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.outlook|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|supported-language|supportedLanguages|
-
-#### Parameters
+##### <a name="ParametersusersgetEffectiveDeviceEnrollmentConfigurations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 
-### usersfunctions supported-time-zone-ee48
+#### <a name="usersgetLoggedOnManagedDevices">Command `az usersfunctions user show-logged-on-managed-device`</a>
 
-supported-time-zone-ee48 a usersfunctions.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.outlook|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|supported-time-zone-ee48|supportedTimeZones-ee48|
-
-#### Parameters
+##### <a name="ParametersusersgetLoggedOnManagedDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 
-### usersfunctions supported-time-zones51-c6
+#### <a name="usersgetManagedAppBlockedUsers">Command `az usersfunctions user show-managed-app-blocked-user`</a>
 
-supported-time-zones51-c6 a usersfunctions.
+##### <a name="ParametersusersgetManagedAppBlockedUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersgetManagedAppDiagnosticStatuses">Command `az usersfunctions user show-managed-app-diagnostic-statuses`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|usersfunctions|users.outlook|
+##### <a name="ParametersusersgetManagedAppDiagnosticStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|supported-time-zones51-c6|supportedTimeZones-51c6|
+#### <a name="usersgetManagedAppPolicies">Command `az usersfunctions user show-managed-app-policy`</a>
 
-#### Parameters
+##### <a name="ParametersusersgetManagedAppPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+#### <a name="usersgetManagedDevicesWithAppFailures">Command `az usersfunctions user show-managed-device-with-app-failure`</a>
+
+##### <a name="ParametersusersgetManagedDevicesWithAppFailures">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+#### <a name="usersgetManagedDevicesWithFailedOrPendingApps">Command `az usersfunctions user show-managed-device-with-failed-or-pending-app`</a>
+
+##### <a name="ParametersusersgetManagedDevicesWithFailedOrPendingApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions usersactivity`
+#### <a name="users.activitiesrecent">Command `az usersfunctions usersactivity recent`</a>
+
+##### <a name="Parametersusers.activitiesrecent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userscalendar`
+#### <a name="users.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendar`
+#### <a name="users.calendarsallowedCalendarSharingRoles">Command `az usersfunctions userscalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendarsallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendarevent`
+#### <a name="users.calendar.eventsdelta">Command `az usersfunctions userscalendarevent delta`</a>
+
+##### <a name="Parametersusers.calendar.eventsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userscalendareventscalendar`
+#### <a name="users.calendar.events.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendareventscalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendar.events.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendareventsexceptionoccurrence`
+#### <a name="users.calendar.events.exceptionOccurrencesdelta">Command `az usersfunctions userscalendareventsexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.calendar.events.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendareventsinstance`
+#### <a name="users.calendar.events.instancesdelta">Command `az usersfunctions userscalendareventsinstance delta`</a>
+
+##### <a name="Parametersusers.calendar.events.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendargroupscalendar`
+#### <a name="users.calendarGroups.calendarsallowedCalendarSharingRoles">Command `az usersfunctions userscalendargroupscalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendarsallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendargroupscalendarscalendarview`
+#### <a name="users.calendarGroups.calendars.calendarViewdelta">Command `az usersfunctions userscalendargroupscalendarscalendarview delta`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarViewdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+
+### group `az usersfunctions userscalendargroupscalendarscalendarviewcalendar`
+#### <a name="users.calendarGroups.calendars.calendarView.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendargroupscalendarscalendarviewcalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarView.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendargroupscalendarscalendarviewexceptionoccurrence`
+#### <a name="users.calendarGroups.calendars.calendarView.exceptionOccurrencesdelta">Command `az usersfunctions userscalendargroupscalendarscalendarviewexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarView.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendargroupscalendarscalendarviewinstance`
+#### <a name="users.calendarGroups.calendars.calendarView.instancesdelta">Command `az usersfunctions userscalendargroupscalendarscalendarviewinstance delta`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarView.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendargroupscalendarsevent`
+#### <a name="users.calendarGroups.calendars.eventsdelta">Command `az usersfunctions userscalendargroupscalendarsevent delta`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.eventsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+
+### group `az usersfunctions userscalendargroupscalendarseventscalendar`
+#### <a name="users.calendarGroups.calendars.events.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendargroupscalendarseventscalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.events.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendargroupscalendarseventsexceptionoccurrence`
+#### <a name="users.calendarGroups.calendars.events.exceptionOccurrencesdelta">Command `az usersfunctions userscalendargroupscalendarseventsexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.events.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendargroupscalendarseventsinstance`
+#### <a name="users.calendarGroups.calendars.events.instancesdelta">Command `az usersfunctions userscalendargroupscalendarseventsinstance delta`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.events.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarscalendarview`
+#### <a name="users.calendars.calendarViewdelta">Command `az usersfunctions userscalendarscalendarview delta`</a>
+
+##### <a name="Parametersusers.calendars.calendarViewdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+
+### group `az usersfunctions userscalendarscalendarviewcalendar`
+#### <a name="users.calendars.calendarView.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendarscalendarviewcalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendars.calendarView.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendarscalendarviewexceptionoccurrence`
+#### <a name="users.calendars.calendarView.exceptionOccurrencesdelta">Command `az usersfunctions userscalendarscalendarviewexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.calendars.calendarView.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarscalendarviewinstance`
+#### <a name="users.calendars.calendarView.instancesdelta">Command `az usersfunctions userscalendarscalendarviewinstance delta`</a>
+
+##### <a name="Parametersusers.calendars.calendarView.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarsevent`
+#### <a name="users.calendars.eventsdelta">Command `az usersfunctions userscalendarsevent delta`</a>
+
+##### <a name="Parametersusers.calendars.eventsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+
+### group `az usersfunctions userscalendarseventscalendar`
+#### <a name="users.calendars.events.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendarseventscalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendars.events.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendarseventsexceptionoccurrence`
+#### <a name="users.calendars.events.exceptionOccurrencesdelta">Command `az usersfunctions userscalendarseventsexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.calendars.events.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarseventsinstance`
+#### <a name="users.calendars.events.instancesdelta">Command `az usersfunctions userscalendarseventsinstance delta`</a>
+
+##### <a name="Parametersusers.calendars.events.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarview`
+#### <a name="users.calendar.calendarViewdelta">Command `az usersfunctions userscalendarview delta`</a>
+
+##### <a name="Parametersusers.calendar.calendarViewdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userscalendarview`
+#### <a name="users.calendarViewdelta">Command `az usersfunctions userscalendarview delta`</a>
+
+##### <a name="Parametersusers.calendarViewdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userscalendarviewcalendar`
+#### <a name="users.calendar.calendarView.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendar.calendarView.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendarviewcalendar`
+#### <a name="users.calendarView.calendarallowedCalendarSharingRoles">Command `az usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.calendarView.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userscalendarviewcalendarevent`
+#### <a name="users.calendarView.calendar.eventsdelta">Command `az usersfunctions userscalendarviewcalendarevent delta`</a>
+
+##### <a name="Parametersusers.calendarView.calendar.eventsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarviewcalendarview`
+#### <a name="users.calendarView.calendar.calendarViewdelta">Command `az usersfunctions userscalendarviewcalendarview delta`</a>
+
+##### <a name="Parametersusers.calendarView.calendar.calendarViewdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarviewexceptionoccurrence`
+#### <a name="users.calendar.calendarView.exceptionOccurrencesdelta">Command `az usersfunctions userscalendarviewexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.calendar.calendarView.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarviewexceptionoccurrence`
+#### <a name="users.calendarView.exceptionOccurrencesdelta">Command `az usersfunctions userscalendarviewexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.calendarView.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarviewinstance`
+#### <a name="users.calendar.calendarView.instancesdelta">Command `az usersfunctions userscalendarviewinstance delta`</a>
+
+##### <a name="Parametersusers.calendar.calendarView.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscalendarviewinstance`
+#### <a name="users.calendarView.instancesdelta">Command `az usersfunctions userscalendarviewinstance delta`</a>
+
+##### <a name="Parametersusers.calendarView.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userscontact`
+#### <a name="users.contactsdelta">Command `az usersfunctions userscontact delta`</a>
+
+##### <a name="Parametersusers.contactsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userscontactfolder`
+#### <a name="users.contactFoldersdelta">Command `az usersfunctions userscontactfolder delta`</a>
+
+##### <a name="Parametersusers.contactFoldersdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userscontactfolderschildfolder`
+#### <a name="users.contactFolders.childFoldersdelta">Command `az usersfunctions userscontactfolderschildfolder delta`</a>
+
+##### <a name="Parametersusers.contactFolders.childFoldersdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+
+### group `az usersfunctions userscontactfolderscontact`
+#### <a name="users.contactFolders.contactsdelta">Command `az usersfunctions userscontactfolderscontact delta`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+
+### group `az usersfunctions usersevent`
+#### <a name="users.eventsdelta">Command `az usersfunctions usersevent delta`</a>
+
+##### <a name="Parametersusers.eventsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userseventscalendar`
+#### <a name="users.events.calendarallowedCalendarSharingRoles">Command `az usersfunctions userseventscalendar allowed-calendar-sharing-role`</a>
+
+##### <a name="Parametersusers.events.calendarallowedCalendarSharingRoles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--user**|string||user|User|
+
+### group `az usersfunctions userseventscalendarevent`
+#### <a name="users.events.calendar.eventsdelta">Command `az usersfunctions userseventscalendarevent delta`</a>
+
+##### <a name="Parametersusers.events.calendar.eventsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userseventscalendarview`
+#### <a name="users.events.calendar.calendarViewdelta">Command `az usersfunctions userseventscalendarview delta`</a>
+
+##### <a name="Parametersusers.events.calendar.calendarViewdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userseventsexceptionoccurrence`
+#### <a name="users.events.exceptionOccurrencesdelta">Command `az usersfunctions userseventsexceptionoccurrence delta`</a>
+
+##### <a name="Parametersusers.events.exceptionOccurrencesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions userseventsinstance`
+#### <a name="users.events.instancesdelta">Command `az usersfunctions userseventsinstance delta`</a>
+
+##### <a name="Parametersusers.events.instancesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+
+### group `az usersfunctions usersmailfolder`
+#### <a name="users.mailFoldersdelta">Command `az usersfunctions usersmailfolder delta`</a>
+
+##### <a name="Parametersusers.mailFoldersdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions usersmailfolderschildfolder`
+#### <a name="users.mailFolders.childFoldersdelta">Command `az usersfunctions usersmailfolderschildfolder delta`</a>
+
+##### <a name="Parametersusers.mailFolders.childFoldersdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+
+### group `az usersfunctions usersmailfoldersmessage`
+#### <a name="users.mailFolders.messagesdelta">Command `az usersfunctions usersmailfoldersmessage delta`</a>
+
+##### <a name="Parametersusers.mailFolders.messagesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+
+### group `az usersfunctions usersmanagedappregistration`
+#### <a name="users.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration">Command `az usersfunctions usersmanagedappregistration show-user-id-with-flagged-app-registration`</a>
+
+##### <a name="Parametersusers.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions usersmanageddevice`
+#### <a name="users.managedDevicesgetFileVaultKey">Command `az usersfunctions usersmanageddevice show-file-vault-key`</a>
+
+##### <a name="Parametersusers.managedDevicesgetFileVaultKey">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+
+#### <a name="users.managedDevicesgetNonCompliantSettings">Command `az usersfunctions usersmanageddevice show-non-compliant-setting`</a>
+
+##### <a name="Parametersusers.managedDevicesgetNonCompliantSettings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+
+### group `az usersfunctions usersmessage`
+#### <a name="users.messagesdelta">Command `az usersfunctions usersmessage delta`</a>
+
+##### <a name="Parametersusers.messagesdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions usersonenotenotebook`
+#### <a name="users.onenote.notebooksgetRecentNotebooks">Command `az usersfunctions usersonenotenotebook show-recent-notebook`</a>
+
+##### <a name="Parametersusers.onenote.notebooksgetRecentNotebooks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--include-personal-notebooks**|boolean||include_personal_notebooks|includePersonalNotebooks|
+
+### group `az usersfunctions usersonenotenotebookssectiongroupssectionspage`
+#### <a name="users.onenote.notebooks.sectionGroups.sections.pagespreview">Command `az usersfunctions usersonenotenotebookssectiongroupssectionspage preview`</a>
+
+##### <a name="Parametersusers.onenote.notebooks.sectionGroups.sections.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--notebook-id**|string|key: id of notebook|notebook_id|notebook-id|
+|**--section-group-id**|string|key: id of sectionGroup|section_group_id|sectionGroup-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+
+### group `az usersfunctions usersonenotenotebookssectionspage`
+#### <a name="users.onenote.notebooks.sections.pagespreview">Command `az usersfunctions usersonenotenotebookssectionspage preview`</a>
+
+##### <a name="Parametersusers.onenote.notebooks.sections.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--notebook-id**|string|key: id of notebook|notebook_id|notebook-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+
+### group `az usersfunctions usersonenotepage`
+#### <a name="users.onenote.pagespreview">Command `az usersfunctions usersonenotepage preview`</a>
+
+##### <a name="Parametersusers.onenote.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+
+### group `az usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage`
+#### <a name="users.onenote.pages.parentNotebook.sectionGroups.sections.pagespreview">Command `az usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage preview`</a>
+
+##### <a name="Parametersusers.onenote.pages.parentNotebook.sectionGroups.sections.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+|**--section-group-id**|string|key: id of sectionGroup|section_group_id|sectionGroup-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id1**|string|key: id of onenotePage|onenote_page_id1|onenotePage-id1|
+
+### group `az usersfunctions usersonenotepagesparentnotebooksectionspage`
+#### <a name="users.onenote.pages.parentNotebook.sections.pagespreview">Command `az usersfunctions usersonenotepagesparentnotebooksectionspage preview`</a>
+
+##### <a name="Parametersusers.onenote.pages.parentNotebook.sections.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id1**|string|key: id of onenotePage|onenote_page_id1|onenotePage-id1|
+
+### group `az usersfunctions usersonenotepagesparentsectionpage`
+#### <a name="users.onenote.pages.parentSection.pagespreview">Command `az usersfunctions usersonenotepagesparentsectionpage preview`</a>
+
+##### <a name="Parametersusers.onenote.pages.parentSection.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+|**--onenote-page-id1**|string|key: id of onenotePage|onenote_page_id1|onenotePage-id1|
+
+### group `az usersfunctions usersonenotesectiongroupsparentnotebooksectionspage`
+#### <a name="users.onenote.sectionGroups.parentNotebook.sections.pagespreview">Command `az usersfunctions usersonenotesectiongroupsparentnotebooksectionspage preview`</a>
+
+##### <a name="Parametersusers.onenote.sectionGroups.parentNotebook.sections.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--section-group-id**|string|key: id of sectionGroup|section_group_id|sectionGroup-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+
+### group `az usersfunctions usersonenotesectiongroupssectionspage`
+#### <a name="users.onenote.sectionGroups.sections.pagespreview">Command `az usersfunctions usersonenotesectiongroupssectionspage preview`</a>
+
+##### <a name="Parametersusers.onenote.sectionGroups.sections.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--section-group-id**|string|key: id of sectionGroup|section_group_id|sectionGroup-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+
+### group `az usersfunctions usersonenotesectionspage`
+#### <a name="users.onenote.sections.pagespreview">Command `az usersfunctions usersonenotesectionspage preview`</a>
+
+##### <a name="Parametersusers.onenote.sections.pagespreview">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+
+### group `az usersfunctions usersoutlook`
+#### <a name="users.outlooksupportedLanguages">Command `az usersfunctions usersoutlook supported-language`</a>
+
+##### <a name="Parametersusers.outlooksupportedLanguages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+#### <a name="users.outlooksupportedTimeZones-ee48">Command `az usersfunctions usersoutlook supported-time-zone-ee48`</a>
+
+##### <a name="Parametersusers.outlooksupportedTimeZones-ee48">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+#### <a name="users.outlooksupportedTimeZones-51c6">Command `az usersfunctions usersoutlook supported-time-zones51-c6`</a>
+
+##### <a name="Parametersusers.outlooksupportedTimeZones-51c6">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--time-zone-standard**|choice||time_zone_standard|TimeZoneStandard|
+
+### group `az usersfunctions usersplannerall`
+#### <a name="users.planner.alldelta">Command `az usersfunctions usersplannerall delta`</a>
+
+##### <a name="Parametersusers.planner.alldelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userstodolist`
+#### <a name="users.todo.listsdelta">Command `az usersfunctions userstodolist delta`</a>
+
+##### <a name="Parametersusers.todo.listsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+
+### group `az usersfunctions userstodoliststask`
+#### <a name="users.todo.lists.tasksdelta">Command `az usersfunctions userstodoliststask delta`</a>
+
+##### <a name="Parametersusers.todo.lists.tasksdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--todo-task-list-id**|string|key: id of todoTaskList|todo_task_list_id|todoTaskList-id|

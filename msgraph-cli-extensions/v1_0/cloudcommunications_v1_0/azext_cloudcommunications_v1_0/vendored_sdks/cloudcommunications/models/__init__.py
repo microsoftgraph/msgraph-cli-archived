@@ -7,57 +7,57 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfOnlineMeeting
-    from ._models_py3 import MicrosoftGraphAudioConferencing
-    from ._models_py3 import MicrosoftGraphChatInfo
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphIdentity
-    from ._models_py3 import MicrosoftGraphIdentitySet
-    from ._models_py3 import MicrosoftGraphItemBody
-    from ._models_py3 import MicrosoftGraphMeetingParticipantInfo
-    from ._models_py3 import MicrosoftGraphMeetingParticipants
-    from ._models_py3 import MicrosoftGraphOnlineMeeting
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionofonlinemeeting
+    from ._models_py3 import microsoftgraphaudioconferencing
+    from ._models_py3 import microsoftgraphchatinfo
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphidentity
+    from ._models_py3 import microsoftgraphidentityset
+    from ._models_py3 import microsoftgraphitembody
+    from ._models_py3 import microsoftgraphmeetingparticipantinfo
+    from ._models_py3 import microsoftgraphmeetingparticipants
+    from ._models_py3 import microsoftgraphonlinemeeting
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfOnlineMeeting  # type: ignore
-    from ._models import MicrosoftGraphAudioConferencing  # type: ignore
-    from ._models import MicrosoftGraphChatInfo  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphIdentity  # type: ignore
-    from ._models import MicrosoftGraphIdentitySet  # type: ignore
-    from ._models import MicrosoftGraphItemBody  # type: ignore
-    from ._models import MicrosoftGraphMeetingParticipantInfo  # type: ignore
-    from ._models import MicrosoftGraphMeetingParticipants  # type: ignore
-    from ._models import MicrosoftGraphOnlineMeeting  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionofonlinemeeting  # type: ignore
+    from ._models import microsoftgraphaudioconferencing  # type: ignore
+    from ._models import microsoftgraphchatinfo  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphidentity  # type: ignore
+    from ._models import microsoftgraphidentityset  # type: ignore
+    from ._models import microsoftgraphitembody  # type: ignore
+    from ._models import microsoftgraphmeetingparticipantinfo  # type: ignore
+    from ._models import microsoftgraphmeetingparticipants  # type: ignore
+    from ._models import microsoftgraphonlinemeeting  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._cloud_communications_enums import (
-    Get2ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    MicrosoftGraphBodyType,
+    Get2itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Microsoftgraphbodytype,
 )
 
 __all__ = [
-    'CollectionOfOnlineMeeting',
-    'MicrosoftGraphAudioConferencing',
-    'MicrosoftGraphChatInfo',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphIdentity',
-    'MicrosoftGraphIdentitySet',
-    'MicrosoftGraphItemBody',
-    'MicrosoftGraphMeetingParticipantInfo',
-    'MicrosoftGraphMeetingParticipants',
-    'MicrosoftGraphOnlineMeeting',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
-    'Get2ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'MicrosoftGraphBodyType',
+    'collectionofonlinemeeting',
+    'microsoftgraphaudioconferencing',
+    'microsoftgraphchatinfo',
+    'microsoftgraphentity',
+    'microsoftgraphidentity',
+    'microsoftgraphidentityset',
+    'microsoftgraphitembody',
+    'microsoftgraphmeetingparticipantinfo',
+    'microsoftgraphmeetingparticipants',
+    'microsoftgraphonlinemeeting',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
+    'Get2itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Microsoftgraphbodytype',
 ]

@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,27 +18,27 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import PeopleConfiguration
-from .operations import UserOperations
-from .operations import UserInsightOperations
-from .operations import UserInsightSharedOperations
-from .operations import UserInsightTrendingOperations
-from .operations import UserInsightUsedOperations
+from .operations import usersOperations
+from .operations import usersinsightsOperations
+from .operations import usersinsightssharedOperations
+from .operations import usersinsightstrendingOperations
+from .operations import usersinsightsusedOperations
 from . import models
 
 
 class People(object):
     """People.
 
-    :ivar user: UserOperations operations
-    :vartype user: people.operations.UserOperations
-    :ivar user_insight: UserInsightOperations operations
-    :vartype user_insight: people.operations.UserInsightOperations
-    :ivar user_insight_shared: UserInsightSharedOperations operations
-    :vartype user_insight_shared: people.operations.UserInsightSharedOperations
-    :ivar user_insight_trending: UserInsightTrendingOperations operations
-    :vartype user_insight_trending: people.operations.UserInsightTrendingOperations
-    :ivar user_insight_used: UserInsightUsedOperations operations
-    :vartype user_insight_used: people.operations.UserInsightUsedOperations
+    :ivar users: usersOperations operations
+    :vartype users: people.operations.usersOperations
+    :ivar usersinsights: usersinsightsOperations operations
+    :vartype usersinsights: people.operations.usersinsightsOperations
+    :ivar usersinsightsshared: usersinsightssharedOperations operations
+    :vartype usersinsightsshared: people.operations.usersinsightssharedOperations
+    :ivar usersinsightstrending: usersinsightstrendingOperations operations
+    :vartype usersinsightstrending: people.operations.usersinsightstrendingOperations
+    :ivar usersinsightsused: usersinsightsusedOperations operations
+    :vartype usersinsightsused: people.operations.usersinsightsusedOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -52,7 +52,6 @@ class People(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -70,21 +69,22 @@ class People(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = PeopleConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight = UserInsightOperations(
+        self.usersinsights = usersinsightsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight_shared = UserInsightSharedOperations(
+        self.usersinsightsshared = usersinsightssharedOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight_trending = UserInsightTrendingOperations(
+        self.usersinsightstrending = usersinsightstrendingOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight_used = UserInsightUsedOperations(
+        self.usersinsightsused = usersinsightsusedOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

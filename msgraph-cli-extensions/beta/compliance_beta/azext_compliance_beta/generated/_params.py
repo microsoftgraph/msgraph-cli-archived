@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -16,7 +17,7 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_compliance_beta.action import (
-    AddLastModifiedByApplication,
+    AddApplication,
     AddLastIndexOperation,
     AddUserSources
 )
@@ -24,30 +25,27 @@ from azext_compliance_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('compliance get-compliance') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('compliance compliance show-compliance') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance update-compliance') as c:
-        c.argument('ediscovery_id', type=str, help='Read-only.')
-        c.argument('ediscovery_cases', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+    with self.argument_context('compliance compliance update-compliance') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.', arg_group='Ediscovery')
+        c.argument('cases', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Ediscovery')
 
-    with self.argument_context('compliance delete') as c:
+    with self.argument_context('compliance compliance delete-ediscovery') as c:
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance get-ediscovery') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('compliance compliance show-ediscovery') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance update-ediscovery') as c:
+    with self.argument_context('compliance compliance update-ediscovery') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('cases', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('compliance delete') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('compliance create-case') as c:
+    with self.argument_context('compliance complianceediscovery create-case') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('closed_date_time', help='')
         c.argument('created_date_time', help='')
@@ -55,28 +53,35 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('external_id', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['unknown', 'active', 'pendingDelete', 'closing', 'closed', ''
+        c.argument('status', arg_type=get_enum_type(['unknown', 'active', 'pendingDelete', 'closing', 'closed',
                                                      'closedWithError']), help='')
         c.argument('custodians', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('review_sets', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('closed_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('closed_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('closed_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Closed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Closed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Closed By')
 
-    with self.argument_context('compliance get-case') as c:
+    with self.argument_context('compliance complianceediscovery delete-case') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance list-case') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('compliance complianceediscovery list-case') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance update-case') as c:
+    with self.argument_context('compliance complianceediscovery show-case') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscovery update-case') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('closed_date_time', help='')
@@ -85,27 +90,24 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('external_id', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['unknown', 'active', 'pendingDelete', 'closing', 'closed', ''
+        c.argument('status', arg_type=get_enum_type(['unknown', 'active', 'pendingDelete', 'closing', 'closed',
                                                      'closedWithError']), help='')
         c.argument('custodians', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('review_sets', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('closed_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('closed_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('closed_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Closed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Closed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Closed By')
 
-    with self.argument_context('compliance delete') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('review_set_id', type=str, help='key: id of reviewSet')
-
-    with self.argument_context('compliance close') as c:
+    with self.argument_context('compliance complianceediscoverycase close') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
 
-    with self.argument_context('compliance create-custodian') as c:
+    with self.argument_context('compliance complianceediscoverycase create-custodian') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('acknowledged_date_time', help='')
@@ -116,50 +118,60 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('released_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['active', 'released']), help='')
-        c.argument('last_index_operation', action=AddLastIndexOperation, nargs='*', help='caseIndexOperation')
+        c.argument('last_index_operation', action=AddLastIndexOperation, nargs='+', help='caseIndexOperation')
         c.argument('site_sources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('unified_group_sources', type=validate_file_or_dict,
                    help=' Expected value: json-string/@json-file.')
-        c.argument('user_sources', action=AddUserSources, nargs='*', help='')
+        c.argument('user_sources', action=AddUserSources, nargs='+', help='')
 
-    with self.argument_context('compliance create-review-set') as c:
+    with self.argument_context('compliance complianceediscoverycase create-review-set') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
         c.argument('queries', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('compliance get-custodian') as c:
+    with self.argument_context('compliance complianceediscoverycase delete-custodian') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance get-review-set') as c:
+    with self.argument_context('compliance complianceediscoverycase delete-review-set') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('review_set_id', type=str, help='key: id of reviewSet')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance list-custodian') as c:
+    with self.argument_context('compliance complianceediscoverycase list-custodian') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance list-review-set') as c:
+    with self.argument_context('compliance complianceediscoverycase list-review-set') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance reopen') as c:
+    with self.argument_context('compliance complianceediscoverycase reopen') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
 
-    with self.argument_context('compliance update-custodian') as c:
+    with self.argument_context('compliance complianceediscoverycase show-custodian') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycase show-review-set') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('review_set_id', type=str, help='key: id of reviewSet')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycase update-custodian') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -171,235 +183,244 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('released_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['active', 'released']), help='')
-        c.argument('last_index_operation', action=AddLastIndexOperation, nargs='*', help='caseIndexOperation')
+        c.argument('last_index_operation', action=AddLastIndexOperation, nargs='+', help='caseIndexOperation')
         c.argument('site_sources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('unified_group_sources', type=validate_file_or_dict,
                    help=' Expected value: json-string/@json-file.')
-        c.argument('user_sources', action=AddUserSources, nargs='*', help='')
+        c.argument('user_sources', action=AddUserSources, nargs='+', help='')
 
-    with self.argument_context('compliance update-review-set') as c:
+    with self.argument_context('compliance complianceediscoverycase update-review-set') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('review_set_id', type=str, help='key: id of reviewSet')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
         c.argument('queries', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('compliance delete') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('site_source_id', type=str, help='key: id of siteSource')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
-        c.argument('user_source_id', type=str, help='key: id of userSource')
-
-    with self.argument_context('compliance activate') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian activate') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
 
-    with self.argument_context('compliance create-site-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian create-site-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('site', type=validate_file_or_dict, help='site Expected value: json-string/@json-file.')
 
-    with self.argument_context('compliance create-unified-group-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian create-unified-group-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('included_sources', arg_type=get_enum_type(['mailbox', 'site']), help='')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('compliance create-user-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian create-user-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('email', type=str, help='')
         c.argument('included_sources', arg_type=get_enum_type(['mailbox', 'site']), help='')
 
-    with self.argument_context('compliance get-last-index-operation') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian delete-ref-last-index-operation') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance get-ref-last-index-operation') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('custodian_id', type=str, help='key: id of custodian')
-
-    with self.argument_context('compliance get-site-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian delete-site-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('site_source_id', type=str, help='key: id of siteSource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance get-unified-group-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian delete-unified-group-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance get-user-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian delete-user-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('user_source_id', type=str, help='key: id of userSource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance list-site-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian list-site-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance list-unified-group-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian list-unified-group-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance list-user-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian list-user-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance release') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian release') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
 
-    with self.argument_context('compliance set-ref-last-index-operation') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian set-ref-last-index-operation') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('compliance update-index') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian show-last-index-operation') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycasescustodian show-ref-last-index-operation') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
 
-    with self.argument_context('compliance update-site-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian show-site-source') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('site_source_id', type=str, help='key: id of siteSource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycasescustodian show-unified-group-source') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycasescustodian show-user-source') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('user_source_id', type=str, help='key: id of userSource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycasescustodian update-index') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+
+    with self.argument_context('compliance complianceediscoverycasescustodian update-site-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('site_source_id', type=str, help='key: id of siteSource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('site', type=validate_file_or_dict, help='site Expected value: json-string/@json-file.')
 
-    with self.argument_context('compliance update-unified-group-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian update-unified-group-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('included_sources', arg_type=get_enum_type(['mailbox', 'site']), help='')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('compliance update-user-source') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodian update-user-source') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('user_source_id', type=str, help='key: id of userSource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('email', type=str, help='')
         c.argument('included_sources', arg_type=get_enum_type(['mailbox', 'site']), help='')
 
-    with self.argument_context('compliance delete') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodianssitesource delete-ref-site') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('site_source_id', type=str, help='key: id of siteSource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance get-ref-site') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('site_source_id', type=str, help='key: id of siteSource')
-
-    with self.argument_context('compliance get-site') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('site_source_id', type=str, help='key: id of siteSource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('compliance set-ref-site') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodianssitesource set-ref-site') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('site_source_id', type=str, help='key: id of siteSource')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('compliance delete') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodianssitesource show-ref-site') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('site_source_id', type=str, help='key: id of siteSource')
+
+    with self.argument_context('compliance complianceediscoverycasescustodianssitesource show-site') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('site_source_id', type=str, help='key: id of siteSource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycasescustodiansunifiedgroupsource delete-ref-group') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance get-group') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('compliance get-ref-group') as c:
-        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('custodian_id', type=str, help='key: id of custodian')
-        c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
-
-    with self.argument_context('compliance set-ref-group') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodiansunifiedgroupsource set-ref-group') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('custodian_id', type=str, help='key: id of custodian')
         c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('compliance delete') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodiansunifiedgroupsource show-group') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
-        c.argument('review_set_id', type=str, help='key: id of reviewSet')
-        c.argument('review_set_query_id', type=str, help='key: id of reviewSetQuery')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance create-query') as c:
+    with self.argument_context('compliance complianceediscoverycasescustodiansunifiedgroupsource show-ref-group') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('custodian_id', type=str, help='key: id of custodian')
+        c.argument('unified_group_source_id', type=str, help='key: id of unifiedGroupSource')
+
+    with self.argument_context('compliance complianceediscoverycasesreviewset create-query') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('review_set_id', type=str, help='key: id of reviewSet')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -407,28 +428,37 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
         c.argument('query', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('compliance get-query') as c:
+    with self.argument_context('compliance complianceediscoverycasesreviewset delete-query') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('review_set_id', type=str, help='key: id of reviewSet')
         c.argument('review_set_query_id', type=str, help='key: id of reviewSetQuery')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('compliance list-query') as c:
+    with self.argument_context('compliance complianceediscoverycasesreviewset list-query') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('review_set_id', type=str, help='key: id of reviewSet')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('compliance update-query') as c:
+    with self.argument_context('compliance complianceediscoverycasesreviewset show-query') as c:
+        c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
+        c.argument('review_set_id', type=str, help='key: id of reviewSet')
+        c.argument('review_set_query_id', type=str, help='key: id of reviewSetQuery')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('compliance complianceediscoverycasesreviewset update-query') as c:
         c.argument('ediscovery_case_id', type=str, help='key: id of ediscoveryCase')
         c.argument('review_set_id', type=str, help='key: id of reviewSet')
         c.argument('review_set_query_id', type=str, help='key: id of reviewSetQuery')
@@ -437,9 +467,12 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
         c.argument('query', type=str, help='')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')

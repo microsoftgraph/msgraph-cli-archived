@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,63 +18,63 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import FilesConfiguration
-from .operations import DriveDriveOperations
-from .operations import DriveOperations
-from .operations import DriveListOperations
-from .operations import DriveListContentTypeOperations
-from .operations import DriveListItemOperations
-from .operations import DriveListItemVersionOperations
-from .operations import GroupOperations
-from .operations import ShareSharedDriveItemOperations
-from .operations import ShareOperations
-from .operations import ShareListOperations
-from .operations import ShareListContentTypeOperations
-from .operations import ShareListItemOperations
-from .operations import ShareListItemVersionOperations
-from .operations import ShareListItemOperations
-from .operations import ShareListItemVersionOperations
-from .operations import SharePermissionOperations
-from .operations import UserOperations
+from .operations import drivesdriveOperations
+from .operations import drivesOperations
+from .operations import driveslistOperations
+from .operations import driveslistcontenttypesOperations
+from .operations import driveslistitemsOperations
+from .operations import driveslistitemsversionsOperations
+from .operations import groupsOperations
+from .operations import sharesshareddriveitemOperations
+from .operations import sharesOperations
+from .operations import shareslistOperations
+from .operations import shareslistcontenttypesOperations
+from .operations import shareslistitemsOperations
+from .operations import shareslistitemsversionsOperations
+from .operations import shareslistitemOperations
+from .operations import shareslistitemversionsOperations
+from .operations import sharespermissionOperations
+from .operations import usersOperations
 from . import models
 
 
 class Files(object):
     """Files.
 
-    :ivar drive_drive: DriveDriveOperations operations
-    :vartype drive_drive: files.operations.DriveDriveOperations
-    :ivar drive: DriveOperations operations
-    :vartype drive: files.operations.DriveOperations
-    :ivar drive_list: DriveListOperations operations
-    :vartype drive_list: files.operations.DriveListOperations
-    :ivar drive_list_content_type: DriveListContentTypeOperations operations
-    :vartype drive_list_content_type: files.operations.DriveListContentTypeOperations
-    :ivar drive_list_item: DriveListItemOperations operations
-    :vartype drive_list_item: files.operations.DriveListItemOperations
-    :ivar drive_list_item_version: DriveListItemVersionOperations operations
-    :vartype drive_list_item_version: files.operations.DriveListItemVersionOperations
-    :ivar group: GroupOperations operations
-    :vartype group: files.operations.GroupOperations
-    :ivar share_shared_drive_item: ShareSharedDriveItemOperations operations
-    :vartype share_shared_drive_item: files.operations.ShareSharedDriveItemOperations
-    :ivar share: ShareOperations operations
-    :vartype share: files.operations.ShareOperations
-    :ivar share_list: ShareListOperations operations
-    :vartype share_list: files.operations.ShareListOperations
-    :ivar share_list_content_type: ShareListContentTypeOperations operations
-    :vartype share_list_content_type: files.operations.ShareListContentTypeOperations
-    :ivar share_list_item: ShareListItemOperations operations
-    :vartype share_list_item: files.operations.ShareListItemOperations
-    :ivar share_list_item_version: ShareListItemVersionOperations operations
-    :vartype share_list_item_version: files.operations.ShareListItemVersionOperations
-    :ivar share_list_item: ShareListItemOperations operations
-    :vartype share_list_item: files.operations.ShareListItemOperations
-    :ivar share_list_item_version: ShareListItemVersionOperations operations
-    :vartype share_list_item_version: files.operations.ShareListItemVersionOperations
-    :ivar share_permission: SharePermissionOperations operations
-    :vartype share_permission: files.operations.SharePermissionOperations
-    :ivar user: UserOperations operations
-    :vartype user: files.operations.UserOperations
+    :ivar drivesdrive: drivesdriveOperations operations
+    :vartype drivesdrive: files.operations.drivesdriveOperations
+    :ivar drives: drivesOperations operations
+    :vartype drives: files.operations.drivesOperations
+    :ivar driveslist: driveslistOperations operations
+    :vartype driveslist: files.operations.driveslistOperations
+    :ivar driveslistcontenttypes: driveslistcontenttypesOperations operations
+    :vartype driveslistcontenttypes: files.operations.driveslistcontenttypesOperations
+    :ivar driveslistitems: driveslistitemsOperations operations
+    :vartype driveslistitems: files.operations.driveslistitemsOperations
+    :ivar driveslistitemsversions: driveslistitemsversionsOperations operations
+    :vartype driveslistitemsversions: files.operations.driveslistitemsversionsOperations
+    :ivar groups: groupsOperations operations
+    :vartype groups: files.operations.groupsOperations
+    :ivar sharesshareddriveitem: sharesshareddriveitemOperations operations
+    :vartype sharesshareddriveitem: files.operations.sharesshareddriveitemOperations
+    :ivar shares: sharesOperations operations
+    :vartype shares: files.operations.sharesOperations
+    :ivar shareslist: shareslistOperations operations
+    :vartype shareslist: files.operations.shareslistOperations
+    :ivar shareslistcontenttypes: shareslistcontenttypesOperations operations
+    :vartype shareslistcontenttypes: files.operations.shareslistcontenttypesOperations
+    :ivar shareslistitems: shareslistitemsOperations operations
+    :vartype shareslistitems: files.operations.shareslistitemsOperations
+    :ivar shareslistitemsversions: shareslistitemsversionsOperations operations
+    :vartype shareslistitemsversions: files.operations.shareslistitemsversionsOperations
+    :ivar shareslistitem: shareslistitemOperations operations
+    :vartype shareslistitem: files.operations.shareslistitemOperations
+    :ivar shareslistitemversions: shareslistitemversionsOperations operations
+    :vartype shareslistitemversions: files.operations.shareslistitemversionsOperations
+    :ivar sharespermission: sharespermissionOperations operations
+    :vartype sharespermission: files.operations.sharespermissionOperations
+    :ivar users: usersOperations operations
+    :vartype users: files.operations.usersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -88,7 +88,6 @@ class Files(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -106,45 +105,46 @@ class Files(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = FilesConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.drive_drive = DriveDriveOperations(
+        self.drivesdrive = drivesdriveOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive = DriveOperations(
+        self.drives = drivesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list = DriveListOperations(
+        self.driveslist = driveslistOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_content_type = DriveListContentTypeOperations(
+        self.driveslistcontenttypes = driveslistcontenttypesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_item = DriveListItemOperations(
+        self.driveslistitems = driveslistitemsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_item_version = DriveListItemVersionOperations(
+        self.driveslistitemsversions = driveslistitemsversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group = GroupOperations(
+        self.groups = groupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_shared_drive_item = ShareSharedDriveItemOperations(
+        self.sharesshareddriveitem = sharesshareddriveitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share = ShareOperations(
+        self.shares = sharesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list = ShareListOperations(
+        self.shareslist = shareslistOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_content_type = ShareListContentTypeOperations(
+        self.shareslistcontenttypes = shareslistcontenttypesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item = ShareListItemOperations(
+        self.shareslistitems = shareslistitemsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_version = ShareListItemVersionOperations(
+        self.shareslistitemsversions = shareslistitemsversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item = ShareListItemOperations(
+        self.shareslistitem = shareslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_version = ShareListItemVersionOperations(
+        self.shareslistitemversions = shareslistitemversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_permission = SharePermissionOperations(
+        self.sharespermission = sharespermissionOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

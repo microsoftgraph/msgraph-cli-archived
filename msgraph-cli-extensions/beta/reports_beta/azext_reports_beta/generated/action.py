@@ -121,6 +121,20 @@ class AddRestrictedSignIns(argparse._AppendAction):
                 d['state'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter restricted_sign_ins. All possible keys '
+                               'are: target-tenant-id, alternate-sign-in-name, app-display-name, app-id, '
+                               'applied-conditional-access-policies, authentication-details, '
+                               'authentication-methods-used, authentication-processing-details, '
+                               'authentication-requirement, authentication-requirement-policies, client-app-used, '
+                               'conditional-access-status, correlation-id, created-date-time, device-detail, '
+                               'ip-address, is-interactive, mfa-detail, network-location-details, original-request-id, '
+                               'processing-time-in-milliseconds, resource-display-name, resource-id, '
+                               'resource-tenant-id, risk-detail, risk-event-types, risk-event-types-v2, '
+                               'risk-level-aggregated, risk-level-during-sign-in, risk-state, service-principal-id, '
+                               'service-principal-name, sign-in-event-types, status, token-issuer-name, '
+                               'token-issuer-type, user-agent, user-display-name, user-id, user-principal-name, city, '
+                               'country-or-region, geo-coordinates, state, id'.format(k))
         return d
 
 
@@ -145,45 +159,16 @@ class AddAdditionalDetails(argparse._AppendAction):
                 d['key'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter additional_details. All possible keys '
+                               'are: key, value'.format(k))
         return d
 
 
-class AddTargetResources(argparse._AppendAction):
+class AddApp(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddTargetResources, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'group-type':
-                d['group_type'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'modified-properties':
-                d['modified_properties'] = v
-            elif kl == 'type':
-                d['type'] = v[0]
-            elif kl == 'user-principal-name':
-                d['user_principal_name'] = v[0]
-        return d
-
-
-class AddInitiatedByApp(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.initiated_by_app = action
+        namespace.app = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -205,13 +190,16 @@ class AddInitiatedByApp(argparse.Action):
                 d['service_principal_id'] = v[0]
             elif kl == 'service-principal-name':
                 d['service_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app. All possible keys are: app-id, '
+                               'display-name, service-principal-id, service-principal-name'.format(k))
         return d
 
 
-class AddInitiatedByUser(argparse.Action):
+class AddUser(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.initiated_by_user = action
+        namespace.user = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -233,6 +221,9 @@ class AddInitiatedByUser(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user. All possible keys are: ip-address, '
+                               'user-principal-name, display-name, id'.format(k))
         return d
 
 
@@ -267,6 +258,10 @@ class AddAppliedConditionalAccessPolicies(argparse._AppendAction):
                 d['id'] = v[0]
             elif kl == 'result':
                 d['result'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter applied_conditional_access_policies. All '
+                               'possible keys are: conditions-not-satisfied, conditions-satisfied, display-name, '
+                               'enforced-grant-controls, enforced-session-controls, id, result'.format(k))
         return d
 
 
@@ -299,6 +294,11 @@ class AddAuthenticationDetails(argparse._AppendAction):
                 d['authentication_step_result_detail'] = v[0]
             elif kl == 'succeeded':
                 d['succeeded'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter authentication_details. All possible keys '
+                               'are: authentication-method, authentication-method-detail, '
+                               'authentication-step-date-time, authentication-step-requirement, '
+                               'authentication-step-result-detail, succeeded'.format(k))
         return d
 
 
@@ -323,6 +323,9 @@ class AddAuthenticationProcessingDetails(argparse._AppendAction):
                 d['key'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter authentication_processing_details. All '
+                               'possible keys are: key, value'.format(k))
         return d
 
 
@@ -347,6 +350,9 @@ class AddAuthenticationRequirementPolicies(argparse._AppendAction):
                 d['detail'] = v[0]
             elif kl == 'requirement-provider':
                 d['requirement_provider'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter authentication_requirement_policies. All '
+                               'possible keys are: detail, requirement-provider'.format(k))
         return d
 
 
@@ -383,6 +389,10 @@ class AddDeviceDetail(argparse.Action):
                 d['operating_system'] = v[0]
             elif kl == 'trust-type':
                 d['trust_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_detail. All possible keys are: '
+                               'browser, browser-id, device-id, display-name, is-compliant, is-managed, '
+                               'operating-system, trust-type'.format(k))
         return d
 
 
@@ -407,6 +417,9 @@ class AddMfaDetail(argparse.Action):
                 d['auth_detail'] = v[0]
             elif kl == 'auth-method':
                 d['auth_method'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter mfa_detail. All possible keys are: '
+                               'auth-detail, auth-method'.format(k))
         return d
 
 
@@ -431,6 +444,9 @@ class AddNetworkLocationDetails(argparse._AppendAction):
                 d['network_names'] = v
             elif kl == 'network-type':
                 d['network_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter network_location_details. All possible '
+                               'keys are: network-names, network-type'.format(k))
         return d
 
 
@@ -457,13 +473,16 @@ class AddStatus(argparse.Action):
                 d['error_code'] = v[0]
             elif kl == 'failure-reason':
                 d['failure_reason'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter status. All possible keys are: '
+                               'additional-details, error-code, failure-reason'.format(k))
         return d
 
 
-class AddLocationGeoCoordinates(argparse.Action):
+class AddGeoCoordinates(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.location_geo_coordinates = action
+        namespace.geo_coordinates = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -483,42 +502,9 @@ class AddLocationGeoCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
-        return d
-
-
-class AddApplicationSignInDetailedSummary(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddApplicationSignInDetailedSummary, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'aggregated-event-date-time':
-                d['aggregated_event_date_time'] = v[0]
-            elif kl == 'app-display-name':
-                d['app_display_name'] = v[0]
-            elif kl == 'app-id':
-                d['app_id'] = v[0]
-            elif kl == 'sign-in-count':
-                d['sign_in_count'] = v[0]
-            elif kl == 'additional-details':
-                d['additional_details'] = v[0]
-            elif kl == 'error-code':
-                d['error_code'] = v[0]
-            elif kl == 'failure-reason':
-                d['failure_reason'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter geo_coordinates. All possible keys are: '
+                               'altitude, latitude, longitude'.format(k))
         return d
 
 
@@ -555,6 +541,10 @@ class AddCredentialUserRegistrationDetails(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter credential_user_registration_details. All '
+                               'possible keys are: auth-methods, is-capable, is-enabled, is-mfa-registered, '
+                               'is-registered, user-display-name, user-principal-name, id'.format(k))
         return d
 
 
@@ -591,6 +581,10 @@ class AddUserCredentialUsageDetails(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_credential_usage_details. All '
+                               'possible keys are: auth-method, event-date-time, failure-reason, feature, is-success, '
+                               'user-display-name, user-principal-name, id'.format(k))
         return d
 
 
@@ -623,6 +617,10 @@ class AddDailyPrintUsageSummariesByPrinter(argparse._AppendAction):
                 d['usage_date'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter daily_print_usage_summaries_by_printer. '
+                               'All possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, printer-id, usage-date, id'.format(k))
         return d
 
 
@@ -655,6 +653,10 @@ class AddDailyPrintUsageSummariesByUser(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter daily_print_usage_summaries_by_user. All '
+                               'possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, usage-date, user-principal-name, id'.format(k))
         return d
 
 
@@ -687,6 +689,10 @@ class AddMonthlyPrintUsageSummariesByPrinter(argparse._AppendAction):
                 d['usage_date'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter monthly_print_usage_summaries_by_printer. '
+                               'All possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, printer-id, usage-date, id'.format(k))
         return d
 
 
@@ -719,4 +725,8 @@ class AddMonthlyPrintUsageSummariesByUser(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter monthly_print_usage_summaries_by_user. '
+                               'All possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, usage-date, user-principal-name, id'.format(k))
         return d

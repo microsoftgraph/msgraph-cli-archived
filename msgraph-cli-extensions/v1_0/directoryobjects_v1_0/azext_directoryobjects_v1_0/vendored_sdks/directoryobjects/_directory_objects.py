@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,18 +18,18 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import DirectoryObjectsConfiguration
-from .operations import DirectoryObjectDirectoryObjectOperations
-from .operations import DirectoryObjectOperations
+from .operations import directoryobjectsdirectoryobjectOperations
+from .operations import directoryobjectsOperations
 from . import models
 
 
 class DirectoryObjects(object):
     """DirectoryObjects.
 
-    :ivar directory_object_directory_object: DirectoryObjectDirectoryObjectOperations operations
-    :vartype directory_object_directory_object: directory_objects.operations.DirectoryObjectDirectoryObjectOperations
-    :ivar directory_object: DirectoryObjectOperations operations
-    :vartype directory_object: directory_objects.operations.DirectoryObjectOperations
+    :ivar directoryobjectsdirectoryobject: directoryobjectsdirectoryobjectOperations operations
+    :vartype directoryobjectsdirectoryobject: directory_objects.operations.directoryobjectsdirectoryobjectOperations
+    :ivar directoryobjects: directoryobjectsOperations operations
+    :vartype directoryobjects: directory_objects.operations.directoryobjectsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -43,7 +43,6 @@ class DirectoryObjects(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -61,15 +60,16 @@ class DirectoryObjects(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = DirectoryObjectsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.directory_object_directory_object = DirectoryObjectDirectoryObjectOperations(
+        self.directoryobjectsdirectoryobject = directoryobjectsdirectoryobjectOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directory_object = DirectoryObjectOperations(
+        self.directoryobjects = directoryobjectsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

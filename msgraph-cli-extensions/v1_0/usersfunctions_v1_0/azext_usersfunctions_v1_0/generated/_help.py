@@ -12,557 +12,562 @@
 from knack.help_files import helps
 
 
-helps['usersfunctions'] = """
+helps['usersfunctions_v1_0'] = '''
     type: group
-    short-summary: usersfunctions
-"""
+    short-summary: Manage Users Functions
+'''
 
-helps['usersfunctions recent'] = """
-    type: command
-    short-summary: "Invoke function recent"
-"""
-
-helps['usersfunctions'] = """
+helps['usersfunctions usersactivity'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersactivity with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions usersactivity recent'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function recent."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarviewcalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarviewcalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarviewinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarviewinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarviewinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarview'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarview with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendarview delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendareventscalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendareventscalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendareventscalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendareventsinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendareventsinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendareventsinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarevent'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarevent with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendarevent delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendargroupscalendarscalendarviewcalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendargroupscalendarscalendarviewcalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendargroupscalendarscalendarviewcalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendargroupscalendarscalendarviewinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendargroupscalendarscalendarviewinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendargroupscalendarscalendarviewinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendargroupscalendarscalendarview'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendargroupscalendarscalendarview with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendargroupscalendarscalendarview delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendargroupscalendarseventscalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendargroupscalendarseventscalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendargroupscalendarseventscalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendargroupscalendarseventsinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendargroupscalendarseventsinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendargroupscalendarseventsinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendargroupscalendarsevent'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendargroupscalendarsevent with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendargroupscalendarsevent delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendargroupscalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendargroupscalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendargroupscalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarscalendarviewcalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarscalendarviewcalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarscalendarviewcalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarscalendarviewinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarscalendarviewinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarscalendarviewinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarscalendarview'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarscalendarview with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendarscalendarview delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarseventscalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarseventscalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarseventscalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarseventsinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarseventsinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarseventsinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarsevent'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarsevent with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendarsevent delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarviewcalendarview'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarviewcalendarview with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarviewcalendarview delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarviewcalendarevent'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarviewcalendarevent with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userscalendarviewcalendarevent delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarviewcalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarviewcalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarviewinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarviewinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarviewinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscalendarview'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscalendarview with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscalendarview delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscontactfolderschildfolder'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscontactfolderschildfolder with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscontactfolderschildfolder delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscontactfolderscontact'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscontactfolderscontact with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscontactfolderscontact delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscontactfolder'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscontactfolder with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscontactfolder delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userscontact'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userscontact with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userscontact delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userseventscalendarview'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userseventscalendarview with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userseventscalendarview delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userseventscalendarevent'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userseventscalendarevent with usersfunctions_v1_0
 """
 
-helps['usersfunctions allowed-calendar-sharing-role'] = """
+helps['usersfunctions userseventscalendarevent delta'] = """
     type: command
-    short-summary: "Invoke function allowedCalendarSharingRoles"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userseventscalendar'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userseventscalendar with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userseventscalendar allowed-calendar-sharing-role'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function allowedCalendarSharingRoles."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions userseventsinstance'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage userseventsinstance with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions userseventsinstance delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersevent'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersevent with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions usersevent delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersmailfolderschildfolder'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersmailfolderschildfolder with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions usersmailfolderschildfolder delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersmailfoldersmessage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersmailfoldersmessage with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions usersmailfoldersmessage delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersmailfolder'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersmailfolder with usersfunctions_v1_0
 """
 
-helps['usersfunctions get-user-id-with-flagged-app-registration'] = """
+helps['usersfunctions usersmailfolder delta'] = """
     type: command
-    short-summary: "Invoke function getUserIdsWithFlaggedAppRegistration"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersmanagedappregistration'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersmanagedappregistration with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions usersmanagedappregistration show-user-id-with-flagged-app-registration'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function getUserIdsWithFlaggedAppRegistration."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersmessage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersmessage with usersfunctions_v1_0
 """
 
-helps['usersfunctions delta'] = """
+helps['usersfunctions usersmessage delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions get-managed-app-diagnostic-statuses'] = """
-    type: command
-    short-summary: "Invoke function getManagedAppDiagnosticStatuses"
-"""
-
-helps['usersfunctions get-managed-app-policy'] = """
-    type: command
-    short-summary: "Invoke function getManagedAppPolicies"
-"""
-
-helps['usersfunctions reminder-view'] = """
-    type: command
-    short-summary: "Invoke function reminderView"
-"""
-
-helps['usersfunctions'] = """
+helps['usersfunctions user'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage user with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions user delta'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function delta."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions user reminder-view'] = """
+    type: command
+    short-summary: "Invoke function reminderView."
+"""
+
+helps['usersfunctions user show-managed-app-diagnostic-statuses'] = """
+    type: command
+    short-summary: "Invoke function getManagedAppDiagnosticStatuses."
+"""
+
+helps['usersfunctions user show-managed-app-policy'] = """
+    type: command
+    short-summary: "Invoke function getManagedAppPolicies."
+"""
+
+helps['usersfunctions usersonenotenotebookssectiongroupssectionspage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotenotebookssectiongroupssectionspage with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotenotebookssectiongroupssectionspage preview'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotenotebookssectionspage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotenotebookssectionspage with usersfunctions_v1_0
 """
 
-helps['usersfunctions get-recent-notebook'] = """
+helps['usersfunctions usersonenotenotebookssectionspage preview'] = """
     type: command
-    short-summary: "Invoke function getRecentNotebooks"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotenotebook'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotenotebook with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotenotebook show-recent-notebook'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function getRecentNotebooks."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotepage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotepage with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotepage preview'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotepagesparentnotebooksectiongroupssectionspage with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage preview'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotepagesparentnotebooksectionspage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotepagesparentnotebooksectionspage with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotepagesparentnotebooksectionspage preview'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotepagesparentsectionpage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotepagesparentsectionpage with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotepagesparentsectionpage preview'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotesectiongroupsparentnotebooksectionspage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotesectiongroupsparentnotebooksectionspage with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotesectiongroupsparentnotebooksectionspage preview'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotesectiongroupssectionspage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotesectiongroupssectionspage with usersfunctions_v1_0
 """
 
-helps['usersfunctions preview'] = """
+helps['usersfunctions usersonenotesectiongroupssectionspage preview'] = """
     type: command
-    short-summary: "Invoke function preview"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions'] = """
+helps['usersfunctions usersonenotesectionspage'] = """
     type: group
-    short-summary: usersfunctions
+    short-summary: Manage usersonenotesectionspage with usersfunctions_v1_0
 """
 
-helps['usersfunctions supported-language'] = """
+helps['usersfunctions usersonenotesectionspage preview'] = """
     type: command
-    short-summary: "Invoke function supportedLanguages"
+    short-summary: "Invoke function preview."
 """
 
-helps['usersfunctions supported-time-zone-ee48'] = """
-    type: command
-    short-summary: "Invoke function supportedTimeZones"
+helps['usersfunctions usersoutlook'] = """
+    type: group
+    short-summary: Manage usersoutlook with usersfunctions_v1_0
 """
 
-helps['usersfunctions supported-time-zones51-c6'] = """
+helps['usersfunctions usersoutlook supported-language'] = """
     type: command
-    short-summary: "Invoke function supportedTimeZones"
+    short-summary: "Invoke function supportedLanguages."
+"""
+
+helps['usersfunctions usersoutlook supported-time-zone-ee48'] = """
+    type: command
+    short-summary: "Invoke function supportedTimeZones."
+"""
+
+helps['usersfunctions usersoutlook supported-time-zones51-c6'] = """
+    type: command
+    short-summary: "Invoke function supportedTimeZones."
 """

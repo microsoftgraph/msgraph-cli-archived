@@ -39,13 +39,16 @@ class AddResources(argparse._AppendAction):
                 d['self_property'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter resources. All possible keys are: '
+                               'content, content-url, self, id'.format(k))
         return d
 
 
-class AddLastModifiedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.last_modified_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -63,13 +66,16 @@ class AddLastModifiedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
-class AddLinksOneNoteClientUrl(argparse.Action):
+class AddOneNoteClientUrl(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.links_one_note_client_url = action
+        namespace.one_note_client_url = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -85,6 +91,9 @@ class AddLinksOneNoteClientUrl(argparse.Action):
             v = properties[k]
             if kl == 'href':
                 d['href'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter one_note_client_url. All possible keys '
+                               'are: href'.format(k))
         return d
 
 
@@ -109,4 +118,7 @@ class AddError(argparse.Action):
                 d['code'] = v[0]
             elif kl == 'message':
                 d['message'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter error. All possible keys are: code, '
+                               'message'.format(k))
         return d

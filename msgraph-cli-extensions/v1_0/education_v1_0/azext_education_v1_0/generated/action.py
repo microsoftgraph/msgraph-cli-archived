@@ -39,13 +39,16 @@ class AddTerm(argparse.Action):
                 d['external_id'] = v[0]
             elif kl == 'start-date':
                 d['start_date'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter term. All possible keys are: '
+                               'display-name, end-date, external-id, start-date'.format(k))
         return d
 
 
-class AddCreatedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.created_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -63,6 +66,9 @@ class AddCreatedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -93,4 +99,7 @@ class AddAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-or-region, postal-code, state, street'.format(k))
         return d

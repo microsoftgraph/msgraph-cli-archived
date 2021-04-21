@@ -7,235 +7,235 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfAdministrativeUnit
-    from ._models_py3 import CollectionOfContract
-    from ._models_py3 import CollectionOfDevice
-    from ._models_py3 import CollectionOfDirectoryObject
-    from ._models_py3 import CollectionOfDirectoryObject0
-    from ._models_py3 import CollectionOfDirectoryObject1
-    from ._models_py3 import CollectionOfDirectoryObject2
-    from ._models_py3 import CollectionOfDirectoryObject3
-    from ._models_py3 import CollectionOfDirectoryObject4
-    from ._models_py3 import CollectionOfDirectoryObject5
-    from ._models_py3 import CollectionOfDirectoryObject6
-    from ._models_py3 import CollectionOfDirectoryObject7
-    from ._models_py3 import CollectionOfDirectoryObject8
-    from ._models_py3 import CollectionOfDirectoryObject9
-    from ._models_py3 import CollectionOfDirectoryRole
-    from ._models_py3 import CollectionOfDirectoryRoleTemplate
-    from ._models_py3 import CollectionOfDomain
-    from ._models_py3 import CollectionOfDomainDnsRecord
-    from ._models_py3 import CollectionOfDomainDnsRecord0
-    from ._models_py3 import CollectionOfExtension
-    from ._models_py3 import CollectionOfExtension0
-    from ._models_py3 import CollectionOfExtension1
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject0
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject1
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject2
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject3
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject4
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject5
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject6
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject7
-    from ._models_py3 import CollectionOfLinksOfDirectoryObject8
-    from ._models_py3 import CollectionOfOrgContact
-    from ._models_py3 import CollectionOfOrganization
-    from ._models_py3 import CollectionOfScopedRoleMembership
-    from ._models_py3 import CollectionOfScopedRoleMembership0
-    from ._models_py3 import CollectionOfScopedRoleMembership1
-    from ._models_py3 import CollectionOfSubscribedSku
-    from ._models_py3 import MicrosoftGraphAdministrativeUnit
-    from ._models_py3 import MicrosoftGraphAlternativeSecurityId
-    from ._models_py3 import MicrosoftGraphAssignedPlan
-    from ._models_py3 import MicrosoftGraphCertificateAuthority
-    from ._models_py3 import MicrosoftGraphCertificateBasedAuthConfiguration
-    from ._models_py3 import MicrosoftGraphContract
-    from ._models_py3 import MicrosoftGraphDevice
-    from ._models_py3 import MicrosoftGraphDirectory
-    from ._models_py3 import MicrosoftGraphDirectoryObject
-    from ._models_py3 import MicrosoftGraphDirectoryRole
-    from ._models_py3 import MicrosoftGraphDirectoryRoleTemplate
-    from ._models_py3 import MicrosoftGraphDomain
-    from ._models_py3 import MicrosoftGraphDomainDnsRecord
-    from ._models_py3 import MicrosoftGraphDomainState
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphExtension
-    from ._models_py3 import MicrosoftGraphExtensionProperty
-    from ._models_py3 import MicrosoftGraphIdentity
-    from ._models_py3 import MicrosoftGraphLicenseUnitsDetail
-    from ._models_py3 import MicrosoftGraphOnPremisesProvisioningError
-    from ._models_py3 import MicrosoftGraphOrgContact
-    from ._models_py3 import MicrosoftGraphOrganization
-    from ._models_py3 import MicrosoftGraphPhone
-    from ._models_py3 import MicrosoftGraphPhysicalOfficeAddress
-    from ._models_py3 import MicrosoftGraphPrivacyProfile
-    from ._models_py3 import MicrosoftGraphProvisionedPlan
-    from ._models_py3 import MicrosoftGraphScopedRoleMembership
-    from ._models_py3 import MicrosoftGraphServicePlanInfo
-    from ._models_py3 import MicrosoftGraphSubscribedSku
-    from ._models_py3 import MicrosoftGraphVerifiedDomain
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
-    from ._models_py3 import Paths116Bv3CDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths11G1VgqOrganizationMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths12Azg33ContactsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths14VnqnuDirectoryrolesDirectoryroleIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1540TevDevicesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1545W8NDevicesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths175Njh2ContactsOrgcontactIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths17JleimDevicesDeviceIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1Binbx4DirectoryroletemplatesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1E8TfraOrganizationMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1G440InOrganizationMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1Hzls82OrganizationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1I0TqyfDirectoryrolesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1Ig9RahDirectoryrolesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1L581IfContactsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1M18OhpContactsOrgcontactIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1QbmtipDevicesDeviceIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1Vbpok7DirectoryrolesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1Yxqrp7OrganizationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths3Y2P0KContactsOrgcontactIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths6Ovq2LDirectoryroletemplatesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths7Cg04SContactsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths7X6XkrDevicesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths8Ke2VbContactsOrgcontactIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths9Kz3QjDirectoryrolesDirectoryroleIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsBwhfj9DirectoryrolesDirectoryroleIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsGlwoxyDirectoryroletemplatesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsMf08MlOrganizationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsMwgbeoDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsNtst38DevicesDeviceIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsOikz69DevicesDeviceIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsPlvqruOrganizationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsQ8R6UDirectoryrolesDirectoryroleIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsU5PhcgDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsUasdopDomainsDomainIdMicrosoftGraphForcedeletePostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsYkfgk1DirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import collectionofadministrativeunit
+    from ._models_py3 import collectionofcontract
+    from ._models_py3 import collectionofdevice
+    from ._models_py3 import collectionofdirectoryobject
+    from ._models_py3 import collectionofdirectoryobject0
+    from ._models_py3 import collectionofdirectoryobject1
+    from ._models_py3 import collectionofdirectoryobject2
+    from ._models_py3 import collectionofdirectoryobject3
+    from ._models_py3 import collectionofdirectoryobject4
+    from ._models_py3 import collectionofdirectoryobject5
+    from ._models_py3 import collectionofdirectoryobject6
+    from ._models_py3 import collectionofdirectoryobject7
+    from ._models_py3 import collectionofdirectoryobject8
+    from ._models_py3 import collectionofdirectoryobject9
+    from ._models_py3 import collectionofdirectoryrole
+    from ._models_py3 import collectionofdirectoryroletemplate
+    from ._models_py3 import collectionofdomain
+    from ._models_py3 import collectionofdomaindnsrecord
+    from ._models_py3 import collectionofdomaindnsrecord0
+    from ._models_py3 import collectionofextension
+    from ._models_py3 import collectionofextension0
+    from ._models_py3 import collectionofextension1
+    from ._models_py3 import collectionoflinksofdirectoryobject
+    from ._models_py3 import collectionoflinksofdirectoryobject0
+    from ._models_py3 import collectionoflinksofdirectoryobject1
+    from ._models_py3 import collectionoflinksofdirectoryobject2
+    from ._models_py3 import collectionoflinksofdirectoryobject3
+    from ._models_py3 import collectionoflinksofdirectoryobject4
+    from ._models_py3 import collectionoflinksofdirectoryobject5
+    from ._models_py3 import collectionoflinksofdirectoryobject6
+    from ._models_py3 import collectionoflinksofdirectoryobject7
+    from ._models_py3 import collectionoflinksofdirectoryobject8
+    from ._models_py3 import collectionoforganization
+    from ._models_py3 import collectionoforgcontact
+    from ._models_py3 import collectionofscopedrolemembership
+    from ._models_py3 import collectionofscopedrolemembership0
+    from ._models_py3 import collectionofscopedrolemembership1
+    from ._models_py3 import collectionofsubscribedsku
+    from ._models_py3 import microsoftgraphadministrativeunit
+    from ._models_py3 import microsoftgraphalternativesecurityid
+    from ._models_py3 import microsoftgraphassignedplan
+    from ._models_py3 import microsoftgraphcertificateauthority
+    from ._models_py3 import microsoftgraphcertificatebasedauthconfiguration
+    from ._models_py3 import microsoftgraphcontract
+    from ._models_py3 import microsoftgraphdevice
+    from ._models_py3 import microsoftgraphdirectory
+    from ._models_py3 import microsoftgraphdirectoryobject
+    from ._models_py3 import microsoftgraphdirectoryrole
+    from ._models_py3 import microsoftgraphdirectoryroletemplate
+    from ._models_py3 import microsoftgraphdomain
+    from ._models_py3 import microsoftgraphdomaindnsrecord
+    from ._models_py3 import microsoftgraphdomainstate
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphextension
+    from ._models_py3 import microsoftgraphextensionproperty
+    from ._models_py3 import microsoftgraphidentity
+    from ._models_py3 import microsoftgraphlicenseunitsdetail
+    from ._models_py3 import microsoftgraphonpremisesprovisioningerror
+    from ._models_py3 import microsoftgraphorganization
+    from ._models_py3 import microsoftgraphorgcontact
+    from ._models_py3 import microsoftgraphphone
+    from ._models_py3 import microsoftgraphphysicalofficeaddress
+    from ._models_py3 import microsoftgraphprivacyprofile
+    from ._models_py3 import microsoftgraphprovisionedplan
+    from ._models_py3 import microsoftgraphscopedrolemembership
+    from ._models_py3 import microsoftgraphserviceplaninfo
+    from ._models_py3 import microsoftgraphsubscribedsku
+    from ._models_py3 import microsoftgraphverifieddomain
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
+    from ._models_py3 import paths116bv3cdirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths11g1vgqorganizationmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths12azg33contactsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths14vnqnudirectoryrolesdirectoryroleidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1540tevdevicesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1545w8ndevicesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths175njh2contactsorgcontactidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths17jleimdevicesdeviceidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1binbx4directoryroletemplatesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1e8tfraorganizationmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1g440inorganizationmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1hzls82organizationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1i0tqyfdirectoryrolesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1ig9rahdirectoryrolesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1l581ifcontactsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1m18ohpcontactsorgcontactidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1qbmtipdevicesdeviceidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1t6lra6contractsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1vbpok7directoryrolesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1yxqrp7organizationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths2yqm8dcontractsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths30m7s8contractscontractidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths3y2p0kcontactsorgcontactidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths6crxp6contractscontractidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths6ovq2ldirectoryroletemplatesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths7cg04scontactsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths7x6xkrdevicesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths8ke2vbcontactsorgcontactidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths9kz3qjdirectoryrolesdirectoryroleidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths9pdmsbcontractscontractidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsbwhfj9directoryrolesdirectoryroleidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsglwoxydirectoryroletemplatesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsmf08mlorganizationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsmwgbeodirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsntst38devicesdeviceidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsoikz69devicesdeviceidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsplvqruorganizationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsq8r6udirectoryrolesdirectoryroleidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsu5phcgdirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsuasdopdomainsdomainidmicrosoftgraphforcedeletepostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsxq94ujcontractscontractidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathsykfgk1directoryroletemplatesdirectoryroletemplateidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import pathszahmwmcontractsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfAdministrativeUnit  # type: ignore
-    from ._models import CollectionOfContract  # type: ignore
-    from ._models import CollectionOfDevice  # type: ignore
-    from ._models import CollectionOfDirectoryObject  # type: ignore
-    from ._models import CollectionOfDirectoryObject0  # type: ignore
-    from ._models import CollectionOfDirectoryObject1  # type: ignore
-    from ._models import CollectionOfDirectoryObject2  # type: ignore
-    from ._models import CollectionOfDirectoryObject3  # type: ignore
-    from ._models import CollectionOfDirectoryObject4  # type: ignore
-    from ._models import CollectionOfDirectoryObject5  # type: ignore
-    from ._models import CollectionOfDirectoryObject6  # type: ignore
-    from ._models import CollectionOfDirectoryObject7  # type: ignore
-    from ._models import CollectionOfDirectoryObject8  # type: ignore
-    from ._models import CollectionOfDirectoryObject9  # type: ignore
-    from ._models import CollectionOfDirectoryRole  # type: ignore
-    from ._models import CollectionOfDirectoryRoleTemplate  # type: ignore
-    from ._models import CollectionOfDomain  # type: ignore
-    from ._models import CollectionOfDomainDnsRecord  # type: ignore
-    from ._models import CollectionOfDomainDnsRecord0  # type: ignore
-    from ._models import CollectionOfExtension  # type: ignore
-    from ._models import CollectionOfExtension0  # type: ignore
-    from ._models import CollectionOfExtension1  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject0  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject1  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject2  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject3  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject4  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject5  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject6  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject7  # type: ignore
-    from ._models import CollectionOfLinksOfDirectoryObject8  # type: ignore
-    from ._models import CollectionOfOrgContact  # type: ignore
-    from ._models import CollectionOfOrganization  # type: ignore
-    from ._models import CollectionOfScopedRoleMembership  # type: ignore
-    from ._models import CollectionOfScopedRoleMembership0  # type: ignore
-    from ._models import CollectionOfScopedRoleMembership1  # type: ignore
-    from ._models import CollectionOfSubscribedSku  # type: ignore
-    from ._models import MicrosoftGraphAdministrativeUnit  # type: ignore
-    from ._models import MicrosoftGraphAlternativeSecurityId  # type: ignore
-    from ._models import MicrosoftGraphAssignedPlan  # type: ignore
-    from ._models import MicrosoftGraphCertificateAuthority  # type: ignore
-    from ._models import MicrosoftGraphCertificateBasedAuthConfiguration  # type: ignore
-    from ._models import MicrosoftGraphContract  # type: ignore
-    from ._models import MicrosoftGraphDevice  # type: ignore
-    from ._models import MicrosoftGraphDirectory  # type: ignore
-    from ._models import MicrosoftGraphDirectoryObject  # type: ignore
-    from ._models import MicrosoftGraphDirectoryRole  # type: ignore
-    from ._models import MicrosoftGraphDirectoryRoleTemplate  # type: ignore
-    from ._models import MicrosoftGraphDomain  # type: ignore
-    from ._models import MicrosoftGraphDomainDnsRecord  # type: ignore
-    from ._models import MicrosoftGraphDomainState  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphExtension  # type: ignore
-    from ._models import MicrosoftGraphExtensionProperty  # type: ignore
-    from ._models import MicrosoftGraphIdentity  # type: ignore
-    from ._models import MicrosoftGraphLicenseUnitsDetail  # type: ignore
-    from ._models import MicrosoftGraphOnPremisesProvisioningError  # type: ignore
-    from ._models import MicrosoftGraphOrgContact  # type: ignore
-    from ._models import MicrosoftGraphOrganization  # type: ignore
-    from ._models import MicrosoftGraphPhone  # type: ignore
-    from ._models import MicrosoftGraphPhysicalOfficeAddress  # type: ignore
-    from ._models import MicrosoftGraphPrivacyProfile  # type: ignore
-    from ._models import MicrosoftGraphProvisionedPlan  # type: ignore
-    from ._models import MicrosoftGraphScopedRoleMembership  # type: ignore
-    from ._models import MicrosoftGraphServicePlanInfo  # type: ignore
-    from ._models import MicrosoftGraphSubscribedSku  # type: ignore
-    from ._models import MicrosoftGraphVerifiedDomain  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
-    from ._models import Paths116Bv3CDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths11G1VgqOrganizationMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths12Azg33ContactsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths14VnqnuDirectoryrolesDirectoryroleIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1540TevDevicesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1545W8NDevicesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths175Njh2ContactsOrgcontactIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths17JleimDevicesDeviceIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1Binbx4DirectoryroletemplatesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1E8TfraOrganizationMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1G440InOrganizationMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1Hzls82OrganizationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1I0TqyfDirectoryrolesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1Ig9RahDirectoryrolesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1L581IfContactsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1M18OhpContactsOrgcontactIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1QbmtipDevicesDeviceIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1Vbpok7DirectoryrolesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1Yxqrp7OrganizationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths3Y2P0KContactsOrgcontactIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths6Ovq2LDirectoryroletemplatesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths7Cg04SContactsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths7X6XkrDevicesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths8Ke2VbContactsOrgcontactIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths9Kz3QjDirectoryrolesDirectoryroleIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsBwhfj9DirectoryrolesDirectoryroleIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsGlwoxyDirectoryroletemplatesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsMf08MlOrganizationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsMwgbeoDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsNtst38DevicesDeviceIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsOikz69DevicesDeviceIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsPlvqruOrganizationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsQ8R6UDirectoryrolesDirectoryroleIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsU5PhcgDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsUasdopDomainsDomainIdMicrosoftGraphForcedeletePostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsYkfgk1DirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import collectionofadministrativeunit  # type: ignore
+    from ._models import collectionofcontract  # type: ignore
+    from ._models import collectionofdevice  # type: ignore
+    from ._models import collectionofdirectoryobject  # type: ignore
+    from ._models import collectionofdirectoryobject0  # type: ignore
+    from ._models import collectionofdirectoryobject1  # type: ignore
+    from ._models import collectionofdirectoryobject2  # type: ignore
+    from ._models import collectionofdirectoryobject3  # type: ignore
+    from ._models import collectionofdirectoryobject4  # type: ignore
+    from ._models import collectionofdirectoryobject5  # type: ignore
+    from ._models import collectionofdirectoryobject6  # type: ignore
+    from ._models import collectionofdirectoryobject7  # type: ignore
+    from ._models import collectionofdirectoryobject8  # type: ignore
+    from ._models import collectionofdirectoryobject9  # type: ignore
+    from ._models import collectionofdirectoryrole  # type: ignore
+    from ._models import collectionofdirectoryroletemplate  # type: ignore
+    from ._models import collectionofdomain  # type: ignore
+    from ._models import collectionofdomaindnsrecord  # type: ignore
+    from ._models import collectionofdomaindnsrecord0  # type: ignore
+    from ._models import collectionofextension  # type: ignore
+    from ._models import collectionofextension0  # type: ignore
+    from ._models import collectionofextension1  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject0  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject1  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject2  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject3  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject4  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject5  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject6  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject7  # type: ignore
+    from ._models import collectionoflinksofdirectoryobject8  # type: ignore
+    from ._models import collectionoforganization  # type: ignore
+    from ._models import collectionoforgcontact  # type: ignore
+    from ._models import collectionofscopedrolemembership  # type: ignore
+    from ._models import collectionofscopedrolemembership0  # type: ignore
+    from ._models import collectionofscopedrolemembership1  # type: ignore
+    from ._models import collectionofsubscribedsku  # type: ignore
+    from ._models import microsoftgraphadministrativeunit  # type: ignore
+    from ._models import microsoftgraphalternativesecurityid  # type: ignore
+    from ._models import microsoftgraphassignedplan  # type: ignore
+    from ._models import microsoftgraphcertificateauthority  # type: ignore
+    from ._models import microsoftgraphcertificatebasedauthconfiguration  # type: ignore
+    from ._models import microsoftgraphcontract  # type: ignore
+    from ._models import microsoftgraphdevice  # type: ignore
+    from ._models import microsoftgraphdirectory  # type: ignore
+    from ._models import microsoftgraphdirectoryobject  # type: ignore
+    from ._models import microsoftgraphdirectoryrole  # type: ignore
+    from ._models import microsoftgraphdirectoryroletemplate  # type: ignore
+    from ._models import microsoftgraphdomain  # type: ignore
+    from ._models import microsoftgraphdomaindnsrecord  # type: ignore
+    from ._models import microsoftgraphdomainstate  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphextension  # type: ignore
+    from ._models import microsoftgraphextensionproperty  # type: ignore
+    from ._models import microsoftgraphidentity  # type: ignore
+    from ._models import microsoftgraphlicenseunitsdetail  # type: ignore
+    from ._models import microsoftgraphonpremisesprovisioningerror  # type: ignore
+    from ._models import microsoftgraphorganization  # type: ignore
+    from ._models import microsoftgraphorgcontact  # type: ignore
+    from ._models import microsoftgraphphone  # type: ignore
+    from ._models import microsoftgraphphysicalofficeaddress  # type: ignore
+    from ._models import microsoftgraphprivacyprofile  # type: ignore
+    from ._models import microsoftgraphprovisionedplan  # type: ignore
+    from ._models import microsoftgraphscopedrolemembership  # type: ignore
+    from ._models import microsoftgraphserviceplaninfo  # type: ignore
+    from ._models import microsoftgraphsubscribedsku  # type: ignore
+    from ._models import microsoftgraphverifieddomain  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
+    from ._models import paths116bv3cdirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths11g1vgqorganizationmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths12azg33contactsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths14vnqnudirectoryrolesdirectoryroleidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1540tevdevicesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1545w8ndevicesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths175njh2contactsorgcontactidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths17jleimdevicesdeviceidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1binbx4directoryroletemplatesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1e8tfraorganizationmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1g440inorganizationmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1hzls82organizationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1i0tqyfdirectoryrolesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1ig9rahdirectoryrolesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1l581ifcontactsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1m18ohpcontactsorgcontactidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1qbmtipdevicesdeviceidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1t6lra6contractsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1vbpok7directoryrolesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1yxqrp7organizationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths2yqm8dcontractsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths30m7s8contractscontractidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths3y2p0kcontactsorgcontactidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths6crxp6contractscontractidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths6ovq2ldirectoryroletemplatesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths7cg04scontactsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths7x6xkrdevicesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths8ke2vbcontactsorgcontactidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths9kz3qjdirectoryrolesdirectoryroleidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths9pdmsbcontractscontractidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsbwhfj9directoryrolesdirectoryroleidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsglwoxydirectoryroletemplatesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsmf08mlorganizationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsmwgbeodirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsntst38devicesdeviceidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsoikz69devicesdeviceidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsplvqruorganizationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsq8r6udirectoryrolesdirectoryroleidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsu5phcgdirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsuasdopdomainsdomainidmicrosoftgraphforcedeletepostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsxq94ujcontractscontractidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathsykfgk1directoryroletemplatesdirectoryroletemplateidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import pathszahmwmcontractsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema  # type: ignore
 
 from ._identity_directory_management_enums import (
     Enum10,
@@ -325,131 +325,131 @@ from ._identity_directory_management_enums import (
     Enum92,
     Enum93,
     Enum94,
-    Get0ItemsItem,
-    Get1ItemsItem,
-    Get2ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    MicrosoftGraphMdmAuthority,
-    MicrosoftGraphPhoneType,
+    Get0itemsitem,
+    Get1itemsitem,
+    Get2itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Microsoftgraphmdmauthority,
+    Microsoftgraphphonetype,
 )
 
 __all__ = [
-    'CollectionOfAdministrativeUnit',
-    'CollectionOfContract',
-    'CollectionOfDevice',
-    'CollectionOfDirectoryObject',
-    'CollectionOfDirectoryObject0',
-    'CollectionOfDirectoryObject1',
-    'CollectionOfDirectoryObject2',
-    'CollectionOfDirectoryObject3',
-    'CollectionOfDirectoryObject4',
-    'CollectionOfDirectoryObject5',
-    'CollectionOfDirectoryObject6',
-    'CollectionOfDirectoryObject7',
-    'CollectionOfDirectoryObject8',
-    'CollectionOfDirectoryObject9',
-    'CollectionOfDirectoryRole',
-    'CollectionOfDirectoryRoleTemplate',
-    'CollectionOfDomain',
-    'CollectionOfDomainDnsRecord',
-    'CollectionOfDomainDnsRecord0',
-    'CollectionOfExtension',
-    'CollectionOfExtension0',
-    'CollectionOfExtension1',
-    'CollectionOfLinksOfDirectoryObject',
-    'CollectionOfLinksOfDirectoryObject0',
-    'CollectionOfLinksOfDirectoryObject1',
-    'CollectionOfLinksOfDirectoryObject2',
-    'CollectionOfLinksOfDirectoryObject3',
-    'CollectionOfLinksOfDirectoryObject4',
-    'CollectionOfLinksOfDirectoryObject5',
-    'CollectionOfLinksOfDirectoryObject6',
-    'CollectionOfLinksOfDirectoryObject7',
-    'CollectionOfLinksOfDirectoryObject8',
-    'CollectionOfOrgContact',
-    'CollectionOfOrganization',
-    'CollectionOfScopedRoleMembership',
-    'CollectionOfScopedRoleMembership0',
-    'CollectionOfScopedRoleMembership1',
-    'CollectionOfSubscribedSku',
-    'MicrosoftGraphAdministrativeUnit',
-    'MicrosoftGraphAlternativeSecurityId',
-    'MicrosoftGraphAssignedPlan',
-    'MicrosoftGraphCertificateAuthority',
-    'MicrosoftGraphCertificateBasedAuthConfiguration',
-    'MicrosoftGraphContract',
-    'MicrosoftGraphDevice',
-    'MicrosoftGraphDirectory',
-    'MicrosoftGraphDirectoryObject',
-    'MicrosoftGraphDirectoryRole',
-    'MicrosoftGraphDirectoryRoleTemplate',
-    'MicrosoftGraphDomain',
-    'MicrosoftGraphDomainDnsRecord',
-    'MicrosoftGraphDomainState',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphExtension',
-    'MicrosoftGraphExtensionProperty',
-    'MicrosoftGraphIdentity',
-    'MicrosoftGraphLicenseUnitsDetail',
-    'MicrosoftGraphOnPremisesProvisioningError',
-    'MicrosoftGraphOrgContact',
-    'MicrosoftGraphOrganization',
-    'MicrosoftGraphPhone',
-    'MicrosoftGraphPhysicalOfficeAddress',
-    'MicrosoftGraphPrivacyProfile',
-    'MicrosoftGraphProvisionedPlan',
-    'MicrosoftGraphScopedRoleMembership',
-    'MicrosoftGraphServicePlanInfo',
-    'MicrosoftGraphSubscribedSku',
-    'MicrosoftGraphVerifiedDomain',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
-    'Paths116Bv3CDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths11G1VgqOrganizationMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
-    'Paths12Azg33ContactsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
-    'Paths14VnqnuDirectoryrolesDirectoryroleIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths1540TevDevicesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths1545W8NDevicesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
-    'Paths175Njh2ContactsOrgcontactIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'Paths17JleimDevicesDeviceIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths1Binbx4DirectoryroletemplatesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths1E8TfraOrganizationMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths1G440InOrganizationMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths1Hzls82OrganizationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths1I0TqyfDirectoryrolesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths1Ig9RahDirectoryrolesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
-    'Paths1L581IfContactsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths1M18OhpContactsOrgcontactIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths1QbmtipDevicesDeviceIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
-    'Paths1Vbpok7DirectoryrolesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths1Yxqrp7OrganizationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'Paths3Y2P0KContactsOrgcontactIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths6Ovq2LDirectoryroletemplatesMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema',
-    'Paths7Cg04SContactsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths7X6XkrDevicesMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
-    'Paths8Ke2VbContactsOrgcontactIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'Paths9Kz3QjDirectoryrolesDirectoryroleIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsBwhfj9DirectoryrolesDirectoryroleIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsGlwoxyDirectoryroletemplatesMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema',
-    'PathsMf08MlOrganizationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsMwgbeoDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsNtst38DevicesDeviceIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsOikz69DevicesDeviceIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsPlvqruOrganizationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsQ8R6UDirectoryrolesDirectoryroleIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'PathsU5PhcgDirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema',
-    'PathsUasdopDomainsDomainIdMicrosoftGraphForcedeletePostRequestbodyContentApplicationJsonSchema',
-    'PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'PathsYkfgk1DirectoryroletemplatesDirectoryroletemplateIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema',
-    'PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema',
+    'collectionofadministrativeunit',
+    'collectionofcontract',
+    'collectionofdevice',
+    'collectionofdirectoryobject',
+    'collectionofdirectoryobject0',
+    'collectionofdirectoryobject1',
+    'collectionofdirectoryobject2',
+    'collectionofdirectoryobject3',
+    'collectionofdirectoryobject4',
+    'collectionofdirectoryobject5',
+    'collectionofdirectoryobject6',
+    'collectionofdirectoryobject7',
+    'collectionofdirectoryobject8',
+    'collectionofdirectoryobject9',
+    'collectionofdirectoryrole',
+    'collectionofdirectoryroletemplate',
+    'collectionofdomain',
+    'collectionofdomaindnsrecord',
+    'collectionofdomaindnsrecord0',
+    'collectionofextension',
+    'collectionofextension0',
+    'collectionofextension1',
+    'collectionoflinksofdirectoryobject',
+    'collectionoflinksofdirectoryobject0',
+    'collectionoflinksofdirectoryobject1',
+    'collectionoflinksofdirectoryobject2',
+    'collectionoflinksofdirectoryobject3',
+    'collectionoflinksofdirectoryobject4',
+    'collectionoflinksofdirectoryobject5',
+    'collectionoflinksofdirectoryobject6',
+    'collectionoflinksofdirectoryobject7',
+    'collectionoflinksofdirectoryobject8',
+    'collectionoforganization',
+    'collectionoforgcontact',
+    'collectionofscopedrolemembership',
+    'collectionofscopedrolemembership0',
+    'collectionofscopedrolemembership1',
+    'collectionofsubscribedsku',
+    'microsoftgraphadministrativeunit',
+    'microsoftgraphalternativesecurityid',
+    'microsoftgraphassignedplan',
+    'microsoftgraphcertificateauthority',
+    'microsoftgraphcertificatebasedauthconfiguration',
+    'microsoftgraphcontract',
+    'microsoftgraphdevice',
+    'microsoftgraphdirectory',
+    'microsoftgraphdirectoryobject',
+    'microsoftgraphdirectoryrole',
+    'microsoftgraphdirectoryroletemplate',
+    'microsoftgraphdomain',
+    'microsoftgraphdomaindnsrecord',
+    'microsoftgraphdomainstate',
+    'microsoftgraphentity',
+    'microsoftgraphextension',
+    'microsoftgraphextensionproperty',
+    'microsoftgraphidentity',
+    'microsoftgraphlicenseunitsdetail',
+    'microsoftgraphonpremisesprovisioningerror',
+    'microsoftgraphorganization',
+    'microsoftgraphorgcontact',
+    'microsoftgraphphone',
+    'microsoftgraphphysicalofficeaddress',
+    'microsoftgraphprivacyprofile',
+    'microsoftgraphprovisionedplan',
+    'microsoftgraphscopedrolemembership',
+    'microsoftgraphserviceplaninfo',
+    'microsoftgraphsubscribedsku',
+    'microsoftgraphverifieddomain',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
+    'paths116bv3cdirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths11g1vgqorganizationmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
+    'paths12azg33contactsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
+    'paths14vnqnudirectoryrolesdirectoryroleidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths1540tevdevicesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
+    'paths1545w8ndevicesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
+    'paths175njh2contactsorgcontactidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
+    'paths17jleimdevicesdeviceidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths1binbx4directoryroletemplatesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
+    'paths1e8tfraorganizationmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
+    'paths1g440inorganizationmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
+    'paths1hzls82organizationidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths1i0tqyfdirectoryrolesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
+    'paths1ig9rahdirectoryrolesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
+    'paths1l581ifcontactsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
+    'paths1m18ohpcontactsorgcontactidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths1qbmtipdevicesdeviceidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths1t6lra6contractsmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
+    'paths1vbpok7directoryrolesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
+    'paths1yxqrp7organizationidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths2yqm8dcontractsmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
+    'paths30m7s8contractscontractidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
+    'paths3y2p0kcontactsorgcontactidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
+    'paths6crxp6contractscontractidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths6ovq2ldirectoryroletemplatesmicrosoftgraphgetbyidspostrequestbodycontentapplicationjsonschema',
+    'paths7cg04scontactsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
+    'paths7x6xkrdevicesmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
+    'paths8ke2vbcontactsorgcontactidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'paths9kz3qjdirectoryrolesdirectoryroleidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
+    'paths9pdmsbcontractscontractidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsbwhfj9directoryrolesdirectoryroleidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsglwoxydirectoryroletemplatesmicrosoftgraphgetavailableextensionpropertiespostrequestbodycontentapplicationjsonschema',
+    'pathsmf08mlorganizationidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsmwgbeodirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsntst38devicesdeviceidmicrosoftgraphcheckmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsoikz69devicesdeviceidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsplvqruorganizationidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsq8r6udirectoryrolesdirectoryroleidmicrosoftgraphgetmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'pathsu5phcgdirectoryroletemplatesdirectoryroletemplateidmicrosoftgraphgetmembergroupspostrequestbodycontentapplicationjsonschema',
+    'pathsuasdopdomainsdomainidmicrosoftgraphforcedeletepostrequestbodycontentapplicationjsonschema',
+    'pathsxq94ujcontractscontractidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'pathsykfgk1directoryroletemplatesdirectoryroletemplateidmicrosoftgraphcheckmemberobjectspostrequestbodycontentapplicationjsonschema',
+    'pathszahmwmcontractsmicrosoftgraphvalidatepropertiespostrequestbodycontentapplicationjsonschema',
     'Enum10',
     'Enum11',
     'Enum12',
@@ -537,12 +537,12 @@ __all__ = [
     'Enum92',
     'Enum93',
     'Enum94',
-    'Get0ItemsItem',
-    'Get1ItemsItem',
-    'Get2ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'MicrosoftGraphMdmAuthority',
-    'MicrosoftGraphPhoneType',
+    'Get0itemsitem',
+    'Get1itemsitem',
+    'Get2itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Microsoftgraphmdmauthority',
+    'Microsoftgraphphonetype',
 ]

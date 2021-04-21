@@ -12,19 +12,24 @@
 from knack.help_files import helps
 
 
-helps['security'] = """
+helps['security_beta'] = '''
     type: group
-    short-summary: security
+    short-summary: Manage Security
+'''
+
+helps['security security'] = """
+    type: group
+    short-summary: Manage security with security_beta
 """
 
-helps['security get-security'] = """
+helps['security security show-security'] = """
     type: command
-    short-summary: "Get Security"
+    short-summary: "Get Security."
 """
 
-helps['security update-security'] = """
+helps['security security update-security'] = """
     type: command
-    short-summary: "Update Security"
+    short-summary: "Update Security."
     parameters:
       - name: --provider-status
         long-summary: |
@@ -59,24 +64,19 @@ target-product=XX threat-type=XX tlp-level=XX url=XX user-agent=XX id=XX
             Multiple actions can be specified by using more than one --ti-indicators argument.
 """
 
-helps['security'] = """
+helps['security security'] = """
     type: group
-    short-summary: security
+    short-summary: Manage security with security_beta
 """
 
-helps['security delete'] = """
+helps['security security create-alert'] = """
     type: command
-    short-summary: "Delete navigation property userSecurityProfiles for Security"
+    short-summary: "Create new navigation property to alerts for Security."
 """
 
-helps['security create-alert'] = """
+helps['security security create-cloud-app-security-profile'] = """
     type: command
-    short-summary: "Create new navigation property to alerts for Security"
-"""
-
-helps['security create-cloud-app-security-profile'] = """
-    type: command
-    short-summary: "Create new navigation property to cloudAppSecurityProfiles for Security"
+    short-summary: "Create new navigation property to cloudAppSecurityProfiles for Security."
     parameters:
       - name: --vendor-information
         short-summary: "securityVendorInformation"
@@ -90,9 +90,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-domain-security-profile'] = """
+helps['security security create-domain-security-profile'] = """
     type: command
-    short-summary: "Create new navigation property to domainSecurityProfiles for Security"
+    short-summary: "Create new navigation property to domainSecurityProfiles for Security."
     parameters:
       - name: --domain-categories
         long-summary: |
@@ -117,9 +117,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-file-security-profile'] = """
+helps['security security create-file-security-profile'] = """
     type: command
-    short-summary: "Create new navigation property to fileSecurityProfiles for Security"
+    short-summary: "Create new navigation property to fileSecurityProfiles for Security."
     parameters:
       - name: --hashes
         long-summary: |
@@ -162,9 +162,9 @@ was the file detected at rest on the disk.
             Multiple actions can be specified by using more than one --vulnerability-states argument.
 """
 
-helps['security create-host-security-profile'] = """
+helps['security security create-host-security-profile'] = """
     type: command
-    short-summary: "Create new navigation property to hostSecurityProfiles for Security"
+    short-summary: "Create new navigation property to hostSecurityProfiles for Security."
     parameters:
       - name: --logon-users
         long-summary: |
@@ -192,9 +192,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-ip-security-profile'] = """
+helps['security security create-ip-security-profile'] = """
     type: command
-    short-summary: "Create new navigation property to ipSecurityProfiles for Security"
+    short-summary: "Create new navigation property to ipSecurityProfiles for Security."
     parameters:
       - name: --ip-categories
         long-summary: |
@@ -220,14 +220,14 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-provider-tenant-setting'] = """
+helps['security security create-provider-tenant-setting'] = """
     type: command
-    short-summary: "Create new navigation property to providerTenantSettings for Security"
+    short-summary: "Create new navigation property to providerTenantSettings for Security."
 """
 
-helps['security create-secure-score'] = """
+helps['security security create-secure-score'] = """
     type: command
-    short-summary: "Create new navigation property to secureScores for Security"
+    short-summary: "Create new navigation property to secureScores for Security."
     parameters:
       - name: --average-comparative-scores
         short-summary: "Average score by different scopes (for example, average by industry, average by seating) and \
@@ -263,19 +263,10 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-secure-score-control-profile'] = """
+helps['security security create-secure-score-control-profile'] = """
     type: command
-    short-summary: "Create new navigation property to secureScoreControlProfiles for Security"
+    short-summary: "Create new navigation property to secureScoreControlProfiles for Security."
     parameters:
-      - name: --compliance-information
-        long-summary: |
-            Usage: --compliance-information certification-controls=XX certification-name=XX
-
-            certification-controls: Collection of the certification controls associated with certification
-            certification-name: Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST \
-800-171)
-
-            Multiple actions can be specified by using more than one --compliance-information argument.
       - name: --control-state-updates
         long-summary: |
             Usage: --control-state-updates assigned-to=XX comment=XX state=XX updated-by=XX updated-date-time=XX
@@ -299,9 +290,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-security-action'] = """
+helps['security security create-security-action'] = """
     type: command
-    short-summary: "Create new navigation property to securityActions for Security"
+    short-summary: "Create new navigation property to securityActions for Security."
     parameters:
       - name: --error-info
         short-summary: "ResultInfo"
@@ -334,14 +325,14 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-ti-indicator'] = """
+helps['security security create-ti-indicator'] = """
     type: command
-    short-summary: "Create new navigation property to tiIndicators for Security"
+    short-summary: "Create new navigation property to tiIndicators for Security."
 """
 
-helps['security create-user-security-profile'] = """
+helps['security security create-user-security-profile'] = """
     type: command
-    short-summary: "Create new navigation property to userSecurityProfiles for Security"
+    short-summary: "Create new navigation property to userSecurityProfiles for Security."
     parameters:
       - name: --accounts
         long-summary: |
@@ -361,134 +352,194 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security get-alert'] = """
+helps['security security delete-alert'] = """
     type: command
-    short-summary: "Get alerts from Security"
+    short-summary: "Delete navigation property alerts for Security."
 """
 
-helps['security get-cloud-app-security-profile'] = """
+helps['security security delete-cloud-app-security-profile'] = """
     type: command
-    short-summary: "Get cloudAppSecurityProfiles from Security"
+    short-summary: "Delete navigation property cloudAppSecurityProfiles for Security."
 """
 
-helps['security get-domain-security-profile'] = """
+helps['security security delete-domain-security-profile'] = """
     type: command
-    short-summary: "Get domainSecurityProfiles from Security"
+    short-summary: "Delete navigation property domainSecurityProfiles for Security."
 """
 
-helps['security get-file-security-profile'] = """
+helps['security security delete-file-security-profile'] = """
     type: command
-    short-summary: "Get fileSecurityProfiles from Security"
+    short-summary: "Delete navigation property fileSecurityProfiles for Security."
 """
 
-helps['security get-host-security-profile'] = """
+helps['security security delete-host-security-profile'] = """
     type: command
-    short-summary: "Get hostSecurityProfiles from Security"
+    short-summary: "Delete navigation property hostSecurityProfiles for Security."
 """
 
-helps['security get-ip-security-profile'] = """
+helps['security security delete-ip-security-profile'] = """
     type: command
-    short-summary: "Get ipSecurityProfiles from Security"
+    short-summary: "Delete navigation property ipSecurityProfiles for Security."
 """
 
-helps['security get-provider-tenant-setting'] = """
+helps['security security delete-provider-tenant-setting'] = """
     type: command
-    short-summary: "Get providerTenantSettings from Security"
+    short-summary: "Delete navigation property providerTenantSettings for Security."
 """
 
-helps['security get-secure-score'] = """
+helps['security security delete-secure-score'] = """
     type: command
-    short-summary: "Get secureScores from Security"
+    short-summary: "Delete navigation property secureScores for Security."
 """
 
-helps['security get-secure-score-control-profile'] = """
+helps['security security delete-secure-score-control-profile'] = """
     type: command
-    short-summary: "Get secureScoreControlProfiles from Security"
+    short-summary: "Delete navigation property secureScoreControlProfiles for Security."
 """
 
-helps['security get-security-action'] = """
+helps['security security delete-security-action'] = """
     type: command
-    short-summary: "Get securityActions from Security"
+    short-summary: "Delete navigation property securityActions for Security."
 """
 
-helps['security get-ti-indicator'] = """
+helps['security security delete-ti-indicator'] = """
     type: command
-    short-summary: "Get tiIndicators from Security"
+    short-summary: "Delete navigation property tiIndicators for Security."
 """
 
-helps['security get-user-security-profile'] = """
+helps['security security delete-user-security-profile'] = """
     type: command
-    short-summary: "Get userSecurityProfiles from Security"
+    short-summary: "Delete navigation property userSecurityProfiles for Security."
 """
 
-helps['security list-alert'] = """
+helps['security security list-alert'] = """
     type: command
-    short-summary: "Get alerts from Security"
+    short-summary: "Get alerts from Security."
 """
 
-helps['security list-cloud-app-security-profile'] = """
+helps['security security list-cloud-app-security-profile'] = """
     type: command
-    short-summary: "Get cloudAppSecurityProfiles from Security"
+    short-summary: "Get cloudAppSecurityProfiles from Security."
 """
 
-helps['security list-domain-security-profile'] = """
+helps['security security list-domain-security-profile'] = """
     type: command
-    short-summary: "Get domainSecurityProfiles from Security"
+    short-summary: "Get domainSecurityProfiles from Security."
 """
 
-helps['security list-file-security-profile'] = """
+helps['security security list-file-security-profile'] = """
     type: command
-    short-summary: "Get fileSecurityProfiles from Security"
+    short-summary: "Get fileSecurityProfiles from Security."
 """
 
-helps['security list-host-security-profile'] = """
+helps['security security list-host-security-profile'] = """
     type: command
-    short-summary: "Get hostSecurityProfiles from Security"
+    short-summary: "Get hostSecurityProfiles from Security."
 """
 
-helps['security list-ip-security-profile'] = """
+helps['security security list-ip-security-profile'] = """
     type: command
-    short-summary: "Get ipSecurityProfiles from Security"
+    short-summary: "Get ipSecurityProfiles from Security."
 """
 
-helps['security list-provider-tenant-setting'] = """
+helps['security security list-provider-tenant-setting'] = """
     type: command
-    short-summary: "Get providerTenantSettings from Security"
+    short-summary: "Get providerTenantSettings from Security."
 """
 
-helps['security list-secure-score'] = """
+helps['security security list-secure-score'] = """
     type: command
-    short-summary: "Get secureScores from Security"
+    short-summary: "Get secureScores from Security."
 """
 
-helps['security list-secure-score-control-profile'] = """
+helps['security security list-secure-score-control-profile'] = """
     type: command
-    short-summary: "Get secureScoreControlProfiles from Security"
+    short-summary: "Get secureScoreControlProfiles from Security."
 """
 
-helps['security list-security-action'] = """
+helps['security security list-security-action'] = """
     type: command
-    short-summary: "Get securityActions from Security"
+    short-summary: "Get securityActions from Security."
 """
 
-helps['security list-ti-indicator'] = """
+helps['security security list-ti-indicator'] = """
     type: command
-    short-summary: "Get tiIndicators from Security"
+    short-summary: "Get tiIndicators from Security."
 """
 
-helps['security list-user-security-profile'] = """
+helps['security security list-user-security-profile'] = """
     type: command
-    short-summary: "Get userSecurityProfiles from Security"
+    short-summary: "Get userSecurityProfiles from Security."
 """
 
-helps['security update-alert'] = """
+helps['security security show-alert'] = """
     type: command
-    short-summary: "Update the navigation property alerts in Security"
+    short-summary: "Get alerts from Security."
 """
 
-helps['security update-cloud-app-security-profile'] = """
+helps['security security show-cloud-app-security-profile'] = """
     type: command
-    short-summary: "Update the navigation property cloudAppSecurityProfiles in Security"
+    short-summary: "Get cloudAppSecurityProfiles from Security."
+"""
+
+helps['security security show-domain-security-profile'] = """
+    type: command
+    short-summary: "Get domainSecurityProfiles from Security."
+"""
+
+helps['security security show-file-security-profile'] = """
+    type: command
+    short-summary: "Get fileSecurityProfiles from Security."
+"""
+
+helps['security security show-host-security-profile'] = """
+    type: command
+    short-summary: "Get hostSecurityProfiles from Security."
+"""
+
+helps['security security show-ip-security-profile'] = """
+    type: command
+    short-summary: "Get ipSecurityProfiles from Security."
+"""
+
+helps['security security show-provider-tenant-setting'] = """
+    type: command
+    short-summary: "Get providerTenantSettings from Security."
+"""
+
+helps['security security show-secure-score'] = """
+    type: command
+    short-summary: "Get secureScores from Security."
+"""
+
+helps['security security show-secure-score-control-profile'] = """
+    type: command
+    short-summary: "Get secureScoreControlProfiles from Security."
+"""
+
+helps['security security show-security-action'] = """
+    type: command
+    short-summary: "Get securityActions from Security."
+"""
+
+helps['security security show-ti-indicator'] = """
+    type: command
+    short-summary: "Get tiIndicators from Security."
+"""
+
+helps['security security show-user-security-profile'] = """
+    type: command
+    short-summary: "Get userSecurityProfiles from Security."
+"""
+
+helps['security security update-alert'] = """
+    type: command
+    short-summary: "Update the navigation property alerts in Security."
+"""
+
+helps['security security update-cloud-app-security-profile'] = """
+    type: command
+    short-summary: "Update the navigation property cloudAppSecurityProfiles in Security."
     parameters:
       - name: --vendor-information
         short-summary: "securityVendorInformation"
@@ -502,9 +553,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-domain-security-profile'] = """
+helps['security security update-domain-security-profile'] = """
     type: command
-    short-summary: "Update the navigation property domainSecurityProfiles in Security"
+    short-summary: "Update the navigation property domainSecurityProfiles in Security."
     parameters:
       - name: --domain-categories
         long-summary: |
@@ -529,9 +580,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-file-security-profile'] = """
+helps['security security update-file-security-profile'] = """
     type: command
-    short-summary: "Update the navigation property fileSecurityProfiles in Security"
+    short-summary: "Update the navigation property fileSecurityProfiles in Security."
     parameters:
       - name: --hashes
         long-summary: |
@@ -574,9 +625,9 @@ was the file detected at rest on the disk.
             Multiple actions can be specified by using more than one --vulnerability-states argument.
 """
 
-helps['security update-host-security-profile'] = """
+helps['security security update-host-security-profile'] = """
     type: command
-    short-summary: "Update the navigation property hostSecurityProfiles in Security"
+    short-summary: "Update the navigation property hostSecurityProfiles in Security."
     parameters:
       - name: --logon-users
         long-summary: |
@@ -604,9 +655,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-ip-security-profile'] = """
+helps['security security update-ip-security-profile'] = """
     type: command
-    short-summary: "Update the navigation property ipSecurityProfiles in Security"
+    short-summary: "Update the navigation property ipSecurityProfiles in Security."
     parameters:
       - name: --ip-categories
         long-summary: |
@@ -632,14 +683,14 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-provider-tenant-setting'] = """
+helps['security security update-provider-tenant-setting'] = """
     type: command
-    short-summary: "Update the navigation property providerTenantSettings in Security"
+    short-summary: "Update the navigation property providerTenantSettings in Security."
 """
 
-helps['security update-secure-score'] = """
+helps['security security update-secure-score'] = """
     type: command
-    short-summary: "Update the navigation property secureScores in Security"
+    short-summary: "Update the navigation property secureScores in Security."
     parameters:
       - name: --average-comparative-scores
         short-summary: "Average score by different scopes (for example, average by industry, average by seating) and \
@@ -675,19 +726,10 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-secure-score-control-profile'] = """
+helps['security security update-secure-score-control-profile'] = """
     type: command
-    short-summary: "Update the navigation property secureScoreControlProfiles in Security"
+    short-summary: "Update the navigation property secureScoreControlProfiles in Security."
     parameters:
-      - name: --compliance-information
-        long-summary: |
-            Usage: --compliance-information certification-controls=XX certification-name=XX
-
-            certification-controls: Collection of the certification controls associated with certification
-            certification-name: Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST \
-800-171)
-
-            Multiple actions can be specified by using more than one --compliance-information argument.
       - name: --control-state-updates
         long-summary: |
             Usage: --control-state-updates assigned-to=XX comment=XX state=XX updated-by=XX updated-date-time=XX
@@ -711,9 +753,9 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-security-action'] = """
+helps['security security update-security-action'] = """
     type: command
-    short-summary: "Update the navigation property securityActions in Security"
+    short-summary: "Update the navigation property securityActions in Security."
     parameters:
       - name: --error-info
         short-summary: "ResultInfo"
@@ -746,14 +788,14 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-ti-indicator'] = """
+helps['security security update-ti-indicator'] = """
     type: command
-    short-summary: "Update the navigation property tiIndicators in Security"
+    short-summary: "Update the navigation property tiIndicators in Security."
 """
 
-helps['security update-user-security-profile'] = """
+helps['security security update-user-security-profile'] = """
     type: command
-    short-summary: "Update the navigation property userSecurityProfiles in Security"
+    short-summary: "Update the navigation property userSecurityProfiles in Security."
     parameters:
       - name: --accounts
         long-summary: |
@@ -773,44 +815,44 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security'] = """
+helps['security securityalert'] = """
     type: group
-    short-summary: security
+    short-summary: Manage securityalert with security_beta
 """
 
-helps['security update-alert'] = """
+helps['security securityalert update-alert'] = """
     type: command
-    short-summary: "Invoke action updateAlerts"
+    short-summary: "Invoke action updateAlerts."
 """
 
-helps['security'] = """
+helps['security securityaction'] = """
     type: group
-    short-summary: security
+    short-summary: Manage securityaction with security_beta
 """
 
-helps['security cancel-security-action'] = """
+helps['security securityaction cancel-security-action'] = """
     type: command
-    short-summary: "Invoke action cancelSecurityAction"
+    short-summary: "Invoke action cancelSecurityAction."
 """
 
-helps['security'] = """
+helps['security securitytiindicator'] = """
     type: group
-    short-summary: security
+    short-summary: Manage securitytiindicator with security_beta
 """
 
-helps['security delete-ti-indicator'] = """
+helps['security securitytiindicator delete-ti-indicator'] = """
     type: command
-    short-summary: "Invoke action deleteTiIndicators"
+    short-summary: "Invoke action deleteTiIndicators."
 """
 
-helps['security delete-ti-indicator-by-external-id'] = """
+helps['security securitytiindicator delete-ti-indicator-by-external-id'] = """
     type: command
-    short-summary: "Invoke action deleteTiIndicatorsByExternalId"
+    short-summary: "Invoke action deleteTiIndicatorsByExternalId."
 """
 
-helps['security submit-ti-indicator'] = """
+helps['security securitytiindicator submit-ti-indicator'] = """
     type: command
-    short-summary: "Invoke action submitTiIndicators"
+    short-summary: "Invoke action submitTiIndicators."
     parameters:
       - name: --value
         long-summary: |
@@ -831,9 +873,9 @@ target-product=XX threat-type=XX tlp-level=XX url=XX user-agent=XX id=XX
             Multiple actions can be specified by using more than one --value argument.
 """
 
-helps['security update-ti-indicator'] = """
+helps['security securitytiindicator update-ti-indicator'] = """
     type: command
-    short-summary: "Invoke action updateTiIndicators"
+    short-summary: "Invoke action updateTiIndicators."
     parameters:
       - name: --value
         long-summary: |

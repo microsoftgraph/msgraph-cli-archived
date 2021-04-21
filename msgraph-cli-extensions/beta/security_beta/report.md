@@ -1,58 +1,152 @@
 # Azure CLI Module Creation Report
 
-### security cancel-security-action
-
-cancel-security-action a security.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|security|Security.securityActions|
+|az security_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|cancel-security-action|cancelSecurityAction|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az security_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az security security|Security.security|[commands](#CommandsInSecurity.security)|
+|az security security|Security|[commands](#CommandsInSecurity)|
+|az security securityalert|Security.alerts|[commands](#CommandsInSecurity.alerts)|
+|az security securityaction|Security.securityActions|[commands](#CommandsInSecurity.securityActions)|
+|az security securitytiindicator|Security.tiIndicators|[commands](#CommandsInSecurity.tiIndicators)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInSecurity.security">Commands in `az security security` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az security security show-security](#Security.securityGetSecurity)|GetSecurity|[Parameters](#ParametersSecurity.securityGetSecurity)|Not Found|
+|[az security security update-security](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
+
+### <a name="CommandsInSecurity">Commands in `az security security` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az security security create-alert](#SecurityCreateAlerts)|CreateAlerts|[Parameters](#ParametersSecurityCreateAlerts)|Not Found|
+|[az security security create-cloud-app-security-profile](#SecurityCreateCloudAppSecurityProfiles)|CreateCloudAppSecurityProfiles|[Parameters](#ParametersSecurityCreateCloudAppSecurityProfiles)|Not Found|
+|[az security security create-domain-security-profile](#SecurityCreateDomainSecurityProfiles)|CreateDomainSecurityProfiles|[Parameters](#ParametersSecurityCreateDomainSecurityProfiles)|Not Found|
+|[az security security create-file-security-profile](#SecurityCreateFileSecurityProfiles)|CreateFileSecurityProfiles|[Parameters](#ParametersSecurityCreateFileSecurityProfiles)|Not Found|
+|[az security security create-host-security-profile](#SecurityCreateHostSecurityProfiles)|CreateHostSecurityProfiles|[Parameters](#ParametersSecurityCreateHostSecurityProfiles)|Not Found|
+|[az security security create-ip-security-profile](#SecurityCreateIpSecurityProfiles)|CreateIpSecurityProfiles|[Parameters](#ParametersSecurityCreateIpSecurityProfiles)|Not Found|
+|[az security security create-provider-tenant-setting](#SecurityCreateProviderTenantSettings)|CreateProviderTenantSettings|[Parameters](#ParametersSecurityCreateProviderTenantSettings)|Not Found|
+|[az security security create-secure-score](#SecurityCreateSecureScores)|CreateSecureScores|[Parameters](#ParametersSecurityCreateSecureScores)|Not Found|
+|[az security security create-secure-score-control-profile](#SecurityCreateSecureScoreControlProfiles)|CreateSecureScoreControlProfiles|[Parameters](#ParametersSecurityCreateSecureScoreControlProfiles)|Not Found|
+|[az security security create-security-action](#SecurityCreateSecurityActions)|CreateSecurityActions|[Parameters](#ParametersSecurityCreateSecurityActions)|Not Found|
+|[az security security create-ti-indicator](#SecurityCreateTiIndicators)|CreateTiIndicators|[Parameters](#ParametersSecurityCreateTiIndicators)|Not Found|
+|[az security security create-user-security-profile](#SecurityCreateUserSecurityProfiles)|CreateUserSecurityProfiles|[Parameters](#ParametersSecurityCreateUserSecurityProfiles)|Not Found|
+|[az security security delete-alert](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
+|[az security security delete-cloud-app-security-profile](#SecurityDeleteCloudAppSecurityProfiles)|DeleteCloudAppSecurityProfiles|[Parameters](#ParametersSecurityDeleteCloudAppSecurityProfiles)|Not Found|
+|[az security security delete-domain-security-profile](#SecurityDeleteDomainSecurityProfiles)|DeleteDomainSecurityProfiles|[Parameters](#ParametersSecurityDeleteDomainSecurityProfiles)|Not Found|
+|[az security security delete-file-security-profile](#SecurityDeleteFileSecurityProfiles)|DeleteFileSecurityProfiles|[Parameters](#ParametersSecurityDeleteFileSecurityProfiles)|Not Found|
+|[az security security delete-host-security-profile](#SecurityDeleteHostSecurityProfiles)|DeleteHostSecurityProfiles|[Parameters](#ParametersSecurityDeleteHostSecurityProfiles)|Not Found|
+|[az security security delete-ip-security-profile](#SecurityDeleteIpSecurityProfiles)|DeleteIpSecurityProfiles|[Parameters](#ParametersSecurityDeleteIpSecurityProfiles)|Not Found|
+|[az security security delete-provider-tenant-setting](#SecurityDeleteProviderTenantSettings)|DeleteProviderTenantSettings|[Parameters](#ParametersSecurityDeleteProviderTenantSettings)|Not Found|
+|[az security security delete-secure-score](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
+|[az security security delete-secure-score-control-profile](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
+|[az security security delete-security-action](#SecurityDeleteSecurityActions)|DeleteSecurityActions|[Parameters](#ParametersSecurityDeleteSecurityActions)|Not Found|
+|[az security security delete-ti-indicator](#SecurityDeleteTiIndicators)|DeleteTiIndicators|[Parameters](#ParametersSecurityDeleteTiIndicators)|Not Found|
+|[az security security delete-user-security-profile](#SecurityDeleteUserSecurityProfiles)|DeleteUserSecurityProfiles|[Parameters](#ParametersSecurityDeleteUserSecurityProfiles)|Not Found|
+|[az security security list-alert](#SecurityListAlerts)|ListAlerts|[Parameters](#ParametersSecurityListAlerts)|Not Found|
+|[az security security list-cloud-app-security-profile](#SecurityListCloudAppSecurityProfiles)|ListCloudAppSecurityProfiles|[Parameters](#ParametersSecurityListCloudAppSecurityProfiles)|Not Found|
+|[az security security list-domain-security-profile](#SecurityListDomainSecurityProfiles)|ListDomainSecurityProfiles|[Parameters](#ParametersSecurityListDomainSecurityProfiles)|Not Found|
+|[az security security list-file-security-profile](#SecurityListFileSecurityProfiles)|ListFileSecurityProfiles|[Parameters](#ParametersSecurityListFileSecurityProfiles)|Not Found|
+|[az security security list-host-security-profile](#SecurityListHostSecurityProfiles)|ListHostSecurityProfiles|[Parameters](#ParametersSecurityListHostSecurityProfiles)|Not Found|
+|[az security security list-ip-security-profile](#SecurityListIpSecurityProfiles)|ListIpSecurityProfiles|[Parameters](#ParametersSecurityListIpSecurityProfiles)|Not Found|
+|[az security security list-provider-tenant-setting](#SecurityListProviderTenantSettings)|ListProviderTenantSettings|[Parameters](#ParametersSecurityListProviderTenantSettings)|Not Found|
+|[az security security list-secure-score](#SecurityListSecureScores)|ListSecureScores|[Parameters](#ParametersSecurityListSecureScores)|Not Found|
+|[az security security list-secure-score-control-profile](#SecurityListSecureScoreControlProfiles)|ListSecureScoreControlProfiles|[Parameters](#ParametersSecurityListSecureScoreControlProfiles)|Not Found|
+|[az security security list-security-action](#SecurityListSecurityActions)|ListSecurityActions|[Parameters](#ParametersSecurityListSecurityActions)|Not Found|
+|[az security security list-ti-indicator](#SecurityListTiIndicators)|ListTiIndicators|[Parameters](#ParametersSecurityListTiIndicators)|Not Found|
+|[az security security list-user-security-profile](#SecurityListUserSecurityProfiles)|ListUserSecurityProfiles|[Parameters](#ParametersSecurityListUserSecurityProfiles)|Not Found|
+|[az security security show-alert](#SecurityGetAlerts)|GetAlerts|[Parameters](#ParametersSecurityGetAlerts)|Not Found|
+|[az security security show-cloud-app-security-profile](#SecurityGetCloudAppSecurityProfiles)|GetCloudAppSecurityProfiles|[Parameters](#ParametersSecurityGetCloudAppSecurityProfiles)|Not Found|
+|[az security security show-domain-security-profile](#SecurityGetDomainSecurityProfiles)|GetDomainSecurityProfiles|[Parameters](#ParametersSecurityGetDomainSecurityProfiles)|Not Found|
+|[az security security show-file-security-profile](#SecurityGetFileSecurityProfiles)|GetFileSecurityProfiles|[Parameters](#ParametersSecurityGetFileSecurityProfiles)|Not Found|
+|[az security security show-host-security-profile](#SecurityGetHostSecurityProfiles)|GetHostSecurityProfiles|[Parameters](#ParametersSecurityGetHostSecurityProfiles)|Not Found|
+|[az security security show-ip-security-profile](#SecurityGetIpSecurityProfiles)|GetIpSecurityProfiles|[Parameters](#ParametersSecurityGetIpSecurityProfiles)|Not Found|
+|[az security security show-provider-tenant-setting](#SecurityGetProviderTenantSettings)|GetProviderTenantSettings|[Parameters](#ParametersSecurityGetProviderTenantSettings)|Not Found|
+|[az security security show-secure-score](#SecurityGetSecureScores)|GetSecureScores|[Parameters](#ParametersSecurityGetSecureScores)|Not Found|
+|[az security security show-secure-score-control-profile](#SecurityGetSecureScoreControlProfiles)|GetSecureScoreControlProfiles|[Parameters](#ParametersSecurityGetSecureScoreControlProfiles)|Not Found|
+|[az security security show-security-action](#SecurityGetSecurityActions)|GetSecurityActions|[Parameters](#ParametersSecurityGetSecurityActions)|Not Found|
+|[az security security show-ti-indicator](#SecurityGetTiIndicators)|GetTiIndicators|[Parameters](#ParametersSecurityGetTiIndicators)|Not Found|
+|[az security security show-user-security-profile](#SecurityGetUserSecurityProfiles)|GetUserSecurityProfiles|[Parameters](#ParametersSecurityGetUserSecurityProfiles)|Not Found|
+|[az security security update-alert](#SecurityUpdateAlerts)|UpdateAlerts|[Parameters](#ParametersSecurityUpdateAlerts)|Not Found|
+|[az security security update-cloud-app-security-profile](#SecurityUpdateCloudAppSecurityProfiles)|UpdateCloudAppSecurityProfiles|[Parameters](#ParametersSecurityUpdateCloudAppSecurityProfiles)|Not Found|
+|[az security security update-domain-security-profile](#SecurityUpdateDomainSecurityProfiles)|UpdateDomainSecurityProfiles|[Parameters](#ParametersSecurityUpdateDomainSecurityProfiles)|Not Found|
+|[az security security update-file-security-profile](#SecurityUpdateFileSecurityProfiles)|UpdateFileSecurityProfiles|[Parameters](#ParametersSecurityUpdateFileSecurityProfiles)|Not Found|
+|[az security security update-host-security-profile](#SecurityUpdateHostSecurityProfiles)|UpdateHostSecurityProfiles|[Parameters](#ParametersSecurityUpdateHostSecurityProfiles)|Not Found|
+|[az security security update-ip-security-profile](#SecurityUpdateIpSecurityProfiles)|UpdateIpSecurityProfiles|[Parameters](#ParametersSecurityUpdateIpSecurityProfiles)|Not Found|
+|[az security security update-provider-tenant-setting](#SecurityUpdateProviderTenantSettings)|UpdateProviderTenantSettings|[Parameters](#ParametersSecurityUpdateProviderTenantSettings)|Not Found|
+|[az security security update-secure-score](#SecurityUpdateSecureScores)|UpdateSecureScores|[Parameters](#ParametersSecurityUpdateSecureScores)|Not Found|
+|[az security security update-secure-score-control-profile](#SecurityUpdateSecureScoreControlProfiles)|UpdateSecureScoreControlProfiles|[Parameters](#ParametersSecurityUpdateSecureScoreControlProfiles)|Not Found|
+|[az security security update-security-action](#SecurityUpdateSecurityActions)|UpdateSecurityActions|[Parameters](#ParametersSecurityUpdateSecurityActions)|Not Found|
+|[az security security update-ti-indicator](#SecurityUpdateTiIndicators)|UpdateTiIndicators|[Parameters](#ParametersSecurityUpdateTiIndicators)|Not Found|
+|[az security security update-user-security-profile](#SecurityUpdateUserSecurityProfiles)|UpdateUserSecurityProfiles|[Parameters](#ParametersSecurityUpdateUserSecurityProfiles)|Not Found|
+
+### <a name="CommandsInSecurity.securityActions">Commands in `az security securityaction` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az security securityaction cancel-security-action](#Security.securityActionscancelSecurityAction)|cancelSecurityAction|[Parameters](#ParametersSecurity.securityActionscancelSecurityAction)|Not Found|
+
+### <a name="CommandsInSecurity.alerts">Commands in `az security securityalert` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az security securityalert update-alert](#Security.alertsupdateAlerts)|updateAlerts|[Parameters](#ParametersSecurity.alertsupdateAlerts)|Not Found|
+
+### <a name="CommandsInSecurity.tiIndicators">Commands in `az security securitytiindicator` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az security securitytiindicator delete-ti-indicator](#Security.tiIndicatorsdeleteTiIndicators)|deleteTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorsdeleteTiIndicators)|Not Found|
+|[az security securitytiindicator delete-ti-indicator-by-external-id](#Security.tiIndicatorsdeleteTiIndicatorsByExternalId)|deleteTiIndicatorsByExternalId|[Parameters](#ParametersSecurity.tiIndicatorsdeleteTiIndicatorsByExternalId)|Not Found|
+|[az security securitytiindicator submit-ti-indicator](#Security.tiIndicatorssubmitTiIndicators)|submitTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorssubmitTiIndicators)|Not Found|
+|[az security securitytiindicator update-ti-indicator](#Security.tiIndicatorsupdateTiIndicators)|updateTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorsupdateTiIndicators)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az security security`
+#### <a name="Security.securityGetSecurity">Command `az security security show-security`</a>
+
+##### <a name="ParametersSecurity.securityGetSecurity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### security create-alert
+#### <a name="Security.securityUpdateSecurity">Command `az security security update-security`</a>
 
-create-alert a security.
+##### <a name="ParametersSecurity.securityUpdateSecurity">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--provider-status**|array||provider_status|providerStatus|
+|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
+|**--cloud-app-security-profiles**|array||cloud_app_security_profiles|cloudAppSecurityProfiles|
+|**--domain-security-profiles**|array||domain_security_profiles|domainSecurityProfiles|
+|**--file-security-profiles**|array||file_security_profiles|fileSecurityProfiles|
+|**--host-security-profiles**|array||host_security_profiles|hostSecurityProfiles|
+|**--ip-security-profiles**|array||ip_security_profiles|ipSecurityProfiles|
+|**--provider-tenant-settings**|array||provider_tenant_settings|providerTenantSettings|
+|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
+|**--secure-scores**|array||secure_scores|secureScores|
+|**--security-actions**|array||security_actions|securityActions|
+|**--ti-indicators**|array||ti_indicators|tiIndicators|
+|**--user-security-profiles**|array||user_security_profiles|userSecurityProfiles|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
+### group `az security security`
+#### <a name="SecurityCreateAlerts">Command `az security security create-alert`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-alert|CreateAlerts|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--body**|object|New navigation property|body|body|
 
-### security create-cloud-app-security-profile
+#### <a name="SecurityCreateCloudAppSecurityProfiles">Command `az security security create-cloud-app-security-profile`</a>
 
-create-cloud-app-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-cloud-app-security-profile|CreateCloudAppSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateCloudAppSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -74,21 +168,9 @@ create-cloud-app-security-profile a security.
 |**--type**|string||type|type|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security create-domain-security-profile
+#### <a name="SecurityCreateDomainSecurityProfiles">Command `az security security create-domain-security-profile`</a>
 
-create-domain-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-domain-security-profile|CreateDomainSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateDomainSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -107,21 +189,9 @@ create-domain-security-profile a security.
 |**--tags**|array||tags|tags|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security create-file-security-profile
+#### <a name="SecurityCreateFileSecurityProfiles">Command `az security security create-file-security-profile`</a>
 
-create-file-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-file-security-profile|CreateFileSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateFileSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -142,21 +212,9 @@ create-file-security-profile a security.
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 |**--vulnerability-states**|array||vulnerability_states|vulnerabilityStates|
 
-### security create-host-security-profile
+#### <a name="SecurityCreateHostSecurityProfiles">Command `az security security create-host-security-profile`</a>
 
-create-host-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-host-security-profile|CreateHostSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateHostSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -179,21 +237,9 @@ create-host-security-profile a security.
 |**--tags**|array||tags|tags|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security create-ip-security-profile
+#### <a name="SecurityCreateIpSecurityProfiles">Command `az security security create-ip-security-profile`</a>
 
-create-ip-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ip-security-profile|CreateIpSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateIpSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -211,21 +257,9 @@ create-ip-security-profile a security.
 |**--tags**|array||tags|tags|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security create-provider-tenant-setting
+#### <a name="SecurityCreateProviderTenantSettings">Command `az security security create-provider-tenant-setting`</a>
 
-create-provider-tenant-setting a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-provider-tenant-setting|CreateProviderTenantSettings|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateProviderTenantSettings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -235,21 +269,9 @@ create-provider-tenant-setting a security.
 |**--provider**|string||provider|provider|
 |**--vendor**|string||vendor|vendor|
 
-### security create-secure-score
+#### <a name="SecurityCreateSecureScores">Command `az security security create-secure-score`</a>
 
-create-secure-score a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-secure-score|CreateSecureScores|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateSecureScores">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -264,21 +286,9 @@ create-secure-score a security.
 |**--max-score**|number|Tenant maximum possible score on specified date.|max_score|maxScore|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security create-secure-score-control-profile
+#### <a name="SecurityCreateSecureScoreControlProfiles">Command `az security security create-secure-score-control-profile`</a>
 
-create-secure-score-control-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-secure-score-control-profile|CreateSecureScoreControlProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateSecureScoreControlProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -302,21 +312,9 @@ create-secure-score-control-profile a security.
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security create-security-action
+#### <a name="SecurityCreateSecurityActions">Command `az security security create-security-action`</a>
 
-create-security-action a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-security-action|CreateSecurityActions|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateSecurityActions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -335,21 +333,9 @@ create-security-action a security.
 |**--user**|string||user|user|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security create-ti-indicator
+#### <a name="SecurityCreateTiIndicators">Command `az security security create-ti-indicator`</a>
 
-create-ti-indicator a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ti-indicator|CreateTiIndicators|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateTiIndicators">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -412,21 +398,9 @@ create-ti-indicator a security.
 |**--url**|string||url|url|
 |**--user-agent**|string||user_agent|userAgent|
 
-### security create-user-security-profile
+#### <a name="SecurityCreateUserSecurityProfiles">Command `az security security create-user-security-profile`</a>
 
-create-user-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user-security-profile|CreateUserSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateUserSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -441,663 +415,329 @@ create-user-security-profile a security.
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security delete
+#### <a name="SecurityDeleteAlerts">Command `az security security delete-alert`</a>
 
-delete a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAlerts|
-|delete|DeleteCloudAppSecurityProfiles|
-|delete|DeleteDomainSecurityProfiles|
-|delete|DeleteFileSecurityProfiles|
-|delete|DeleteHostSecurityProfiles|
-|delete|DeleteIpSecurityProfiles|
-|delete|DeleteProviderTenantSettings|
-|delete|DeleteSecureScoreControlProfiles|
-|delete|DeleteSecureScores|
-|delete|DeleteSecurityActions|
-|delete|DeleteTiIndicators|
-|delete|DeleteUserSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--alert-id**|string|key: id of alert|alert_id|alert-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteCloudAppSecurityProfiles">Command `az security security delete-cloud-app-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteCloudAppSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--cloud-app-security-profile-id**|string|key: id of cloudAppSecurityProfile|cloud_app_security_profile_id|cloudAppSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteDomainSecurityProfiles">Command `az security security delete-domain-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteDomainSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--domain-security-profile-id**|string|key: id of domainSecurityProfile|domain_security_profile_id|domainSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteFileSecurityProfiles">Command `az security security delete-file-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteFileSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--file-security-profile-id**|string|key: id of fileSecurityProfile|file_security_profile_id|fileSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteHostSecurityProfiles">Command `az security security delete-host-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteHostSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--host-security-profile-id**|string|key: id of hostSecurityProfile|host_security_profile_id|hostSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteIpSecurityProfiles">Command `az security security delete-ip-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteIpSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--ip-security-profile-id**|string|key: id of ipSecurityProfile|ip_security_profile_id|ipSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteProviderTenantSettings">Command `az security security delete-provider-tenant-setting`</a>
+
+##### <a name="ParametersSecurityDeleteProviderTenantSettings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--provider-tenant-setting-id**|string|key: id of providerTenantSetting|provider_tenant_setting_id|providerTenantSetting-id|
-|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScores">Command `az security security delete-secure-score`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete-secure-score-control-profile`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecurityActions">Command `az security security delete-security-action`</a>
+
+##### <a name="ParametersSecurityDeleteSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteTiIndicators">Command `az security security delete-ti-indicator`</a>
+
+##### <a name="ParametersSecurityDeleteTiIndicators">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteUserSecurityProfiles">Command `az security security delete-user-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteUserSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
 |**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### security delete-ti-indicator
+#### <a name="SecurityListAlerts">Command `az security security list-alert`</a>
 
-delete-ti-indicator a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security.tiIndicators|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete-ti-indicator|deleteTiIndicators|
-
-#### Parameters
+##### <a name="ParametersSecurityListAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--value**|array||value|value|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### security delete-ti-indicator-by-external-id
+#### <a name="SecurityListCloudAppSecurityProfiles">Command `az security security list-cloud-app-security-profile`</a>
 
-delete-ti-indicator-by-external-id a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security.tiIndicators|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete-ti-indicator-by-external-id|deleteTiIndicatorsByExternalId|
-
-#### Parameters
+##### <a name="ParametersSecurityListCloudAppSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--value**|array||value|value|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-alert
+#### <a name="SecurityListDomainSecurityProfiles">Command `az security security list-domain-security-profile`</a>
 
-get-alert a security.
+##### <a name="ParametersSecurityListDomainSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
+#### <a name="SecurityListFileSecurityProfiles">Command `az security security list-file-security-profile`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-alert|GetAlerts|
+##### <a name="ParametersSecurityListFileSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="SecurityListHostSecurityProfiles">Command `az security security list-host-security-profile`</a>
+
+##### <a name="ParametersSecurityListHostSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListIpSecurityProfiles">Command `az security security list-ip-security-profile`</a>
+
+##### <a name="ParametersSecurityListIpSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListProviderTenantSettings">Command `az security security list-provider-tenant-setting`</a>
+
+##### <a name="ParametersSecurityListProviderTenantSettings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListSecureScores">Command `az security security list-secure-score`</a>
+
+##### <a name="ParametersSecurityListSecureScores">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListSecureScoreControlProfiles">Command `az security security list-secure-score-control-profile`</a>
+
+##### <a name="ParametersSecurityListSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListSecurityActions">Command `az security security list-security-action`</a>
+
+##### <a name="ParametersSecurityListSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListTiIndicators">Command `az security security list-ti-indicator`</a>
+
+##### <a name="ParametersSecurityListTiIndicators">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListUserSecurityProfiles">Command `az security security list-user-security-profile`</a>
+
+##### <a name="ParametersSecurityListUserSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityGetAlerts">Command `az security security show-alert`</a>
+
+##### <a name="ParametersSecurityGetAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--alert-id**|string|key: id of alert|alert_id|alert-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-cloud-app-security-profile
+#### <a name="SecurityGetCloudAppSecurityProfiles">Command `az security security show-cloud-app-security-profile`</a>
 
-get-cloud-app-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-cloud-app-security-profile|GetCloudAppSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetCloudAppSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--cloud-app-security-profile-id**|string|key: id of cloudAppSecurityProfile|cloud_app_security_profile_id|cloudAppSecurityProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-domain-security-profile
+#### <a name="SecurityGetDomainSecurityProfiles">Command `az security security show-domain-security-profile`</a>
 
-get-domain-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-domain-security-profile|GetDomainSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetDomainSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--domain-security-profile-id**|string|key: id of domainSecurityProfile|domain_security_profile_id|domainSecurityProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-file-security-profile
+#### <a name="SecurityGetFileSecurityProfiles">Command `az security security show-file-security-profile`</a>
 
-get-file-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-file-security-profile|GetFileSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetFileSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--file-security-profile-id**|string|key: id of fileSecurityProfile|file_security_profile_id|fileSecurityProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-host-security-profile
+#### <a name="SecurityGetHostSecurityProfiles">Command `az security security show-host-security-profile`</a>
 
-get-host-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-host-security-profile|GetHostSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetHostSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--host-security-profile-id**|string|key: id of hostSecurityProfile|host_security_profile_id|hostSecurityProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-ip-security-profile
+#### <a name="SecurityGetIpSecurityProfiles">Command `az security security show-ip-security-profile`</a>
 
-get-ip-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ip-security-profile|GetIpSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetIpSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ip-security-profile-id**|string|key: id of ipSecurityProfile|ip_security_profile_id|ipSecurityProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-provider-tenant-setting
+#### <a name="SecurityGetProviderTenantSettings">Command `az security security show-provider-tenant-setting`</a>
 
-get-provider-tenant-setting a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-provider-tenant-setting|GetProviderTenantSettings|
-
-#### Parameters
+##### <a name="ParametersSecurityGetProviderTenantSettings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provider-tenant-setting-id**|string|key: id of providerTenantSetting|provider_tenant_setting_id|providerTenantSetting-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-secure-score
+#### <a name="SecurityGetSecureScores">Command `az security security show-secure-score`</a>
 
-get-secure-score a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-secure-score|GetSecureScores|
-
-#### Parameters
+##### <a name="ParametersSecurityGetSecureScores">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-secure-score-control-profile
+#### <a name="SecurityGetSecureScoreControlProfiles">Command `az security security show-secure-score-control-profile`</a>
 
-get-secure-score-control-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-secure-score-control-profile|GetSecureScoreControlProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetSecureScoreControlProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-security
+#### <a name="SecurityGetSecurityActions">Command `az security security show-security-action`</a>
 
-get-security a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-security|GetSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security get-security-action
-
-get-security-action a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-security-action|GetSecurityActions|
-
-#### Parameters
+##### <a name="ParametersSecurityGetSecurityActions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-ti-indicator
+#### <a name="SecurityGetTiIndicators">Command `az security security show-ti-indicator`</a>
 
-get-ti-indicator a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ti-indicator|GetTiIndicators|
-
-#### Parameters
+##### <a name="ParametersSecurityGetTiIndicators">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security get-user-security-profile
+#### <a name="SecurityGetUserSecurityProfiles">Command `az security security show-user-security-profile`</a>
 
-get-user-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-security-profile|GetUserSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetUserSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security list-alert
+#### <a name="SecurityUpdateAlerts">Command `az security security update-alert`</a>
 
-list-alert a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-alert|ListAlerts|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--alert-id**|string|key: id of alert|alert_id|alert-id|
+|**--body**|object|New navigation property values|body|body|
 
-### security list-cloud-app-security-profile
+#### <a name="SecurityUpdateCloudAppSecurityProfiles">Command `az security security update-cloud-app-security-profile`</a>
 
-list-cloud-app-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-cloud-app-security-profile|ListCloudAppSecurityProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-domain-security-profile
-
-list-domain-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-domain-security-profile|ListDomainSecurityProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-file-security-profile
-
-list-file-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-file-security-profile|ListFileSecurityProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-host-security-profile
-
-list-host-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-host-security-profile|ListHostSecurityProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-ip-security-profile
-
-list-ip-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ip-security-profile|ListIpSecurityProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-provider-tenant-setting
-
-list-provider-tenant-setting a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-provider-tenant-setting|ListProviderTenantSettings|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-secure-score
-
-list-secure-score a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-secure-score|ListSecureScores|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-secure-score-control-profile
-
-list-secure-score-control-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-secure-score-control-profile|ListSecureScoreControlProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-security-action
-
-list-security-action a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-security-action|ListSecurityActions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-ti-indicator
-
-list-ti-indicator a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ti-indicator|ListTiIndicators|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security list-user-security-profile
-
-list-user-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user-security-profile|ListUserSecurityProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security submit-ti-indicator
-
-submit-ti-indicator a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security.tiIndicators|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|submit-ti-indicator|submitTiIndicators|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--value**|array||value|value|
-
-### security update-alert
-
-update-alert a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security.alerts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-alert|updateAlerts|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--value**|array||value|value|
-
-### security update-cloud-app-security-profile
-
-update-cloud-app-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-cloud-app-security-profile|UpdateCloudAppSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateCloudAppSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--cloud-app-security-profile-id**|string|key: id of cloudAppSecurityProfile|cloud_app_security_profile_id|cloudAppSecurityProfile-id|
@@ -1120,21 +760,9 @@ update-cloud-app-security-profile a security.
 |**--type**|string||type|type|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security update-domain-security-profile
+#### <a name="SecurityUpdateDomainSecurityProfiles">Command `az security security update-domain-security-profile`</a>
 
-update-domain-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-domain-security-profile|UpdateDomainSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateDomainSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--domain-security-profile-id**|string|key: id of domainSecurityProfile|domain_security_profile_id|domainSecurityProfile-id|
@@ -1154,21 +782,9 @@ update-domain-security-profile a security.
 |**--tags**|array||tags|tags|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security update-file-security-profile
+#### <a name="SecurityUpdateFileSecurityProfiles">Command `az security security update-file-security-profile`</a>
 
-update-file-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-file-security-profile|UpdateFileSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateFileSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--file-security-profile-id**|string|key: id of fileSecurityProfile|file_security_profile_id|fileSecurityProfile-id|
@@ -1190,21 +806,9 @@ update-file-security-profile a security.
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 |**--vulnerability-states**|array||vulnerability_states|vulnerabilityStates|
 
-### security update-host-security-profile
+#### <a name="SecurityUpdateHostSecurityProfiles">Command `az security security update-host-security-profile`</a>
 
-update-host-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-host-security-profile|UpdateHostSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateHostSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--host-security-profile-id**|string|key: id of hostSecurityProfile|host_security_profile_id|hostSecurityProfile-id|
@@ -1228,21 +832,9 @@ update-host-security-profile a security.
 |**--tags**|array||tags|tags|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security update-ip-security-profile
+#### <a name="SecurityUpdateIpSecurityProfiles">Command `az security security update-ip-security-profile`</a>
 
-update-ip-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-ip-security-profile|UpdateIpSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateIpSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ip-security-profile-id**|string|key: id of ipSecurityProfile|ip_security_profile_id|ipSecurityProfile-id|
@@ -1261,21 +853,9 @@ update-ip-security-profile a security.
 |**--tags**|array||tags|tags|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security update-provider-tenant-setting
+#### <a name="SecurityUpdateProviderTenantSettings">Command `az security security update-provider-tenant-setting`</a>
 
-update-provider-tenant-setting a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-provider-tenant-setting|UpdateProviderTenantSettings|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateProviderTenantSettings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provider-tenant-setting-id**|string|key: id of providerTenantSetting|provider_tenant_setting_id|providerTenantSetting-id|
@@ -1286,21 +866,9 @@ update-provider-tenant-setting a security.
 |**--provider**|string||provider|provider|
 |**--vendor**|string||vendor|vendor|
 
-### security update-secure-score
+#### <a name="SecurityUpdateSecureScores">Command `az security security update-secure-score`</a>
 
-update-secure-score a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-secure-score|UpdateSecureScores|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateSecureScores">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
@@ -1316,21 +884,9 @@ update-secure-score a security.
 |**--max-score**|number|Tenant maximum possible score on specified date.|max_score|maxScore|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security update-secure-score-control-profile
+#### <a name="SecurityUpdateSecureScoreControlProfiles">Command `az security security update-secure-score-control-profile`</a>
 
-update-secure-score-control-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-secure-score-control-profile|UpdateSecureScoreControlProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateSecureScoreControlProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
@@ -1355,53 +911,9 @@ update-secure-score-control-profile a security.
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security update-security
+#### <a name="SecurityUpdateSecurityActions">Command `az security security update-security-action`</a>
 
-update-security a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-security|UpdateSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--provider-status**|array||provider_status|providerStatus|
-|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
-|**--cloud-app-security-profiles**|array||cloud_app_security_profiles|cloudAppSecurityProfiles|
-|**--domain-security-profiles**|array||domain_security_profiles|domainSecurityProfiles|
-|**--file-security-profiles**|array||file_security_profiles|fileSecurityProfiles|
-|**--host-security-profiles**|array||host_security_profiles|hostSecurityProfiles|
-|**--ip-security-profiles**|array||ip_security_profiles|ipSecurityProfiles|
-|**--provider-tenant-settings**|array||provider_tenant_settings|providerTenantSettings|
-|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
-|**--secure-scores**|array||secure_scores|secureScores|
-|**--security-actions**|array||security_actions|securityActions|
-|**--ti-indicators**|array||ti_indicators|tiIndicators|
-|**--user-security-profiles**|array||user_security_profiles|userSecurityProfiles|
-
-### security update-security-action
-
-update-security-action a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-security-action|UpdateSecurityActions|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateSecurityActions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
@@ -1421,40 +933,75 @@ update-security-action a security.
 |**--user**|string||user|user|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security update-ti-indicator
+#### <a name="SecurityUpdateTiIndicators">Command `az security security update-ti-indicator`</a>
 
-update-ti-indicator a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security.tiIndicators|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-ti-indicator|updateTiIndicators|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateTiIndicators">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--value**|array||value|value|
+|**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
+|**--id**|string|Read-only.|id|id|
+|**--action**|choice||action|action|
+|**--activity-group-names**|array||activity_group_names|activityGroupNames|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
+|**--confidence**|integer||confidence|confidence|
+|**--description**|string||description|description|
+|**--diamond-model**|choice||diamond_model|diamondModel|
+|**--domain-name**|string||domain_name|domainName|
+|**--email-encoding**|string||email_encoding|emailEncoding|
+|**--email-language**|string||email_language|emailLanguage|
+|**--email-recipient**|string||email_recipient|emailRecipient|
+|**--email-sender-address**|string||email_sender_address|emailSenderAddress|
+|**--email-sender-name**|string||email_sender_name|emailSenderName|
+|**--email-source-domain**|string||email_source_domain|emailSourceDomain|
+|**--email-source-ip-address**|string||email_source_ip_address|emailSourceIpAddress|
+|**--email-subject**|string||email_subject|emailSubject|
+|**--email-x-mailer**|string||email_x_mailer|emailXMailer|
+|**--expiration-date-time**|date-time||expiration_date_time|expirationDateTime|
+|**--external-id**|string||external_id|externalId|
+|**--file-compile-date-time**|date-time||file_compile_date_time|fileCompileDateTime|
+|**--file-created-date-time**|date-time||file_created_date_time|fileCreatedDateTime|
+|**--file-hash-type**|choice||file_hash_type|fileHashType|
+|**--file-hash-value**|string||file_hash_value|fileHashValue|
+|**--file-mutex-name**|string||file_mutex_name|fileMutexName|
+|**--file-name**|string||file_name|fileName|
+|**--file-packer**|string||file_packer|filePacker|
+|**--file-path**|string||file_path|filePath|
+|**--file-size**|integer||file_size|fileSize|
+|**--file-type**|string||file_type|fileType|
+|**--ingested-date-time**|date-time||ingested_date_time|ingestedDateTime|
+|**--is-active**|boolean||is_active|isActive|
+|**--kill-chain**|array||kill_chain|killChain|
+|**--known-false-positives**|string||known_false_positives|knownFalsePositives|
+|**--last-reported-date-time**|date-time||last_reported_date_time|lastReportedDateTime|
+|**--malware-family-names**|array||malware_family_names|malwareFamilyNames|
+|**--network-cidr-block**|string||network_cidr_block|networkCidrBlock|
+|**--network-destination-asn**|integer||network_destination_asn|networkDestinationAsn|
+|**--network-destination-cidr-block**|string||network_destination_cidr_block|networkDestinationCidrBlock|
+|**--network-destination-i-pv4**|string||network_destination_i_pv4|networkDestinationIPv4|
+|**--network-destination-i-pv6**|string||network_destination_i_pv6|networkDestinationIPv6|
+|**--network-destination-port**|integer||network_destination_port|networkDestinationPort|
+|**--network-i-pv4**|string||network_i_pv4|networkIPv4|
+|**--network-i-pv6**|string||network_i_pv6|networkIPv6|
+|**--network-port**|integer||network_port|networkPort|
+|**--network-protocol**|integer||network_protocol|networkProtocol|
+|**--network-source-asn**|integer||network_source_asn|networkSourceAsn|
+|**--network-source-cidr-block**|string||network_source_cidr_block|networkSourceCidrBlock|
+|**--network-source-i-pv4**|string||network_source_i_pv4|networkSourceIPv4|
+|**--network-source-i-pv6**|string||network_source_i_pv6|networkSourceIPv6|
+|**--network-source-port**|integer||network_source_port|networkSourcePort|
+|**--passive-only**|boolean||passive_only|passiveOnly|
+|**--severity**|integer||severity|severity|
+|**--tags**|array||tags|tags|
+|**--target-product**|string||target_product|targetProduct|
+|**--threat-type**|string||threat_type|threatType|
+|**--tlp-level**|choice||tlp_level|tlpLevel|
+|**--url**|string||url|url|
+|**--user-agent**|string||user_agent|userAgent|
 
-### security update-user-security-profile
+#### <a name="SecurityUpdateUserSecurityProfiles">Command `az security security update-user-security-profile`</a>
 
-update-user-security-profile a security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user-security-profile|UpdateUserSecurityProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateUserSecurityProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
@@ -1469,3 +1016,48 @@ update-user-security-profile a security.
 |**--tags**|array||tags|tags|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
+
+### group `az security securityaction`
+#### <a name="Security.securityActionscancelSecurityAction">Command `az security securityaction cancel-security-action`</a>
+
+##### <a name="ParametersSecurity.securityActionscancelSecurityAction">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+
+### group `az security securityalert`
+#### <a name="Security.alertsupdateAlerts">Command `az security securityalert update-alert`</a>
+
+##### <a name="ParametersSecurity.alertsupdateAlerts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--value**|array||value|value|
+
+### group `az security securitytiindicator`
+#### <a name="Security.tiIndicatorsdeleteTiIndicators">Command `az security securitytiindicator delete-ti-indicator`</a>
+
+##### <a name="ParametersSecurity.tiIndicatorsdeleteTiIndicators">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--value**|array||value|value|
+
+#### <a name="Security.tiIndicatorsdeleteTiIndicatorsByExternalId">Command `az security securitytiindicator delete-ti-indicator-by-external-id`</a>
+
+##### <a name="ParametersSecurity.tiIndicatorsdeleteTiIndicatorsByExternalId">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--value**|array||value|value|
+
+#### <a name="Security.tiIndicatorssubmitTiIndicators">Command `az security securitytiindicator submit-ti-indicator`</a>
+
+##### <a name="ParametersSecurity.tiIndicatorssubmitTiIndicators">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--value**|array||value|value|
+
+#### <a name="Security.tiIndicatorsupdateTiIndicators">Command `az security securitytiindicator update-ti-indicator`</a>
+
+##### <a name="ParametersSecurity.tiIndicatorsupdateTiIndicators">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--value**|array||value|value|

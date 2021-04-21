@@ -14,10 +14,10 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddLastModifiedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.last_modified_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -35,6 +35,9 @@ class AddLastModifiedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -69,6 +72,10 @@ class AddLastIndexOperation(argparse.Action):
                 d['status'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter last_index_operation. All possible keys '
+                               'are: action, completed-date-time, created-date-time, display-name, percent-progress, '
+                               'status, id'.format(k))
         return d
 
 
@@ -105,4 +112,8 @@ class AddUserSources(argparse._AppendAction):
                 d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_sources. All possible keys are: '
+                               'email, included-sources, created-date-time, display-name, application, device, user, '
+                               'id'.format(k))
         return d

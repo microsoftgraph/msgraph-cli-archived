@@ -8,11 +8,10 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
-from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -23,8 +22,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class EducationOperations(object):
-    """EducationOperations operations.
+class educationOperations(object):
+    """educationOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -45,31 +44,33 @@ class EducationOperations(object):
         self._deserialize = deserializer
         self._config = config
 
-    def list_class(
+    def list_classes(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get5itemsitem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get6itemsitem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get7itemsitem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.CollectionOfEducationClass"]
+        # type: (...) -> Iterable["models.collectionofeducationclass"]
         """Get classes from education.
 
         Get classes from education.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Get5ItemsItem]
+        :type orderby: list[str or ~education.models.Get5itemsitem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Get6ItemsItem]
+        :type select: list[str or ~education.models.Get6itemsitem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Get7ItemsItem]
+        :type expand: list[str or ~education.models.Get7itemsitem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfEducationClass or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~education.models.CollectionOfEducationClass]
+        :return: An iterator like instance of either collectionofeducationclass or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~education.models.collectionofeducationclass]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationClass"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofeducationclass"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -77,11 +78,10 @@ class EducationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
-                url = self.list_class.metadata['url']  # type: ignore
+                url = self.list_classes.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -109,7 +109,7 @@ class EducationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfEducationClass', pipeline_response)
+            deserialized = self._deserialize('collectionofeducationclass', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -122,90 +122,44 @@ class EducationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
+                error = self._deserialize(models.odataerror, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+                raise HttpResponseError(response=response, model=error)
 
             return pipeline_response
 
         return ItemPaged(
             get_next, extract_data
         )
-    list_class.metadata = {'url': '/education/classes'}  # type: ignore
+    list_classes.metadata = {'url': '/education/classes'}  # type: ignore
 
-    def create_class(
+    def create_classes(
         self,
-        id=None,  # type: Optional[str]
-        class_code=None,  # type: Optional[str]
-        description=None,  # type: Optional[str]
-        display_name=None,  # type: Optional[str]
-        external_id=None,  # type: Optional[str]
-        external_name=None,  # type: Optional[str]
-        external_source=None,  # type: Optional[Union[str, "models.MicrosoftGraphEducationExternalSource"]]
-        mail_nickname=None,  # type: Optional[str]
-        term=None,  # type: Optional["models.MicrosoftGraphEducationTerm"]
-        group=None,  # type: Optional["models.MicrosoftGraphGroup"]
-        members=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
-        schools=None,  # type: Optional[List["models.MicrosoftGraphEducationSchool"]]
-        teachers=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
-        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        body,  # type: "models.microsoftgrapheducationclass"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEducationClass"
+        # type: (...) -> "models.microsoftgrapheducationclass"
         """Create new navigation property to classes for education.
 
         Create new navigation property to classes for education.
 
-        :param id: Read-only.
-        :type id: str
-        :param class_code: Class code used by the school to identify the class.
-        :type class_code: str
-        :param description: Description of the class.
-        :type description: str
-        :param display_name: Name of the class.
-        :type display_name: str
-        :param external_id: ID of the class from the syncing system.
-        :type external_id: str
-        :param external_name: Name of the class in the syncing system.
-        :type external_name: str
-        :param external_source:
-        :type external_source: str or ~education.models.MicrosoftGraphEducationExternalSource
-        :param mail_nickname: Mail name for sending email to all members, if this is enabled.
-        :type mail_nickname: str
-        :param term: educationTerm.
-        :type term: ~education.models.MicrosoftGraphEducationTerm
-        :param group: Represents an Azure Active Directory object. The directoryObject type is the base
-         type for many other directory entity types.
-        :type group: ~education.models.MicrosoftGraphGroup
-        :param members: All users in the class. Nullable.
-        :type members: list[~education.models.MicrosoftGraphEducationUser]
-        :param schools: All schools that this class is associated with. Nullable.
-        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
-        :param teachers: All teachers in the class. Nullable.
-        :type teachers: list[~education.models.MicrosoftGraphEducationUser]
-        :param application: identity.
-        :type application: ~education.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~education.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~education.models.MicrosoftGraphIdentity
+        :param body: New navigation property.
+        :type body: ~education.models.microsoftgrapheducationclass
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationClass, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationClass
+        :return: microsoftgrapheducationclass, or the result of cls(response)
+        :rtype: ~education.models.microsoftgrapheducationclass
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationClass"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationclass"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphEducationClass(id=id, class_code=class_code, description=description, display_name=display_name, external_id=external_id, external_name=external_name, external_source=external_source, mail_nickname=mail_nickname, term=term, group=group, members=members, schools=schools, teachers=teachers, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_class.metadata['url']  # type: ignore
+        url = self.create_classes.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -214,37 +168,35 @@ class EducationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationClass')
+        body_content = self._serialize.body(body, 'microsoftgrapheducationclass')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationClass', pipeline_response)
+        deserialized = self._deserialize('microsoftgrapheducationclass', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_class.metadata = {'url': '/education/classes'}  # type: ignore
+    create_classes.metadata = {'url': '/education/classes'}  # type: ignore
 
-    def get_class(
+    def get_classes(
         self,
         education_class_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get2itemsitem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEducationClass"
+        # type: (...) -> "models.microsoftgrapheducationclass"
         """Get classes from education.
 
         Get classes from education.
@@ -254,19 +206,21 @@ class EducationOperations(object):
         :param select: Select properties to be returned.
         :type select: list[str or ~education.models.Enum67]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Get2ItemsItem]
+        :type expand: list[str or ~education.models.Get2itemsitem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationClass, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationClass
+        :return: microsoftgrapheducationclass, or the result of cls(response)
+        :rtype: ~education.models.microsoftgrapheducationclass
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationClass"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationclass"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
         # Construct URL
-        url = self.get_class.metadata['url']  # type: ignore
+        url = self.get_classes.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationClass-id': self._serialize.url("education_class_id", education_class_id, 'str'),
         }
@@ -282,7 +236,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -290,36 +243,21 @@ class EducationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationClass', pipeline_response)
+        deserialized = self._deserialize('microsoftgrapheducationclass', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_class.metadata = {'url': '/education/classes/{educationClass-id}'}  # type: ignore
+    get_classes.metadata = {'url': '/education/classes/{educationClass-id}'}  # type: ignore
 
-    def update_class(
+    def update_classes(
         self,
         education_class_id,  # type: str
-        id=None,  # type: Optional[str]
-        class_code=None,  # type: Optional[str]
-        description=None,  # type: Optional[str]
-        display_name=None,  # type: Optional[str]
-        external_id=None,  # type: Optional[str]
-        external_name=None,  # type: Optional[str]
-        external_source=None,  # type: Optional[Union[str, "models.MicrosoftGraphEducationExternalSource"]]
-        mail_nickname=None,  # type: Optional[str]
-        term=None,  # type: Optional["models.MicrosoftGraphEducationTerm"]
-        group=None,  # type: Optional["models.MicrosoftGraphGroup"]
-        members=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
-        schools=None,  # type: Optional[List["models.MicrosoftGraphEducationSchool"]]
-        teachers=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
-        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        body,  # type: "models.microsoftgrapheducationclass"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -329,54 +267,23 @@ class EducationOperations(object):
 
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
-        :param id: Read-only.
-        :type id: str
-        :param class_code: Class code used by the school to identify the class.
-        :type class_code: str
-        :param description: Description of the class.
-        :type description: str
-        :param display_name: Name of the class.
-        :type display_name: str
-        :param external_id: ID of the class from the syncing system.
-        :type external_id: str
-        :param external_name: Name of the class in the syncing system.
-        :type external_name: str
-        :param external_source:
-        :type external_source: str or ~education.models.MicrosoftGraphEducationExternalSource
-        :param mail_nickname: Mail name for sending email to all members, if this is enabled.
-        :type mail_nickname: str
-        :param term: educationTerm.
-        :type term: ~education.models.MicrosoftGraphEducationTerm
-        :param group: Represents an Azure Active Directory object. The directoryObject type is the base
-         type for many other directory entity types.
-        :type group: ~education.models.MicrosoftGraphGroup
-        :param members: All users in the class. Nullable.
-        :type members: list[~education.models.MicrosoftGraphEducationUser]
-        :param schools: All schools that this class is associated with. Nullable.
-        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
-        :param teachers: All teachers in the class. Nullable.
-        :type teachers: list[~education.models.MicrosoftGraphEducationUser]
-        :param application: identity.
-        :type application: ~education.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~education.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~education.models.MicrosoftGraphIdentity
+        :param body: New navigation property values.
+        :type body: ~education.models.microsoftgrapheducationclass
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphEducationClass(id=id, class_code=class_code, description=description, display_name=display_name, external_id=external_id, external_name=external_name, external_source=external_source, mail_nickname=mail_nickname, term=term, group=group, members=members, schools=schools, teachers=teachers, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_class.metadata['url']  # type: ignore
+        url = self.update_classes.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationClass-id': self._serialize.url("education_class_id", education_class_id, 'str'),
         }
@@ -391,24 +298,23 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationClass')
+        body_content = self._serialize.body(body, 'microsoftgrapheducationclass')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_class.metadata = {'url': '/education/classes/{educationClass-id}'}  # type: ignore
+    update_classes.metadata = {'url': '/education/classes/{educationClass-id}'}  # type: ignore
 
-    def delete_class(
+    def delete_classes(
         self,
         education_class_id,  # type: str
         if_match=None,  # type: Optional[str]
@@ -429,12 +335,14 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_class.metadata['url']  # type: ignore
+        url = self.delete_classes.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationClass-id': self._serialize.url("education_class_id", education_class_id, 'str'),
         }
@@ -455,13 +363,13 @@ class EducationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_class.metadata = {'url': '/education/classes/{educationClass-id}'}  # type: ignore
+    delete_classes.metadata = {'url': '/education/classes/{educationClass-id}'}  # type: ignore
 
     def get_me(
         self,
@@ -469,7 +377,7 @@ class EducationOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Enum84"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEducationUser"
+        # type: (...) -> "models.microsoftgrapheducationuser"
         """Get me from education.
 
         Get me from education.
@@ -479,12 +387,14 @@ class EducationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum84]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationUser, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationUser
+        :return: microsoftgrapheducationuser, or the result of cls(response)
+        :rtype: ~education.models.microsoftgrapheducationuser
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationuser"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -501,7 +411,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -509,10 +418,10 @@ class EducationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationUser', pipeline_response)
+        deserialized = self._deserialize('microsoftgrapheducationuser', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -522,7 +431,7 @@ class EducationOperations(object):
 
     def update_me(
         self,
-        body,  # type: "models.MicrosoftGraphEducationUser"
+        body,  # type: "models.microsoftgrapheducationuser"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -531,14 +440,16 @@ class EducationOperations(object):
         Update the navigation property me in education.
 
         :param body: New navigation property values.
-        :type body: ~education.models.MicrosoftGraphEducationUser
+        :type body: ~education.models.microsoftgrapheducationuser
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
@@ -555,17 +466,16 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(body, 'microsoftgrapheducationuser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -590,7 +500,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -612,22 +524,22 @@ class EducationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
 
     delete_me.metadata = {'url': '/education/me'}  # type: ignore
 
-    def list_school(
+    def list_schools(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum95"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum96"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Enum97"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.CollectionOfEducationSchool1"]
+        # type: (...) -> Iterable["models.collectionofeducationschool1"]
         """Get schools from education.
 
         Get schools from education.
@@ -639,12 +551,14 @@ class EducationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum97]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfEducationSchool1 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~education.models.CollectionOfEducationSchool1]
+        :return: An iterator like instance of either collectionofeducationschool1 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~education.models.collectionofeducationschool1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationSchool1"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofeducationschool1"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -652,11 +566,10 @@ class EducationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
-                url = self.list_school.metadata['url']  # type: ignore
+                url = self.list_schools.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -684,7 +597,7 @@ class EducationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfEducationSchool1', pipeline_response)
+            deserialized = self._deserialize('collectionofeducationschool1', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -697,98 +610,44 @@ class EducationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
+                error = self._deserialize(models.odataerror, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+                raise HttpResponseError(response=response, model=error)
 
             return pipeline_response
 
         return ItemPaged(
             get_next, extract_data
         )
-    list_school.metadata = {'url': '/education/schools'}  # type: ignore
+    list_schools.metadata = {'url': '/education/schools'}  # type: ignore
 
-    def create_school(
+    def create_schools(
         self,
-        id=None,  # type: Optional[str]
-        description=None,  # type: Optional[str]
-        display_name=None,  # type: Optional[str]
-        external_source=None,  # type: Optional[Union[str, "models.MicrosoftGraphEducationExternalSource"]]
-        address=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
-        external_id=None,  # type: Optional[str]
-        external_principal_id=None,  # type: Optional[str]
-        fax=None,  # type: Optional[str]
-        highest_grade=None,  # type: Optional[str]
-        lowest_grade=None,  # type: Optional[str]
-        phone=None,  # type: Optional[str]
-        principal_email=None,  # type: Optional[str]
-        principal_name=None,  # type: Optional[str]
-        school_number=None,  # type: Optional[str]
-        classes=None,  # type: Optional[List["models.MicrosoftGraphEducationClass"]]
-        users=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
-        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        body,  # type: "models.microsoftgrapheducationschool"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEducationSchool"
+        # type: (...) -> "models.microsoftgrapheducationschool"
         """Create new navigation property to schools for education.
 
         Create new navigation property to schools for education.
 
-        :param id: Read-only.
-        :type id: str
-        :param description: Organization description.
-        :type description: str
-        :param display_name: Organization display name.
-        :type display_name: str
-        :param external_source:
-        :type external_source: str or ~education.models.MicrosoftGraphEducationExternalSource
-        :param address: physicalAddress.
-        :type address: ~education.models.MicrosoftGraphPhysicalAddress
-        :param external_id: ID of school in syncing system.
-        :type external_id: str
-        :param external_principal_id: ID of principal in syncing system.
-        :type external_principal_id: str
-        :param fax:
-        :type fax: str
-        :param highest_grade: Highest grade taught.
-        :type highest_grade: str
-        :param lowest_grade: Lowest grade taught.
-        :type lowest_grade: str
-        :param phone: Phone number of school.
-        :type phone: str
-        :param principal_email: Email address of the principal.
-        :type principal_email: str
-        :param principal_name: Name of the principal.
-        :type principal_name: str
-        :param school_number: School Number.
-        :type school_number: str
-        :param classes: Classes taught at the school. Nullable.
-        :type classes: list[~education.models.MicrosoftGraphEducationClass]
-        :param users: Users in the school. Nullable.
-        :type users: list[~education.models.MicrosoftGraphEducationUser]
-        :param application: identity.
-        :type application: ~education.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~education.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~education.models.MicrosoftGraphIdentity
+        :param body: New navigation property.
+        :type body: ~education.models.microsoftgrapheducationschool
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationSchool, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationSchool
+        :return: microsoftgrapheducationschool, or the result of cls(response)
+        :rtype: ~education.models.microsoftgrapheducationschool
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationSchool"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationschool"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphEducationSchool(id=id, description=description, display_name=display_name, external_source=external_source, address=address, external_id=external_id, external_principal_id=external_principal_id, fax=fax, highest_grade=highest_grade, lowest_grade=lowest_grade, phone=phone, principal_email=principal_email, principal_name=principal_name, school_number=school_number, classes=classes, users=users, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_school.metadata['url']  # type: ignore
+        url = self.create_schools.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -797,37 +656,35 @@ class EducationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationSchool')
+        body_content = self._serialize.body(body, 'microsoftgrapheducationschool')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationSchool', pipeline_response)
+        deserialized = self._deserialize('microsoftgrapheducationschool', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_school.metadata = {'url': '/education/schools'}  # type: ignore
+    create_schools.metadata = {'url': '/education/schools'}  # type: ignore
 
-    def get_school(
+    def get_schools(
         self,
         education_school_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum98"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Enum99"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEducationSchool"
+        # type: (...) -> "models.microsoftgrapheducationschool"
         """Get schools from education.
 
         Get schools from education.
@@ -839,17 +696,19 @@ class EducationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum99]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationSchool, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationSchool
+        :return: microsoftgrapheducationschool, or the result of cls(response)
+        :rtype: ~education.models.microsoftgrapheducationschool
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationSchool"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationschool"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
         # Construct URL
-        url = self.get_school.metadata['url']  # type: ignore
+        url = self.get_schools.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
         }
@@ -865,7 +724,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -873,39 +731,21 @@ class EducationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationSchool', pipeline_response)
+        deserialized = self._deserialize('microsoftgrapheducationschool', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_school.metadata = {'url': '/education/schools/{educationSchool-id}'}  # type: ignore
+    get_schools.metadata = {'url': '/education/schools/{educationSchool-id}'}  # type: ignore
 
-    def update_school(
+    def update_schools(
         self,
         education_school_id,  # type: str
-        id=None,  # type: Optional[str]
-        description=None,  # type: Optional[str]
-        display_name=None,  # type: Optional[str]
-        external_source=None,  # type: Optional[Union[str, "models.MicrosoftGraphEducationExternalSource"]]
-        address=None,  # type: Optional["models.MicrosoftGraphPhysicalAddress"]
-        external_id=None,  # type: Optional[str]
-        external_principal_id=None,  # type: Optional[str]
-        fax=None,  # type: Optional[str]
-        highest_grade=None,  # type: Optional[str]
-        lowest_grade=None,  # type: Optional[str]
-        phone=None,  # type: Optional[str]
-        principal_email=None,  # type: Optional[str]
-        principal_name=None,  # type: Optional[str]
-        school_number=None,  # type: Optional[str]
-        classes=None,  # type: Optional[List["models.MicrosoftGraphEducationClass"]]
-        users=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
-        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
-        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        body,  # type: "models.microsoftgrapheducationschool"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -915,59 +755,23 @@ class EducationOperations(object):
 
         :param education_school_id: key: id of educationSchool.
         :type education_school_id: str
-        :param id: Read-only.
-        :type id: str
-        :param description: Organization description.
-        :type description: str
-        :param display_name: Organization display name.
-        :type display_name: str
-        :param external_source:
-        :type external_source: str or ~education.models.MicrosoftGraphEducationExternalSource
-        :param address: physicalAddress.
-        :type address: ~education.models.MicrosoftGraphPhysicalAddress
-        :param external_id: ID of school in syncing system.
-        :type external_id: str
-        :param external_principal_id: ID of principal in syncing system.
-        :type external_principal_id: str
-        :param fax:
-        :type fax: str
-        :param highest_grade: Highest grade taught.
-        :type highest_grade: str
-        :param lowest_grade: Lowest grade taught.
-        :type lowest_grade: str
-        :param phone: Phone number of school.
-        :type phone: str
-        :param principal_email: Email address of the principal.
-        :type principal_email: str
-        :param principal_name: Name of the principal.
-        :type principal_name: str
-        :param school_number: School Number.
-        :type school_number: str
-        :param classes: Classes taught at the school. Nullable.
-        :type classes: list[~education.models.MicrosoftGraphEducationClass]
-        :param users: Users in the school. Nullable.
-        :type users: list[~education.models.MicrosoftGraphEducationUser]
-        :param application: identity.
-        :type application: ~education.models.MicrosoftGraphIdentity
-        :param device: identity.
-        :type device: ~education.models.MicrosoftGraphIdentity
-        :param user: identity.
-        :type user: ~education.models.MicrosoftGraphIdentity
+        :param body: New navigation property values.
+        :type body: ~education.models.microsoftgrapheducationschool
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphEducationSchool(id=id, description=description, display_name=display_name, external_source=external_source, address=address, external_id=external_id, external_principal_id=external_principal_id, fax=fax, highest_grade=highest_grade, lowest_grade=lowest_grade, phone=phone, principal_email=principal_email, principal_name=principal_name, school_number=school_number, classes=classes, users=users, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_school.metadata['url']  # type: ignore
+        url = self.update_schools.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
         }
@@ -982,24 +786,23 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationSchool')
+        body_content = self._serialize.body(body, 'microsoftgrapheducationschool')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_school.metadata = {'url': '/education/schools/{educationSchool-id}'}  # type: ignore
+    update_schools.metadata = {'url': '/education/schools/{educationSchool-id}'}  # type: ignore
 
-    def delete_school(
+    def delete_schools(
         self,
         education_school_id,  # type: str
         if_match=None,  # type: Optional[str]
@@ -1020,12 +823,14 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_school.metadata['url']  # type: ignore
+        url = self.delete_schools.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
         }
@@ -1046,22 +851,22 @@ class EducationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_school.metadata = {'url': '/education/schools/{educationSchool-id}'}  # type: ignore
+    delete_schools.metadata = {'url': '/education/schools/{educationSchool-id}'}  # type: ignore
 
-    def list_user(
+    def list_users(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum108"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum109"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.CollectionOfEducationUser2"]
+        # type: (...) -> Iterable["models.collectionofeducationuser2"]
         """Get users from education.
 
         Get users from education.
@@ -1073,12 +878,14 @@ class EducationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum110]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfEducationUser2 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~education.models.CollectionOfEducationUser2]
+        :return: An iterator like instance of either collectionofeducationuser2 or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~education.models.collectionofeducationuser2]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationUser2"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.collectionofeducationuser2"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1086,11 +893,10 @@ class EducationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
-                url = self.list_user.metadata['url']  # type: ignore
+                url = self.list_users.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -1118,7 +924,7 @@ class EducationOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfEducationUser2', pipeline_response)
+            deserialized = self._deserialize('collectionofeducationuser2', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -1131,42 +937,44 @@ class EducationOperations(object):
             response = pipeline_response.http_response
 
             if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
+                error = self._deserialize(models.odataerror, response)
                 map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+                raise HttpResponseError(response=response, model=error)
 
             return pipeline_response
 
         return ItemPaged(
             get_next, extract_data
         )
-    list_user.metadata = {'url': '/education/users'}  # type: ignore
+    list_users.metadata = {'url': '/education/users'}  # type: ignore
 
-    def create_user(
+    def create_users(
         self,
-        body,  # type: "models.MicrosoftGraphEducationUser"
+        body,  # type: "models.microsoftgrapheducationuser"
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEducationUser"
+        # type: (...) -> "models.microsoftgrapheducationuser"
         """Create new navigation property to users for education.
 
         Create new navigation property to users for education.
 
         :param body: New navigation property.
-        :type body: ~education.models.MicrosoftGraphEducationUser
+        :type body: ~education.models.microsoftgrapheducationuser
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationUser, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationUser
+        :return: microsoftgrapheducationuser, or the result of cls(response)
+        :rtype: ~education.models.microsoftgrapheducationuser
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationuser"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_user.metadata['url']  # type: ignore
+        url = self.create_users.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -1175,37 +983,35 @@ class EducationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(body, 'microsoftgrapheducationuser')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationUser', pipeline_response)
+        deserialized = self._deserialize('microsoftgrapheducationuser', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_user.metadata = {'url': '/education/users'}  # type: ignore
+    create_users.metadata = {'url': '/education/users'}  # type: ignore
 
-    def get_user(
+    def get_users(
         self,
         education_user_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum111"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Enum112"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphEducationUser"
+        # type: (...) -> "models.microsoftgrapheducationuser"
         """Get users from education.
 
         Get users from education.
@@ -1217,17 +1023,19 @@ class EducationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Enum112]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationUser, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationUser
+        :return: microsoftgrapheducationuser, or the result of cls(response)
+        :rtype: ~education.models.microsoftgrapheducationuser
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgrapheducationuser"]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
         # Construct URL
-        url = self.get_user.metadata['url']  # type: ignore
+        url = self.get_users.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationUser-id': self._serialize.url("education_user_id", education_user_id, 'str'),
         }
@@ -1243,7 +1051,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1251,21 +1058,21 @@ class EducationOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationUser', pipeline_response)
+        deserialized = self._deserialize('microsoftgrapheducationuser', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_user.metadata = {'url': '/education/users/{educationUser-id}'}  # type: ignore
+    get_users.metadata = {'url': '/education/users/{educationUser-id}'}  # type: ignore
 
-    def update_user(
+    def update_users(
         self,
         education_user_id,  # type: str
-        body,  # type: "models.MicrosoftGraphEducationUser"
+        body,  # type: "models.microsoftgrapheducationuser"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1276,20 +1083,22 @@ class EducationOperations(object):
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
         :param body: New navigation property values.
-        :type body: ~education.models.MicrosoftGraphEducationUser
+        :type body: ~education.models.microsoftgrapheducationuser
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_user.metadata['url']  # type: ignore
+        url = self.update_users.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationUser-id': self._serialize.url("education_user_id", education_user_id, 'str'),
         }
@@ -1304,24 +1113,23 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(body, 'microsoftgrapheducationuser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_user.metadata = {'url': '/education/users/{educationUser-id}'}  # type: ignore
+    update_users.metadata = {'url': '/education/users/{educationUser-id}'}  # type: ignore
 
-    def delete_user(
+    def delete_users(
         self,
         education_user_id,  # type: str
         if_match=None,  # type: Optional[str]
@@ -1342,12 +1150,14 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_user.metadata['url']  # type: ignore
+        url = self.delete_users.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationUser-id': self._serialize.url("education_user_id", education_user_id, 'str'),
         }
@@ -1368,10 +1178,10 @@ class EducationOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_user.metadata = {'url': '/education/users/{educationUser-id}'}  # type: ignore
+    delete_users.metadata = {'url': '/education/users/{educationUser-id}'}  # type: ignore

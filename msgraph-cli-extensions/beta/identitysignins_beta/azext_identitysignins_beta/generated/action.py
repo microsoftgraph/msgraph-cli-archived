@@ -39,6 +39,9 @@ class AddNamedLocations(argparse._AppendAction):
                 d['modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter named_locations. All possible keys are: '
+                               'created-date-time, display-name, modified-date-time, id'.format(k))
         return d
 
 
@@ -67,13 +70,16 @@ class AddGrantControls(argparse.Action):
                 d['operator'] = v[0]
             elif kl == 'terms-of-use':
                 d['terms_of_use'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter grant_controls. All possible keys are: '
+                               'built-in-controls, custom-authentication-factors, operator, terms-of-use'.format(k))
         return d
 
 
-class AddSessionControlsApplicationEnforcedRestrictions(argparse.Action):
+class AddApplicationEnforcedRestrictions(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.session_controls_application_enforced_restrictions = action
+        namespace.application_enforced_restrictions = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -89,13 +95,16 @@ class AddSessionControlsApplicationEnforcedRestrictions(argparse.Action):
             v = properties[k]
             if kl == 'is-enabled':
                 d['is_enabled'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application_enforced_restrictions. All '
+                               'possible keys are: is-enabled'.format(k))
         return d
 
 
-class AddSessionControlsCloudAppSecurity(argparse.Action):
+class AddCloudAppSecurity(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.session_controls_cloud_app_security = action
+        namespace.cloud_app_security = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -113,13 +122,16 @@ class AddSessionControlsCloudAppSecurity(argparse.Action):
                 d['cloud_app_security_type'] = v[0]
             elif kl == 'is-enabled':
                 d['is_enabled'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter cloud_app_security. All possible keys '
+                               'are: cloud-app-security-type, is-enabled'.format(k))
         return d
 
 
-class AddSessionControlsPersistentBrowser(argparse.Action):
+class AddPersistentBrowser(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.session_controls_persistent_browser = action
+        namespace.persistent_browser = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -137,13 +149,16 @@ class AddSessionControlsPersistentBrowser(argparse.Action):
                 d['mode'] = v[0]
             elif kl == 'is-enabled':
                 d['is_enabled'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter persistent_browser. All possible keys '
+                               'are: mode, is-enabled'.format(k))
         return d
 
 
-class AddSessionControlsSignInFrequency(argparse.Action):
+class AddSignInFrequency(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.session_controls_sign_in_frequency = action
+        namespace.sign_in_frequency = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -163,13 +178,16 @@ class AddSessionControlsSignInFrequency(argparse.Action):
                 d['value'] = v[0]
             elif kl == 'is-enabled':
                 d['is_enabled'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter sign_in_frequency. All possible keys are: '
+                               'type, value, is-enabled'.format(k))
         return d
 
 
-class AddConditionsApplications(argparse.Action):
+class AddApplications(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.conditions_applications = action
+        namespace.applications = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -189,13 +207,16 @@ class AddConditionsApplications(argparse.Action):
                 d['include_applications'] = v
             elif kl == 'include-user-actions':
                 d['include_user_actions'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter applications. All possible keys are: '
+                               'exclude-applications, include-applications, include-user-actions'.format(k))
         return d
 
 
-class AddConditionsClientApplications(argparse.Action):
+class AddClientApplications(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.conditions_client_applications = action
+        namespace.client_applications = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -213,13 +234,16 @@ class AddConditionsClientApplications(argparse.Action):
                 d['exclude_service_principals'] = v
             elif kl == 'include-service-principals':
                 d['include_service_principals'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter client_applications. All possible keys '
+                               'are: exclude-service-principals, include-service-principals'.format(k))
         return d
 
 
-class AddConditionsDevices(argparse.Action):
+class AddDevices(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.conditions_devices = action
+        namespace.devices = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -237,13 +261,16 @@ class AddConditionsDevices(argparse.Action):
                 d['exclude_device_states'] = v
             elif kl == 'include-device-states':
                 d['include_device_states'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter devices. All possible keys are: '
+                               'exclude-device-states, include-device-states'.format(k))
         return d
 
 
-class AddConditionsDeviceStates(argparse.Action):
+class AddDeviceStates(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.conditions_device_states = action
+        namespace.device_states = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -261,13 +288,16 @@ class AddConditionsDeviceStates(argparse.Action):
                 d['exclude_states'] = v
             elif kl == 'include-states':
                 d['include_states'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_states. All possible keys are: '
+                               'exclude-states, include-states'.format(k))
         return d
 
 
-class AddConditionsLocations(argparse.Action):
+class AddLocations(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.conditions_locations = action
+        namespace.locations = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -285,13 +315,16 @@ class AddConditionsLocations(argparse.Action):
                 d['exclude_locations'] = v
             elif kl == 'include-locations':
                 d['include_locations'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter locations. All possible keys are: '
+                               'exclude-locations, include-locations'.format(k))
         return d
 
 
-class AddConditionsPlatforms(argparse.Action):
+class AddPlatforms(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.conditions_platforms = action
+        namespace.platforms = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -309,13 +342,16 @@ class AddConditionsPlatforms(argparse.Action):
                 d['exclude_platforms'] = v
             elif kl == 'include-platforms':
                 d['include_platforms'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter platforms. All possible keys are: '
+                               'exclude-platforms, include-platforms'.format(k))
         return d
 
 
-class AddConditionsUsers(argparse.Action):
+class AddUsers(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.conditions_users = action
+        namespace.users = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -341,6 +377,10 @@ class AddConditionsUsers(argparse.Action):
                 d['include_roles'] = v
             elif kl == 'include-users':
                 d['include_users'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter users. All possible keys are: '
+                               'exclude-groups, exclude-roles, exclude-users, include-groups, include-roles, '
+                               'include-users'.format(k))
         return d
 
 
@@ -365,6 +405,9 @@ class AddDataLossPreventionPolicies(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter data_loss_prevention_policies. All '
+                               'possible keys are: name, id'.format(k))
         return d
 
 
@@ -395,6 +438,10 @@ class AddSensitivityPolicySettings(argparse.Action):
                 d['is_mandatory'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter sensitivity_policy_settings. All possible '
+                               'keys are: applicable-to, downgrade-sensitivity-requires-justification, help-web-url, '
+                               'is-mandatory, id'.format(k))
         return d
 
 
@@ -419,6 +466,9 @@ class AddAssignedPolicies(argparse._AppendAction):
                 d['id'] = v[0]
             elif kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assigned_policies. All possible keys are: '
+                               'id, name'.format(k))
         return d
 
 
@@ -443,6 +493,9 @@ class AddAutoLabeling(argparse.Action):
                 d['message'] = v[0]
             elif kl == 'sensitive-type-ids':
                 d['sensitive_type_ids'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter auto_labeling. All possible keys are: '
+                               'message, sensitive-type-ids'.format(k))
         return d
 
 
@@ -465,6 +518,9 @@ class AddLabelActions(argparse._AppendAction):
             v = properties[k]
             if kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter label_actions. All possible keys are: '
+                               'name'.format(k))
         return d
 
 
@@ -493,13 +549,16 @@ class AddResults(argparse._AppendAction):
                 d['result_type'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter results. All possible keys are: '
+                               'created-date-time, message, result-type, id'.format(k))
         return d
 
 
-class AddCreatedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.created_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -517,6 +576,9 @@ class AddCreatedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -549,13 +611,17 @@ class AddClassifyText(argparse.Action):
                 d['text'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter classify_text. All possible keys are: '
+                               'file-extension, match-tolerances-to-include, scopes-to-run, sensitive-type-ids, text, '
+                               'id'.format(k))
         return d
 
 
-class AddEvaluateDataLossPreventionPoliciesNotificationInfo(argparse.Action):
+class AddNotificationInfo(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.evaluate_data_loss_prevention_policies_notification_info = action
+        namespace.notification_info = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -571,13 +637,16 @@ class AddEvaluateDataLossPreventionPoliciesNotificationInfo(argparse.Action):
             v = properties[k]
             if kl == 'author':
                 d['author'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter notification_info. All possible keys are: '
+                               'author'.format(k))
         return d
 
 
-class AddEvaluateSensitivityLabelsCurrentLabel(argparse.Action):
+class AddCurrentLabel(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.evaluate_sensitivity_labels_current_label = action
+        namespace.current_label = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -595,69 +664,16 @@ class AddEvaluateSensitivityLabelsCurrentLabel(argparse.Action):
                 d['application_mode'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter current_label. All possible keys are: '
+                               'application-mode, id'.format(k))
         return d
 
 
-class AddEvaluateSensitivityLabelsDiscoveredSensitiveTypes(argparse._AppendAction):
+class AddDowngradeJustification(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddEvaluateSensitivityLabelsDiscoveredSensitiveTypes, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'classification-attributes':
-                d['classification_attributes'] = v
-            elif kl == 'confidence':
-                d['confidence'] = v[0]
-            elif kl == 'count':
-                d['count'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddEvaluationInputDiscoveredSensitiveTypes(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddEvaluationInputDiscoveredSensitiveTypes, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'classification-attributes':
-                d['classification_attributes'] = v
-            elif kl == 'confidence':
-                d['confidence'] = v[0]
-            elif kl == 'count':
-                d['count'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddLabelingOptionsDowngradeJustification(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.labeling_options_downgrade_justification = action
+        namespace.downgrade_justification = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -675,13 +691,16 @@ class AddLabelingOptionsDowngradeJustification(argparse.Action):
                 d['is_downgrade_justified'] = v[0]
             elif kl == 'justification-message':
                 d['justification_message'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter downgrade_justification. All possible '
+                               'keys are: is-downgrade-justified, justification-message'.format(k))
         return d
 
 
-class AddLabelingOptionsExtendedProperties(argparse._AppendAction):
+class AddExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddLabelingOptionsExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -699,13 +718,16 @@ class AddLabelingOptionsExtendedProperties(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extended_properties. All possible keys '
+                               'are: name, value'.format(k))
         return d
 
 
-class AddContentInfoMetadata(argparse._AppendAction):
+class AddMetadata(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddContentInfoMetadata, self).__call__(parser, namespace, action, option_string)
+        super(AddMetadata, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -723,6 +745,9 @@ class AddContentInfoMetadata(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter metadata. All possible keys are: name, '
+                               'value'.format(k))
         return d
 
 
@@ -749,62 +774,9 @@ class AddClassificationResults(argparse._AppendAction):
                 d['count'] = v[0]
             elif kl == 'sensitive-type-id':
                 d['sensitive_type_id'] = v[0]
-        return d
-
-
-class AddInformationprotectionSensitivitylabelsDiscoveredSensitiveTypes(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddInformationprotectionSensitivitylabelsDiscoveredSensitiveTypes, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'classification-attributes':
-                d['classification_attributes'] = v
-            elif kl == 'confidence':
-                d['confidence'] = v[0]
-            elif kl == 'count':
-                d['count'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddInformationprotectionSensitivitylabelsSublabelsDiscoveredSensitiveTypes(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddInformationprotectionSensitivitylabelsSublabelsDiscoveredSensitiveTypes, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'classification-attributes':
-                d['classification_attributes'] = v
-            elif kl == 'confidence':
-                d['confidence'] = v[0]
-            elif kl == 'count':
-                d['count'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter classification_results. All possible keys '
+                               'are: confidence-level, count, sensitive-type-id'.format(k))
         return d
 
 
@@ -833,6 +805,11 @@ class AddB2CAuthenticationMethodsPolicy(argparse.Action):
                 d['is_user_name_authentication_enabled'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter b2_c_authentication_methods_policy. All '
+                               'possible keys are: is-email-password-authentication-enabled, '
+                               'is-phone-one-time-password-authentication-enabled, is-user-name-authentication-enabled,'
+                               ' id'.format(k))
         return d
 
 
@@ -867,6 +844,10 @@ class AddActivityBasedTimeoutPolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter activity_based_timeout_policies. All '
+                               'possible keys are: definition, is-organization-default, applies-to, description, '
+                               'display-name, deleted-date-time, id'.format(k))
         return d
 
 
@@ -901,6 +882,10 @@ class AddClaimsMappingPolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter claims_mapping_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -935,6 +920,10 @@ class AddHomeRealmDiscoveryPolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter home_realm_discovery_policies. All '
+                               'possible keys are: definition, is-organization-default, applies-to, description, '
+                               'display-name, deleted-date-time, id'.format(k))
         return d
 
 
@@ -961,6 +950,9 @@ class AddPrivateLinkResourcePolicies(argparse._AppendAction):
                 d['arm_resource_id'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter private_link_resource_policies. All '
+                               'possible keys are: allowed-tenant-ids, arm-resource-id, id'.format(k))
         return d
 
 
@@ -995,6 +987,10 @@ class AddTokenIssuancePolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter token_issuance_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1029,6 +1025,10 @@ class AddTokenLifetimePolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter token_lifetime_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1059,13 +1059,17 @@ class AddIdentitySecurityDefaultsEnforcementPolicy(argparse.Action):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter identity_security_defaults_enforcement_pol'
+                               'icy. All possible keys are: is-enabled, description, display-name, deleted-date-time, '
+                               'id'.format(k))
         return d
 
 
-class AddDirectoryRoleAccessReviewPolicySettingsApplyActions(argparse._AppendAction):
+class AddApplyActions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddDirectoryRoleAccessReviewPolicySettingsApplyActions, self).__call__(parser, namespace, action, option_string)
+        super(AddApplyActions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1082,10 +1086,10 @@ class AddDirectoryRoleAccessReviewPolicySettingsApplyActions(argparse._AppendAct
         return d
 
 
-class AddDirectoryRoleAccessReviewPolicySettingsRecurrencePattern(argparse.Action):
+class AddPattern(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.directory_role_access_review_policy_settings_recurrence_pattern = action
+        namespace.pattern = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1113,13 +1117,16 @@ class AddDirectoryRoleAccessReviewPolicySettingsRecurrencePattern(argparse.Actio
                 d['month'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter pattern. All possible keys are: '
+                               'day-of-month, days-of-week, first-day-of-week, index, interval, month, type'.format(k))
         return d
 
 
-class AddDirectoryRoleAccessReviewPolicySettingsRecurrenceRange(argparse.Action):
+class AddRange(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.directory_role_access_review_policy_settings_recurrence_range = action
+        namespace.range = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1143,13 +1150,16 @@ class AddDirectoryRoleAccessReviewPolicySettingsRecurrenceRange(argparse.Action)
                 d['start_date'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter range. All possible keys are: end-date, '
+                               'number-of-occurrences, recurrence-time-zone, start-date, type'.format(k))
         return d
 
 
-class AddAdminConsentRequestPolicyReviewers(argparse._AppendAction):
+class AddReviewers(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddAdminConsentRequestPolicyReviewers, self).__call__(parser, namespace, action, option_string)
+        super(AddReviewers, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1167,6 +1177,9 @@ class AddAdminConsentRequestPolicyReviewers(argparse._AppendAction):
                 d['query'] = v[0]
             elif kl == 'query-type':
                 d['query_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter reviewers. All possible keys are: query, '
+                               'query-type'.format(k))
         return d
 
 
@@ -1191,6 +1204,9 @@ class AddAppliesTo(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter applies_to. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1217,6 +1233,10 @@ class AddDefaultUserRolePermissions(argparse.Action):
                 d['allowed_to_create_security_groups'] = v[0]
             elif kl == 'allowed-to-read-other-users':
                 d['allowed_to_read_other_users'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter default_user_role_permissions. All '
+                               'possible keys are: allowed-to-create-apps, allowed-to-create-security-groups, '
+                               'allowed-to-read-other-users'.format(k))
         return d
 
 
@@ -1255,6 +1275,12 @@ class AddExcludes(argparse._AppendAction):
                 d['resource_application'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter excludes. All possible keys are: '
+                               'client-application-ids, client-application-publisher-ids, '
+                               'client-applications-from-verified-publisher-only, client-application-tenant-ids, '
+                               'permission-classification, permissions, permission-type, resource-application, id'.
+                               format(k))
         return d
 
 
@@ -1293,13 +1319,19 @@ class AddIncludes(argparse._AppendAction):
                 d['resource_application'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter includes. All possible keys are: '
+                               'client-application-ids, client-application-publisher-ids, '
+                               'client-applications-from-verified-publisher-only, client-application-tenant-ids, '
+                               'permission-classification, permissions, permission-type, resource-application, id'.
+                               format(k))
         return d
 
 
-class AddLocationGeoCoordinates(argparse.Action):
+class AddGeoCoordinates(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.location_geo_coordinates = action
+        namespace.geo_coordinates = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1319,6 +1351,9 @@ class AddLocationGeoCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter geo_coordinates. All possible keys are: '
+                               'altitude, latitude, longitude'.format(k))
         return d
 
 
@@ -1345,6 +1380,9 @@ class AddActivity(argparse.Action):
                 d['event_types'] = v
             elif kl == 'risk-event-types':
                 d['risk_event_types'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter activity. All possible keys are: detail, '
+                               'event-types, risk-event-types'.format(k))
         return d
 
 
@@ -1367,6 +1405,9 @@ class AddPolicies(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter policies. All possible keys are: id'.
+                format(k))
         return d
 
 
@@ -1419,6 +1460,9 @@ class AddKeys(argparse._AppendAction):
                 d['x5_c'] = v
             elif kl == 'x5-t':
                 d['x5_t'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter keys. All possible keys are: d, dp, dq, '
+                               'e, exp, k, kid, kty, n, nbf, p, q, qi, use, x5-c, x5-t'.format(k))
         return d
 
 
@@ -1441,6 +1485,9 @@ class AddEmailMethods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter email_methods. All possible keys are: id'.
+                format(k))
         return d
 
 
@@ -1463,6 +1510,9 @@ class AddFido2Methods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter fido2_methods. All possible keys are: id'.
+                format(k))
         return d
 
 
@@ -1485,6 +1535,9 @@ class AddMethods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter methods. All possible keys are: id'.
+                format(k))
         return d
 
 
@@ -1507,6 +1560,9 @@ class AddMicrosoftAuthenticatorMethods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter microsoft_authenticator_methods. All '
+                               'possible keys are: id'.format(k))
         return d
 
 
@@ -1529,6 +1585,9 @@ class AddOathMethods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter oath_methods. All possible keys are: id'.
+                format(k))
         return d
 
 
@@ -1561,6 +1620,10 @@ class AddOperations(argparse._AppendAction):
                 d['status_detail'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter operations. All possible keys are: '
+                               'created-date-time, last-action-date-time, resource-location, status, status-detail, id'
+                               .format(k))
         return d
 
 
@@ -1583,6 +1646,9 @@ class AddPasswordlessMicrosoftAuthenticatorMethods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter passwordless_microsoft_authenticator_metho'
+                               'ds. All possible keys are: id'.format(k))
         return d
 
 
@@ -1609,6 +1675,9 @@ class AddPasswordMethods(argparse._AppendAction):
                 d['password'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter password_methods. All possible keys are: '
+                               'creation-date-time, password, id'.format(k))
         return d
 
 
@@ -1637,6 +1706,9 @@ class AddPhoneMethods(argparse._AppendAction):
                 d['sms_sign_in_state'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter phone_methods. All possible keys are: '
+                               'phone-number, phone-type, sms-sign-in-state, id'.format(k))
         return d
 
 
@@ -1659,6 +1731,9 @@ class AddSecurityQuestionMethods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter security_question_methods. All possible '
+                               'keys are: id'.format(k))
         return d
 
 
@@ -1681,4 +1756,7 @@ class AddTemporaryAccessPassMethods(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter temporary_access_pass_methods. All '
+                               'possible keys are: id'.format(k))
         return d

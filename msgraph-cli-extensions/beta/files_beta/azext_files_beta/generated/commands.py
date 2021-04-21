@@ -9,575 +9,750 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_files_beta.generated._client_factory import (
+    cf_drivesdrive,
+    cf_drive,
+    cf_drivesactivity,
+    cf_drivesactivitieslistitem,
+    cf_drivesactivitieslistitemversion,
+    cf_driveslist,
+    cf_driveslistactivity,
+    cf_driveslistactivitieslistitem,
+    cf_driveslistactivitieslistitemversion,
+    cf_driveslistcontenttype,
+    cf_driveslistitem,
+    cf_driveslistitemsactivity,
+    cf_driveslistitemsactivitieslistitem,
+    cf_driveslistitemsversion,
+    cf_group,
+    cf_sharesshareddriveitem,
+    cf_share,
+    cf_shareslist,
+    cf_shareslistactivity,
+    cf_shareslistactivitieslistitem,
+    cf_shareslistactivitieslistitemversion,
+    cf_shareslistcontenttype,
+    cf_shareslistitem,
+    cf_shareslistitemsactivity,
+    cf_shareslistitemsactivitieslistitem,
+    cf_shareslistitemsversion,
+    cf_shareslistitem,
+    cf_shareslistitemactivity,
+    cf_shareslistitemactivitieslistitem,
+    cf_shareslistitemversion,
+    cf_sharespermission,
+    cf_user,
+)
+
+
+files_beta_drivesdrive = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drivesdrive_operations#drivesdriveOperations.{}',
+    client_factory=cf_drivesdrive,
+)
+
+
+files_beta_drive = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_operations#drivesOperations.{}',
+    client_factory=cf_drive,
+)
+
+
+files_beta_drivesactivity = CliCommandType(
+    operations_tmpl=(
+        'azext_files_beta.vendored_sdks.files.operations._drivesactivities_operations#drivesactivitiesOperations.{}'
+    ),
+    client_factory=cf_drivesactivity,
+)
+
+
+files_beta_drivesactivitieslistitem = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drivesactivitieslistitem_operations#drivesactivitieslistitemOperations.{}',
+    client_factory=cf_drivesactivitieslistitem,
+)
+
+
+files_beta_drivesactivitieslistitemversion = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drivesactivitieslistitemversions_operations#drivesactivitieslistitemversionsOperations.{}',
+    client_factory=cf_drivesactivitieslistitemversion,
+)
+
+
+files_beta_driveslist = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslist_operations#driveslistOperations.{}',
+    client_factory=cf_driveslist,
+)
+
+
+files_beta_driveslistactivity = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslistactivities_operations#driveslistactivitiesOperations.{}',
+    client_factory=cf_driveslistactivity,
+)
+
+
+files_beta_driveslistactivitieslistitem = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslistactivitieslistitem_operations#driveslistactivitieslistitemOperations.{}',
+    client_factory=cf_driveslistactivitieslistitem,
+)
+
+
+files_beta_driveslistactivitieslistitemversion = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslistactivitieslistitemversions_operations#driveslistactivitieslistitemversionsOperations.{}',
+    client_factory=cf_driveslistactivitieslistitemversion,
+)
+
+
+files_beta_driveslistcontenttype = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslistcontenttypes_operations#driveslistcontenttypesOperations.{}',
+    client_factory=cf_driveslistcontenttype,
+)
+
+
+files_beta_driveslistitem = CliCommandType(
+    operations_tmpl=(
+        'azext_files_beta.vendored_sdks.files.operations._driveslistitems_operations#driveslistitemsOperations.{}'
+    ),
+    client_factory=cf_driveslistitem,
+)
+
+
+files_beta_driveslistitemsactivity = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslistitemsactivities_operations#driveslistitemsactivitiesOperations.{}',
+    client_factory=cf_driveslistitemsactivity,
+)
+
+
+files_beta_driveslistitemsactivitieslistitem = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslistitemsactivitieslistitem_operations#driveslistitemsactivitieslistitemOperations.{}',
+    client_factory=cf_driveslistitemsactivitieslistitem,
+)
+
+
+files_beta_driveslistitemsversion = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._driveslistitemsversions_operations#driveslistitemsversionsOperations.{}',
+    client_factory=cf_driveslistitemsversion,
+)
+
+
+files_beta_group = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._groups_operations#groupsOperations.{}',
+    client_factory=cf_group,
+)
+
+
+files_beta_sharesshareddriveitem = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._sharesshareddriveitem_operations#sharesshareddriveitemOperations.{}',
+    client_factory=cf_sharesshareddriveitem,
+)
+
+
+files_beta_share = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_operations#sharesOperations.{}',
+    client_factory=cf_share,
+)
+
+
+files_beta_shareslist = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslist_operations#shareslistOperations.{}',
+    client_factory=cf_shareslist,
+)
+
+
+files_beta_shareslistactivity = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistactivities_operations#shareslistactivitiesOperations.{}',
+    client_factory=cf_shareslistactivity,
+)
+
+
+files_beta_shareslistactivitieslistitem = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistactivitieslistitem_operations#shareslistactivitieslistitemOperations.{}',
+    client_factory=cf_shareslistactivitieslistitem,
+)
+
+
+files_beta_shareslistactivitieslistitemversion = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistactivitieslistitemversions_operations#shareslistactivitieslistitemversionsOperations.{}',
+    client_factory=cf_shareslistactivitieslistitemversion,
+)
+
+
+files_beta_shareslistcontenttype = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistcontenttypes_operations#shareslistcontenttypesOperations.{}',
+    client_factory=cf_shareslistcontenttype,
+)
+
+
+files_beta_shareslistitem = CliCommandType(
+    operations_tmpl=(
+        'azext_files_beta.vendored_sdks.files.operations._shareslistitems_operations#shareslistitemsOperations.{}'
+    ),
+    client_factory=cf_shareslistitem,
+)
+
+
+files_beta_shareslistitemsactivity = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistitemsactivities_operations#shareslistitemsactivitiesOperations.{}',
+    client_factory=cf_shareslistitemsactivity,
+)
+
+
+files_beta_shareslistitemsactivitieslistitem = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistitemsactivitieslistitem_operations#shareslistitemsactivitieslistitemOperations.{}',
+    client_factory=cf_shareslistitemsactivitieslistitem,
+)
+
+
+files_beta_shareslistitemsversion = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistitemsversions_operations#shareslistitemsversionsOperations.{}',
+    client_factory=cf_shareslistitemsversion,
+)
+
+
+files_beta_shareslistitem = CliCommandType(
+    operations_tmpl=(
+        'azext_files_beta.vendored_sdks.files.operations._shareslistitem_operations#shareslistitemOperations.{}'
+    ),
+    client_factory=cf_shareslistitem,
+)
+
+
+files_beta_shareslistitemactivity = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistitemactivities_operations#shareslistitemactivitiesOperations.{}',
+    client_factory=cf_shareslistitemactivity,
+)
+
+
+files_beta_shareslistitemactivitieslistitem = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistitemactivitieslistitem_operations#shareslistitemactivitieslistitemOperations.{}',
+    client_factory=cf_shareslistitemactivitieslistitem,
+)
+
+
+files_beta_shareslistitemversion = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shareslistitemversions_operations#shareslistitemversionsOperations.{}',
+    client_factory=cf_shareslistitemversion,
+)
+
+
+files_beta_sharespermission = CliCommandType(
+    operations_tmpl=(
+        'azext_files_beta.vendored_sdks.files.operations._sharespermission_operations#sharespermissionOperations.{}'
+    ),
+    client_factory=cf_sharespermission,
+)
+
+
+files_beta_user = CliCommandType(
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._users_operations#usersOperations.{}',
+    client_factory=cf_user,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_files_beta.generated._client_factory import cf_drive_drive
-    files_beta_drive_drive = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_drive_operations#DriveDriveOperations.{'
-        '}',
-        client_factory=cf_drive_drive)
-    with self.command_group('files', files_beta_drive_drive, client_factory=cf_drive_drive) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-drive', 'files_create_drive')
-        g.custom_command('get-drive', 'files_get_drive')
-        g.custom_command('list-drive', 'files_list_drive')
-        g.custom_command('update-drive', 'files_update_drive')
+    with self.command_group('files drivesdrive', files_beta_drivesdrive, client_factory=cf_drivesdrive) as g:
+        g.custom_command('create-drive', 'files_drivesdrive_create_drive')
+        g.custom_command('delete-drive', 'files_drivesdrive_delete_drive')
+        g.custom_command('list-drive', 'files_drivesdrive_list_drive')
+        g.custom_command('show-drive', 'files_drivesdrive_show_drive')
+        g.custom_command('update-drive', 'files_drivesdrive_update_drive')
 
-    from azext_files_beta.generated._client_factory import cf_drive
-    files_beta_drive = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_operations#DriveOperations.{}',
-        client_factory=cf_drive)
-    with self.command_group('files', files_beta_drive, client_factory=cf_drive) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-bundle', 'files_create_bundle')
-        g.custom_command('create-following', 'files_create_following')
-        g.custom_command('create-item', 'files_create_item')
-        g.custom_command('create-special', 'files_create_special')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-bundle', 'files_get_bundle')
-        g.custom_command('get-bundle-content', 'files_get_bundle_content')
-        g.custom_command('get-following', 'files_get_following')
-        g.custom_command('get-following-content', 'files_get_following_content')
-        g.custom_command('get-item', 'files_get_item')
-        g.custom_command('get-item-content', 'files_get_item_content')
-        g.custom_command('get-list', 'files_get_list')
-        g.custom_command('get-root', 'files_get_root')
-        g.custom_command('get-root-content', 'files_get_root_content')
-        g.custom_command('get-special', 'files_get_special')
-        g.custom_command('get-special-content', 'files_get_special_content')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-bundle', 'files_list_bundle')
-        g.custom_command('list-following', 'files_list_following')
-        g.custom_command('list-item', 'files_list_item')
-        g.custom_command('list-special', 'files_list_special')
-        g.custom_command('recent', 'files_recent')
-        g.custom_command('search', 'files_search')
-        g.custom_command('set-bundle-content', 'files_set_bundle_content')
-        g.custom_command('set-following-content', 'files_set_following_content')
-        g.custom_command('set-item-content', 'files_set_item_content')
-        g.custom_command('set-root-content', 'files_set_root_content')
-        g.custom_command('set-special-content', 'files_set_special_content')
-        g.custom_command('shared-with-me', 'files_shared_with_me')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-bundle', 'files_update_bundle')
-        g.custom_command('update-following', 'files_update_following')
-        g.custom_command('update-item', 'files_update_item')
-        g.custom_command('update-list', 'files_update_list')
-        g.custom_command('update-root', 'files_update_root')
-        g.custom_command('update-special', 'files_update_special')
+    with self.command_group('files drive', files_beta_drive, client_factory=cf_drive) as g:
+        g.custom_command('create-activity', 'files_drive_create_activity')
+        g.custom_command('create-bundle', 'files_drive_create_bundle')
+        g.custom_command('create-following', 'files_drive_create_following')
+        g.custom_command('create-item', 'files_drive_create_item')
+        g.custom_command('create-special', 'files_drive_create_special')
+        g.custom_command('delete-activity', 'files_drive_delete_activity')
+        g.custom_command('delete-bundle', 'files_drive_delete_bundle')
+        g.custom_command('delete-following', 'files_drive_delete_following')
+        g.custom_command('delete-item', 'files_drive_delete_item')
+        g.custom_command('delete-list', 'files_drive_delete_list')
+        g.custom_command('delete-root', 'files_drive_delete_root')
+        g.custom_command('delete-special', 'files_drive_delete_special')
+        g.custom_command('list-activity', 'files_drive_list_activity')
+        g.custom_command('list-bundle', 'files_drive_list_bundle')
+        g.custom_command('list-following', 'files_drive_list_following')
+        g.custom_command('list-item', 'files_drive_list_item')
+        g.custom_command('list-special', 'files_drive_list_special')
+        g.custom_command('recent', 'files_drive_recent')
+        g.custom_command('search', 'files_drive_search')
+        g.custom_command('set-bundle-content', 'files_drive_set_bundle_content')
+        g.custom_command('set-following-content', 'files_drive_set_following_content')
+        g.custom_command('set-item-content', 'files_drive_set_item_content')
+        g.custom_command('set-root-content', 'files_drive_set_root_content')
+        g.custom_command('set-special-content', 'files_drive_set_special_content')
+        g.custom_command('shared-with-me', 'files_drive_shared_with_me')
+        g.custom_command('show-activity', 'files_drive_show_activity')
+        g.custom_command('show-bundle', 'files_drive_show_bundle')
+        g.custom_command('show-bundle-content', 'files_drive_show_bundle_content')
+        g.custom_command('show-following', 'files_drive_show_following')
+        g.custom_command('show-following-content', 'files_drive_show_following_content')
+        g.custom_command('show-item', 'files_drive_show_item')
+        g.custom_command('show-item-content', 'files_drive_show_item_content')
+        g.custom_command('show-list', 'files_drive_show_list')
+        g.custom_command('show-root', 'files_drive_show_root')
+        g.custom_command('show-root-content', 'files_drive_show_root_content')
+        g.custom_command('show-special', 'files_drive_show_special')
+        g.custom_command('show-special-content', 'files_drive_show_special_content')
+        g.custom_command('update-activity', 'files_drive_update_activity')
+        g.custom_command('update-bundle', 'files_drive_update_bundle')
+        g.custom_command('update-following', 'files_drive_update_following')
+        g.custom_command('update-item', 'files_drive_update_item')
+        g.custom_command('update-list', 'files_drive_update_list')
+        g.custom_command('update-root', 'files_drive_update_root')
+        g.custom_command('update-special', 'files_drive_update_special')
 
-    from azext_files_beta.generated._client_factory import cf_drive_activity
-    files_beta_drive_activity = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_activity_operations#DriveActivityOperat'
-        'ions.{}',
-        client_factory=cf_drive_activity)
-    with self.command_group('files', files_beta_drive_activity, client_factory=cf_drive_activity) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-list-item', 'files_get_list_item')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-list-item', 'files_update_list_item')
+    with self.command_group('files drivesactivity', files_beta_drivesactivity, client_factory=cf_drivesactivity) as g:
+        g.custom_command('delete-drive-item', 'files_drivesactivity_delete_drive_item')
+        g.custom_command('delete-list-item', 'files_drivesactivity_delete_list_item')
+        g.custom_command('set-drive-item-content', 'files_drivesactivity_set_drive_item_content')
+        g.custom_command('show-drive-item', 'files_drivesactivity_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_drivesactivity_show_drive_item_content')
+        g.custom_command('show-list-item', 'files_drivesactivity_show_list_item')
+        g.custom_command('update-drive-item', 'files_drivesactivity_update_drive_item')
+        g.custom_command('update-list-item', 'files_drivesactivity_update_list_item')
 
-    from azext_files_beta.generated._client_factory import cf_drive_activity_list_item
-    files_beta_drive_activity_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_activity_list_item_operations#DriveActi'
-        'vityListItemOperations.{}',
-        client_factory=cf_drive_activity_list_item)
-    with self.command_group('files', files_beta_drive_activity_list_item,
-                            client_factory=cf_drive_activity_list_item) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('create-version', 'files_create_version')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
-        g.custom_command('get-analytic', 'files_get_analytic')
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('get-ref-analytic', 'files_get_ref_analytic')
-        g.custom_command('get-version', 'files_get_version')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-version', 'files_list_version')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('set-ref-analytic', 'files_set_ref_analytic')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-field', 'files_update_field')
-        g.custom_command('update-version', 'files_update_version')
+    with self.command_group(
+        'files drivesactivitieslistitem',
+        files_beta_drivesactivitieslistitem,
+        client_factory=cf_drivesactivitieslistitem,
+    ) as g:
+        g.custom_command('create-activity', 'files_drivesactivitieslistitem_create_activity')
+        g.custom_command('create-link', 'files_drivesactivitieslistitem_create_link')
+        g.custom_command('create-version', 'files_drivesactivitieslistitem_create_version')
+        g.custom_command('delete-activity', 'files_drivesactivitieslistitem_delete_activity')
+        g.custom_command('delete-drive-item', 'files_drivesactivitieslistitem_delete_drive_item')
+        g.custom_command('delete-field', 'files_drivesactivitieslistitem_delete_field')
+        g.custom_command('delete-ref-analytic', 'files_drivesactivitieslistitem_delete_ref_analytic')
+        g.custom_command('delete-version', 'files_drivesactivitieslistitem_delete_version')
+        g.custom_command('list-activity', 'files_drivesactivitieslistitem_list_activity')
+        g.custom_command('list-version', 'files_drivesactivitieslistitem_list_version')
+        g.custom_command('set-drive-item-content', 'files_drivesactivitieslistitem_set_drive_item_content')
+        g.custom_command('set-ref-analytic', 'files_drivesactivitieslistitem_set_ref_analytic')
+        g.custom_command('show-activity', 'files_drivesactivitieslistitem_show_activity')
+        g.custom_command('show-analytic', 'files_drivesactivitieslistitem_show_analytic')
+        g.custom_command('show-drive-item', 'files_drivesactivitieslistitem_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_drivesactivitieslistitem_show_drive_item_content')
+        g.custom_command('show-field', 'files_drivesactivitieslistitem_show_field')
+        g.custom_command('show-ref-analytic', 'files_drivesactivitieslistitem_show_ref_analytic')
+        g.custom_command('show-version', 'files_drivesactivitieslistitem_show_version')
+        g.custom_command('update-activity', 'files_drivesactivitieslistitem_update_activity')
+        g.custom_command('update-drive-item', 'files_drivesactivitieslistitem_update_drive_item')
+        g.custom_command('update-field', 'files_drivesactivitieslistitem_update_field')
+        g.custom_command('update-version', 'files_drivesactivitieslistitem_update_version')
 
-    from azext_files_beta.generated._client_factory import cf_drive_activity_list_item_version
-    files_beta_drive_activity_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_activity_list_item_version_operations#D'
-        'riveActivityListItemVersionOperations.{}',
-        client_factory=cf_drive_activity_list_item_version)
-    with self.command_group('files', files_beta_drive_activity_list_item_version,
-                            client_factory=cf_drive_activity_list_item_version) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('restore-version', 'files_restore_version')
-        g.custom_command('update-field', 'files_update_field')
+    with self.command_group(
+        'files drivesactivitieslistitemversion',
+        files_beta_drivesactivitieslistitemversion,
+        client_factory=cf_drivesactivitieslistitemversion,
+    ) as g:
+        g.custom_command('delete-field', 'files_drivesactivitieslistitemversion_delete_field')
+        g.custom_command('restore-version', 'files_drivesactivitieslistitemversion_restore_version')
+        g.custom_command('show-field', 'files_drivesactivitieslistitemversion_show_field')
+        g.custom_command('update-field', 'files_drivesactivitieslistitemversion_update_field')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list
-    files_beta_drive_list = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_operations#DriveListOperations.{}',
-        client_factory=cf_drive_list)
-    with self.command_group('files', files_beta_drive_list, client_factory=cf_drive_list) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-column', 'files_create_column')
-        g.custom_command('create-content-type', 'files_create_content_type')
-        g.custom_command('create-item', 'files_create_item')
-        g.custom_command('create-subscription', 'files_create_subscription')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-column', 'files_get_column')
-        g.custom_command('get-content-type', 'files_get_content_type')
-        g.custom_command('get-drive', 'files_get_drive')
-        g.custom_command('get-item', 'files_get_item')
-        g.custom_command('get-subscription', 'files_get_subscription')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-column', 'files_list_column')
-        g.custom_command('list-content-type', 'files_list_content_type')
-        g.custom_command('list-item', 'files_list_item')
-        g.custom_command('list-subscription', 'files_list_subscription')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-column', 'files_update_column')
-        g.custom_command('update-content-type', 'files_update_content_type')
-        g.custom_command('update-drive', 'files_update_drive')
-        g.custom_command('update-item', 'files_update_item')
-        g.custom_command('update-subscription', 'files_update_subscription')
+    with self.command_group('files driveslist', files_beta_driveslist, client_factory=cf_driveslist) as g:
+        g.custom_command('create-activity', 'files_driveslist_create_activity')
+        g.custom_command('create-column', 'files_driveslist_create_column')
+        g.custom_command('create-content-type', 'files_driveslist_create_content_type')
+        g.custom_command('create-item', 'files_driveslist_create_item')
+        g.custom_command('create-subscription', 'files_driveslist_create_subscription')
+        g.custom_command('delete-activity', 'files_driveslist_delete_activity')
+        g.custom_command('delete-column', 'files_driveslist_delete_column')
+        g.custom_command('delete-content-type', 'files_driveslist_delete_content_type')
+        g.custom_command('delete-drive', 'files_driveslist_delete_drive')
+        g.custom_command('delete-item', 'files_driveslist_delete_item')
+        g.custom_command('delete-subscription', 'files_driveslist_delete_subscription')
+        g.custom_command('list-activity', 'files_driveslist_list_activity')
+        g.custom_command('list-column', 'files_driveslist_list_column')
+        g.custom_command('list-content-type', 'files_driveslist_list_content_type')
+        g.custom_command('list-item', 'files_driveslist_list_item')
+        g.custom_command('list-subscription', 'files_driveslist_list_subscription')
+        g.custom_command('show-activity', 'files_driveslist_show_activity')
+        g.custom_command('show-column', 'files_driveslist_show_column')
+        g.custom_command('show-content-type', 'files_driveslist_show_content_type')
+        g.custom_command('show-drive', 'files_driveslist_show_drive')
+        g.custom_command('show-item', 'files_driveslist_show_item')
+        g.custom_command('show-subscription', 'files_driveslist_show_subscription')
+        g.custom_command('update-activity', 'files_driveslist_update_activity')
+        g.custom_command('update-column', 'files_driveslist_update_column')
+        g.custom_command('update-content-type', 'files_driveslist_update_content_type')
+        g.custom_command('update-drive', 'files_driveslist_update_drive')
+        g.custom_command('update-item', 'files_driveslist_update_item')
+        g.custom_command('update-subscription', 'files_driveslist_update_subscription')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_activity
-    files_beta_drive_list_activity = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_activity_operations#DriveListActiv'
-        'ityOperations.{}',
-        client_factory=cf_drive_list_activity)
-    with self.command_group('files', files_beta_drive_list_activity, client_factory=cf_drive_list_activity) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-list-item', 'files_get_list_item')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-list-item', 'files_update_list_item')
+    with self.command_group(
+        'files driveslistactivity', files_beta_driveslistactivity, client_factory=cf_driveslistactivity
+    ) as g:
+        g.custom_command('delete-drive-item', 'files_driveslistactivity_delete_drive_item')
+        g.custom_command('delete-list-item', 'files_driveslistactivity_delete_list_item')
+        g.custom_command('set-drive-item-content', 'files_driveslistactivity_set_drive_item_content')
+        g.custom_command('show-drive-item', 'files_driveslistactivity_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_driveslistactivity_show_drive_item_content')
+        g.custom_command('show-list-item', 'files_driveslistactivity_show_list_item')
+        g.custom_command('update-drive-item', 'files_driveslistactivity_update_drive_item')
+        g.custom_command('update-list-item', 'files_driveslistactivity_update_list_item')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_activity_list_item
-    files_beta_drive_list_activity_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_activity_list_item_operations#Driv'
-        'eListActivityListItemOperations.{}',
-        client_factory=cf_drive_list_activity_list_item)
-    with self.command_group('files', files_beta_drive_list_activity_list_item,
-                            client_factory=cf_drive_list_activity_list_item) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('create-version', 'files_create_version')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
-        g.custom_command('get-analytic', 'files_get_analytic')
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('get-ref-analytic', 'files_get_ref_analytic')
-        g.custom_command('get-version', 'files_get_version')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-version', 'files_list_version')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('set-ref-analytic', 'files_set_ref_analytic')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-field', 'files_update_field')
-        g.custom_command('update-version', 'files_update_version')
+    with self.command_group(
+        'files driveslistactivitieslistitem',
+        files_beta_driveslistactivitieslistitem,
+        client_factory=cf_driveslistactivitieslistitem,
+    ) as g:
+        g.custom_command('create-activity', 'files_driveslistactivitieslistitem_create_activity')
+        g.custom_command('create-link', 'files_driveslistactivitieslistitem_create_link')
+        g.custom_command('create-version', 'files_driveslistactivitieslistitem_create_version')
+        g.custom_command('delete-activity', 'files_driveslistactivitieslistitem_delete_activity')
+        g.custom_command('delete-drive-item', 'files_driveslistactivitieslistitem_delete_drive_item')
+        g.custom_command('delete-field', 'files_driveslistactivitieslistitem_delete_field')
+        g.custom_command('delete-ref-analytic', 'files_driveslistactivitieslistitem_delete_ref_analytic')
+        g.custom_command('delete-version', 'files_driveslistactivitieslistitem_delete_version')
+        g.custom_command('list-activity', 'files_driveslistactivitieslistitem_list_activity')
+        g.custom_command('list-version', 'files_driveslistactivitieslistitem_list_version')
+        g.custom_command('set-drive-item-content', 'files_driveslistactivitieslistitem_set_drive_item_content')
+        g.custom_command('set-ref-analytic', 'files_driveslistactivitieslistitem_set_ref_analytic')
+        g.custom_command('show-activity', 'files_driveslistactivitieslistitem_show_activity')
+        g.custom_command('show-analytic', 'files_driveslistactivitieslistitem_show_analytic')
+        g.custom_command('show-drive-item', 'files_driveslistactivitieslistitem_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_driveslistactivitieslistitem_show_drive_item_content')
+        g.custom_command('show-field', 'files_driveslistactivitieslistitem_show_field')
+        g.custom_command('show-ref-analytic', 'files_driveslistactivitieslistitem_show_ref_analytic')
+        g.custom_command('show-version', 'files_driveslistactivitieslistitem_show_version')
+        g.custom_command('update-activity', 'files_driveslistactivitieslistitem_update_activity')
+        g.custom_command('update-drive-item', 'files_driveslistactivitieslistitem_update_drive_item')
+        g.custom_command('update-field', 'files_driveslistactivitieslistitem_update_field')
+        g.custom_command('update-version', 'files_driveslistactivitieslistitem_update_version')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_activity_list_item_version
-    files_beta_drive_list_activity_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_activity_list_item_version_operati'
-        'ons#DriveListActivityListItemVersionOperations.{}',
-        client_factory=cf_drive_list_activity_list_item_version)
-    with self.command_group('files', files_beta_drive_list_activity_list_item_version,
-                            client_factory=cf_drive_list_activity_list_item_version) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('restore-version', 'files_restore_version')
-        g.custom_command('update-field', 'files_update_field')
+    with self.command_group(
+        'files driveslistactivitieslistitemversion',
+        files_beta_driveslistactivitieslistitemversion,
+        client_factory=cf_driveslistactivitieslistitemversion,
+    ) as g:
+        g.custom_command('delete-field', 'files_driveslistactivitieslistitemversion_delete_field')
+        g.custom_command('restore-version', 'files_driveslistactivitieslistitemversion_restore_version')
+        g.custom_command('show-field', 'files_driveslistactivitieslistitemversion_show_field')
+        g.custom_command('update-field', 'files_driveslistactivitieslistitemversion_update_field')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_content_type
-    files_beta_drive_list_content_type = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_content_type_operations#DriveListC'
-        'ontentTypeOperations.{}',
-        client_factory=cf_drive_list_content_type)
-    with self.command_group('files', files_beta_drive_list_content_type,
-                            client_factory=cf_drive_list_content_type) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-column-link', 'files_create_column_link')
-        g.custom_command('get-column-link', 'files_get_column_link')
-        g.custom_command('list-column-link', 'files_list_column_link')
-        g.custom_command('update-column-link', 'files_update_column_link')
+    with self.command_group(
+        'files driveslistcontenttype', files_beta_driveslistcontenttype, client_factory=cf_driveslistcontenttype
+    ) as g:
+        g.custom_command('create-column-link', 'files_driveslistcontenttype_create_column_link')
+        g.custom_command('delete-column-link', 'files_driveslistcontenttype_delete_column_link')
+        g.custom_command('list-column-link', 'files_driveslistcontenttype_list_column_link')
+        g.custom_command('show-column-link', 'files_driveslistcontenttype_show_column_link')
+        g.custom_command('update-column-link', 'files_driveslistcontenttype_update_column_link')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_item
-    files_beta_drive_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_item_operations#DriveListItemOpera'
-        'tions.{}',
-        client_factory=cf_drive_list_item)
-    with self.command_group('files', files_beta_drive_list_item, client_factory=cf_drive_list_item) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('create-version', 'files_create_version')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
-        g.custom_command('get-analytic', 'files_get_analytic')
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('get-ref-analytic', 'files_get_ref_analytic')
-        g.custom_command('get-version', 'files_get_version')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-version', 'files_list_version')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('set-ref-analytic', 'files_set_ref_analytic')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-field', 'files_update_field')
-        g.custom_command('update-version', 'files_update_version')
+    with self.command_group('files driveslistitem', files_beta_driveslistitem, client_factory=cf_driveslistitem) as g:
+        g.custom_command('create-activity', 'files_driveslistitem_create_activity')
+        g.custom_command('create-link', 'files_driveslistitem_create_link')
+        g.custom_command('create-version', 'files_driveslistitem_create_version')
+        g.custom_command('delete-activity', 'files_driveslistitem_delete_activity')
+        g.custom_command('delete-drive-item', 'files_driveslistitem_delete_drive_item')
+        g.custom_command('delete-field', 'files_driveslistitem_delete_field')
+        g.custom_command('delete-ref-analytic', 'files_driveslistitem_delete_ref_analytic')
+        g.custom_command('delete-version', 'files_driveslistitem_delete_version')
+        g.custom_command('list-activity', 'files_driveslistitem_list_activity')
+        g.custom_command('list-version', 'files_driveslistitem_list_version')
+        g.custom_command('set-drive-item-content', 'files_driveslistitem_set_drive_item_content')
+        g.custom_command('set-ref-analytic', 'files_driveslistitem_set_ref_analytic')
+        g.custom_command('show-activity', 'files_driveslistitem_show_activity')
+        g.custom_command('show-analytic', 'files_driveslistitem_show_analytic')
+        g.custom_command('show-drive-item', 'files_driveslistitem_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_driveslistitem_show_drive_item_content')
+        g.custom_command('show-field', 'files_driveslistitem_show_field')
+        g.custom_command('show-ref-analytic', 'files_driveslistitem_show_ref_analytic')
+        g.custom_command('show-version', 'files_driveslistitem_show_version')
+        g.custom_command('update-activity', 'files_driveslistitem_update_activity')
+        g.custom_command('update-drive-item', 'files_driveslistitem_update_drive_item')
+        g.custom_command('update-field', 'files_driveslistitem_update_field')
+        g.custom_command('update-version', 'files_driveslistitem_update_version')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_item_activity
-    files_beta_drive_list_item_activity = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_item_activity_operations#DriveList'
-        'ItemActivityOperations.{}',
-        client_factory=cf_drive_list_item_activity)
-    with self.command_group('files', files_beta_drive_list_item_activity,
-                            client_factory=cf_drive_list_item_activity) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-list-item', 'files_get_list_item')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-list-item', 'files_update_list_item')
+    with self.command_group(
+        'files driveslistitemsactivity', files_beta_driveslistitemsactivity, client_factory=cf_driveslistitemsactivity
+    ) as g:
+        g.custom_command('delete-drive-item', 'files_driveslistitemsactivity_delete_drive_item')
+        g.custom_command('delete-list-item', 'files_driveslistitemsactivity_delete_list_item')
+        g.custom_command('set-drive-item-content', 'files_driveslistitemsactivity_set_drive_item_content')
+        g.custom_command('show-drive-item', 'files_driveslistitemsactivity_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_driveslistitemsactivity_show_drive_item_content')
+        g.custom_command('show-list-item', 'files_driveslistitemsactivity_show_list_item')
+        g.custom_command('update-drive-item', 'files_driveslistitemsactivity_update_drive_item')
+        g.custom_command('update-list-item', 'files_driveslistitemsactivity_update_list_item')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_item_activity_list_item
-    files_beta_drive_list_item_activity_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_item_activity_list_item_operations'
-        '#DriveListItemActivityListItemOperations.{}',
-        client_factory=cf_drive_list_item_activity_list_item)
-    with self.command_group('files', files_beta_drive_list_item_activity_list_item,
-                            client_factory=cf_drive_list_item_activity_list_item) as g:
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
+    with self.command_group(
+        'files driveslistitemsactivitieslistitem',
+        files_beta_driveslistitemsactivitieslistitem,
+        client_factory=cf_driveslistitemsactivitieslistitem,
+    ) as g:
+        g.custom_command('create-link', 'files_driveslistitemsactivitieslistitem_create_link')
+        g.custom_command('show-activity', 'files_driveslistitemsactivitieslistitem_show_activity')
 
-    from azext_files_beta.generated._client_factory import cf_drive_list_item_version
-    files_beta_drive_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_item_version_operations#DriveListI'
-        'temVersionOperations.{}',
-        client_factory=cf_drive_list_item_version)
-    with self.command_group('files', files_beta_drive_list_item_version,
-                            client_factory=cf_drive_list_item_version) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('restore-version', 'files_restore_version')
-        g.custom_command('update-field', 'files_update_field')
+    with self.command_group(
+        'files driveslistitemsversion', files_beta_driveslistitemsversion, client_factory=cf_driveslistitemsversion
+    ) as g:
+        g.custom_command('delete-field', 'files_driveslistitemsversion_delete_field')
+        g.custom_command('restore-version', 'files_driveslistitemsversion_restore_version')
+        g.custom_command('show-field', 'files_driveslistitemsversion_show_field')
+        g.custom_command('update-field', 'files_driveslistitemsversion_update_field')
 
-    from azext_files_beta.generated._client_factory import cf_group
-    files_beta_group = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group)
-    with self.command_group('files', files_beta_group, client_factory=cf_group) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-drive', 'files_create_drive')
-        g.custom_command('get-drive', 'files_get_drive')
-        g.custom_command('list-drive', 'files_list_drive')
-        g.custom_command('update-drive', 'files_update_drive')
+    with self.command_group('files group', files_beta_group, client_factory=cf_group) as g:
+        g.custom_command('create-drive', 'files_group_create_drive')
+        g.custom_command('delete-drive', 'files_group_delete_drive')
+        g.custom_command('list-drive', 'files_group_list_drive')
+        g.custom_command('show-drive', 'files_group_show_drive')
+        g.custom_command('update-drive', 'files_group_update_drive')
 
-    from azext_files_beta.generated._client_factory import cf_share_shared_drive_item
-    files_beta_share_shared_drive_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_shared_drive_item_operations#ShareShare'
-        'dDriveItemOperations.{}',
-        client_factory=cf_share_shared_drive_item)
-    with self.command_group('files', files_beta_share_shared_drive_item,
-                            client_factory=cf_share_shared_drive_item) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-shared-drive-item', 'files_create_shared_drive_item')
-        g.custom_command('get-shared-drive-item', 'files_get_shared_drive_item')
-        g.custom_command('list-shared-drive-item', 'files_list_shared_drive_item')
-        g.custom_command('update-shared-drive-item', 'files_update_shared_drive_item')
+    with self.command_group(
+        'files sharesshareddriveitem', files_beta_sharesshareddriveitem, client_factory=cf_sharesshareddriveitem
+    ) as g:
+        g.custom_command('create-shared-drive-item', 'files_sharesshareddriveitem_create_shared_drive_item')
+        g.custom_command('delete-shared-drive-item', 'files_sharesshareddriveitem_delete_shared_drive_item')
+        g.custom_command('list-shared-drive-item', 'files_sharesshareddriveitem_list_shared_drive_item')
+        g.custom_command('show-shared-drive-item', 'files_sharesshareddriveitem_show_shared_drive_item')
+        g.custom_command('update-shared-drive-item', 'files_sharesshareddriveitem_update_shared_drive_item')
 
-    from azext_files_beta.generated._client_factory import cf_share
-    files_beta_share = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_operations#ShareOperations.{}',
-        client_factory=cf_share)
-    with self.command_group('files', files_beta_share, client_factory=cf_share) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-item', 'files_create_item')
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-item', 'files_get_item')
-        g.custom_command('get-item-content', 'files_get_item_content')
-        g.custom_command('get-list', 'files_get_list')
-        g.custom_command('get-list-item', 'files_get_list_item')
-        g.custom_command('get-permission', 'files_get_permission')
-        g.custom_command('get-root', 'files_get_root')
-        g.custom_command('get-root-content', 'files_get_root_content')
-        g.custom_command('get-site', 'files_get_site')
-        g.custom_command('list-item', 'files_list_item')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('set-item-content', 'files_set_item_content')
-        g.custom_command('set-root-content', 'files_set_root_content')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-item', 'files_update_item')
-        g.custom_command('update-list', 'files_update_list')
-        g.custom_command('update-list-item', 'files_update_list_item')
-        g.custom_command('update-permission', 'files_update_permission')
-        g.custom_command('update-root', 'files_update_root')
-        g.custom_command('update-site', 'files_update_site')
+    with self.command_group('files share', files_beta_share, client_factory=cf_share) as g:
+        g.custom_command('create-item', 'files_share_create_item')
+        g.custom_command('delete-drive-item', 'files_share_delete_drive_item')
+        g.custom_command('delete-item', 'files_share_delete_item')
+        g.custom_command('delete-list', 'files_share_delete_list')
+        g.custom_command('delete-list-item', 'files_share_delete_list_item')
+        g.custom_command('delete-permission', 'files_share_delete_permission')
+        g.custom_command('delete-root', 'files_share_delete_root')
+        g.custom_command('delete-site', 'files_share_delete_site')
+        g.custom_command('list-item', 'files_share_list_item')
+        g.custom_command('set-drive-item-content', 'files_share_set_drive_item_content')
+        g.custom_command('set-item-content', 'files_share_set_item_content')
+        g.custom_command('set-root-content', 'files_share_set_root_content')
+        g.custom_command('show-drive-item', 'files_share_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_share_show_drive_item_content')
+        g.custom_command('show-item', 'files_share_show_item')
+        g.custom_command('show-item-content', 'files_share_show_item_content')
+        g.custom_command('show-list', 'files_share_show_list')
+        g.custom_command('show-list-item', 'files_share_show_list_item')
+        g.custom_command('show-permission', 'files_share_show_permission')
+        g.custom_command('show-root', 'files_share_show_root')
+        g.custom_command('show-root-content', 'files_share_show_root_content')
+        g.custom_command('show-site', 'files_share_show_site')
+        g.custom_command('update-drive-item', 'files_share_update_drive_item')
+        g.custom_command('update-item', 'files_share_update_item')
+        g.custom_command('update-list', 'files_share_update_list')
+        g.custom_command('update-list-item', 'files_share_update_list_item')
+        g.custom_command('update-permission', 'files_share_update_permission')
+        g.custom_command('update-root', 'files_share_update_root')
+        g.custom_command('update-site', 'files_share_update_site')
 
-    from azext_files_beta.generated._client_factory import cf_share_list
-    files_beta_share_list = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_operations#ShareListOperations.{}',
-        client_factory=cf_share_list)
-    with self.command_group('files', files_beta_share_list, client_factory=cf_share_list) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-column', 'files_create_column')
-        g.custom_command('create-content-type', 'files_create_content_type')
-        g.custom_command('create-item', 'files_create_item')
-        g.custom_command('create-subscription', 'files_create_subscription')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-column', 'files_get_column')
-        g.custom_command('get-content-type', 'files_get_content_type')
-        g.custom_command('get-drive', 'files_get_drive')
-        g.custom_command('get-item', 'files_get_item')
-        g.custom_command('get-subscription', 'files_get_subscription')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-column', 'files_list_column')
-        g.custom_command('list-content-type', 'files_list_content_type')
-        g.custom_command('list-item', 'files_list_item')
-        g.custom_command('list-subscription', 'files_list_subscription')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-column', 'files_update_column')
-        g.custom_command('update-content-type', 'files_update_content_type')
-        g.custom_command('update-drive', 'files_update_drive')
-        g.custom_command('update-item', 'files_update_item')
-        g.custom_command('update-subscription', 'files_update_subscription')
+    with self.command_group('files shareslist', files_beta_shareslist, client_factory=cf_shareslist) as g:
+        g.custom_command('create-activity', 'files_shareslist_create_activity')
+        g.custom_command('create-column', 'files_shareslist_create_column')
+        g.custom_command('create-content-type', 'files_shareslist_create_content_type')
+        g.custom_command('create-item', 'files_shareslist_create_item')
+        g.custom_command('create-subscription', 'files_shareslist_create_subscription')
+        g.custom_command('delete-activity', 'files_shareslist_delete_activity')
+        g.custom_command('delete-column', 'files_shareslist_delete_column')
+        g.custom_command('delete-content-type', 'files_shareslist_delete_content_type')
+        g.custom_command('delete-drive', 'files_shareslist_delete_drive')
+        g.custom_command('delete-item', 'files_shareslist_delete_item')
+        g.custom_command('delete-subscription', 'files_shareslist_delete_subscription')
+        g.custom_command('list-activity', 'files_shareslist_list_activity')
+        g.custom_command('list-column', 'files_shareslist_list_column')
+        g.custom_command('list-content-type', 'files_shareslist_list_content_type')
+        g.custom_command('list-item', 'files_shareslist_list_item')
+        g.custom_command('list-subscription', 'files_shareslist_list_subscription')
+        g.custom_command('show-activity', 'files_shareslist_show_activity')
+        g.custom_command('show-column', 'files_shareslist_show_column')
+        g.custom_command('show-content-type', 'files_shareslist_show_content_type')
+        g.custom_command('show-drive', 'files_shareslist_show_drive')
+        g.custom_command('show-item', 'files_shareslist_show_item')
+        g.custom_command('show-subscription', 'files_shareslist_show_subscription')
+        g.custom_command('update-activity', 'files_shareslist_update_activity')
+        g.custom_command('update-column', 'files_shareslist_update_column')
+        g.custom_command('update-content-type', 'files_shareslist_update_content_type')
+        g.custom_command('update-drive', 'files_shareslist_update_drive')
+        g.custom_command('update-item', 'files_shareslist_update_item')
+        g.custom_command('update-subscription', 'files_shareslist_update_subscription')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_activity
-    files_beta_share_list_activity = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_activity_operations#ShareListActiv'
-        'ityOperations.{}',
-        client_factory=cf_share_list_activity)
-    with self.command_group('files', files_beta_share_list_activity, client_factory=cf_share_list_activity) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-list-item', 'files_get_list_item')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-list-item', 'files_update_list_item')
+    with self.command_group(
+        'files shareslistactivity', files_beta_shareslistactivity, client_factory=cf_shareslistactivity
+    ) as g:
+        g.custom_command('delete-drive-item', 'files_shareslistactivity_delete_drive_item')
+        g.custom_command('delete-list-item', 'files_shareslistactivity_delete_list_item')
+        g.custom_command('set-drive-item-content', 'files_shareslistactivity_set_drive_item_content')
+        g.custom_command('show-drive-item', 'files_shareslistactivity_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_shareslistactivity_show_drive_item_content')
+        g.custom_command('show-list-item', 'files_shareslistactivity_show_list_item')
+        g.custom_command('update-drive-item', 'files_shareslistactivity_update_drive_item')
+        g.custom_command('update-list-item', 'files_shareslistactivity_update_list_item')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_activity_list_item
-    files_beta_share_list_activity_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_activity_list_item_operations#Shar'
-        'eListActivityListItemOperations.{}',
-        client_factory=cf_share_list_activity_list_item)
-    with self.command_group('files', files_beta_share_list_activity_list_item,
-                            client_factory=cf_share_list_activity_list_item) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('create-version', 'files_create_version')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
-        g.custom_command('get-analytic', 'files_get_analytic')
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('get-ref-analytic', 'files_get_ref_analytic')
-        g.custom_command('get-version', 'files_get_version')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-version', 'files_list_version')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('set-ref-analytic', 'files_set_ref_analytic')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-field', 'files_update_field')
-        g.custom_command('update-version', 'files_update_version')
+    with self.command_group(
+        'files shareslistactivitieslistitem',
+        files_beta_shareslistactivitieslistitem,
+        client_factory=cf_shareslistactivitieslistitem,
+    ) as g:
+        g.custom_command('create-activity', 'files_shareslistactivitieslistitem_create_activity')
+        g.custom_command('create-link', 'files_shareslistactivitieslistitem_create_link')
+        g.custom_command('create-version', 'files_shareslistactivitieslistitem_create_version')
+        g.custom_command('delete-activity', 'files_shareslistactivitieslistitem_delete_activity')
+        g.custom_command('delete-drive-item', 'files_shareslistactivitieslistitem_delete_drive_item')
+        g.custom_command('delete-field', 'files_shareslistactivitieslistitem_delete_field')
+        g.custom_command('delete-ref-analytic', 'files_shareslistactivitieslistitem_delete_ref_analytic')
+        g.custom_command('delete-version', 'files_shareslistactivitieslistitem_delete_version')
+        g.custom_command('list-activity', 'files_shareslistactivitieslistitem_list_activity')
+        g.custom_command('list-version', 'files_shareslistactivitieslistitem_list_version')
+        g.custom_command('set-drive-item-content', 'files_shareslistactivitieslistitem_set_drive_item_content')
+        g.custom_command('set-ref-analytic', 'files_shareslistactivitieslistitem_set_ref_analytic')
+        g.custom_command('show-activity', 'files_shareslistactivitieslistitem_show_activity')
+        g.custom_command('show-analytic', 'files_shareslistactivitieslistitem_show_analytic')
+        g.custom_command('show-drive-item', 'files_shareslistactivitieslistitem_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_shareslistactivitieslistitem_show_drive_item_content')
+        g.custom_command('show-field', 'files_shareslistactivitieslistitem_show_field')
+        g.custom_command('show-ref-analytic', 'files_shareslistactivitieslistitem_show_ref_analytic')
+        g.custom_command('show-version', 'files_shareslistactivitieslistitem_show_version')
+        g.custom_command('update-activity', 'files_shareslistactivitieslistitem_update_activity')
+        g.custom_command('update-drive-item', 'files_shareslistactivitieslistitem_update_drive_item')
+        g.custom_command('update-field', 'files_shareslistactivitieslistitem_update_field')
+        g.custom_command('update-version', 'files_shareslistactivitieslistitem_update_version')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_activity_list_item_version
-    files_beta_share_list_activity_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_activity_list_item_version_operati'
-        'ons#ShareListActivityListItemVersionOperations.{}',
-        client_factory=cf_share_list_activity_list_item_version)
-    with self.command_group('files', files_beta_share_list_activity_list_item_version,
-                            client_factory=cf_share_list_activity_list_item_version) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('restore-version', 'files_restore_version')
-        g.custom_command('update-field', 'files_update_field')
+    with self.command_group(
+        'files shareslistactivitieslistitemversion',
+        files_beta_shareslistactivitieslistitemversion,
+        client_factory=cf_shareslistactivitieslistitemversion,
+    ) as g:
+        g.custom_command('delete-field', 'files_shareslistactivitieslistitemversion_delete_field')
+        g.custom_command('restore-version', 'files_shareslistactivitieslistitemversion_restore_version')
+        g.custom_command('show-field', 'files_shareslistactivitieslistitemversion_show_field')
+        g.custom_command('update-field', 'files_shareslistactivitieslistitemversion_update_field')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_content_type
-    files_beta_share_list_content_type = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_content_type_operations#ShareListC'
-        'ontentTypeOperations.{}',
-        client_factory=cf_share_list_content_type)
-    with self.command_group('files', files_beta_share_list_content_type,
-                            client_factory=cf_share_list_content_type) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-column-link', 'files_create_column_link')
-        g.custom_command('get-column-link', 'files_get_column_link')
-        g.custom_command('list-column-link', 'files_list_column_link')
-        g.custom_command('update-column-link', 'files_update_column_link')
+    with self.command_group(
+        'files shareslistcontenttype', files_beta_shareslistcontenttype, client_factory=cf_shareslistcontenttype
+    ) as g:
+        g.custom_command('create-column-link', 'files_shareslistcontenttype_create_column_link')
+        g.custom_command('delete-column-link', 'files_shareslistcontenttype_delete_column_link')
+        g.custom_command('list-column-link', 'files_shareslistcontenttype_list_column_link')
+        g.custom_command('show-column-link', 'files_shareslistcontenttype_show_column_link')
+        g.custom_command('update-column-link', 'files_shareslistcontenttype_update_column_link')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item
-    files_beta_share_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOpera'
-        'tions.{}',
-        client_factory=cf_share_list_item)
-    with self.command_group('files', files_beta_share_list_item, client_factory=cf_share_list_item) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('create-version', 'files_create_version')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
-        g.custom_command('get-analytic', 'files_get_analytic')
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('get-ref-analytic', 'files_get_ref_analytic')
-        g.custom_command('get-version', 'files_get_version')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-version', 'files_list_version')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('set-ref-analytic', 'files_set_ref_analytic')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-field', 'files_update_field')
-        g.custom_command('update-version', 'files_update_version')
+    with self.command_group('files shareslistitem', files_beta_shareslistitem, client_factory=cf_shareslistitem) as g:
+        g.custom_command('create-activity', 'files_shareslistitem_create_activity')
+        g.custom_command('create-link', 'files_shareslistitem_create_link')
+        g.custom_command('create-version', 'files_shareslistitem_create_version')
+        g.custom_command('delete-activity', 'files_shareslistitem_delete_activity')
+        g.custom_command('delete-drive-item', 'files_shareslistitem_delete_drive_item')
+        g.custom_command('delete-field', 'files_shareslistitem_delete_field')
+        g.custom_command('delete-ref-analytic', 'files_shareslistitem_delete_ref_analytic')
+        g.custom_command('delete-version', 'files_shareslistitem_delete_version')
+        g.custom_command('list-activity', 'files_shareslistitem_list_activity')
+        g.custom_command('list-version', 'files_shareslistitem_list_version')
+        g.custom_command('set-drive-item-content', 'files_shareslistitem_set_drive_item_content')
+        g.custom_command('set-ref-analytic', 'files_shareslistitem_set_ref_analytic')
+        g.custom_command('show-activity', 'files_shareslistitem_show_activity')
+        g.custom_command('show-analytic', 'files_shareslistitem_show_analytic')
+        g.custom_command('show-drive-item', 'files_shareslistitem_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_shareslistitem_show_drive_item_content')
+        g.custom_command('show-field', 'files_shareslistitem_show_field')
+        g.custom_command('show-ref-analytic', 'files_shareslistitem_show_ref_analytic')
+        g.custom_command('show-version', 'files_shareslistitem_show_version')
+        g.custom_command('update-activity', 'files_shareslistitem_update_activity')
+        g.custom_command('update-drive-item', 'files_shareslistitem_update_drive_item')
+        g.custom_command('update-field', 'files_shareslistitem_update_field')
+        g.custom_command('update-version', 'files_shareslistitem_update_version')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item_activity
-    files_beta_share_list_item_activity = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_operations#ShareList'
-        'ItemActivityOperations.{}',
-        client_factory=cf_share_list_item_activity)
-    with self.command_group('files', files_beta_share_list_item_activity,
-                            client_factory=cf_share_list_item_activity) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-list-item', 'files_get_list_item')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-list-item', 'files_update_list_item')
+    with self.command_group(
+        'files shareslistitemsactivity', files_beta_shareslistitemsactivity, client_factory=cf_shareslistitemsactivity
+    ) as g:
+        g.custom_command('delete-drive-item', 'files_shareslistitemsactivity_delete_drive_item')
+        g.custom_command('delete-list-item', 'files_shareslistitemsactivity_delete_list_item')
+        g.custom_command('set-drive-item-content', 'files_shareslistitemsactivity_set_drive_item_content')
+        g.custom_command('show-drive-item', 'files_shareslistitemsactivity_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_shareslistitemsactivity_show_drive_item_content')
+        g.custom_command('show-list-item', 'files_shareslistitemsactivity_show_list_item')
+        g.custom_command('update-drive-item', 'files_shareslistitemsactivity_update_drive_item')
+        g.custom_command('update-list-item', 'files_shareslistitemsactivity_update_list_item')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item_activity_list_item
-    files_beta_share_list_item_activity_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_list_item_operations'
-        '#ShareListItemActivityListItemOperations.{}',
-        client_factory=cf_share_list_item_activity_list_item)
-    with self.command_group('files', files_beta_share_list_item_activity_list_item,
-                            client_factory=cf_share_list_item_activity_list_item) as g:
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
+    with self.command_group(
+        'files shareslistitemsactivitieslistitem',
+        files_beta_shareslistitemsactivitieslistitem,
+        client_factory=cf_shareslistitemsactivitieslistitem,
+    ) as g:
+        g.custom_command('create-link', 'files_shareslistitemsactivitieslistitem_create_link')
+        g.custom_command('show-activity', 'files_shareslistitemsactivitieslistitem_show_activity')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item_version
-    files_beta_share_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_version_operations#ShareListI'
-        'temVersionOperations.{}',
-        client_factory=cf_share_list_item_version)
-    with self.command_group('files', files_beta_share_list_item_version,
-                            client_factory=cf_share_list_item_version) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('restore-version', 'files_restore_version')
-        g.custom_command('update-field', 'files_update_field')
+    with self.command_group(
+        'files shareslistitemsversion', files_beta_shareslistitemsversion, client_factory=cf_shareslistitemsversion
+    ) as g:
+        g.custom_command('delete-field', 'files_shareslistitemsversion_delete_field')
+        g.custom_command('restore-version', 'files_shareslistitemsversion_restore_version')
+        g.custom_command('show-field', 'files_shareslistitemsversion_show_field')
+        g.custom_command('update-field', 'files_shareslistitemsversion_update_field')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item
-    files_beta_share_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOpera'
-        'tions.{}',
-        client_factory=cf_share_list_item)
-    with self.command_group('files', files_beta_share_list_item, client_factory=cf_share_list_item) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-activity', 'files_create_activity')
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('create-version', 'files_create_version')
-        g.custom_command('get-activity', 'files_get_activity')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
-        g.custom_command('get-analytic', 'files_get_analytic')
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('get-ref-analytic', 'files_get_ref_analytic')
-        g.custom_command('get-version', 'files_get_version')
-        g.custom_command('list-activity', 'files_list_activity')
-        g.custom_command('list-version', 'files_list_version')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('set-ref-analytic', 'files_set_ref_analytic')
-        g.custom_command('update-activity', 'files_update_activity')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-field', 'files_update_field')
-        g.custom_command('update-version', 'files_update_version')
+    with self.command_group('files shareslistitem', files_beta_shareslistitem, client_factory=cf_shareslistitem) as g:
+        g.custom_command('create-activity', 'files_shareslistitem_create_activity')
+        g.custom_command('create-link', 'files_shareslistitem_create_link')
+        g.custom_command('create-version', 'files_shareslistitem_create_version')
+        g.custom_command('delete-activity', 'files_shareslistitem_delete_activity')
+        g.custom_command('delete-drive-item', 'files_shareslistitem_delete_drive_item')
+        g.custom_command('delete-field', 'files_shareslistitem_delete_field')
+        g.custom_command('delete-ref-analytic', 'files_shareslistitem_delete_ref_analytic')
+        g.custom_command('delete-version', 'files_shareslistitem_delete_version')
+        g.custom_command('list-activity', 'files_shareslistitem_list_activity')
+        g.custom_command('list-version', 'files_shareslistitem_list_version')
+        g.custom_command('set-drive-item-content', 'files_shareslistitem_set_drive_item_content')
+        g.custom_command('set-ref-analytic', 'files_shareslistitem_set_ref_analytic')
+        g.custom_command('show-activity', 'files_shareslistitem_show_activity')
+        g.custom_command('show-analytic', 'files_shareslistitem_show_analytic')
+        g.custom_command('show-drive-item', 'files_shareslistitem_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_shareslistitem_show_drive_item_content')
+        g.custom_command('show-field', 'files_shareslistitem_show_field')
+        g.custom_command('show-ref-analytic', 'files_shareslistitem_show_ref_analytic')
+        g.custom_command('show-version', 'files_shareslistitem_show_version')
+        g.custom_command('update-activity', 'files_shareslistitem_update_activity')
+        g.custom_command('update-drive-item', 'files_shareslistitem_update_drive_item')
+        g.custom_command('update-field', 'files_shareslistitem_update_field')
+        g.custom_command('update-version', 'files_shareslistitem_update_version')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item_activity
-    files_beta_share_list_item_activity = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_operations#ShareList'
-        'ItemActivityOperations.{}',
-        client_factory=cf_share_list_item_activity)
-    with self.command_group('files', files_beta_share_list_item_activity,
-                            client_factory=cf_share_list_item_activity) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-drive-item', 'files_get_drive_item')
-        g.custom_command('get-drive-item-content', 'files_get_drive_item_content')
-        g.custom_command('get-list-item', 'files_get_list_item')
-        g.custom_command('set-drive-item-content', 'files_set_drive_item_content')
-        g.custom_command('update-drive-item', 'files_update_drive_item')
-        g.custom_command('update-list-item', 'files_update_list_item')
+    with self.command_group(
+        'files shareslistitemactivity', files_beta_shareslistitemactivity, client_factory=cf_shareslistitemactivity
+    ) as g:
+        g.custom_command('delete-drive-item', 'files_shareslistitemactivity_delete_drive_item')
+        g.custom_command('delete-list-item', 'files_shareslistitemactivity_delete_list_item')
+        g.custom_command('set-drive-item-content', 'files_shareslistitemactivity_set_drive_item_content')
+        g.custom_command('show-drive-item', 'files_shareslistitemactivity_show_drive_item')
+        g.custom_command('show-drive-item-content', 'files_shareslistitemactivity_show_drive_item_content')
+        g.custom_command('show-list-item', 'files_shareslistitemactivity_show_list_item')
+        g.custom_command('update-drive-item', 'files_shareslistitemactivity_update_drive_item')
+        g.custom_command('update-list-item', 'files_shareslistitemactivity_update_list_item')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item_activity_list_item
-    files_beta_share_list_item_activity_list_item = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_list_item_operations'
-        '#ShareListItemActivityListItemOperations.{}',
-        client_factory=cf_share_list_item_activity_list_item)
-    with self.command_group('files', files_beta_share_list_item_activity_list_item,
-                            client_factory=cf_share_list_item_activity_list_item) as g:
-        g.custom_command('create-link', 'files_create_link')
-        g.custom_command('get-activity-by-interval', 'files_get_activity_by_interval')
+    with self.command_group(
+        'files shareslistitemactivitieslistitem',
+        files_beta_shareslistitemactivitieslistitem,
+        client_factory=cf_shareslistitemactivitieslistitem,
+    ) as g:
+        g.custom_command('create-link', 'files_shareslistitemactivitieslistitem_create_link')
+        g.custom_command('show-activity', 'files_shareslistitemactivitieslistitem_show_activity')
 
-    from azext_files_beta.generated._client_factory import cf_share_list_item_version
-    files_beta_share_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_version_operations#ShareListI'
-        'temVersionOperations.{}',
-        client_factory=cf_share_list_item_version)
-    with self.command_group('files', files_beta_share_list_item_version,
-                            client_factory=cf_share_list_item_version) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('get-field', 'files_get_field')
-        g.custom_command('restore-version', 'files_restore_version')
-        g.custom_command('update-field', 'files_update_field')
+    with self.command_group(
+        'files shareslistitemversion', files_beta_shareslistitemversion, client_factory=cf_shareslistitemversion
+    ) as g:
+        g.custom_command('delete-field', 'files_shareslistitemversion_delete_field')
+        g.custom_command('restore-version', 'files_shareslistitemversion_restore_version')
+        g.custom_command('show-field', 'files_shareslistitemversion_show_field')
+        g.custom_command('update-field', 'files_shareslistitemversion_update_field')
 
-    from azext_files_beta.generated._client_factory import cf_share_permission
-    files_beta_share_permission = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_permission_operations#SharePermissionOp'
-        'erations.{}',
-        client_factory=cf_share_permission)
-    with self.command_group('files', files_beta_share_permission, client_factory=cf_share_permission) as g:
-        g.custom_command('grant', 'files_grant')
-        g.custom_command('revoke-grant', 'files_revoke_grant')
+    with self.command_group(
+        'files sharespermission', files_beta_sharespermission, client_factory=cf_sharespermission
+    ) as g:
+        g.custom_command('grant', 'files_sharespermission_grant')
+        g.custom_command('revoke-grant', 'files_sharespermission_revoke_grant')
 
-    from azext_files_beta.generated._client_factory import cf_user
-    files_beta_user = CliCommandType(
-        operations_tmpl='azext_files_beta.vendored_sdks.files.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('files', files_beta_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'files_delete', confirmation=True)
-        g.custom_command('create-drive', 'files_create_drive')
-        g.custom_command('get-drive', 'files_get_drive')
-        g.custom_command('list-drive', 'files_list_drive')
-        g.custom_command('update-drive', 'files_update_drive')
+    with self.command_group('files user', files_beta_user, client_factory=cf_user) as g:
+        g.custom_command('create-drive', 'files_user_create_drive')
+        g.custom_command('delete-drive', 'files_user_delete_drive')
+        g.custom_command('list-drive', 'files_user_list_drive')
+        g.custom_command('show-drive', 'files_user_show_drive')
+        g.custom_command('update-drive', 'files_user_update_drive')
+
+    with self.command_group('files_beta', is_experimental=True):
+        pass

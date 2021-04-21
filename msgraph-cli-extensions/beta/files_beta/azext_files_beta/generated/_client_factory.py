@@ -11,136 +11,136 @@
 
 def cf_files_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.files import Files
+    from azext_files_beta.vendored_sdks.files import Files
     return get_mgmt_service_client(cli_ctx,
                                    Files,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_drive_drive(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_drive
+def cf_drivesdrive(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).drivesdrive
 
 
 def cf_drive(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive
+    return cf_files_beta_cl(cli_ctx).drives
 
 
-def cf_drive_activity(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_activity
+def cf_drivesactivity(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).drivesactivities
 
 
-def cf_drive_activity_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_activity_list_item
+def cf_drivesactivitieslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).drivesactivitieslistitem
 
 
-def cf_drive_activity_list_item_version(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_activity_list_item_version
+def cf_drivesactivitieslistitemversion(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).drivesactivitieslistitemversions
 
 
-def cf_drive_list(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list
+def cf_driveslist(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslist
 
 
-def cf_drive_list_activity(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_activity
+def cf_driveslistactivity(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistactivities
 
 
-def cf_drive_list_activity_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_activity_list_item
+def cf_driveslistactivitieslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistactivitieslistitem
 
 
-def cf_drive_list_activity_list_item_version(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_activity_list_item_version
+def cf_driveslistactivitieslistitemversion(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistactivitieslistitemversions
 
 
-def cf_drive_list_content_type(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_content_type
+def cf_driveslistcontenttype(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistcontenttypes
 
 
-def cf_drive_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_item
+def cf_driveslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistitems
 
 
-def cf_drive_list_item_activity(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_item_activity
+def cf_driveslistitemsactivity(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistitemsactivities
 
 
-def cf_drive_list_item_activity_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_item_activity_list_item
+def cf_driveslistitemsactivitieslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistitemsactivitieslistitem
 
 
-def cf_drive_list_item_version(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).drive_list_item_version
+def cf_driveslistitemsversion(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).driveslistitemsversions
 
 
 def cf_group(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).group
+    return cf_files_beta_cl(cli_ctx).groups
 
 
-def cf_share_shared_drive_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_shared_drive_item
+def cf_sharesshareddriveitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).sharesshareddriveitem
 
 
 def cf_share(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share
+    return cf_files_beta_cl(cli_ctx).shares
 
 
-def cf_share_list(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list
+def cf_shareslist(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslist
 
 
-def cf_share_list_activity(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_activity
+def cf_shareslistactivity(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistactivities
 
 
-def cf_share_list_activity_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_activity_list_item
+def cf_shareslistactivitieslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistactivitieslistitem
 
 
-def cf_share_list_activity_list_item_version(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_activity_list_item_version
+def cf_shareslistactivitieslistitemversion(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistactivitieslistitemversions
 
 
-def cf_share_list_content_type(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_content_type
+def cf_shareslistcontenttype(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistcontenttypes
 
 
-def cf_share_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item
+def cf_shareslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitems
 
 
-def cf_share_list_item_activity(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item_activity
+def cf_shareslistitemsactivity(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitemsactivities
 
 
-def cf_share_list_item_activity_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item_activity_list_item
+def cf_shareslistitemsactivitieslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitemsactivitieslistitem
 
 
-def cf_share_list_item_version(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item_version
+def cf_shareslistitemsversion(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitemsversions
 
 
-def cf_share_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item
+def cf_shareslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitem
 
 
-def cf_share_list_item_activity(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item_activity
+def cf_shareslistitemactivity(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitemactivities
 
 
-def cf_share_list_item_activity_list_item(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item_activity_list_item
+def cf_shareslistitemactivitieslistitem(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitemactivitieslistitem
 
 
-def cf_share_list_item_version(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_list_item_version
+def cf_shareslistitemversion(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).shareslistitemversions
 
 
-def cf_share_permission(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).share_permission
+def cf_sharespermission(cli_ctx, *_):
+    return cf_files_beta_cl(cli_ctx).sharespermission
 
 
 def cf_user(cli_ctx, *_):
-    return cf_files_beta_cl(cli_ctx).user
+    return cf_files_beta_cl(cli_ctx).users

@@ -11,119 +11,119 @@
 
 def cf_teams_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.teams import Teams
+    from azext_teams_beta.vendored_sdks.teams import Teams
     return get_mgmt_service_client(cli_ctx,
                                    Teams,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_app_catalog(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).app_catalog
+def cf_appcatalog(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).appcatalogs
 
 
-def cf_app_catalog_team_app(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).app_catalog_team_app
+def cf_appcatalogsteamsapp(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).appcatalogsteamsapps
 
 
-def cf_chat_chat(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chat_chat
+def cf_chatschat(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chatschat
 
 
 def cf_chat(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chat
+    return cf_teams_beta_cl(cli_ctx).chats
 
 
-def cf_chat_installed_app(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chat_installed_app
+def cf_chatsinstalledapp(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chatsinstalledapps
 
 
-def cf_chat_member(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chat_member
+def cf_chatsmember(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chatsmembers
 
 
-def cf_chat_message(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chat_message
+def cf_chatsmessage(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chatsmessages
 
 
-def cf_chat_message_reply(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chat_message_reply
+def cf_chatsmessagesreply(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chatsmessagesreplies
 
 
-def cf_chat_tab(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).chat_tab
+def cf_chatstab(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).chatstabs
 
 
 def cf_group(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).group
+    return cf_teams_beta_cl(cli_ctx).groups
 
 
-def cf_team_team(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_team
+def cf_teamsteam(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsteam
 
 
 def cf_team(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team
+    return cf_teams_beta_cl(cli_ctx).teams
 
 
-def cf_team_channel(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_channel
+def cf_teamschannel(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamschannels
 
 
-def cf_team_channel_member(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_channel_member
+def cf_teamschannelsmember(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamschannelsmembers
 
 
-def cf_team_channel_message(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_channel_message
+def cf_teamschannelsmessage(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamschannelsmessages
 
 
-def cf_team_channel_message_reply(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_channel_message_reply
+def cf_teamschannelsmessagesreply(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamschannelsmessagesreplies
 
 
-def cf_team_channel_tab(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_channel_tab
+def cf_teamschannelstab(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamschannelstabs
 
 
-def cf_team_installed_app(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_installed_app
+def cf_teamsinstalledapp(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsinstalledapps
 
 
-def cf_team_member(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_member
+def cf_teamsmember(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsmembers
 
 
-def cf_team_primary_channel(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_primary_channel
+def cf_teamsprimarychannel(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsprimarychannel
 
 
-def cf_team_primary_channel_member(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_primary_channel_member
+def cf_teamsprimarychannelmember(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsprimarychannelmembers
 
 
-def cf_team_primary_channel_message(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_primary_channel_message
+def cf_teamsprimarychannelmessage(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsprimarychannelmessages
 
 
-def cf_team_primary_channel_message_reply(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_primary_channel_message_reply
+def cf_teamsprimarychannelmessagesreply(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsprimarychannelmessagesreplies
 
 
-def cf_team_primary_channel_tab(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_primary_channel_tab
+def cf_teamsprimarychanneltab(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsprimarychanneltabs
 
 
-def cf_team_schedule(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_schedule
+def cf_teamsschedule(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsschedule
 
 
-def cf_team_schedule_time_card(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).team_schedule_time_card
+def cf_teamsscheduletimecard(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamsscheduletimecards
 
 
-def cf_teamwork_teamwork(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).teamwork_teamwork
+def cf_teamwork(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).teamworkteamwork
 
 
 def cf_teamwork(cli_ctx, *_):
@@ -131,12 +131,12 @@ def cf_teamwork(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).user
+    return cf_teams_beta_cl(cli_ctx).users
 
 
-def cf_user_teamwork(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).user_teamwork
+def cf_usersteamwork(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).usersteamwork
 
 
-def cf_user_teamwork_installed_app(cli_ctx, *_):
-    return cf_teams_beta_cl(cli_ctx).user_teamwork_installed_app
+def cf_usersteamworkinstalledapp(cli_ctx, *_):
+    return cf_teams_beta_cl(cli_ctx).usersteamworkinstalledapps

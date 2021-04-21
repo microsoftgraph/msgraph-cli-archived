@@ -11,32 +11,32 @@
 
 def cf_education_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.education import Education
+    from azext_education_v1_0.vendored_sdks.education import Education
     return get_mgmt_service_client(cli_ctx,
                                    Education,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_education_education_root(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_education_root
+def cf_educationroot(cli_ctx, *_):
+    return cf_education_v1_0_cl(cli_ctx).educationeducationroot
 
 
 def cf_education(cli_ctx, *_):
     return cf_education_v1_0_cl(cli_ctx).education
 
 
-def cf_education_class(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_class
+def cf_educationclass(cli_ctx, *_):
+    return cf_education_v1_0_cl(cli_ctx).educationclasses
 
 
-def cf_education_me(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_me
+def cf_educationme(cli_ctx, *_):
+    return cf_education_v1_0_cl(cli_ctx).educationme
 
 
-def cf_education_school(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_school
+def cf_educationschool(cli_ctx, *_):
+    return cf_education_v1_0_cl(cli_ctx).educationschools
 
 
-def cf_education_user(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_user
+def cf_educationuser(cli_ctx, *_):
+    return cf_education_v1_0_cl(cli_ctx).educationusers

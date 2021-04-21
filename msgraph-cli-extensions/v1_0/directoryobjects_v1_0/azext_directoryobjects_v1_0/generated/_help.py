@@ -12,77 +12,82 @@
 from knack.help_files import helps
 
 
-helps['directoryobjects'] = """
+helps['directoryobjects_v1_0'] = '''
     type: group
-    short-summary: directoryobjects
-"""
+    short-summary: Manage Directory Objects
+'''
 
-helps['directoryobjects delete'] = """
-    type: command
-    short-summary: "Delete entity from directoryObjects"
-"""
-
-helps['directoryobjects create-directory-object'] = """
-    type: command
-    short-summary: "Add new entity to directoryObjects"
-"""
-
-helps['directoryobjects get-directory-object'] = """
-    type: command
-    short-summary: "Get entity from directoryObjects by key"
-"""
-
-helps['directoryobjects list-directory-object'] = """
-    type: command
-    short-summary: "Get entities from directoryObjects"
-"""
-
-helps['directoryobjects update-directory-object'] = """
-    type: command
-    short-summary: "Update entity in directoryObjects"
-"""
-
-helps['directoryobjects'] = """
+helps['directoryobjects directoryobjectsdirectoryobject'] = """
     type: group
-    short-summary: directoryobjects
+    short-summary: Manage directoryobjectsdirectoryobject with directoryobjects_v1_0
 """
 
-helps['directoryobjects check-member-group'] = """
+helps['directoryobjects directoryobjectsdirectoryobject create-directory-object'] = """
     type: command
-    short-summary: "Invoke action checkMemberGroups"
+    short-summary: "Add new entity to directoryObjects."
 """
 
-helps['directoryobjects check-member-object'] = """
+helps['directoryobjects directoryobjectsdirectoryobject delete-directory-object'] = """
     type: command
-    short-summary: "Invoke action checkMemberObjects"
+    short-summary: "Delete entity from directoryObjects."
 """
 
-helps['directoryobjects get-available-extension-property'] = """
+helps['directoryobjects directoryobjectsdirectoryobject list-directory-object'] = """
     type: command
-    short-summary: "Invoke action getAvailableExtensionProperties"
+    short-summary: "Get entities from directoryObjects."
 """
 
-helps['directoryobjects get-by-id'] = """
+helps['directoryobjects directoryobjectsdirectoryobject show-directory-object'] = """
     type: command
-    short-summary: "Invoke action getByIds"
+    short-summary: "Get entity from directoryObjects by key."
 """
 
-helps['directoryobjects get-member-group'] = """
+helps['directoryobjects directoryobjectsdirectoryobject update-directory-object'] = """
     type: command
-    short-summary: "Invoke action getMemberGroups"
+    short-summary: "Update entity in directoryObjects."
 """
 
-helps['directoryobjects get-member-object'] = """
-    type: command
-    short-summary: "Invoke action getMemberObjects"
+helps['directoryobjects directoryobject'] = """
+    type: group
+    short-summary: Manage directoryobject with directoryobjects_v1_0
 """
 
-helps['directoryobjects restore'] = """
+helps['directoryobjects directoryobject check-member-group'] = """
     type: command
-    short-summary: "Invoke action restore"
+    short-summary: "Invoke action checkMemberGroups."
 """
 
-helps['directoryobjects validate-property'] = """
+helps['directoryobjects directoryobject check-member-object'] = """
     type: command
-    short-summary: "Invoke action validateProperties"
+    short-summary: "Invoke action checkMemberObjects."
+"""
+
+helps['directoryobjects directoryobject get-available-extension-property'] = """
+    type: command
+    short-summary: "Invoke action getAvailableExtensionProperties."
+"""
+
+helps['directoryobjects directoryobject get-by-id'] = """
+    type: command
+    short-summary: "Invoke action getByIds."
+"""
+
+helps['directoryobjects directoryobject get-member-group'] = """
+    type: command
+    short-summary: "Invoke action getMemberGroups."
+"""
+
+helps['directoryobjects directoryobject get-member-object'] = """
+    type: command
+    short-summary: "Invoke action getMemberObjects."
+"""
+
+helps['directoryobjects directoryobject restore'] = """
+    type: command
+    short-summary: "Invoke action restore."
+"""
+
+helps['directoryobjects directoryobject validate-property'] = """
+    type: command
+    short-summary: "Invoke action validateProperties."
 """

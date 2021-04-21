@@ -46,3 +46,21 @@ def validate_parameter_set(namespace, required, forbidden, dest_to_options=None,
             forbidden_string = ', '.join(_dest_to_option(x) for x in included_forbidden)
             error = '{}\n\tnot applicable: {}'.format(error, forbidden_string)
         raise CLIError(error)
+
+
+def validate_tags(ns):
+    """ Extracts multiple space-separated tags in key[=value] format """
+    if isinstance(ns.tags, list):
+        tags_dict = {}
+        for item in ns.tags:
+            tags_dict.update(validate_tag(item))
+        ns.tags = tags_dict
+
+
+def validate_tag(string):
+    """ Extracts a single tag in key[=value] format """
+    result = {}
+    if string:
+        comps = string.split('=', 1)
+        result = {comps[0]: comps[1]} if len(comps) > 1 else {string: ''}
+    return result

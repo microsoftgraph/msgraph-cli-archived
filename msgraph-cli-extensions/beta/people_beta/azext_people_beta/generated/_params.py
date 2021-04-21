@@ -17,9 +17,9 @@ from msgraph.cli.core.commands.parameters import (
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_people_beta.action import (
     AddEmailAddresses,
-    AddPeopleCreatePersonPhones,
+    AddPeopleUserCreatePersonPhones,
     AddSources,
-    AddPeopleCreatePersonWebsites,
+    AddPeopleUserCreatePersonWebsites,
     AddSettings,
     AddActivityStatistics,
     AddAnniversaries,
@@ -29,21 +29,21 @@ from azext_people_beta.action import (
     AddInterests,
     AddLanguages,
     AddPatents,
-    AddPeopleUpdateProfilePhones,
+    AddPeopleUserUpdateProfilePhones,
     AddPublications,
     AddSkills,
-    AddPeopleUpdateProfileWebsites,
+    AddPeopleUserUpdateProfileWebsites,
     AddInference,
     AddSource,
-    AddLastModifiedByApplication,
+    AddApplication,
     AddPreferredLanguageTag,
-    AddPeopleCreateAddressDetail,
+    AddPeopleUsersprofileCreateAddressDetail,
     AddGeoCoordinates,
     AddPronunciation,
-    AddPeopleCreateNoteDetail,
-    AddPeopleCreatePositionColleagues,
+    AddPeopleUsersprofileCreateNoteDetail,
+    AddPeopleUsersprofileCreatePositionColleagues,
     AddManager,
-    AddPeopleCreateProjectColleagues,
+    AddPeopleUsersprofileCreateProjectColleagues,
     AddSponsors,
     AddService
 )
@@ -51,68 +51,76 @@ from azext_people_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('people delete') as c:
+    with self.argument_context('people user create-person') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('birthday', type=str, help='The person\'s birthday.')
+        c.argument('company_name', type=str, help='The name of the person\'s company.')
+        c.argument('department', type=str, help='The person\'s department.')
+        c.argument('display_name', type=str, help='The person\'s display name.')
+        c.argument('email_addresses', action=AddEmailAddresses, nargs='+', help='')
+        c.argument('given_name', type=str, help='The person\'s given name.')
+        c.argument('is_favorite', arg_type=get_three_state_flag(), help='true if the user has flagged this person as a '
+                   'favorite.')
+        c.argument('mailbox_type', type=str, help='')
+        c.argument('office_location', type=str, help='The location of the person\'s office.')
+        c.argument('person_notes', type=str, help='Free-form notes that the user has taken about this person.')
+        c.argument('person_type', type=str, help='The type of person.')
+        c.argument('phones', action=AddPeopleUserCreatePersonPhones, nargs='+', help='The person\'s phone numbers.')
+        c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('profession', type=str, help='The person\'s profession.')
+        c.argument('sources', action=AddSources, nargs='+', help='')
+        c.argument('surname', type=str, help='The person\'s surname.')
+        c.argument('title', type=str, help='')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the person. The UPN is an '
+                   'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
+                   'this should map to the person\'s email name. The general format is alias@domain.')
+        c.argument('websites', action=AddPeopleUserCreatePersonWebsites, nargs='+', help='The person\'s websites.')
+        c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
+
+    with self.argument_context('people user delete-analytic') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user delete-person') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_id', type=str, help='key: id of person')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people create-person') as c:
+    with self.argument_context('people user delete-profile') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('birthday', type=str, help='The person\'s birthday.')
-        c.argument('company_name', type=str, help='The name of the person\'s company.')
-        c.argument('department', type=str, help='The person\'s department.')
-        c.argument('display_name', type=str, help='The person\'s display name.')
-        c.argument('email_addresses', action=AddEmailAddresses, nargs='*', help='')
-        c.argument('given_name', type=str, help='The person\'s given name.')
-        c.argument('is_favorite', arg_type=get_three_state_flag(), help='true if the user has flagged this person as a '
-                   'favorite.')
-        c.argument('mailbox_type', type=str, help='')
-        c.argument('office_location', type=str, help='The location of the person\'s office.')
-        c.argument('person_notes', type=str, help='Free-form notes that the user has taken about this person.')
-        c.argument('person_type', type=str, help='The type of person.')
-        c.argument('phones', action=AddPeopleCreatePersonPhones, nargs='*', help='The person\'s phone numbers.')
-        c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('profession', type=str, help='The person\'s profession.')
-        c.argument('sources', action=AddSources, nargs='*', help='')
-        c.argument('surname', type=str, help='The person\'s surname.')
-        c.argument('title', type=str, help='')
-        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the person. The UPN is an '
-                   'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
-                   'this should map to the person\'s email name. The general format is alias@domain.')
-        c.argument('websites', action=AddPeopleCreatePersonWebsites, nargs='*', help='The person\'s websites.')
-        c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-analytic') as c:
+    with self.argument_context('people user list-person') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people get-person') as c:
+    with self.argument_context('people user show-analytic') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people user show-person') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_id', type=str, help='key: id of person')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people get-profile') as c:
+    with self.argument_context('people user show-profile') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-person') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('people update-analytic') as c:
+    with self.argument_context('people user update-analytic') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('settings', action=AddSettings, nargs='*', help='settings')
-        c.argument('activity_statistics', action=AddActivityStatistics, nargs='*', help='')
+        c.argument('settings', action=AddSettings, nargs='+', help='settings')
+        c.argument('activity_statistics', action=AddActivityStatistics, nargs='+', help='')
 
-    with self.argument_context('people update-person') as c:
+    with self.argument_context('people user update-person') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_id', type=str, help='key: id of person')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -120,7 +128,7 @@ def load_arguments(self, _):
         c.argument('company_name', type=str, help='The name of the person\'s company.')
         c.argument('department', type=str, help='The person\'s department.')
         c.argument('display_name', type=str, help='The person\'s display name.')
-        c.argument('email_addresses', action=AddEmailAddresses, nargs='*', help='')
+        c.argument('email_addresses', action=AddEmailAddresses, nargs='+', help='')
         c.argument('given_name', type=str, help='The person\'s given name.')
         c.argument('is_favorite', arg_type=get_three_state_flag(), help='true if the user has flagged this person as a '
                    'favorite.')
@@ -128,49 +136,44 @@ def load_arguments(self, _):
         c.argument('office_location', type=str, help='The location of the person\'s office.')
         c.argument('person_notes', type=str, help='Free-form notes that the user has taken about this person.')
         c.argument('person_type', type=str, help='The type of person.')
-        c.argument('phones', action=AddPeopleCreatePersonPhones, nargs='*', help='The person\'s phone numbers.')
+        c.argument('phones', action=AddPeopleUserCreatePersonPhones, nargs='+', help='The person\'s phone numbers.')
         c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
                    'json-string/@json-file.')
         c.argument('profession', type=str, help='The person\'s profession.')
-        c.argument('sources', action=AddSources, nargs='*', help='')
+        c.argument('sources', action=AddSources, nargs='+', help='')
         c.argument('surname', type=str, help='The person\'s surname.')
         c.argument('title', type=str, help='')
         c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the person. The UPN is an '
                    'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
                    'this should map to the person\'s email name. The general format is alias@domain.')
-        c.argument('websites', action=AddPeopleCreatePersonWebsites, nargs='*', help='The person\'s websites.')
+        c.argument('websites', action=AddPeopleUserCreatePersonWebsites, nargs='+', help='The person\'s websites.')
         c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
 
-    with self.argument_context('people update-profile') as c:
+    with self.argument_context('people user update-profile') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('account', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('addresses', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('anniversaries', action=AddAnniversaries, nargs='*', help='')
-        c.argument('awards', action=AddAwards, nargs='*', help='')
-        c.argument('certifications', action=AddCertifications, nargs='*', help='')
+        c.argument('anniversaries', action=AddAnniversaries, nargs='+', help='')
+        c.argument('awards', action=AddAwards, nargs='+', help='')
+        c.argument('certifications', action=AddCertifications, nargs='+', help='')
         c.argument('educational_activities', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('emails', action=AddEmails, nargs='*', help='')
-        c.argument('interests', action=AddInterests, nargs='*', help='')
-        c.argument('languages', action=AddLanguages, nargs='*', help='')
+        c.argument('emails', action=AddEmails, nargs='+', help='')
+        c.argument('interests', action=AddInterests, nargs='+', help='')
+        c.argument('languages', action=AddLanguages, nargs='+', help='')
         c.argument('names', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('notes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('patents', action=AddPatents, nargs='*', help='')
-        c.argument('phones', action=AddPeopleUpdateProfilePhones, nargs='*', help='')
+        c.argument('patents', action=AddPatents, nargs='+', help='')
+        c.argument('phones', action=AddPeopleUserUpdateProfilePhones, nargs='+', help='')
         c.argument('positions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('projects', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('publications', action=AddPublications, nargs='*', help='')
-        c.argument('skills', action=AddSkills, nargs='*', help='')
+        c.argument('publications', action=AddPublications, nargs='+', help='')
+        c.argument('skills', action=AddSkills, nargs='+', help='')
         c.argument('web_accounts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('websites', action=AddPeopleUpdateProfileWebsites, nargs='*', help='')
+        c.argument('websites', action=AddPeopleUserUpdateProfileWebsites, nargs='+', help='')
 
-    with self.argument_context('people delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('people create-activity-statistics') as c:
+    with self.argument_context('people usersanalytic create-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', arg_type=get_enum_type(['Email', 'Meeting', 'Focus', 'Chat', 'Call']), help='')
@@ -179,19 +182,24 @@ def load_arguments(self, _):
         c.argument('start_date', help='')
         c.argument('time_zone_used', type=str, help='')
 
-    with self.argument_context('people get-activity-statistics') as c:
+    with self.argument_context('people usersanalytic delete-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people list-activity-statistics') as c:
+    with self.argument_context('people usersanalytic list-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people update-activity-statistics') as c:
+    with self.argument_context('people usersanalytic show-activity-statistics') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersanalytic update-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -201,106 +209,95 @@ def load_arguments(self, _):
         c.argument('start_date', help='')
         c.argument('time_zone_used', type=str, help='')
 
-    with self.argument_context('people delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('item_address_id', type=str, help='key: id of itemAddress')
-        c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
-        c.argument('person_award_id', type=str, help='key: id of personAward')
-        c.argument('person_certification_id', type=str, help='key: id of personCertification')
-        c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
-        c.argument('item_email_id', type=str, help='key: id of itemEmail')
-        c.argument('person_interest_id', type=str, help='key: id of personInterest')
-        c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
-        c.argument('person_name_id', type=str, help='key: id of personName')
-        c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
-        c.argument('item_patent_id', type=str, help='key: id of itemPatent')
-        c.argument('item_phone_id', type=str, help='key: id of itemPhone')
-        c.argument('work_position_id', type=str, help='key: id of workPosition')
-        c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
-        c.argument('item_publication_id', type=str, help='key: id of itemPublication')
-        c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
-        c.argument('web_account_id', type=str, help='key: id of webAccount')
-        c.argument('person_website_id', type=str, help='key: id of personWebsite')
-
-    with self.argument_context('people create-account') as c:
+    with self.argument_context('people usersprofile create-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('age_group', type=str, help='')
         c.argument('country_code', type=str, help='')
-        c.argument('preferred_language_tag', action=AddPreferredLanguageTag, nargs='*', help='localeInfo')
+        c.argument('preferred_language_tag', action=AddPreferredLanguageTag, nargs='+', help='localeInfo')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('people create-address') as c:
+    with self.argument_context('people usersprofile create-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('detail', action=AddPeopleCreateAddressDetail, nargs='*', help='physicalAddress')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('detail', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress')
         c.argument('display_name', type=str, help='')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='geoCoordinates')
+        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates')
 
-    with self.argument_context('people create-anniversary') as c:
+    with self.argument_context('people usersprofile create-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('date', help='')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['birthday', 'wedding', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['birthday', 'wedding',
                                                                              'unknownFutureValue']), help='')
 
-    with self.argument_context('people create-award') as c:
+    with self.argument_context('people usersprofile create-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('issued_date', help='')
@@ -308,22 +305,25 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people create-certification') as c:
+    with self.argument_context('people usersprofile create-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('certification_id', type=str, help='')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
@@ -335,101 +335,113 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people create-educational-activity') as c:
+    with self.argument_context('people usersprofile create-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('people create-email') as c:
+    with self.argument_context('people usersprofile create-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('address', type=str, help='')
         c.argument('display_name', type=str, help='')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'work', 'personal', 'main', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'work', 'personal', 'main',
                                                                              'other']), help='')
 
-    with self.argument_context('people create-interest') as c:
+    with self.argument_context('people usersprofile create-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('collaboration_tags', nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('collaboration_tags', nargs='+', help='')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people create-language') as c:
+    with self.argument_context('people usersprofile create-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('display_name', type=str, help='')
-        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                          'professionalWorking', 'fullProfessional', ''
+        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                          'professionalWorking', 'fullProfessional',
                                                           'nativeOrBilingual', 'unknownFutureValue']), help='')
-        c.argument('reading', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual', ''
+        c.argument('reading', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                       'unknownFutureValue']), help='')
-        c.argument('spoken', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                     'professionalWorking', 'fullProfessional', 'nativeOrBilingual', ''
+        c.argument('spoken', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                     'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                      'unknownFutureValue']), help='')
         c.argument('tag', type=str, help='')
-        c.argument('written', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual', ''
+        c.argument('written', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                       'unknownFutureValue']), help='')
 
-    with self.argument_context('people create-name') as c:
+    with self.argument_context('people usersprofile create-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('display_name', type=str, help='')
         c.argument('first', type=str, help='')
         c.argument('initials', type=str, help='')
@@ -438,45 +450,51 @@ def load_arguments(self, _):
         c.argument('maiden', type=str, help='')
         c.argument('middle', type=str, help='')
         c.argument('nickname', type=str, help='')
-        c.argument('pronunciation', action=AddPronunciation, nargs='*', help='yomiPersonName')
+        c.argument('pronunciation', action=AddPronunciation, nargs='+', help='yomiPersonName')
         c.argument('suffix', type=str, help='')
         c.argument('title', type=str, help='')
 
-    with self.argument_context('people create-note') as c:
+    with self.argument_context('people usersprofile create-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('detail', action=AddPeopleCreateNoteDetail, nargs='*', help='itemBody')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('detail', action=AddPeopleUsersprofileCreateNoteDetail, nargs='+', help='itemBody')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('people create-patent') as c:
+    with self.argument_context('people usersprofile create-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('is_pending', arg_type=get_three_state_flag(), help='')
@@ -485,109 +503,122 @@ def load_arguments(self, _):
         c.argument('number', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people create-phone') as c:
+    with self.argument_context('people usersprofile create-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('display_name', type=str, help='')
         c.argument('number', type=str, help='')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['home', 'business', 'mobile', 'other', ''
-                                                                             'assistant', 'homeFax', 'businessFax', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['home', 'business', 'mobile', 'other',
+                                                                             'assistant', 'homeFax', 'businessFax',
                                                                              'otherFax', 'pager', 'radio']), help='')
 
-    with self.argument_context('people create-position') as c:
+    with self.argument_context('people usersprofile create-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('colleagues', action=AddPeopleCreatePositionColleagues, nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUsersprofileCreatePositionColleagues, nargs='+', help='')
         c.argument('is_current', arg_type=get_three_state_flag(), help='')
-        c.argument('manager', action=AddManager, nargs='*', help='relatedPerson')
-        c.argument('detail_company', type=validate_file_or_dict, help='companyDetail Expected value: '
-                   'json-string/@json-file.')
-        c.argument('detail_description', type=str, help='')
-        c.argument('detail_end_month_year', help='')
-        c.argument('detail_job_title', type=str, help='')
-        c.argument('detail_role', type=str, help='')
-        c.argument('detail_start_month_year', help='')
-        c.argument('detail_summary', type=str, help='')
+        c.argument('manager', action=AddManager, nargs='+', help='relatedPerson')
+        c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
+                   arg_group='Detail')
+        c.argument('description', type=str, help='', arg_group='Detail')
+        c.argument('end_month_year', help='', arg_group='Detail')
+        c.argument('job_title', type=str, help='', arg_group='Detail')
+        c.argument('role', type=str, help='', arg_group='Detail')
+        c.argument('start_month_year', help='', arg_group='Detail')
+        c.argument('summary', type=str, help='', arg_group='Detail')
 
-    with self.argument_context('people create-project') as c:
+    with self.argument_context('people usersprofile create-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('collaboration_tags', nargs='*', help='')
-        c.argument('colleagues', action=AddPeopleCreateProjectColleagues, nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('collaboration_tags', nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUsersprofileCreateProjectColleagues, nargs='+', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('sponsors', action=AddSponsors, nargs='*', help='')
-        c.argument('detail_company', type=validate_file_or_dict, help='companyDetail Expected value: '
-                   'json-string/@json-file.')
-        c.argument('detail_description', type=str, help='')
-        c.argument('detail_end_month_year', help='')
-        c.argument('detail_job_title', type=str, help='')
-        c.argument('detail_role', type=str, help='')
-        c.argument('detail_start_month_year', help='')
-        c.argument('detail_summary', type=str, help='')
-        c.argument('client_address', action=AddPeopleCreateAddressDetail, nargs='*', help='physicalAddress')
-        c.argument('client_department', type=str, help='')
-        c.argument('client_display_name', type=str, help='')
-        c.argument('client_office_location', type=str, help='')
-        c.argument('client_pronunciation', type=str, help='')
-        c.argument('client_web_url', type=str, help='')
+        c.argument('sponsors', action=AddSponsors, nargs='+', help='')
+        c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
+                   arg_group='Detail')
+        c.argument('description', type=str, help='', arg_group='Detail')
+        c.argument('end_month_year', help='', arg_group='Detail')
+        c.argument('job_title', type=str, help='', arg_group='Detail')
+        c.argument('role', type=str, help='', arg_group='Detail')
+        c.argument('start_month_year', help='', arg_group='Detail')
+        c.argument('summary', type=str, help='', arg_group='Detail')
+        c.argument('address', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress',
+                   arg_group='Client')
+        c.argument('department', type=str, help='', arg_group='Client')
+        c.argument('microsoft_graph_company_detail_display_name', type=str, help='', arg_group='Client')
+        c.argument('office_location', type=str, help='', arg_group='Client')
+        c.argument('pronunciation', type=str, help='', arg_group='Client')
+        c.argument('web_url', type=str, help='', arg_group='Client')
 
-    with self.argument_context('people create-publication') as c:
+    with self.argument_context('people usersprofile create-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('published_date', help='')
@@ -595,382 +626,498 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people create-skill') as c:
+    with self.argument_context('people usersprofile create-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('collaboration_tags', nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('collaboration_tags', nargs='+', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'limitedWorking', 'generalProfessional', ''
+        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'limitedWorking', 'generalProfessional',
                                                           'advancedProfessional', 'expert', 'unknownFutureValue']),
                    help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people create-web-account') as c:
+    with self.argument_context('people usersprofile create-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
-        c.argument('service', action=AddService, nargs='*', help='serviceInformation')
+        c.argument('service', action=AddService, nargs='+', help='serviceInformation')
         c.argument('status_message', type=str, help='')
         c.argument('microsoft_graph_web_account_user_id', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people create-website') as c:
+    with self.argument_context('people usersprofile create-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people get-account') as c:
+    with self.argument_context('people usersprofile delete-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-address') as c:
+    with self.argument_context('people usersprofile delete-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_address_id', type=str, help='key: id of itemAddress')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-anniversary') as c:
+    with self.argument_context('people usersprofile delete-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-award') as c:
+    with self.argument_context('people usersprofile delete-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_award_id', type=str, help='key: id of personAward')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-certification') as c:
+    with self.argument_context('people usersprofile delete-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_certification_id', type=str, help='key: id of personCertification')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-educational-activity') as c:
+    with self.argument_context('people usersprofile delete-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-email') as c:
+    with self.argument_context('people usersprofile delete-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_email_id', type=str, help='key: id of itemEmail')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-interest') as c:
+    with self.argument_context('people usersprofile delete-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_interest_id', type=str, help='key: id of personInterest')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-language') as c:
+    with self.argument_context('people usersprofile delete-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-name') as c:
+    with self.argument_context('people usersprofile delete-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_name_id', type=str, help='key: id of personName')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-note') as c:
+    with self.argument_context('people usersprofile delete-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-patent') as c:
+    with self.argument_context('people usersprofile delete-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_patent_id', type=str, help='key: id of itemPatent')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-phone') as c:
+    with self.argument_context('people usersprofile delete-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_phone_id', type=str, help='key: id of itemPhone')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-position') as c:
+    with self.argument_context('people usersprofile delete-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('work_position_id', type=str, help='key: id of workPosition')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-project') as c:
+    with self.argument_context('people usersprofile delete-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-publication') as c:
+    with self.argument_context('people usersprofile delete-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_publication_id', type=str, help='key: id of itemPublication')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-skill') as c:
+    with self.argument_context('people usersprofile delete-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-web-account') as c:
+    with self.argument_context('people usersprofile delete-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('web_account_id', type=str, help='key: id of webAccount')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people get-website') as c:
+    with self.argument_context('people usersprofile delete-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_website_id', type=str, help='key: id of personWebsite')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('people list-account') as c:
+    with self.argument_context('people usersprofile list-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-address') as c:
+    with self.argument_context('people usersprofile list-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-anniversary') as c:
+    with self.argument_context('people usersprofile list-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-award') as c:
+    with self.argument_context('people usersprofile list-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-certification') as c:
+    with self.argument_context('people usersprofile list-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-educational-activity') as c:
+    with self.argument_context('people usersprofile list-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-email') as c:
+    with self.argument_context('people usersprofile list-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-interest') as c:
+    with self.argument_context('people usersprofile list-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-language') as c:
+    with self.argument_context('people usersprofile list-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-name') as c:
+    with self.argument_context('people usersprofile list-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-note') as c:
+    with self.argument_context('people usersprofile list-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-patent') as c:
+    with self.argument_context('people usersprofile list-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-phone') as c:
+    with self.argument_context('people usersprofile list-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-position') as c:
+    with self.argument_context('people usersprofile list-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-project') as c:
+    with self.argument_context('people usersprofile list-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-publication') as c:
+    with self.argument_context('people usersprofile list-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-skill') as c:
+    with self.argument_context('people usersprofile list-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-web-account') as c:
+    with self.argument_context('people usersprofile list-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people list-website') as c:
+    with self.argument_context('people usersprofile list-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('people update-account') as c:
+    with self.argument_context('people usersprofile show-account') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-address') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_address_id', type=str, help='key: id of itemAddress')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-anniversary') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-award') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_award_id', type=str, help='key: id of personAward')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-certification') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_certification_id', type=str, help='key: id of personCertification')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-educational-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-email') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_email_id', type=str, help='key: id of itemEmail')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-interest') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_interest_id', type=str, help='key: id of personInterest')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-language') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-name') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_name_id', type=str, help='key: id of personName')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-note') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-patent') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_patent_id', type=str, help='key: id of itemPatent')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-phone') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_phone_id', type=str, help='key: id of itemPhone')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-position') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('work_position_id', type=str, help='key: id of workPosition')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-project') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-publication') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_publication_id', type=str, help='key: id of itemPublication')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-skill') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-web-account') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('web_account_id', type=str, help='key: id of webAccount')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile show-website') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_website_id', type=str, help='key: id of personWebsite')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people usersprofile update-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('age_group', type=str, help='')
         c.argument('country_code', type=str, help='')
-        c.argument('preferred_language_tag', action=AddPreferredLanguageTag, nargs='*', help='localeInfo')
+        c.argument('preferred_language_tag', action=AddPreferredLanguageTag, nargs='+', help='localeInfo')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('people update-address') as c:
+    with self.argument_context('people usersprofile update-address') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_address_id', type=str, help='key: id of itemAddress')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('detail', action=AddPeopleCreateAddressDetail, nargs='*', help='physicalAddress')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('detail', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress')
         c.argument('display_name', type=str, help='')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='geoCoordinates')
+        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates')
 
-    with self.argument_context('people update-anniversary') as c:
+    with self.argument_context('people usersprofile update-anniversary') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('date', help='')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['birthday', 'wedding', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['birthday', 'wedding',
                                                                              'unknownFutureValue']), help='')
 
-    with self.argument_context('people update-award') as c:
+    with self.argument_context('people usersprofile update-award') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_award_id', type=str, help='key: id of personAward')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('issued_date', help='')
@@ -978,23 +1125,26 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people update-certification') as c:
+    with self.argument_context('people usersprofile update-certification') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_certification_id', type=str, help='key: id of personCertification')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('certification_id', type=str, help='')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
@@ -1006,106 +1156,118 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people update-educational-activity') as c:
+    with self.argument_context('people usersprofile update-educational-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('people update-email') as c:
+    with self.argument_context('people usersprofile update-email') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_email_id', type=str, help='key: id of itemEmail')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('address', type=str, help='')
         c.argument('display_name', type=str, help='')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'work', 'personal', 'main', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'work', 'personal', 'main',
                                                                              'other']), help='')
 
-    with self.argument_context('people update-interest') as c:
+    with self.argument_context('people usersprofile update-interest') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_interest_id', type=str, help='key: id of personInterest')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('collaboration_tags', nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('collaboration_tags', nargs='+', help='')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people update-language') as c:
+    with self.argument_context('people usersprofile update-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('display_name', type=str, help='')
-        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                          'professionalWorking', 'fullProfessional', ''
+        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                          'professionalWorking', 'fullProfessional',
                                                           'nativeOrBilingual', 'unknownFutureValue']), help='')
-        c.argument('reading', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual', ''
+        c.argument('reading', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                       'unknownFutureValue']), help='')
-        c.argument('spoken', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                     'professionalWorking', 'fullProfessional', 'nativeOrBilingual', ''
+        c.argument('spoken', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                     'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                      'unknownFutureValue']), help='')
         c.argument('tag', type=str, help='')
-        c.argument('written', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking', ''
-                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual', ''
+        c.argument('written', arg_type=get_enum_type(['elementary', 'conversational', 'limitedWorking',
+                                                      'professionalWorking', 'fullProfessional', 'nativeOrBilingual',
                                                       'unknownFutureValue']), help='')
 
-    with self.argument_context('people update-name') as c:
+    with self.argument_context('people usersprofile update-name') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_name_id', type=str, help='key: id of personName')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('display_name', type=str, help='')
         c.argument('first', type=str, help='')
         c.argument('initials', type=str, help='')
@@ -1114,47 +1276,53 @@ def load_arguments(self, _):
         c.argument('maiden', type=str, help='')
         c.argument('middle', type=str, help='')
         c.argument('nickname', type=str, help='')
-        c.argument('pronunciation', action=AddPronunciation, nargs='*', help='yomiPersonName')
+        c.argument('pronunciation', action=AddPronunciation, nargs='+', help='yomiPersonName')
         c.argument('suffix', type=str, help='')
         c.argument('title', type=str, help='')
 
-    with self.argument_context('people update-note') as c:
+    with self.argument_context('people usersprofile update-note') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('detail', action=AddPeopleCreateNoteDetail, nargs='*', help='itemBody')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('detail', action=AddPeopleUsersprofileCreateNoteDetail, nargs='+', help='itemBody')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('people update-patent') as c:
+    with self.argument_context('people usersprofile update-patent') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_patent_id', type=str, help='key: id of itemPatent')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('is_pending', arg_type=get_three_state_flag(), help='')
@@ -1163,113 +1331,126 @@ def load_arguments(self, _):
         c.argument('number', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people update-phone') as c:
+    with self.argument_context('people usersprofile update-phone') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_phone_id', type=str, help='key: id of itemPhone')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('display_name', type=str, help='')
         c.argument('number', type=str, help='')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['home', 'business', 'mobile', 'other', ''
-                                                                             'assistant', 'homeFax', 'businessFax', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['home', 'business', 'mobile', 'other',
+                                                                             'assistant', 'homeFax', 'businessFax',
                                                                              'otherFax', 'pager', 'radio']), help='')
 
-    with self.argument_context('people update-position') as c:
+    with self.argument_context('people usersprofile update-position') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('work_position_id', type=str, help='key: id of workPosition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('colleagues', action=AddPeopleCreatePositionColleagues, nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUsersprofileCreatePositionColleagues, nargs='+', help='')
         c.argument('is_current', arg_type=get_three_state_flag(), help='')
-        c.argument('manager', action=AddManager, nargs='*', help='relatedPerson')
-        c.argument('detail_company', type=validate_file_or_dict, help='companyDetail Expected value: '
-                   'json-string/@json-file.')
-        c.argument('detail_description', type=str, help='')
-        c.argument('detail_end_month_year', help='')
-        c.argument('detail_job_title', type=str, help='')
-        c.argument('detail_role', type=str, help='')
-        c.argument('detail_start_month_year', help='')
-        c.argument('detail_summary', type=str, help='')
+        c.argument('manager', action=AddManager, nargs='+', help='relatedPerson')
+        c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
+                   arg_group='Detail')
+        c.argument('description', type=str, help='', arg_group='Detail')
+        c.argument('end_month_year', help='', arg_group='Detail')
+        c.argument('job_title', type=str, help='', arg_group='Detail')
+        c.argument('role', type=str, help='', arg_group='Detail')
+        c.argument('start_month_year', help='', arg_group='Detail')
+        c.argument('summary', type=str, help='', arg_group='Detail')
 
-    with self.argument_context('people update-project') as c:
+    with self.argument_context('people usersprofile update-project') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('collaboration_tags', nargs='*', help='')
-        c.argument('colleagues', action=AddPeopleCreateProjectColleagues, nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('collaboration_tags', nargs='+', help='')
+        c.argument('colleagues', action=AddPeopleUsersprofileCreateProjectColleagues, nargs='+', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('sponsors', action=AddSponsors, nargs='*', help='')
-        c.argument('detail_company', type=validate_file_or_dict, help='companyDetail Expected value: '
-                   'json-string/@json-file.')
-        c.argument('detail_description', type=str, help='')
-        c.argument('detail_end_month_year', help='')
-        c.argument('detail_job_title', type=str, help='')
-        c.argument('detail_role', type=str, help='')
-        c.argument('detail_start_month_year', help='')
-        c.argument('detail_summary', type=str, help='')
-        c.argument('client_address', action=AddPeopleCreateAddressDetail, nargs='*', help='physicalAddress')
-        c.argument('client_department', type=str, help='')
-        c.argument('client_display_name', type=str, help='')
-        c.argument('client_office_location', type=str, help='')
-        c.argument('client_pronunciation', type=str, help='')
-        c.argument('client_web_url', type=str, help='')
+        c.argument('sponsors', action=AddSponsors, nargs='+', help='')
+        c.argument('company', type=validate_file_or_dict, help='companyDetail Expected value: json-string/@json-file.',
+                   arg_group='Detail')
+        c.argument('description', type=str, help='', arg_group='Detail')
+        c.argument('end_month_year', help='', arg_group='Detail')
+        c.argument('job_title', type=str, help='', arg_group='Detail')
+        c.argument('role', type=str, help='', arg_group='Detail')
+        c.argument('start_month_year', help='', arg_group='Detail')
+        c.argument('summary', type=str, help='', arg_group='Detail')
+        c.argument('address', action=AddPeopleUsersprofileCreateAddressDetail, nargs='+', help='physicalAddress',
+                   arg_group='Client')
+        c.argument('department', type=str, help='', arg_group='Client')
+        c.argument('microsoft_graph_company_detail_display_name', type=str, help='', arg_group='Client')
+        c.argument('office_location', type=str, help='', arg_group='Client')
+        c.argument('pronunciation', type=str, help='', arg_group='Client')
+        c.argument('web_url', type=str, help='', arg_group='Client')
 
-    with self.argument_context('people update-publication') as c:
+    with self.argument_context('people usersprofile update-publication') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('item_publication_id', type=str, help='key: id of itemPublication')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('published_date', help='')
@@ -1277,72 +1458,81 @@ def load_arguments(self, _):
         c.argument('thumbnail_url', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people update-skill') as c:
+    with self.argument_context('people usersprofile update-skill') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
-        c.argument('collaboration_tags', nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
+        c.argument('collaboration_tags', nargs='+', help='')
         c.argument('display_name', type=str, help='')
-        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'limitedWorking', 'generalProfessional', ''
+        c.argument('proficiency', arg_type=get_enum_type(['elementary', 'limitedWorking', 'generalProfessional',
                                                           'advancedProfessional', 'expert', 'unknownFutureValue']),
                    help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people update-web-account') as c:
+    with self.argument_context('people usersprofile update-web-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('web_account_id', type=str, help='key: id of webAccount')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('description', type=str, help='')
-        c.argument('service', action=AddService, nargs='*', help='serviceInformation')
+        c.argument('service', action=AddService, nargs='+', help='serviceInformation')
         c.argument('status_message', type=str, help='')
         c.argument('microsoft_graph_web_account_user_id', type=str, help='')
         c.argument('web_url', type=str, help='')
 
-    with self.argument_context('people update-website') as c:
+    with self.argument_context('people usersprofile update-website') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('person_website_id', type=str, help='key: id of personWebsite')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers', ''
-                                                                'organization', 'federatedOrganizations', 'everyone', ''
+        c.argument('allowed_audiences', arg_type=get_enum_type(['me', 'family', 'contacts', 'groupMembers',
+                                                                'organization', 'federatedOrganizations', 'everyone',
                                                                 'unknownFutureValue']), help='')
         c.argument('created_date_time', help='')
-        c.argument('inference', action=AddInference, nargs='*', help='inferenceData')
+        c.argument('inference', action=AddInference, nargs='+', help='inferenceData')
         c.argument('last_modified_date_time', help='')
-        c.argument('source', action=AddSource, nargs='*', help='personDataSources')
-        c.argument('last_modified_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('last_modified_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_application', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('categories', nargs='*', help='')
+        c.argument('source', action=AddSource, nargs='+', help='personDataSources')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('categories', nargs='+', help='')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')

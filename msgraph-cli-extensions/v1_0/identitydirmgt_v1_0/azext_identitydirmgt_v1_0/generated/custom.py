@@ -11,1976 +11,2136 @@
 # pylint: disable=too-many-lines
 
 
-def identitydirmgt_delete(client,
-                          org_contact_id,
-                          if_match=None):
+def identitydirmgt_contactsorgcontact_create_org_contact(client,
+                                                         id_=None,
+                                                         deleted_date_time=None,
+                                                         addresses=None,
+                                                         company_name=None,
+                                                         department=None,
+                                                         display_name=None,
+                                                         given_name=None,
+                                                         job_title=None,
+                                                         mail=None,
+                                                         mail_nickname=None,
+                                                         on_premises_last_sync_date_time=None,
+                                                         on_premises_provisioning_errors=None,
+                                                         on_premises_sync_enabled=None,
+                                                         phones=None,
+                                                         proxy_addresses=None,
+                                                         surname=None,
+                                                         direct_reports=None,
+                                                         manager=None,
+                                                         member_of=None,
+                                                         transitive_member_of=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['addresses'] = addresses
+    body['company_name'] = company_name
+    body['department'] = department
+    body['display_name'] = display_name
+    body['given_name'] = given_name
+    body['job_title'] = job_title
+    body['mail'] = mail
+    body['mail_nickname'] = mail_nickname
+    body['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['on_premises_provisioning_errors'] = on_premises_provisioning_errors
+    body['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['phones'] = phones
+    body['proxy_addresses'] = proxy_addresses
+    body['surname'] = surname
+    body['direct_reports'] = direct_reports
+    body['manager'] = manager
+    body['member_of'] = member_of
+    body['transitive_member_of'] = transitive_member_of
+    return client.create_org_contact(body=body)
+
+
+def identitydirmgt_contactsorgcontact_delete_org_contact(client,
+                                                         org_contact_id,
+                                                         if_match=None):
     return client.delete_org_contact(org_contact_id=org_contact_id,
                                      if_match=if_match)
 
 
-def identitydirmgt_create_org_contact(client,
-                                      id_=None,
-                                      deleted_date_time=None,
-                                      addresses=None,
-                                      company_name=None,
-                                      department=None,
-                                      display_name=None,
-                                      given_name=None,
-                                      job_title=None,
-                                      mail=None,
-                                      mail_nickname=None,
-                                      on_premises_last_sync_date_time=None,
-                                      on_premises_provisioning_errors=None,
-                                      on_premises_sync_enabled=None,
-                                      phones=None,
-                                      proxy_addresses=None,
-                                      surname=None,
-                                      direct_reports=None,
-                                      manager=None,
-                                      member_of=None,
-                                      transitive_member_of=None):
-    return client.create_org_contact(id=id_,
-                                     deleted_date_time=deleted_date_time,
-                                     addresses=addresses,
-                                     company_name=company_name,
-                                     department=department,
-                                     display_name=display_name,
-                                     given_name=given_name,
-                                     job_title=job_title,
-                                     mail=mail,
-                                     mail_nickname=mail_nickname,
-                                     on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                     on_premises_provisioning_errors=on_premises_provisioning_errors,
-                                     on_premises_sync_enabled=on_premises_sync_enabled,
-                                     phones=phones,
-                                     proxy_addresses=proxy_addresses,
-                                     surname=surname,
-                                     direct_reports=direct_reports,
-                                     manager=manager,
-                                     member_of=member_of,
-                                     transitive_member_of=transitive_member_of)
-
-
-def identitydirmgt_get_org_contact(client,
-                                   org_contact_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_org_contact(org_contact_id=org_contact_id,
-                                  select=select,
-                                  expand=expand)
-
-
-def identitydirmgt_list_org_contact(client,
-                                    orderby=None,
-                                    select=None,
-                                    expand=None):
+def identitydirmgt_contactsorgcontact_list_org_contact(client,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
     return client.list_org_contact(orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def identitydirmgt_update_org_contact(client,
-                                      org_contact_id,
-                                      id_=None,
-                                      deleted_date_time=None,
-                                      addresses=None,
-                                      company_name=None,
-                                      department=None,
-                                      display_name=None,
-                                      given_name=None,
-                                      job_title=None,
-                                      mail=None,
-                                      mail_nickname=None,
-                                      on_premises_last_sync_date_time=None,
-                                      on_premises_provisioning_errors=None,
-                                      on_premises_sync_enabled=None,
-                                      phones=None,
-                                      proxy_addresses=None,
-                                      surname=None,
-                                      direct_reports=None,
-                                      manager=None,
-                                      member_of=None,
-                                      transitive_member_of=None):
+def identitydirmgt_contactsorgcontact_show_org_contact(client,
+                                                       org_contact_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_org_contact(org_contact_id=org_contact_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def identitydirmgt_contactsorgcontact_update_org_contact(client,
+                                                         org_contact_id,
+                                                         id_=None,
+                                                         deleted_date_time=None,
+                                                         addresses=None,
+                                                         company_name=None,
+                                                         department=None,
+                                                         display_name=None,
+                                                         given_name=None,
+                                                         job_title=None,
+                                                         mail=None,
+                                                         mail_nickname=None,
+                                                         on_premises_last_sync_date_time=None,
+                                                         on_premises_provisioning_errors=None,
+                                                         on_premises_sync_enabled=None,
+                                                         phones=None,
+                                                         proxy_addresses=None,
+                                                         surname=None,
+                                                         direct_reports=None,
+                                                         manager=None,
+                                                         member_of=None,
+                                                         transitive_member_of=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['addresses'] = addresses
+    body['company_name'] = company_name
+    body['department'] = department
+    body['display_name'] = display_name
+    body['given_name'] = given_name
+    body['job_title'] = job_title
+    body['mail'] = mail
+    body['mail_nickname'] = mail_nickname
+    body['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['on_premises_provisioning_errors'] = on_premises_provisioning_errors
+    body['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['phones'] = phones
+    body['proxy_addresses'] = proxy_addresses
+    body['surname'] = surname
+    body['direct_reports'] = direct_reports
+    body['manager'] = manager
+    body['member_of'] = member_of
+    body['transitive_member_of'] = transitive_member_of
     return client.update_org_contact(org_contact_id=org_contact_id,
-                                     id=id_,
-                                     deleted_date_time=deleted_date_time,
-                                     addresses=addresses,
-                                     company_name=company_name,
-                                     department=department,
-                                     display_name=display_name,
-                                     given_name=given_name,
-                                     job_title=job_title,
-                                     mail=mail,
-                                     mail_nickname=mail_nickname,
-                                     on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                     on_premises_provisioning_errors=on_premises_provisioning_errors,
-                                     on_premises_sync_enabled=on_premises_sync_enabled,
-                                     phones=phones,
-                                     proxy_addresses=proxy_addresses,
-                                     surname=surname,
-                                     direct_reports=direct_reports,
-                                     manager=manager,
-                                     member_of=member_of,
-                                     transitive_member_of=transitive_member_of)
+                                     body=body)
 
 
-def identitydirmgt_delete(client,
-                          org_contact_id,
-                          if_match=None):
-    return client.delete_ref_manager(org_contact_id=org_contact_id,
-                                     if_match=if_match)
+def identitydirmgt_contact_check_member_group(client,
+                                              org_contact_id,
+                                              group_ids=None):
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(org_contact_id=org_contact_id,
+                                      body=body)
 
 
-def identitydirmgt_check_member_group(client,
-                                      org_contact_id,
-                                      group_ids=None):
-    return client.check_member_group(org_contact_id=org_contact_id,
-                                     group_ids=group_ids)
+def identitydirmgt_contact_check_member_object(client,
+                                               org_contact_id,
+                                               ids=None):
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(org_contact_id=org_contact_id,
+                                       body=body)
 
 
-def identitydirmgt_check_member_object(client,
-                                       org_contact_id,
-                                       ids=None):
-    return client.check_member_object(org_contact_id=org_contact_id,
-                                      ids=ids)
+def identitydirmgt_contact_create_ref_direct_report(client,
+                                                    org_contact_id,
+                                                    body):
+    return client.create_ref_direct_reports(org_contact_id=org_contact_id,
+                                            body=body)
 
 
-def identitydirmgt_create_ref_direct_report(client,
-                                            org_contact_id,
-                                            body):
-    return client.create_ref_direct_report(org_contact_id=org_contact_id,
-                                           body=body)
-
-
-def identitydirmgt_create_ref_member_of(client,
-                                        org_contact_id,
-                                        body):
+def identitydirmgt_contact_create_ref_member_of(client,
+                                                org_contact_id,
+                                                body):
     return client.create_ref_member_of(org_contact_id=org_contact_id,
                                        body=body)
 
 
-def identitydirmgt_create_ref_transitive_member_of(client,
-                                                   org_contact_id,
-                                                   body):
+def identitydirmgt_contact_create_ref_transitive_member_of(client,
+                                                           org_contact_id,
+                                                           body):
     return client.create_ref_transitive_member_of(org_contact_id=org_contact_id,
                                                   body=body)
 
 
-def identitydirmgt_delta(client):
+def identitydirmgt_contact_delete_ref_manager(client,
+                                              org_contact_id,
+                                              if_match=None):
+    return client.delete_ref_manager(org_contact_id=org_contact_id,
+                                     if_match=if_match)
+
+
+def identitydirmgt_contact_delta(client):
     return client.delta()
 
 
-def identitydirmgt_get_available_extension_property(client,
-                                                    is_synced_from_on_premises=None):
+def identitydirmgt_contact_get_available_extension_property(client,
+                                                            is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
 
 
-def identitydirmgt_get_by_id(client,
-                             ids=None,
-                             types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
+def identitydirmgt_contact_get_by_id(client,
+                                     ids=None,
+                                     types=None):
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
 
 
-def identitydirmgt_get_manager(client,
-                               org_contact_id,
-                               select=None,
-                               expand=None):
-    return client.get_manager(org_contact_id=org_contact_id,
-                              select=select,
-                              expand=expand)
-
-
-def identitydirmgt_get_member_group(client,
-                                    org_contact_id,
-                                    security_enabled_only=None):
+def identitydirmgt_contact_get_member_group(client,
+                                            org_contact_id,
+                                            security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_group(org_contact_id=org_contact_id,
-                                   security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(org_contact_id=org_contact_id,
+                                    body=body)
 
 
-def identitydirmgt_get_member_object(client,
-                                     org_contact_id,
-                                     security_enabled_only=None):
+def identitydirmgt_contact_get_member_object(client,
+                                             org_contact_id,
+                                             security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_object(org_contact_id=org_contact_id,
-                                    security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(org_contact_id=org_contact_id,
+                                     body=body)
 
 
-def identitydirmgt_get_ref_manager(client,
-                                   org_contact_id):
-    return client.get_ref_manager(org_contact_id=org_contact_id)
+def identitydirmgt_contact_list_direct_report(client,
+                                              org_contact_id,
+                                              orderby=None,
+                                              select=None,
+                                              expand=None):
+    return client.list_direct_reports(org_contact_id=org_contact_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
-def identitydirmgt_list_direct_report(client,
-                                      org_contact_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
-    return client.list_direct_report(org_contact_id=org_contact_id,
-                                     orderby=orderby,
-                                     select=select,
-                                     expand=expand)
-
-
-def identitydirmgt_list_member_of(client,
-                                  org_contact_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
+def identitydirmgt_contact_list_member_of(client,
+                                          org_contact_id,
+                                          orderby=None,
+                                          select=None,
+                                          expand=None):
     return client.list_member_of(org_contact_id=org_contact_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def identitydirmgt_list_ref_direct_report(client,
-                                          org_contact_id,
-                                          orderby=None):
-    return client.list_ref_direct_report(org_contact_id=org_contact_id,
-                                         orderby=orderby)
+def identitydirmgt_contact_list_ref_direct_report(client,
+                                                  org_contact_id,
+                                                  orderby=None):
+    return client.list_ref_direct_reports(org_contact_id=org_contact_id,
+                                          orderby=orderby)
 
 
-def identitydirmgt_list_ref_member_of(client,
-                                      org_contact_id,
-                                      orderby=None):
+def identitydirmgt_contact_list_ref_member_of(client,
+                                              org_contact_id,
+                                              orderby=None):
     return client.list_ref_member_of(org_contact_id=org_contact_id,
                                      orderby=orderby)
 
 
-def identitydirmgt_list_ref_transitive_member_of(client,
-                                                 org_contact_id,
-                                                 orderby=None):
+def identitydirmgt_contact_list_ref_transitive_member_of(client,
+                                                         org_contact_id,
+                                                         orderby=None):
     return client.list_ref_transitive_member_of(org_contact_id=org_contact_id,
                                                 orderby=orderby)
 
 
-def identitydirmgt_list_transitive_member_of(client,
-                                             org_contact_id,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def identitydirmgt_contact_list_transitive_member_of(client,
+                                                     org_contact_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
     return client.list_transitive_member_of(org_contact_id=org_contact_id,
                                             orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def identitydirmgt_restore(client,
-                           org_contact_id):
+def identitydirmgt_contact_restore(client,
+                                   org_contact_id):
     return client.restore(org_contact_id=org_contact_id)
 
 
-def identitydirmgt_set_ref_manager(client,
-                                   org_contact_id,
-                                   body):
+def identitydirmgt_contact_set_ref_manager(client,
+                                           org_contact_id,
+                                           body):
     return client.set_ref_manager(org_contact_id=org_contact_id,
                                   body=body)
 
 
-def identitydirmgt_validate_property(client,
-                                     entity_type=None,
-                                     display_name=None,
-                                     mail_nickname=None,
-                                     on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
+def identitydirmgt_contact_show_manager(client,
+                                        org_contact_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_manager(org_contact_id=org_contact_id,
+                              select=select,
+                              expand=expand)
 
 
-def identitydirmgt_delete(client,
-                          contract_id,
-                          if_match=None):
+def identitydirmgt_contact_show_ref_manager(client,
+                                            org_contact_id):
+    return client.get_ref_manager(org_contact_id=org_contact_id)
+
+
+def identitydirmgt_contact_validate_property(client,
+                                             entity_type=None,
+                                             display_name=None,
+                                             mail_nickname=None,
+                                             on_behalf_of_user_id=None):
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)
+
+
+def identitydirmgt_contractscontract_create_contract(client,
+                                                     id_=None,
+                                                     deleted_date_time=None,
+                                                     contract_type=None,
+                                                     customer_id=None,
+                                                     default_domain_name=None,
+                                                     display_name=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['contract_type'] = contract_type
+    body['customer_id'] = customer_id
+    body['default_domain_name'] = default_domain_name
+    body['display_name'] = display_name
+    return client.create_contract(body=body)
+
+
+def identitydirmgt_contractscontract_delete_contract(client,
+                                                     contract_id,
+                                                     if_match=None):
     return client.delete_contract(contract_id=contract_id,
                                   if_match=if_match)
 
 
-def identitydirmgt_create_contract(client,
-                                   id_=None,
-                                   deleted_date_time=None,
-                                   contract_type=None,
-                                   customer_id=None,
-                                   default_domain_name=None,
-                                   display_name=None):
-    return client.create_contract(id=id_,
-                                  deleted_date_time=deleted_date_time,
-                                  contract_type=contract_type,
-                                  customer_id=customer_id,
-                                  default_domain_name=default_domain_name,
-                                  display_name=display_name)
-
-
-def identitydirmgt_get_contract(client,
-                                contract_id,
-                                select=None,
-                                expand=None):
-    return client.get_contract(contract_id=contract_id,
-                               select=select,
-                               expand=expand)
-
-
-def identitydirmgt_list_contract(client,
-                                 orderby=None,
-                                 select=None,
-                                 expand=None):
+def identitydirmgt_contractscontract_list_contract(client,
+                                                   orderby=None,
+                                                   select=None,
+                                                   expand=None):
     return client.list_contract(orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def identitydirmgt_update_contract(client,
-                                   contract_id,
-                                   id_=None,
-                                   deleted_date_time=None,
-                                   contract_type=None,
-                                   customer_id=None,
-                                   default_domain_name=None,
-                                   display_name=None):
+def identitydirmgt_contractscontract_show_contract(client,
+                                                   contract_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_contract(contract_id=contract_id,
+                               select=select,
+                               expand=expand)
+
+
+def identitydirmgt_contractscontract_update_contract(client,
+                                                     contract_id,
+                                                     id_=None,
+                                                     deleted_date_time=None,
+                                                     contract_type=None,
+                                                     customer_id=None,
+                                                     default_domain_name=None,
+                                                     display_name=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['contract_type'] = contract_type
+    body['customer_id'] = customer_id
+    body['default_domain_name'] = default_domain_name
+    body['display_name'] = display_name
     return client.update_contract(contract_id=contract_id,
-                                  id=id_,
-                                  deleted_date_time=deleted_date_time,
-                                  contract_type=contract_type,
-                                  customer_id=customer_id,
-                                  default_domain_name=default_domain_name,
-                                  display_name=display_name)
+                                  body=body)
 
 
-def identitydirmgt_check_member_group(client,
-                                      contract_id,
-                                      group_ids=None):
-    return client.check_member_group(contract_id=contract_id,
-                                     group_ids=group_ids)
+def identitydirmgt_contract_check_member_group(client,
+                                               contract_id,
+                                               group_ids=None):
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(contract_id=contract_id,
+                                      body=body)
 
 
-def identitydirmgt_check_member_object(client,
-                                       contract_id,
-                                       ids=None):
-    return client.check_member_object(contract_id=contract_id,
-                                      ids=ids)
+def identitydirmgt_contract_check_member_object(client,
+                                                contract_id,
+                                                ids=None):
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(contract_id=contract_id,
+                                       body=body)
 
 
-def identitydirmgt_get_available_extension_property(client,
-                                                    is_synced_from_on_premises=None):
+def identitydirmgt_contract_get_available_extension_property(client,
+                                                             is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
 
 
-def identitydirmgt_get_by_id(client,
-                             ids=None,
-                             types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
+def identitydirmgt_contract_get_by_id(client,
+                                      ids=None,
+                                      types=None):
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
 
 
-def identitydirmgt_get_member_group(client,
-                                    contract_id,
-                                    security_enabled_only=None):
+def identitydirmgt_contract_get_member_group(client,
+                                             contract_id,
+                                             security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_group(contract_id=contract_id,
-                                   security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(contract_id=contract_id,
+                                    body=body)
 
 
-def identitydirmgt_get_member_object(client,
-                                     contract_id,
-                                     security_enabled_only=None):
+def identitydirmgt_contract_get_member_object(client,
+                                              contract_id,
+                                              security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_object(contract_id=contract_id,
-                                    security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(contract_id=contract_id,
+                                     body=body)
 
 
-def identitydirmgt_restore(client,
-                           contract_id):
+def identitydirmgt_contract_restore(client,
+                                    contract_id):
     return client.restore(contract_id=contract_id)
 
 
-def identitydirmgt_validate_property(client,
-                                     entity_type=None,
-                                     display_name=None,
-                                     mail_nickname=None,
-                                     on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
+def identitydirmgt_contract_validate_property(client,
+                                              entity_type=None,
+                                              display_name=None,
+                                              mail_nickname=None,
+                                              on_behalf_of_user_id=None):
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)
 
 
-def identitydirmgt_delete(client,
-                          device_id,
-                          if_match=None):
+def identitydirmgt_devicesdevice_create_device(client,
+                                               id_=None,
+                                               deleted_date_time=None,
+                                               account_enabled=None,
+                                               alternative_security_ids=None,
+                                               approximate_last_sign_in_date_time=None,
+                                               compliance_expiration_date_time=None,
+                                               device_id=None,
+                                               device_metadata=None,
+                                               device_version=None,
+                                               display_name=None,
+                                               is_compliant=None,
+                                               is_managed=None,
+                                               mdm_app_id=None,
+                                               on_premises_last_sync_date_time=None,
+                                               on_premises_sync_enabled=None,
+                                               operating_system=None,
+                                               operating_system_version=None,
+                                               physical_ids=None,
+                                               profile_type=None,
+                                               system_labels=None,
+                                               trust_type=None,
+                                               member_of=None,
+                                               registered_owners=None,
+                                               registered_users=None,
+                                               transitive_member_of=None,
+                                               extensions=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['account_enabled'] = account_enabled
+    body['alternative_security_ids'] = alternative_security_ids
+    body['approximate_last_sign_in_date_time'] = approximate_last_sign_in_date_time
+    body['compliance_expiration_date_time'] = compliance_expiration_date_time
+    body['device_id'] = device_id
+    body['device_metadata'] = device_metadata
+    body['device_version'] = device_version
+    body['display_name'] = display_name
+    body['is_compliant'] = is_compliant
+    body['is_managed'] = is_managed
+    body['mdm_app_id'] = mdm_app_id
+    body['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['operating_system'] = operating_system
+    body['operating_system_version'] = operating_system_version
+    body['physical_ids'] = physical_ids
+    body['profile_type'] = profile_type
+    body['system_labels'] = system_labels
+    body['trust_type'] = trust_type
+    body['member_of'] = member_of
+    body['registered_owners'] = registered_owners
+    body['registered_users'] = registered_users
+    body['transitive_member_of'] = transitive_member_of
+    body['extensions'] = extensions
+    return client.create_device(body=body)
+
+
+def identitydirmgt_devicesdevice_delete_device(client,
+                                               device_id,
+                                               if_match=None):
     return client.delete_device(device_id=device_id,
                                 if_match=if_match)
 
 
-def identitydirmgt_create_device(client,
-                                 id_=None,
-                                 deleted_date_time=None,
-                                 account_enabled=None,
-                                 alternative_security_ids=None,
-                                 approximate_last_sign_in_date_time=None,
-                                 compliance_expiration_date_time=None,
-                                 device_id=None,
-                                 device_metadata=None,
-                                 device_version=None,
-                                 display_name=None,
-                                 is_compliant=None,
-                                 is_managed=None,
-                                 mdm_app_id=None,
-                                 on_premises_last_sync_date_time=None,
-                                 on_premises_sync_enabled=None,
-                                 operating_system=None,
-                                 operating_system_version=None,
-                                 physical_ids=None,
-                                 profile_type=None,
-                                 system_labels=None,
-                                 trust_type=None,
-                                 member_of=None,
-                                 registered_owners=None,
-                                 registered_users=None,
-                                 transitive_member_of=None,
-                                 extensions=None):
-    return client.create_device(id=id_,
-                                deleted_date_time=deleted_date_time,
-                                account_enabled=account_enabled,
-                                alternative_security_ids=alternative_security_ids,
-                                approximate_last_sign_in_date_time=approximate_last_sign_in_date_time,
-                                compliance_expiration_date_time=compliance_expiration_date_time,
-                                device_id=device_id,
-                                device_metadata=device_metadata,
-                                device_version=device_version,
-                                display_name=display_name,
-                                is_compliant=is_compliant,
-                                is_managed=is_managed,
-                                mdm_app_id=mdm_app_id,
-                                on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                on_premises_sync_enabled=on_premises_sync_enabled,
-                                operating_system=operating_system,
-                                operating_system_version=operating_system_version,
-                                physical_ids=physical_ids,
-                                profile_type=profile_type,
-                                system_labels=system_labels,
-                                trust_type=trust_type,
-                                member_of=member_of,
-                                registered_owners=registered_owners,
-                                registered_users=registered_users,
-                                transitive_member_of=transitive_member_of,
-                                extensions=extensions)
-
-
-def identitydirmgt_get_device(client,
-                              device_id,
-                              select=None,
-                              expand=None):
-    return client.get_device(device_id=device_id,
-                             select=select,
-                             expand=expand)
-
-
-def identitydirmgt_list_device(client,
-                               orderby=None,
-                               select=None,
-                               expand=None):
+def identitydirmgt_devicesdevice_list_device(client,
+                                             orderby=None,
+                                             select=None,
+                                             expand=None):
     return client.list_device(orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def identitydirmgt_update_device(client,
-                                 device_id,
-                                 id_=None,
-                                 deleted_date_time=None,
-                                 account_enabled=None,
-                                 alternative_security_ids=None,
-                                 approximate_last_sign_in_date_time=None,
-                                 compliance_expiration_date_time=None,
-                                 microsoft_graph_device_id=None,
-                                 device_metadata=None,
-                                 device_version=None,
-                                 display_name=None,
-                                 is_compliant=None,
-                                 is_managed=None,
-                                 mdm_app_id=None,
-                                 on_premises_last_sync_date_time=None,
-                                 on_premises_sync_enabled=None,
-                                 operating_system=None,
-                                 operating_system_version=None,
-                                 physical_ids=None,
-                                 profile_type=None,
-                                 system_labels=None,
-                                 trust_type=None,
-                                 member_of=None,
-                                 registered_owners=None,
-                                 registered_users=None,
-                                 transitive_member_of=None,
-                                 extensions=None):
+def identitydirmgt_devicesdevice_show_device(client,
+                                             device_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_device(device_id=device_id,
+                             select=select,
+                             expand=expand)
+
+
+def identitydirmgt_devicesdevice_update_device(client,
+                                               device_id,
+                                               id_=None,
+                                               deleted_date_time=None,
+                                               account_enabled=None,
+                                               alternative_security_ids=None,
+                                               approximate_last_sign_in_date_time=None,
+                                               compliance_expiration_date_time=None,
+                                               microsoft_graph_device_id=None,
+                                               device_metadata=None,
+                                               device_version=None,
+                                               display_name=None,
+                                               is_compliant=None,
+                                               is_managed=None,
+                                               mdm_app_id=None,
+                                               on_premises_last_sync_date_time=None,
+                                               on_premises_sync_enabled=None,
+                                               operating_system=None,
+                                               operating_system_version=None,
+                                               physical_ids=None,
+                                               profile_type=None,
+                                               system_labels=None,
+                                               trust_type=None,
+                                               member_of=None,
+                                               registered_owners=None,
+                                               registered_users=None,
+                                               transitive_member_of=None,
+                                               extensions=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['account_enabled'] = account_enabled
+    body['alternative_security_ids'] = alternative_security_ids
+    body['approximate_last_sign_in_date_time'] = approximate_last_sign_in_date_time
+    body['compliance_expiration_date_time'] = compliance_expiration_date_time
+    body['device_id'] = microsoft_graph_device_id
+    body['device_metadata'] = device_metadata
+    body['device_version'] = device_version
+    body['display_name'] = display_name
+    body['is_compliant'] = is_compliant
+    body['is_managed'] = is_managed
+    body['mdm_app_id'] = mdm_app_id
+    body['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['operating_system'] = operating_system
+    body['operating_system_version'] = operating_system_version
+    body['physical_ids'] = physical_ids
+    body['profile_type'] = profile_type
+    body['system_labels'] = system_labels
+    body['trust_type'] = trust_type
+    body['member_of'] = member_of
+    body['registered_owners'] = registered_owners
+    body['registered_users'] = registered_users
+    body['transitive_member_of'] = transitive_member_of
+    body['extensions'] = extensions
     return client.update_device(device_id=device_id,
-                                id=id_,
-                                deleted_date_time=deleted_date_time,
-                                account_enabled=account_enabled,
-                                alternative_security_ids=alternative_security_ids,
-                                approximate_last_sign_in_date_time=approximate_last_sign_in_date_time,
-                                compliance_expiration_date_time=compliance_expiration_date_time,
-                                microsoft_graph_device_id=microsoft_graph_device_id,
-                                device_metadata=device_metadata,
-                                device_version=device_version,
-                                display_name=display_name,
-                                is_compliant=is_compliant,
-                                is_managed=is_managed,
-                                mdm_app_id=mdm_app_id,
-                                on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                on_premises_sync_enabled=on_premises_sync_enabled,
-                                operating_system=operating_system,
-                                operating_system_version=operating_system_version,
-                                physical_ids=physical_ids,
-                                profile_type=profile_type,
-                                system_labels=system_labels,
-                                trust_type=trust_type,
-                                member_of=member_of,
-                                registered_owners=registered_owners,
-                                registered_users=registered_users,
-                                transitive_member_of=transitive_member_of,
-                                extensions=extensions)
+                                body=body)
 
 
-def identitydirmgt_delete(client,
-                          device_id,
-                          extension_id,
-                          if_match=None):
-    return client.delete_extension(device_id=device_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+def identitydirmgt_device_check_member_group(client,
+                                             device_id,
+                                             group_ids=None):
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(device_id=device_id,
+                                      body=body)
 
 
-def identitydirmgt_check_member_group(client,
-                                      device_id,
-                                      group_ids=None):
-    return client.check_member_group(device_id=device_id,
-                                     group_ids=group_ids)
+def identitydirmgt_device_check_member_object(client,
+                                              device_id,
+                                              ids=None):
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(device_id=device_id,
+                                       body=body)
 
 
-def identitydirmgt_check_member_object(client,
-                                       device_id,
-                                       ids=None):
-    return client.check_member_object(device_id=device_id,
-                                      ids=ids)
+def identitydirmgt_device_create_extension(client,
+                                           device_id,
+                                           id_=None):
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(device_id=device_id,
+                                    body=body)
 
 
-def identitydirmgt_create_extension(client,
-                                    device_id,
-                                    id_=None):
-    return client.create_extension(device_id=device_id,
-                                   id=id_)
-
-
-def identitydirmgt_create_ref_member_of(client,
-                                        device_id,
-                                        body):
+def identitydirmgt_device_create_ref_member_of(client,
+                                               device_id,
+                                               body):
     return client.create_ref_member_of(device_id=device_id,
                                        body=body)
 
 
-def identitydirmgt_create_ref_registered_owner(client,
-                                               device_id,
-                                               body):
-    return client.create_ref_registered_owner(device_id=device_id,
+def identitydirmgt_device_create_ref_registered_owner(client,
+                                                      device_id,
+                                                      body):
+    return client.create_ref_registered_owners(device_id=device_id,
+                                               body=body)
+
+
+def identitydirmgt_device_create_ref_registered_user(client,
+                                                     device_id,
+                                                     body):
+    return client.create_ref_registered_users(device_id=device_id,
                                               body=body)
 
 
-def identitydirmgt_create_ref_registered_user(client,
-                                              device_id,
-                                              body):
-    return client.create_ref_registered_user(device_id=device_id,
-                                             body=body)
-
-
-def identitydirmgt_create_ref_transitive_member_of(client,
-                                                   device_id,
-                                                   body):
+def identitydirmgt_device_create_ref_transitive_member_of(client,
+                                                          device_id,
+                                                          body):
     return client.create_ref_transitive_member_of(device_id=device_id,
                                                   body=body)
 
 
-def identitydirmgt_get_available_extension_property(client,
-                                                    is_synced_from_on_premises=None):
+def identitydirmgt_device_delete_extension(client,
+                                           device_id,
+                                           extension_id,
+                                           if_match=None):
+    return client.delete_extensions(device_id=device_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
+
+
+def identitydirmgt_device_get_available_extension_property(client,
+                                                           is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
 
 
-def identitydirmgt_get_by_id(client,
-                             ids=None,
-                             types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
+def identitydirmgt_device_get_by_id(client,
+                                    ids=None,
+                                    types=None):
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
 
 
-def identitydirmgt_get_extension(client,
-                                 device_id,
-                                 extension_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_extension(device_id=device_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
-
-
-def identitydirmgt_get_member_group(client,
-                                    device_id,
-                                    security_enabled_only=None):
+def identitydirmgt_device_get_member_group(client,
+                                           device_id,
+                                           security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_group(device_id=device_id,
-                                   security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(device_id=device_id,
+                                    body=body)
 
 
-def identitydirmgt_get_member_object(client,
-                                     device_id,
-                                     security_enabled_only=None):
+def identitydirmgt_device_get_member_object(client,
+                                            device_id,
+                                            security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_object(device_id=device_id,
-                                    security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(device_id=device_id,
+                                     body=body)
 
 
-def identitydirmgt_list_extension(client,
-                                  device_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
-    return client.list_extension(device_id=device_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+def identitydirmgt_device_list_extension(client,
+                                         device_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
+    return client.list_extensions(device_id=device_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
-def identitydirmgt_list_member_of(client,
-                                  device_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
+def identitydirmgt_device_list_member_of(client,
+                                         device_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
     return client.list_member_of(device_id=device_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def identitydirmgt_list_ref_member_of(client,
-                                      device_id,
-                                      orderby=None):
+def identitydirmgt_device_list_ref_member_of(client,
+                                             device_id,
+                                             orderby=None):
     return client.list_ref_member_of(device_id=device_id,
                                      orderby=orderby)
 
 
-def identitydirmgt_list_ref_registered_owner(client,
-                                             device_id,
-                                             orderby=None):
-    return client.list_ref_registered_owner(device_id=device_id,
+def identitydirmgt_device_list_ref_registered_owner(client,
+                                                    device_id,
+                                                    orderby=None):
+    return client.list_ref_registered_owners(device_id=device_id,
+                                             orderby=orderby)
+
+
+def identitydirmgt_device_list_ref_registered_user(client,
+                                                   device_id,
+                                                   orderby=None):
+    return client.list_ref_registered_users(device_id=device_id,
                                             orderby=orderby)
 
 
-def identitydirmgt_list_ref_registered_user(client,
-                                            device_id,
-                                            orderby=None):
-    return client.list_ref_registered_user(device_id=device_id,
-                                           orderby=orderby)
-
-
-def identitydirmgt_list_ref_transitive_member_of(client,
-                                                 device_id,
-                                                 orderby=None):
+def identitydirmgt_device_list_ref_transitive_member_of(client,
+                                                        device_id,
+                                                        orderby=None):
     return client.list_ref_transitive_member_of(device_id=device_id,
                                                 orderby=orderby)
 
 
-def identitydirmgt_list_registered_owner(client,
-                                         device_id,
-                                         orderby=None,
-                                         select=None,
-                                         expand=None):
-    return client.list_registered_owner(device_id=device_id,
+def identitydirmgt_device_list_registered_owner(client,
+                                                device_id,
+                                                orderby=None,
+                                                select=None,
+                                                expand=None):
+    return client.list_registered_owners(device_id=device_id,
+                                         orderby=orderby,
+                                         select=select,
+                                         expand=expand)
+
+
+def identitydirmgt_device_list_registered_user(client,
+                                               device_id,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
+    return client.list_registered_users(device_id=device_id,
                                         orderby=orderby,
                                         select=select,
                                         expand=expand)
 
 
-def identitydirmgt_list_registered_user(client,
-                                        device_id,
-                                        orderby=None,
-                                        select=None,
-                                        expand=None):
-    return client.list_registered_user(device_id=device_id,
-                                       orderby=orderby,
-                                       select=select,
-                                       expand=expand)
-
-
-def identitydirmgt_list_transitive_member_of(client,
-                                             device_id,
-                                             orderby=None,
-                                             select=None,
-                                             expand=None):
+def identitydirmgt_device_list_transitive_member_of(client,
+                                                    device_id,
+                                                    orderby=None,
+                                                    select=None,
+                                                    expand=None):
     return client.list_transitive_member_of(device_id=device_id,
                                             orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def identitydirmgt_restore(client,
-                           device_id):
+def identitydirmgt_device_restore(client,
+                                  device_id):
     return client.restore(device_id=device_id)
 
 
-def identitydirmgt_update_extension(client,
-                                    device_id,
-                                    extension_id,
-                                    id_=None):
-    return client.update_extension(device_id=device_id,
-                                   extension_id=extension_id,
-                                   id=id_)
-
-
-def identitydirmgt_validate_property(client,
-                                     entity_type=None,
-                                     display_name=None,
-                                     mail_nickname=None,
-                                     on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
-
-
-def identitydirmgt_get_directory(client,
-                                 select=None,
-                                 expand=None):
-    return client.get_directory(select=select,
-                                expand=expand)
-
-
-def identitydirmgt_update_directory(client,
-                                    id_=None,
-                                    administrative_units=None,
-                                    deleted_items=None):
-    return client.update_directory(id=id_,
-                                   administrative_units=administrative_units,
-                                   deleted_items=deleted_items)
-
-
-def identitydirmgt_delete(client,
-                          administrative_unit_id=None,
-                          if_match=None,
-                          directory_object_id=None):
-    if administrative_unit_id is not None:
-        return client.delete_administrative_unit(administrative_unit_id=administrative_unit_id,
-                                                 if_match=if_match)
-    return client.delete_deleted_item(directory_object_id=directory_object_id,
-                                      if_match=if_match)
-
-
-def identitydirmgt_create_administrative_unit(client,
-                                              id_=None,
-                                              deleted_date_time=None,
-                                              description=None,
-                                              display_name=None,
-                                              visibility=None,
-                                              members=None,
-                                              scoped_role_members=None,
-                                              extensions=None):
-    return client.create_administrative_unit(id=id_,
-                                             deleted_date_time=deleted_date_time,
-                                             description=description,
-                                             display_name=display_name,
-                                             visibility=visibility,
-                                             members=members,
-                                             scoped_role_members=scoped_role_members,
-                                             extensions=extensions)
-
-
-def identitydirmgt_create_deleted_item(client,
-                                       id_=None,
-                                       deleted_date_time=None):
-    return client.create_deleted_item(id=id_,
-                                      deleted_date_time=deleted_date_time)
-
-
-def identitydirmgt_get_administrative_unit(client,
-                                           administrative_unit_id,
-                                           select=None,
-                                           expand=None):
-    return client.get_administrative_unit(administrative_unit_id=administrative_unit_id,
-                                          select=select,
-                                          expand=expand)
-
-
-def identitydirmgt_get_deleted_item(client,
-                                    directory_object_id,
-                                    select=None,
-                                    expand=None):
-    return client.get_deleted_item(directory_object_id=directory_object_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def identitydirmgt_list_administrative_unit(client,
-                                            orderby=None,
-                                            select=None,
-                                            expand=None):
-    return client.list_administrative_unit(orderby=orderby,
-                                           select=select,
-                                           expand=expand)
-
-
-def identitydirmgt_list_deleted_item(client,
-                                     orderby=None,
-                                     select=None,
-                                     expand=None):
-    return client.list_deleted_item(orderby=orderby,
-                                    select=select,
-                                    expand=expand)
-
-
-def identitydirmgt_update_administrative_unit(client,
-                                              administrative_unit_id,
-                                              id_=None,
-                                              deleted_date_time=None,
-                                              description=None,
-                                              display_name=None,
-                                              visibility=None,
-                                              members=None,
-                                              scoped_role_members=None,
-                                              extensions=None):
-    return client.update_administrative_unit(administrative_unit_id=administrative_unit_id,
-                                             id=id_,
-                                             deleted_date_time=deleted_date_time,
-                                             description=description,
-                                             display_name=display_name,
-                                             visibility=visibility,
-                                             members=members,
-                                             scoped_role_members=scoped_role_members,
-                                             extensions=extensions)
-
-
-def identitydirmgt_update_deleted_item(client,
-                                       directory_object_id,
-                                       id_=None,
-                                       deleted_date_time=None):
-    return client.update_deleted_item(directory_object_id=directory_object_id,
-                                      id=id_,
-                                      deleted_date_time=deleted_date_time)
-
-
-def identitydirmgt_delete(client,
-                          administrative_unit_id,
-                          extension_id=None,
-                          if_match=None,
-                          scoped_role_membership_id=None):
-    if administrative_unit_id is not None and extension_id is not None:
-        return client.delete_extension(administrative_unit_id=administrative_unit_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    return client.delete_scoped_role_member(administrative_unit_id=administrative_unit_id,
-                                            scoped_role_membership_id=scoped_role_membership_id,
-                                            if_match=if_match)
-
-
-def identitydirmgt_create_extension(client,
-                                    administrative_unit_id,
-                                    id_=None):
-    return client.create_extension(administrative_unit_id=administrative_unit_id,
-                                   id=id_)
-
-
-def identitydirmgt_create_ref_member(client,
-                                     administrative_unit_id,
-                                     body):
-    return client.create_ref_member(administrative_unit_id=administrative_unit_id,
-                                    body=body)
-
-
-def identitydirmgt_create_scoped_role_member(client,
-                                             administrative_unit_id,
-                                             id_=None,
-                                             microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,
-                                             role_id=None,
-                                             role_member_info_display_name=None,
-                                             role_member_info_id=None):
-    return client.create_scoped_role_member(administrative_unit_id=administrative_unit_id,
-                                            id=id_,
-                                            microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id,
-                                            role_id=role_id,
-                                            display_name=role_member_info_display_name,
-                                            microsoft_graph_identity_id=role_member_info_id)
-
-
-def identitydirmgt_delta(client):
-    return client.delta()
-
-
-def identitydirmgt_get_extension(client,
-                                 administrative_unit_id,
-                                 extension_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_extension(administrative_unit_id=administrative_unit_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
-
-
-def identitydirmgt_get_scoped_role_member(client,
-                                          administrative_unit_id,
-                                          scoped_role_membership_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_scoped_role_member(administrative_unit_id=administrative_unit_id,
-                                         scoped_role_membership_id=scoped_role_membership_id,
-                                         select=select,
-                                         expand=expand)
-
-
-def identitydirmgt_list_extension(client,
-                                  administrative_unit_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
-    return client.list_extension(administrative_unit_id=administrative_unit_id,
-                                 orderby=orderby,
+def identitydirmgt_device_show_extension(client,
+                                         device_id,
+                                         extension_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_extensions(device_id=device_id,
+                                 extension_id=extension_id,
                                  select=select,
                                  expand=expand)
 
 
-def identitydirmgt_list_member(client,
-                               administrative_unit_id,
-                               orderby=None,
-                               select=None,
-                               expand=None):
-    return client.list_member(administrative_unit_id=administrative_unit_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+def identitydirmgt_device_update_extension(client,
+                                           device_id,
+                                           extension_id,
+                                           id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(device_id=device_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
-def identitydirmgt_list_ref_member(client,
-                                   administrative_unit_id,
-                                   orderby=None):
-    return client.list_ref_member(administrative_unit_id=administrative_unit_id,
-                                  orderby=orderby)
+def identitydirmgt_device_validate_property(client,
+                                            entity_type=None,
+                                            display_name=None,
+                                            mail_nickname=None,
+                                            on_behalf_of_user_id=None):
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)
 
 
-def identitydirmgt_list_scoped_role_member(client,
-                                           administrative_unit_id,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
-    return client.list_scoped_role_member(administrative_unit_id=administrative_unit_id,
-                                          orderby=orderby,
-                                          select=select,
-                                          expand=expand)
+def identitydirmgt_directory_show_directory(client,
+                                            select=None,
+                                            expand=None):
+    return client.get_directory(select=select,
+                                expand=expand)
 
 
-def identitydirmgt_update_extension(client,
-                                    administrative_unit_id,
-                                    extension_id,
-                                    id_=None):
-    return client.update_extension(administrative_unit_id=administrative_unit_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+def identitydirmgt_directory_update_directory(client,
+                                              id_=None,
+                                              administrative_units=None,
+                                              deleted_items=None):
+    body = {}
+    body['id'] = id_
+    body['administrative_units'] = administrative_units
+    body['deleted_items'] = deleted_items
+    return client.update_directory(body=body)
 
 
-def identitydirmgt_update_scoped_role_member(client,
-                                             administrative_unit_id,
-                                             scoped_role_membership_id,
-                                             id_=None,
-                                             microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,
-                                             role_id=None,
-                                             role_member_info_display_name=None,
-                                             role_member_info_id=None):
-    return client.update_scoped_role_member(administrative_unit_id=administrative_unit_id,
-                                            scoped_role_membership_id=scoped_role_membership_id,
-                                            id=id_,
-                                            microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id,
-                                            role_id=role_id,
-                                            display_name=role_member_info_display_name,
-                                            microsoft_graph_identity_id=role_member_info_id)
+def identitydirmgt_directory_create_administrative_unit(client,
+                                                        id_=None,
+                                                        deleted_date_time=None,
+                                                        description=None,
+                                                        display_name=None,
+                                                        visibility=None,
+                                                        members=None,
+                                                        scoped_role_members=None,
+                                                        extensions=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['visibility'] = visibility
+    body['members'] = members
+    body['scoped_role_members'] = scoped_role_members
+    body['extensions'] = extensions
+    return client.create_administrative_units(body=body)
 
 
-def identitydirmgt_delete(client,
-                          directory_role_id,
-                          if_match=None):
-    return client.delete_directory_role(directory_role_id=directory_role_id,
-                                        if_match=if_match)
+def identitydirmgt_directory_create_deleted_item(client,
+                                                 id_=None,
+                                                 deleted_date_time=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    return client.create_deleted_items(body=body)
 
 
-def identitydirmgt_create_directory_role(client,
-                                         id_=None,
-                                         deleted_date_time=None,
-                                         description=None,
-                                         display_name=None,
-                                         role_template_id=None,
-                                         members=None,
-                                         scoped_members=None):
-    return client.create_directory_role(id=id_,
-                                        deleted_date_time=deleted_date_time,
-                                        description=description,
-                                        display_name=display_name,
-                                        role_template_id=role_template_id,
-                                        members=members,
-                                        scoped_members=scoped_members)
+def identitydirmgt_directory_delete_administrative_unit(client,
+                                                        administrative_unit_id,
+                                                        if_match=None):
+    return client.delete_administrative_units(administrative_unit_id=administrative_unit_id,
+                                              if_match=if_match)
 
 
-def identitydirmgt_get_directory_role(client,
-                                      directory_role_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_directory_role(directory_role_id=directory_role_id,
+def identitydirmgt_directory_delete_deleted_item(client,
+                                                 directory_object_id,
+                                                 if_match=None):
+    return client.delete_deleted_items(directory_object_id=directory_object_id,
+                                       if_match=if_match)
+
+
+def identitydirmgt_directory_list_administrative_unit(client,
+                                                      orderby=None,
+                                                      select=None,
+                                                      expand=None):
+    return client.list_administrative_units(orderby=orderby,
+                                            select=select,
+                                            expand=expand)
+
+
+def identitydirmgt_directory_list_deleted_item(client,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
+    return client.list_deleted_items(orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def identitydirmgt_list_directory_role(client,
-                                       orderby=None,
-                                       select=None,
-                                       expand=None):
+def identitydirmgt_directory_show_administrative_unit(client,
+                                                      administrative_unit_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_administrative_units(administrative_unit_id=administrative_unit_id,
+                                           select=select,
+                                           expand=expand)
+
+
+def identitydirmgt_directory_show_deleted_item(client,
+                                               directory_object_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_deleted_items(directory_object_id=directory_object_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def identitydirmgt_directory_update_administrative_unit(client,
+                                                        administrative_unit_id,
+                                                        id_=None,
+                                                        deleted_date_time=None,
+                                                        description=None,
+                                                        display_name=None,
+                                                        visibility=None,
+                                                        members=None,
+                                                        scoped_role_members=None,
+                                                        extensions=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['visibility'] = visibility
+    body['members'] = members
+    body['scoped_role_members'] = scoped_role_members
+    body['extensions'] = extensions
+    return client.update_administrative_units(administrative_unit_id=administrative_unit_id,
+                                              body=body)
+
+
+def identitydirmgt_directory_update_deleted_item(client,
+                                                 directory_object_id,
+                                                 id_=None,
+                                                 deleted_date_time=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    return client.update_deleted_items(directory_object_id=directory_object_id,
+                                       body=body)
+
+
+def identitydirmgt_directoryadministrativeunit_create_extension(client,
+                                                                administrative_unit_id,
+                                                                id_=None):
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(administrative_unit_id=administrative_unit_id,
+                                    body=body)
+
+
+def identitydirmgt_directoryadministrativeunit_create_ref_member(client,
+                                                                 administrative_unit_id,
+                                                                 body):
+    return client.create_ref_members(administrative_unit_id=administrative_unit_id,
+                                     body=body)
+
+
+def identitydirmgt_directoryadministrativeunit_create_scoped_role_member(client,
+                                                                         administrative_unit_id,
+                                                                         id_=None,
+                                                                         microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,
+                                                                         role_id=None,
+                                                                         role_member_info=None):
+    body = {}
+    body['id'] = id_
+    body['administrative_unit_id'] = microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id
+    body['role_id'] = role_id
+    body['role_member_info'] = role_member_info
+    return client.create_scoped_role_members(administrative_unit_id=administrative_unit_id,
+                                             body=body)
+
+
+def identitydirmgt_directoryadministrativeunit_delete_extension(client,
+                                                                administrative_unit_id,
+                                                                extension_id,
+                                                                if_match=None):
+    return client.delete_extensions(administrative_unit_id=administrative_unit_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
+
+
+def identitydirmgt_directoryadministrativeunit_delete_scoped_role_member(client,
+                                                                         administrative_unit_id,
+                                                                         scoped_role_membership_id,
+                                                                         if_match=None):
+    return client.delete_scoped_role_members(administrative_unit_id=administrative_unit_id,
+                                             scoped_role_membership_id=scoped_role_membership_id,
+                                             if_match=if_match)
+
+
+def identitydirmgt_directoryadministrativeunit_delta(client):
+    return client.delta()
+
+
+def identitydirmgt_directoryadministrativeunit_list_extension(client,
+                                                              administrative_unit_id,
+                                                              orderby=None,
+                                                              select=None,
+                                                              expand=None):
+    return client.list_extensions(administrative_unit_id=administrative_unit_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def identitydirmgt_directoryadministrativeunit_list_member(client,
+                                                           administrative_unit_id,
+                                                           orderby=None,
+                                                           select=None,
+                                                           expand=None):
+    return client.list_members(administrative_unit_id=administrative_unit_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def identitydirmgt_directoryadministrativeunit_list_ref_member(client,
+                                                               administrative_unit_id,
+                                                               orderby=None):
+    return client.list_ref_members(administrative_unit_id=administrative_unit_id,
+                                   orderby=orderby)
+
+
+def identitydirmgt_directoryadministrativeunit_list_scoped_role_member(client,
+                                                                       administrative_unit_id,
+                                                                       orderby=None,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.list_scoped_role_members(administrative_unit_id=administrative_unit_id,
+                                           orderby=orderby,
+                                           select=select,
+                                           expand=expand)
+
+
+def identitydirmgt_directoryadministrativeunit_show_extension(client,
+                                                              administrative_unit_id,
+                                                              extension_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_extensions(administrative_unit_id=administrative_unit_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def identitydirmgt_directoryadministrativeunit_show_scoped_role_member(client,
+                                                                       administrative_unit_id,
+                                                                       scoped_role_membership_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_scoped_role_members(administrative_unit_id=administrative_unit_id,
+                                          scoped_role_membership_id=scoped_role_membership_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def identitydirmgt_directoryadministrativeunit_update_extension(client,
+                                                                administrative_unit_id,
+                                                                extension_id,
+                                                                id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(administrative_unit_id=administrative_unit_id,
+                                    extension_id=extension_id,
+                                    body=body)
+
+
+def identitydirmgt_directoryadministrativeunit_update_scoped_role_member(client,
+                                                                         administrative_unit_id,
+                                                                         scoped_role_membership_id,
+                                                                         id_=None,
+                                                                         microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,
+                                                                         role_id=None,
+                                                                         role_member_info=None):
+    body = {}
+    body['id'] = id_
+    body['administrative_unit_id'] = microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id
+    body['role_id'] = role_id
+    body['role_member_info'] = role_member_info
+    return client.update_scoped_role_members(administrative_unit_id=administrative_unit_id,
+                                             scoped_role_membership_id=scoped_role_membership_id,
+                                             body=body)
+
+
+def identitydirmgt_directoryrolesdirectoryrole_create_directory_role(client,
+                                                                     id_=None,
+                                                                     deleted_date_time=None,
+                                                                     description=None,
+                                                                     display_name=None,
+                                                                     role_template_id=None,
+                                                                     members=None,
+                                                                     scoped_members=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['role_template_id'] = role_template_id
+    body['members'] = members
+    body['scoped_members'] = scoped_members
+    return client.create_directory_role(body=body)
+
+
+def identitydirmgt_directoryrolesdirectoryrole_delete_directory_role(client,
+                                                                     directory_role_id,
+                                                                     if_match=None):
+    return client.delete_directory_role(directory_role_id=directory_role_id,
+                                        if_match=if_match)
+
+
+def identitydirmgt_directoryrolesdirectoryrole_list_directory_role(client,
+                                                                   orderby=None,
+                                                                   select=None,
+                                                                   expand=None):
     return client.list_directory_role(orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def identitydirmgt_update_directory_role(client,
-                                         directory_role_id,
-                                         id_=None,
-                                         deleted_date_time=None,
-                                         description=None,
-                                         display_name=None,
-                                         role_template_id=None,
-                                         members=None,
-                                         scoped_members=None):
-    return client.update_directory_role(directory_role_id=directory_role_id,
-                                        id=id_,
-                                        deleted_date_time=deleted_date_time,
-                                        description=description,
-                                        display_name=display_name,
-                                        role_template_id=role_template_id,
-                                        members=members,
-                                        scoped_members=scoped_members)
-
-
-def identitydirmgt_delete(client,
-                          directory_role_id,
-                          scoped_role_membership_id,
-                          if_match=None):
-    return client.delete_scoped_member(directory_role_id=directory_role_id,
-                                       scoped_role_membership_id=scoped_role_membership_id,
-                                       if_match=if_match)
-
-
-def identitydirmgt_check_member_group(client,
-                                      directory_role_id,
-                                      group_ids=None):
-    return client.check_member_group(directory_role_id=directory_role_id,
-                                     group_ids=group_ids)
-
-
-def identitydirmgt_check_member_object(client,
-                                       directory_role_id,
-                                       ids=None):
-    return client.check_member_object(directory_role_id=directory_role_id,
-                                      ids=ids)
-
-
-def identitydirmgt_create_ref_member(client,
-                                     directory_role_id,
-                                     body):
-    return client.create_ref_member(directory_role_id=directory_role_id,
-                                    body=body)
-
-
-def identitydirmgt_create_scoped_member(client,
-                                        directory_role_id,
-                                        id_=None,
-                                        administrative_unit_id=None,
-                                        role_id=None,
-                                        role_member_info_display_name=None,
-                                        role_member_info_id=None):
-    return client.create_scoped_member(directory_role_id=directory_role_id,
-                                       id=id_,
-                                       administrative_unit_id=administrative_unit_id,
-                                       role_id=role_id,
-                                       display_name=role_member_info_display_name,
-                                       microsoft_graph_identity_id=role_member_info_id)
-
-
-def identitydirmgt_delta(client):
-    return client.delta()
-
-
-def identitydirmgt_get_available_extension_property(client,
-                                                    is_synced_from_on_premises=None):
-    if is_synced_from_on_premises is None:
-        is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
-
-
-def identitydirmgt_get_by_id(client,
-                             ids=None,
-                             types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
-
-
-def identitydirmgt_get_member_group(client,
-                                    directory_role_id,
-                                    security_enabled_only=None):
-    if security_enabled_only is None:
-        security_enabled_only = False
-    return client.get_member_group(directory_role_id=directory_role_id,
-                                   security_enabled_only=security_enabled_only)
-
-
-def identitydirmgt_get_member_object(client,
-                                     directory_role_id,
-                                     security_enabled_only=None):
-    if security_enabled_only is None:
-        security_enabled_only = False
-    return client.get_member_object(directory_role_id=directory_role_id,
-                                    security_enabled_only=security_enabled_only)
-
-
-def identitydirmgt_get_scoped_member(client,
-                                     directory_role_id,
-                                     scoped_role_membership_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_scoped_member(directory_role_id=directory_role_id,
-                                    scoped_role_membership_id=scoped_role_membership_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def identitydirmgt_list_member(client,
-                               directory_role_id,
-                               orderby=None,
-                               select=None,
-                               expand=None):
-    return client.list_member(directory_role_id=directory_role_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
-
-
-def identitydirmgt_list_ref_member(client,
-                                   directory_role_id,
-                                   orderby=None):
-    return client.list_ref_member(directory_role_id=directory_role_id,
-                                  orderby=orderby)
-
-
-def identitydirmgt_list_scoped_member(client,
-                                      directory_role_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
-    return client.list_scoped_member(directory_role_id=directory_role_id,
-                                     orderby=orderby,
+def identitydirmgt_directoryrolesdirectoryrole_show_directory_role(client,
+                                                                   directory_role_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_directory_role(directory_role_id=directory_role_id,
                                      select=select,
                                      expand=expand)
 
 
-def identitydirmgt_restore(client,
-                           directory_role_id):
+def identitydirmgt_directoryrolesdirectoryrole_update_directory_role(client,
+                                                                     directory_role_id,
+                                                                     id_=None,
+                                                                     deleted_date_time=None,
+                                                                     description=None,
+                                                                     display_name=None,
+                                                                     role_template_id=None,
+                                                                     members=None,
+                                                                     scoped_members=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['role_template_id'] = role_template_id
+    body['members'] = members
+    body['scoped_members'] = scoped_members
+    return client.update_directory_role(directory_role_id=directory_role_id,
+                                        body=body)
+
+
+def identitydirmgt_directoryrole_check_member_group(client,
+                                                    directory_role_id,
+                                                    group_ids=None):
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(directory_role_id=directory_role_id,
+                                      body=body)
+
+
+def identitydirmgt_directoryrole_check_member_object(client,
+                                                     directory_role_id,
+                                                     ids=None):
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(directory_role_id=directory_role_id,
+                                       body=body)
+
+
+def identitydirmgt_directoryrole_create_ref_member(client,
+                                                   directory_role_id,
+                                                   body):
+    return client.create_ref_members(directory_role_id=directory_role_id,
+                                     body=body)
+
+
+def identitydirmgt_directoryrole_create_scoped_member(client,
+                                                      directory_role_id,
+                                                      id_=None,
+                                                      administrative_unit_id=None,
+                                                      role_id=None,
+                                                      role_member_info=None):
+    body = {}
+    body['id'] = id_
+    body['administrative_unit_id'] = administrative_unit_id
+    body['role_id'] = role_id
+    body['role_member_info'] = role_member_info
+    return client.create_scoped_members(directory_role_id=directory_role_id,
+                                        body=body)
+
+
+def identitydirmgt_directoryrole_delete_scoped_member(client,
+                                                      directory_role_id,
+                                                      scoped_role_membership_id,
+                                                      if_match=None):
+    return client.delete_scoped_members(directory_role_id=directory_role_id,
+                                        scoped_role_membership_id=scoped_role_membership_id,
+                                        if_match=if_match)
+
+
+def identitydirmgt_directoryrole_delta(client):
+    return client.delta()
+
+
+def identitydirmgt_directoryrole_get_available_extension_property(client,
+                                                                  is_synced_from_on_premises=None):
+    if is_synced_from_on_premises is None:
+        is_synced_from_on_premises = False
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
+
+
+def identitydirmgt_directoryrole_get_by_id(client,
+                                           ids=None,
+                                           types=None):
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
+
+
+def identitydirmgt_directoryrole_get_member_group(client,
+                                                  directory_role_id,
+                                                  security_enabled_only=None):
+    if security_enabled_only is None:
+        security_enabled_only = False
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(directory_role_id=directory_role_id,
+                                    body=body)
+
+
+def identitydirmgt_directoryrole_get_member_object(client,
+                                                   directory_role_id,
+                                                   security_enabled_only=None):
+    if security_enabled_only is None:
+        security_enabled_only = False
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(directory_role_id=directory_role_id,
+                                     body=body)
+
+
+def identitydirmgt_directoryrole_list_member(client,
+                                             directory_role_id,
+                                             orderby=None,
+                                             select=None,
+                                             expand=None):
+    return client.list_members(directory_role_id=directory_role_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def identitydirmgt_directoryrole_list_ref_member(client,
+                                                 directory_role_id,
+                                                 orderby=None):
+    return client.list_ref_members(directory_role_id=directory_role_id,
+                                   orderby=orderby)
+
+
+def identitydirmgt_directoryrole_list_scoped_member(client,
+                                                    directory_role_id,
+                                                    orderby=None,
+                                                    select=None,
+                                                    expand=None):
+    return client.list_scoped_members(directory_role_id=directory_role_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
+
+
+def identitydirmgt_directoryrole_restore(client,
+                                         directory_role_id):
     return client.restore(directory_role_id=directory_role_id)
 
 
-def identitydirmgt_update_scoped_member(client,
-                                        directory_role_id,
-                                        scoped_role_membership_id,
-                                        id_=None,
-                                        administrative_unit_id=None,
-                                        role_id=None,
-                                        role_member_info_display_name=None,
-                                        role_member_info_id=None):
-    return client.update_scoped_member(directory_role_id=directory_role_id,
-                                       scoped_role_membership_id=scoped_role_membership_id,
-                                       id=id_,
-                                       administrative_unit_id=administrative_unit_id,
-                                       role_id=role_id,
-                                       display_name=role_member_info_display_name,
-                                       microsoft_graph_identity_id=role_member_info_id)
+def identitydirmgt_directoryrole_show_scoped_member(client,
+                                                    directory_role_id,
+                                                    scoped_role_membership_id,
+                                                    select=None,
+                                                    expand=None):
+    return client.get_scoped_members(directory_role_id=directory_role_id,
+                                     scoped_role_membership_id=scoped_role_membership_id,
+                                     select=select,
+                                     expand=expand)
 
 
-def identitydirmgt_validate_property(client,
-                                     entity_type=None,
-                                     display_name=None,
-                                     mail_nickname=None,
-                                     on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
+def identitydirmgt_directoryrole_update_scoped_member(client,
+                                                      directory_role_id,
+                                                      scoped_role_membership_id,
+                                                      id_=None,
+                                                      administrative_unit_id=None,
+                                                      role_id=None,
+                                                      role_member_info=None):
+    body = {}
+    body['id'] = id_
+    body['administrative_unit_id'] = administrative_unit_id
+    body['role_id'] = role_id
+    body['role_member_info'] = role_member_info
+    return client.update_scoped_members(directory_role_id=directory_role_id,
+                                        scoped_role_membership_id=scoped_role_membership_id,
+                                        body=body)
 
 
-def identitydirmgt_delete(client,
-                          directory_role_template_id,
-                          if_match=None):
+def identitydirmgt_directoryrole_validate_property(client,
+                                                   entity_type=None,
+                                                   display_name=None,
+                                                   mail_nickname=None,
+                                                   on_behalf_of_user_id=None):
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)
+
+
+def identitydirmgt_directoryroletemplatesdirectoryroletemplate_create_directory_role_template(client,
+                                                                                              id_=None,
+                                                                                              deleted_date_time=None,
+                                                                                              description=None,
+                                                                                              display_name=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    return client.create_directory_role_template(body=body)
+
+
+def identitydirmgt_directoryroletemplatesdirectoryroletemplate_delete_directory_role_template(client,
+                                                                                              directory_role_template_id,
+                                                                                              if_match=None):
     return client.delete_directory_role_template(directory_role_template_id=directory_role_template_id,
                                                  if_match=if_match)
 
 
-def identitydirmgt_create_directory_role_template(client,
-                                                  id_=None,
-                                                  deleted_date_time=None,
-                                                  description=None,
-                                                  display_name=None):
-    return client.create_directory_role_template(id=id_,
-                                                 deleted_date_time=deleted_date_time,
-                                                 description=description,
-                                                 display_name=display_name)
-
-
-def identitydirmgt_get_directory_role_template(client,
-                                               directory_role_template_id,
-                                               select=None,
-                                               expand=None):
-    return client.get_directory_role_template(directory_role_template_id=directory_role_template_id,
-                                              select=select,
-                                              expand=expand)
-
-
-def identitydirmgt_list_directory_role_template(client,
-                                                orderby=None,
-                                                select=None,
-                                                expand=None):
+def identitydirmgt_directoryroletemplatesdirectoryroletemplate_list_directory_role_template(client,
+                                                                                            orderby=None,
+                                                                                            select=None,
+                                                                                            expand=None):
     return client.list_directory_role_template(orderby=orderby,
                                                select=select,
                                                expand=expand)
 
 
-def identitydirmgt_update_directory_role_template(client,
-                                                  directory_role_template_id,
-                                                  id_=None,
-                                                  deleted_date_time=None,
-                                                  description=None,
-                                                  display_name=None):
+def identitydirmgt_directoryroletemplatesdirectoryroletemplate_show_directory_role_template(client,
+                                                                                            directory_role_template_id,
+                                                                                            select=None,
+                                                                                            expand=None):
+    return client.get_directory_role_template(directory_role_template_id=directory_role_template_id,
+                                              select=select,
+                                              expand=expand)
+
+
+def identitydirmgt_directoryroletemplatesdirectoryroletemplate_update_directory_role_template(client,
+                                                                                              directory_role_template_id,
+                                                                                              id_=None,
+                                                                                              deleted_date_time=None,
+                                                                                              description=None,
+                                                                                              display_name=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['description'] = description
+    body['display_name'] = display_name
     return client.update_directory_role_template(directory_role_template_id=directory_role_template_id,
-                                                 id=id_,
-                                                 deleted_date_time=deleted_date_time,
-                                                 description=description,
-                                                 display_name=display_name)
+                                                 body=body)
 
 
-def identitydirmgt_check_member_group(client,
-                                      directory_role_template_id,
-                                      group_ids=None):
-    return client.check_member_group(directory_role_template_id=directory_role_template_id,
-                                     group_ids=group_ids)
+def identitydirmgt_directoryroletemplate_check_member_group(client,
+                                                            directory_role_template_id,
+                                                            group_ids=None):
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(directory_role_template_id=directory_role_template_id,
+                                      body=body)
 
 
-def identitydirmgt_check_member_object(client,
-                                       directory_role_template_id,
-                                       ids=None):
-    return client.check_member_object(directory_role_template_id=directory_role_template_id,
-                                      ids=ids)
+def identitydirmgt_directoryroletemplate_check_member_object(client,
+                                                             directory_role_template_id,
+                                                             ids=None):
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(directory_role_template_id=directory_role_template_id,
+                                       body=body)
 
 
-def identitydirmgt_get_available_extension_property(client,
-                                                    is_synced_from_on_premises=None):
+def identitydirmgt_directoryroletemplate_get_available_extension_property(client,
+                                                                          is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
 
 
-def identitydirmgt_get_by_id(client,
-                             ids=None,
-                             types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
+def identitydirmgt_directoryroletemplate_get_by_id(client,
+                                                   ids=None,
+                                                   types=None):
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
 
 
-def identitydirmgt_get_member_group(client,
-                                    directory_role_template_id,
-                                    security_enabled_only=None):
+def identitydirmgt_directoryroletemplate_get_member_group(client,
+                                                          directory_role_template_id,
+                                                          security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_group(directory_role_template_id=directory_role_template_id,
-                                   security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(directory_role_template_id=directory_role_template_id,
+                                    body=body)
 
 
-def identitydirmgt_get_member_object(client,
-                                     directory_role_template_id,
-                                     security_enabled_only=None):
+def identitydirmgt_directoryroletemplate_get_member_object(client,
+                                                           directory_role_template_id,
+                                                           security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_object(directory_role_template_id=directory_role_template_id,
-                                    security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(directory_role_template_id=directory_role_template_id,
+                                     body=body)
 
 
-def identitydirmgt_restore(client,
-                           directory_role_template_id):
+def identitydirmgt_directoryroletemplate_restore(client,
+                                                 directory_role_template_id):
     return client.restore(directory_role_template_id=directory_role_template_id)
 
 
-def identitydirmgt_validate_property(client,
-                                     entity_type=None,
-                                     display_name=None,
-                                     mail_nickname=None,
-                                     on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
+def identitydirmgt_directoryroletemplate_validate_property(client,
+                                                           entity_type=None,
+                                                           display_name=None,
+                                                           mail_nickname=None,
+                                                           on_behalf_of_user_id=None):
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)
 
 
-def identitydirmgt_delete(client,
-                          domain_id,
-                          if_match=None):
+def identitydirmgt_domainsdomain_create_domain(client,
+                                               id_=None,
+                                               authentication_type=None,
+                                               availability_status=None,
+                                               is_admin_managed=None,
+                                               is_default=None,
+                                               is_initial=None,
+                                               is_root=None,
+                                               is_verified=None,
+                                               manufacturer=None,
+                                               model=None,
+                                               password_notification_window_in_days=None,
+                                               password_validity_period_in_days=None,
+                                               state=None,
+                                               supported_services=None,
+                                               domain_name_references=None,
+                                               service_configuration_records=None,
+                                               verification_dns_records=None):
+    body = {}
+    body['id'] = id_
+    body['authentication_type'] = authentication_type
+    body['availability_status'] = availability_status
+    body['is_admin_managed'] = is_admin_managed
+    body['is_default'] = is_default
+    body['is_initial'] = is_initial
+    body['is_root'] = is_root
+    body['is_verified'] = is_verified
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['password_notification_window_in_days'] = password_notification_window_in_days
+    body['password_validity_period_in_days'] = password_validity_period_in_days
+    body['state'] = state
+    body['supported_services'] = supported_services
+    body['domain_name_references'] = domain_name_references
+    body['service_configuration_records'] = service_configuration_records
+    body['verification_dns_records'] = verification_dns_records
+    return client.create_domain(body=body)
+
+
+def identitydirmgt_domainsdomain_delete_domain(client,
+                                               domain_id,
+                                               if_match=None):
     return client.delete_domain(domain_id=domain_id,
                                 if_match=if_match)
 
 
-def identitydirmgt_create_domain(client,
-                                 id_=None,
-                                 authentication_type=None,
-                                 availability_status=None,
-                                 is_admin_managed=None,
-                                 is_default=None,
-                                 is_initial=None,
-                                 is_root=None,
-                                 is_verified=None,
-                                 manufacturer=None,
-                                 model=None,
-                                 password_notification_window_in_days=None,
-                                 password_validity_period_in_days=None,
-                                 state=None,
-                                 supported_services=None,
-                                 domain_name_references=None,
-                                 service_configuration_records=None,
-                                 verification_dns_records=None):
-    return client.create_domain(id=id_,
-                                authentication_type=authentication_type,
-                                availability_status=availability_status,
-                                is_admin_managed=is_admin_managed,
-                                is_default=is_default,
-                                is_initial=is_initial,
-                                is_root=is_root,
-                                is_verified=is_verified,
-                                manufacturer=manufacturer,
-                                model=model,
-                                password_notification_window_in_days=password_notification_window_in_days,
-                                password_validity_period_in_days=password_validity_period_in_days,
-                                state=state,
-                                supported_services=supported_services,
-                                domain_name_references=domain_name_references,
-                                service_configuration_records=service_configuration_records,
-                                verification_dns_records=verification_dns_records)
-
-
-def identitydirmgt_get_domain(client,
-                              domain_id,
-                              select=None,
-                              expand=None):
-    return client.get_domain(domain_id=domain_id,
-                             select=select,
-                             expand=expand)
-
-
-def identitydirmgt_list_domain(client,
-                               orderby=None,
-                               select=None,
-                               expand=None):
+def identitydirmgt_domainsdomain_list_domain(client,
+                                             orderby=None,
+                                             select=None,
+                                             expand=None):
     return client.list_domain(orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def identitydirmgt_update_domain(client,
-                                 domain_id,
-                                 id_=None,
-                                 authentication_type=None,
-                                 availability_status=None,
-                                 is_admin_managed=None,
-                                 is_default=None,
-                                 is_initial=None,
-                                 is_root=None,
-                                 is_verified=None,
-                                 manufacturer=None,
-                                 model=None,
-                                 password_notification_window_in_days=None,
-                                 password_validity_period_in_days=None,
-                                 state=None,
-                                 supported_services=None,
-                                 domain_name_references=None,
-                                 service_configuration_records=None,
-                                 verification_dns_records=None):
+def identitydirmgt_domainsdomain_show_domain(client,
+                                             domain_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_domain(domain_id=domain_id,
+                             select=select,
+                             expand=expand)
+
+
+def identitydirmgt_domainsdomain_update_domain(client,
+                                               domain_id,
+                                               id_=None,
+                                               authentication_type=None,
+                                               availability_status=None,
+                                               is_admin_managed=None,
+                                               is_default=None,
+                                               is_initial=None,
+                                               is_root=None,
+                                               is_verified=None,
+                                               manufacturer=None,
+                                               model=None,
+                                               password_notification_window_in_days=None,
+                                               password_validity_period_in_days=None,
+                                               state=None,
+                                               supported_services=None,
+                                               domain_name_references=None,
+                                               service_configuration_records=None,
+                                               verification_dns_records=None):
+    body = {}
+    body['id'] = id_
+    body['authentication_type'] = authentication_type
+    body['availability_status'] = availability_status
+    body['is_admin_managed'] = is_admin_managed
+    body['is_default'] = is_default
+    body['is_initial'] = is_initial
+    body['is_root'] = is_root
+    body['is_verified'] = is_verified
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['password_notification_window_in_days'] = password_notification_window_in_days
+    body['password_validity_period_in_days'] = password_validity_period_in_days
+    body['state'] = state
+    body['supported_services'] = supported_services
+    body['domain_name_references'] = domain_name_references
+    body['service_configuration_records'] = service_configuration_records
+    body['verification_dns_records'] = verification_dns_records
     return client.update_domain(domain_id=domain_id,
-                                id=id_,
-                                authentication_type=authentication_type,
-                                availability_status=availability_status,
-                                is_admin_managed=is_admin_managed,
-                                is_default=is_default,
-                                is_initial=is_initial,
-                                is_root=is_root,
-                                is_verified=is_verified,
-                                manufacturer=manufacturer,
-                                model=model,
-                                password_notification_window_in_days=password_notification_window_in_days,
-                                password_validity_period_in_days=password_validity_period_in_days,
-                                state=state,
-                                supported_services=supported_services,
-                                domain_name_references=domain_name_references,
-                                service_configuration_records=service_configuration_records,
-                                verification_dns_records=verification_dns_records)
+                                body=body)
 
 
-def identitydirmgt_delete(client,
-                          domain_id,
-                          domain_dns_record_id,
-                          if_match=None):
-    if domain_id is not None and domain_dns_record_id is not None:
-        return client.delete_service_configuration_record(domain_id=domain_id,
-                                                          domain_dns_record_id=domain_dns_record_id,
-                                                          if_match=if_match)
-    return client.delete_verification_dns_record(domain_id=domain_id,
-                                                 domain_dns_record_id=domain_dns_record_id,
-                                                 if_match=if_match)
+def identitydirmgt_domain_create_ref_domain_name_reference(client,
+                                                           domain_id,
+                                                           body):
+    return client.create_ref_domain_name_references(domain_id=domain_id,
+                                                    body=body)
 
 
-def identitydirmgt_create_ref_domain_name_reference(client,
-                                                    domain_id,
-                                                    body):
-    return client.create_ref_domain_name_reference(domain_id=domain_id,
-                                                   body=body)
+def identitydirmgt_domain_create_service_configuration_record(client,
+                                                              domain_id,
+                                                              id_=None,
+                                                              is_optional=None,
+                                                              label=None,
+                                                              record_type=None,
+                                                              supported_service=None,
+                                                              ttl=None):
+    body = {}
+    body['id'] = id_
+    body['is_optional'] = is_optional
+    body['label'] = label
+    body['record_type'] = record_type
+    body['supported_service'] = supported_service
+    body['ttl'] = ttl
+    return client.create_service_configuration_records(domain_id=domain_id,
+                                                       body=body)
 
 
-def identitydirmgt_create_service_configuration_record(client,
-                                                       domain_id,
-                                                       id_=None,
-                                                       is_optional=None,
-                                                       label=None,
-                                                       record_type=None,
-                                                       supported_service=None,
-                                                       ttl=None):
-    return client.create_service_configuration_record(domain_id=domain_id,
-                                                      id=id_,
-                                                      is_optional=is_optional,
-                                                      label=label,
-                                                      record_type=record_type,
-                                                      supported_service=supported_service,
-                                                      ttl=ttl)
+def identitydirmgt_domain_create_verification_dns_record(client,
+                                                         domain_id,
+                                                         id_=None,
+                                                         is_optional=None,
+                                                         label=None,
+                                                         record_type=None,
+                                                         supported_service=None,
+                                                         ttl=None):
+    body = {}
+    body['id'] = id_
+    body['is_optional'] = is_optional
+    body['label'] = label
+    body['record_type'] = record_type
+    body['supported_service'] = supported_service
+    body['ttl'] = ttl
+    return client.create_verification_dns_records(domain_id=domain_id,
+                                                  body=body)
 
 
-def identitydirmgt_create_verification_dns_record(client,
-                                                  domain_id,
-                                                  id_=None,
-                                                  is_optional=None,
-                                                  label=None,
-                                                  record_type=None,
-                                                  supported_service=None,
-                                                  ttl=None):
-    return client.create_verification_dns_record(domain_id=domain_id,
-                                                 id=id_,
-                                                 is_optional=is_optional,
-                                                 label=label,
-                                                 record_type=record_type,
-                                                 supported_service=supported_service,
-                                                 ttl=ttl)
+def identitydirmgt_domain_delete_service_configuration_record(client,
+                                                              domain_id,
+                                                              domain_dns_record_id,
+                                                              if_match=None):
+    return client.delete_service_configuration_records(domain_id=domain_id,
+                                                       domain_dns_record_id=domain_dns_record_id,
+                                                       if_match=if_match)
 
 
-def identitydirmgt_force_delete(client,
-                                domain_id,
-                                disable_user_accounts=None):
+def identitydirmgt_domain_delete_verification_dns_record(client,
+                                                         domain_id,
+                                                         domain_dns_record_id,
+                                                         if_match=None):
+    return client.delete_verification_dns_records(domain_id=domain_id,
+                                                  domain_dns_record_id=domain_dns_record_id,
+                                                  if_match=if_match)
+
+
+def identitydirmgt_domain_force_delete(client,
+                                       domain_id,
+                                       disable_user_accounts=None):
     if disable_user_accounts is None:
         disable_user_accounts = False
+    body = {}
+    body['disable_user_accounts'] = False if disable_user_accounts is None else disable_user_accounts
     return client.force_delete(domain_id=domain_id,
-                               disable_user_accounts=disable_user_accounts)
+                               body=body)
 
 
-def identitydirmgt_get_service_configuration_record(client,
-                                                    domain_id,
-                                                    domain_dns_record_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_service_configuration_record(domain_id=domain_id,
-                                                   domain_dns_record_id=domain_dns_record_id,
-                                                   select=select,
-                                                   expand=expand)
-
-
-def identitydirmgt_get_verification_dns_record(client,
-                                               domain_id,
-                                               domain_dns_record_id,
-                                               select=None,
-                                               expand=None):
-    return client.get_verification_dns_record(domain_id=domain_id,
-                                              domain_dns_record_id=domain_dns_record_id,
-                                              select=select,
-                                              expand=expand)
-
-
-def identitydirmgt_list_domain_name_reference(client,
-                                              domain_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
-    return client.list_domain_name_reference(domain_id=domain_id,
-                                             orderby=orderby,
-                                             select=select,
-                                             expand=expand)
-
-
-def identitydirmgt_list_ref_domain_name_reference(client,
-                                                  domain_id,
-                                                  orderby=None):
-    return client.list_ref_domain_name_reference(domain_id=domain_id,
-                                                 orderby=orderby)
-
-
-def identitydirmgt_list_service_configuration_record(client,
+def identitydirmgt_domain_list_domain_name_reference(client,
                                                      domain_id,
                                                      orderby=None,
                                                      select=None,
                                                      expand=None):
-    return client.list_service_configuration_record(domain_id=domain_id,
-                                                    orderby=orderby,
+    return client.list_domain_name_references(domain_id=domain_id,
+                                              orderby=orderby,
+                                              select=select,
+                                              expand=expand)
+
+
+def identitydirmgt_domain_list_ref_domain_name_reference(client,
+                                                         domain_id,
+                                                         orderby=None):
+    return client.list_ref_domain_name_references(domain_id=domain_id,
+                                                  orderby=orderby)
+
+
+def identitydirmgt_domain_list_service_configuration_record(client,
+                                                            domain_id,
+                                                            orderby=None,
+                                                            select=None,
+                                                            expand=None):
+    return client.list_service_configuration_records(domain_id=domain_id,
+                                                     orderby=orderby,
+                                                     select=select,
+                                                     expand=expand)
+
+
+def identitydirmgt_domain_list_verification_dns_record(client,
+                                                       domain_id,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
+    return client.list_verification_dns_records(domain_id=domain_id,
+                                                orderby=orderby,
+                                                select=select,
+                                                expand=expand)
+
+
+def identitydirmgt_domain_show_service_configuration_record(client,
+                                                            domain_id,
+                                                            domain_dns_record_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_service_configuration_records(domain_id=domain_id,
+                                                    domain_dns_record_id=domain_dns_record_id,
                                                     select=select,
                                                     expand=expand)
 
 
-def identitydirmgt_list_verification_dns_record(client,
-                                                domain_id,
-                                                orderby=None,
-                                                select=None,
-                                                expand=None):
-    return client.list_verification_dns_record(domain_id=domain_id,
-                                               orderby=orderby,
+def identitydirmgt_domain_show_verification_dns_record(client,
+                                                       domain_id,
+                                                       domain_dns_record_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_verification_dns_records(domain_id=domain_id,
+                                               domain_dns_record_id=domain_dns_record_id,
                                                select=select,
                                                expand=expand)
 
 
-def identitydirmgt_update_service_configuration_record(client,
-                                                       domain_id,
-                                                       domain_dns_record_id,
-                                                       id_=None,
-                                                       is_optional=None,
-                                                       label=None,
-                                                       record_type=None,
-                                                       supported_service=None,
-                                                       ttl=None):
-    return client.update_service_configuration_record(domain_id=domain_id,
-                                                      domain_dns_record_id=domain_dns_record_id,
-                                                      id=id_,
-                                                      is_optional=is_optional,
-                                                      label=label,
-                                                      record_type=record_type,
-                                                      supported_service=supported_service,
-                                                      ttl=ttl)
+def identitydirmgt_domain_update_service_configuration_record(client,
+                                                              domain_id,
+                                                              domain_dns_record_id,
+                                                              id_=None,
+                                                              is_optional=None,
+                                                              label=None,
+                                                              record_type=None,
+                                                              supported_service=None,
+                                                              ttl=None):
+    body = {}
+    body['id'] = id_
+    body['is_optional'] = is_optional
+    body['label'] = label
+    body['record_type'] = record_type
+    body['supported_service'] = supported_service
+    body['ttl'] = ttl
+    return client.update_service_configuration_records(domain_id=domain_id,
+                                                       domain_dns_record_id=domain_dns_record_id,
+                                                       body=body)
 
 
-def identitydirmgt_update_verification_dns_record(client,
-                                                  domain_id,
-                                                  domain_dns_record_id,
-                                                  id_=None,
-                                                  is_optional=None,
-                                                  label=None,
-                                                  record_type=None,
-                                                  supported_service=None,
-                                                  ttl=None):
-    return client.update_verification_dns_record(domain_id=domain_id,
-                                                 domain_dns_record_id=domain_dns_record_id,
-                                                 id=id_,
-                                                 is_optional=is_optional,
-                                                 label=label,
-                                                 record_type=record_type,
-                                                 supported_service=supported_service,
-                                                 ttl=ttl)
+def identitydirmgt_domain_update_verification_dns_record(client,
+                                                         domain_id,
+                                                         domain_dns_record_id,
+                                                         id_=None,
+                                                         is_optional=None,
+                                                         label=None,
+                                                         record_type=None,
+                                                         supported_service=None,
+                                                         ttl=None):
+    body = {}
+    body['id'] = id_
+    body['is_optional'] = is_optional
+    body['label'] = label
+    body['record_type'] = record_type
+    body['supported_service'] = supported_service
+    body['ttl'] = ttl
+    return client.update_verification_dns_records(domain_id=domain_id,
+                                                  domain_dns_record_id=domain_dns_record_id,
+                                                  body=body)
 
 
-def identitydirmgt_verify(client,
-                          domain_id):
+def identitydirmgt_domain_verify(client,
+                                 domain_id):
     return client.verify(domain_id=domain_id)
 
 
-def identitydirmgt_delete(client,
-                          organization_id,
-                          if_match=None):
+def identitydirmgt_organization_create_organization(client,
+                                                    id_=None,
+                                                    deleted_date_time=None,
+                                                    assigned_plans=None,
+                                                    business_phones=None,
+                                                    city=None,
+                                                    country=None,
+                                                    country_letter_code=None,
+                                                    created_date_time=None,
+                                                    display_name=None,
+                                                    marketing_notification_emails=None,
+                                                    on_premises_last_sync_date_time=None,
+                                                    on_premises_sync_enabled=None,
+                                                    postal_code=None,
+                                                    preferred_language=None,
+                                                    privacy_profile=None,
+                                                    provisioned_plans=None,
+                                                    security_compliance_notification_mails=None,
+                                                    security_compliance_notification_phones=None,
+                                                    state=None,
+                                                    street=None,
+                                                    technical_notification_mails=None,
+                                                    tenant_type=None,
+                                                    verified_domains=None,
+                                                    mobile_device_management_authority=None,
+                                                    certificate_based_auth_configuration=None,
+                                                    extensions=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['assigned_plans'] = assigned_plans
+    body['business_phones'] = business_phones
+    body['city'] = city
+    body['country'] = country
+    body['country_letter_code'] = country_letter_code
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['marketing_notification_emails'] = marketing_notification_emails
+    body['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['postal_code'] = postal_code
+    body['preferred_language'] = preferred_language
+    body['privacy_profile'] = privacy_profile
+    body['provisioned_plans'] = provisioned_plans
+    body['security_compliance_notification_mails'] = security_compliance_notification_mails
+    body['security_compliance_notification_phones'] = security_compliance_notification_phones
+    body['state'] = state
+    body['street'] = street
+    body['technical_notification_mails'] = technical_notification_mails
+    body['tenant_type'] = tenant_type
+    body['verified_domains'] = verified_domains
+    body['mobile_device_management_authority'] = mobile_device_management_authority
+    body['certificate_based_auth_configuration'] = certificate_based_auth_configuration
+    body['extensions'] = extensions
+    return client.create_organization(body=body)
+
+
+def identitydirmgt_organization_delete_organization(client,
+                                                    organization_id,
+                                                    if_match=None):
     return client.delete_organization(organization_id=organization_id,
                                       if_match=if_match)
 
 
-def identitydirmgt_create_organization(client,
-                                       id_=None,
-                                       deleted_date_time=None,
-                                       assigned_plans=None,
-                                       business_phones=None,
-                                       city=None,
-                                       country=None,
-                                       country_letter_code=None,
-                                       created_date_time=None,
-                                       display_name=None,
-                                       marketing_notification_emails=None,
-                                       on_premises_last_sync_date_time=None,
-                                       on_premises_sync_enabled=None,
-                                       postal_code=None,
-                                       preferred_language=None,
-                                       privacy_profile=None,
-                                       provisioned_plans=None,
-                                       security_compliance_notification_mails=None,
-                                       security_compliance_notification_phones=None,
-                                       state=None,
-                                       street=None,
-                                       technical_notification_mails=None,
-                                       tenant_type=None,
-                                       verified_domains=None,
-                                       mobile_device_management_authority=None,
-                                       certificate_based_auth_configuration=None,
-                                       extensions=None):
-    return client.create_organization(id=id_,
-                                      deleted_date_time=deleted_date_time,
-                                      assigned_plans=assigned_plans,
-                                      business_phones=business_phones,
-                                      city=city,
-                                      country=country,
-                                      country_letter_code=country_letter_code,
-                                      created_date_time=created_date_time,
-                                      display_name=display_name,
-                                      marketing_notification_emails=marketing_notification_emails,
-                                      on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                      on_premises_sync_enabled=on_premises_sync_enabled,
-                                      postal_code=postal_code,
-                                      preferred_language=preferred_language,
-                                      privacy_profile=privacy_profile,
-                                      provisioned_plans=provisioned_plans,
-                                      security_compliance_notification_mails=security_compliance_notification_mails,
-                                      security_compliance_notification_phones=security_compliance_notification_phones,
-                                      state=state,
-                                      street=street,
-                                      technical_notification_mails=technical_notification_mails,
-                                      tenant_type=tenant_type,
-                                      verified_domains=verified_domains,
-                                      mobile_device_management_authority=mobile_device_management_authority,
-                                      certificate_based_auth_configuration=certificate_based_auth_configuration,
-                                      extensions=extensions)
-
-
-def identitydirmgt_get_organization(client,
-                                    organization_id,
-                                    select=None,
-                                    expand=None):
-    return client.get_organization(organization_id=organization_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def identitydirmgt_list_organization(client,
-                                     orderby=None,
-                                     select=None,
-                                     expand=None):
+def identitydirmgt_organization_list_organization(client,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
     return client.list_organization(orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def identitydirmgt_update_organization(client,
-                                       organization_id,
-                                       id_=None,
-                                       deleted_date_time=None,
-                                       assigned_plans=None,
-                                       business_phones=None,
-                                       city=None,
-                                       country=None,
-                                       country_letter_code=None,
-                                       created_date_time=None,
-                                       display_name=None,
-                                       marketing_notification_emails=None,
-                                       on_premises_last_sync_date_time=None,
-                                       on_premises_sync_enabled=None,
-                                       postal_code=None,
-                                       preferred_language=None,
-                                       privacy_profile=None,
-                                       provisioned_plans=None,
-                                       security_compliance_notification_mails=None,
-                                       security_compliance_notification_phones=None,
-                                       state=None,
-                                       street=None,
-                                       technical_notification_mails=None,
-                                       tenant_type=None,
-                                       verified_domains=None,
-                                       mobile_device_management_authority=None,
-                                       certificate_based_auth_configuration=None,
-                                       extensions=None):
+def identitydirmgt_organization_show_organization(client,
+                                                  organization_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_organization(organization_id=organization_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def identitydirmgt_organization_update_organization(client,
+                                                    organization_id,
+                                                    id_=None,
+                                                    deleted_date_time=None,
+                                                    assigned_plans=None,
+                                                    business_phones=None,
+                                                    city=None,
+                                                    country=None,
+                                                    country_letter_code=None,
+                                                    created_date_time=None,
+                                                    display_name=None,
+                                                    marketing_notification_emails=None,
+                                                    on_premises_last_sync_date_time=None,
+                                                    on_premises_sync_enabled=None,
+                                                    postal_code=None,
+                                                    preferred_language=None,
+                                                    privacy_profile=None,
+                                                    provisioned_plans=None,
+                                                    security_compliance_notification_mails=None,
+                                                    security_compliance_notification_phones=None,
+                                                    state=None,
+                                                    street=None,
+                                                    technical_notification_mails=None,
+                                                    tenant_type=None,
+                                                    verified_domains=None,
+                                                    mobile_device_management_authority=None,
+                                                    certificate_based_auth_configuration=None,
+                                                    extensions=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['assigned_plans'] = assigned_plans
+    body['business_phones'] = business_phones
+    body['city'] = city
+    body['country'] = country
+    body['country_letter_code'] = country_letter_code
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['marketing_notification_emails'] = marketing_notification_emails
+    body['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['postal_code'] = postal_code
+    body['preferred_language'] = preferred_language
+    body['privacy_profile'] = privacy_profile
+    body['provisioned_plans'] = provisioned_plans
+    body['security_compliance_notification_mails'] = security_compliance_notification_mails
+    body['security_compliance_notification_phones'] = security_compliance_notification_phones
+    body['state'] = state
+    body['street'] = street
+    body['technical_notification_mails'] = technical_notification_mails
+    body['tenant_type'] = tenant_type
+    body['verified_domains'] = verified_domains
+    body['mobile_device_management_authority'] = mobile_device_management_authority
+    body['certificate_based_auth_configuration'] = certificate_based_auth_configuration
+    body['extensions'] = extensions
     return client.update_organization(organization_id=organization_id,
-                                      id=id_,
-                                      deleted_date_time=deleted_date_time,
-                                      assigned_plans=assigned_plans,
-                                      business_phones=business_phones,
-                                      city=city,
-                                      country=country,
-                                      country_letter_code=country_letter_code,
-                                      created_date_time=created_date_time,
-                                      display_name=display_name,
-                                      marketing_notification_emails=marketing_notification_emails,
-                                      on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                      on_premises_sync_enabled=on_premises_sync_enabled,
-                                      postal_code=postal_code,
-                                      preferred_language=preferred_language,
-                                      privacy_profile=privacy_profile,
-                                      provisioned_plans=provisioned_plans,
-                                      security_compliance_notification_mails=security_compliance_notification_mails,
-                                      security_compliance_notification_phones=security_compliance_notification_phones,
-                                      state=state,
-                                      street=street,
-                                      technical_notification_mails=technical_notification_mails,
-                                      tenant_type=tenant_type,
-                                      verified_domains=verified_domains,
-                                      mobile_device_management_authority=mobile_device_management_authority,
-                                      certificate_based_auth_configuration=certificate_based_auth_configuration,
-                                      extensions=extensions)
+                                      body=body)
 
 
-def identitydirmgt_delete(client,
-                          organization_id,
-                          extension_id,
-                          if_match=None):
-    return client.delete_extension(organization_id=organization_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+def identitydirmgt_organization_check_member_group(client,
+                                                   organization_id,
+                                                   group_ids=None):
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(organization_id=organization_id,
+                                      body=body)
 
 
-def identitydirmgt_check_member_group(client,
-                                      organization_id,
-                                      group_ids=None):
-    return client.check_member_group(organization_id=organization_id,
-                                     group_ids=group_ids)
+def identitydirmgt_organization_check_member_object(client,
+                                                    organization_id,
+                                                    ids=None):
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(organization_id=organization_id,
+                                       body=body)
 
 
-def identitydirmgt_check_member_object(client,
-                                       organization_id,
-                                       ids=None):
-    return client.check_member_object(organization_id=organization_id,
-                                      ids=ids)
+def identitydirmgt_organization_create_extension(client,
+                                                 organization_id,
+                                                 id_=None):
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(organization_id=organization_id,
+                                    body=body)
 
 
-def identitydirmgt_create_extension(client,
-                                    organization_id,
-                                    id_=None):
-    return client.create_extension(organization_id=organization_id,
-                                   id=id_)
+def identitydirmgt_organization_delete_extension(client,
+                                                 organization_id,
+                                                 extension_id,
+                                                 if_match=None):
+    return client.delete_extensions(organization_id=organization_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
-def identitydirmgt_get_available_extension_property(client,
-                                                    is_synced_from_on_premises=None):
+def identitydirmgt_organization_get_available_extension_property(client,
+                                                                 is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
 
 
-def identitydirmgt_get_by_id(client,
-                             ids=None,
-                             types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
+def identitydirmgt_organization_get_by_id(client,
+                                          ids=None,
+                                          types=None):
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
 
 
-def identitydirmgt_get_extension(client,
-                                 organization_id,
-                                 extension_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_extension(organization_id=organization_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
-
-
-def identitydirmgt_get_member_group(client,
-                                    organization_id,
-                                    security_enabled_only=None):
+def identitydirmgt_organization_get_member_group(client,
+                                                 organization_id,
+                                                 security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_group(organization_id=organization_id,
-                                   security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(organization_id=organization_id,
+                                    body=body)
 
 
-def identitydirmgt_get_member_object(client,
-                                     organization_id,
-                                     security_enabled_only=None):
+def identitydirmgt_organization_get_member_object(client,
+                                                  organization_id,
+                                                  security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_object(organization_id=organization_id,
-                                    security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(organization_id=organization_id,
+                                     body=body)
 
 
-def identitydirmgt_list_extension(client,
-                                  organization_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
-    return client.list_extension(organization_id=organization_id,
-                                 orderby=orderby,
+def identitydirmgt_organization_list_extension(client,
+                                               organization_id,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
+    return client.list_extensions(organization_id=organization_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def identitydirmgt_organization_restore(client,
+                                        organization_id):
+    return client.restore(organization_id=organization_id)
+
+
+def identitydirmgt_organization_set_mobile_device_management_authority(client,
+                                                                       organization_id):
+    return client.set_mobile_device_management_authority(organization_id=organization_id)
+
+
+def identitydirmgt_organization_show_extension(client,
+                                               organization_id,
+                                               extension_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_extensions(organization_id=organization_id,
+                                 extension_id=extension_id,
                                  select=select,
                                  expand=expand)
 
 
-def identitydirmgt_restore(client,
-                           organization_id):
-    return client.restore(organization_id=organization_id)
+def identitydirmgt_organization_update_extension(client,
+                                                 organization_id,
+                                                 extension_id,
+                                                 id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(organization_id=organization_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
-def identitydirmgt_set_mobile_device_management_authority(client,
-                                                          organization_id):
-    return client.set_mobile_device_management_authority(organization_id=organization_id)
+def identitydirmgt_organization_validate_property(client,
+                                                  entity_type=None,
+                                                  display_name=None,
+                                                  mail_nickname=None,
+                                                  on_behalf_of_user_id=None):
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)
 
 
-def identitydirmgt_update_extension(client,
-                                    organization_id,
-                                    extension_id,
-                                    id_=None):
-    return client.update_extension(organization_id=organization_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+def identitydirmgt_subscribedskussubscribedsku_create_subscribed_sku(client,
+                                                                     id_=None,
+                                                                     applies_to=None,
+                                                                     capability_status=None,
+                                                                     consumed_units=None,
+                                                                     prepaid_units=None,
+                                                                     service_plans=None,
+                                                                     sku_id=None,
+                                                                     sku_part_number=None):
+    body = {}
+    body['id'] = id_
+    body['applies_to'] = applies_to
+    body['capability_status'] = capability_status
+    body['consumed_units'] = consumed_units
+    body['prepaid_units'] = prepaid_units
+    body['service_plans'] = service_plans
+    body['sku_id'] = sku_id
+    body['sku_part_number'] = sku_part_number
+    return client.create_subscribed_sku(body=body)
 
 
-def identitydirmgt_validate_property(client,
-                                     entity_type=None,
-                                     display_name=None,
-                                     mail_nickname=None,
-                                     on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
-
-
-def identitydirmgt_delete(client,
-                          subscribed_sku_id,
-                          if_match=None):
+def identitydirmgt_subscribedskussubscribedsku_delete_subscribed_sku(client,
+                                                                     subscribed_sku_id,
+                                                                     if_match=None):
     return client.delete_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
                                         if_match=if_match)
 
 
-def identitydirmgt_create_subscribed_sku(client,
-                                         id_=None,
-                                         applies_to=None,
-                                         capability_status=None,
-                                         consumed_units=None,
-                                         prepaid_units=None,
-                                         service_plans=None,
-                                         sku_id=None,
-                                         sku_part_number=None):
-    return client.create_subscribed_sku(id=id_,
-                                        applies_to=applies_to,
-                                        capability_status=capability_status,
-                                        consumed_units=consumed_units,
-                                        prepaid_units=prepaid_units,
-                                        service_plans=service_plans,
-                                        sku_id=sku_id,
-                                        sku_part_number=sku_part_number)
-
-
-def identitydirmgt_get_subscribed_sku(client,
-                                      subscribed_sku_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def identitydirmgt_list_subscribed_sku(client,
-                                       orderby=None,
-                                       select=None,
-                                       expand=None):
+def identitydirmgt_subscribedskussubscribedsku_list_subscribed_sku(client,
+                                                                   orderby=None,
+                                                                   select=None,
+                                                                   expand=None):
     return client.list_subscribed_sku(orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def identitydirmgt_update_subscribed_sku(client,
-                                         subscribed_sku_id,
-                                         id_=None,
-                                         applies_to=None,
-                                         capability_status=None,
-                                         consumed_units=None,
-                                         prepaid_units=None,
-                                         service_plans=None,
-                                         sku_id=None,
-                                         sku_part_number=None):
+def identitydirmgt_subscribedskussubscribedsku_show_subscribed_sku(client,
+                                                                   subscribed_sku_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def identitydirmgt_subscribedskussubscribedsku_update_subscribed_sku(client,
+                                                                     subscribed_sku_id,
+                                                                     id_=None,
+                                                                     applies_to=None,
+                                                                     capability_status=None,
+                                                                     consumed_units=None,
+                                                                     prepaid_units=None,
+                                                                     service_plans=None,
+                                                                     sku_id=None,
+                                                                     sku_part_number=None):
+    body = {}
+    body['id'] = id_
+    body['applies_to'] = applies_to
+    body['capability_status'] = capability_status
+    body['consumed_units'] = consumed_units
+    body['prepaid_units'] = prepaid_units
+    body['service_plans'] = service_plans
+    body['sku_id'] = sku_id
+    body['sku_part_number'] = sku_part_number
     return client.update_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
-                                        id=id_,
-                                        applies_to=applies_to,
-                                        capability_status=capability_status,
-                                        consumed_units=consumed_units,
-                                        prepaid_units=prepaid_units,
-                                        service_plans=service_plans,
-                                        sku_id=sku_id,
-                                        sku_part_number=sku_part_number)
+                                        body=body)
 
 
-def identitydirmgt_delete(client,
-                          user_id,
-                          scoped_role_membership_id,
-                          if_match=None):
+def identitydirmgt_user_create_scoped_role_member_of(client,
+                                                     user_id,
+                                                     id_=None,
+                                                     administrative_unit_id=None,
+                                                     role_id=None,
+                                                     role_member_info=None):
+    body = {}
+    body['id'] = id_
+    body['administrative_unit_id'] = administrative_unit_id
+    body['role_id'] = role_id
+    body['role_member_info'] = role_member_info
+    return client.create_scoped_role_member_of(user_id=user_id,
+                                               body=body)
+
+
+def identitydirmgt_user_delete_scoped_role_member_of(client,
+                                                     user_id,
+                                                     scoped_role_membership_id,
+                                                     if_match=None):
     return client.delete_scoped_role_member_of(user_id=user_id,
                                                scoped_role_membership_id=scoped_role_membership_id,
                                                if_match=if_match)
 
 
-def identitydirmgt_create_scoped_role_member_of(client,
-                                                user_id,
-                                                id_=None,
-                                                administrative_unit_id=None,
-                                                role_id=None,
-                                                role_member_info_display_name=None,
-                                                role_member_info_id=None):
-    return client.create_scoped_role_member_of(user_id=user_id,
-                                               id=id_,
-                                               administrative_unit_id=administrative_unit_id,
-                                               role_id=role_id,
-                                               display_name=role_member_info_display_name,
-                                               microsoft_graph_identity_id=role_member_info_id)
-
-
-def identitydirmgt_get_scoped_role_member_of(client,
-                                             user_id,
-                                             scoped_role_membership_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_scoped_role_member_of(user_id=user_id,
-                                            scoped_role_membership_id=scoped_role_membership_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def identitydirmgt_list_scoped_role_member_of(client,
-                                              user_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def identitydirmgt_user_list_scoped_role_member_of(client,
+                                                   user_id,
+                                                   orderby=None,
+                                                   select=None,
+                                                   expand=None):
     return client.list_scoped_role_member_of(user_id=user_id,
                                              orderby=orderby,
                                              select=select,
                                              expand=expand)
 
 
-def identitydirmgt_update_scoped_role_member_of(client,
-                                                user_id,
-                                                scoped_role_membership_id,
-                                                id_=None,
-                                                administrative_unit_id=None,
-                                                role_id=None,
-                                                role_member_info_display_name=None,
-                                                role_member_info_id=None):
+def identitydirmgt_user_show_scoped_role_member_of(client,
+                                                   user_id,
+                                                   scoped_role_membership_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_scoped_role_member_of(user_id=user_id,
+                                            scoped_role_membership_id=scoped_role_membership_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def identitydirmgt_user_update_scoped_role_member_of(client,
+                                                     user_id,
+                                                     scoped_role_membership_id,
+                                                     id_=None,
+                                                     administrative_unit_id=None,
+                                                     role_id=None,
+                                                     role_member_info=None):
+    body = {}
+    body['id'] = id_
+    body['administrative_unit_id'] = administrative_unit_id
+    body['role_id'] = role_id
+    body['role_member_info'] = role_member_info
     return client.update_scoped_role_member_of(user_id=user_id,
                                                scoped_role_membership_id=scoped_role_membership_id,
-                                               id=id_,
-                                               administrative_unit_id=administrative_unit_id,
-                                               role_id=role_id,
-                                               display_name=role_member_info_display_name,
-                                               microsoft_graph_identity_id=role_member_info_id)
+                                               body=body)

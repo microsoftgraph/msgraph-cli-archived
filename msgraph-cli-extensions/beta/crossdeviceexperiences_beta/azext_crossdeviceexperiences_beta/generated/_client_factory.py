@@ -11,7 +11,7 @@
 
 def cf_crossdeviceexperiences_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.crossdeviceexperiences import CrossDeviceExperiences
+    from azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences import CrossDeviceExperiences
     return get_mgmt_service_client(cli_ctx,
                                    CrossDeviceExperiences,
                                    subscription_bound=False,
@@ -19,12 +19,12 @@ def cf_crossdeviceexperiences_beta_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_crossdeviceexperiences_beta_cl(cli_ctx).user
+    return cf_crossdeviceexperiences_beta_cl(cli_ctx).users
 
 
-def cf_user_activity(cli_ctx, *_):
-    return cf_crossdeviceexperiences_beta_cl(cli_ctx).user_activity
+def cf_usersactivity(cli_ctx, *_):
+    return cf_crossdeviceexperiences_beta_cl(cli_ctx).usersactivities
 
 
-def cf_user_activity_history_item(cli_ctx, *_):
-    return cf_crossdeviceexperiences_beta_cl(cli_ctx).user_activity_history_item
+def cf_usersactivitieshistoryitem(cli_ctx, *_):
+    return cf_crossdeviceexperiences_beta_cl(cli_ctx).usersactivitieshistoryitems

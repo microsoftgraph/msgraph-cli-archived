@@ -1,5 +1,11 @@
-Microsoft Azure CLI 'schemaextensions_beta' Extension
-==========================================
+# Azure CLI schemaextensions_beta Extension #
+This is the extension for schemaextensions_beta
 
-This package is for the 'schemaextensions_beta' extension.
-i.e. 'az schemaextensions_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name schemaextensions_beta
+```
+
+### Included Features ###
+#### schemaextensions schemaextensionsschemaextension ####

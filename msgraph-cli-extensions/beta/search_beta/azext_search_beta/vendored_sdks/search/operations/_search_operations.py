@@ -8,10 +8,9 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
-from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +21,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class SearchOperations(object):
-    """SearchOperations operations.
+class searchOperations(object):
+    """searchOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,26 +45,26 @@ class SearchOperations(object):
 
     def query(
         self,
-        requests=None,  # type: Optional[List["models.MicrosoftGraphSearchRequest"]]
+        body,  # type: "models.paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema"
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSearchResponse"]
+        # type: (...) -> List["models.microsoftgraphsearchresponse"]
         """Invoke action query.
 
         Invoke action query.
 
-        :param requests:
-        :type requests: list[~search.models.MicrosoftGraphSearchRequest]
+        :param body: Action parameters.
+        :type body: ~search.models.paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSearchResponse, or the result of cls(response)
-        :rtype: list[~search.models.MicrosoftGraphSearchResponse]
+        :return: list of microsoftgraphsearchresponse, or the result of cls(response)
+        :rtype: list[~search.models.microsoftgraphsearchresponse]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSearchResponse"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.microsoftgraphsearchresponse"]]
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema(requests=requests)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -79,22 +78,20 @@ class SearchOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('[MicrosoftGraphSearchResponse]', pipeline_response)
+        deserialized = self._deserialize('[microsoftgraphsearchresponse]', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})

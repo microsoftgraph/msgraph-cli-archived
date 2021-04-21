@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._change_notifications_async import ChangeNotifications
+from ._change_notifications import ChangeNotifications
 __all__ = ['ChangeNotifications']

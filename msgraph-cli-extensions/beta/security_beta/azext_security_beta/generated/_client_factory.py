@@ -11,28 +11,28 @@
 
 def cf_security_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.security import Security
+    from azext_security_beta.vendored_sdks.security import Security
     return get_mgmt_service_client(cli_ctx,
                                    Security,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_security_security(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).security_security
+def cf_security(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).securitysecurity
 
 
 def cf_security(cli_ctx, *_):
     return cf_security_beta_cl(cli_ctx).security
 
 
-def cf_security_alert(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).security_alert
+def cf_securityalert(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).securityalerts
 
 
-def cf_security_security_action(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).security_security_action
+def cf_securityaction(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).securitysecurityactions
 
 
-def cf_security_tiindicator(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).security_ti_indicator
+def cf_securitytiindicator(cli_ctx, *_):
+    return cf_security_beta_cl(cli_ctx).securitytiindicators

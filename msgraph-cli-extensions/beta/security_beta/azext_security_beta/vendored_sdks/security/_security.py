@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,27 +18,27 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import SecurityConfiguration
-from .operations import SecuritySecurityOperations
-from .operations import SecurityOperations
-from .operations import SecurityAlertOperations
-from .operations import SecuritySecurityActionOperations
-from .operations import SecurityTIIndicatorOperations
+from .operations import securitysecurityOperations
+from .operations import securityOperations
+from .operations import securityalertsOperations
+from .operations import securitysecurityactionsOperations
+from .operations import securitytiindicatorsOperations
 from . import models
 
 
 class Security(object):
     """Security.
 
-    :ivar security_security: SecuritySecurityOperations operations
-    :vartype security_security: security.operations.SecuritySecurityOperations
-    :ivar security: SecurityOperations operations
-    :vartype security: security.operations.SecurityOperations
-    :ivar security_alert: SecurityAlertOperations operations
-    :vartype security_alert: security.operations.SecurityAlertOperations
-    :ivar security_security_action: SecuritySecurityActionOperations operations
-    :vartype security_security_action: security.operations.SecuritySecurityActionOperations
-    :ivar security_ti_indicator: SecurityTIIndicatorOperations operations
-    :vartype security_ti_indicator: security.operations.SecurityTIIndicatorOperations
+    :ivar securitysecurity: securitysecurityOperations operations
+    :vartype securitysecurity: security.operations.securitysecurityOperations
+    :ivar security: securityOperations operations
+    :vartype security: security.operations.securityOperations
+    :ivar securityalerts: securityalertsOperations operations
+    :vartype securityalerts: security.operations.securityalertsOperations
+    :ivar securitysecurityactions: securitysecurityactionsOperations operations
+    :vartype securitysecurityactions: security.operations.securitysecurityactionsOperations
+    :ivar securitytiindicators: securitytiindicatorsOperations operations
+    :vartype securitytiindicators: security.operations.securitytiindicatorsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -52,7 +52,6 @@ class Security(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -70,21 +69,22 @@ class Security(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = SecurityConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.security_security = SecuritySecurityOperations(
+        self.securitysecurity = securitysecurityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security = SecurityOperations(
+        self.security = securityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_alert = SecurityAlertOperations(
+        self.securityalerts = securityalertsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_security_action = SecuritySecurityActionOperations(
+        self.securitysecurityactions = securitysecurityactionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_ti_indicator = SecurityTIIndicatorOperations(
+        self.securitytiindicators = securitytiindicatorsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

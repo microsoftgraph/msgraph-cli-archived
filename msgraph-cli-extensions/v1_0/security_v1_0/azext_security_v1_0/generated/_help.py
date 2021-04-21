@@ -12,39 +12,39 @@
 from knack.help_files import helps
 
 
-helps['security'] = """
+helps['security_v1_0'] = '''
     type: group
-    short-summary: security
-"""
+    short-summary: Manage Security
+'''
 
-helps['security get-security'] = """
-    type: command
-    short-summary: "Get Security"
-"""
-
-helps['security update-security'] = """
-    type: command
-    short-summary: "Update Security"
-"""
-
-helps['security'] = """
+helps['security security'] = """
     type: group
-    short-summary: security
+    short-summary: Manage security with security_v1_0
 """
 
-helps['security delete'] = """
+helps['security security show-security'] = """
     type: command
-    short-summary: "Delete navigation property secureScores for Security"
+    short-summary: "Get Security."
 """
 
-helps['security create-alert'] = """
+helps['security security update-security'] = """
     type: command
-    short-summary: "Create new navigation property to alerts for Security"
+    short-summary: "Update Security."
 """
 
-helps['security create-secure-score'] = """
+helps['security security'] = """
+    type: group
+    short-summary: Manage security with security_v1_0
+"""
+
+helps['security security create-alert'] = """
     type: command
-    short-summary: "Create new navigation property to secureScores for Security"
+    short-summary: "Create new navigation property to alerts for Security."
+"""
+
+helps['security security create-secure-score'] = """
+    type: command
+    short-summary: "Create new navigation property to secureScores for Security."
     parameters:
       - name: --average-comparative-scores
         short-summary: "Average score by different scopes (for example, average by industry, average by seating) and \
@@ -80,19 +80,10 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security create-secure-score-control-profile'] = """
+helps['security security create-secure-score-control-profile'] = """
     type: command
-    short-summary: "Create new navigation property to secureScoreControlProfiles for Security"
+    short-summary: "Create new navigation property to secureScoreControlProfiles for Security."
     parameters:
-      - name: --compliance-information
-        long-summary: |
-            Usage: --compliance-information certification-controls=XX certification-name=XX
-
-            certification-controls: Collection of the certification controls associated with certification
-            certification-name: Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST \
-800-171)
-
-            Multiple actions can be specified by using more than one --compliance-information argument.
       - name: --control-state-updates
         long-summary: |
             Usage: --control-state-updates assigned-to=XX comment=XX state=XX updated-by=XX updated-date-time=XX
@@ -116,44 +107,59 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security get-alert'] = """
+helps['security security delete-alert'] = """
     type: command
-    short-summary: "Get alerts from Security"
+    short-summary: "Delete navigation property alerts for Security."
 """
 
-helps['security get-secure-score'] = """
+helps['security security delete-secure-score'] = """
     type: command
-    short-summary: "Get secureScores from Security"
+    short-summary: "Delete navigation property secureScores for Security."
 """
 
-helps['security get-secure-score-control-profile'] = """
+helps['security security delete-secure-score-control-profile'] = """
     type: command
-    short-summary: "Get secureScoreControlProfiles from Security"
+    short-summary: "Delete navigation property secureScoreControlProfiles for Security."
 """
 
-helps['security list-alert'] = """
+helps['security security list-alert'] = """
     type: command
-    short-summary: "Get alerts from Security"
+    short-summary: "Get alerts from Security."
 """
 
-helps['security list-secure-score'] = """
+helps['security security list-secure-score'] = """
     type: command
-    short-summary: "Get secureScores from Security"
+    short-summary: "Get secureScores from Security."
 """
 
-helps['security list-secure-score-control-profile'] = """
+helps['security security list-secure-score-control-profile'] = """
     type: command
-    short-summary: "Get secureScoreControlProfiles from Security"
+    short-summary: "Get secureScoreControlProfiles from Security."
 """
 
-helps['security update-alert'] = """
+helps['security security show-alert'] = """
     type: command
-    short-summary: "Update the navigation property alerts in Security"
+    short-summary: "Get alerts from Security."
 """
 
-helps['security update-secure-score'] = """
+helps['security security show-secure-score'] = """
     type: command
-    short-summary: "Update the navigation property secureScores in Security"
+    short-summary: "Get secureScores from Security."
+"""
+
+helps['security security show-secure-score-control-profile'] = """
+    type: command
+    short-summary: "Get secureScoreControlProfiles from Security."
+"""
+
+helps['security security update-alert'] = """
+    type: command
+    short-summary: "Update the navigation property alerts in Security."
+"""
+
+helps['security security update-secure-score'] = """
+    type: command
+    short-summary: "Update the navigation property secureScores in Security."
     parameters:
       - name: --average-comparative-scores
         short-summary: "Average score by different scopes (for example, average by industry, average by seating) and \
@@ -189,19 +195,10 @@ WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
 """
 
-helps['security update-secure-score-control-profile'] = """
+helps['security security update-secure-score-control-profile'] = """
     type: command
-    short-summary: "Update the navigation property secureScoreControlProfiles in Security"
+    short-summary: "Update the navigation property secureScoreControlProfiles in Security."
     parameters:
-      - name: --compliance-information
-        long-summary: |
-            Usage: --compliance-information certification-controls=XX certification-name=XX
-
-            certification-controls: Collection of the certification controls associated with certification
-            certification-name: Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST \
-800-171)
-
-            Multiple actions can be specified by using more than one --compliance-information argument.
       - name: --control-state-updates
         long-summary: |
             Usage: --control-state-updates assigned-to=XX comment=XX state=XX updated-by=XX updated-date-time=XX

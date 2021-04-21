@@ -18,341 +18,362 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_users_v1_0.action import (
     AddServicePlans,
     AddMasterCategories,
-    AddShiftPreferencesLastModifiedByApplication
+    AddApplication
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users usersuser create-user') as c:
+        c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
+
+    with self.argument_context('users usersuser delete-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users create-user') as c:
-        c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
+    with self.argument_context('users usersuser list-user') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users get-user') as c:
+    with self.argument_context('users usersuser show-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-user') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('users update-user') as c:
+    with self.argument_context('users usersuser update-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('license_details_id', type=str, help='key: id of licenseDetails')
-        c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
-
-    with self.argument_context('users create-extension') as c:
+    with self.argument_context('users user create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users create-license-detail') as c:
+    with self.argument_context('users user create-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('service_plans', action=AddServicePlans, nargs='*', help='Information about the service plans '
+        c.argument('service_plans', action=AddServicePlans, nargs='+', help='Information about the service plans '
                    'assigned with the license. Read-only, Not nullable')
         c.argument('sku_id', help='Unique identifier (GUID) for the service SKU. Equal to the skuId property on the '
                    'related SubscribedSku object. Read-only')
         c.argument('sku_part_number', type=str, help='Unique SKU display name. Equal to the skuPartNumber on the '
                    'related SubscribedSku object; for example: \'AAD_Premium\'. Read-only')
 
-    with self.argument_context('users create-photo') as c:
+    with self.argument_context('users user create-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('height', type=int, help='The height of the photo. Read-only.')
         c.argument('width', type=int, help='The width of the photo. Read-only.')
 
-    with self.argument_context('users create-ref-created-object') as c:
+    with self.argument_context('users user create-ref-created-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-direct-report') as c:
+    with self.argument_context('users user create-ref-direct-report') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-member-of') as c:
+    with self.argument_context('users user create-ref-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-oauth2-permission-grant') as c:
+    with self.argument_context('users user create-ref-oauth2-permission-grant') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-owned-device') as c:
+    with self.argument_context('users user create-ref-owned-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-owned-object') as c:
+    with self.argument_context('users user create-ref-owned-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-registered-device') as c:
+    with self.argument_context('users user create-ref-registered-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users create-ref-transitive-member-of') as c:
+    with self.argument_context('users user create-ref-transitive-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users get-extension') as c:
+    with self.argument_context('users user delete-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users get-license-detail') as c:
+    with self.argument_context('users user delete-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('license_details_id', type=str, help='key: id of licenseDetails')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users get-manager') as c:
+    with self.argument_context('users user delete-outlook') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users get-outlook') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('users get-photo') as c:
+    with self.argument_context('users user delete-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users get-ref-manager') as c:
+    with self.argument_context('users user delete-ref-manager') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users get-setting') as c:
+    with self.argument_context('users user delete-setting') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users list-created-object') as c:
+    with self.argument_context('users user list-created-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-direct-report') as c:
+    with self.argument_context('users user list-direct-report') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-extension') as c:
+    with self.argument_context('users user list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-license-detail') as c:
+    with self.argument_context('users user list-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-member-of') as c:
+    with self.argument_context('users user list-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-oauth2-permission-grant') as c:
+    with self.argument_context('users user list-oauth2-permission-grant') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-owned-device') as c:
+    with self.argument_context('users user list-owned-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-owned-object') as c:
+    with self.argument_context('users user list-owned-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-photo') as c:
+    with self.argument_context('users user list-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-ref-created-object') as c:
+    with self.argument_context('users user list-ref-created-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-ref-direct-report') as c:
+    with self.argument_context('users user list-ref-direct-report') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-ref-member-of') as c:
+    with self.argument_context('users user list-ref-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-ref-oauth2-permission-grant') as c:
+    with self.argument_context('users user list-ref-oauth2-permission-grant') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-ref-owned-device') as c:
+    with self.argument_context('users user list-ref-owned-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-ref-owned-object') as c:
+    with self.argument_context('users user list-ref-owned-object') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-ref-registered-device') as c:
+    with self.argument_context('users user list-ref-registered-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-ref-transitive-member-of') as c:
+    with self.argument_context('users user list-ref-transitive-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('users list-registered-device') as c:
+    with self.argument_context('users user list-registered-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users list-transitive-member-of') as c:
+    with self.argument_context('users user list-transitive-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users set-ref-manager') as c:
+    with self.argument_context('users user set-ref-manager') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('users update-extension') as c:
+    with self.argument_context('users user show-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users user show-license-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('license_details_id', type=str, help='key: id of licenseDetails')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users user show-manager') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users user show-outlook') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users user show-photo') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users user show-ref-manager') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('users user show-setting') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users user update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('users update-license-detail') as c:
+    with self.argument_context('users user update-license-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('license_details_id', type=str, help='key: id of licenseDetails')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('service_plans', action=AddServicePlans, nargs='*', help='Information about the service plans '
+        c.argument('service_plans', action=AddServicePlans, nargs='+', help='Information about the service plans '
                    'assigned with the license. Read-only, Not nullable')
         c.argument('sku_id', help='Unique identifier (GUID) for the service SKU. Equal to the skuId property on the '
                    'related SubscribedSku object. Read-only')
         c.argument('sku_part_number', type=str, help='Unique SKU display name. Equal to the skuPartNumber on the '
                    'related SubscribedSku object; for example: \'AAD_Premium\'. Read-only')
 
-    with self.argument_context('users update-outlook') as c:
+    with self.argument_context('users user update-outlook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('master_categories', action=AddMasterCategories, nargs='*', help='A list of categories defined for '
+        c.argument('master_categories', action=AddMasterCategories, nargs='+', help='A list of categories defined for '
                    'the user.')
 
-    with self.argument_context('users update-photo') as c:
+    with self.argument_context('users user update-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('height', type=int, help='The height of the photo. Read-only.')
         c.argument('width', type=int, help='The width of the photo. Read-only.')
 
-    with self.argument_context('users update-setting') as c:
+    with self.argument_context('users user update-setting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('contribution_to_content_discovery_as_organization_disabled', arg_type=get_three_state_flag(),
                    help='')
         c.argument('contribution_to_content_discovery_disabled', arg_type=get_three_state_flag(), help='')
-        c.argument('shift_preferences_id', type=str, help='Read-only.')
-        c.argument('shift_preferences_created_date_time', help='The Timestamp type represents date and time '
-                   'information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, '
-                   '2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('shift_preferences_last_modified_date_time', help='The Timestamp type represents date and time '
-                   'information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, '
-                   '2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('shift_preferences_last_modified_by_application',
-                   action=AddShiftPreferencesLastModifiedByApplication, nargs='*', help='identity')
-        c.argument('shift_preferences_last_modified_by_device', action=AddShiftPreferencesLastModifiedByApplication,
-                   nargs='*', help='identity')
-        c.argument('shift_preferences_last_modified_by_user', action=AddShiftPreferencesLastModifiedByApplication,
-                   nargs='*', help='identity')
-        c.argument('shift_preferences_availability', type=validate_file_or_dict, help='Availability of the user to be '
-                   'scheduled for work and its recurrence pattern. Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Shift Preferences')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'', arg_group='Shift Preferences')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'', arg_group='Shift Preferences')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Shift Preferences Last '
+                   'Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Shift Preferences Last '
+                   'Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Shift Preferences Last '
+                   'Modified By')
+        c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
+                   'and its recurrence pattern. Expected value: json-string/@json-file.',
+                   arg_group='Shift Preferences')
 
-    with self.argument_context('users delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('outlook_category_id', type=str, help='key: id of outlookCategory')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('users create-master-category') as c:
+    with self.argument_context('users usersoutlook create-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('color', arg_type=get_enum_type(['preset0', 'preset1', 'none', 'preset2', 'preset3', 'preset4', ''
+        c.argument('color', arg_type=get_enum_type(['preset0', 'preset1', 'none', 'preset2', 'preset3', 'preset4',
                                                     'preset5', 'preset6', 'preset7', 'preset8', 'preset9', 'preset10',
-                                                    'preset11', 'preset12', 'preset13', 'preset14', 'preset15', ''
-                                                    'preset16', 'preset17', 'preset18', 'preset19', 'preset20', ''
+                                                    'preset11', 'preset12', 'preset13', 'preset14', 'preset15',
+                                                    'preset16', 'preset17', 'preset18', 'preset19', 'preset20',
                                                     'preset21', 'preset22', 'preset23', 'preset24']), help='')
         c.argument('display_name', type=str, help='A unique name that identifies a category in the user\'s mailbox. '
                    'After a category is created, the name cannot be changed. Read-only.')
 
-    with self.argument_context('users get-master-category') as c:
+    with self.argument_context('users usersoutlook delete-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_category_id', type=str, help='key: id of outlookCategory')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users list-master-category') as c:
+    with self.argument_context('users usersoutlook list-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users update-master-category') as c:
+    with self.argument_context('users usersoutlook show-master-category') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('outlook_category_id', type=str, help='key: id of outlookCategory')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users usersoutlook update-master-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('outlook_category_id', type=str, help='key: id of outlookCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('color', arg_type=get_enum_type(['preset0', 'preset1', 'none', 'preset2', 'preset3', 'preset4', ''
+        c.argument('color', arg_type=get_enum_type(['preset0', 'preset1', 'none', 'preset2', 'preset3', 'preset4',
                                                     'preset5', 'preset6', 'preset7', 'preset8', 'preset9', 'preset10',
-                                                    'preset11', 'preset12', 'preset13', 'preset14', 'preset15', ''
-                                                    'preset16', 'preset17', 'preset18', 'preset19', 'preset20', ''
+                                                    'preset11', 'preset12', 'preset13', 'preset14', 'preset15',
+                                                    'preset16', 'preset17', 'preset18', 'preset19', 'preset20',
                                                     'preset21', 'preset22', 'preset23', 'preset24']), help='')
         c.argument('display_name', type=str, help='A unique name that identifies a category in the user\'s mailbox. '
                    'After a category is created, the name cannot be changed. Read-only.')
 
-    with self.argument_context('users delete') as c:
+    with self.argument_context('users userssetting delete-shift-preference') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('users get-shift-preference') as c:
+    with self.argument_context('users userssetting show-shift-preference') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('users update-shift-preference') as c:
+    with self.argument_context('users userssetting update-shift-preference') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
@@ -361,11 +382,8 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_application', action=AddShiftPreferencesLastModifiedByApplication, nargs='*',
-                   help='identity')
-        c.argument('last_modified_by_device', action=AddShiftPreferencesLastModifiedByApplication, nargs='*', help=''
-                   'identity')
-        c.argument('last_modified_by_user', action=AddShiftPreferencesLastModifiedByApplication, nargs='*', help=''
-                   'identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
         c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
                    'and its recurrence pattern. Expected value: json-string/@json-file.')

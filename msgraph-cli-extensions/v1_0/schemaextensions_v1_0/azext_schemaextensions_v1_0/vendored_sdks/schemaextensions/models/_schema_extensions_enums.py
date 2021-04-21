@@ -26,35 +26,35 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
             raise AttributeError(name)
 
 
-class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get1itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DESCRIPTION = "description"
     OWNER = "owner"
     PROPERTIES = "properties"
     STATUS = "status"
-    TARGET_TYPES = "targetTypes"
+    TARGETTYPES = "targetTypes"
 
-class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    OWNER = "owner"
-    OWNER_DESC = "owner desc"
-    PROPERTIES = "properties"
-    PROPERTIES_DESC = "properties desc"
-    STATUS = "status"
-    STATUS_DESC = "status desc"
-    TARGET_TYPES = "targetTypes"
-    TARGET_TYPES_DESC = "targetTypes desc"
-
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get5itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    IDDESC = "id desc"
+    DESCRIPTION = "description"
+    DESCRIPTIONDESC = "description desc"
+    OWNER = "owner"
+    OWNERDESC = "owner desc"
+    PROPERTIES = "properties"
+    PROPERTIESDESC = "properties desc"
+    STATUS = "status"
+    STATUSDESC = "status desc"
+    TARGETTYPES = "targetTypes"
+    TARGETTYPESDESC = "targetTypes desc"
+
+class Get6itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
     DESCRIPTION = "description"
     OWNER = "owner"
     PROPERTIES = "properties"
     STATUS = "status"
-    TARGET_TYPES = "targetTypes"
+    TARGETTYPES = "targetTypes"

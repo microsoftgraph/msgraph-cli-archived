@@ -11,575 +11,433 @@
 # pylint: disable=too-many-lines
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       event_id,
-                                       attachment_item=None):
+def usersactions_userscalendarviewattachment_create_upload_session(client,
+                                                                   user_id,
+                                                                   event_id,
+                                                                   attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         event_id=event_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendarviewcalendar_get_schedule(client,
+                                                        user_id,
+                                                        event_id,
+                                                        schedules=None,
+                                                        end_time=None,
+                                                        start_time=None,
+                                                        availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarviewinstance_accept(client,
+                                                  user_id,
+                                                  event_id,
+                                                  event_id1,
+                                                  comment=None,
+                                                  send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarviewinstance_decline(client,
+                                                   user_id,
+                                                   event_id,
+                                                   event_id1,
+                                                   comment=None,
+                                                   send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendarviewinstance_dismiss_reminder(client,
+                                                            user_id,
+                                                            event_id,
+                                                            event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendarviewinstance_snooze_reminder(client,
+                                                           user_id,
+                                                           event_id,
+                                                           event_id1,
+                                                           new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarviewinstance_tentatively_accept(client,
+                                                              user_id,
+                                                              event_id,
+                                                              event_id1,
+                                                              comment=None,
+                                                              send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarview_accept(client,
+                                          user_id,
+                                          event_id,
+                                          comment=None,
+                                          send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarview_decline(client,
+                                           user_id,
+                                           event_id,
+                                           comment=None,
+                                           send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id):
+def usersactions_userscalendarview_dismiss_reminder(client,
+                                                    user_id,
+                                                    event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 new_reminder_time=None):
+def usersactions_userscalendarview_snooze_reminder(client,
+                                                   user_id,
+                                                   event_id,
+                                                   new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarview_tentatively_accept(client,
+                                                      user_id,
+                                                      event_id,
+                                                      comment=None,
+                                                      send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       event_id,
-                                       attachment_item=None):
+def usersactions_userscalendareventsattachment_create_upload_session(client,
+                                                                     user_id,
+                                                                     event_id,
+                                                                     attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         event_id=event_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendareventscalendar_get_schedule(client,
+                                                          user_id,
+                                                          event_id,
+                                                          schedules=None,
+                                                          end_time=None,
+                                                          start_time=None,
+                                                          availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendareventsinstance_accept(client,
+                                                    user_id,
+                                                    event_id,
+                                                    event_id1,
+                                                    comment=None,
+                                                    send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendareventsinstance_decline(client,
+                                                     user_id,
+                                                     event_id,
+                                                     event_id1,
+                                                     comment=None,
+                                                     send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendareventsinstance_dismiss_reminder(client,
+                                                              user_id,
+                                                              event_id,
+                                                              event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendareventsinstance_snooze_reminder(client,
+                                                             user_id,
+                                                             event_id,
+                                                             event_id1,
+                                                             new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendareventsinstance_tentatively_accept(client,
+                                                                user_id,
+                                                                event_id,
+                                                                event_id1,
+                                                                comment=None,
+                                                                send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarevent_accept(client,
+                                           user_id,
+                                           event_id,
+                                           comment=None,
+                                           send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarevent_decline(client,
+                                            user_id,
+                                            event_id,
+                                            comment=None,
+                                            send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id):
+def usersactions_userscalendarevent_dismiss_reminder(client,
+                                                     user_id,
+                                                     event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 new_reminder_time=None):
+def usersactions_userscalendarevent_snooze_reminder(client,
+                                                    user_id,
+                                                    event_id,
+                                                    new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarevent_tentatively_accept(client,
+                                                       user_id,
+                                                       event_id,
+                                                       comment=None,
+                                                       send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendar_get_schedule(client,
+                                            user_id,
+                                            schedules=None,
+                                            end_time=None,
+                                            start_time=None,
+                                            availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       calendar_group_id,
-                                       calendar_id,
-                                       event_id,
-                                       attachment_item=None):
-    return client.create_upload_session(user_id=user_id,
-                                        calendar_group_id=calendar_group_id,
-                                        calendar_id=calendar_id,
-                                        event_id=event_id,
-                                        attachment_item=attachment_item)
-
-
-def usersactions_get_schedule(client,
-                              user_id,
-                              calendar_group_id,
-                              calendar_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
-    return client.get_schedule(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
-
-
-def usersactions_accept(client,
-                        user_id,
-                        calendar_group_id,
-                        calendar_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.accept(user_id=user_id,
-                         calendar_group_id=calendar_group_id,
-                         calendar_id=calendar_id,
-                         event_id=event_id,
-                         event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
-
-
-def usersactions_decline(client,
-                         user_id,
-                         calendar_group_id,
-                         calendar_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.decline(user_id=user_id,
-                          calendar_group_id=calendar_group_id,
-                          calendar_id=calendar_id,
-                          event_id=event_id,
-                          event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
-
-
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_group_id,
-                                  calendar_id,
-                                  event_id,
-                                  event_id1):
-    return client.dismiss_reminder(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   event_id1=event_id1)
-
-
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_group_id,
-                                 calendar_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
-    return client.snooze_reminder(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
-
-
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_group_id,
-                                    calendar_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.tentatively_accept(user_id=user_id,
-                                     calendar_group_id=calendar_group_id,
-                                     calendar_id=calendar_id,
-                                     event_id=event_id,
-                                     event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
-
-
-def usersactions_accept(client,
-                        user_id,
-                        calendar_group_id,
-                        calendar_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.accept(user_id=user_id,
-                         calendar_group_id=calendar_group_id,
-                         calendar_id=calendar_id,
-                         event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
-
-
-def usersactions_decline(client,
-                         user_id,
-                         calendar_group_id,
-                         calendar_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.decline(user_id=user_id,
-                          calendar_group_id=calendar_group_id,
-                          calendar_id=calendar_id,
-                          event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
-
-
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_group_id,
-                                  calendar_id,
-                                  event_id):
-    return client.dismiss_reminder(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id)
-
-
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_group_id,
-                                 calendar_id,
-                                 event_id,
-                                 new_reminder_time=None):
-    return client.snooze_reminder(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
-
-
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_group_id,
-                                    calendar_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.tentatively_accept(user_id=user_id,
-                                     calendar_group_id=calendar_group_id,
-                                     calendar_id=calendar_id,
-                                     event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
-
-
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       calendar_group_id,
-                                       calendar_id,
-                                       event_id,
-                                       attachment_item=None):
+def usersactions_userscalendargroupscalendarscalendarviewattachment_create_upload_session(client,
+                                                                                          user_id,
+                                                                                          calendar_group_id,
+                                                                                          calendar_id,
+                                                                                          event_id,
+                                                                                          attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         calendar_group_id=calendar_group_id,
                                         calendar_id=calendar_id,
                                         event_id=event_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              calendar_group_id,
-                              calendar_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendargroupscalendarscalendarviewcalendar_get_schedule(client,
+                                                                               user_id,
+                                                                               calendar_group_id,
+                                                                               calendar_id,
+                                                                               event_id,
+                                                                               schedules=None,
+                                                                               end_time=None,
+                                                                               start_time=None,
+                                                                               availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                calendar_group_id=calendar_group_id,
                                calendar_id=calendar_id,
                                event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        calendar_group_id,
-                        calendar_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendargroupscalendarscalendarviewinstance_accept(client,
+                                                                         user_id,
+                                                                         calendar_group_id,
+                                                                         calendar_id,
+                                                                         event_id,
+                                                                         event_id1,
+                                                                         comment=None,
+                                                                         send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          calendar_group_id=calendar_group_id,
                          calendar_id=calendar_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         calendar_group_id,
-                         calendar_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendargroupscalendarscalendarviewinstance_decline(client,
+                                                                          user_id,
+                                                                          calendar_group_id,
+                                                                          calendar_id,
+                                                                          event_id,
+                                                                          event_id1,
+                                                                          comment=None,
+                                                                          send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           calendar_group_id=calendar_group_id,
                           calendar_id=calendar_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_group_id,
-                                  calendar_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendargroupscalendarscalendarviewinstance_dismiss_reminder(client,
+                                                                                   user_id,
+                                                                                   calendar_group_id,
+                                                                                   calendar_id,
+                                                                                   event_id,
+                                                                                   event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_group_id=calendar_group_id,
                                    calendar_id=calendar_id,
@@ -587,4352 +445,4988 @@ def usersactions_dismiss_reminder(client,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_group_id,
-                                 calendar_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendargroupscalendarscalendarviewinstance_snooze_reminder(client,
+                                                                                  user_id,
+                                                                                  calendar_group_id,
+                                                                                  calendar_id,
+                                                                                  event_id,
+                                                                                  event_id1,
+                                                                                  new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   calendar_group_id=calendar_group_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_group_id,
-                                    calendar_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendargroupscalendarscalendarviewinstance_tentatively_accept(client,
+                                                                                     user_id,
+                                                                                     calendar_group_id,
+                                                                                     calendar_id,
+                                                                                     event_id,
+                                                                                     event_id1,
+                                                                                     comment=None,
+                                                                                     send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      calendar_group_id=calendar_group_id,
                                      calendar_id=calendar_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        calendar_group_id,
-                        calendar_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendargroupscalendarscalendarview_accept(client,
+                                                                 user_id,
+                                                                 calendar_group_id,
+                                                                 calendar_id,
+                                                                 event_id,
+                                                                 comment=None,
+                                                                 send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          calendar_group_id=calendar_group_id,
                          calendar_id=calendar_id,
                          event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         calendar_group_id,
-                         calendar_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendargroupscalendarscalendarview_decline(client,
+                                                                  user_id,
+                                                                  calendar_group_id,
+                                                                  calendar_id,
+                                                                  event_id,
+                                                                  comment=None,
+                                                                  send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           calendar_group_id=calendar_group_id,
                           calendar_id=calendar_id,
                           event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_group_id,
-                                  calendar_id,
-                                  event_id):
+def usersactions_userscalendargroupscalendarscalendarview_dismiss_reminder(client,
+                                                                           user_id,
+                                                                           calendar_group_id,
+                                                                           calendar_id,
+                                                                           event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_group_id=calendar_group_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_group_id,
-                                 calendar_id,
-                                 event_id,
-                                 new_reminder_time=None):
+def usersactions_userscalendargroupscalendarscalendarview_snooze_reminder(client,
+                                                                          user_id,
+                                                                          calendar_group_id,
+                                                                          calendar_id,
+                                                                          event_id,
+                                                                          new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   calendar_group_id=calendar_group_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_group_id,
-                                    calendar_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendargroupscalendarscalendarview_tentatively_accept(client,
+                                                                             user_id,
+                                                                             calendar_group_id,
+                                                                             calendar_id,
+                                                                             event_id,
+                                                                             comment=None,
+                                                                             send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      calendar_group_id=calendar_group_id,
                                      calendar_id=calendar_id,
                                      event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              calendar_group_id,
-                              calendar_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendargroupscalendarseventsattachment_create_upload_session(client,
+                                                                                    user_id,
+                                                                                    calendar_group_id,
+                                                                                    calendar_id,
+                                                                                    event_id,
+                                                                                    attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
+    return client.create_upload_session(user_id=user_id,
+                                        calendar_group_id=calendar_group_id,
+                                        calendar_id=calendar_id,
+                                        event_id=event_id,
+                                        body=body)
+
+
+def usersactions_userscalendargroupscalendarseventscalendar_get_schedule(client,
+                                                                         user_id,
+                                                                         calendar_group_id,
+                                                                         calendar_id,
+                                                                         event_id,
+                                                                         schedules=None,
+                                                                         end_time=None,
+                                                                         start_time=None,
+                                                                         availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                calendar_group_id=calendar_group_id,
                                calendar_id=calendar_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               event_id=event_id,
+                               body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       calendar_id,
-                                       event_id,
-                                       attachment_item=None):
+def usersactions_userscalendargroupscalendarseventsinstance_accept(client,
+                                                                   user_id,
+                                                                   calendar_group_id,
+                                                                   calendar_id,
+                                                                   event_id,
+                                                                   event_id1,
+                                                                   comment=None,
+                                                                   send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.accept(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         body=body)
+
+
+def usersactions_userscalendargroupscalendarseventsinstance_decline(client,
+                                                                    user_id,
+                                                                    calendar_group_id,
+                                                                    calendar_id,
+                                                                    event_id,
+                                                                    event_id1,
+                                                                    comment=None,
+                                                                    send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.decline(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          body=body)
+
+
+def usersactions_userscalendargroupscalendarseventsinstance_dismiss_reminder(client,
+                                                                             user_id,
+                                                                             calendar_group_id,
+                                                                             calendar_id,
+                                                                             event_id,
+                                                                             event_id1):
+    return client.dismiss_reminder(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1)
+
+
+def usersactions_userscalendargroupscalendarseventsinstance_snooze_reminder(client,
+                                                                            user_id,
+                                                                            calendar_group_id,
+                                                                            calendar_id,
+                                                                            event_id,
+                                                                            event_id1,
+                                                                            new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
+    return client.snooze_reminder(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  body=body)
+
+
+def usersactions_userscalendargroupscalendarseventsinstance_tentatively_accept(client,
+                                                                               user_id,
+                                                                               calendar_group_id,
+                                                                               calendar_id,
+                                                                               event_id,
+                                                                               event_id1,
+                                                                               comment=None,
+                                                                               send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.tentatively_accept(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     event_id1=event_id1,
+                                     body=body)
+
+
+def usersactions_userscalendargroupscalendarsevent_accept(client,
+                                                          user_id,
+                                                          calendar_group_id,
+                                                          calendar_id,
+                                                          event_id,
+                                                          comment=None,
+                                                          send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.accept(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         body=body)
+
+
+def usersactions_userscalendargroupscalendarsevent_decline(client,
+                                                           user_id,
+                                                           calendar_group_id,
+                                                           calendar_id,
+                                                           event_id,
+                                                           comment=None,
+                                                           send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.decline(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          body=body)
+
+
+def usersactions_userscalendargroupscalendarsevent_dismiss_reminder(client,
+                                                                    user_id,
+                                                                    calendar_group_id,
+                                                                    calendar_id,
+                                                                    event_id):
+    return client.dismiss_reminder(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id)
+
+
+def usersactions_userscalendargroupscalendarsevent_snooze_reminder(client,
+                                                                   user_id,
+                                                                   calendar_group_id,
+                                                                   calendar_id,
+                                                                   event_id,
+                                                                   new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
+    return client.snooze_reminder(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  body=body)
+
+
+def usersactions_userscalendargroupscalendarsevent_tentatively_accept(client,
+                                                                      user_id,
+                                                                      calendar_group_id,
+                                                                      calendar_id,
+                                                                      event_id,
+                                                                      comment=None,
+                                                                      send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.tentatively_accept(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     body=body)
+
+
+def usersactions_userscalendargroupscalendar_get_schedule(client,
+                                                          user_id,
+                                                          calendar_group_id,
+                                                          calendar_id,
+                                                          schedules=None,
+                                                          end_time=None,
+                                                          start_time=None,
+                                                          availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
+    return client.get_schedule(user_id=user_id,
+                               calendar_group_id=calendar_group_id,
+                               calendar_id=calendar_id,
+                               body=body)
+
+
+def usersactions_userscalendarscalendarviewattachment_create_upload_session(client,
+                                                                            user_id,
+                                                                            calendar_id,
+                                                                            event_id,
+                                                                            attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         calendar_id=calendar_id,
                                         event_id=event_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              calendar_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendarscalendarviewcalendar_get_schedule(client,
+                                                                 user_id,
+                                                                 calendar_id,
+                                                                 event_id,
+                                                                 schedules=None,
+                                                                 end_time=None,
+                                                                 start_time=None,
+                                                                 availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                calendar_id=calendar_id,
                                event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        calendar_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarscalendarviewinstance_accept(client,
+                                                           user_id,
+                                                           calendar_id,
+                                                           event_id,
+                                                           event_id1,
+                                                           comment=None,
+                                                           send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          calendar_id=calendar_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         calendar_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarscalendarviewinstance_decline(client,
+                                                            user_id,
+                                                            calendar_id,
+                                                            event_id,
+                                                            event_id1,
+                                                            comment=None,
+                                                            send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           calendar_id=calendar_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendarscalendarviewinstance_dismiss_reminder(client,
+                                                                     user_id,
+                                                                     calendar_id,
+                                                                     event_id,
+                                                                     event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendarscalendarviewinstance_snooze_reminder(client,
+                                                                    user_id,
+                                                                    calendar_id,
+                                                                    event_id,
+                                                                    event_id1,
+                                                                    new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarscalendarviewinstance_tentatively_accept(client,
+                                                                       user_id,
+                                                                       calendar_id,
+                                                                       event_id,
+                                                                       event_id1,
+                                                                       comment=None,
+                                                                       send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      calendar_id=calendar_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        calendar_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarscalendarview_accept(client,
+                                                   user_id,
+                                                   calendar_id,
+                                                   event_id,
+                                                   comment=None,
+                                                   send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          calendar_id=calendar_id,
                          event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         calendar_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarscalendarview_decline(client,
+                                                    user_id,
+                                                    calendar_id,
+                                                    event_id,
+                                                    comment=None,
+                                                    send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           calendar_id=calendar_id,
                           event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_id,
-                                  event_id):
+def usersactions_userscalendarscalendarview_dismiss_reminder(client,
+                                                             user_id,
+                                                             calendar_id,
+                                                             event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_id,
-                                 event_id,
-                                 new_reminder_time=None):
+def usersactions_userscalendarscalendarview_snooze_reminder(client,
+                                                            user_id,
+                                                            calendar_id,
+                                                            event_id,
+                                                            new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarscalendarview_tentatively_accept(client,
+                                                               user_id,
+                                                               calendar_id,
+                                                               event_id,
+                                                               comment=None,
+                                                               send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      calendar_id=calendar_id,
                                      event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       calendar_id,
-                                       event_id,
-                                       attachment_item=None):
+def usersactions_userscalendarseventsattachment_create_upload_session(client,
+                                                                      user_id,
+                                                                      calendar_id,
+                                                                      event_id,
+                                                                      attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         calendar_id=calendar_id,
                                         event_id=event_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              calendar_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendarseventscalendar_get_schedule(client,
+                                                           user_id,
+                                                           calendar_id,
+                                                           event_id,
+                                                           schedules=None,
+                                                           end_time=None,
+                                                           start_time=None,
+                                                           availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                calendar_id=calendar_id,
                                event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        calendar_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarseventsinstance_accept(client,
+                                                     user_id,
+                                                     calendar_id,
+                                                     event_id,
+                                                     event_id1,
+                                                     comment=None,
+                                                     send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          calendar_id=calendar_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         calendar_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarseventsinstance_decline(client,
+                                                      user_id,
+                                                      calendar_id,
+                                                      event_id,
+                                                      event_id1,
+                                                      comment=None,
+                                                      send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           calendar_id=calendar_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendarseventsinstance_dismiss_reminder(client,
+                                                               user_id,
+                                                               calendar_id,
+                                                               event_id,
+                                                               event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendarseventsinstance_snooze_reminder(client,
+                                                              user_id,
+                                                              calendar_id,
+                                                              event_id,
+                                                              event_id1,
+                                                              new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarseventsinstance_tentatively_accept(client,
+                                                                 user_id,
+                                                                 calendar_id,
+                                                                 event_id,
+                                                                 event_id1,
+                                                                 comment=None,
+                                                                 send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      calendar_id=calendar_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        calendar_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarsevent_accept(client,
+                                            user_id,
+                                            calendar_id,
+                                            event_id,
+                                            comment=None,
+                                            send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          calendar_id=calendar_id,
                          event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         calendar_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarsevent_decline(client,
+                                             user_id,
+                                             calendar_id,
+                                             event_id,
+                                             comment=None,
+                                             send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           calendar_id=calendar_id,
                           event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  calendar_id,
-                                  event_id):
+def usersactions_userscalendarsevent_dismiss_reminder(client,
+                                                      user_id,
+                                                      calendar_id,
+                                                      event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 calendar_id,
-                                 event_id,
-                                 new_reminder_time=None):
+def usersactions_userscalendarsevent_snooze_reminder(client,
+                                                     user_id,
+                                                     calendar_id,
+                                                     event_id,
+                                                     new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    calendar_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarsevent_tentatively_accept(client,
+                                                        user_id,
+                                                        calendar_id,
+                                                        event_id,
+                                                        comment=None,
+                                                        send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      calendar_id=calendar_id,
                                      event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              calendar_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendar_get_schedule(client,
+                                            user_id,
+                                            calendar_id,
+                                            schedules=None,
+                                            end_time=None,
+                                            start_time=None,
+                                            availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                calendar_id=calendar_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       event_id,
-                                       attachment_item=None):
+def usersactions_userscalendarviewattachment_create_upload_session(client,
+                                                                   user_id,
+                                                                   event_id,
+                                                                   attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         event_id=event_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarviewcalendarview_accept(client,
+                                                      user_id,
+                                                      event_id,
+                                                      event_id1,
+                                                      comment=None,
+                                                      send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarviewcalendarview_decline(client,
+                                                       user_id,
+                                                       event_id,
+                                                       event_id1,
+                                                       comment=None,
+                                                       send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendarviewcalendarview_dismiss_reminder(client,
+                                                                user_id,
+                                                                event_id,
+                                                                event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendarviewcalendarview_snooze_reminder(client,
+                                                               user_id,
+                                                               event_id,
+                                                               event_id1,
+                                                               new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarviewcalendarview_tentatively_accept(client,
+                                                                  user_id,
+                                                                  event_id,
+                                                                  event_id1,
+                                                                  comment=None,
+                                                                  send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarviewcalendarevent_accept(client,
+                                                       user_id,
+                                                       event_id,
+                                                       event_id1,
+                                                       comment=None,
+                                                       send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarviewcalendarevent_decline(client,
+                                                        user_id,
+                                                        event_id,
+                                                        event_id1,
+                                                        comment=None,
+                                                        send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendarviewcalendarevent_dismiss_reminder(client,
+                                                                 user_id,
+                                                                 event_id,
+                                                                 event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendarviewcalendarevent_snooze_reminder(client,
+                                                                user_id,
+                                                                event_id,
+                                                                event_id1,
+                                                                new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarviewcalendarevent_tentatively_accept(client,
+                                                                   user_id,
+                                                                   event_id,
+                                                                   event_id1,
+                                                                   comment=None,
+                                                                   send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userscalendarviewcalendar_get_schedule(client,
+                                                        user_id,
+                                                        event_id,
+                                                        schedules=None,
+                                                        end_time=None,
+                                                        start_time=None,
+                                                        availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarviewinstance_accept(client,
+                                                  user_id,
+                                                  event_id,
+                                                  event_id1,
+                                                  comment=None,
+                                                  send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarviewinstance_decline(client,
+                                                   user_id,
+                                                   event_id,
+                                                   event_id1,
+                                                   comment=None,
+                                                   send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userscalendarviewinstance_dismiss_reminder(client,
+                                                            user_id,
+                                                            event_id,
+                                                            event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userscalendarviewinstance_snooze_reminder(client,
+                                                           user_id,
+                                                           event_id,
+                                                           event_id1,
+                                                           new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarviewinstance_tentatively_accept(client,
+                                                              user_id,
+                                                              event_id,
+                                                              event_id1,
+                                                              comment=None,
+                                                              send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
+def usersactions_userscalendarview_accept(client,
+                                          user_id,
+                                          event_id,
+                                          comment=None,
+                                          send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
+def usersactions_userscalendarview_decline(client,
+                                           user_id,
+                                           event_id,
+                                           comment=None,
+                                           send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id):
+def usersactions_userscalendarview_dismiss_reminder(client,
+                                                    user_id,
+                                                    event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 new_reminder_time=None):
+def usersactions_userscalendarview_snooze_reminder(client,
+                                                   user_id,
+                                                   event_id,
+                                                   new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userscalendarview_tentatively_accept(client,
+                                                      user_id,
+                                                      event_id,
+                                                      comment=None,
+                                                      send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       event_id,
-                                       attachment_item=None):
+def usersactions_userseventsattachment_create_upload_session(client,
+                                                             user_id,
+                                                             event_id,
+                                                             attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         event_id=event_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userseventscalendarview_accept(client,
+                                                user_id,
+                                                event_id,
+                                                event_id1,
+                                                comment=None,
+                                                send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userseventscalendarview_decline(client,
+                                                 user_id,
+                                                 event_id,
+                                                 event_id1,
+                                                 comment=None,
+                                                 send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userseventscalendarview_dismiss_reminder(client,
+                                                          user_id,
+                                                          event_id,
+                                                          event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userseventscalendarview_snooze_reminder(client,
+                                                         user_id,
+                                                         event_id,
+                                                         event_id1,
+                                                         new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userseventscalendarview_tentatively_accept(client,
+                                                            user_id,
+                                                            event_id,
+                                                            event_id1,
+                                                            comment=None,
+                                                            send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userseventscalendarevent_accept(client,
+                                                 user_id,
+                                                 event_id,
+                                                 event_id1,
+                                                 comment=None,
+                                                 send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userseventscalendarevent_decline(client,
+                                                  user_id,
+                                                  event_id,
+                                                  event_id1,
+                                                  comment=None,
+                                                  send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userseventscalendarevent_dismiss_reminder(client,
+                                                           user_id,
+                                                           event_id,
+                                                           event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userseventscalendarevent_snooze_reminder(client,
+                                                          user_id,
+                                                          event_id,
+                                                          event_id1,
+                                                          new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_userseventscalendarevent_tentatively_accept(client,
+                                                             user_id,
+                                                             event_id,
+                                                             event_id1,
+                                                             comment=None,
+                                                             send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_get_schedule(client,
-                              user_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
+def usersactions_userseventscalendar_get_schedule(client,
+                                                  user_id,
+                                                  event_id,
+                                                  schedules=None,
+                                                  end_time=None,
+                                                  start_time=None,
+                                                  availability_view_interval=None):
+    body = {}
+    body['schedules'] = schedules
+    body['end_time'] = end_time
+    body['start_time'] = start_time
+    body['availability_view_interval'] = availability_view_interval
     return client.get_schedule(user_id=user_id,
                                event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
+                               body=body)
 
 
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        event_id1,
-                        comment=None,
-                        send_response=None):
+def usersactions_userseventsinstance_accept(client,
+                                            user_id,
+                                            event_id,
+                                            event_id1,
+                                            comment=None,
+                                            send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.accept(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         body=body)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
+def usersactions_userseventsinstance_decline(client,
+                                             user_id,
+                                             event_id,
+                                             event_id1,
+                                             comment=None,
+                                             send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
                           event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
+def usersactions_userseventsinstance_dismiss_reminder(client,
+                                                      user_id,
+                                                      event_id,
+                                                      event_id1):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
+def usersactions_userseventsinstance_snooze_reminder(client,
+                                                     user_id,
+                                                     event_id,
+                                                     event_id1,
+                                                     new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
+def usersactions_userseventsinstance_tentatively_accept(client,
+                                                        user_id,
+                                                        event_id,
+                                                        event_id1,
+                                                        comment=None,
+                                                        send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.tentatively_accept(user_id=user_id,
+                                     event_id=event_id,
+                                     event_id1=event_id1,
+                                     body=body)
+
+
+def usersactions_usersevent_accept(client,
+                                   user_id,
+                                   event_id,
+                                   comment=None,
+                                   send_response=None):
+    if send_response is None:
+        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
+    return client.accept(user_id=user_id,
+                         event_id=event_id,
+                         body=body)
+
+
+def usersactions_usersevent_decline(client,
                                     user_id,
                                     event_id,
-                                    event_id1,
                                     comment=None,
                                     send_response=None):
     if send_response is None:
         send_response = False
-    return client.tentatively_accept(user_id=user_id,
-                                     event_id=event_id,
-                                     event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
-
-
-def usersactions_accept(client,
-                        user_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.accept(user_id=user_id,
-                         event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
-
-
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
-    if send_response is None:
-        send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.decline(user_id=user_id,
                           event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
+                          body=body)
 
 
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id):
+def usersactions_usersevent_dismiss_reminder(client,
+                                             user_id,
+                                             event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id)
 
 
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 new_reminder_time=None):
+def usersactions_usersevent_snooze_reminder(client,
+                                            user_id,
+                                            event_id,
+                                            new_reminder_time=None):
+    body = {}
+    body['new_reminder_time'] = new_reminder_time
     return client.snooze_reminder(user_id=user_id,
                                   event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
+                                  body=body)
 
 
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
+def usersactions_usersevent_tentatively_accept(client,
+                                               user_id,
+                                               event_id,
+                                               comment=None,
+                                               send_response=None):
     if send_response is None:
         send_response = False
+    body = {}
+    body['comment'] = comment
+    body['send_response'] = False if send_response is None else send_response
     return client.tentatively_accept(user_id=user_id,
                                      event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
+                                     body=body)
 
 
-def usersactions_copy(client,
-                      user_id,
-                      mail_folder_id,
-                      mail_folder_id1,
-                      destination_id=None):
+def usersactions_usersmailfolderschildfolder_copy(client,
+                                                  user_id,
+                                                  mail_folder_id,
+                                                  mail_folder_id1,
+                                                  destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.copy(user_id=user_id,
                        mail_folder_id=mail_folder_id,
                        mail_folder_id1=mail_folder_id1,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_move(client,
-                      user_id,
-                      mail_folder_id,
-                      mail_folder_id1,
-                      destination_id=None):
+def usersactions_usersmailfolderschildfolder_move(client,
+                                                  user_id,
+                                                  mail_folder_id,
+                                                  mail_folder_id1,
+                                                  destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.move(user_id=user_id,
                        mail_folder_id=mail_folder_id,
                        mail_folder_id1=mail_folder_id1,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       mail_folder_id,
-                                       message_id,
-                                       attachment_item=None):
+def usersactions_usersmailfoldersmessagesattachment_create_upload_session(client,
+                                                                          user_id,
+                                                                          mail_folder_id,
+                                                                          message_id,
+                                                                          attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         mail_folder_id=mail_folder_id,
                                         message_id=message_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_copy(client,
-                      user_id,
-                      mail_folder_id,
-                      message_id,
-                      destination_id=None):
+def usersactions_usersmailfoldersmessage_copy(client,
+                                              user_id,
+                                              mail_folder_id,
+                                              message_id,
+                                              destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.copy(user_id=user_id,
                        mail_folder_id=mail_folder_id,
                        message_id=message_id,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_create_forward(client,
-                                user_id,
-                                mail_folder_id,
-                                message_id,
-                                to_recipients=None,
-                                comment=None,
-                                id=None,
-                                message_categories=None,
-                                message_change_key=None,
-                                message_created_date_time=None,
-                                message_last_modified_date_time=None,
-                                message_bcc_recipients=None,
-                                message_body=None,
-                                message_body_preview=None,
-                                message_cc_recipients=None,
-                                message_conversation_id=None,
-                                message_conversation_index=None,
-                                message_flag=None,
-                                message_from=None,
-                                message_has_attachments=None,
-                                message_importance=None,
-                                message_inference_classification=None,
-                                message_internet_message_headers=None,
-                                message_internet_message_id=None,
-                                message_is_delivery_receipt_requested=None,
-                                message_is_draft=None,
-                                message_is_read=None,
-                                message_is_read_receipt_requested=None,
-                                message_parent_folder_id=None,
-                                message_received_date_time=None,
-                                message_reply_to=None,
-                                message_sender=None,
-                                message_sent_date_time=None,
-                                message_subject=None,
-                                message_to_recipients=None,
-                                message_unique_body=None,
-                                message_web_link=None,
-                                message_attachments=None,
-                                message_extensions=None,
-                                message_multi_value_extended_properties=None,
-                                message_single_value_extended_properties=None):
+def usersactions_usersmailfoldersmessage_create_forward(client,
+                                                        user_id,
+                                                        mail_folder_id,
+                                                        message_id,
+                                                        body,
+                                                        to_recipients=None,
+                                                        comment=None,
+                                                        id_=None,
+                                                        categories=None,
+                                                        change_key=None,
+                                                        created_date_time=None,
+                                                        last_modified_date_time=None,
+                                                        bcc_recipients=None,
+                                                        body_preview=None,
+                                                        cc_recipients=None,
+                                                        conversation_id=None,
+                                                        conversation_index=None,
+                                                        flag=None,
+                                                        from=None,
+                                                        has_attachments=None,
+                                                        importance=None,
+                                                        inference_classification=None,
+                                                        internet_message_headers=None,
+                                                        internet_message_id=None,
+                                                        is_delivery_receipt_requested=None,
+                                                        is_draft=None,
+                                                        is_read=None,
+                                                        is_read_receipt_requested=None,
+                                                        parent_folder_id=None,
+                                                        received_date_time=None,
+                                                        reply_to=None,
+                                                        sender=None,
+                                                        sent_date_time=None,
+                                                        subject=None,
+                                                        microsoft_graph_message_to_recipients=None,
+                                                        unique_body=None,
+                                                        web_link=None,
+                                                        attachments=None,
+                                                        extensions=None,
+                                                        multi_value_extended_properties=None,
+                                                        single_value_extended_properties=None):
+    body = {}
+    body['to_recipients'] = to_recipients
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = microsoft_graph_message_to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.create_forward(user_id=user_id,
                                  mail_folder_id=mail_folder_id,
                                  message_id=message_id,
-                                 to_recipients=to_recipients,
-                                 comment=comment,
-                                 id=id,
-                                 categories=message_categories,
-                                 change_key=message_change_key,
-                                 created_date_time=message_created_date_time,
-                                 last_modified_date_time=message_last_modified_date_time,
-                                 bcc_recipients=message_bcc_recipients,
-                                 body=message_body,
-                                 body_preview=message_body_preview,
-                                 cc_recipients=message_cc_recipients,
-                                 conversation_id=message_conversation_id,
-                                 conversation_index=message_conversation_index,
-                                 flag=message_flag,
-                                 from_parameter=message_from,
-                                 has_attachments=message_has_attachments,
-                                 importance=message_importance,
-                                 inference_classification=message_inference_classification,
-                                 internet_message_headers=message_internet_message_headers,
-                                 internet_message_id=message_internet_message_id,
-                                 is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                                 is_draft=message_is_draft,
-                                 is_read=message_is_read,
-                                 is_read_receipt_requested=message_is_read_receipt_requested,
-                                 parent_folder_id=message_parent_folder_id,
-                                 received_date_time=message_received_date_time,
-                                 reply_to=message_reply_to,
-                                 sender=message_sender,
-                                 sent_date_time=message_sent_date_time,
-                                 subject=message_subject,
-                                 microsoft_graph_message_to_recipients=message_to_recipients,
-                                 unique_body=message_unique_body,
-                                 web_link=message_web_link,
-                                 attachments=message_attachments,
-                                 extensions=message_extensions,
-                                 multi_value_extended_properties=message_multi_value_extended_properties,
-                                 single_value_extended_properties=message_single_value_extended_properties)
+                                 body=body)
 
 
-def usersactions_create_reply(client,
-                              user_id,
-                              mail_folder_id,
-                              message_id,
-                              comment=None,
-                              id=None,
-                              message_categories=None,
-                              message_change_key=None,
-                              message_created_date_time=None,
-                              message_last_modified_date_time=None,
-                              message_bcc_recipients=None,
-                              message_body=None,
-                              message_body_preview=None,
-                              message_cc_recipients=None,
-                              message_conversation_id=None,
-                              message_conversation_index=None,
-                              message_flag=None,
-                              message_from=None,
-                              message_has_attachments=None,
-                              message_importance=None,
-                              message_inference_classification=None,
-                              message_internet_message_headers=None,
-                              message_internet_message_id=None,
-                              message_is_delivery_receipt_requested=None,
-                              message_is_draft=None,
-                              message_is_read=None,
-                              message_is_read_receipt_requested=None,
-                              message_parent_folder_id=None,
-                              message_received_date_time=None,
-                              message_reply_to=None,
-                              message_sender=None,
-                              message_sent_date_time=None,
-                              message_subject=None,
-                              message_to_recipients=None,
-                              message_unique_body=None,
-                              message_web_link=None,
-                              message_attachments=None,
-                              message_extensions=None,
-                              message_multi_value_extended_properties=None,
-                              message_single_value_extended_properties=None):
+def usersactions_usersmailfoldersmessage_create_reply(client,
+                                                      user_id,
+                                                      mail_folder_id,
+                                                      message_id,
+                                                      body,
+                                                      comment=None,
+                                                      id_=None,
+                                                      categories=None,
+                                                      change_key=None,
+                                                      created_date_time=None,
+                                                      last_modified_date_time=None,
+                                                      bcc_recipients=None,
+                                                      body_preview=None,
+                                                      cc_recipients=None,
+                                                      conversation_id=None,
+                                                      conversation_index=None,
+                                                      flag=None,
+                                                      from=None,
+                                                      has_attachments=None,
+                                                      importance=None,
+                                                      inference_classification=None,
+                                                      internet_message_headers=None,
+                                                      internet_message_id=None,
+                                                      is_delivery_receipt_requested=None,
+                                                      is_draft=None,
+                                                      is_read=None,
+                                                      is_read_receipt_requested=None,
+                                                      parent_folder_id=None,
+                                                      received_date_time=None,
+                                                      reply_to=None,
+                                                      sender=None,
+                                                      sent_date_time=None,
+                                                      subject=None,
+                                                      to_recipients=None,
+                                                      unique_body=None,
+                                                      web_link=None,
+                                                      attachments=None,
+                                                      extensions=None,
+                                                      multi_value_extended_properties=None,
+                                                      single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.create_reply(user_id=user_id,
                                mail_folder_id=mail_folder_id,
                                message_id=message_id,
-                               comment=comment,
-                               id=id,
-                               categories=message_categories,
-                               change_key=message_change_key,
-                               created_date_time=message_created_date_time,
-                               last_modified_date_time=message_last_modified_date_time,
-                               bcc_recipients=message_bcc_recipients,
-                               body=message_body,
-                               body_preview=message_body_preview,
-                               cc_recipients=message_cc_recipients,
-                               conversation_id=message_conversation_id,
-                               conversation_index=message_conversation_index,
-                               flag=message_flag,
-                               from_parameter=message_from,
-                               has_attachments=message_has_attachments,
-                               importance=message_importance,
-                               inference_classification=message_inference_classification,
-                               internet_message_headers=message_internet_message_headers,
-                               internet_message_id=message_internet_message_id,
-                               is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                               is_draft=message_is_draft,
-                               is_read=message_is_read,
-                               is_read_receipt_requested=message_is_read_receipt_requested,
-                               parent_folder_id=message_parent_folder_id,
-                               received_date_time=message_received_date_time,
-                               reply_to=message_reply_to,
-                               sender=message_sender,
-                               sent_date_time=message_sent_date_time,
-                               subject=message_subject,
-                               to_recipients=message_to_recipients,
-                               unique_body=message_unique_body,
-                               web_link=message_web_link,
-                               attachments=message_attachments,
-                               extensions=message_extensions,
-                               multi_value_extended_properties=message_multi_value_extended_properties,
-                               single_value_extended_properties=message_single_value_extended_properties)
+                               body=body)
 
 
-def usersactions_create_reply_all(client,
-                                  user_id,
-                                  mail_folder_id,
-                                  message_id,
-                                  comment=None,
-                                  id=None,
-                                  message_categories=None,
-                                  message_change_key=None,
-                                  message_created_date_time=None,
-                                  message_last_modified_date_time=None,
-                                  message_bcc_recipients=None,
-                                  message_body=None,
-                                  message_body_preview=None,
-                                  message_cc_recipients=None,
-                                  message_conversation_id=None,
-                                  message_conversation_index=None,
-                                  message_flag=None,
-                                  message_from=None,
-                                  message_has_attachments=None,
-                                  message_importance=None,
-                                  message_inference_classification=None,
-                                  message_internet_message_headers=None,
-                                  message_internet_message_id=None,
-                                  message_is_delivery_receipt_requested=None,
-                                  message_is_draft=None,
-                                  message_is_read=None,
-                                  message_is_read_receipt_requested=None,
-                                  message_parent_folder_id=None,
-                                  message_received_date_time=None,
-                                  message_reply_to=None,
-                                  message_sender=None,
-                                  message_sent_date_time=None,
-                                  message_subject=None,
-                                  message_to_recipients=None,
-                                  message_unique_body=None,
-                                  message_web_link=None,
-                                  message_attachments=None,
-                                  message_extensions=None,
-                                  message_multi_value_extended_properties=None,
-                                  message_single_value_extended_properties=None):
+def usersactions_usersmailfoldersmessage_create_reply_all(client,
+                                                          user_id,
+                                                          mail_folder_id,
+                                                          message_id,
+                                                          body,
+                                                          comment=None,
+                                                          id_=None,
+                                                          categories=None,
+                                                          change_key=None,
+                                                          created_date_time=None,
+                                                          last_modified_date_time=None,
+                                                          bcc_recipients=None,
+                                                          body_preview=None,
+                                                          cc_recipients=None,
+                                                          conversation_id=None,
+                                                          conversation_index=None,
+                                                          flag=None,
+                                                          from=None,
+                                                          has_attachments=None,
+                                                          importance=None,
+                                                          inference_classification=None,
+                                                          internet_message_headers=None,
+                                                          internet_message_id=None,
+                                                          is_delivery_receipt_requested=None,
+                                                          is_draft=None,
+                                                          is_read=None,
+                                                          is_read_receipt_requested=None,
+                                                          parent_folder_id=None,
+                                                          received_date_time=None,
+                                                          reply_to=None,
+                                                          sender=None,
+                                                          sent_date_time=None,
+                                                          subject=None,
+                                                          to_recipients=None,
+                                                          unique_body=None,
+                                                          web_link=None,
+                                                          attachments=None,
+                                                          extensions=None,
+                                                          multi_value_extended_properties=None,
+                                                          single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.create_reply_all(user_id=user_id,
                                    mail_folder_id=mail_folder_id,
                                    message_id=message_id,
-                                   comment=comment,
-                                   id=id,
-                                   categories=message_categories,
-                                   change_key=message_change_key,
-                                   created_date_time=message_created_date_time,
-                                   last_modified_date_time=message_last_modified_date_time,
-                                   bcc_recipients=message_bcc_recipients,
-                                   body=message_body,
-                                   body_preview=message_body_preview,
-                                   cc_recipients=message_cc_recipients,
-                                   conversation_id=message_conversation_id,
-                                   conversation_index=message_conversation_index,
-                                   flag=message_flag,
-                                   from_parameter=message_from,
-                                   has_attachments=message_has_attachments,
-                                   importance=message_importance,
-                                   inference_classification=message_inference_classification,
-                                   internet_message_headers=message_internet_message_headers,
-                                   internet_message_id=message_internet_message_id,
-                                   is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                                   is_draft=message_is_draft,
-                                   is_read=message_is_read,
-                                   is_read_receipt_requested=message_is_read_receipt_requested,
-                                   parent_folder_id=message_parent_folder_id,
-                                   received_date_time=message_received_date_time,
-                                   reply_to=message_reply_to,
-                                   sender=message_sender,
-                                   sent_date_time=message_sent_date_time,
-                                   subject=message_subject,
-                                   to_recipients=message_to_recipients,
-                                   unique_body=message_unique_body,
-                                   web_link=message_web_link,
-                                   attachments=message_attachments,
-                                   extensions=message_extensions,
-                                   multi_value_extended_properties=message_multi_value_extended_properties,
-                                   single_value_extended_properties=message_single_value_extended_properties)
+                                   body=body)
 
 
-def usersactions_forward(client,
-                         user_id,
-                         mail_folder_id,
-                         message_id,
-                         to_recipients=None,
-                         comment=None,
-                         id=None,
-                         message_categories=None,
-                         message_change_key=None,
-                         message_created_date_time=None,
-                         message_last_modified_date_time=None,
-                         message_bcc_recipients=None,
-                         message_body=None,
-                         message_body_preview=None,
-                         message_cc_recipients=None,
-                         message_conversation_id=None,
-                         message_conversation_index=None,
-                         message_flag=None,
-                         message_from=None,
-                         message_has_attachments=None,
-                         message_importance=None,
-                         message_inference_classification=None,
-                         message_internet_message_headers=None,
-                         message_internet_message_id=None,
-                         message_is_delivery_receipt_requested=None,
-                         message_is_draft=None,
-                         message_is_read=None,
-                         message_is_read_receipt_requested=None,
-                         message_parent_folder_id=None,
-                         message_received_date_time=None,
-                         message_reply_to=None,
-                         message_sender=None,
-                         message_sent_date_time=None,
-                         message_subject=None,
-                         message_to_recipients=None,
-                         message_unique_body=None,
-                         message_web_link=None,
-                         message_attachments=None,
-                         message_extensions=None,
-                         message_multi_value_extended_properties=None,
-                         message_single_value_extended_properties=None):
+def usersactions_usersmailfoldersmessage_forward(client,
+                                                 user_id,
+                                                 mail_folder_id,
+                                                 message_id,
+                                                 body,
+                                                 to_recipients=None,
+                                                 comment=None,
+                                                 id_=None,
+                                                 categories=None,
+                                                 change_key=None,
+                                                 created_date_time=None,
+                                                 last_modified_date_time=None,
+                                                 bcc_recipients=None,
+                                                 body_preview=None,
+                                                 cc_recipients=None,
+                                                 conversation_id=None,
+                                                 conversation_index=None,
+                                                 flag=None,
+                                                 from=None,
+                                                 has_attachments=None,
+                                                 importance=None,
+                                                 inference_classification=None,
+                                                 internet_message_headers=None,
+                                                 internet_message_id=None,
+                                                 is_delivery_receipt_requested=None,
+                                                 is_draft=None,
+                                                 is_read=None,
+                                                 is_read_receipt_requested=None,
+                                                 parent_folder_id=None,
+                                                 received_date_time=None,
+                                                 reply_to=None,
+                                                 sender=None,
+                                                 sent_date_time=None,
+                                                 subject=None,
+                                                 microsoft_graph_message_to_recipients=None,
+                                                 unique_body=None,
+                                                 web_link=None,
+                                                 attachments=None,
+                                                 extensions=None,
+                                                 multi_value_extended_properties=None,
+                                                 single_value_extended_properties=None):
+    body = {}
+    body['to_recipients'] = to_recipients
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = microsoft_graph_message_to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.forward(user_id=user_id,
                           mail_folder_id=mail_folder_id,
                           message_id=message_id,
-                          to_recipients=to_recipients,
-                          comment=comment,
-                          id=id,
-                          categories=message_categories,
-                          change_key=message_change_key,
-                          created_date_time=message_created_date_time,
-                          last_modified_date_time=message_last_modified_date_time,
-                          bcc_recipients=message_bcc_recipients,
-                          body=message_body,
-                          body_preview=message_body_preview,
-                          cc_recipients=message_cc_recipients,
-                          conversation_id=message_conversation_id,
-                          conversation_index=message_conversation_index,
-                          flag=message_flag,
-                          from_parameter=message_from,
-                          has_attachments=message_has_attachments,
-                          importance=message_importance,
-                          inference_classification=message_inference_classification,
-                          internet_message_headers=message_internet_message_headers,
-                          internet_message_id=message_internet_message_id,
-                          is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                          is_draft=message_is_draft,
-                          is_read=message_is_read,
-                          is_read_receipt_requested=message_is_read_receipt_requested,
-                          parent_folder_id=message_parent_folder_id,
-                          received_date_time=message_received_date_time,
-                          reply_to=message_reply_to,
-                          sender=message_sender,
-                          sent_date_time=message_sent_date_time,
-                          subject=message_subject,
-                          microsoft_graph_message_to_recipients=message_to_recipients,
-                          unique_body=message_unique_body,
-                          web_link=message_web_link,
-                          attachments=message_attachments,
-                          extensions=message_extensions,
-                          multi_value_extended_properties=message_multi_value_extended_properties,
-                          single_value_extended_properties=message_single_value_extended_properties)
+                          body=body)
 
 
-def usersactions_move(client,
-                      user_id,
-                      mail_folder_id,
-                      message_id,
-                      destination_id=None):
+def usersactions_usersmailfoldersmessage_move(client,
+                                              user_id,
+                                              mail_folder_id,
+                                              message_id,
+                                              destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.move(user_id=user_id,
                        mail_folder_id=mail_folder_id,
                        message_id=message_id,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_reply(client,
-                       user_id,
-                       mail_folder_id,
-                       message_id,
-                       comment=None,
-                       id=None,
-                       message_categories=None,
-                       message_change_key=None,
-                       message_created_date_time=None,
-                       message_last_modified_date_time=None,
-                       message_bcc_recipients=None,
-                       message_body=None,
-                       message_body_preview=None,
-                       message_cc_recipients=None,
-                       message_conversation_id=None,
-                       message_conversation_index=None,
-                       message_flag=None,
-                       message_from=None,
-                       message_has_attachments=None,
-                       message_importance=None,
-                       message_inference_classification=None,
-                       message_internet_message_headers=None,
-                       message_internet_message_id=None,
-                       message_is_delivery_receipt_requested=None,
-                       message_is_draft=None,
-                       message_is_read=None,
-                       message_is_read_receipt_requested=None,
-                       message_parent_folder_id=None,
-                       message_received_date_time=None,
-                       message_reply_to=None,
-                       message_sender=None,
-                       message_sent_date_time=None,
-                       message_subject=None,
-                       message_to_recipients=None,
-                       message_unique_body=None,
-                       message_web_link=None,
-                       message_attachments=None,
-                       message_extensions=None,
-                       message_multi_value_extended_properties=None,
-                       message_single_value_extended_properties=None):
+def usersactions_usersmailfoldersmessage_reply(client,
+                                               user_id,
+                                               mail_folder_id,
+                                               message_id,
+                                               body,
+                                               comment=None,
+                                               id_=None,
+                                               categories=None,
+                                               change_key=None,
+                                               created_date_time=None,
+                                               last_modified_date_time=None,
+                                               bcc_recipients=None,
+                                               body_preview=None,
+                                               cc_recipients=None,
+                                               conversation_id=None,
+                                               conversation_index=None,
+                                               flag=None,
+                                               from=None,
+                                               has_attachments=None,
+                                               importance=None,
+                                               inference_classification=None,
+                                               internet_message_headers=None,
+                                               internet_message_id=None,
+                                               is_delivery_receipt_requested=None,
+                                               is_draft=None,
+                                               is_read=None,
+                                               is_read_receipt_requested=None,
+                                               parent_folder_id=None,
+                                               received_date_time=None,
+                                               reply_to=None,
+                                               sender=None,
+                                               sent_date_time=None,
+                                               subject=None,
+                                               to_recipients=None,
+                                               unique_body=None,
+                                               web_link=None,
+                                               attachments=None,
+                                               extensions=None,
+                                               multi_value_extended_properties=None,
+                                               single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.reply(user_id=user_id,
                         mail_folder_id=mail_folder_id,
                         message_id=message_id,
-                        comment=comment,
-                        id=id,
-                        categories=message_categories,
-                        change_key=message_change_key,
-                        created_date_time=message_created_date_time,
-                        last_modified_date_time=message_last_modified_date_time,
-                        bcc_recipients=message_bcc_recipients,
-                        body=message_body,
-                        body_preview=message_body_preview,
-                        cc_recipients=message_cc_recipients,
-                        conversation_id=message_conversation_id,
-                        conversation_index=message_conversation_index,
-                        flag=message_flag,
-                        from_parameter=message_from,
-                        has_attachments=message_has_attachments,
-                        importance=message_importance,
-                        inference_classification=message_inference_classification,
-                        internet_message_headers=message_internet_message_headers,
-                        internet_message_id=message_internet_message_id,
-                        is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                        is_draft=message_is_draft,
-                        is_read=message_is_read,
-                        is_read_receipt_requested=message_is_read_receipt_requested,
-                        parent_folder_id=message_parent_folder_id,
-                        received_date_time=message_received_date_time,
-                        reply_to=message_reply_to,
-                        sender=message_sender,
-                        sent_date_time=message_sent_date_time,
-                        subject=message_subject,
-                        to_recipients=message_to_recipients,
-                        unique_body=message_unique_body,
-                        web_link=message_web_link,
-                        attachments=message_attachments,
-                        extensions=message_extensions,
-                        multi_value_extended_properties=message_multi_value_extended_properties,
-                        single_value_extended_properties=message_single_value_extended_properties)
+                        body=body)
 
 
-def usersactions_reply_all(client,
-                           user_id,
-                           mail_folder_id,
-                           message_id,
-                           comment=None,
-                           id=None,
-                           message_categories=None,
-                           message_change_key=None,
-                           message_created_date_time=None,
-                           message_last_modified_date_time=None,
-                           message_bcc_recipients=None,
-                           message_body=None,
-                           message_body_preview=None,
-                           message_cc_recipients=None,
-                           message_conversation_id=None,
-                           message_conversation_index=None,
-                           message_flag=None,
-                           message_from=None,
-                           message_has_attachments=None,
-                           message_importance=None,
-                           message_inference_classification=None,
-                           message_internet_message_headers=None,
-                           message_internet_message_id=None,
-                           message_is_delivery_receipt_requested=None,
-                           message_is_draft=None,
-                           message_is_read=None,
-                           message_is_read_receipt_requested=None,
-                           message_parent_folder_id=None,
-                           message_received_date_time=None,
-                           message_reply_to=None,
-                           message_sender=None,
-                           message_sent_date_time=None,
-                           message_subject=None,
-                           message_to_recipients=None,
-                           message_unique_body=None,
-                           message_web_link=None,
-                           message_attachments=None,
-                           message_extensions=None,
-                           message_multi_value_extended_properties=None,
-                           message_single_value_extended_properties=None):
+def usersactions_usersmailfoldersmessage_reply_all(client,
+                                                   user_id,
+                                                   mail_folder_id,
+                                                   message_id,
+                                                   body,
+                                                   comment=None,
+                                                   id_=None,
+                                                   categories=None,
+                                                   change_key=None,
+                                                   created_date_time=None,
+                                                   last_modified_date_time=None,
+                                                   bcc_recipients=None,
+                                                   body_preview=None,
+                                                   cc_recipients=None,
+                                                   conversation_id=None,
+                                                   conversation_index=None,
+                                                   flag=None,
+                                                   from=None,
+                                                   has_attachments=None,
+                                                   importance=None,
+                                                   inference_classification=None,
+                                                   internet_message_headers=None,
+                                                   internet_message_id=None,
+                                                   is_delivery_receipt_requested=None,
+                                                   is_draft=None,
+                                                   is_read=None,
+                                                   is_read_receipt_requested=None,
+                                                   parent_folder_id=None,
+                                                   received_date_time=None,
+                                                   reply_to=None,
+                                                   sender=None,
+                                                   sent_date_time=None,
+                                                   subject=None,
+                                                   to_recipients=None,
+                                                   unique_body=None,
+                                                   web_link=None,
+                                                   attachments=None,
+                                                   extensions=None,
+                                                   multi_value_extended_properties=None,
+                                                   single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.reply_all(user_id=user_id,
                             mail_folder_id=mail_folder_id,
                             message_id=message_id,
-                            comment=comment,
-                            id=id,
-                            categories=message_categories,
-                            change_key=message_change_key,
-                            created_date_time=message_created_date_time,
-                            last_modified_date_time=message_last_modified_date_time,
-                            bcc_recipients=message_bcc_recipients,
-                            body=message_body,
-                            body_preview=message_body_preview,
-                            cc_recipients=message_cc_recipients,
-                            conversation_id=message_conversation_id,
-                            conversation_index=message_conversation_index,
-                            flag=message_flag,
-                            from_parameter=message_from,
-                            has_attachments=message_has_attachments,
-                            importance=message_importance,
-                            inference_classification=message_inference_classification,
-                            internet_message_headers=message_internet_message_headers,
-                            internet_message_id=message_internet_message_id,
-                            is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                            is_draft=message_is_draft,
-                            is_read=message_is_read,
-                            is_read_receipt_requested=message_is_read_receipt_requested,
-                            parent_folder_id=message_parent_folder_id,
-                            received_date_time=message_received_date_time,
-                            reply_to=message_reply_to,
-                            sender=message_sender,
-                            sent_date_time=message_sent_date_time,
-                            subject=message_subject,
-                            to_recipients=message_to_recipients,
-                            unique_body=message_unique_body,
-                            web_link=message_web_link,
-                            attachments=message_attachments,
-                            extensions=message_extensions,
-                            multi_value_extended_properties=message_multi_value_extended_properties,
-                            single_value_extended_properties=message_single_value_extended_properties)
+                            body=body)
 
 
-def usersactions_send(client,
-                      user_id,
-                      mail_folder_id,
-                      message_id):
+def usersactions_usersmailfoldersmessage_send(client,
+                                              user_id,
+                                              mail_folder_id,
+                                              message_id):
     return client.send(user_id=user_id,
                        mail_folder_id=mail_folder_id,
                        message_id=message_id)
 
 
-def usersactions_copy(client,
-                      user_id,
-                      mail_folder_id,
-                      destination_id=None):
+def usersactions_usersmailfolder_copy(client,
+                                      user_id,
+                                      mail_folder_id,
+                                      destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.copy(user_id=user_id,
                        mail_folder_id=mail_folder_id,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_move(client,
-                      user_id,
-                      mail_folder_id,
-                      destination_id=None):
+def usersactions_usersmailfolder_move(client,
+                                      user_id,
+                                      mail_folder_id,
+                                      destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.move(user_id=user_id,
                        mail_folder_id=mail_folder_id,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_bypass_activation_lock(client,
-                                        user_id,
-                                        managed_device_id):
+def usersactions_usersmanageddevice_bypass_activation_lock(client,
+                                                           user_id,
+                                                           managed_device_id):
     return client.bypass_activation_lock(user_id=user_id,
                                          managed_device_id=managed_device_id)
 
 
-def usersactions_clean_window_device(client,
-                                     user_id,
-                                     managed_device_id,
-                                     keep_user_data=None):
+def usersactions_usersmanageddevice_clean_window_device(client,
+                                                        user_id,
+                                                        managed_device_id,
+                                                        keep_user_data=None):
     if keep_user_data is None:
         keep_user_data = False
-    return client.clean_window_device(user_id=user_id,
-                                      managed_device_id=managed_device_id,
-                                      keep_user_data=keep_user_data)
+    body = {}
+    body['keep_user_data'] = False if keep_user_data is None else keep_user_data
+    return client.clean_windows_device(user_id=user_id,
+                                       managed_device_id=managed_device_id,
+                                       body=body)
 
 
-def usersactions_delete_user_from_shared_apple_device(client,
-                                                      user_id,
-                                                      managed_device_id,
-                                                      user_principal_name=None):
+def usersactions_usersmanageddevice_delete_user_from_shared_apple_device(client,
+                                                                         user_id,
+                                                                         managed_device_id,
+                                                                         user_principal_name=None):
+    body = {}
+    body['user_principal_name'] = user_principal_name
     return client.delete_user_from_shared_apple_device(user_id=user_id,
                                                        managed_device_id=managed_device_id,
-                                                       user_principal_name=user_principal_name)
+                                                       body=body)
 
 
-def usersactions_disable_lost_mode(client,
-                                   user_id,
-                                   managed_device_id):
+def usersactions_usersmanageddevice_disable_lost_mode(client,
+                                                      user_id,
+                                                      managed_device_id):
     return client.disable_lost_mode(user_id=user_id,
                                     managed_device_id=managed_device_id)
 
 
-def usersactions_locate_device(client,
-                               user_id,
-                               managed_device_id):
+def usersactions_usersmanageddevice_locate_device(client,
+                                                  user_id,
+                                                  managed_device_id):
     return client.locate_device(user_id=user_id,
                                 managed_device_id=managed_device_id)
 
 
-def usersactions_logout_shared_apple_device_active_user(client,
-                                                        user_id,
-                                                        managed_device_id):
+def usersactions_usersmanageddevice_logout_shared_apple_device_active_user(client,
+                                                                           user_id,
+                                                                           managed_device_id):
     return client.logout_shared_apple_device_active_user(user_id=user_id,
                                                          managed_device_id=managed_device_id)
 
 
-def usersactions_reboot_now(client,
-                            user_id,
-                            managed_device_id):
+def usersactions_usersmanageddevice_reboot_now(client,
+                                               user_id,
+                                               managed_device_id):
     return client.reboot_now(user_id=user_id,
                              managed_device_id=managed_device_id)
 
 
-def usersactions_recover_passcode(client,
-                                  user_id,
-                                  managed_device_id):
+def usersactions_usersmanageddevice_recover_passcode(client,
+                                                     user_id,
+                                                     managed_device_id):
     return client.recover_passcode(user_id=user_id,
                                    managed_device_id=managed_device_id)
 
 
-def usersactions_remote_lock(client,
-                             user_id,
-                             managed_device_id):
+def usersactions_usersmanageddevice_remote_lock(client,
+                                                user_id,
+                                                managed_device_id):
     return client.remote_lock(user_id=user_id,
                               managed_device_id=managed_device_id)
 
 
-def usersactions_request_remote_assistance(client,
-                                           user_id,
-                                           managed_device_id):
+def usersactions_usersmanageddevice_request_remote_assistance(client,
+                                                              user_id,
+                                                              managed_device_id):
     return client.request_remote_assistance(user_id=user_id,
                                             managed_device_id=managed_device_id)
 
 
-def usersactions_reset_passcode(client,
-                                user_id,
-                                managed_device_id):
+def usersactions_usersmanageddevice_reset_passcode(client,
+                                                   user_id,
+                                                   managed_device_id):
     return client.reset_passcode(user_id=user_id,
                                  managed_device_id=managed_device_id)
 
 
-def usersactions_retire(client,
-                        user_id,
-                        managed_device_id):
+def usersactions_usersmanageddevice_retire(client,
+                                           user_id,
+                                           managed_device_id):
     return client.retire(user_id=user_id,
                          managed_device_id=managed_device_id)
 
 
-def usersactions_shut_down(client,
-                           user_id,
-                           managed_device_id):
+def usersactions_usersmanageddevice_shut_down(client,
+                                              user_id,
+                                              managed_device_id):
     return client.shut_down(user_id=user_id,
                             managed_device_id=managed_device_id)
 
 
-def usersactions_sync_device(client,
-                             user_id,
-                             managed_device_id):
+def usersactions_usersmanageddevice_sync_device(client,
+                                                user_id,
+                                                managed_device_id):
     return client.sync_device(user_id=user_id,
                               managed_device_id=managed_device_id)
 
 
-def usersactions_update_window_device_account(client,
-                                              user_id,
-                                              managed_device_id,
-                                              update_windows_device_account_action_parameter_calendar_sync_enabled=None,
-                                              update_windows_device_account_action_parameter_device_account_email=None,
-                                              update_windows_device_account_action_parameter_exchange_server=None,
-                                              update_windows_device_account_action_parameter_password_rotation_enabled=None,
-                                              update_windows_device_account_action_parameter_session_initiation_protocal_address=None,
-                                              update_windows_device_account_action_parameter_device_account_password=None):
-    return client.update_window_device_account(user_id=user_id,
-                                               managed_device_id=managed_device_id,
-                                               calendar_sync_enabled=update_windows_device_account_action_parameter_calendar_sync_enabled,
-                                               device_account_email=update_windows_device_account_action_parameter_device_account_email,
-                                               exchange_server=update_windows_device_account_action_parameter_exchange_server,
-                                               password_rotation_enabled=update_windows_device_account_action_parameter_password_rotation_enabled,
-                                               session_initiation_protocal_address=update_windows_device_account_action_parameter_session_initiation_protocal_address,
-                                               password=update_windows_device_account_action_parameter_device_account_password)
+def usersactions_usersmanageddevice_update_window_device_account(client,
+                                                                 user_id,
+                                                                 managed_device_id,
+                                                                 calendar_sync_enabled=None,
+                                                                 device_account_email=None,
+                                                                 exchange_server=None,
+                                                                 password_rotation_enabled=None,
+                                                                 session_initiation_protocal_address=None,
+                                                                 password=None):
+    body = {}
+    body['update_windows_device_account_action_parameter'] = {}
+    body['update_windows_device_account_action_parameter']['calendar_sync_enabled'] = calendar_sync_enabled
+    body['update_windows_device_account_action_parameter']['device_account_email'] = device_account_email
+    body['update_windows_device_account_action_parameter']['exchange_server'] = exchange_server
+    body['update_windows_device_account_action_parameter']['password_rotation_enabled'] = password_rotation_enabled
+    body['update_windows_device_account_action_parameter']['session_initiation_protocal_address'] = session_initiation_protocal_address
+    body['update_windows_device_account_action_parameter']['device_account'] = {}
+    body['update_windows_device_account_action_parameter']['device_account']['password'] = password
+    return client.update_windows_device_account(user_id=user_id,
+                                                managed_device_id=managed_device_id,
+                                                body=body)
 
 
-def usersactions_window_defender_scan(client,
-                                      user_id,
-                                      managed_device_id,
-                                      quick_scan=None):
+def usersactions_usersmanageddevice_window_defender_scan(client,
+                                                         user_id,
+                                                         managed_device_id,
+                                                         quick_scan=None):
     if quick_scan is None:
         quick_scan = False
-    return client.window_defender_scan(user_id=user_id,
-                                       managed_device_id=managed_device_id,
-                                       quick_scan=quick_scan)
+    body = {}
+    body['quick_scan'] = False if quick_scan is None else quick_scan
+    return client.windows_defender_scan(user_id=user_id,
+                                        managed_device_id=managed_device_id,
+                                        body=body)
 
 
-def usersactions_window_defender_update_signature(client,
-                                                  user_id,
-                                                  managed_device_id):
-    return client.window_defender_update_signature(user_id=user_id,
-                                                   managed_device_id=managed_device_id)
+def usersactions_usersmanageddevice_window_defender_update_signature(client,
+                                                                     user_id,
+                                                                     managed_device_id):
+    return client.windows_defender_update_signatures(user_id=user_id,
+                                                     managed_device_id=managed_device_id)
 
 
-def usersactions_wipe(client,
-                      user_id,
-                      managed_device_id,
-                      keep_enrollment_data=None,
-                      keep_user_data=None,
-                      mac_os_unlock_code=None):
+def usersactions_usersmanageddevice_wipe(client,
+                                         user_id,
+                                         managed_device_id,
+                                         keep_enrollment_data=None,
+                                         keep_user_data=None,
+                                         mac_os_unlock_code=None):
     if keep_enrollment_data is None:
         keep_enrollment_data = False
     if keep_user_data is None:
         keep_user_data = False
+    body = {}
+    body['keep_enrollment_data'] = False if keep_enrollment_data is None else keep_enrollment_data
+    body['keep_user_data'] = False if keep_user_data is None else keep_user_data
+    body['mac_os_unlock_code'] = mac_os_unlock_code
     return client.wipe(user_id=user_id,
                        managed_device_id=managed_device_id,
-                       keep_enrollment_data=keep_enrollment_data,
-                       keep_user_data=keep_user_data,
-                       mac_os_unlock_code=mac_os_unlock_code)
+                       body=body)
 
 
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       message_id,
-                                       attachment_item=None):
+def usersactions_usersmessagesattachment_create_upload_session(client,
+                                                               user_id,
+                                                               message_id,
+                                                               attachment_item=None):
+    body = {}
+    body['attachment_item'] = attachment_item
     return client.create_upload_session(user_id=user_id,
                                         message_id=message_id,
-                                        attachment_item=attachment_item)
+                                        body=body)
 
 
-def usersactions_copy(client,
-                      user_id,
-                      message_id,
-                      destination_id=None):
+def usersactions_usersmessage_copy(client,
+                                   user_id,
+                                   message_id,
+                                   destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.copy(user_id=user_id,
                        message_id=message_id,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_create_forward(client,
-                                user_id,
-                                message_id,
-                                to_recipients=None,
-                                comment=None,
-                                id=None,
-                                message_categories=None,
-                                message_change_key=None,
-                                message_created_date_time=None,
-                                message_last_modified_date_time=None,
-                                message_bcc_recipients=None,
-                                message_body=None,
-                                message_body_preview=None,
-                                message_cc_recipients=None,
-                                message_conversation_id=None,
-                                message_conversation_index=None,
-                                message_flag=None,
-                                message_from=None,
-                                message_has_attachments=None,
-                                message_importance=None,
-                                message_inference_classification=None,
-                                message_internet_message_headers=None,
-                                message_internet_message_id=None,
-                                message_is_delivery_receipt_requested=None,
-                                message_is_draft=None,
-                                message_is_read=None,
-                                message_is_read_receipt_requested=None,
-                                message_parent_folder_id=None,
-                                message_received_date_time=None,
-                                message_reply_to=None,
-                                message_sender=None,
-                                message_sent_date_time=None,
-                                message_subject=None,
-                                message_to_recipients=None,
-                                message_unique_body=None,
-                                message_web_link=None,
-                                message_attachments=None,
-                                message_extensions=None,
-                                message_multi_value_extended_properties=None,
-                                message_single_value_extended_properties=None):
+def usersactions_usersmessage_create_forward(client,
+                                             user_id,
+                                             message_id,
+                                             body,
+                                             to_recipients=None,
+                                             comment=None,
+                                             id_=None,
+                                             categories=None,
+                                             change_key=None,
+                                             created_date_time=None,
+                                             last_modified_date_time=None,
+                                             bcc_recipients=None,
+                                             body_preview=None,
+                                             cc_recipients=None,
+                                             conversation_id=None,
+                                             conversation_index=None,
+                                             flag=None,
+                                             from=None,
+                                             has_attachments=None,
+                                             importance=None,
+                                             inference_classification=None,
+                                             internet_message_headers=None,
+                                             internet_message_id=None,
+                                             is_delivery_receipt_requested=None,
+                                             is_draft=None,
+                                             is_read=None,
+                                             is_read_receipt_requested=None,
+                                             parent_folder_id=None,
+                                             received_date_time=None,
+                                             reply_to=None,
+                                             sender=None,
+                                             sent_date_time=None,
+                                             subject=None,
+                                             microsoft_graph_message_to_recipients=None,
+                                             unique_body=None,
+                                             web_link=None,
+                                             attachments=None,
+                                             extensions=None,
+                                             multi_value_extended_properties=None,
+                                             single_value_extended_properties=None):
+    body = {}
+    body['to_recipients'] = to_recipients
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = microsoft_graph_message_to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.create_forward(user_id=user_id,
                                  message_id=message_id,
-                                 to_recipients=to_recipients,
-                                 comment=comment,
-                                 id=id,
-                                 categories=message_categories,
-                                 change_key=message_change_key,
-                                 created_date_time=message_created_date_time,
-                                 last_modified_date_time=message_last_modified_date_time,
-                                 bcc_recipients=message_bcc_recipients,
-                                 body=message_body,
-                                 body_preview=message_body_preview,
-                                 cc_recipients=message_cc_recipients,
-                                 conversation_id=message_conversation_id,
-                                 conversation_index=message_conversation_index,
-                                 flag=message_flag,
-                                 from_parameter=message_from,
-                                 has_attachments=message_has_attachments,
-                                 importance=message_importance,
-                                 inference_classification=message_inference_classification,
-                                 internet_message_headers=message_internet_message_headers,
-                                 internet_message_id=message_internet_message_id,
-                                 is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                                 is_draft=message_is_draft,
-                                 is_read=message_is_read,
-                                 is_read_receipt_requested=message_is_read_receipt_requested,
-                                 parent_folder_id=message_parent_folder_id,
-                                 received_date_time=message_received_date_time,
-                                 reply_to=message_reply_to,
-                                 sender=message_sender,
-                                 sent_date_time=message_sent_date_time,
-                                 subject=message_subject,
-                                 microsoft_graph_message_to_recipients=message_to_recipients,
-                                 unique_body=message_unique_body,
-                                 web_link=message_web_link,
-                                 attachments=message_attachments,
-                                 extensions=message_extensions,
-                                 multi_value_extended_properties=message_multi_value_extended_properties,
-                                 single_value_extended_properties=message_single_value_extended_properties)
+                                 body=body)
 
 
-def usersactions_create_reply(client,
-                              user_id,
-                              message_id,
-                              comment=None,
-                              id=None,
-                              message_categories=None,
-                              message_change_key=None,
-                              message_created_date_time=None,
-                              message_last_modified_date_time=None,
-                              message_bcc_recipients=None,
-                              message_body=None,
-                              message_body_preview=None,
-                              message_cc_recipients=None,
-                              message_conversation_id=None,
-                              message_conversation_index=None,
-                              message_flag=None,
-                              message_from=None,
-                              message_has_attachments=None,
-                              message_importance=None,
-                              message_inference_classification=None,
-                              message_internet_message_headers=None,
-                              message_internet_message_id=None,
-                              message_is_delivery_receipt_requested=None,
-                              message_is_draft=None,
-                              message_is_read=None,
-                              message_is_read_receipt_requested=None,
-                              message_parent_folder_id=None,
-                              message_received_date_time=None,
-                              message_reply_to=None,
-                              message_sender=None,
-                              message_sent_date_time=None,
-                              message_subject=None,
-                              message_to_recipients=None,
-                              message_unique_body=None,
-                              message_web_link=None,
-                              message_attachments=None,
-                              message_extensions=None,
-                              message_multi_value_extended_properties=None,
-                              message_single_value_extended_properties=None):
+def usersactions_usersmessage_create_reply(client,
+                                           user_id,
+                                           message_id,
+                                           body,
+                                           comment=None,
+                                           id_=None,
+                                           categories=None,
+                                           change_key=None,
+                                           created_date_time=None,
+                                           last_modified_date_time=None,
+                                           bcc_recipients=None,
+                                           body_preview=None,
+                                           cc_recipients=None,
+                                           conversation_id=None,
+                                           conversation_index=None,
+                                           flag=None,
+                                           from=None,
+                                           has_attachments=None,
+                                           importance=None,
+                                           inference_classification=None,
+                                           internet_message_headers=None,
+                                           internet_message_id=None,
+                                           is_delivery_receipt_requested=None,
+                                           is_draft=None,
+                                           is_read=None,
+                                           is_read_receipt_requested=None,
+                                           parent_folder_id=None,
+                                           received_date_time=None,
+                                           reply_to=None,
+                                           sender=None,
+                                           sent_date_time=None,
+                                           subject=None,
+                                           to_recipients=None,
+                                           unique_body=None,
+                                           web_link=None,
+                                           attachments=None,
+                                           extensions=None,
+                                           multi_value_extended_properties=None,
+                                           single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.create_reply(user_id=user_id,
                                message_id=message_id,
-                               comment=comment,
-                               id=id,
-                               categories=message_categories,
-                               change_key=message_change_key,
-                               created_date_time=message_created_date_time,
-                               last_modified_date_time=message_last_modified_date_time,
-                               bcc_recipients=message_bcc_recipients,
-                               body=message_body,
-                               body_preview=message_body_preview,
-                               cc_recipients=message_cc_recipients,
-                               conversation_id=message_conversation_id,
-                               conversation_index=message_conversation_index,
-                               flag=message_flag,
-                               from_parameter=message_from,
-                               has_attachments=message_has_attachments,
-                               importance=message_importance,
-                               inference_classification=message_inference_classification,
-                               internet_message_headers=message_internet_message_headers,
-                               internet_message_id=message_internet_message_id,
-                               is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                               is_draft=message_is_draft,
-                               is_read=message_is_read,
-                               is_read_receipt_requested=message_is_read_receipt_requested,
-                               parent_folder_id=message_parent_folder_id,
-                               received_date_time=message_received_date_time,
-                               reply_to=message_reply_to,
-                               sender=message_sender,
-                               sent_date_time=message_sent_date_time,
-                               subject=message_subject,
-                               to_recipients=message_to_recipients,
-                               unique_body=message_unique_body,
-                               web_link=message_web_link,
-                               attachments=message_attachments,
-                               extensions=message_extensions,
-                               multi_value_extended_properties=message_multi_value_extended_properties,
-                               single_value_extended_properties=message_single_value_extended_properties)
+                               body=body)
 
 
-def usersactions_create_reply_all(client,
-                                  user_id,
-                                  message_id,
-                                  comment=None,
-                                  id=None,
-                                  message_categories=None,
-                                  message_change_key=None,
-                                  message_created_date_time=None,
-                                  message_last_modified_date_time=None,
-                                  message_bcc_recipients=None,
-                                  message_body=None,
-                                  message_body_preview=None,
-                                  message_cc_recipients=None,
-                                  message_conversation_id=None,
-                                  message_conversation_index=None,
-                                  message_flag=None,
-                                  message_from=None,
-                                  message_has_attachments=None,
-                                  message_importance=None,
-                                  message_inference_classification=None,
-                                  message_internet_message_headers=None,
-                                  message_internet_message_id=None,
-                                  message_is_delivery_receipt_requested=None,
-                                  message_is_draft=None,
-                                  message_is_read=None,
-                                  message_is_read_receipt_requested=None,
-                                  message_parent_folder_id=None,
-                                  message_received_date_time=None,
-                                  message_reply_to=None,
-                                  message_sender=None,
-                                  message_sent_date_time=None,
-                                  message_subject=None,
-                                  message_to_recipients=None,
-                                  message_unique_body=None,
-                                  message_web_link=None,
-                                  message_attachments=None,
-                                  message_extensions=None,
-                                  message_multi_value_extended_properties=None,
-                                  message_single_value_extended_properties=None):
+def usersactions_usersmessage_create_reply_all(client,
+                                               user_id,
+                                               message_id,
+                                               body,
+                                               comment=None,
+                                               id_=None,
+                                               categories=None,
+                                               change_key=None,
+                                               created_date_time=None,
+                                               last_modified_date_time=None,
+                                               bcc_recipients=None,
+                                               body_preview=None,
+                                               cc_recipients=None,
+                                               conversation_id=None,
+                                               conversation_index=None,
+                                               flag=None,
+                                               from=None,
+                                               has_attachments=None,
+                                               importance=None,
+                                               inference_classification=None,
+                                               internet_message_headers=None,
+                                               internet_message_id=None,
+                                               is_delivery_receipt_requested=None,
+                                               is_draft=None,
+                                               is_read=None,
+                                               is_read_receipt_requested=None,
+                                               parent_folder_id=None,
+                                               received_date_time=None,
+                                               reply_to=None,
+                                               sender=None,
+                                               sent_date_time=None,
+                                               subject=None,
+                                               to_recipients=None,
+                                               unique_body=None,
+                                               web_link=None,
+                                               attachments=None,
+                                               extensions=None,
+                                               multi_value_extended_properties=None,
+                                               single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.create_reply_all(user_id=user_id,
                                    message_id=message_id,
-                                   comment=comment,
-                                   id=id,
-                                   categories=message_categories,
-                                   change_key=message_change_key,
-                                   created_date_time=message_created_date_time,
-                                   last_modified_date_time=message_last_modified_date_time,
-                                   bcc_recipients=message_bcc_recipients,
-                                   body=message_body,
-                                   body_preview=message_body_preview,
-                                   cc_recipients=message_cc_recipients,
-                                   conversation_id=message_conversation_id,
-                                   conversation_index=message_conversation_index,
-                                   flag=message_flag,
-                                   from_parameter=message_from,
-                                   has_attachments=message_has_attachments,
-                                   importance=message_importance,
-                                   inference_classification=message_inference_classification,
-                                   internet_message_headers=message_internet_message_headers,
-                                   internet_message_id=message_internet_message_id,
-                                   is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                                   is_draft=message_is_draft,
-                                   is_read=message_is_read,
-                                   is_read_receipt_requested=message_is_read_receipt_requested,
-                                   parent_folder_id=message_parent_folder_id,
-                                   received_date_time=message_received_date_time,
-                                   reply_to=message_reply_to,
-                                   sender=message_sender,
-                                   sent_date_time=message_sent_date_time,
-                                   subject=message_subject,
-                                   to_recipients=message_to_recipients,
-                                   unique_body=message_unique_body,
-                                   web_link=message_web_link,
-                                   attachments=message_attachments,
-                                   extensions=message_extensions,
-                                   multi_value_extended_properties=message_multi_value_extended_properties,
-                                   single_value_extended_properties=message_single_value_extended_properties)
+                                   body=body)
 
 
-def usersactions_forward(client,
-                         user_id,
-                         message_id,
-                         to_recipients=None,
-                         comment=None,
-                         id=None,
-                         message_categories=None,
-                         message_change_key=None,
-                         message_created_date_time=None,
-                         message_last_modified_date_time=None,
-                         message_bcc_recipients=None,
-                         message_body=None,
-                         message_body_preview=None,
-                         message_cc_recipients=None,
-                         message_conversation_id=None,
-                         message_conversation_index=None,
-                         message_flag=None,
-                         message_from=None,
-                         message_has_attachments=None,
-                         message_importance=None,
-                         message_inference_classification=None,
-                         message_internet_message_headers=None,
-                         message_internet_message_id=None,
-                         message_is_delivery_receipt_requested=None,
-                         message_is_draft=None,
-                         message_is_read=None,
-                         message_is_read_receipt_requested=None,
-                         message_parent_folder_id=None,
-                         message_received_date_time=None,
-                         message_reply_to=None,
-                         message_sender=None,
-                         message_sent_date_time=None,
-                         message_subject=None,
-                         message_to_recipients=None,
-                         message_unique_body=None,
-                         message_web_link=None,
-                         message_attachments=None,
-                         message_extensions=None,
-                         message_multi_value_extended_properties=None,
-                         message_single_value_extended_properties=None):
+def usersactions_usersmessage_forward(client,
+                                      user_id,
+                                      message_id,
+                                      body,
+                                      to_recipients=None,
+                                      comment=None,
+                                      id_=None,
+                                      categories=None,
+                                      change_key=None,
+                                      created_date_time=None,
+                                      last_modified_date_time=None,
+                                      bcc_recipients=None,
+                                      body_preview=None,
+                                      cc_recipients=None,
+                                      conversation_id=None,
+                                      conversation_index=None,
+                                      flag=None,
+                                      from=None,
+                                      has_attachments=None,
+                                      importance=None,
+                                      inference_classification=None,
+                                      internet_message_headers=None,
+                                      internet_message_id=None,
+                                      is_delivery_receipt_requested=None,
+                                      is_draft=None,
+                                      is_read=None,
+                                      is_read_receipt_requested=None,
+                                      parent_folder_id=None,
+                                      received_date_time=None,
+                                      reply_to=None,
+                                      sender=None,
+                                      sent_date_time=None,
+                                      subject=None,
+                                      microsoft_graph_message_to_recipients=None,
+                                      unique_body=None,
+                                      web_link=None,
+                                      attachments=None,
+                                      extensions=None,
+                                      multi_value_extended_properties=None,
+                                      single_value_extended_properties=None):
+    body = {}
+    body['to_recipients'] = to_recipients
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = microsoft_graph_message_to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.forward(user_id=user_id,
                           message_id=message_id,
-                          to_recipients=to_recipients,
-                          comment=comment,
-                          id=id,
-                          categories=message_categories,
-                          change_key=message_change_key,
-                          created_date_time=message_created_date_time,
-                          last_modified_date_time=message_last_modified_date_time,
-                          bcc_recipients=message_bcc_recipients,
-                          body=message_body,
-                          body_preview=message_body_preview,
-                          cc_recipients=message_cc_recipients,
-                          conversation_id=message_conversation_id,
-                          conversation_index=message_conversation_index,
-                          flag=message_flag,
-                          from_parameter=message_from,
-                          has_attachments=message_has_attachments,
-                          importance=message_importance,
-                          inference_classification=message_inference_classification,
-                          internet_message_headers=message_internet_message_headers,
-                          internet_message_id=message_internet_message_id,
-                          is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                          is_draft=message_is_draft,
-                          is_read=message_is_read,
-                          is_read_receipt_requested=message_is_read_receipt_requested,
-                          parent_folder_id=message_parent_folder_id,
-                          received_date_time=message_received_date_time,
-                          reply_to=message_reply_to,
-                          sender=message_sender,
-                          sent_date_time=message_sent_date_time,
-                          subject=message_subject,
-                          microsoft_graph_message_to_recipients=message_to_recipients,
-                          unique_body=message_unique_body,
-                          web_link=message_web_link,
-                          attachments=message_attachments,
-                          extensions=message_extensions,
-                          multi_value_extended_properties=message_multi_value_extended_properties,
-                          single_value_extended_properties=message_single_value_extended_properties)
+                          body=body)
 
 
-def usersactions_move(client,
-                      user_id,
-                      message_id,
-                      destination_id=None):
+def usersactions_usersmessage_move(client,
+                                   user_id,
+                                   message_id,
+                                   destination_id=None):
+    body = {}
+    body['destination_id'] = destination_id
     return client.move(user_id=user_id,
                        message_id=message_id,
-                       destination_id=destination_id)
+                       body=body)
 
 
-def usersactions_reply(client,
-                       user_id,
-                       message_id,
-                       comment=None,
-                       id=None,
-                       message_categories=None,
-                       message_change_key=None,
-                       message_created_date_time=None,
-                       message_last_modified_date_time=None,
-                       message_bcc_recipients=None,
-                       message_body=None,
-                       message_body_preview=None,
-                       message_cc_recipients=None,
-                       message_conversation_id=None,
-                       message_conversation_index=None,
-                       message_flag=None,
-                       message_from=None,
-                       message_has_attachments=None,
-                       message_importance=None,
-                       message_inference_classification=None,
-                       message_internet_message_headers=None,
-                       message_internet_message_id=None,
-                       message_is_delivery_receipt_requested=None,
-                       message_is_draft=None,
-                       message_is_read=None,
-                       message_is_read_receipt_requested=None,
-                       message_parent_folder_id=None,
-                       message_received_date_time=None,
-                       message_reply_to=None,
-                       message_sender=None,
-                       message_sent_date_time=None,
-                       message_subject=None,
-                       message_to_recipients=None,
-                       message_unique_body=None,
-                       message_web_link=None,
-                       message_attachments=None,
-                       message_extensions=None,
-                       message_multi_value_extended_properties=None,
-                       message_single_value_extended_properties=None):
+def usersactions_usersmessage_reply(client,
+                                    user_id,
+                                    message_id,
+                                    body,
+                                    comment=None,
+                                    id_=None,
+                                    categories=None,
+                                    change_key=None,
+                                    created_date_time=None,
+                                    last_modified_date_time=None,
+                                    bcc_recipients=None,
+                                    body_preview=None,
+                                    cc_recipients=None,
+                                    conversation_id=None,
+                                    conversation_index=None,
+                                    flag=None,
+                                    from=None,
+                                    has_attachments=None,
+                                    importance=None,
+                                    inference_classification=None,
+                                    internet_message_headers=None,
+                                    internet_message_id=None,
+                                    is_delivery_receipt_requested=None,
+                                    is_draft=None,
+                                    is_read=None,
+                                    is_read_receipt_requested=None,
+                                    parent_folder_id=None,
+                                    received_date_time=None,
+                                    reply_to=None,
+                                    sender=None,
+                                    sent_date_time=None,
+                                    subject=None,
+                                    to_recipients=None,
+                                    unique_body=None,
+                                    web_link=None,
+                                    attachments=None,
+                                    extensions=None,
+                                    multi_value_extended_properties=None,
+                                    single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.reply(user_id=user_id,
                         message_id=message_id,
-                        comment=comment,
-                        id=id,
-                        categories=message_categories,
-                        change_key=message_change_key,
-                        created_date_time=message_created_date_time,
-                        last_modified_date_time=message_last_modified_date_time,
-                        bcc_recipients=message_bcc_recipients,
-                        body=message_body,
-                        body_preview=message_body_preview,
-                        cc_recipients=message_cc_recipients,
-                        conversation_id=message_conversation_id,
-                        conversation_index=message_conversation_index,
-                        flag=message_flag,
-                        from_parameter=message_from,
-                        has_attachments=message_has_attachments,
-                        importance=message_importance,
-                        inference_classification=message_inference_classification,
-                        internet_message_headers=message_internet_message_headers,
-                        internet_message_id=message_internet_message_id,
-                        is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                        is_draft=message_is_draft,
-                        is_read=message_is_read,
-                        is_read_receipt_requested=message_is_read_receipt_requested,
-                        parent_folder_id=message_parent_folder_id,
-                        received_date_time=message_received_date_time,
-                        reply_to=message_reply_to,
-                        sender=message_sender,
-                        sent_date_time=message_sent_date_time,
-                        subject=message_subject,
-                        to_recipients=message_to_recipients,
-                        unique_body=message_unique_body,
-                        web_link=message_web_link,
-                        attachments=message_attachments,
-                        extensions=message_extensions,
-                        multi_value_extended_properties=message_multi_value_extended_properties,
-                        single_value_extended_properties=message_single_value_extended_properties)
+                        body=body)
 
 
-def usersactions_reply_all(client,
-                           user_id,
-                           message_id,
-                           comment=None,
-                           id=None,
-                           message_categories=None,
-                           message_change_key=None,
-                           message_created_date_time=None,
-                           message_last_modified_date_time=None,
-                           message_bcc_recipients=None,
-                           message_body=None,
-                           message_body_preview=None,
-                           message_cc_recipients=None,
-                           message_conversation_id=None,
-                           message_conversation_index=None,
-                           message_flag=None,
-                           message_from=None,
-                           message_has_attachments=None,
-                           message_importance=None,
-                           message_inference_classification=None,
-                           message_internet_message_headers=None,
-                           message_internet_message_id=None,
-                           message_is_delivery_receipt_requested=None,
-                           message_is_draft=None,
-                           message_is_read=None,
-                           message_is_read_receipt_requested=None,
-                           message_parent_folder_id=None,
-                           message_received_date_time=None,
-                           message_reply_to=None,
-                           message_sender=None,
-                           message_sent_date_time=None,
-                           message_subject=None,
-                           message_to_recipients=None,
-                           message_unique_body=None,
-                           message_web_link=None,
-                           message_attachments=None,
-                           message_extensions=None,
-                           message_multi_value_extended_properties=None,
-                           message_single_value_extended_properties=None):
+def usersactions_usersmessage_reply_all(client,
+                                        user_id,
+                                        message_id,
+                                        body,
+                                        comment=None,
+                                        id_=None,
+                                        categories=None,
+                                        change_key=None,
+                                        created_date_time=None,
+                                        last_modified_date_time=None,
+                                        bcc_recipients=None,
+                                        body_preview=None,
+                                        cc_recipients=None,
+                                        conversation_id=None,
+                                        conversation_index=None,
+                                        flag=None,
+                                        from=None,
+                                        has_attachments=None,
+                                        importance=None,
+                                        inference_classification=None,
+                                        internet_message_headers=None,
+                                        internet_message_id=None,
+                                        is_delivery_receipt_requested=None,
+                                        is_draft=None,
+                                        is_read=None,
+                                        is_read_receipt_requested=None,
+                                        parent_folder_id=None,
+                                        received_date_time=None,
+                                        reply_to=None,
+                                        sender=None,
+                                        sent_date_time=None,
+                                        subject=None,
+                                        to_recipients=None,
+                                        unique_body=None,
+                                        web_link=None,
+                                        attachments=None,
+                                        extensions=None,
+                                        multi_value_extended_properties=None,
+                                        single_value_extended_properties=None):
+    body = {}
+    body['comment'] = comment
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.reply_all(user_id=user_id,
                             message_id=message_id,
-                            comment=comment,
-                            id=id,
-                            categories=message_categories,
-                            change_key=message_change_key,
-                            created_date_time=message_created_date_time,
-                            last_modified_date_time=message_last_modified_date_time,
-                            bcc_recipients=message_bcc_recipients,
-                            body=message_body,
-                            body_preview=message_body_preview,
-                            cc_recipients=message_cc_recipients,
-                            conversation_id=message_conversation_id,
-                            conversation_index=message_conversation_index,
-                            flag=message_flag,
-                            from_parameter=message_from,
-                            has_attachments=message_has_attachments,
-                            importance=message_importance,
-                            inference_classification=message_inference_classification,
-                            internet_message_headers=message_internet_message_headers,
-                            internet_message_id=message_internet_message_id,
-                            is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                            is_draft=message_is_draft,
-                            is_read=message_is_read,
-                            is_read_receipt_requested=message_is_read_receipt_requested,
-                            parent_folder_id=message_parent_folder_id,
-                            received_date_time=message_received_date_time,
-                            reply_to=message_reply_to,
-                            sender=message_sender,
-                            sent_date_time=message_sent_date_time,
-                            subject=message_subject,
-                            to_recipients=message_to_recipients,
-                            unique_body=message_unique_body,
-                            web_link=message_web_link,
-                            attachments=message_attachments,
-                            extensions=message_extensions,
-                            multi_value_extended_properties=message_multi_value_extended_properties,
-                            single_value_extended_properties=message_single_value_extended_properties)
+                            body=body)
 
 
-def usersactions_send(client,
-                      user_id,
-                      message_id):
+def usersactions_usersmessage_send(client,
+                                   user_id,
+                                   message_id):
     return client.send(user_id=user_id,
                        message_id=message_id)
 
 
-def usersactions_assign_license(client,
-                                user_id,
-                                add_licenses=None,
-                                remove_licenses=None):
-    return client.assign_license(user_id=user_id,
-                                 add_licenses=add_licenses,
-                                 remove_licenses=remove_licenses)
-
-
-def usersactions_change_password(client,
-                                 user_id,
-                                 current_password=None,
-                                 new_password=None):
-    return client.change_password(user_id=user_id,
-                                  current_password=current_password,
-                                  new_password=new_password)
-
-
-def usersactions_check_member_group(client,
-                                    user_id,
-                                    group_ids=None):
-    return client.check_member_group(user_id=user_id,
-                                     group_ids=group_ids)
-
-
-def usersactions_check_member_object(client,
+def usersactions_user_assign_license(client,
                                      user_id,
-                                     ids=None):
-    return client.check_member_object(user_id=user_id,
-                                      ids=ids)
+                                     add_licenses=None,
+                                     remove_licenses=None):
+    body = {}
+    body['add_licenses'] = add_licenses
+    body['remove_licenses'] = remove_licenses
+    return client.assign_license(user_id=user_id,
+                                 body=body)
 
 
-def usersactions_export_personal_data(client,
+def usersactions_user_change_password(client,
                                       user_id,
-                                      storage_location=None):
+                                      current_password=None,
+                                      new_password=None):
+    body = {}
+    body['current_password'] = current_password
+    body['new_password'] = new_password
+    return client.change_password(user_id=user_id,
+                                  body=body)
+
+
+def usersactions_user_check_member_group(client,
+                                         user_id,
+                                         group_ids=None):
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(user_id=user_id,
+                                      body=body)
+
+
+def usersactions_user_check_member_object(client,
+                                          user_id,
+                                          ids=None):
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(user_id=user_id,
+                                       body=body)
+
+
+def usersactions_user_export_personal_data(client,
+                                           user_id,
+                                           storage_location=None):
+    body = {}
+    body['storage_location'] = storage_location
     return client.export_personal_data(user_id=user_id,
-                                       storage_location=storage_location)
+                                       body=body)
 
 
-def usersactions_find_meeting_time(client,
+def usersactions_user_find_meeting_time(client,
+                                        user_id,
+                                        body):
+    return client.find_meeting_times(user_id=user_id,
+                                     body=body)
+
+
+def usersactions_user_get_available_extension_property(client,
+                                                       is_synced_from_on_premises=None):
+    if is_synced_from_on_premises is None:
+        is_synced_from_on_premises = False
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
+
+
+def usersactions_user_get_by_id(client,
+                                ids=None,
+                                types=None):
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
+
+
+def usersactions_user_get_mail_tip(client,
                                    user_id,
-                                   body):
-    return client.find_meeting_time(user_id=user_id,
+                                   email_addresses=None,
+                                   mail_tips_options=None):
+    body = {}
+    body['email_addresses'] = email_addresses
+    body['mail_tips_options'] = mail_tips_options
+    return client.get_mail_tips(user_id=user_id,
+                                body=body)
+
+
+def usersactions_user_get_member_group(client,
+                                       user_id,
+                                       security_enabled_only=None):
+    if security_enabled_only is None:
+        security_enabled_only = False
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(user_id=user_id,
                                     body=body)
 
 
-def usersactions_get_available_extension_property(client,
-                                                  is_synced_from_on_premises=None):
-    if is_synced_from_on_premises is None:
-        is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
-
-
-def usersactions_get_by_id(client,
-                           ids=None,
-                           types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
-
-
-def usersactions_get_mail_tip(client,
-                              user_id,
-                              email_addresses=None,
-                              mail_tips_options=None):
-    return client.get_mail_tip(user_id=user_id,
-                               email_addresses=email_addresses,
-                               mail_tips_options=mail_tips_options)
-
-
-def usersactions_get_member_group(client,
-                                  user_id,
-                                  security_enabled_only=None):
+def usersactions_user_get_member_object(client,
+                                        user_id,
+                                        security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_group(user_id=user_id,
-                                   security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(user_id=user_id,
+                                     body=body)
 
 
-def usersactions_get_member_object(client,
-                                   user_id,
-                                   security_enabled_only=None):
-    if security_enabled_only is None:
-        security_enabled_only = False
-    return client.get_member_object(user_id=user_id,
-                                    security_enabled_only=security_enabled_only)
+def usersactions_user_remove_all_device_from_management(client,
+                                                        user_id):
+    return client.remove_all_devices_from_management(user_id=user_id)
 
 
-def usersactions_remove_all_device_from_management(client,
+def usersactions_user_reprocess_license_assignment(client,
                                                    user_id):
-    return client.remove_all_device_from_management(user_id=user_id)
-
-
-def usersactions_reprocess_license_assignment(client,
-                                              user_id):
     return client.reprocess_license_assignment(user_id=user_id)
 
 
-def usersactions_restore(client,
-                         user_id):
+def usersactions_user_restore(client,
+                              user_id):
     return client.restore(user_id=user_id)
 
 
-def usersactions_revoke_sign_in_session(client,
-                                        user_id):
-    return client.revoke_sign_in_session(user_id=user_id)
+def usersactions_user_revoke_sign_in_session(client,
+                                             user_id):
+    return client.revoke_sign_in_sessions(user_id=user_id)
 
 
-def usersactions_send_mail(client,
-                           user_id,
-                           save_to_sent_items=None,
-                           message_id=None,
-                           message_categories=None,
-                           message_change_key=None,
-                           message_created_date_time=None,
-                           message_last_modified_date_time=None,
-                           message_bcc_recipients=None,
-                           message_body=None,
-                           message_body_preview=None,
-                           message_cc_recipients=None,
-                           message_conversation_id=None,
-                           message_conversation_index=None,
-                           message_flag=None,
-                           message_from=None,
-                           message_has_attachments=None,
-                           message_importance=None,
-                           message_inference_classification=None,
-                           message_internet_message_headers=None,
-                           message_internet_message_id=None,
-                           message_is_delivery_receipt_requested=None,
-                           message_is_draft=None,
-                           message_is_read=None,
-                           message_is_read_receipt_requested=None,
-                           message_parent_folder_id=None,
-                           message_received_date_time=None,
-                           message_reply_to=None,
-                           message_sender=None,
-                           message_sent_date_time=None,
-                           message_subject=None,
-                           message_to_recipients=None,
-                           message_unique_body=None,
-                           message_web_link=None,
-                           message_attachments=None,
-                           message_extensions=None,
-                           message_multi_value_extended_properties=None,
-                           message_single_value_extended_properties=None):
+def usersactions_user_send_mail(client,
+                                user_id,
+                                body,
+                                save_to_sent_items=None,
+                                id_=None,
+                                categories=None,
+                                change_key=None,
+                                created_date_time=None,
+                                last_modified_date_time=None,
+                                bcc_recipients=None,
+                                body_preview=None,
+                                cc_recipients=None,
+                                conversation_id=None,
+                                conversation_index=None,
+                                flag=None,
+                                from=None,
+                                has_attachments=None,
+                                importance=None,
+                                inference_classification=None,
+                                internet_message_headers=None,
+                                internet_message_id=None,
+                                is_delivery_receipt_requested=None,
+                                is_draft=None,
+                                is_read=None,
+                                is_read_receipt_requested=None,
+                                parent_folder_id=None,
+                                received_date_time=None,
+                                reply_to=None,
+                                sender=None,
+                                sent_date_time=None,
+                                subject=None,
+                                to_recipients=None,
+                                unique_body=None,
+                                web_link=None,
+                                attachments=None,
+                                extensions=None,
+                                multi_value_extended_properties=None,
+                                single_value_extended_properties=None):
     if save_to_sent_items is None:
         save_to_sent_items = False
+    body = {}
+    body['save_to_sent_items'] = False if save_to_sent_items is None else save_to_sent_items
+    body['message'] = {}
+    body['message']['id'] = id_
+    body['message']['categories'] = categories
+    body['message']['change_key'] = change_key
+    body['message']['created_date_time'] = created_date_time
+    body['message']['last_modified_date_time'] = last_modified_date_time
+    body['message']['bcc_recipients'] = bcc_recipients
+    body['message']['body'] = body
+    body['message']['body_preview'] = body_preview
+    body['message']['cc_recipients'] = cc_recipients
+    body['message']['conversation_id'] = conversation_id
+    body['message']['conversation_index'] = conversation_index
+    body['message']['flag'] = flag
+    body['message']['from_property'] = from
+    body['message']['has_attachments'] = has_attachments
+    body['message']['importance'] = importance
+    body['message']['inference_classification'] = inference_classification
+    body['message']['internet_message_headers'] = internet_message_headers
+    body['message']['internet_message_id'] = internet_message_id
+    body['message']['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['message']['is_draft'] = is_draft
+    body['message']['is_read'] = is_read
+    body['message']['is_read_receipt_requested'] = is_read_receipt_requested
+    body['message']['parent_folder_id'] = parent_folder_id
+    body['message']['received_date_time'] = received_date_time
+    body['message']['reply_to'] = reply_to
+    body['message']['sender'] = sender
+    body['message']['sent_date_time'] = sent_date_time
+    body['message']['subject'] = subject
+    body['message']['to_recipients'] = to_recipients
+    body['message']['unique_body'] = unique_body
+    body['message']['web_link'] = web_link
+    body['message']['attachments'] = attachments
+    body['message']['extensions'] = extensions
+    body['message']['multi_value_extended_properties'] = multi_value_extended_properties
+    body['message']['single_value_extended_properties'] = single_value_extended_properties
     return client.send_mail(user_id=user_id,
-                            save_to_sent_items=save_to_sent_items,
-                            id=message_id,
-                            categories=message_categories,
-                            change_key=message_change_key,
-                            created_date_time=message_created_date_time,
-                            last_modified_date_time=message_last_modified_date_time,
-                            bcc_recipients=message_bcc_recipients,
-                            body=message_body,
-                            body_preview=message_body_preview,
-                            cc_recipients=message_cc_recipients,
-                            conversation_id=message_conversation_id,
-                            conversation_index=message_conversation_index,
-                            flag=message_flag,
-                            from_parameter=message_from,
-                            has_attachments=message_has_attachments,
-                            importance=message_importance,
-                            inference_classification=message_inference_classification,
-                            internet_message_headers=message_internet_message_headers,
-                            internet_message_id=message_internet_message_id,
-                            is_delivery_receipt_requested=message_is_delivery_receipt_requested,
-                            is_draft=message_is_draft,
-                            is_read=message_is_read,
-                            is_read_receipt_requested=message_is_read_receipt_requested,
-                            parent_folder_id=message_parent_folder_id,
-                            received_date_time=message_received_date_time,
-                            reply_to=message_reply_to,
-                            sender=message_sender,
-                            sent_date_time=message_sent_date_time,
-                            subject=message_subject,
-                            to_recipients=message_to_recipients,
-                            unique_body=message_unique_body,
-                            web_link=message_web_link,
-                            attachments=message_attachments,
-                            extensions=message_extensions,
-                            multi_value_extended_properties=message_multi_value_extended_properties,
-                            single_value_extended_properties=message_single_value_extended_properties)
+                            body=body)
 
 
-def usersactions_translate_exchange_id(client,
-                                       user_id,
-                                       input_ids=None,
-                                       target_id_type=None,
-                                       source_id_type=None):
-    return client.translate_exchange_id(user_id=user_id,
-                                        input_ids=input_ids,
-                                        target_id_type=target_id_type,
-                                        source_id_type=source_id_type)
+def usersactions_user_translate_exchange_id(client,
+                                            user_id,
+                                            input_ids=None,
+                                            target_id_type=None,
+                                            source_id_type=None):
+    body = {}
+    body['input_ids'] = input_ids
+    body['target_id_type'] = target_id_type
+    body['source_id_type'] = source_id_type
+    return client.translate_exchange_ids(user_id=user_id,
+                                         body=body)
 
 
-def usersactions_validate_property(client,
-                                   entity_type=None,
-                                   display_name=None,
-                                   mail_nickname=None,
-                                   on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
+def usersactions_user_validate_property(client,
+                                        entity_type=None,
+                                        display_name=None,
+                                        mail_nickname=None,
+                                        on_behalf_of_user_id=None):
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)
 
 
-def usersactions_wipe_managed_app_registration_by_device_tag(client,
-                                                             user_id,
-                                                             device_tag=None):
-    return client.wipe_managed_app_registration_by_device_tag(user_id=user_id,
-                                                              device_tag=device_tag)
+def usersactions_user_wipe_managed_app_registration_by_device_tag(client,
+                                                                  user_id,
+                                                                  device_tag=None):
+    body = {}
+    body['device_tag'] = device_tag
+    return client.wipe_managed_app_registrations_by_device_tag(user_id=user_id,
+                                                               body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               notebook_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotenotebook_copy_notebook(client,
+                                                    user_id,
+                                                    notebook_id,
+                                                    group_id=None,
+                                                    rename_as=None,
+                                                    notebook_folder=None,
+                                                    site_collection_id=None,
+                                                    site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 notebook_id=notebook_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_get_notebook_from_web_url(client,
-                                           user_id,
-                                           web_url=None):
+def usersactions_usersonenotenotebook_get_notebook_from_web_url(client,
+                                                                user_id,
+                                                                web_url=None):
+    body = {}
+    body['web_url'] = web_url
     return client.get_notebook_from_web_url(user_id=user_id,
-                                            web_url=web_url)
+                                            body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               notebook_id,
-                               section_group_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotenotebookssectiongroupsparentnotebook_copy_notebook(client,
+                                                                                user_id,
+                                                                                notebook_id,
+                                                                                section_group_id,
+                                                                                group_id=None,
+                                                                                rename_as=None,
+                                                                                notebook_folder=None,
+                                                                                site_collection_id=None,
+                                                                                site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 notebook_id=notebook_id,
                                 section_group_id=section_group_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  notebook_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotenotebookssectiongroupssection_copy_to_notebook(client,
+                                                                            user_id,
+                                                                            notebook_id,
+                                                                            section_group_id,
+                                                                            onenote_section_id,
+                                                                            id_=None,
+                                                                            group_id=None,
+                                                                            rename_as=None,
+                                                                            site_collection_id=None,
+                                                                            site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    notebook_id=notebook_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       notebook_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotenotebookssectiongroupssection_copy_to_section_group(client,
+                                                                                 user_id,
+                                                                                 notebook_id,
+                                                                                 section_group_id,
+                                                                                 onenote_section_id,
+                                                                                 id_=None,
+                                                                                 group_id=None,
+                                                                                 rename_as=None,
+                                                                                 site_collection_id=None,
+                                                                                 site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         notebook_id=notebook_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 notebook_id,
-                                 section_group_id,
-                                 onenote_section_id,
-                                 onenote_page_id,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotenotebookssectiongroupssectionspage_copy_to_section(client,
+                                                                                user_id,
+                                                                                notebook_id,
+                                                                                section_group_id,
+                                                                                onenote_section_id,
+                                                                                onenote_page_id,
+                                                                                id_=None,
+                                                                                group_id=None,
+                                                                                site_collection_id=None,
+                                                                                site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   notebook_id=notebook_id,
                                   section_group_id=section_group_id,
                                   onenote_section_id=onenote_section_id,
                                   onenote_page_id=onenote_page_id,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       notebook_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       commands=None):
+def usersactions_usersonenotenotebookssectiongroupssectionspage_onenote_patch_content(client,
+                                                                                      user_id,
+                                                                                      notebook_id,
+                                                                                      section_group_id,
+                                                                                      onenote_section_id,
+                                                                                      onenote_page_id,
+                                                                                      commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         notebook_id=notebook_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               notebook_id,
-                               section_group_id,
-                               onenote_section_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotenotebookssectiongroupssectionspagesparentnotebook_copy_notebook(client,
+                                                                                             user_id,
+                                                                                             notebook_id,
+                                                                                             section_group_id,
+                                                                                             onenote_section_id,
+                                                                                             onenote_page_id,
+                                                                                             group_id=None,
+                                                                                             rename_as=None,
+                                                                                             notebook_folder=None,
+                                                                                             site_collection_id=None,
+                                                                                             site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 notebook_id=notebook_id,
                                 section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  notebook_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotenotebookssectiongroupssectionspagesparentsection_copy_to_notebook(client,
+                                                                                               user_id,
+                                                                                               notebook_id,
+                                                                                               section_group_id,
+                                                                                               onenote_section_id,
+                                                                                               onenote_page_id,
+                                                                                               id_=None,
+                                                                                               group_id=None,
+                                                                                               rename_as=None,
+                                                                                               site_collection_id=None,
+                                                                                               site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    notebook_id=notebook_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       notebook_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotenotebookssectiongroupssectionspagesparentsection_copy_to_section_group(client,
+                                                                                                    user_id,
+                                                                                                    notebook_id,
+                                                                                                    section_group_id,
+                                                                                                    onenote_section_id,
+                                                                                                    onenote_page_id,
+                                                                                                    id_=None,
+                                                                                                    group_id=None,
+                                                                                                    rename_as=None,
+                                                                                                    site_collection_id=None,
+                                                                                                    site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         notebook_id=notebook_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               notebook_id,
-                               section_group_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotenotebookssectiongroupssectionsparentnotebook_copy_notebook(client,
+                                                                                        user_id,
+                                                                                        notebook_id,
+                                                                                        section_group_id,
+                                                                                        onenote_section_id,
+                                                                                        group_id=None,
+                                                                                        rename_as=None,
+                                                                                        notebook_folder=None,
+                                                                                        site_collection_id=None,
+                                                                                        site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 notebook_id=notebook_id,
                                 section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  notebook_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotenotebookssection_copy_to_notebook(client,
+                                                               user_id,
+                                                               notebook_id,
+                                                               onenote_section_id,
+                                                               id_=None,
+                                                               group_id=None,
+                                                               rename_as=None,
+                                                               site_collection_id=None,
+                                                               site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    notebook_id=notebook_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       notebook_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotenotebookssection_copy_to_section_group(client,
+                                                                    user_id,
+                                                                    notebook_id,
+                                                                    onenote_section_id,
+                                                                    id_=None,
+                                                                    group_id=None,
+                                                                    rename_as=None,
+                                                                    site_collection_id=None,
+                                                                    site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         notebook_id=notebook_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 notebook_id,
-                                 onenote_section_id,
-                                 onenote_page_id,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotenotebookssectionspage_copy_to_section(client,
+                                                                   user_id,
+                                                                   notebook_id,
+                                                                   onenote_section_id,
+                                                                   onenote_page_id,
+                                                                   id_=None,
+                                                                   group_id=None,
+                                                                   site_collection_id=None,
+                                                                   site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   notebook_id=notebook_id,
                                   onenote_section_id=onenote_section_id,
                                   onenote_page_id=onenote_page_id,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       notebook_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       commands=None):
+def usersactions_usersonenotenotebookssectionspage_onenote_patch_content(client,
+                                                                         user_id,
+                                                                         notebook_id,
+                                                                         onenote_section_id,
+                                                                         onenote_page_id,
+                                                                         commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         notebook_id=notebook_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               notebook_id,
-                               onenote_section_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotenotebookssectionspagesparentnotebook_copy_notebook(client,
+                                                                                user_id,
+                                                                                notebook_id,
+                                                                                onenote_section_id,
+                                                                                onenote_page_id,
+                                                                                group_id=None,
+                                                                                rename_as=None,
+                                                                                notebook_folder=None,
+                                                                                site_collection_id=None,
+                                                                                site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 notebook_id=notebook_id,
                                 onenote_section_id=onenote_section_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  notebook_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotenotebookssectionspagesparentsection_copy_to_notebook(client,
+                                                                                  user_id,
+                                                                                  notebook_id,
+                                                                                  onenote_section_id,
+                                                                                  onenote_page_id,
+                                                                                  id_=None,
+                                                                                  group_id=None,
+                                                                                  rename_as=None,
+                                                                                  site_collection_id=None,
+                                                                                  site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    notebook_id=notebook_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       notebook_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotenotebookssectionspagesparentsection_copy_to_section_group(client,
+                                                                                       user_id,
+                                                                                       notebook_id,
+                                                                                       onenote_section_id,
+                                                                                       onenote_page_id,
+                                                                                       id_=None,
+                                                                                       group_id=None,
+                                                                                       rename_as=None,
+                                                                                       site_collection_id=None,
+                                                                                       site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         notebook_id=notebook_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               notebook_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotenotebookssectionsparentnotebook_copy_notebook(client,
+                                                                           user_id,
+                                                                           notebook_id,
+                                                                           onenote_section_id,
+                                                                           group_id=None,
+                                                                           rename_as=None,
+                                                                           notebook_folder=None,
+                                                                           site_collection_id=None,
+                                                                           site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 notebook_id=notebook_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               notebook_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotenotebookssectionsparentsectiongroupparentnotebook_copy_notebook(client,
+                                                                                             user_id,
+                                                                                             notebook_id,
+                                                                                             onenote_section_id,
+                                                                                             group_id=None,
+                                                                                             rename_as=None,
+                                                                                             notebook_folder=None,
+                                                                                             site_collection_id=None,
+                                                                                             site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 notebook_id=notebook_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  notebook_id,
-                                  onenote_section_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotenotebookssectionsparentsectiongroupsection_copy_to_notebook(client,
+                                                                                         user_id,
+                                                                                         notebook_id,
+                                                                                         onenote_section_id,
+                                                                                         onenote_section_id1,
+                                                                                         id_=None,
+                                                                                         group_id=None,
+                                                                                         rename_as=None,
+                                                                                         site_collection_id=None,
+                                                                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    notebook_id=notebook_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       notebook_id,
-                                       onenote_section_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotenotebookssectionsparentsectiongroupsection_copy_to_section_group(client,
+                                                                                              user_id,
+                                                                                              notebook_id,
+                                                                                              onenote_section_id,
+                                                                                              onenote_section_id1,
+                                                                                              id_=None,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              site_collection_id=None,
+                                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         notebook_id=notebook_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 onenote_page_id,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotepage_copy_to_section(client,
+                                                  user_id,
+                                                  onenote_page_id,
+                                                  id_=None,
+                                                  group_id=None,
+                                                  site_collection_id=None,
+                                                  site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   onenote_page_id=onenote_page_id,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       commands=None):
+def usersactions_usersonenotepage_onenote_patch_content(client,
+                                                        user_id,
+                                                        onenote_page_id,
+                                                        commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentnotebook_copy_notebook(client,
+                                                               user_id,
+                                                               onenote_page_id,
+                                                               group_id=None,
+                                                               rename_as=None,
+                                                               notebook_folder=None,
+                                                               site_collection_id=None,
+                                                               site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               section_group_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
+                                                                                          user_id,
+                                                                                          onenote_page_id,
+                                                                                          section_group_id,
+                                                                                          group_id=None,
+                                                                                          rename_as=None,
+                                                                                          notebook_folder=None,
+                                                                                          site_collection_id=None,
+                                                                                          site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
                                 section_group_id=section_group_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectiongroupssection_copy_to_notebook(client,
+                                                                                      user_id,
+                                                                                      onenote_page_id,
+                                                                                      section_group_id,
+                                                                                      onenote_section_id,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectiongroupssection_copy_to_section_group(client,
+                                                                                           user_id,
+                                                                                           onenote_page_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 onenote_page_id,
-                                 section_group_id,
-                                 onenote_section_id,
-                                 onenote_page_id1,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectiongroupssectionspage_copy_to_section(client,
+                                                                                          user_id,
+                                                                                          onenote_page_id,
+                                                                                          section_group_id,
+                                                                                          onenote_section_id,
+                                                                                          onenote_page_id1,
+                                                                                          id_=None,
+                                                                                          group_id=None,
+                                                                                          site_collection_id=None,
+                                                                                          site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   onenote_page_id=onenote_page_id,
                                   section_group_id=section_group_id,
                                   onenote_section_id=onenote_section_id,
                                   onenote_page_id1=onenote_page_id1,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id1,
-                                       commands=None):
+def usersactions_usersonenotepagesparentnotebooksectiongroupssectionspage_onenote_patch_content(client,
+                                                                                                user_id,
+                                                                                                onenote_page_id,
+                                                                                                section_group_id,
+                                                                                                onenote_section_id,
+                                                                                                onenote_page_id1,
+                                                                                                commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id1=onenote_page_id1,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               section_group_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectiongroupssectionsparentnotebook_copy_notebook(client,
+                                                                                                  user_id,
+                                                                                                  onenote_page_id,
+                                                                                                  section_group_id,
+                                                                                                  onenote_section_id,
+                                                                                                  group_id=None,
+                                                                                                  rename_as=None,
+                                                                                                  notebook_folder=None,
+                                                                                                  site_collection_id=None,
+                                                                                                  site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
                                 section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentnotebooksection_copy_to_notebook(client,
+                                                                         user_id,
+                                                                         onenote_page_id,
+                                                                         onenote_section_id,
+                                                                         id_=None,
+                                                                         group_id=None,
+                                                                         rename_as=None,
+                                                                         site_collection_id=None,
+                                                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentnotebooksection_copy_to_section_group(client,
+                                                                              user_id,
+                                                                              onenote_page_id,
+                                                                              onenote_section_id,
+                                                                              id_=None,
+                                                                              group_id=None,
+                                                                              rename_as=None,
+                                                                              site_collection_id=None,
+                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 onenote_page_id,
-                                 onenote_section_id,
-                                 onenote_page_id1,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectionspage_copy_to_section(client,
+                                                                             user_id,
+                                                                             onenote_page_id,
+                                                                             onenote_section_id,
+                                                                             onenote_page_id1,
+                                                                             id_=None,
+                                                                             group_id=None,
+                                                                             site_collection_id=None,
+                                                                             site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   onenote_page_id=onenote_page_id,
                                   onenote_section_id=onenote_section_id,
                                   onenote_page_id1=onenote_page_id1,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       onenote_section_id,
-                                       onenote_page_id1,
-                                       commands=None):
+def usersactions_usersonenotepagesparentnotebooksectionspage_onenote_patch_content(client,
+                                                                                   user_id,
+                                                                                   onenote_page_id,
+                                                                                   onenote_section_id,
+                                                                                   onenote_page_id1,
+                                                                                   commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id1=onenote_page_id1,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectionsparentnotebook_copy_notebook(client,
+                                                                                     user_id,
+                                                                                     onenote_page_id,
+                                                                                     onenote_section_id,
+                                                                                     group_id=None,
+                                                                                     rename_as=None,
+                                                                                     notebook_folder=None,
+                                                                                     site_collection_id=None,
+                                                                                     site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectionsparentsectiongroupparentnotebook_copy_notebook(client,
+                                                                                                       user_id,
+                                                                                                       onenote_page_id,
+                                                                                                       onenote_section_id,
+                                                                                                       group_id=None,
+                                                                                                       rename_as=None,
+                                                                                                       notebook_folder=None,
+                                                                                                       site_collection_id=None,
+                                                                                                       site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  onenote_section_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectionsparentsectiongroupsection_copy_to_notebook(client,
+                                                                                                   user_id,
+                                                                                                   onenote_page_id,
+                                                                                                   onenote_section_id,
+                                                                                                   onenote_section_id1,
+                                                                                                   id_=None,
+                                                                                                   group_id=None,
+                                                                                                   rename_as=None,
+                                                                                                   site_collection_id=None,
+                                                                                                   site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       onenote_section_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentnotebooksectionsparentsectiongroupsection_copy_to_section_group(client,
+                                                                                                        user_id,
+                                                                                                        onenote_page_id,
+                                                                                                        onenote_section_id,
+                                                                                                        onenote_section_id1,
+                                                                                                        id_=None,
+                                                                                                        group_id=None,
+                                                                                                        rename_as=None,
+                                                                                                        site_collection_id=None,
+                                                                                                        site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentsection_copy_to_notebook(client,
+                                                                 user_id,
+                                                                 onenote_page_id,
+                                                                 id_=None,
+                                                                 group_id=None,
+                                                                 rename_as=None,
+                                                                 site_collection_id=None,
+                                                                 site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentsection_copy_to_section_group(client,
+                                                                      user_id,
+                                                                      onenote_page_id,
+                                                                      id_=None,
+                                                                      group_id=None,
+                                                                      rename_as=None,
+                                                                      site_collection_id=None,
+                                                                      site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 onenote_page_id,
-                                 onenote_page_id1,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotepagesparentsectionpage_copy_to_section(client,
+                                                                    user_id,
+                                                                    onenote_page_id,
+                                                                    onenote_page_id1,
+                                                                    id_=None,
+                                                                    group_id=None,
+                                                                    site_collection_id=None,
+                                                                    site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   onenote_page_id=onenote_page_id,
                                   onenote_page_id1=onenote_page_id1,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       onenote_page_id1,
-                                       commands=None):
+def usersactions_usersonenotepagesparentsectionpage_onenote_patch_content(client,
+                                                                          user_id,
+                                                                          onenote_page_id,
+                                                                          onenote_page_id1,
+                                                                          commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_page_id1=onenote_page_id1,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentsectionparentnotebook_copy_notebook(client,
+                                                                            user_id,
+                                                                            onenote_page_id,
+                                                                            group_id=None,
+                                                                            rename_as=None,
+                                                                            notebook_folder=None,
+                                                                            site_collection_id=None,
+                                                                            site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               section_group_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentsectionparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
+                                                                                                       user_id,
+                                                                                                       onenote_page_id,
+                                                                                                       section_group_id,
+                                                                                                       group_id=None,
+                                                                                                       rename_as=None,
+                                                                                                       notebook_folder=None,
+                                                                                                       site_collection_id=None,
+                                                                                                       site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
                                 section_group_id=section_group_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentsectionparentnotebooksectiongroupssection_copy_to_notebook(client,
+                                                                                                   user_id,
+                                                                                                   onenote_page_id,
+                                                                                                   section_group_id,
+                                                                                                   onenote_section_id,
+                                                                                                   id_=None,
+                                                                                                   group_id=None,
+                                                                                                   rename_as=None,
+                                                                                                   site_collection_id=None,
+                                                                                                   site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentsectionparentnotebooksectiongroupssection_copy_to_section_group(client,
+                                                                                                        user_id,
+                                                                                                        onenote_page_id,
+                                                                                                        section_group_id,
+                                                                                                        onenote_section_id,
+                                                                                                        id_=None,
+                                                                                                        group_id=None,
+                                                                                                        rename_as=None,
+                                                                                                        site_collection_id=None,
+                                                                                                        site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentsectionparentnotebooksection_copy_to_notebook(client,
+                                                                                      user_id,
+                                                                                      onenote_page_id,
+                                                                                      onenote_section_id,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentsectionparentnotebooksection_copy_to_section_group(client,
+                                                                                           user_id,
+                                                                                           onenote_page_id,
+                                                                                           onenote_section_id,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotepagesparentsectiongroupparentnotebook_copy_notebook(client,
+                                                                                 user_id,
+                                                                                 onenote_page_id,
+                                                                                 group_id=None,
+                                                                                 rename_as=None,
+                                                                                 notebook_folder=None,
+                                                                                 site_collection_id=None,
+                                                                                 site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentsectiongroupparentnotebooksection_copy_to_notebook(client,
+                                                                                           user_id,
+                                                                                           onenote_page_id,
+                                                                                           onenote_section_id,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentsectiongroupparentnotebooksection_copy_to_section_group(client,
+                                                                                                user_id,
+                                                                                                onenote_page_id,
+                                                                                                onenote_section_id,
+                                                                                                id_=None,
+                                                                                                group_id=None,
+                                                                                                rename_as=None,
+                                                                                                site_collection_id=None,
+                                                                                                site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_page_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotepagesparentsectiongroupsection_copy_to_notebook(client,
+                                                                             user_id,
+                                                                             onenote_page_id,
+                                                                             onenote_section_id,
+                                                                             id_=None,
+                                                                             group_id=None,
+                                                                             rename_as=None,
+                                                                             site_collection_id=None,
+                                                                             site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_page_id=onenote_page_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_page_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotepagesparentsectiongroupsection_copy_to_section_group(client,
+                                                                                  user_id,
+                                                                                  onenote_page_id,
+                                                                                  onenote_section_id,
+                                                                                  id_=None,
+                                                                                  group_id=None,
+                                                                                  rename_as=None,
+                                                                                  site_collection_id=None,
+                                                                                  site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               section_group_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebook_copy_notebook(client,
+                                                                       user_id,
+                                                                       section_group_id,
+                                                                       group_id=None,
+                                                                       rename_as=None,
+                                                                       notebook_folder=None,
+                                                                       site_collection_id=None,
+                                                                       site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 section_group_id=section_group_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksection_copy_to_notebook(client,
+                                                                                 user_id,
+                                                                                 section_group_id,
+                                                                                 onenote_section_id,
+                                                                                 id_=None,
+                                                                                 group_id=None,
+                                                                                 rename_as=None,
+                                                                                 site_collection_id=None,
+                                                                                 site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksection_copy_to_section_group(client,
+                                                                                      user_id,
+                                                                                      section_group_id,
+                                                                                      onenote_section_id,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 section_group_id,
-                                 onenote_section_id,
-                                 onenote_page_id,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksectionspage_copy_to_section(client,
+                                                                                     user_id,
+                                                                                     section_group_id,
+                                                                                     onenote_section_id,
+                                                                                     onenote_page_id,
+                                                                                     id_=None,
+                                                                                     group_id=None,
+                                                                                     site_collection_id=None,
+                                                                                     site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   section_group_id=section_group_id,
                                   onenote_section_id=onenote_section_id,
                                   onenote_page_id=onenote_page_id,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       commands=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksectionspage_onenote_patch_content(client,
+                                                                                           user_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id,
+                                                                                           onenote_page_id,
+                                                                                           commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               section_group_id,
-                               onenote_section_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksectionspagesparentnotebook_copy_notebook(client,
+                                                                                                  user_id,
+                                                                                                  section_group_id,
+                                                                                                  onenote_section_id,
+                                                                                                  onenote_page_id,
+                                                                                                  group_id=None,
+                                                                                                  rename_as=None,
+                                                                                                  notebook_folder=None,
+                                                                                                  site_collection_id=None,
+                                                                                                  site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksectionspagesparentsection_copy_to_notebook(client,
+                                                                                                    user_id,
+                                                                                                    section_group_id,
+                                                                                                    onenote_section_id,
+                                                                                                    onenote_page_id,
+                                                                                                    id_=None,
+                                                                                                    group_id=None,
+                                                                                                    rename_as=None,
+                                                                                                    site_collection_id=None,
+                                                                                                    site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksectionspagesparentsection_copy_to_section_group(client,
+                                                                                                         user_id,
+                                                                                                         section_group_id,
+                                                                                                         onenote_section_id,
+                                                                                                         onenote_page_id,
+                                                                                                         id_=None,
+                                                                                                         group_id=None,
+                                                                                                         rename_as=None,
+                                                                                                         site_collection_id=None,
+                                                                                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               section_group_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectiongroupsparentnotebooksectionsparentnotebook_copy_notebook(client,
+                                                                                             user_id,
+                                                                                             section_group_id,
+                                                                                             onenote_section_id,
+                                                                                             group_id=None,
+                                                                                             rename_as=None,
+                                                                                             notebook_folder=None,
+                                                                                             site_collection_id=None,
+                                                                                             site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectiongroupssection_copy_to_notebook(client,
+                                                                   user_id,
+                                                                   section_group_id,
+                                                                   onenote_section_id,
+                                                                   id_=None,
+                                                                   group_id=None,
+                                                                   rename_as=None,
+                                                                   site_collection_id=None,
+                                                                   site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectiongroupssection_copy_to_section_group(client,
+                                                                        user_id,
+                                                                        section_group_id,
+                                                                        onenote_section_id,
+                                                                        id_=None,
+                                                                        group_id=None,
+                                                                        rename_as=None,
+                                                                        site_collection_id=None,
+                                                                        site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 section_group_id,
-                                 onenote_section_id,
-                                 onenote_page_id,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotesectiongroupssectionspage_copy_to_section(client,
+                                                                       user_id,
+                                                                       section_group_id,
+                                                                       onenote_section_id,
+                                                                       onenote_page_id,
+                                                                       id_=None,
+                                                                       group_id=None,
+                                                                       site_collection_id=None,
+                                                                       site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   section_group_id=section_group_id,
                                   onenote_section_id=onenote_section_id,
                                   onenote_page_id=onenote_page_id,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       commands=None):
+def usersactions_usersonenotesectiongroupssectionspage_onenote_patch_content(client,
+                                                                             user_id,
+                                                                             section_group_id,
+                                                                             onenote_section_id,
+                                                                             onenote_page_id,
+                                                                             commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               section_group_id,
-                               onenote_section_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectiongroupssectionspagesparentnotebook_copy_notebook(client,
+                                                                                    user_id,
+                                                                                    section_group_id,
+                                                                                    onenote_section_id,
+                                                                                    onenote_page_id,
+                                                                                    group_id=None,
+                                                                                    rename_as=None,
+                                                                                    notebook_folder=None,
+                                                                                    site_collection_id=None,
+                                                                                    site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectiongroupssectionspagesparentnotebooksection_copy_to_notebook(client,
+                                                                                              user_id,
+                                                                                              section_group_id,
+                                                                                              onenote_section_id,
+                                                                                              onenote_page_id,
+                                                                                              onenote_section_id1,
+                                                                                              id_=None,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              site_collection_id=None,
+                                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectiongroupssectionspagesparentnotebooksection_copy_to_section_group(client,
+                                                                                                   user_id,
+                                                                                                   section_group_id,
+                                                                                                   onenote_section_id,
+                                                                                                   onenote_page_id,
+                                                                                                   onenote_section_id1,
+                                                                                                   id_=None,
+                                                                                                   group_id=None,
+                                                                                                   rename_as=None,
+                                                                                                   site_collection_id=None,
+                                                                                                   site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectiongroupssectionspagesparentsection_copy_to_notebook(client,
+                                                                                      user_id,
+                                                                                      section_group_id,
+                                                                                      onenote_section_id,
+                                                                                      onenote_page_id,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectiongroupssectionspagesparentsection_copy_to_section_group(client,
+                                                                                           user_id,
+                                                                                           section_group_id,
+                                                                                           onenote_section_id,
+                                                                                           onenote_page_id,
+                                                                                           id_=None,
+                                                                                           group_id=None,
+                                                                                           rename_as=None,
+                                                                                           site_collection_id=None,
+                                                                                           site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               section_group_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectiongroupssectionsparentnotebook_copy_notebook(client,
+                                                                               user_id,
+                                                                               section_group_id,
+                                                                               onenote_section_id,
+                                                                               group_id=None,
+                                                                               rename_as=None,
+                                                                               notebook_folder=None,
+                                                                               site_collection_id=None,
+                                                                               site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 section_group_id=section_group_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  section_group_id,
-                                  onenote_section_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectiongroupssectionsparentnotebooksection_copy_to_notebook(client,
+                                                                                         user_id,
+                                                                                         section_group_id,
+                                                                                         onenote_section_id,
+                                                                                         onenote_section_id1,
+                                                                                         id_=None,
+                                                                                         group_id=None,
+                                                                                         rename_as=None,
+                                                                                         site_collection_id=None,
+                                                                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       section_group_id,
-                                       onenote_section_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectiongroupssectionsparentnotebooksection_copy_to_section_group(client,
+                                                                                              user_id,
+                                                                                              section_group_id,
+                                                                                              onenote_section_id,
+                                                                                              onenote_section_id1,
+                                                                                              id_=None,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              site_collection_id=None,
+                                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesection_copy_to_notebook(client,
+                                                      user_id,
+                                                      onenote_section_id,
+                                                      id_=None,
+                                                      group_id=None,
+                                                      rename_as=None,
+                                                      site_collection_id=None,
+                                                      site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesection_copy_to_section_group(client,
+                                                           user_id,
+                                                           onenote_section_id,
+                                                           id_=None,
+                                                           group_id=None,
+                                                           rename_as=None,
+                                                           site_collection_id=None,
+                                                           site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_section(client,
-                                 user_id,
-                                 onenote_section_id,
-                                 onenote_page_id,
-                                 id_=None,
-                                 group_id=None,
-                                 site_collection_id=None,
-                                 site_id=None):
+def usersactions_usersonenotesectionspage_copy_to_section(client,
+                                                          user_id,
+                                                          onenote_section_id,
+                                                          onenote_page_id,
+                                                          id_=None,
+                                                          group_id=None,
+                                                          site_collection_id=None,
+                                                          site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section(user_id=user_id,
                                   onenote_section_id=onenote_section_id,
                                   onenote_page_id=onenote_page_id,
-                                  id=id_,
-                                  group_id=group_id,
-                                  site_collection_id=site_collection_id,
-                                  site_id=site_id)
+                                  body=body)
 
 
-def usersactions_onenote_patch_content(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       commands=None):
+def usersactions_usersonenotesectionspage_onenote_patch_content(client,
+                                                                user_id,
+                                                                onenote_section_id,
+                                                                onenote_page_id,
+                                                                commands=None):
+    body = {}
+    body['commands'] = commands
     return client.onenote_patch_content(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        commands=commands)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_section_id,
-                               onenote_page_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectionspagesparentnotebook_copy_notebook(client,
+                                                                       user_id,
+                                                                       onenote_section_id,
+                                                                       onenote_page_id,
+                                                                       group_id=None,
+                                                                       rename_as=None,
+                                                                       notebook_folder=None,
+                                                                       site_collection_id=None,
+                                                                       site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_section_id=onenote_section_id,
                                 onenote_page_id=onenote_page_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_section_id,
-                               onenote_page_id,
-                               section_group_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectionspagesparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
+                                                                                                  user_id,
+                                                                                                  onenote_section_id,
+                                                                                                  onenote_page_id,
+                                                                                                  section_group_id,
+                                                                                                  group_id=None,
+                                                                                                  rename_as=None,
+                                                                                                  notebook_folder=None,
+                                                                                                  site_collection_id=None,
+                                                                                                  site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_section_id=onenote_section_id,
                                 onenote_page_id=onenote_page_id,
                                 section_group_id=section_group_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  section_group_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectionspagesparentnotebooksectiongroupssection_copy_to_notebook(client,
+                                                                                              user_id,
+                                                                                              onenote_section_id,
+                                                                                              onenote_page_id,
+                                                                                              section_group_id,
+                                                                                              onenote_section_id1,
+                                                                                              id_=None,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              site_collection_id=None,
+                                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       section_group_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectionspagesparentnotebooksectiongroupssection_copy_to_section_group(client,
+                                                                                                   user_id,
+                                                                                                   onenote_section_id,
+                                                                                                   onenote_page_id,
+                                                                                                   section_group_id,
+                                                                                                   onenote_section_id1,
+                                                                                                   id_=None,
+                                                                                                   group_id=None,
+                                                                                                   rename_as=None,
+                                                                                                   site_collection_id=None,
+                                                                                                   site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectionspagesparentnotebooksection_copy_to_notebook(client,
+                                                                                 user_id,
+                                                                                 onenote_section_id,
+                                                                                 onenote_page_id,
+                                                                                 onenote_section_id1,
+                                                                                 id_=None,
+                                                                                 group_id=None,
+                                                                                 rename_as=None,
+                                                                                 site_collection_id=None,
+                                                                                 site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectionspagesparentnotebooksection_copy_to_section_group(client,
+                                                                                      user_id,
+                                                                                      onenote_section_id,
+                                                                                      onenote_page_id,
+                                                                                      onenote_section_id1,
+                                                                                      id_=None,
+                                                                                      group_id=None,
+                                                                                      rename_as=None,
+                                                                                      site_collection_id=None,
+                                                                                      site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  onenote_page_id,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectionspagesparentsection_copy_to_notebook(client,
+                                                                         user_id,
+                                                                         onenote_section_id,
+                                                                         onenote_page_id,
+                                                                         id_=None,
+                                                                         group_id=None,
+                                                                         rename_as=None,
+                                                                         site_collection_id=None,
+                                                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_page_id=onenote_page_id,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       onenote_page_id,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectionspagesparentsection_copy_to_section_group(client,
+                                                                              user_id,
+                                                                              onenote_section_id,
+                                                                              onenote_page_id,
+                                                                              id_=None,
+                                                                              group_id=None,
+                                                                              rename_as=None,
+                                                                              site_collection_id=None,
+                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_page_id=onenote_page_id,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectionsparentnotebook_copy_notebook(client,
+                                                                  user_id,
+                                                                  onenote_section_id,
+                                                                  group_id=None,
+                                                                  rename_as=None,
+                                                                  notebook_folder=None,
+                                                                  site_collection_id=None,
+                                                                  site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_section_id,
-                               section_group_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectionsparentnotebooksectiongroupsparentnotebook_copy_notebook(client,
+                                                                                             user_id,
+                                                                                             onenote_section_id,
+                                                                                             section_group_id,
+                                                                                             group_id=None,
+                                                                                             rename_as=None,
+                                                                                             notebook_folder=None,
+                                                                                             site_collection_id=None,
+                                                                                             site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_section_id=onenote_section_id,
                                 section_group_id=section_group_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  section_group_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectionsparentnotebooksectiongroupssection_copy_to_notebook(client,
+                                                                                         user_id,
+                                                                                         onenote_section_id,
+                                                                                         section_group_id,
+                                                                                         onenote_section_id1,
+                                                                                         id_=None,
+                                                                                         group_id=None,
+                                                                                         rename_as=None,
+                                                                                         site_collection_id=None,
+                                                                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
                                    section_group_id=section_group_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       section_group_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectionsparentnotebooksectiongroupssection_copy_to_section_group(client,
+                                                                                              user_id,
+                                                                                              onenote_section_id,
+                                                                                              section_group_id,
+                                                                                              onenote_section_id1,
+                                                                                              id_=None,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              site_collection_id=None,
+                                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         section_group_id=section_group_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectionsparentnotebooksection_copy_to_notebook(client,
+                                                                            user_id,
+                                                                            onenote_section_id,
+                                                                            onenote_section_id1,
+                                                                            id_=None,
+                                                                            group_id=None,
+                                                                            rename_as=None,
+                                                                            site_collection_id=None,
+                                                                            site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectionsparentnotebooksection_copy_to_section_group(client,
+                                                                                 user_id,
+                                                                                 onenote_section_id,
+                                                                                 onenote_section_id1,
+                                                                                 id_=None,
+                                                                                 group_id=None,
+                                                                                 rename_as=None,
+                                                                                 site_collection_id=None,
+                                                                                 site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_notebook(client,
-                               user_id,
-                               onenote_section_id,
-                               group_id=None,
-                               rename_as=None,
-                               notebook_folder=None,
-                               site_collection_id=None,
-                               site_id=None):
+def usersactions_usersonenotesectionsparentsectiongroupparentnotebook_copy_notebook(client,
+                                                                                    user_id,
+                                                                                    onenote_section_id,
+                                                                                    group_id=None,
+                                                                                    rename_as=None,
+                                                                                    notebook_folder=None,
+                                                                                    site_collection_id=None,
+                                                                                    site_id=None):
+    body = {}
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['notebook_folder'] = notebook_folder
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_notebook(user_id=user_id,
                                 onenote_section_id=onenote_section_id,
-                                group_id=group_id,
-                                rename_as=rename_as,
-                                notebook_folder=notebook_folder,
-                                site_collection_id=site_collection_id,
-                                site_id=site_id)
+                                body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectionsparentsectiongroupparentnotebooksection_copy_to_notebook(client,
+                                                                                              user_id,
+                                                                                              onenote_section_id,
+                                                                                              onenote_section_id1,
+                                                                                              id_=None,
+                                                                                              group_id=None,
+                                                                                              rename_as=None,
+                                                                                              site_collection_id=None,
+                                                                                              site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectionsparentsectiongroupparentnotebooksection_copy_to_section_group(client,
+                                                                                                   user_id,
+                                                                                                   onenote_section_id,
+                                                                                                   onenote_section_id1,
+                                                                                                   id_=None,
+                                                                                                   group_id=None,
+                                                                                                   rename_as=None,
+                                                                                                   site_collection_id=None,
+                                                                                                   site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_copy_to_notebook(client,
-                                  user_id,
-                                  onenote_section_id,
-                                  onenote_section_id1,
-                                  id_=None,
-                                  group_id=None,
-                                  rename_as=None,
-                                  site_collection_id=None,
-                                  site_id=None):
+def usersactions_usersonenotesectionsparentsectiongroupsection_copy_to_notebook(client,
+                                                                                user_id,
+                                                                                onenote_section_id,
+                                                                                onenote_section_id1,
+                                                                                id_=None,
+                                                                                group_id=None,
+                                                                                rename_as=None,
+                                                                                site_collection_id=None,
+                                                                                site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_notebook(user_id=user_id,
                                    onenote_section_id=onenote_section_id,
                                    onenote_section_id1=onenote_section_id1,
-                                   id=id_,
-                                   group_id=group_id,
-                                   rename_as=rename_as,
-                                   site_collection_id=site_collection_id,
-                                   site_id=site_id)
+                                   body=body)
 
 
-def usersactions_copy_to_section_group(client,
-                                       user_id,
-                                       onenote_section_id,
-                                       onenote_section_id1,
-                                       id_=None,
-                                       group_id=None,
-                                       rename_as=None,
-                                       site_collection_id=None,
-                                       site_id=None):
+def usersactions_usersonenotesectionsparentsectiongroupsection_copy_to_section_group(client,
+                                                                                     user_id,
+                                                                                     onenote_section_id,
+                                                                                     onenote_section_id1,
+                                                                                     id_=None,
+                                                                                     group_id=None,
+                                                                                     rename_as=None,
+                                                                                     site_collection_id=None,
+                                                                                     site_id=None):
+    body = {}
+    body['id'] = id_
+    body['group_id'] = group_id
+    body['rename_as'] = rename_as
+    body['site_collection_id'] = site_collection_id
+    body['site_id'] = site_id
     return client.copy_to_section_group(user_id=user_id,
                                         onenote_section_id=onenote_section_id,
                                         onenote_section_id1=onenote_section_id1,
-                                        id=id_,
-                                        group_id=group_id,
-                                        rename_as=rename_as,
-                                        site_collection_id=site_collection_id,
-                                        site_id=site_id)
+                                        body=body)
 
 
-def usersactions_create_or_get(client,
-                               user_id,
-                               chat_info=None,
-                               end_date_time=None,
-                               external_id=None,
-                               start_date_time=None,
-                               subject=None,
-                               participants_attendees=None,
-                               participants_organizer=None):
+def usersactions_usersonlinemeeting_create_or_get(client,
+                                                  user_id,
+                                                  chat_info=None,
+                                                  end_date_time=None,
+                                                  external_id=None,
+                                                  start_date_time=None,
+                                                  subject=None,
+                                                  attendees=None,
+                                                  organizer=None):
+    body = {}
+    body['chat_info'] = chat_info
+    body['end_date_time'] = end_date_time
+    body['external_id'] = external_id
+    body['start_date_time'] = start_date_time
+    body['subject'] = subject
+    body['participants'] = {}
+    body['participants']['attendees'] = attendees
+    body['participants']['organizer'] = organizer
     return client.create_or_get(user_id=user_id,
-                                chat_info=chat_info,
-                                end_date_time=end_date_time,
-                                external_id=external_id,
-                                start_date_time=start_date_time,
-                                subject=subject,
-                                attendees=participants_attendees,
-                                organizer=participants_organizer)
+                                body=body)

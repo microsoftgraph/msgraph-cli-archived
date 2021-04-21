@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._devices_cloud_print_async import DevicesCloudPrint
+from ._devices_cloud_print import DevicesCloudPrint
 __all__ = ['DevicesCloudPrint']

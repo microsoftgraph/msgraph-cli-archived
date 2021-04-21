@@ -35,6 +35,9 @@ class AddAverageComparativeScores(argparse._AppendAction):
                 d['average_score'] = v[0]
             elif kl == 'basis':
                 d['basis'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter average_comparative_scores. All possible '
+                               'keys are: average-score, basis'.format(k))
         return d
 
 
@@ -63,6 +66,9 @@ class AddControlScores(argparse._AppendAction):
                 d['description'] = v[0]
             elif kl == 'score':
                 d['score'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter control_scores. All possible keys are: '
+                               'control-category, control-name, description, score'.format(k))
         return d
 
 
@@ -91,30 +97,9 @@ class AddVendorInformation(argparse.Action):
                 d['sub_provider'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
-        return d
-
-
-class AddComplianceInformation(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddComplianceInformation, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'certification-controls':
-                d['certification_controls'] = v
-            elif kl == 'certification-name':
-                d['certification_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter vendor_information. All possible keys '
+                               'are: provider, provider-version, sub-provider, vendor'.format(k))
         return d
 
 
@@ -145,4 +130,7 @@ class AddControlStateUpdates(argparse._AppendAction):
                 d['updated_by'] = v[0]
             elif kl == 'updated-date-time':
                 d['updated_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter control_state_updates. All possible keys '
+                               'are: assigned-to, comment, state, updated-by, updated-date-time'.format(k))
         return d

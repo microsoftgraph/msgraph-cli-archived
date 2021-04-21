@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class CollectionOfNotebook(msrest.serialization.Model):
+class collectionofnotebook(msrest.serialization.Model):
     """Collection of notebook.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphNotebook]
+    :type value: list[~notes.models.microsoftgraphnotebook]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphNotebook]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphnotebook]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class CollectionOfNotebook(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfNotebook, self).__init__(**kwargs)
+        super(collectionofnotebook, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfNotebook0(msrest.serialization.Model):
+class collectionofnotebook0(msrest.serialization.Model):
     """Collection of notebook.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphNotebook]
+    :type value: list[~notes.models.microsoftgraphnotebook]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphNotebook]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphnotebook]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class CollectionOfNotebook0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfNotebook0, self).__init__(**kwargs)
+        super(collectionofnotebook0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfNotebook1(msrest.serialization.Model):
+class collectionofnotebook1(msrest.serialization.Model):
     """Collection of notebook.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphNotebook]
+    :type value: list[~notes.models.microsoftgraphnotebook]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphNotebook]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphnotebook]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,27 +88,27 @@ class CollectionOfNotebook1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfNotebook1, self).__init__(**kwargs)
+        super(collectionofnotebook1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteOperation(msrest.serialization.Model):
+class collectionofonenoteoperation(msrest.serialization.Model):
     """Collection of onenoteOperation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteOperation]
+    :type value: list[~notes.models.microsoftgraphonenoteoperation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteOperation]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenoteoperation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -116,27 +116,27 @@ class CollectionOfOnenoteOperation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteOperation, self).__init__(**kwargs)
+        super(collectionofonenoteoperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteOperation0(msrest.serialization.Model):
+class collectionofonenoteoperation0(msrest.serialization.Model):
     """Collection of onenoteOperation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteOperation]
+    :type value: list[~notes.models.microsoftgraphonenoteoperation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteOperation]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenoteoperation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -144,27 +144,27 @@ class CollectionOfOnenoteOperation0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteOperation0, self).__init__(**kwargs)
+        super(collectionofonenoteoperation0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteOperation1(msrest.serialization.Model):
+class collectionofonenoteoperation1(msrest.serialization.Model):
     """Collection of onenoteOperation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteOperation]
+    :type value: list[~notes.models.microsoftgraphonenoteoperation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteOperation]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenoteoperation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -172,27 +172,27 @@ class CollectionOfOnenoteOperation1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteOperation1, self).__init__(**kwargs)
+        super(collectionofonenoteoperation1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage(msrest.serialization.Model):
+class collectionofonenotepage(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,27 +200,27 @@ class CollectionOfOnenotePage(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage, self).__init__(**kwargs)
+        super(collectionofonenotepage, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage0(msrest.serialization.Model):
+class collectionofonenotepage0(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -228,27 +228,27 @@ class CollectionOfOnenotePage0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage0, self).__init__(**kwargs)
+        super(collectionofonenotepage0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage1(msrest.serialization.Model):
+class collectionofonenotepage1(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -256,27 +256,27 @@ class CollectionOfOnenotePage1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage1, self).__init__(**kwargs)
+        super(collectionofonenotepage1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage10(msrest.serialization.Model):
+class collectionofonenotepage10(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -284,27 +284,27 @@ class CollectionOfOnenotePage10(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage10, self).__init__(**kwargs)
+        super(collectionofonenotepage10, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage11(msrest.serialization.Model):
+class collectionofonenotepage11(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -312,27 +312,27 @@ class CollectionOfOnenotePage11(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage11, self).__init__(**kwargs)
+        super(collectionofonenotepage11, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage12(msrest.serialization.Model):
+class collectionofonenotepage12(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -340,27 +340,27 @@ class CollectionOfOnenotePage12(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage12, self).__init__(**kwargs)
+        super(collectionofonenotepage12, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage13(msrest.serialization.Model):
+class collectionofonenotepage13(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -368,27 +368,27 @@ class CollectionOfOnenotePage13(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage13, self).__init__(**kwargs)
+        super(collectionofonenotepage13, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage14(msrest.serialization.Model):
+class collectionofonenotepage14(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -396,27 +396,27 @@ class CollectionOfOnenotePage14(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage14, self).__init__(**kwargs)
+        super(collectionofonenotepage14, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage15(msrest.serialization.Model):
+class collectionofonenotepage15(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -424,27 +424,27 @@ class CollectionOfOnenotePage15(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage15, self).__init__(**kwargs)
+        super(collectionofonenotepage15, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage16(msrest.serialization.Model):
+class collectionofonenotepage16(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -452,27 +452,27 @@ class CollectionOfOnenotePage16(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage16, self).__init__(**kwargs)
+        super(collectionofonenotepage16, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage17(msrest.serialization.Model):
+class collectionofonenotepage17(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -480,27 +480,27 @@ class CollectionOfOnenotePage17(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage17, self).__init__(**kwargs)
+        super(collectionofonenotepage17, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage18(msrest.serialization.Model):
+class collectionofonenotepage18(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -508,27 +508,27 @@ class CollectionOfOnenotePage18(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage18, self).__init__(**kwargs)
+        super(collectionofonenotepage18, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage19(msrest.serialization.Model):
+class collectionofonenotepage19(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -536,27 +536,27 @@ class CollectionOfOnenotePage19(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage19, self).__init__(**kwargs)
+        super(collectionofonenotepage19, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage2(msrest.serialization.Model):
+class collectionofonenotepage2(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -564,27 +564,27 @@ class CollectionOfOnenotePage2(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage2, self).__init__(**kwargs)
+        super(collectionofonenotepage2, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage20(msrest.serialization.Model):
+class collectionofonenotepage20(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -592,27 +592,27 @@ class CollectionOfOnenotePage20(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage20, self).__init__(**kwargs)
+        super(collectionofonenotepage20, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage21(msrest.serialization.Model):
+class collectionofonenotepage21(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -620,27 +620,27 @@ class CollectionOfOnenotePage21(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage21, self).__init__(**kwargs)
+        super(collectionofonenotepage21, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage22(msrest.serialization.Model):
+class collectionofonenotepage22(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -648,27 +648,27 @@ class CollectionOfOnenotePage22(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage22, self).__init__(**kwargs)
+        super(collectionofonenotepage22, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage23(msrest.serialization.Model):
+class collectionofonenotepage23(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -676,27 +676,27 @@ class CollectionOfOnenotePage23(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage23, self).__init__(**kwargs)
+        super(collectionofonenotepage23, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage24(msrest.serialization.Model):
+class collectionofonenotepage24(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -704,27 +704,27 @@ class CollectionOfOnenotePage24(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage24, self).__init__(**kwargs)
+        super(collectionofonenotepage24, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage25(msrest.serialization.Model):
+class collectionofonenotepage25(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -732,27 +732,27 @@ class CollectionOfOnenotePage25(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage25, self).__init__(**kwargs)
+        super(collectionofonenotepage25, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage3(msrest.serialization.Model):
+class collectionofonenotepage3(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -760,27 +760,27 @@ class CollectionOfOnenotePage3(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage3, self).__init__(**kwargs)
+        super(collectionofonenotepage3, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage4(msrest.serialization.Model):
+class collectionofonenotepage4(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -788,27 +788,27 @@ class CollectionOfOnenotePage4(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage4, self).__init__(**kwargs)
+        super(collectionofonenotepage4, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage5(msrest.serialization.Model):
+class collectionofonenotepage5(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -816,27 +816,27 @@ class CollectionOfOnenotePage5(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage5, self).__init__(**kwargs)
+        super(collectionofonenotepage5, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage6(msrest.serialization.Model):
+class collectionofonenotepage6(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -844,27 +844,27 @@ class CollectionOfOnenotePage6(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage6, self).__init__(**kwargs)
+        super(collectionofonenotepage6, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage7(msrest.serialization.Model):
+class collectionofonenotepage7(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -872,27 +872,27 @@ class CollectionOfOnenotePage7(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage7, self).__init__(**kwargs)
+        super(collectionofonenotepage7, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage8(msrest.serialization.Model):
+class collectionofonenotepage8(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -900,27 +900,27 @@ class CollectionOfOnenotePage8(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage8, self).__init__(**kwargs)
+        super(collectionofonenotepage8, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenotePage9(msrest.serialization.Model):
+class collectionofonenotepage9(msrest.serialization.Model):
     """Collection of onenotePage.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type value: list[~notes.models.microsoftgraphonenotepage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenotePage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotepage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -928,27 +928,27 @@ class CollectionOfOnenotePage9(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenotePage9, self).__init__(**kwargs)
+        super(collectionofonenotepage9, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteResource(msrest.serialization.Model):
+class collectionofonenoteresource(msrest.serialization.Model):
     """Collection of onenoteResource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteResource]
+    :type value: list[~notes.models.microsoftgraphonenoteresource]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteResource]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenoteresource]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -956,27 +956,27 @@ class CollectionOfOnenoteResource(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteResource, self).__init__(**kwargs)
+        super(collectionofonenoteresource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteResource0(msrest.serialization.Model):
+class collectionofonenoteresource0(msrest.serialization.Model):
     """Collection of onenoteResource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteResource]
+    :type value: list[~notes.models.microsoftgraphonenoteresource]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteResource]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenoteresource]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -984,27 +984,27 @@ class CollectionOfOnenoteResource0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteResource0, self).__init__(**kwargs)
+        super(collectionofonenoteresource0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteResource1(msrest.serialization.Model):
+class collectionofonenoteresource1(msrest.serialization.Model):
     """Collection of onenoteResource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteResource]
+    :type value: list[~notes.models.microsoftgraphonenoteresource]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteResource]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenoteresource]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1012,27 +1012,27 @@ class CollectionOfOnenoteResource1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteResource1, self).__init__(**kwargs)
+        super(collectionofonenoteresource1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection(msrest.serialization.Model):
+class collectionofonenotesection(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1040,27 +1040,27 @@ class CollectionOfOnenoteSection(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection, self).__init__(**kwargs)
+        super(collectionofonenotesection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection0(msrest.serialization.Model):
+class collectionofonenotesection0(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1068,27 +1068,27 @@ class CollectionOfOnenoteSection0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection0, self).__init__(**kwargs)
+        super(collectionofonenotesection0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection1(msrest.serialization.Model):
+class collectionofonenotesection1(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1096,27 +1096,27 @@ class CollectionOfOnenoteSection1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection1, self).__init__(**kwargs)
+        super(collectionofonenotesection1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection10(msrest.serialization.Model):
+class collectionofonenotesection10(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1124,27 +1124,27 @@ class CollectionOfOnenoteSection10(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection10, self).__init__(**kwargs)
+        super(collectionofonenotesection10, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection11(msrest.serialization.Model):
+class collectionofonenotesection11(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1152,27 +1152,27 @@ class CollectionOfOnenoteSection11(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection11, self).__init__(**kwargs)
+        super(collectionofonenotesection11, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection12(msrest.serialization.Model):
+class collectionofonenotesection12(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1180,27 +1180,27 @@ class CollectionOfOnenoteSection12(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection12, self).__init__(**kwargs)
+        super(collectionofonenotesection12, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection13(msrest.serialization.Model):
+class collectionofonenotesection13(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1208,27 +1208,27 @@ class CollectionOfOnenoteSection13(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection13, self).__init__(**kwargs)
+        super(collectionofonenotesection13, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection14(msrest.serialization.Model):
+class collectionofonenotesection14(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1236,27 +1236,27 @@ class CollectionOfOnenoteSection14(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection14, self).__init__(**kwargs)
+        super(collectionofonenotesection14, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection15(msrest.serialization.Model):
+class collectionofonenotesection15(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1264,27 +1264,27 @@ class CollectionOfOnenoteSection15(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection15, self).__init__(**kwargs)
+        super(collectionofonenotesection15, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection16(msrest.serialization.Model):
+class collectionofonenotesection16(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1292,27 +1292,27 @@ class CollectionOfOnenoteSection16(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection16, self).__init__(**kwargs)
+        super(collectionofonenotesection16, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection17(msrest.serialization.Model):
+class collectionofonenotesection17(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1320,27 +1320,27 @@ class CollectionOfOnenoteSection17(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection17, self).__init__(**kwargs)
+        super(collectionofonenotesection17, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection18(msrest.serialization.Model):
+class collectionofonenotesection18(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1348,27 +1348,27 @@ class CollectionOfOnenoteSection18(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection18, self).__init__(**kwargs)
+        super(collectionofonenotesection18, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection19(msrest.serialization.Model):
+class collectionofonenotesection19(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1376,27 +1376,27 @@ class CollectionOfOnenoteSection19(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection19, self).__init__(**kwargs)
+        super(collectionofonenotesection19, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection2(msrest.serialization.Model):
+class collectionofonenotesection2(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1404,27 +1404,27 @@ class CollectionOfOnenoteSection2(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection2, self).__init__(**kwargs)
+        super(collectionofonenotesection2, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection20(msrest.serialization.Model):
+class collectionofonenotesection20(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1432,27 +1432,27 @@ class CollectionOfOnenoteSection20(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection20, self).__init__(**kwargs)
+        super(collectionofonenotesection20, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection21(msrest.serialization.Model):
+class collectionofonenotesection21(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1460,27 +1460,27 @@ class CollectionOfOnenoteSection21(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection21, self).__init__(**kwargs)
+        super(collectionofonenotesection21, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection22(msrest.serialization.Model):
+class collectionofonenotesection22(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1488,27 +1488,27 @@ class CollectionOfOnenoteSection22(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection22, self).__init__(**kwargs)
+        super(collectionofonenotesection22, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection23(msrest.serialization.Model):
+class collectionofonenotesection23(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1516,27 +1516,27 @@ class CollectionOfOnenoteSection23(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection23, self).__init__(**kwargs)
+        super(collectionofonenotesection23, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection24(msrest.serialization.Model):
+class collectionofonenotesection24(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1544,27 +1544,27 @@ class CollectionOfOnenoteSection24(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection24, self).__init__(**kwargs)
+        super(collectionofonenotesection24, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection25(msrest.serialization.Model):
+class collectionofonenotesection25(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1572,27 +1572,27 @@ class CollectionOfOnenoteSection25(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection25, self).__init__(**kwargs)
+        super(collectionofonenotesection25, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection26(msrest.serialization.Model):
+class collectionofonenotesection26(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1600,27 +1600,27 @@ class CollectionOfOnenoteSection26(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection26, self).__init__(**kwargs)
+        super(collectionofonenotesection26, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection27(msrest.serialization.Model):
+class collectionofonenotesection27(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1628,27 +1628,27 @@ class CollectionOfOnenoteSection27(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection27, self).__init__(**kwargs)
+        super(collectionofonenotesection27, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection28(msrest.serialization.Model):
+class collectionofonenotesection28(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1656,27 +1656,27 @@ class CollectionOfOnenoteSection28(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection28, self).__init__(**kwargs)
+        super(collectionofonenotesection28, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection29(msrest.serialization.Model):
+class collectionofonenotesection29(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1684,27 +1684,27 @@ class CollectionOfOnenoteSection29(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection29, self).__init__(**kwargs)
+        super(collectionofonenotesection29, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection3(msrest.serialization.Model):
+class collectionofonenotesection3(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1712,27 +1712,27 @@ class CollectionOfOnenoteSection3(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection3, self).__init__(**kwargs)
+        super(collectionofonenotesection3, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection30(msrest.serialization.Model):
+class collectionofonenotesection30(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1740,27 +1740,27 @@ class CollectionOfOnenoteSection30(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection30, self).__init__(**kwargs)
+        super(collectionofonenotesection30, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection31(msrest.serialization.Model):
+class collectionofonenotesection31(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1768,27 +1768,27 @@ class CollectionOfOnenoteSection31(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection31, self).__init__(**kwargs)
+        super(collectionofonenotesection31, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection32(msrest.serialization.Model):
+class collectionofonenotesection32(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1796,27 +1796,27 @@ class CollectionOfOnenoteSection32(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection32, self).__init__(**kwargs)
+        super(collectionofonenotesection32, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection33(msrest.serialization.Model):
+class collectionofonenotesection33(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1824,27 +1824,27 @@ class CollectionOfOnenoteSection33(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection33, self).__init__(**kwargs)
+        super(collectionofonenotesection33, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection34(msrest.serialization.Model):
+class collectionofonenotesection34(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1852,27 +1852,27 @@ class CollectionOfOnenoteSection34(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection34, self).__init__(**kwargs)
+        super(collectionofonenotesection34, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection35(msrest.serialization.Model):
+class collectionofonenotesection35(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1880,27 +1880,27 @@ class CollectionOfOnenoteSection35(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection35, self).__init__(**kwargs)
+        super(collectionofonenotesection35, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection36(msrest.serialization.Model):
+class collectionofonenotesection36(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1908,27 +1908,27 @@ class CollectionOfOnenoteSection36(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection36, self).__init__(**kwargs)
+        super(collectionofonenotesection36, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection37(msrest.serialization.Model):
+class collectionofonenotesection37(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1936,27 +1936,27 @@ class CollectionOfOnenoteSection37(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection37, self).__init__(**kwargs)
+        super(collectionofonenotesection37, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection38(msrest.serialization.Model):
+class collectionofonenotesection38(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1964,27 +1964,27 @@ class CollectionOfOnenoteSection38(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection38, self).__init__(**kwargs)
+        super(collectionofonenotesection38, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection39(msrest.serialization.Model):
+class collectionofonenotesection39(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -1992,27 +1992,27 @@ class CollectionOfOnenoteSection39(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection39, self).__init__(**kwargs)
+        super(collectionofonenotesection39, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection4(msrest.serialization.Model):
+class collectionofonenotesection4(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2020,27 +2020,27 @@ class CollectionOfOnenoteSection4(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection4, self).__init__(**kwargs)
+        super(collectionofonenotesection4, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection40(msrest.serialization.Model):
+class collectionofonenotesection40(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2048,27 +2048,27 @@ class CollectionOfOnenoteSection40(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection40, self).__init__(**kwargs)
+        super(collectionofonenotesection40, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection41(msrest.serialization.Model):
+class collectionofonenotesection41(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2076,27 +2076,27 @@ class CollectionOfOnenoteSection41(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection41, self).__init__(**kwargs)
+        super(collectionofonenotesection41, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection42(msrest.serialization.Model):
+class collectionofonenotesection42(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2104,27 +2104,27 @@ class CollectionOfOnenoteSection42(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection42, self).__init__(**kwargs)
+        super(collectionofonenotesection42, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection43(msrest.serialization.Model):
+class collectionofonenotesection43(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2132,27 +2132,27 @@ class CollectionOfOnenoteSection43(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection43, self).__init__(**kwargs)
+        super(collectionofonenotesection43, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection44(msrest.serialization.Model):
+class collectionofonenotesection44(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2160,27 +2160,27 @@ class CollectionOfOnenoteSection44(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection44, self).__init__(**kwargs)
+        super(collectionofonenotesection44, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection45(msrest.serialization.Model):
+class collectionofonenotesection45(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2188,27 +2188,27 @@ class CollectionOfOnenoteSection45(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection45, self).__init__(**kwargs)
+        super(collectionofonenotesection45, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection46(msrest.serialization.Model):
+class collectionofonenotesection46(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2216,27 +2216,27 @@ class CollectionOfOnenoteSection46(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection46, self).__init__(**kwargs)
+        super(collectionofonenotesection46, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection47(msrest.serialization.Model):
+class collectionofonenotesection47(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2244,27 +2244,27 @@ class CollectionOfOnenoteSection47(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection47, self).__init__(**kwargs)
+        super(collectionofonenotesection47, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection48(msrest.serialization.Model):
+class collectionofonenotesection48(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2272,27 +2272,27 @@ class CollectionOfOnenoteSection48(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection48, self).__init__(**kwargs)
+        super(collectionofonenotesection48, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection49(msrest.serialization.Model):
+class collectionofonenotesection49(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2300,27 +2300,27 @@ class CollectionOfOnenoteSection49(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection49, self).__init__(**kwargs)
+        super(collectionofonenotesection49, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection5(msrest.serialization.Model):
+class collectionofonenotesection5(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2328,27 +2328,27 @@ class CollectionOfOnenoteSection5(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection5, self).__init__(**kwargs)
+        super(collectionofonenotesection5, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection50(msrest.serialization.Model):
+class collectionofonenotesection50(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2356,27 +2356,27 @@ class CollectionOfOnenoteSection50(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection50, self).__init__(**kwargs)
+        super(collectionofonenotesection50, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection51(msrest.serialization.Model):
+class collectionofonenotesection51(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2384,27 +2384,27 @@ class CollectionOfOnenoteSection51(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection51, self).__init__(**kwargs)
+        super(collectionofonenotesection51, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection52(msrest.serialization.Model):
+class collectionofonenotesection52(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2412,27 +2412,27 @@ class CollectionOfOnenoteSection52(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection52, self).__init__(**kwargs)
+        super(collectionofonenotesection52, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection53(msrest.serialization.Model):
+class collectionofonenotesection53(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2440,27 +2440,27 @@ class CollectionOfOnenoteSection53(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection53, self).__init__(**kwargs)
+        super(collectionofonenotesection53, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection54(msrest.serialization.Model):
+class collectionofonenotesection54(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2468,27 +2468,27 @@ class CollectionOfOnenoteSection54(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection54, self).__init__(**kwargs)
+        super(collectionofonenotesection54, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection55(msrest.serialization.Model):
+class collectionofonenotesection55(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2496,27 +2496,27 @@ class CollectionOfOnenoteSection55(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection55, self).__init__(**kwargs)
+        super(collectionofonenotesection55, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection56(msrest.serialization.Model):
+class collectionofonenotesection56(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2524,27 +2524,27 @@ class CollectionOfOnenoteSection56(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection56, self).__init__(**kwargs)
+        super(collectionofonenotesection56, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection57(msrest.serialization.Model):
+class collectionofonenotesection57(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2552,27 +2552,27 @@ class CollectionOfOnenoteSection57(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection57, self).__init__(**kwargs)
+        super(collectionofonenotesection57, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection58(msrest.serialization.Model):
+class collectionofonenotesection58(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2580,27 +2580,27 @@ class CollectionOfOnenoteSection58(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection58, self).__init__(**kwargs)
+        super(collectionofonenotesection58, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection59(msrest.serialization.Model):
+class collectionofonenotesection59(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2608,27 +2608,27 @@ class CollectionOfOnenoteSection59(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection59, self).__init__(**kwargs)
+        super(collectionofonenotesection59, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection6(msrest.serialization.Model):
+class collectionofonenotesection6(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2636,27 +2636,27 @@ class CollectionOfOnenoteSection6(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection6, self).__init__(**kwargs)
+        super(collectionofonenotesection6, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection60(msrest.serialization.Model):
+class collectionofonenotesection60(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2664,27 +2664,27 @@ class CollectionOfOnenoteSection60(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection60, self).__init__(**kwargs)
+        super(collectionofonenotesection60, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection61(msrest.serialization.Model):
+class collectionofonenotesection61(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2692,27 +2692,27 @@ class CollectionOfOnenoteSection61(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection61, self).__init__(**kwargs)
+        super(collectionofonenotesection61, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection7(msrest.serialization.Model):
+class collectionofonenotesection7(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2720,27 +2720,27 @@ class CollectionOfOnenoteSection7(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection7, self).__init__(**kwargs)
+        super(collectionofonenotesection7, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection8(msrest.serialization.Model):
+class collectionofonenotesection8(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2748,27 +2748,27 @@ class CollectionOfOnenoteSection8(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection8, self).__init__(**kwargs)
+        super(collectionofonenotesection8, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfOnenoteSection9(msrest.serialization.Model):
+class collectionofonenotesection9(msrest.serialization.Model):
     """Collection of onenoteSection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type value: list[~notes.models.microsoftgraphonenotesection]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphonenotesection]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2776,27 +2776,27 @@ class CollectionOfOnenoteSection9(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfOnenoteSection9, self).__init__(**kwargs)
+        super(collectionofonenotesection9, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup(msrest.serialization.Model):
+class collectionofsectiongroup(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2804,27 +2804,27 @@ class CollectionOfSectionGroup(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup, self).__init__(**kwargs)
+        super(collectionofsectiongroup, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup0(msrest.serialization.Model):
+class collectionofsectiongroup0(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2832,27 +2832,27 @@ class CollectionOfSectionGroup0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup0, self).__init__(**kwargs)
+        super(collectionofsectiongroup0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup1(msrest.serialization.Model):
+class collectionofsectiongroup1(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2860,27 +2860,27 @@ class CollectionOfSectionGroup1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup1, self).__init__(**kwargs)
+        super(collectionofsectiongroup1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup10(msrest.serialization.Model):
+class collectionofsectiongroup10(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2888,27 +2888,27 @@ class CollectionOfSectionGroup10(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup10, self).__init__(**kwargs)
+        super(collectionofsectiongroup10, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup11(msrest.serialization.Model):
+class collectionofsectiongroup11(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2916,27 +2916,27 @@ class CollectionOfSectionGroup11(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup11, self).__init__(**kwargs)
+        super(collectionofsectiongroup11, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup12(msrest.serialization.Model):
+class collectionofsectiongroup12(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2944,27 +2944,27 @@ class CollectionOfSectionGroup12(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup12, self).__init__(**kwargs)
+        super(collectionofsectiongroup12, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup13(msrest.serialization.Model):
+class collectionofsectiongroup13(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -2972,27 +2972,27 @@ class CollectionOfSectionGroup13(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup13, self).__init__(**kwargs)
+        super(collectionofsectiongroup13, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup14(msrest.serialization.Model):
+class collectionofsectiongroup14(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3000,27 +3000,27 @@ class CollectionOfSectionGroup14(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup14, self).__init__(**kwargs)
+        super(collectionofsectiongroup14, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup15(msrest.serialization.Model):
+class collectionofsectiongroup15(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3028,27 +3028,27 @@ class CollectionOfSectionGroup15(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup15, self).__init__(**kwargs)
+        super(collectionofsectiongroup15, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup16(msrest.serialization.Model):
+class collectionofsectiongroup16(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3056,27 +3056,27 @@ class CollectionOfSectionGroup16(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup16, self).__init__(**kwargs)
+        super(collectionofsectiongroup16, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup17(msrest.serialization.Model):
+class collectionofsectiongroup17(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3084,27 +3084,27 @@ class CollectionOfSectionGroup17(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup17, self).__init__(**kwargs)
+        super(collectionofsectiongroup17, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup18(msrest.serialization.Model):
+class collectionofsectiongroup18(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3112,27 +3112,27 @@ class CollectionOfSectionGroup18(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup18, self).__init__(**kwargs)
+        super(collectionofsectiongroup18, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup19(msrest.serialization.Model):
+class collectionofsectiongroup19(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3140,27 +3140,27 @@ class CollectionOfSectionGroup19(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup19, self).__init__(**kwargs)
+        super(collectionofsectiongroup19, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup2(msrest.serialization.Model):
+class collectionofsectiongroup2(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3168,27 +3168,27 @@ class CollectionOfSectionGroup2(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup2, self).__init__(**kwargs)
+        super(collectionofsectiongroup2, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup20(msrest.serialization.Model):
+class collectionofsectiongroup20(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3196,27 +3196,27 @@ class CollectionOfSectionGroup20(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup20, self).__init__(**kwargs)
+        super(collectionofsectiongroup20, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup21(msrest.serialization.Model):
+class collectionofsectiongroup21(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3224,27 +3224,27 @@ class CollectionOfSectionGroup21(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup21, self).__init__(**kwargs)
+        super(collectionofsectiongroup21, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup22(msrest.serialization.Model):
+class collectionofsectiongroup22(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3252,27 +3252,27 @@ class CollectionOfSectionGroup22(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup22, self).__init__(**kwargs)
+        super(collectionofsectiongroup22, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup23(msrest.serialization.Model):
+class collectionofsectiongroup23(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3280,27 +3280,27 @@ class CollectionOfSectionGroup23(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup23, self).__init__(**kwargs)
+        super(collectionofsectiongroup23, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup24(msrest.serialization.Model):
+class collectionofsectiongroup24(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3308,27 +3308,27 @@ class CollectionOfSectionGroup24(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup24, self).__init__(**kwargs)
+        super(collectionofsectiongroup24, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup25(msrest.serialization.Model):
+class collectionofsectiongroup25(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3336,27 +3336,27 @@ class CollectionOfSectionGroup25(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup25, self).__init__(**kwargs)
+        super(collectionofsectiongroup25, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup26(msrest.serialization.Model):
+class collectionofsectiongroup26(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3364,27 +3364,27 @@ class CollectionOfSectionGroup26(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup26, self).__init__(**kwargs)
+        super(collectionofsectiongroup26, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup27(msrest.serialization.Model):
+class collectionofsectiongroup27(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3392,27 +3392,27 @@ class CollectionOfSectionGroup27(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup27, self).__init__(**kwargs)
+        super(collectionofsectiongroup27, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup28(msrest.serialization.Model):
+class collectionofsectiongroup28(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3420,27 +3420,27 @@ class CollectionOfSectionGroup28(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup28, self).__init__(**kwargs)
+        super(collectionofsectiongroup28, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup29(msrest.serialization.Model):
+class collectionofsectiongroup29(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3448,27 +3448,27 @@ class CollectionOfSectionGroup29(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup29, self).__init__(**kwargs)
+        super(collectionofsectiongroup29, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup3(msrest.serialization.Model):
+class collectionofsectiongroup3(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3476,27 +3476,27 @@ class CollectionOfSectionGroup3(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup3, self).__init__(**kwargs)
+        super(collectionofsectiongroup3, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup30(msrest.serialization.Model):
+class collectionofsectiongroup30(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3504,27 +3504,27 @@ class CollectionOfSectionGroup30(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup30, self).__init__(**kwargs)
+        super(collectionofsectiongroup30, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup31(msrest.serialization.Model):
+class collectionofsectiongroup31(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3532,27 +3532,27 @@ class CollectionOfSectionGroup31(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup31, self).__init__(**kwargs)
+        super(collectionofsectiongroup31, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup32(msrest.serialization.Model):
+class collectionofsectiongroup32(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3560,27 +3560,27 @@ class CollectionOfSectionGroup32(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup32, self).__init__(**kwargs)
+        super(collectionofsectiongroup32, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup33(msrest.serialization.Model):
+class collectionofsectiongroup33(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3588,27 +3588,27 @@ class CollectionOfSectionGroup33(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup33, self).__init__(**kwargs)
+        super(collectionofsectiongroup33, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup34(msrest.serialization.Model):
+class collectionofsectiongroup34(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3616,27 +3616,27 @@ class CollectionOfSectionGroup34(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup34, self).__init__(**kwargs)
+        super(collectionofsectiongroup34, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup35(msrest.serialization.Model):
+class collectionofsectiongroup35(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3644,27 +3644,27 @@ class CollectionOfSectionGroup35(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup35, self).__init__(**kwargs)
+        super(collectionofsectiongroup35, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup36(msrest.serialization.Model):
+class collectionofsectiongroup36(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3672,27 +3672,27 @@ class CollectionOfSectionGroup36(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup36, self).__init__(**kwargs)
+        super(collectionofsectiongroup36, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup37(msrest.serialization.Model):
+class collectionofsectiongroup37(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3700,27 +3700,27 @@ class CollectionOfSectionGroup37(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup37, self).__init__(**kwargs)
+        super(collectionofsectiongroup37, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup38(msrest.serialization.Model):
+class collectionofsectiongroup38(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3728,27 +3728,27 @@ class CollectionOfSectionGroup38(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup38, self).__init__(**kwargs)
+        super(collectionofsectiongroup38, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup39(msrest.serialization.Model):
+class collectionofsectiongroup39(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3756,27 +3756,27 @@ class CollectionOfSectionGroup39(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup39, self).__init__(**kwargs)
+        super(collectionofsectiongroup39, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup4(msrest.serialization.Model):
+class collectionofsectiongroup4(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3784,27 +3784,27 @@ class CollectionOfSectionGroup4(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup4, self).__init__(**kwargs)
+        super(collectionofsectiongroup4, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup40(msrest.serialization.Model):
+class collectionofsectiongroup40(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3812,27 +3812,27 @@ class CollectionOfSectionGroup40(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup40, self).__init__(**kwargs)
+        super(collectionofsectiongroup40, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup41(msrest.serialization.Model):
+class collectionofsectiongroup41(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3840,27 +3840,27 @@ class CollectionOfSectionGroup41(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup41, self).__init__(**kwargs)
+        super(collectionofsectiongroup41, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup42(msrest.serialization.Model):
+class collectionofsectiongroup42(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3868,27 +3868,27 @@ class CollectionOfSectionGroup42(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup42, self).__init__(**kwargs)
+        super(collectionofsectiongroup42, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup43(msrest.serialization.Model):
+class collectionofsectiongroup43(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3896,27 +3896,27 @@ class CollectionOfSectionGroup43(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup43, self).__init__(**kwargs)
+        super(collectionofsectiongroup43, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup44(msrest.serialization.Model):
+class collectionofsectiongroup44(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3924,27 +3924,27 @@ class CollectionOfSectionGroup44(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup44, self).__init__(**kwargs)
+        super(collectionofsectiongroup44, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup45(msrest.serialization.Model):
+class collectionofsectiongroup45(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3952,27 +3952,27 @@ class CollectionOfSectionGroup45(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup45, self).__init__(**kwargs)
+        super(collectionofsectiongroup45, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup46(msrest.serialization.Model):
+class collectionofsectiongroup46(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -3980,27 +3980,27 @@ class CollectionOfSectionGroup46(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup46, self).__init__(**kwargs)
+        super(collectionofsectiongroup46, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup47(msrest.serialization.Model):
+class collectionofsectiongroup47(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4008,27 +4008,27 @@ class CollectionOfSectionGroup47(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup47, self).__init__(**kwargs)
+        super(collectionofsectiongroup47, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup48(msrest.serialization.Model):
+class collectionofsectiongroup48(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4036,27 +4036,27 @@ class CollectionOfSectionGroup48(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup48, self).__init__(**kwargs)
+        super(collectionofsectiongroup48, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup49(msrest.serialization.Model):
+class collectionofsectiongroup49(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4064,27 +4064,27 @@ class CollectionOfSectionGroup49(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup49, self).__init__(**kwargs)
+        super(collectionofsectiongroup49, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup5(msrest.serialization.Model):
+class collectionofsectiongroup5(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4092,27 +4092,27 @@ class CollectionOfSectionGroup5(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup5, self).__init__(**kwargs)
+        super(collectionofsectiongroup5, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup50(msrest.serialization.Model):
+class collectionofsectiongroup50(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4120,27 +4120,27 @@ class CollectionOfSectionGroup50(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup50, self).__init__(**kwargs)
+        super(collectionofsectiongroup50, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup51(msrest.serialization.Model):
+class collectionofsectiongroup51(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4148,27 +4148,27 @@ class CollectionOfSectionGroup51(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup51, self).__init__(**kwargs)
+        super(collectionofsectiongroup51, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup52(msrest.serialization.Model):
+class collectionofsectiongroup52(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4176,27 +4176,27 @@ class CollectionOfSectionGroup52(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup52, self).__init__(**kwargs)
+        super(collectionofsectiongroup52, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup53(msrest.serialization.Model):
+class collectionofsectiongroup53(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4204,27 +4204,27 @@ class CollectionOfSectionGroup53(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup53, self).__init__(**kwargs)
+        super(collectionofsectiongroup53, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup54(msrest.serialization.Model):
+class collectionofsectiongroup54(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4232,27 +4232,27 @@ class CollectionOfSectionGroup54(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup54, self).__init__(**kwargs)
+        super(collectionofsectiongroup54, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup55(msrest.serialization.Model):
+class collectionofsectiongroup55(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4260,27 +4260,27 @@ class CollectionOfSectionGroup55(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup55, self).__init__(**kwargs)
+        super(collectionofsectiongroup55, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup56(msrest.serialization.Model):
+class collectionofsectiongroup56(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4288,27 +4288,27 @@ class CollectionOfSectionGroup56(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup56, self).__init__(**kwargs)
+        super(collectionofsectiongroup56, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup57(msrest.serialization.Model):
+class collectionofsectiongroup57(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4316,27 +4316,27 @@ class CollectionOfSectionGroup57(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup57, self).__init__(**kwargs)
+        super(collectionofsectiongroup57, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup58(msrest.serialization.Model):
+class collectionofsectiongroup58(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4344,27 +4344,27 @@ class CollectionOfSectionGroup58(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup58, self).__init__(**kwargs)
+        super(collectionofsectiongroup58, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup59(msrest.serialization.Model):
+class collectionofsectiongroup59(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4372,27 +4372,27 @@ class CollectionOfSectionGroup59(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup59, self).__init__(**kwargs)
+        super(collectionofsectiongroup59, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup6(msrest.serialization.Model):
+class collectionofsectiongroup6(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4400,27 +4400,27 @@ class CollectionOfSectionGroup6(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup6, self).__init__(**kwargs)
+        super(collectionofsectiongroup6, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup60(msrest.serialization.Model):
+class collectionofsectiongroup60(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4428,27 +4428,27 @@ class CollectionOfSectionGroup60(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup60, self).__init__(**kwargs)
+        super(collectionofsectiongroup60, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup61(msrest.serialization.Model):
+class collectionofsectiongroup61(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4456,27 +4456,27 @@ class CollectionOfSectionGroup61(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup61, self).__init__(**kwargs)
+        super(collectionofsectiongroup61, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup7(msrest.serialization.Model):
+class collectionofsectiongroup7(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4484,27 +4484,27 @@ class CollectionOfSectionGroup7(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup7, self).__init__(**kwargs)
+        super(collectionofsectiongroup7, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup8(msrest.serialization.Model):
+class collectionofsectiongroup8(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4512,27 +4512,27 @@ class CollectionOfSectionGroup8(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup8, self).__init__(**kwargs)
+        super(collectionofsectiongroup8, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSectionGroup9(msrest.serialization.Model):
+class collectionofsectiongroup9(msrest.serialization.Model):
     """Collection of sectionGroup.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type value: list[~notes.models.microsoftgraphsectiongroup]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSectionGroup]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsectiongroup]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -4540,13 +4540,13 @@ class CollectionOfSectionGroup9(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSectionGroup9, self).__init__(**kwargs)
+        super(collectionofsectiongroup9, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
+class microsoftgraphentity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4565,12 +4565,12 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(microsoftgraphentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class MicrosoftGraphExternalLink(msrest.serialization.Model):
+class microsoftgraphexternallink(msrest.serialization.Model):
     """externalLink.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4589,12 +4589,12 @@ class MicrosoftGraphExternalLink(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphExternalLink, self).__init__(**kwargs)
+        super(microsoftgraphexternallink, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.href = kwargs.get('href', None)
 
 
-class MicrosoftGraphIdentity(msrest.serialization.Model):
+class microsoftgraphidentity(msrest.serialization.Model):
     """identity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4619,45 +4619,45 @@ class MicrosoftGraphIdentity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphIdentity, self).__init__(**kwargs)
+        super(microsoftgraphidentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.id = kwargs.get('id', None)
 
 
-class MicrosoftGraphIdentitySet(msrest.serialization.Model):
+class microsoftgraphidentityset(msrest.serialization.Model):
     """identitySet.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param application: identity.
-    :type application: ~notes.models.MicrosoftGraphIdentity
+    :type application: ~notes.models.microsoftgraphidentity
     :param device: identity.
-    :type device: ~notes.models.MicrosoftGraphIdentity
+    :type device: ~notes.models.microsoftgraphidentity
     :param user: identity.
-    :type user: ~notes.models.MicrosoftGraphIdentity
+    :type user: ~notes.models.microsoftgraphidentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
+        'application': {'key': 'application', 'type': 'microsoftgraphidentity'},
+        'device': {'key': 'device', 'type': 'microsoftgraphidentity'},
+        'user': {'key': 'user', 'type': 'microsoftgraphidentity'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
+        super(microsoftgraphidentityset, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.application = kwargs.get('application', None)
         self.device = kwargs.get('device', None)
         self.user = kwargs.get('user', None)
 
 
-class MicrosoftGraphOnenoteEntityBaseModel(MicrosoftGraphEntity):
+class microsoftgraphonenoteentitybasemodel(microsoftgraphentity):
     """onenoteEntityBaseModel.
 
     :param id: Read-only.
@@ -4679,17 +4679,14 @@ class MicrosoftGraphOnenoteEntityBaseModel(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteEntityBaseModel, self).__init__(**kwargs)
+        super(microsoftgraphonenoteentitybasemodel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.self_property = kwargs.get('self_property', None)
 
 
-class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBaseModel):
+class microsoftgraphonenoteentityschemaobjectmodel(microsoftgraphonenoteentitybasemodel):
     """onenoteEntitySchemaObjectModel.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -4704,7 +4701,6 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -4715,20 +4711,14 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteEntitySchemaObjectModel, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphonenoteentityschemaobjectmodel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
 
 
-class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchemaObjectModel):
+class microsoftgraphonenoteentityhierarchymodel(microsoftgraphonenoteentityschemaobjectmodel):
     """onenoteEntityHierarchyModel.
 
-    :param id: Read-only.
-    :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -4740,97 +4730,64 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.microsoftgraphidentityset
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.microsoftgraphidentityset
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
-        'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteEntityHierarchyModel, self).__init__(**kwargs)
+        super(microsoftgraphonenoteentityhierarchymodel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.display_name = kwargs.get('display_name', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_created_by_application = kwargs.get('application_created_by_application', None)
-        self.device_created_by_device = kwargs.get('device_created_by_device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
 
 
-class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
+class microsoftgraphnotebook(microsoftgraphonenoteentityhierarchymodel):
     """notebook.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.microsoftgraphidentityset
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.microsoftgraphidentityset
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -4839,6 +4796,8 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     :param is_shared: Indicates whether the notebook is shared. If true, the contents of the
      notebook can be seen by people other than the owner. Read-only.
     :type is_shared: bool
+    :param links: notebookLinks.
+    :type links: ~notes.models.microsoftgraphnotebooklinks
     :param section_groups_url: The URL for the sectionGroups navigation property, which returns all
      the section groups in the notebook. Read-only.
     :type section_groups_url: str
@@ -4846,91 +4805,77 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
      sections in the notebook. Read-only.
     :type sections_url: str
     :param user_role:  Possible values include: "Owner", "Contributor", "None", "Reader".
-    :type user_role: str or ~notes.models.MicrosoftGraphOnenoteUserRole
+    :type user_role: str or ~notes.models.Microsoftgraphonenoteuserrole
     :param section_groups: The section groups in the notebook. Read-only. Nullable.
-    :type section_groups: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type section_groups: list[~notes.models.microsoftgraphsectiongroup]
     :param sections: The sections in the notebook. Read-only. Nullable.
-    :type sections: list[~notes.models.MicrosoftGraphOnenoteSection]
-    :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
-    :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
+    :type sections: list[~notes.models.microsoftgraphonenotesection]
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_default': {'key': 'isDefault', 'type': 'bool'},
         'is_shared': {'key': 'isShared', 'type': 'bool'},
+        'links': {'key': 'links', 'type': 'microsoftgraphnotebooklinks'},
         'section_groups_url': {'key': 'sectionGroupsUrl', 'type': 'str'},
         'sections_url': {'key': 'sectionsUrl', 'type': 'str'},
         'user_role': {'key': 'userRole', 'type': 'str'},
-        'section_groups': {'key': 'sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
-        'sections': {'key': 'sections', 'type': '[MicrosoftGraphOnenoteSection]'},
-        'one_note_client_url': {'key': 'links.oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
-        'one_note_web_url': {'key': 'links.oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'section_groups': {'key': 'sectionGroups', 'type': '[microsoftgraphsectiongroup]'},
+        'sections': {'key': 'sections', 'type': '[microsoftgraphonenotesection]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphNotebook, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphnotebook, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.is_shared = kwargs.get('is_shared', None)
+        self.links = kwargs.get('links', None)
         self.section_groups_url = kwargs.get('section_groups_url', None)
         self.sections_url = kwargs.get('sections_url', None)
         self.user_role = kwargs.get('user_role', None)
         self.section_groups = kwargs.get('section_groups', None)
         self.sections = kwargs.get('sections', None)
-        self.one_note_client_url = kwargs.get('one_note_client_url', None)
-        self.one_note_web_url = kwargs.get('one_note_web_url', None)
 
 
-class MicrosoftGraphNotebookLinks(msrest.serialization.Model):
+class microsoftgraphnotebooklinks(msrest.serialization.Model):
     """notebookLinks.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
+    :type one_note_client_url: ~notes.models.microsoftgraphexternallink
     :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
+    :type one_note_web_url: ~notes.models.microsoftgraphexternallink
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
-        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'microsoftgraphexternallink'},
+        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'microsoftgraphexternallink'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphNotebookLinks, self).__init__(**kwargs)
+        super(microsoftgraphnotebooklinks, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.one_note_client_url = kwargs.get('one_note_client_url', None)
         self.one_note_web_url = kwargs.get('one_note_web_url', None)
 
 
-class MicrosoftGraphOnenote(MicrosoftGraphEntity):
+class microsoftgraphonenote(microsoftgraphentity):
     """onenote.
 
     :param id: Read-only.
@@ -4940,42 +4885,42 @@ class MicrosoftGraphOnenote(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param notebooks: The collection of OneNote notebooks that are owned by the user or group.
      Read-only. Nullable.
-    :type notebooks: list[~notes.models.MicrosoftGraphNotebook]
+    :type notebooks: list[~notes.models.microsoftgraphnotebook]
     :param operations: The status of OneNote operations. Getting an operations collection is not
      supported, but you can get the status of long-running operations if the Operation-Location
      header is returned in the response. Read-only. Nullable.
-    :type operations: list[~notes.models.MicrosoftGraphOnenoteOperation]
+    :type operations: list[~notes.models.microsoftgraphonenoteoperation]
     :param pages: The pages in all OneNote notebooks that are owned by the user or group.  Read-
      only. Nullable.
-    :type pages: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type pages: list[~notes.models.microsoftgraphonenotepage]
     :param resources: The image and other file resources in OneNote pages. Getting a resources
      collection is not supported, but you can get the binary content of a specific resource. Read-
      only. Nullable.
-    :type resources: list[~notes.models.MicrosoftGraphOnenoteResource]
+    :type resources: list[~notes.models.microsoftgraphonenoteresource]
     :param section_groups: The section groups in all OneNote notebooks that are owned by the user
      or group.  Read-only. Nullable.
-    :type section_groups: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type section_groups: list[~notes.models.microsoftgraphsectiongroup]
     :param sections: The sections in all OneNote notebooks that are owned by the user or group.
      Read-only. Nullable.
-    :type sections: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type sections: list[~notes.models.microsoftgraphonenotesection]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'notebooks': {'key': 'notebooks', 'type': '[MicrosoftGraphNotebook]'},
-        'operations': {'key': 'operations', 'type': '[MicrosoftGraphOnenoteOperation]'},
-        'pages': {'key': 'pages', 'type': '[MicrosoftGraphOnenotePage]'},
-        'resources': {'key': 'resources', 'type': '[MicrosoftGraphOnenoteResource]'},
-        'section_groups': {'key': 'sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
-        'sections': {'key': 'sections', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'notebooks': {'key': 'notebooks', 'type': '[microsoftgraphnotebook]'},
+        'operations': {'key': 'operations', 'type': '[microsoftgraphonenoteoperation]'},
+        'pages': {'key': 'pages', 'type': '[microsoftgraphonenotepage]'},
+        'resources': {'key': 'resources', 'type': '[microsoftgraphonenoteresource]'},
+        'section_groups': {'key': 'sectionGroups', 'type': '[microsoftgraphsectiongroup]'},
+        'sections': {'key': 'sections', 'type': '[microsoftgraphonenotesection]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenote, self).__init__(**kwargs)
+        super(microsoftgraphonenote, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.notebooks = kwargs.get('notebooks', None)
         self.operations = kwargs.get('operations', None)
@@ -4985,7 +4930,7 @@ class MicrosoftGraphOnenote(MicrosoftGraphEntity):
         self.sections = kwargs.get('sections', None)
 
 
-class MicrosoftGraphOperation(MicrosoftGraphEntity):
+class microsoftgraphoperation(microsoftgraphentity):
     """operation.
 
     :param id: Read-only.
@@ -4998,7 +4943,7 @@ class MicrosoftGraphOperation(MicrosoftGraphEntity):
     :param last_action_date_time: The time of the last action of the operation.
     :type last_action_date_time: ~datetime.datetime
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~notes.models.MicrosoftGraphOperationStatus
+    :type status: str or ~notes.models.Microsoftgraphoperationstatus
     """
 
     _attribute_map = {
@@ -5013,19 +4958,16 @@ class MicrosoftGraphOperation(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOperation, self).__init__(**kwargs)
+        super(microsoftgraphoperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.last_action_date_time = kwargs.get('last_action_date_time', None)
         self.status = kwargs.get('status', None)
 
 
-class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
+class microsoftgraphonenoteoperation(microsoftgraphoperation):
     """onenoteOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The start time of the operation.
@@ -5033,12 +4975,12 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     :param last_action_date_time: The time of the last action of the operation.
     :type last_action_date_time: ~datetime.datetime
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
-    :type status: str or ~notes.models.MicrosoftGraphOperationStatus
+    :type status: str or ~notes.models.Microsoftgraphoperationstatus
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param error: onenoteOperationError.
-    :type error: ~notes.models.MicrosoftGraphOnenoteOperationError
+    :type error: ~notes.models.microsoftgraphonenoteoperationerror
     :param percent_complete: The operation percent complete if the operation is still in running
      status.
     :type percent_complete: str
@@ -5050,13 +4992,12 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_action_date_time': {'key': 'lastActionDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'MicrosoftGraphOnenoteOperationError'},
+        'error': {'key': 'error', 'type': 'microsoftgraphonenoteoperationerror'},
         'percent_complete': {'key': 'percentComplete', 'type': 'str'},
         'resource_id': {'key': 'resourceId', 'type': 'str'},
         'resource_location': {'key': 'resourceLocation', 'type': 'str'},
@@ -5066,8 +5007,7 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphonenoteoperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs.get('error', None)
         self.percent_complete = kwargs.get('percent_complete', None)
@@ -5075,7 +5015,7 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
         self.resource_location = kwargs.get('resource_location', None)
 
 
-class MicrosoftGraphOnenoteOperationError(msrest.serialization.Model):
+class microsoftgraphonenoteoperationerror(msrest.serialization.Model):
     """onenoteOperationError.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -5097,20 +5037,17 @@ class MicrosoftGraphOnenoteOperationError(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteOperationError, self).__init__(**kwargs)
+        super(microsoftgraphonenoteoperationerror, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs.get('code', None)
         self.message = kwargs.get('message', None)
 
 
-class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
+class microsoftgraphonenotepage(microsoftgraphonenoteentityschemaobjectmodel):
     """onenotePage.
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
     :param created_date_time: The date and time when the page was created. The timestamp represents
@@ -5135,7 +5072,7 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     :param level: The indentation level of the page. Read-only.
     :type level: int
     :param links: pageLinks.
-    :type links: ~notes.models.MicrosoftGraphPageLinks
+    :type links: ~notes.models.microsoftgraphpagelinks
     :param order: The order of the page within its parent section. Read-only.
     :type order: int
     :param title: The title of the page.
@@ -5143,9 +5080,9 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     :param user_tags:
     :type user_tags: list[str]
     :param parent_notebook: notebook.
-    :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
+    :type parent_notebook: ~notes.models.microsoftgraphnotebook
     :param parent_section: onenoteSection.
-    :type parent_section: ~notes.models.MicrosoftGraphOnenoteSection
+    :type parent_section: ~notes.models.microsoftgraphonenotesection
     """
 
     _validation = {
@@ -5155,7 +5092,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -5164,20 +5100,19 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
         'created_by_app_id': {'key': 'createdByAppId', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'level': {'key': 'level', 'type': 'int'},
-        'links': {'key': 'links', 'type': 'MicrosoftGraphPageLinks'},
+        'links': {'key': 'links', 'type': 'microsoftgraphpagelinks'},
         'order': {'key': 'order', 'type': 'int'},
         'title': {'key': 'title', 'type': 'str'},
         'user_tags': {'key': 'userTags', 'type': '[str]'},
-        'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
-        'parent_section': {'key': 'parentSection', 'type': 'MicrosoftGraphOnenoteSection'},
+        'parent_notebook': {'key': 'parentNotebook', 'type': 'microsoftgraphnotebook'},
+        'parent_section': {'key': 'parentSection', 'type': 'microsoftgraphonenotesection'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenotePage, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphonenotepage, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
@@ -5192,12 +5127,9 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
         self.parent_section = kwargs.get('parent_section', None)
 
 
-class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
+class microsoftgraphonenoteresource(microsoftgraphonenoteentitybasemodel):
     """onenoteResource.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -5212,7 +5144,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -5224,97 +5155,74 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteResource, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphonenoteresource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
 
 
-class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
+class microsoftgraphonenotesection(microsoftgraphonenoteentityhierarchymodel):
     """onenoteSection.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.microsoftgraphidentityset
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.microsoftgraphidentityset
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param is_default: Indicates whether this is the user's default section. Read-only.
     :type is_default: bool
     :param links: sectionLinks.
-    :type links: ~notes.models.MicrosoftGraphSectionLinks
+    :type links: ~notes.models.microsoftgraphsectionlinks
     :param pages_url: The pages endpoint where you can get details for all the pages in the
      section. Read-only.
     :type pages_url: str
     :param pages: The collection of pages in the section.  Read-only. Nullable.
-    :type pages: list[~notes.models.MicrosoftGraphOnenotePage]
+    :type pages: list[~notes.models.microsoftgraphonenotepage]
     :param parent_notebook: notebook.
-    :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
+    :type parent_notebook: ~notes.models.microsoftgraphnotebook
     :param parent_section_group: sectionGroup.
-    :type parent_section_group: ~notes.models.MicrosoftGraphSectionGroup
+    :type parent_section_group: ~notes.models.microsoftgraphsectiongroup
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_default': {'key': 'isDefault', 'type': 'bool'},
-        'links': {'key': 'links', 'type': 'MicrosoftGraphSectionLinks'},
+        'links': {'key': 'links', 'type': 'microsoftgraphsectionlinks'},
         'pages_url': {'key': 'pagesUrl', 'type': 'str'},
-        'pages': {'key': 'pages', 'type': '[MicrosoftGraphOnenotePage]'},
-        'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
-        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'MicrosoftGraphSectionGroup'},
+        'pages': {'key': 'pages', 'type': '[microsoftgraphonenotepage]'},
+        'parent_notebook': {'key': 'parentNotebook', 'type': 'microsoftgraphnotebook'},
+        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'microsoftgraphsectiongroup'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteSection, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphonenotesection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.links = kwargs.get('links', None)
@@ -5324,70 +5232,56 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
         self.parent_section_group = kwargs.get('parent_section_group', None)
 
 
-class MicrosoftGraphPageLinks(msrest.serialization.Model):
+class microsoftgraphpagelinks(msrest.serialization.Model):
     """pageLinks.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
+    :type one_note_client_url: ~notes.models.microsoftgraphexternallink
     :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
+    :type one_note_web_url: ~notes.models.microsoftgraphexternallink
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
-        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'microsoftgraphexternallink'},
+        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'microsoftgraphexternallink'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphPageLinks, self).__init__(**kwargs)
+        super(microsoftgraphpagelinks, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.one_note_client_url = kwargs.get('one_note_client_url', None)
         self.one_note_web_url = kwargs.get('one_note_web_url', None)
 
 
-class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
+class microsoftgraphsectiongroup(microsoftgraphonenoteentityhierarchymodel):
     """sectionGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.microsoftgraphidentityset
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.microsoftgraphidentityset
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -5398,45 +5292,37 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
      sections in the section group. Read-only.
     :type sections_url: str
     :param parent_notebook: notebook.
-    :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
+    :type parent_notebook: ~notes.models.microsoftgraphnotebook
     :param parent_section_group: sectionGroup.
-    :type parent_section_group: ~notes.models.MicrosoftGraphSectionGroup
+    :type parent_section_group: ~notes.models.microsoftgraphsectiongroup
     :param section_groups: The section groups in the section. Read-only. Nullable.
-    :type section_groups: list[~notes.models.MicrosoftGraphSectionGroup]
+    :type section_groups: list[~notes.models.microsoftgraphsectiongroup]
     :param sections: The sections in the section group. Read-only. Nullable.
-    :type sections: list[~notes.models.MicrosoftGraphOnenoteSection]
+    :type sections: list[~notes.models.microsoftgraphonenotesection]
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphidentityset'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'microsoftgraphidentityset'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'section_groups_url': {'key': 'sectionGroupsUrl', 'type': 'str'},
         'sections_url': {'key': 'sectionsUrl', 'type': 'str'},
-        'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
-        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'MicrosoftGraphSectionGroup'},
-        'section_groups': {'key': 'sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
-        'sections': {'key': 'sections', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'parent_notebook': {'key': 'parentNotebook', 'type': 'microsoftgraphnotebook'},
+        'parent_section_group': {'key': 'parentSectionGroup', 'type': 'microsoftgraphsectiongroup'},
+        'section_groups': {'key': 'sectionGroups', 'type': '[microsoftgraphsectiongroup]'},
+        'sections': {'key': 'sections', 'type': '[microsoftgraphonenotesection]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSectionGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphsectiongroup, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.section_groups_url = kwargs.get('section_groups_url', None)
         self.sections_url = kwargs.get('sections_url', None)
@@ -5446,36 +5332,36 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
         self.sections = kwargs.get('sections', None)
 
 
-class MicrosoftGraphSectionLinks(msrest.serialization.Model):
+class microsoftgraphsectionlinks(msrest.serialization.Model):
     """sectionLinks.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
+    :type one_note_client_url: ~notes.models.microsoftgraphexternallink
     :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
+    :type one_note_web_url: ~notes.models.microsoftgraphexternallink
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
-        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
+        'one_note_client_url': {'key': 'oneNoteClientUrl', 'type': 'microsoftgraphexternallink'},
+        'one_note_web_url': {'key': 'oneNoteWebUrl', 'type': 'microsoftgraphexternallink'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSectionLinks, self).__init__(**kwargs)
+        super(microsoftgraphsectionlinks, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.one_note_client_url = kwargs.get('one_note_client_url', None)
         self.one_note_web_url = kwargs.get('one_note_web_url', None)
 
 
-class OdataError(msrest.serialization.Model):
-    """OdataError.
+class odataerror(msrest.serialization.Model):
+    """odataerror.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5483,7 +5369,7 @@ class OdataError(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~notes.models.OdataErrorMain
+    :type error: ~notes.models.odataerrormain
     """
 
     _validation = {
@@ -5492,20 +5378,20 @@ class OdataError(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'OdataErrorMain'},
+        'error': {'key': 'error', 'type': 'odataerrormain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(OdataError, self).__init__(**kwargs)
+        super(odataerror, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class OdataErrorDetail(msrest.serialization.Model):
-    """OdataErrorDetail.
+class odataerrordetail(msrest.serialization.Model):
+    """odataerrordetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5536,15 +5422,15 @@ class OdataErrorDetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorDetail, self).__init__(**kwargs)
+        super(odataerrordetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class OdataErrorMain(msrest.serialization.Model):
-    """OdataErrorMain.
+class odataerrormain(msrest.serialization.Model):
+    """odataerrormain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -5558,7 +5444,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~notes.models.OdataErrorDetail]
+    :type details: list[~notes.models.odataerrordetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -5573,7 +5459,7 @@ class OdataErrorMain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
+        'details': {'key': 'details', 'type': '[odataerrordetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -5581,7 +5467,7 @@ class OdataErrorMain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorMain, self).__init__(**kwargs)
+        super(odataerrormain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']

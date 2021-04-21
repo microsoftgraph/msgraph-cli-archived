@@ -1,7 +1,19 @@
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# This file is extracted from azure-cli
+# --------------------------------------------------------------------------------------------
+
 import argparse
+import platform
+
 from knack.util import CLIError
 from knack import ArgumentsContext
 from knack.arguments import (CLIArgumentType, CaseInsensitiveList)
+from msgraph.cli.core.commands.validators import validate_tags
+
+quotes = '""' if platform.system() == 'Windows' else "''"
+quote_text = 'Use {} to clear existing tags.'.format(quotes)
 
 
 class GraphArgumentContext(ArgumentsContext):
@@ -79,3 +91,9 @@ def get_enum_type(data, default=None):
     else:
         arg_type = CLIArgumentType(choices=CaseInsensitiveList(choices), action=DefaultAction)
     return arg_type
+
+
+tags_type = CLIArgumentType(
+    validator=validate_tags,
+    help="space-separated tags: key[=value] [key[=value] ...]. {}".format(quote_text),
+    nargs='*')

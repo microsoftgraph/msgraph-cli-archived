@@ -14,18 +14,18 @@ from msgraph.cli.core.commands.parameters import get_enum_type
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_education_v1_0.action import (
     AddTerm,
-    AddCreatedByApplication,
+    AddApplication,
     AddAddress
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('education get-education-root') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationroot show-education-root') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education update-education-root') as c:
+    with self.argument_context('education educationroot update-education-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classes', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
@@ -35,13 +35,7 @@ def load_arguments(self, _):
         c.argument('users', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-
-    with self.argument_context('education create-class') as c:
+    with self.argument_context('education education create-class') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('class_code', type=str, help='Class code used by the school to identify the class.')
         c.argument('description', type=str, help='Description of the class.')
@@ -50,7 +44,7 @@ def load_arguments(self, _):
         c.argument('external_name', type=str, help='Name of the class in the syncing system.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
         c.argument('mail_nickname', type=str, help='Mail name for sending email to all members, if this is enabled.')
-        c.argument('term', action=AddTerm, nargs='*', help='educationTerm')
+        c.argument('term', action=AddTerm, nargs='+', help='educationTerm')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
@@ -60,16 +54,16 @@ def load_arguments(self, _):
                    'Nullable. Expected value: json-string/@json-file.')
         c.argument('teachers', type=validate_file_or_dict, help='All teachers in the class. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education create-school') as c:
+    with self.argument_context('education education create-school') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -83,49 +77,64 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('users', type=validate_file_or_dict, help='Users in the school. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education create-user') as c:
+    with self.argument_context('education education create-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education get-class') as c:
+    with self.argument_context('education education delete-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-me') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education delete-me') as c:
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-school') as c:
+    with self.argument_context('education education delete-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-user') as c:
+    with self.argument_context('education education delete-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education list-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education list-school') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-user') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education list-user') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education update-class') as c:
+    with self.argument_context('education education show-class') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-me') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-school') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education update-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('class_code', type=str, help='Class code used by the school to identify the class.')
@@ -135,7 +144,7 @@ def load_arguments(self, _):
         c.argument('external_name', type=str, help='Name of the class in the syncing system.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
         c.argument('mail_nickname', type=str, help='Mail name for sending email to all members, if this is enabled.')
-        c.argument('term', action=AddTerm, nargs='*', help='educationTerm')
+        c.argument('term', action=AddTerm, nargs='+', help='educationTerm')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
@@ -145,21 +154,21 @@ def load_arguments(self, _):
                    'Nullable. Expected value: json-string/@json-file.')
         c.argument('teachers', type=validate_file_or_dict, help='All teachers in the class. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education update-me') as c:
+    with self.argument_context('education education update-me') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education update-school') as c:
+    with self.argument_context('education education update-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -173,185 +182,185 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('users', type=validate_file_or_dict, help='Users in the school. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education update-user') as c:
+    with self.argument_context('education education update-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education delete') as c:
+    with self.argument_context('education educationclass create-ref-member') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationclass create-ref-school') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationclass create-ref-teacher') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationclass delete-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education create-ref-member') as c:
+    with self.argument_context('education educationclass list-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education create-ref-school') as c:
+    with self.argument_context('education educationclass list-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education create-ref-teacher') as c:
+    with self.argument_context('education educationclass list-ref-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education get-group') as c:
+    with self.argument_context('education educationclass list-ref-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education get-ref-group') as c:
+    with self.argument_context('education educationclass list-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-member') as c:
+    with self.argument_context('education educationclass list-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-ref-member') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-ref-school') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-ref-teacher') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-school') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education list-teacher') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education set-ref-group') as c:
+    with self.argument_context('education educationclass set-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education delete') as c:
+    with self.argument_context('education educationclass show-group') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclass show-ref-group') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+
+    with self.argument_context('education educationme create-ref-class') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationme create-ref-school') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationme delete-ref-user') as c:
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education create-ref-class') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+    with self.argument_context('education educationme list-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education create-ref-school') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+    with self.argument_context('education educationme list-ref-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education get-user') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationme list-ref-school') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationme list-school') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-ref-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-ref-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education set-ref-user') as c:
+    with self.argument_context('education educationme set-ref-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-class') as c:
+    with self.argument_context('education educationme show-user') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationschool create-ref-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-user') as c:
+    with self.argument_context('education educationschool create-ref-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education list-class') as c:
+    with self.argument_context('education educationschool list-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-ref-class') as c:
+    with self.argument_context('education educationschool list-ref-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-user') as c:
+    with self.argument_context('education educationschool list-ref-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-user') as c:
+    with self.argument_context('education educationschool list-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education delete') as c:
+    with self.argument_context('education educationuser create-ref-class') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationuser create-ref-school') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationuser delete-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education create-ref-class') as c:
+    with self.argument_context('education educationuser list-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education create-ref-school') as c:
+    with self.argument_context('education educationuser list-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education get-ref-user') as c:
+    with self.argument_context('education educationuser list-ref-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education get-user') as c:
+    with self.argument_context('education educationuser list-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-class') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education list-ref-class') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-ref-school') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-school') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education set-ref-user') as c:
+    with self.argument_context('education educationuser set-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('education educationuser show-ref-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+
+    with self.argument_context('education educationuser show-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')

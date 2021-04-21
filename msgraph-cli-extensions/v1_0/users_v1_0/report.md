@@ -1,40 +1,116 @@
 # Azure CLI Module Creation Report
 
-### users create-extension
-
-create-extension a users.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|users|users|
+|az users_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-extension|CreateExtensions|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az users_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az users usersuser|users.user|[commands](#CommandsInusers.user)|
+|az users user|users|[commands](#CommandsInusers)|
+|az users usersoutlook|users.outlook|[commands](#CommandsInusers.outlook)|
+|az users userssetting|users.settings|[commands](#CommandsInusers.settings)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInusers">Commands in `az users user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az users user create-extension](#usersCreateExtensions)|CreateExtensions|[Parameters](#ParametersusersCreateExtensions)|Not Found|
+|[az users user create-license-detail](#usersCreateLicenseDetails)|CreateLicenseDetails|[Parameters](#ParametersusersCreateLicenseDetails)|Not Found|
+|[az users user create-photo](#usersCreatePhotos)|CreatePhotos|[Parameters](#ParametersusersCreatePhotos)|Not Found|
+|[az users user create-ref-created-object](#usersCreateRefCreatedObjects)|CreateRefCreatedObjects|[Parameters](#ParametersusersCreateRefCreatedObjects)|Not Found|
+|[az users user create-ref-direct-report](#usersCreateRefDirectReports)|CreateRefDirectReports|[Parameters](#ParametersusersCreateRefDirectReports)|Not Found|
+|[az users user create-ref-member-of](#usersCreateRefMemberOf)|CreateRefMemberOf|[Parameters](#ParametersusersCreateRefMemberOf)|Not Found|
+|[az users user create-ref-oauth2-permission-grant](#usersCreateRefOauth2PermissionGrants)|CreateRefOauth2PermissionGrants|[Parameters](#ParametersusersCreateRefOauth2PermissionGrants)|Not Found|
+|[az users user create-ref-owned-device](#usersCreateRefOwnedDevices)|CreateRefOwnedDevices|[Parameters](#ParametersusersCreateRefOwnedDevices)|Not Found|
+|[az users user create-ref-owned-object](#usersCreateRefOwnedObjects)|CreateRefOwnedObjects|[Parameters](#ParametersusersCreateRefOwnedObjects)|Not Found|
+|[az users user create-ref-registered-device](#usersCreateRefRegisteredDevices)|CreateRefRegisteredDevices|[Parameters](#ParametersusersCreateRefRegisteredDevices)|Not Found|
+|[az users user create-ref-transitive-member-of](#usersCreateRefTransitiveMemberOf)|CreateRefTransitiveMemberOf|[Parameters](#ParametersusersCreateRefTransitiveMemberOf)|Not Found|
+|[az users user delete-extension](#usersDeleteExtensions)|DeleteExtensions|[Parameters](#ParametersusersDeleteExtensions)|Not Found|
+|[az users user delete-license-detail](#usersDeleteLicenseDetails)|DeleteLicenseDetails|[Parameters](#ParametersusersDeleteLicenseDetails)|Not Found|
+|[az users user delete-outlook](#usersDeleteOutlook)|DeleteOutlook|[Parameters](#ParametersusersDeleteOutlook)|Not Found|
+|[az users user delete-photo](#usersDeletePhotos)|DeletePhotos|[Parameters](#ParametersusersDeletePhotos)|Not Found|
+|[az users user delete-photo](#usersDeletePhoto)|DeletePhoto|[Parameters](#ParametersusersDeletePhoto)|Not Found|
+|[az users user delete-ref-manager](#usersDeleteRefManager)|DeleteRefManager|[Parameters](#ParametersusersDeleteRefManager)|Not Found|
+|[az users user delete-setting](#usersDeleteSettings)|DeleteSettings|[Parameters](#ParametersusersDeleteSettings)|Not Found|
+|[az users user list-created-object](#usersListCreatedObjects)|ListCreatedObjects|[Parameters](#ParametersusersListCreatedObjects)|Not Found|
+|[az users user list-direct-report](#usersListDirectReports)|ListDirectReports|[Parameters](#ParametersusersListDirectReports)|Not Found|
+|[az users user list-extension](#usersListExtensions)|ListExtensions|[Parameters](#ParametersusersListExtensions)|Not Found|
+|[az users user list-license-detail](#usersListLicenseDetails)|ListLicenseDetails|[Parameters](#ParametersusersListLicenseDetails)|Not Found|
+|[az users user list-member-of](#usersListMemberOf)|ListMemberOf|[Parameters](#ParametersusersListMemberOf)|Not Found|
+|[az users user list-oauth2-permission-grant](#usersListOauth2PermissionGrants)|ListOauth2PermissionGrants|[Parameters](#ParametersusersListOauth2PermissionGrants)|Not Found|
+|[az users user list-owned-device](#usersListOwnedDevices)|ListOwnedDevices|[Parameters](#ParametersusersListOwnedDevices)|Not Found|
+|[az users user list-owned-object](#usersListOwnedObjects)|ListOwnedObjects|[Parameters](#ParametersusersListOwnedObjects)|Not Found|
+|[az users user list-photo](#usersListPhotos)|ListPhotos|[Parameters](#ParametersusersListPhotos)|Not Found|
+|[az users user list-ref-created-object](#usersListRefCreatedObjects)|ListRefCreatedObjects|[Parameters](#ParametersusersListRefCreatedObjects)|Not Found|
+|[az users user list-ref-direct-report](#usersListRefDirectReports)|ListRefDirectReports|[Parameters](#ParametersusersListRefDirectReports)|Not Found|
+|[az users user list-ref-member-of](#usersListRefMemberOf)|ListRefMemberOf|[Parameters](#ParametersusersListRefMemberOf)|Not Found|
+|[az users user list-ref-oauth2-permission-grant](#usersListRefOauth2PermissionGrants)|ListRefOauth2PermissionGrants|[Parameters](#ParametersusersListRefOauth2PermissionGrants)|Not Found|
+|[az users user list-ref-owned-device](#usersListRefOwnedDevices)|ListRefOwnedDevices|[Parameters](#ParametersusersListRefOwnedDevices)|Not Found|
+|[az users user list-ref-owned-object](#usersListRefOwnedObjects)|ListRefOwnedObjects|[Parameters](#ParametersusersListRefOwnedObjects)|Not Found|
+|[az users user list-ref-registered-device](#usersListRefRegisteredDevices)|ListRefRegisteredDevices|[Parameters](#ParametersusersListRefRegisteredDevices)|Not Found|
+|[az users user list-ref-transitive-member-of](#usersListRefTransitiveMemberOf)|ListRefTransitiveMemberOf|[Parameters](#ParametersusersListRefTransitiveMemberOf)|Not Found|
+|[az users user list-registered-device](#usersListRegisteredDevices)|ListRegisteredDevices|[Parameters](#ParametersusersListRegisteredDevices)|Not Found|
+|[az users user list-transitive-member-of](#usersListTransitiveMemberOf)|ListTransitiveMemberOf|[Parameters](#ParametersusersListTransitiveMemberOf)|Not Found|
+|[az users user set-ref-manager](#usersSetRefManager)|SetRefManager|[Parameters](#ParametersusersSetRefManager)|Not Found|
+|[az users user show-extension](#usersGetExtensions)|GetExtensions|[Parameters](#ParametersusersGetExtensions)|Not Found|
+|[az users user show-license-detail](#usersGetLicenseDetails)|GetLicenseDetails|[Parameters](#ParametersusersGetLicenseDetails)|Not Found|
+|[az users user show-manager](#usersGetManager)|GetManager|[Parameters](#ParametersusersGetManager)|Not Found|
+|[az users user show-outlook](#usersGetOutlook)|GetOutlook|[Parameters](#ParametersusersGetOutlook)|Not Found|
+|[az users user show-photo](#usersGetPhotos)|GetPhotos|[Parameters](#ParametersusersGetPhotos)|Not Found|
+|[az users user show-photo](#usersGetPhoto)|GetPhoto|[Parameters](#ParametersusersGetPhoto)|Not Found|
+|[az users user show-ref-manager](#usersGetRefManager)|GetRefManager|[Parameters](#ParametersusersGetRefManager)|Not Found|
+|[az users user show-setting](#usersGetSettings)|GetSettings|[Parameters](#ParametersusersGetSettings)|Not Found|
+|[az users user update-extension](#usersUpdateExtensions)|UpdateExtensions|[Parameters](#ParametersusersUpdateExtensions)|Not Found|
+|[az users user update-license-detail](#usersUpdateLicenseDetails)|UpdateLicenseDetails|[Parameters](#ParametersusersUpdateLicenseDetails)|Not Found|
+|[az users user update-outlook](#usersUpdateOutlook)|UpdateOutlook|[Parameters](#ParametersusersUpdateOutlook)|Not Found|
+|[az users user update-photo](#usersUpdatePhotos)|UpdatePhotos|[Parameters](#ParametersusersUpdatePhotos)|Not Found|
+|[az users user update-photo](#usersUpdatePhoto)|UpdatePhoto|[Parameters](#ParametersusersUpdatePhoto)|Not Found|
+|[az users user update-setting](#usersUpdateSettings)|UpdateSettings|[Parameters](#ParametersusersUpdateSettings)|Not Found|
+
+### <a name="CommandsInusers.outlook">Commands in `az users usersoutlook` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az users usersoutlook create-master-category](#users.outlookCreateMasterCategories)|CreateMasterCategories|[Parameters](#Parametersusers.outlookCreateMasterCategories)|Not Found|
+|[az users usersoutlook delete-master-category](#users.outlookDeleteMasterCategories)|DeleteMasterCategories|[Parameters](#Parametersusers.outlookDeleteMasterCategories)|Not Found|
+|[az users usersoutlook list-master-category](#users.outlookListMasterCategories)|ListMasterCategories|[Parameters](#Parametersusers.outlookListMasterCategories)|Not Found|
+|[az users usersoutlook show-master-category](#users.outlookGetMasterCategories)|GetMasterCategories|[Parameters](#Parametersusers.outlookGetMasterCategories)|Not Found|
+|[az users usersoutlook update-master-category](#users.outlookUpdateMasterCategories)|UpdateMasterCategories|[Parameters](#Parametersusers.outlookUpdateMasterCategories)|Not Found|
+
+### <a name="CommandsInusers.settings">Commands in `az users userssetting` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az users userssetting delete-shift-preference](#users.settingsDeleteShiftPreferences)|DeleteShiftPreferences|[Parameters](#Parametersusers.settingsDeleteShiftPreferences)|Not Found|
+|[az users userssetting show-shift-preference](#users.settingsGetShiftPreferences)|GetShiftPreferences|[Parameters](#Parametersusers.settingsGetShiftPreferences)|Not Found|
+|[az users userssetting update-shift-preference](#users.settingsUpdateShiftPreferences)|UpdateShiftPreferences|[Parameters](#Parametersusers.settingsUpdateShiftPreferences)|Not Found|
+
+### <a name="CommandsInusers.user">Commands in `az users usersuser` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az users usersuser create-user](#users.userCreateUser)|CreateUser|[Parameters](#Parametersusers.userCreateUser)|Not Found|
+|[az users usersuser delete-user](#users.userDeleteUser)|DeleteUser|[Parameters](#Parametersusers.userDeleteUser)|Not Found|
+|[az users usersuser list-user](#users.userListUser)|ListUser|[Parameters](#Parametersusers.userListUser)|Not Found|
+|[az users usersuser show-user](#users.userGetUser)|GetUser|[Parameters](#Parametersusers.userGetUser)|Not Found|
+|[az users usersuser update-user](#users.userUpdateUser)|UpdateUser|[Parameters](#Parametersusers.userUpdateUser)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az users user`
+#### <a name="usersCreateExtensions">Command `az users user create-extension`</a>
+
+##### <a name="ParametersusersCreateExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 
-### users create-license-detail
+#### <a name="usersCreateLicenseDetails">Command `az users user create-license-detail`</a>
 
-create-license-detail a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-license-detail|CreateLicenseDetails|
-
-#### Parameters
+##### <a name="ParametersusersCreateLicenseDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -43,43 +119,9 @@ create-license-detail a users.
 |**--sku-id**|uuid|Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only|sku_id|skuId|
 |**--sku-part-number**|string|Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only|sku_part_number|skuPartNumber|
 
-### users create-master-category
+#### <a name="usersCreatePhotos">Command `az users user create-photo`</a>
 
-create-master-category a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.outlook|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-master-category|CreateMasterCategories|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--id**|string|Read-only.|id|id|
-|**--color**|choice||color|color|
-|**--display-name**|string|A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.|display_name|displayName|
-
-### users create-photo
-
-create-photo a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-photo|CreatePhotos|
-
-#### Parameters
+##### <a name="ParametersusersCreatePhotos">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -87,220 +129,311 @@ create-photo a users.
 |**--height**|integer|The height of the photo. Read-only.|height|height|
 |**--width**|integer|The width of the photo. Read-only.|width|width|
 
-### users create-ref-created-object
+#### <a name="usersCreateRefCreatedObjects">Command `az users user create-ref-created-object`</a>
 
-create-ref-created-object a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-created-object|CreateRefCreatedObjects|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefCreatedObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-ref-direct-report
+#### <a name="usersCreateRefDirectReports">Command `az users user create-ref-direct-report`</a>
 
-create-ref-direct-report a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-direct-report|CreateRefDirectReports|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefDirectReports">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-ref-member-of
+#### <a name="usersCreateRefMemberOf">Command `az users user create-ref-member-of`</a>
 
-create-ref-member-of a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-member-of|CreateRefMemberOf|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-ref-oauth2-permission-grant
+#### <a name="usersCreateRefOauth2PermissionGrants">Command `az users user create-ref-oauth2-permission-grant`</a>
 
-create-ref-oauth2-permission-grant a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-oauth2-permission-grant|CreateRefOauth2PermissionGrants|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefOauth2PermissionGrants">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-ref-owned-device
+#### <a name="usersCreateRefOwnedDevices">Command `az users user create-ref-owned-device`</a>
 
-create-ref-owned-device a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-owned-device|CreateRefOwnedDevices|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefOwnedDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-ref-owned-object
+#### <a name="usersCreateRefOwnedObjects">Command `az users user create-ref-owned-object`</a>
 
-create-ref-owned-object a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-owned-object|CreateRefOwnedObjects|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefOwnedObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-ref-registered-device
+#### <a name="usersCreateRefRegisteredDevices">Command `az users user create-ref-registered-device`</a>
 
-create-ref-registered-device a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-registered-device|CreateRefRegisteredDevices|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefRegisteredDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-ref-transitive-member-of
+#### <a name="usersCreateRefTransitiveMemberOf">Command `az users user create-ref-transitive-member-of`</a>
 
-create-ref-transitive-member-of a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-transitive-member-of|CreateRefTransitiveMemberOf|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefTransitiveMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### users create-user
+#### <a name="usersDeleteExtensions">Command `az users user delete-extension`</a>
 
-create-user a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.user|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user|CreateUser|
-
-#### Parameters
+##### <a name="ParametersusersDeleteExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New entity|body|body|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### users delete
+#### <a name="usersDeleteLicenseDetails">Command `az users user delete-license-detail`</a>
 
-delete a users.
+##### <a name="ParametersusersDeleteLicenseDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--license-details-id**|string|key: id of licenseDetails|license_details_id|licenseDetails-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.settings|
+#### <a name="usersDeleteOutlook">Command `az users user delete-outlook`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteShiftPreferences|
-
-#### Parameters
+##### <a name="ParametersusersDeleteOutlook">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### users get-extension
+#### <a name="usersDeletePhotos">Command `az users user delete-photo`</a>
 
-get-extension a users.
+##### <a name="ParametersusersDeletePhotos">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--profile-photo-id**|string|key: id of profilePhoto|profile_photo_id|profilePhoto-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
+#### <a name="usersDeletePhoto">Command `az users user delete-photo`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-extension|GetExtensions|
+##### <a name="ParametersusersDeletePhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersDeleteRefManager">Command `az users user delete-ref-manager`</a>
 
-#### Parameters
+##### <a name="ParametersusersDeleteRefManager">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteSettings">Command `az users user delete-setting`</a>
+
+##### <a name="ParametersusersDeleteSettings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersListCreatedObjects">Command `az users user list-created-object`</a>
+
+##### <a name="ParametersusersListCreatedObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListDirectReports">Command `az users user list-direct-report`</a>
+
+##### <a name="ParametersusersListDirectReports">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListExtensions">Command `az users user list-extension`</a>
+
+##### <a name="ParametersusersListExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListLicenseDetails">Command `az users user list-license-detail`</a>
+
+##### <a name="ParametersusersListLicenseDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListMemberOf">Command `az users user list-member-of`</a>
+
+##### <a name="ParametersusersListMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListOauth2PermissionGrants">Command `az users user list-oauth2-permission-grant`</a>
+
+##### <a name="ParametersusersListOauth2PermissionGrants">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListOwnedDevices">Command `az users user list-owned-device`</a>
+
+##### <a name="ParametersusersListOwnedDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListOwnedObjects">Command `az users user list-owned-object`</a>
+
+##### <a name="ParametersusersListOwnedObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListPhotos">Command `az users user list-photo`</a>
+
+##### <a name="ParametersusersListPhotos">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListRefCreatedObjects">Command `az users user list-ref-created-object`</a>
+
+##### <a name="ParametersusersListRefCreatedObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRefDirectReports">Command `az users user list-ref-direct-report`</a>
+
+##### <a name="ParametersusersListRefDirectReports">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRefMemberOf">Command `az users user list-ref-member-of`</a>
+
+##### <a name="ParametersusersListRefMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRefOauth2PermissionGrants">Command `az users user list-ref-oauth2-permission-grant`</a>
+
+##### <a name="ParametersusersListRefOauth2PermissionGrants">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRefOwnedDevices">Command `az users user list-ref-owned-device`</a>
+
+##### <a name="ParametersusersListRefOwnedDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRefOwnedObjects">Command `az users user list-ref-owned-object`</a>
+
+##### <a name="ParametersusersListRefOwnedObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRefRegisteredDevices">Command `az users user list-ref-registered-device`</a>
+
+##### <a name="ParametersusersListRefRegisteredDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRefTransitiveMemberOf">Command `az users user list-ref-transitive-member-of`</a>
+
+##### <a name="ParametersusersListRefTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersListRegisteredDevices">Command `az users user list-registered-device`</a>
+
+##### <a name="ParametersusersListRegisteredDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersListTransitiveMemberOf">Command `az users user list-transitive-member-of`</a>
+
+##### <a name="ParametersusersListTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersSetRefManager">Command `az users user set-ref-manager`</a>
+
+##### <a name="ParametersusersSetRefManager">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="usersGetExtensions">Command `az users user show-extension`</a>
+
+##### <a name="ParametersusersGetExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -308,21 +441,9 @@ get-extension a users.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### users get-license-detail
+#### <a name="usersGetLicenseDetails">Command `az users user show-license-detail`</a>
 
-get-license-detail a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-license-detail|GetLicenseDetails|
-
-#### Parameters
+##### <a name="ParametersusersGetLicenseDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -330,86 +451,27 @@ get-license-detail a users.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### users get-manager
+#### <a name="usersGetManager">Command `az users user show-manager`</a>
 
-get-manager a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-manager|GetManager|
-
-#### Parameters
+##### <a name="ParametersusersGetManager">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### users get-master-category
+#### <a name="usersGetOutlook">Command `az users user show-outlook`</a>
 
-get-master-category a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.outlook|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-master-category|GetMasterCategories|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--outlook-category-id**|string|key: id of outlookCategory|outlook_category_id|outlookCategory-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users get-outlook
-
-get-outlook a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-outlook|GetOutlook|
-
-#### Parameters
+##### <a name="ParametersusersGetOutlook">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### users get-photo
+#### <a name="usersGetPhotos">Command `az users user show-photo`</a>
 
-get-photo a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-photo|GetPhotos|
-|get-photo|GetPhoto|
-
-#### Parameters
+##### <a name="ParametersusersGetPhotos">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -417,589 +479,39 @@ get-photo a users.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### users get-ref-manager
+#### <a name="usersGetPhoto">Command `az users user show-photo`</a>
 
-get-ref-manager a users.
+##### <a name="ParametersusersGetPhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersGetRefManager">Command `az users user show-ref-manager`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-manager|GetRefManager|
-
-#### Parameters
+##### <a name="ParametersusersGetRefManager">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 
-### users get-setting
+#### <a name="usersGetSettings">Command `az users user show-setting`</a>
 
-get-setting a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-setting|GetSettings|
-
-#### Parameters
+##### <a name="ParametersusersGetSettings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### users get-shift-preference
+#### <a name="usersUpdateExtensions">Command `az users user update-extension`</a>
 
-get-shift-preference a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.settings|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-shift-preference|GetShiftPreferences|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users get-user
-
-get-user a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.user|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user|GetUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-created-object
-
-list-created-object a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-created-object|ListCreatedObjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-direct-report
-
-list-direct-report a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-direct-report|ListDirectReports|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-extension
-
-list-extension a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-extension|ListExtensions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-license-detail
-
-list-license-detail a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-license-detail|ListLicenseDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-master-category
-
-list-master-category a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.outlook|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-master-category|ListMasterCategories|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-member-of
-
-list-member-of a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member-of|ListMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-oauth2-permission-grant
-
-list-oauth2-permission-grant a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-oauth2-permission-grant|ListOauth2PermissionGrants|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-owned-device
-
-list-owned-device a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-owned-device|ListOwnedDevices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-owned-object
-
-list-owned-object a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-owned-object|ListOwnedObjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-photo
-
-list-photo a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-photo|ListPhotos|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-ref-created-object
-
-list-ref-created-object a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-created-object|ListRefCreatedObjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-ref-direct-report
-
-list-ref-direct-report a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-direct-report|ListRefDirectReports|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-ref-member-of
-
-list-ref-member-of a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-member-of|ListRefMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-ref-oauth2-permission-grant
-
-list-ref-oauth2-permission-grant a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-oauth2-permission-grant|ListRefOauth2PermissionGrants|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-ref-owned-device
-
-list-ref-owned-device a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-owned-device|ListRefOwnedDevices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-ref-owned-object
-
-list-ref-owned-object a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-owned-object|ListRefOwnedObjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-ref-registered-device
-
-list-ref-registered-device a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-registered-device|ListRefRegisteredDevices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-ref-transitive-member-of
-
-list-ref-transitive-member-of a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-transitive-member-of|ListRefTransitiveMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### users list-registered-device
-
-list-registered-device a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-registered-device|ListRegisteredDevices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-transitive-member-of
-
-list-transitive-member-of a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-transitive-member-of|ListTransitiveMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users list-user
-
-list-user a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.user|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user|ListUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### users set-ref-manager
-
-set-ref-manager a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-manager|SetRefManager|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### users update-extension
-
-update-extension a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-extension|UpdateExtensions|
-
-#### Parameters
+##### <a name="ParametersusersUpdateExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--extension-id**|string|key: id of extension|extension_id|extension-id|
 |**--id**|string|Read-only.|id|id|
 
-### users update-license-detail
+#### <a name="usersUpdateLicenseDetails">Command `az users user update-license-detail`</a>
 
-update-license-detail a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-license-detail|UpdateLicenseDetails|
-
-#### Parameters
+##### <a name="ParametersusersUpdateLicenseDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1009,66 +521,18 @@ update-license-detail a users.
 |**--sku-id**|uuid|Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only|sku_id|skuId|
 |**--sku-part-number**|string|Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only|sku_part_number|skuPartNumber|
 
-### users update-master-category
+#### <a name="usersUpdateOutlook">Command `az users user update-outlook`</a>
 
-update-master-category a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.outlook|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-master-category|UpdateMasterCategories|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--outlook-category-id**|string|key: id of outlookCategory|outlook_category_id|outlookCategory-id|
-|**--id**|string|Read-only.|id|id|
-|**--color**|choice||color|color|
-|**--display-name**|string|A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.|display_name|displayName|
-
-### users update-outlook
-
-update-outlook a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-outlook|UpdateOutlook|
-
-#### Parameters
+##### <a name="ParametersusersUpdateOutlook">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 |**--master-categories**|array|A list of categories defined for the user.|master_categories|masterCategories|
 
-### users update-photo
+#### <a name="usersUpdatePhotos">Command `az users user update-photo`</a>
 
-update-photo a users.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-photo|UpdatePhotos|
-|update-photo|UpdatePhoto|
-
-#### Parameters
+##### <a name="ParametersusersUpdatePhotos">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1077,76 +541,148 @@ update-photo a users.
 |**--height**|integer|The height of the photo. Read-only.|height|height|
 |**--width**|integer|The width of the photo. Read-only.|width|width|
 
-### users update-setting
+#### <a name="usersUpdatePhoto">Command `az users user update-photo`</a>
 
-update-setting a users.
+##### <a name="ParametersusersUpdatePhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersUpdateSettings">Command `az users user update-setting`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-setting|UpdateSettings|
-
-#### Parameters
+##### <a name="ParametersusersUpdateSettings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 |**--contribution-to-content-discovery-as-organization-disabled**|boolean||contribution_to_content_discovery_as_organization_disabled|contributionToContentDiscoveryAsOrganizationDisabled|
 |**--contribution-to-content-discovery-disabled**|boolean||contribution_to_content_discovery_disabled|contributionToContentDiscoveryDisabled|
-|**--shift-preferences-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--shift-preferences-created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
-|**--shift-preferences-last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--shift-preferences-last-modified-by-application**|object|identity|application|application|
-|**--shift-preferences-last-modified-by-device**|object|identity|device|device|
-|**--shift-preferences-last-modified-by-user**|object|identity|user|user|
-|**--shift-preferences-availability**|array|Availability of the user to be scheduled for work and its recurrence pattern.|availability|availability|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--availability**|array|Availability of the user to be scheduled for work and its recurrence pattern.|availability|availability|
 
-### users update-shift-preference
+### group `az users usersoutlook`
+#### <a name="users.outlookCreateMasterCategories">Command `az users usersoutlook create-master-category`</a>
 
-update-shift-preference a users.
+##### <a name="Parametersusers.outlookCreateMasterCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--color**|choice||color|color|
+|**--display-name**|string|A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.|display_name|displayName|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.settings|
+#### <a name="users.outlookDeleteMasterCategories">Command `az users usersoutlook delete-master-category`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-shift-preference|UpdateShiftPreferences|
+##### <a name="Parametersusers.outlookDeleteMasterCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--outlook-category-id**|string|key: id of outlookCategory|outlook_category_id|outlookCategory-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Parameters
+#### <a name="users.outlookListMasterCategories">Command `az users usersoutlook list-master-category`</a>
+
+##### <a name="Parametersusers.outlookListMasterCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.outlookGetMasterCategories">Command `az users usersoutlook show-master-category`</a>
+
+##### <a name="Parametersusers.outlookGetMasterCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--outlook-category-id**|string|key: id of outlookCategory|outlook_category_id|outlookCategory-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.outlookUpdateMasterCategories">Command `az users usersoutlook update-master-category`</a>
+
+##### <a name="Parametersusers.outlookUpdateMasterCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--outlook-category-id**|string|key: id of outlookCategory|outlook_category_id|outlookCategory-id|
+|**--id**|string|Read-only.|id|id|
+|**--color**|choice||color|color|
+|**--display-name**|string|A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.|display_name|displayName|
+
+### group `az users userssetting`
+#### <a name="users.settingsDeleteShiftPreferences">Command `az users userssetting delete-shift-preference`</a>
+
+##### <a name="Parametersusers.settingsDeleteShiftPreferences">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.settingsGetShiftPreferences">Command `az users userssetting show-shift-preference`</a>
+
+##### <a name="Parametersusers.settingsGetShiftPreferences">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.settingsUpdateShiftPreferences">Command `az users userssetting update-shift-preference`</a>
+
+##### <a name="Parametersusers.settingsUpdateShiftPreferences">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 |**--availability**|array|Availability of the user to be scheduled for work and its recurrence pattern.|availability|availability|
 
-### users update-user
+### group `az users usersuser`
+#### <a name="users.userCreateUser">Command `az users usersuser create-user`</a>
 
-update-user a users.
+##### <a name="Parametersusers.userCreateUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--body**|object|New entity|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|users|users.user|
+#### <a name="users.userDeleteUser">Command `az users usersuser delete-user`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user|UpdateUser|
+##### <a name="Parametersusers.userDeleteUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Parameters
+#### <a name="users.userListUser">Command `az users usersuser list-user`</a>
+
+##### <a name="Parametersusers.userListUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.userGetUser">Command `az users usersuser show-user`</a>
+
+##### <a name="Parametersusers.userGetUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.userUpdateUser">Command `az users usersuser update-user`</a>
+
+##### <a name="Parametersusers.userUpdateUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|

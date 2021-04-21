@@ -7,6 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
@@ -18,258 +19,258 @@ from msgraph.cli.core.commands.parameters import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('usersfunctions recent') as c:
+    with self.argument_context('usersfunctions usersactivity recent') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('user', type=str, help='')
-
-    with self.argument_context('usersfunctions delta') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-
-    with self.argument_context('usersfunctions delta') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarviewinstance delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarview delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendareventscalendar allowed-calendar-sharing-role') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('user', type=str, help='')
+
+    with self.argument_context('usersfunctions userscalendareventsinstance delta') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersfunctions userscalendarevent delta') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions userscalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendargroupscalendarscalendarviewcalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendargroupscalendarscalendarviewinstance delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendargroupscalendarscalendarview delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendargroupscalendarseventscalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendargroupscalendarseventsinstance delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendargroupscalendarsevent delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendargroupscalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendarscalendarviewcalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarscalendarviewinstance delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarscalendarview delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendarseventscalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarseventsinstance delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarsevent delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarviewcalendarview delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarviewcalendarevent delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userscalendarviewcalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarviewinstance delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscalendarview delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscontactfolderschildfolder delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscontactfolderscontact delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscontactfolder delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userscontact delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions delta') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userseventscalendarview delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions allowed-calendar-sharing-role') as c:
+    with self.argument_context('usersfunctions userseventscalendarevent delta') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersfunctions userseventscalendar allowed-calendar-sharing-role') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('user', type=str, help='')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions userseventsinstance delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions usersevent delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions delta') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions usersmailfolderschildfolder delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions usersmailfoldersmessage delta') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+
+    with self.argument_context('usersfunctions usersmailfolder delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions get-user-id-with-flagged-app-registration') as c:
+    with self.argument_context('usersfunctions usersmanagedappregistration show-user-id-with-flagged-app-registration') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions delta') as c:
+    with self.argument_context('usersfunctions usersmessage delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions get-managed-app-diagnostic-statuses') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions get-managed-app-policy') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions reminder-view') as c:
+    with self.argument_context('usersfunctions user reminder-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('start_date_time', type=str, help='')
         c.argument('end_date_time', type=str, help='')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions user show-managed-app-diagnostic-statuses') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions user show-managed-app-policy') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions usersonenotenotebookssectiongroupssectionspage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotenotebookssectionspage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('notebook_id', type=str, help='key: id of notebook')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions get-recent-notebook') as c:
+    with self.argument_context('usersfunctions usersonenotenotebook show-recent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('include_personal_notebooks', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotepage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotepagesparentnotebooksectiongroupssectionspage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotepagesparentnotebooksectionspage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotepagesparentsectionpage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
         c.argument('onenote_page_id1', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotesectiongroupsparentnotebooksectionspage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotesectiongroupssectionspage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('section_group_id', type=str, help='key: id of sectionGroup')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions preview') as c:
+    with self.argument_context('usersfunctions usersonenotesectionspage preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions supported-language') as c:
+    with self.argument_context('usersfunctions usersoutlook supported-language') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions supported-time-zone-ee48') as c:
+    with self.argument_context('usersfunctions usersoutlook supported-time-zone-ee48') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions supported-time-zones51-c6') as c:
+    with self.argument_context('usersfunctions usersoutlook supported-time-zones51-c6') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('time_zone_standard', arg_type=get_enum_type(['windows', 'iana']), help='')

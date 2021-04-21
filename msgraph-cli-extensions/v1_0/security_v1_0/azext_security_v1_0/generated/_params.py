@@ -16,18 +16,17 @@ from azext_security_v1_0.action import (
     AddAverageComparativeScores,
     AddControlScores,
     AddVendorInformation,
-    AddComplianceInformation,
     AddControlStateUpdates
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('security get-security') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security show-security') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security update-security') as c:
+    with self.argument_context('security security update-security') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('alerts', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
@@ -35,42 +34,37 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('secure_scores', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('security delete') as c:
-        c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
-        c.argument('secure_score_id', type=str, help='key: id of secureScore')
-
-    with self.argument_context('security create-alert') as c:
+    with self.argument_context('security security create-alert') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('security create-secure-score') as c:
+    with self.argument_context('security security create-secure-score') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('active_user_count', type=int, help='Active user count of the given tenant.')
-        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='*', help='Average score by '
+        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='+', help='Average score by '
                    'different scopes (for example, average by industry, average by seating) and control category '
                    '(Identity, Data, Device, Apps, Infrastructure) within the scope.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('control_scores', action=AddControlScores, nargs='*', help='Contains tenant scores for a set of '
+        c.argument('control_scores', action=AddControlScores, nargs='+', help='Contains tenant scores for a set of '
                    'controls.')
         c.argument('created_date_time', help='The date when the entity is created.')
         c.argument('current_score', type=float, help='Tenant current attained score on specified date.')
-        c.argument('enabled_services', nargs='*', help='Microsoft-provided services for the tenant (for example, '
+        c.argument('enabled_services', nargs='+', help='Microsoft-provided services for the tenant (for example, '
                    'Exchange online, Skype, Sharepoint).')
         c.argument('licensed_user_count', type=int, help='Licensed user count of the given tenant.')
         c.argument('max_score', type=float, help='Tenant maximum possible score on specified date.')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security create-secure-score-control-profile') as c:
+    with self.argument_context('security security create-secure-score-control-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='*', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
-        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='*', help='')
+        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
         c.argument('deprecated', arg_type=get_three_state_flag(),
                    help='Flag to indicate if a control is depreciated.')
         c.argument('implementation_cost', type=str, help='Resource cost of implemmentating control (low, moderate, '
@@ -82,76 +76,89 @@ def load_arguments(self, _):
         c.argument('remediation', type=str, help='Description of what the control will help remediate.')
         c.argument('remediation_impact', type=str, help='Description of the impact on users of the remediation.')
         c.argument('service', type=str, help='Service that owns the control (Exchange, Sharepoint, Azure AD).')
-        c.argument('threats', nargs='*', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
+        c.argument('threats', nargs='+', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
                    'filtration,dataSpillage,')
         c.argument('tier', type=str, help='')
         c.argument('title', type=str, help='Title of the control.')
         c.argument('user_impact', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security get-alert') as c:
+    with self.argument_context('security security delete-alert') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-secure-score') as c:
+    with self.argument_context('security security delete-secure-score') as c:
         c.argument('secure_score_id', type=str, help='key: id of secureScore')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security get-secure-score-control-profile') as c:
+    with self.argument_context('security security delete-secure-score-control-profile') as c:
         c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('security list-alert') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-alert') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-secure-score') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-secure-score') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security list-secure-score-control-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('security security list-secure-score-control-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('security update-alert') as c:
+    with self.argument_context('security security show-alert') as c:
+        c.argument('alert_id', type=str, help='key: id of alert')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-secure-score') as c:
+        c.argument('secure_score_id', type=str, help='key: id of secureScore')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security show-secure-score-control-profile') as c:
+        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security update-alert') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('security update-secure-score') as c:
+    with self.argument_context('security security update-secure-score') as c:
         c.argument('secure_score_id', type=str, help='key: id of secureScore')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('active_user_count', type=int, help='Active user count of the given tenant.')
-        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='*', help='Average score by '
+        c.argument('average_comparative_scores', action=AddAverageComparativeScores, nargs='+', help='Average score by '
                    'different scopes (for example, average by industry, average by seating) and control category '
                    '(Identity, Data, Device, Apps, Infrastructure) within the scope.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('control_scores', action=AddControlScores, nargs='*', help='Contains tenant scores for a set of '
+        c.argument('control_scores', action=AddControlScores, nargs='+', help='Contains tenant scores for a set of '
                    'controls.')
         c.argument('created_date_time', help='The date when the entity is created.')
         c.argument('current_score', type=float, help='Tenant current attained score on specified date.')
-        c.argument('enabled_services', nargs='*', help='Microsoft-provided services for the tenant (for example, '
+        c.argument('enabled_services', nargs='+', help='Microsoft-provided services for the tenant (for example, '
                    'Exchange online, Skype, Sharepoint).')
         c.argument('licensed_user_count', type=int, help='Licensed user count of the given tenant.')
         c.argument('max_score', type=float, help='Tenant maximum possible score on specified date.')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security update-secure-score-control-profile') as c:
+    with self.argument_context('security security update-secure-score-control-profile') as c:
         c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='*', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
-        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='*', help='')
+        c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
         c.argument('deprecated', arg_type=get_three_state_flag(),
                    help='Flag to indicate if a control is depreciated.')
         c.argument('implementation_cost', type=str, help='Resource cost of implemmentating control (low, moderate, '
@@ -163,9 +170,9 @@ def load_arguments(self, _):
         c.argument('remediation', type=str, help='Description of what the control will help remediate.')
         c.argument('remediation_impact', type=str, help='Description of the impact on users of the remediation.')
         c.argument('service', type=str, help='Service that owns the control (Exchange, Sharepoint, Azure AD).')
-        c.argument('threats', nargs='*', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
+        c.argument('threats', nargs='+', help='List of threats the control mitigates (accountBreach,dataDeletion,dataEx'
                    'filtration,dataSpillage,')
         c.argument('tier', type=str, help='')
         c.argument('title', type=str, help='Title of the control.')
         c.argument('user_impact', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='*', help='securityVendorInformation')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')

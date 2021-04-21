@@ -11,7 +11,7 @@
 
 def cf_mail_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.mail import Mail
+    from azext_mail_beta.vendored_sdks.mail import Mail
     return get_mgmt_service_client(cli_ctx,
                                    Mail,
                                    subscription_bound=False,
@@ -19,20 +19,20 @@ def cf_mail_beta_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).user
+    return cf_mail_beta_cl(cli_ctx).users
 
 
-def cf_user_inference_classification(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).user_inference_classification
+def cf_usersinferenceclassification(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).usersinferenceclassification
 
 
-def cf_user_mail_folder(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).user_mail_folder
+def cf_usersmailfolder(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).usersmailfolders
 
 
-def cf_user_mail_folder_message(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).user_mail_folder_message
+def cf_usersmailfoldersmessage(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).usersmailfoldersmessages
 
 
-def cf_user_message(cli_ctx, *_):
-    return cf_mail_beta_cl(cli_ctx).user_message
+def cf_usersmessage(cli_ctx, *_):
+    return cf_mail_beta_cl(cli_ctx).usersmessages

@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,36 +18,36 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import ComplianceConfiguration
-from .operations import ComplianceComplianceOperations
-from .operations import ComplianceOperations
-from .operations import ComplianceEdiscoveryOperations
-from .operations import ComplianceEdiscoveryCaseOperations
-from .operations import ComplianceEdiscoveryCaseCustodianOperations
-from .operations import ComplianceEdiscoveryCaseCustodianSiteSourceOperations
-from .operations import ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations
-from .operations import ComplianceEdiscoveryCaseReviewSetOperations
+from .operations import compliancecomplianceOperations
+from .operations import complianceOperations
+from .operations import complianceediscoveryOperations
+from .operations import complianceediscoverycasesOperations
+from .operations import complianceediscoverycasescustodiansOperations
+from .operations import complianceediscoverycasescustodianssitesourcesOperations
+from .operations import complianceediscoverycasescustodiansunifiedgroupsourcesOperations
+from .operations import complianceediscoverycasesreviewsetsOperations
 from . import models
 
 
 class Compliance(object):
     """Compliance.
 
-    :ivar compliance_compliance: ComplianceComplianceOperations operations
-    :vartype compliance_compliance: compliance.operations.ComplianceComplianceOperations
-    :ivar compliance: ComplianceOperations operations
-    :vartype compliance: compliance.operations.ComplianceOperations
-    :ivar compliance_ediscovery: ComplianceEdiscoveryOperations operations
-    :vartype compliance_ediscovery: compliance.operations.ComplianceEdiscoveryOperations
-    :ivar compliance_ediscovery_case: ComplianceEdiscoveryCaseOperations operations
-    :vartype compliance_ediscovery_case: compliance.operations.ComplianceEdiscoveryCaseOperations
-    :ivar compliance_ediscovery_case_custodian: ComplianceEdiscoveryCaseCustodianOperations operations
-    :vartype compliance_ediscovery_case_custodian: compliance.operations.ComplianceEdiscoveryCaseCustodianOperations
-    :ivar compliance_ediscovery_case_custodian_site_source: ComplianceEdiscoveryCaseCustodianSiteSourceOperations operations
-    :vartype compliance_ediscovery_case_custodian_site_source: compliance.operations.ComplianceEdiscoveryCaseCustodianSiteSourceOperations
-    :ivar compliance_ediscovery_case_custodian_unified_group_source: ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations operations
-    :vartype compliance_ediscovery_case_custodian_unified_group_source: compliance.operations.ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations
-    :ivar compliance_ediscovery_case_review_set: ComplianceEdiscoveryCaseReviewSetOperations operations
-    :vartype compliance_ediscovery_case_review_set: compliance.operations.ComplianceEdiscoveryCaseReviewSetOperations
+    :ivar compliancecompliance: compliancecomplianceOperations operations
+    :vartype compliancecompliance: compliance.operations.compliancecomplianceOperations
+    :ivar compliance: complianceOperations operations
+    :vartype compliance: compliance.operations.complianceOperations
+    :ivar complianceediscovery: complianceediscoveryOperations operations
+    :vartype complianceediscovery: compliance.operations.complianceediscoveryOperations
+    :ivar complianceediscoverycases: complianceediscoverycasesOperations operations
+    :vartype complianceediscoverycases: compliance.operations.complianceediscoverycasesOperations
+    :ivar complianceediscoverycasescustodians: complianceediscoverycasescustodiansOperations operations
+    :vartype complianceediscoverycasescustodians: compliance.operations.complianceediscoverycasescustodiansOperations
+    :ivar complianceediscoverycasescustodianssitesources: complianceediscoverycasescustodianssitesourcesOperations operations
+    :vartype complianceediscoverycasescustodianssitesources: compliance.operations.complianceediscoverycasescustodianssitesourcesOperations
+    :ivar complianceediscoverycasescustodiansunifiedgroupsources: complianceediscoverycasescustodiansunifiedgroupsourcesOperations operations
+    :vartype complianceediscoverycasescustodiansunifiedgroupsources: compliance.operations.complianceediscoverycasescustodiansunifiedgroupsourcesOperations
+    :ivar complianceediscoverycasesreviewsets: complianceediscoverycasesreviewsetsOperations operations
+    :vartype complianceediscoverycasesreviewsets: compliance.operations.complianceediscoverycasesreviewsetsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -61,7 +61,6 @@ class Compliance(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -79,27 +78,28 @@ class Compliance(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = ComplianceConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.compliance_compliance = ComplianceComplianceOperations(
+        self.compliancecompliance = compliancecomplianceOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance = ComplianceOperations(
+        self.compliance = complianceOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery = ComplianceEdiscoveryOperations(
+        self.complianceediscovery = complianceediscoveryOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case = ComplianceEdiscoveryCaseOperations(
+        self.complianceediscoverycases = complianceediscoverycasesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_custodian = ComplianceEdiscoveryCaseCustodianOperations(
+        self.complianceediscoverycasescustodians = complianceediscoverycasescustodiansOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_custodian_site_source = ComplianceEdiscoveryCaseCustodianSiteSourceOperations(
+        self.complianceediscoverycasescustodianssitesources = complianceediscoverycasescustodianssitesourcesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_custodian_unified_group_source = ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations(
+        self.complianceediscoverycasescustodiansunifiedgroupsources = complianceediscoverycasescustodiansunifiedgroupsourcesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_review_set = ComplianceEdiscoveryCaseReviewSetOperations(
+        self.complianceediscoverycasesreviewsets = complianceediscoverycasesreviewsetsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

@@ -29,193 +29,193 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
 class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
-    MODIFIED_DATE_TIME_DESC = "modifiedDateTime desc"
+    IDDESC = "id desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    MODIFIEDDATETIME = "modifiedDateTime"
+    MODIFIEDDATETIMEDESC = "modifiedDateTime desc"
 
 class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    DISPLAY_NAME = "displayName"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
+    CREATEDDATETIME = "createdDateTime"
+    DISPLAYNAME = "displayName"
+    MODIFIEDDATETIME = "modifiedDateTime"
 
 class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    DISPLAY_NAME = "displayName"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
+    CREATEDDATETIME = "createdDateTime"
+    DISPLAYNAME = "displayName"
+    MODIFIEDDATETIME = "modifiedDateTime"
 
 class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CONDITIONS = "conditions"
-    CONDITIONS_DESC = "conditions desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CONDITIONSDESC = "conditions desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    GRANT_CONTROLS = "grantControls"
-    GRANT_CONTROLS_DESC = "grantControls desc"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
-    MODIFIED_DATE_TIME_DESC = "modifiedDateTime desc"
-    SESSION_CONTROLS = "sessionControls"
-    SESSION_CONTROLS_DESC = "sessionControls desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    GRANTCONTROLS = "grantControls"
+    GRANTCONTROLSDESC = "grantControls desc"
+    MODIFIEDDATETIME = "modifiedDateTime"
+    MODIFIEDDATETIMEDESC = "modifiedDateTime desc"
+    SESSIONCONTROLS = "sessionControls"
+    SESSIONCONTROLSDESC = "sessionControls desc"
     STATE = "state"
-    STATE_DESC = "state desc"
+    STATEDESC = "state desc"
 
 class Enum18(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CONDITIONS = "conditions"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    GRANT_CONTROLS = "grantControls"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
-    SESSION_CONTROLS = "sessionControls"
+    DISPLAYNAME = "displayName"
+    GRANTCONTROLS = "grantControls"
+    MODIFIEDDATETIME = "modifiedDateTime"
+    SESSIONCONTROLS = "sessionControls"
     STATE = "state"
 
 class Enum188(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    INVITED_USER_DISPLAY_NAME = "invitedUserDisplayName"
-    INVITED_USER_EMAIL_ADDRESS = "invitedUserEmailAddress"
-    INVITED_USER_MESSAGE_INFO = "invitedUserMessageInfo"
-    INVITED_USER_TYPE = "invitedUserType"
-    INVITE_REDEEM_URL = "inviteRedeemUrl"
-    INVITE_REDIRECT_URL = "inviteRedirectUrl"
-    RESET_REDEMPTION = "resetRedemption"
-    SEND_INVITATION_MESSAGE = "sendInvitationMessage"
+    INVITEDUSERDISPLAYNAME = "invitedUserDisplayName"
+    INVITEDUSEREMAILADDRESS = "invitedUserEmailAddress"
+    INVITEDUSERMESSAGEINFO = "invitedUserMessageInfo"
+    INVITEDUSERTYPE = "invitedUserType"
+    INVITEREDEEMURL = "inviteRedeemUrl"
+    INVITEREDIRECTURL = "inviteRedirectUrl"
+    RESETREDEMPTION = "resetRedemption"
+    SENDINVITATIONMESSAGE = "sendInvitationMessage"
     STATUS = "status"
-    INVITED_USER = "invitedUser"
+    INVITEDUSER = "invitedUser"
 
 class Enum189(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    INVITED_USER = "invitedUser"
+    INVITEDUSER = "invitedUser"
 
 class Enum19(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CONDITIONS = "conditions"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    GRANT_CONTROLS = "grantControls"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
-    SESSION_CONTROLS = "sessionControls"
+    DISPLAYNAME = "displayName"
+    GRANTCONTROLS = "grantControls"
+    MODIFIEDDATETIME = "modifiedDateTime"
+    SESSIONCONTROLS = "sessionControls"
     STATE = "state"
 
 class Enum190(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
-    SIGN_IN_ACTIVITY = "signInActivity"
-    ACCOUNT_ENABLED = "accountEnabled"
-    AGE_GROUP = "ageGroup"
-    ASSIGNED_LICENSES = "assignedLicenses"
-    ASSIGNED_PLANS = "assignedPlans"
-    BUSINESS_PHONES = "businessPhones"
+    DELETEDDATETIME = "deletedDateTime"
+    SIGNINACTIVITY = "signInActivity"
+    ACCOUNTENABLED = "accountEnabled"
+    AGEGROUP = "ageGroup"
+    ASSIGNEDLICENSES = "assignedLicenses"
+    ASSIGNEDPLANS = "assignedPlans"
+    BUSINESSPHONES = "businessPhones"
     CITY = "city"
-    COMPANY_NAME = "companyName"
-    CONSENT_PROVIDED_FOR_MINOR = "consentProvidedForMinor"
+    COMPANYNAME = "companyName"
+    CONSENTPROVIDEDFORMINOR = "consentProvidedForMinor"
     COUNTRY = "country"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATION_TYPE = "creationType"
+    CREATEDDATETIME = "createdDateTime"
+    CREATIONTYPE = "creationType"
     DEPARTMENT = "department"
-    DEVICE_KEYS = "deviceKeys"
-    DISPLAY_NAME = "displayName"
-    EMPLOYEE_HIRE_DATE = "employeeHireDate"
-    EMPLOYEE_ID = "employeeId"
-    EMPLOYEE_ORG_DATA = "employeeOrgData"
-    EMPLOYEE_TYPE = "employeeType"
-    EXTERNAL_USER_STATE = "externalUserState"
-    EXTERNAL_USER_STATE_CHANGE_DATE_TIME = "externalUserStateChangeDateTime"
-    FAX_NUMBER = "faxNumber"
-    GIVEN_NAME = "givenName"
+    DEVICEKEYS = "deviceKeys"
+    DISPLAYNAME = "displayName"
+    EMPLOYEEHIREDATE = "employeeHireDate"
+    EMPLOYEEID = "employeeId"
+    EMPLOYEEORGDATA = "employeeOrgData"
+    EMPLOYEETYPE = "employeeType"
+    EXTERNALUSERSTATE = "externalUserState"
+    EXTERNALUSERSTATECHANGEDATETIME = "externalUserStateChangeDateTime"
+    FAXNUMBER = "faxNumber"
+    GIVENNAME = "givenName"
     IDENTITIES = "identities"
-    IM_ADDRESSES = "imAddresses"
-    INFO_CATALOGS = "infoCatalogs"
-    IS_RESOURCE_ACCOUNT = "isResourceAccount"
-    JOB_TITLE = "jobTitle"
-    LAST_PASSWORD_CHANGE_DATE_TIME = "lastPasswordChangeDateTime"
-    LEGAL_AGE_GROUP_CLASSIFICATION = "legalAgeGroupClassification"
-    LICENSE_ASSIGNMENT_STATES = "licenseAssignmentStates"
+    IMADDRESSES = "imAddresses"
+    INFOCATALOGS = "infoCatalogs"
+    ISRESOURCEACCOUNT = "isResourceAccount"
+    JOBTITLE = "jobTitle"
+    LASTPASSWORDCHANGEDATETIME = "lastPasswordChangeDateTime"
+    LEGALAGEGROUPCLASSIFICATION = "legalAgeGroupClassification"
+    LICENSEASSIGNMENTSTATES = "licenseAssignmentStates"
     MAIL = "mail"
-    MAIL_NICKNAME = "mailNickname"
-    MOBILE_PHONE = "mobilePhone"
-    OFFICE_LOCATION = "officeLocation"
-    ON_PREMISES_DISTINGUISHED_NAME = "onPremisesDistinguishedName"
-    ON_PREMISES_DOMAIN_NAME = "onPremisesDomainName"
-    ON_PREMISES_EXTENSION_ATTRIBUTES = "onPremisesExtensionAttributes"
-    ON_PREMISES_IMMUTABLE_ID = "onPremisesImmutableId"
-    ON_PREMISES_LAST_SYNC_DATE_TIME = "onPremisesLastSyncDateTime"
-    ON_PREMISES_PROVISIONING_ERRORS = "onPremisesProvisioningErrors"
-    ON_PREMISES_SAM_ACCOUNT_NAME = "onPremisesSamAccountName"
-    ON_PREMISES_SECURITY_IDENTIFIER = "onPremisesSecurityIdentifier"
-    ON_PREMISES_SYNC_ENABLED = "onPremisesSyncEnabled"
-    ON_PREMISES_USER_PRINCIPAL_NAME = "onPremisesUserPrincipalName"
-    OTHER_MAILS = "otherMails"
-    PASSWORD_POLICIES = "passwordPolicies"
-    PASSWORD_PROFILE = "passwordProfile"
-    POSTAL_CODE = "postalCode"
-    PREFERRED_DATA_LOCATION = "preferredDataLocation"
-    PREFERRED_LANGUAGE = "preferredLanguage"
-    PROVISIONED_PLANS = "provisionedPlans"
-    PROXY_ADDRESSES = "proxyAddresses"
-    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
-    SHOW_IN_ADDRESS_LIST = "showInAddressList"
-    SIGN_IN_SESSIONS_VALID_FROM_DATE_TIME = "signInSessionsValidFromDateTime"
+    MAILNICKNAME = "mailNickname"
+    MOBILEPHONE = "mobilePhone"
+    OFFICELOCATION = "officeLocation"
+    ONPREMISESDISTINGUISHEDNAME = "onPremisesDistinguishedName"
+    ONPREMISESDOMAINNAME = "onPremisesDomainName"
+    ONPREMISESEXTENSIONATTRIBUTES = "onPremisesExtensionAttributes"
+    ONPREMISESIMMUTABLEID = "onPremisesImmutableId"
+    ONPREMISESLASTSYNCDATETIME = "onPremisesLastSyncDateTime"
+    ONPREMISESPROVISIONINGERRORS = "onPremisesProvisioningErrors"
+    ONPREMISESSAMACCOUNTNAME = "onPremisesSamAccountName"
+    ONPREMISESSECURITYIDENTIFIER = "onPremisesSecurityIdentifier"
+    ONPREMISESSYNCENABLED = "onPremisesSyncEnabled"
+    ONPREMISESUSERPRINCIPALNAME = "onPremisesUserPrincipalName"
+    OTHERMAILS = "otherMails"
+    PASSWORDPOLICIES = "passwordPolicies"
+    PASSWORDPROFILE = "passwordProfile"
+    POSTALCODE = "postalCode"
+    PREFERREDDATALOCATION = "preferredDataLocation"
+    PREFERREDLANGUAGE = "preferredLanguage"
+    PROVISIONEDPLANS = "provisionedPlans"
+    PROXYADDRESSES = "proxyAddresses"
+    REFRESHTOKENSVALIDFROMDATETIME = "refreshTokensValidFromDateTime"
+    SHOWINADDRESSLIST = "showInAddressList"
+    SIGNINSESSIONSVALIDFROMDATETIME = "signInSessionsValidFromDateTime"
     STATE = "state"
-    STREET_ADDRESS = "streetAddress"
+    STREETADDRESS = "streetAddress"
     SURNAME = "surname"
-    USAGE_LOCATION = "usageLocation"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_TYPE = "userType"
-    MAILBOX_SETTINGS = "mailboxSettings"
-    DEVICE_ENROLLMENT_LIMIT = "deviceEnrollmentLimit"
-    ABOUT_ME = "aboutMe"
+    USAGELOCATION = "usageLocation"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERTYPE = "userType"
+    MAILBOXSETTINGS = "mailboxSettings"
+    DEVICEENROLLMENTLIMIT = "deviceEnrollmentLimit"
+    ABOUTME = "aboutMe"
     BIRTHDAY = "birthday"
-    HIRE_DATE = "hireDate"
+    HIREDATE = "hireDate"
     INTERESTS = "interests"
-    MY_SITE = "mySite"
-    PAST_PROJECTS = "pastProjects"
-    PREFERRED_NAME = "preferredName"
+    MYSITE = "mySite"
+    PASTPROJECTS = "pastProjects"
+    PREFERREDNAME = "preferredName"
     RESPONSIBILITIES = "responsibilities"
     SCHOOLS = "schools"
     SKILLS = "skills"
     ANALYTICS = "analytics"
-    INFORMATION_PROTECTION = "informationProtection"
-    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
-    CREATED_OBJECTS = "createdObjects"
-    DIRECT_REPORTS = "directReports"
-    LICENSE_DETAILS = "licenseDetails"
+    INFORMATIONPROTECTION = "informationProtection"
+    APPROLEASSIGNMENTS = "appRoleAssignments"
+    CREATEDOBJECTS = "createdObjects"
+    DIRECTREPORTS = "directReports"
+    LICENSEDETAILS = "licenseDetails"
     MANAGER = "manager"
-    MEMBER_OF = "memberOf"
-    OWNED_DEVICES = "ownedDevices"
-    OWNED_OBJECTS = "ownedObjects"
-    REGISTERED_DEVICES = "registeredDevices"
-    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
-    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    MEMBEROF = "memberOf"
+    OWNEDDEVICES = "ownedDevices"
+    OWNEDOBJECTS = "ownedObjects"
+    REGISTEREDDEVICES = "registeredDevices"
+    SCOPEDROLEMEMBEROF = "scopedRoleMemberOf"
+    TRANSITIVEMEMBEROF = "transitiveMemberOf"
     CALENDAR = "calendar"
-    CALENDAR_GROUPS = "calendarGroups"
+    CALENDARGROUPS = "calendarGroups"
     CALENDARS = "calendars"
-    CALENDAR_VIEW = "calendarView"
-    CONTACT_FOLDERS = "contactFolders"
+    CALENDARVIEW = "calendarView"
+    CONTACTFOLDERS = "contactFolders"
     CONTACTS = "contacts"
     EVENTS = "events"
-    INFERENCE_CLASSIFICATION = "inferenceClassification"
-    JOINED_GROUPS = "joinedGroups"
-    MAIL_FOLDERS = "mailFolders"
+    INFERENCECLASSIFICATION = "inferenceClassification"
+    JOINEDGROUPS = "joinedGroups"
+    MAILFOLDERS = "mailFolders"
     MESSAGES = "messages"
     OUTLOOK = "outlook"
     PEOPLE = "people"
@@ -223,19 +223,19 @@ class Enum190(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     PHOTOS = "photos"
     DRIVE = "drive"
     DRIVES = "drives"
-    FOLLOWED_SITES = "followedSites"
+    FOLLOWEDSITES = "followedSites"
     EXTENSIONS = "extensions"
-    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    APPCONSENTREQUESTSFORAPPROVAL = "appConsentRequestsForApproval"
     APPROVALS = "approvals"
-    PENDING_ACCESS_REVIEW_INSTANCES = "pendingAccessReviewInstances"
-    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
-    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
-    MANAGED_DEVICES = "managedDevices"
-    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
-    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
-    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
-    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
-    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    PENDINGACCESSREVIEWINSTANCES = "pendingAccessReviewInstances"
+    AGREEMENTACCEPTANCES = "agreementAcceptances"
+    DEVICEENROLLMENTCONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGEDDEVICES = "managedDevices"
+    MANAGEDAPPREGISTRATIONS = "managedAppRegistrations"
+    WINDOWSINFORMATIONPROTECTIONDEVICEREGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICEMANAGEMENTTROUBLESHOOTINGEVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILEAPPINTENTANDSTATES = "mobileAppIntentAndStates"
+    MOBILEAPPTROUBLESHOOTINGEVENTS = "mobileAppTroubleshootingEvents"
     NOTIFICATIONS = "notifications"
     PLANNER = "planner"
     INSIGHTS = "insights"
@@ -244,11 +244,11 @@ class Enum190(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     PROFILE = "profile"
     ACTIVITIES = "activities"
     DEVICES = "devices"
-    ONLINE_MEETINGS = "onlineMeetings"
+    ONLINEMEETINGS = "onlineMeetings"
     PRESENCE = "presence"
     AUTHENTICATION = "authentication"
     CHATS = "chats"
-    JOINED_TEAMS = "joinedTeams"
+    JOINEDTEAMS = "joinedTeams"
     TEAMWORK = "teamwork"
     TODO = "todo"
 
@@ -256,28 +256,28 @@ class Enum191(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     ANALYTICS = "analytics"
-    INFORMATION_PROTECTION = "informationProtection"
-    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
-    CREATED_OBJECTS = "createdObjects"
-    DIRECT_REPORTS = "directReports"
-    LICENSE_DETAILS = "licenseDetails"
+    INFORMATIONPROTECTION = "informationProtection"
+    APPROLEASSIGNMENTS = "appRoleAssignments"
+    CREATEDOBJECTS = "createdObjects"
+    DIRECTREPORTS = "directReports"
+    LICENSEDETAILS = "licenseDetails"
     MANAGER = "manager"
-    MEMBER_OF = "memberOf"
-    OWNED_DEVICES = "ownedDevices"
-    OWNED_OBJECTS = "ownedObjects"
-    REGISTERED_DEVICES = "registeredDevices"
-    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
-    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    MEMBEROF = "memberOf"
+    OWNEDDEVICES = "ownedDevices"
+    OWNEDOBJECTS = "ownedObjects"
+    REGISTEREDDEVICES = "registeredDevices"
+    SCOPEDROLEMEMBEROF = "scopedRoleMemberOf"
+    TRANSITIVEMEMBEROF = "transitiveMemberOf"
     CALENDAR = "calendar"
-    CALENDAR_GROUPS = "calendarGroups"
+    CALENDARGROUPS = "calendarGroups"
     CALENDARS = "calendars"
-    CALENDAR_VIEW = "calendarView"
-    CONTACT_FOLDERS = "contactFolders"
+    CALENDARVIEW = "calendarView"
+    CONTACTFOLDERS = "contactFolders"
     CONTACTS = "contacts"
     EVENTS = "events"
-    INFERENCE_CLASSIFICATION = "inferenceClassification"
-    JOINED_GROUPS = "joinedGroups"
-    MAIL_FOLDERS = "mailFolders"
+    INFERENCECLASSIFICATION = "inferenceClassification"
+    JOINEDGROUPS = "joinedGroups"
+    MAILFOLDERS = "mailFolders"
     MESSAGES = "messages"
     OUTLOOK = "outlook"
     PEOPLE = "people"
@@ -285,19 +285,19 @@ class Enum191(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     PHOTOS = "photos"
     DRIVE = "drive"
     DRIVES = "drives"
-    FOLLOWED_SITES = "followedSites"
+    FOLLOWEDSITES = "followedSites"
     EXTENSIONS = "extensions"
-    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    APPCONSENTREQUESTSFORAPPROVAL = "appConsentRequestsForApproval"
     APPROVALS = "approvals"
-    PENDING_ACCESS_REVIEW_INSTANCES = "pendingAccessReviewInstances"
-    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
-    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
-    MANAGED_DEVICES = "managedDevices"
-    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
-    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
-    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
-    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
-    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    PENDINGACCESSREVIEWINSTANCES = "pendingAccessReviewInstances"
+    AGREEMENTACCEPTANCES = "agreementAcceptances"
+    DEVICEENROLLMENTCONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGEDDEVICES = "managedDevices"
+    MANAGEDAPPREGISTRATIONS = "managedAppRegistrations"
+    WINDOWSINFORMATIONPROTECTIONDEVICEREGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICEMANAGEMENTTROUBLESHOOTINGEVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILEAPPINTENTANDSTATES = "mobileAppIntentAndStates"
+    MOBILEAPPTROUBLESHOOTINGEVENTS = "mobileAppTroubleshootingEvents"
     NOTIFICATIONS = "notifications"
     PLANNER = "planner"
     INSIGHTS = "insights"
@@ -306,172 +306,172 @@ class Enum191(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     PROFILE = "profile"
     ACTIVITIES = "activities"
     DEVICES = "devices"
-    ONLINE_MEETINGS = "onlineMeetings"
+    ONLINEMEETINGS = "onlineMeetings"
     PRESENCE = "presence"
     AUTHENTICATION = "authentication"
     CHATS = "chats"
-    JOINED_TEAMS = "joinedTeams"
+    JOINEDTEAMS = "joinedTeams"
     TEAMWORK = "teamwork"
     TODO = "todo"
 
 class Enum192(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CLIENT_ID = "clientId"
-    CLIENT_ID_DESC = "clientId desc"
-    CONSENT_TYPE = "consentType"
-    CONSENT_TYPE_DESC = "consentType desc"
-    EXPIRY_TIME = "expiryTime"
-    EXPIRY_TIME_DESC = "expiryTime desc"
-    PRINCIPAL_ID = "principalId"
-    PRINCIPAL_ID_DESC = "principalId desc"
-    RESOURCE_ID = "resourceId"
-    RESOURCE_ID_DESC = "resourceId desc"
+    IDDESC = "id desc"
+    CLIENTID = "clientId"
+    CLIENTIDDESC = "clientId desc"
+    CONSENTTYPE = "consentType"
+    CONSENTTYPEDESC = "consentType desc"
+    EXPIRYTIME = "expiryTime"
+    EXPIRYTIMEDESC = "expiryTime desc"
+    PRINCIPALID = "principalId"
+    PRINCIPALIDDESC = "principalId desc"
+    RESOURCEID = "resourceId"
+    RESOURCEIDDESC = "resourceId desc"
     SCOPE = "scope"
-    SCOPE_DESC = "scope desc"
-    START_TIME = "startTime"
-    START_TIME_DESC = "startTime desc"
+    SCOPEDESC = "scope desc"
+    STARTTIME = "startTime"
+    STARTTIMEDESC = "startTime desc"
 
 class Enum193(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_ID = "clientId"
-    CONSENT_TYPE = "consentType"
-    EXPIRY_TIME = "expiryTime"
-    PRINCIPAL_ID = "principalId"
-    RESOURCE_ID = "resourceId"
+    CLIENTID = "clientId"
+    CONSENTTYPE = "consentType"
+    EXPIRYTIME = "expiryTime"
+    PRINCIPALID = "principalId"
+    RESOURCEID = "resourceId"
     SCOPE = "scope"
-    START_TIME = "startTime"
+    STARTTIME = "startTime"
 
 class Enum194(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_ID = "clientId"
-    CONSENT_TYPE = "consentType"
-    EXPIRY_TIME = "expiryTime"
-    PRINCIPAL_ID = "principalId"
-    RESOURCE_ID = "resourceId"
+    CLIENTID = "clientId"
+    CONSENTTYPE = "consentType"
+    EXPIRYTIME = "expiryTime"
+    PRINCIPALID = "principalId"
+    RESOURCEID = "resourceId"
     SCOPE = "scope"
-    START_TIME = "startTime"
+    STARTTIME = "startTime"
 
 class Enum195(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CERTIFICATE_AUTHORITIES = "certificateAuthorities"
-    CERTIFICATE_AUTHORITIES_DESC = "certificateAuthorities desc"
+    IDDESC = "id desc"
+    CERTIFICATEAUTHORITIES = "certificateAuthorities"
+    CERTIFICATEAUTHORITIESDESC = "certificateAuthorities desc"
 
 class Enum196(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CERTIFICATE_AUTHORITIES = "certificateAuthorities"
+    CERTIFICATEAUTHORITIES = "certificateAuthorities"
 
 class Enum197(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CERTIFICATE_AUTHORITIES = "certificateAuthorities"
-    CERTIFICATE_AUTHORITIES_DESC = "certificateAuthorities desc"
+    IDDESC = "id desc"
+    CERTIFICATEAUTHORITIES = "certificateAuthorities"
+    CERTIFICATEAUTHORITIESDESC = "certificateAuthorities desc"
 
 class Enum198(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    AUTHENTICATION_FLOWS_POLICY = "authenticationFlowsPolicy"
-    B2_C_AUTHENTICATION_METHODS_POLICY = "b2cAuthenticationMethodsPolicy"
-    DEVICE_REGISTRATION_POLICY = "deviceRegistrationPolicy"
-    ACTIVITY_BASED_TIMEOUT_POLICIES = "activityBasedTimeoutPolicies"
-    AUTHORIZATION_POLICY = "authorizationPolicy"
-    CLAIMS_MAPPING_POLICIES = "claimsMappingPolicies"
-    HOME_REALM_DISCOVERY_POLICIES = "homeRealmDiscoveryPolicies"
-    PERMISSION_GRANT_POLICIES = "permissionGrantPolicies"
-    PRIVATE_LINK_RESOURCE_POLICIES = "privateLinkResourcePolicies"
-    TOKEN_ISSUANCE_POLICIES = "tokenIssuancePolicies"
-    TOKEN_LIFETIME_POLICIES = "tokenLifetimePolicies"
-    ADMIN_CONSENT_REQUEST_POLICY = "adminConsentRequestPolicy"
-    DIRECTORY_ROLE_ACCESS_REVIEW_POLICY = "directoryRoleAccessReviewPolicy"
-    CONDITIONAL_ACCESS_POLICIES = "conditionalAccessPolicies"
-    IDENTITY_SECURITY_DEFAULTS_ENFORCEMENT_POLICY = "identitySecurityDefaultsEnforcementPolicy"
+    AUTHENTICATIONFLOWSPOLICY = "authenticationFlowsPolicy"
+    B2CAUTHENTICATIONMETHODSPOLICY = "b2cAuthenticationMethodsPolicy"
+    DEVICEREGISTRATIONPOLICY = "deviceRegistrationPolicy"
+    ACTIVITYBASEDTIMEOUTPOLICIES = "activityBasedTimeoutPolicies"
+    AUTHORIZATIONPOLICY = "authorizationPolicy"
+    CLAIMSMAPPINGPOLICIES = "claimsMappingPolicies"
+    HOMEREALMDISCOVERYPOLICIES = "homeRealmDiscoveryPolicies"
+    PERMISSIONGRANTPOLICIES = "permissionGrantPolicies"
+    PRIVATELINKRESOURCEPOLICIES = "privateLinkResourcePolicies"
+    TOKENISSUANCEPOLICIES = "tokenIssuancePolicies"
+    TOKENLIFETIMEPOLICIES = "tokenLifetimePolicies"
+    ADMINCONSENTREQUESTPOLICY = "adminConsentRequestPolicy"
+    DIRECTORYROLEACCESSREVIEWPOLICY = "directoryRoleAccessReviewPolicy"
+    CONDITIONALACCESSPOLICIES = "conditionalAccessPolicies"
+    IDENTITYSECURITYDEFAULTSENFORCEMENTPOLICY = "identitySecurityDefaultsEnforcementPolicy"
 
 class Enum199(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    AUTHENTICATION_FLOWS_POLICY = "authenticationFlowsPolicy"
-    B2_C_AUTHENTICATION_METHODS_POLICY = "b2cAuthenticationMethodsPolicy"
-    DEVICE_REGISTRATION_POLICY = "deviceRegistrationPolicy"
-    ACTIVITY_BASED_TIMEOUT_POLICIES = "activityBasedTimeoutPolicies"
-    AUTHORIZATION_POLICY = "authorizationPolicy"
-    CLAIMS_MAPPING_POLICIES = "claimsMappingPolicies"
-    HOME_REALM_DISCOVERY_POLICIES = "homeRealmDiscoveryPolicies"
-    PERMISSION_GRANT_POLICIES = "permissionGrantPolicies"
-    PRIVATE_LINK_RESOURCE_POLICIES = "privateLinkResourcePolicies"
-    TOKEN_ISSUANCE_POLICIES = "tokenIssuancePolicies"
-    TOKEN_LIFETIME_POLICIES = "tokenLifetimePolicies"
-    ADMIN_CONSENT_REQUEST_POLICY = "adminConsentRequestPolicy"
-    DIRECTORY_ROLE_ACCESS_REVIEW_POLICY = "directoryRoleAccessReviewPolicy"
-    CONDITIONAL_ACCESS_POLICIES = "conditionalAccessPolicies"
-    IDENTITY_SECURITY_DEFAULTS_ENFORCEMENT_POLICY = "identitySecurityDefaultsEnforcementPolicy"
+    AUTHENTICATIONFLOWSPOLICY = "authenticationFlowsPolicy"
+    B2CAUTHENTICATIONMETHODSPOLICY = "b2cAuthenticationMethodsPolicy"
+    DEVICEREGISTRATIONPOLICY = "deviceRegistrationPolicy"
+    ACTIVITYBASEDTIMEOUTPOLICIES = "activityBasedTimeoutPolicies"
+    AUTHORIZATIONPOLICY = "authorizationPolicy"
+    CLAIMSMAPPINGPOLICIES = "claimsMappingPolicies"
+    HOMEREALMDISCOVERYPOLICIES = "homeRealmDiscoveryPolicies"
+    PERMISSIONGRANTPOLICIES = "permissionGrantPolicies"
+    PRIVATELINKRESOURCEPOLICIES = "privateLinkResourcePolicies"
+    TOKENISSUANCEPOLICIES = "tokenIssuancePolicies"
+    TOKENLIFETIMEPOLICIES = "tokenLifetimePolicies"
+    ADMINCONSENTREQUESTPOLICY = "adminConsentRequestPolicy"
+    DIRECTORYROLEACCESSREVIEWPOLICY = "directoryRoleAccessReviewPolicy"
+    CONDITIONALACCESSPOLICIES = "conditionalAccessPolicies"
+    IDENTITYSECURITYDEFAULTSENFORCEMENTPOLICY = "identitySecurityDefaultsEnforcementPolicy"
 
 class Enum20(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    USER_FLOW_TYPE = "userFlowType"
-    USER_FLOW_TYPE_DESC = "userFlowType desc"
-    USER_FLOW_TYPE_VERSION = "userFlowTypeVersion"
-    USER_FLOW_TYPE_VERSION_DESC = "userFlowTypeVersion desc"
+    IDDESC = "id desc"
+    USERFLOWTYPE = "userFlowType"
+    USERFLOWTYPEDESC = "userFlowType desc"
+    USERFLOWTYPEVERSION = "userFlowTypeVersion"
+    USERFLOWTYPEVERSIONDESC = "userFlowTypeVersion desc"
 
 class Enum202(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
     DEFINITION = "definition"
-    DEFINITION_DESC = "definition desc"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    IS_ORGANIZATION_DEFAULT_DESC = "isOrganizationDefault desc"
+    DEFINITIONDESC = "definition desc"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    ISORGANIZATIONDEFAULTDESC = "isOrganizationDefault desc"
 
 class Enum203(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum204(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum205(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum206(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum207(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    IS_ENABLED = "isEnabled"
-    NOTIFY_REVIEWERS = "notifyReviewers"
-    REMINDERS_ENABLED = "remindersEnabled"
-    REQUEST_DURATION_IN_DAYS = "requestDurationInDays"
+    ISENABLED = "isEnabled"
+    NOTIFYREVIEWERS = "notifyReviewers"
+    REMINDERSENABLED = "remindersEnabled"
+    REQUESTDURATIONINDAYS = "requestDurationInDays"
     REVIEWERS = "reviewers"
     VERSION = "version"
 
@@ -479,171 +479,171 @@ class Enum208(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    SELF_SERVICE_SIGN_UP = "selfServiceSignUp"
+    DISPLAYNAME = "displayName"
+    SELFSERVICESIGNUP = "selfServiceSignUp"
 
 class Enum209(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    ALLOWED_TO_SIGN_UP_EMAIL_BASED_SUBSCRIPTIONS = "allowedToSignUpEmailBasedSubscriptions"
-    ALLOWED_TO_SIGN_UP_EMAIL_BASED_SUBSCRIPTIONS_DESC = "allowedToSignUpEmailBasedSubscriptions desc"
-    ALLOWED_TO_USE_SSPR = "allowedToUseSSPR"
-    ALLOWED_TO_USE_SSPR_DESC = "allowedToUseSSPR desc"
-    ALLOW_EMAIL_VERIFIED_USERS_TO_JOIN_ORGANIZATION = "allowEmailVerifiedUsersToJoinOrganization"
-    ALLOW_EMAIL_VERIFIED_USERS_TO_JOIN_ORGANIZATION_DESC = "allowEmailVerifiedUsersToJoinOrganization desc"
-    ALLOW_INVITES_FROM = "allowInvitesFrom"
-    ALLOW_INVITES_FROM_DESC = "allowInvitesFrom desc"
-    BLOCK_MSOL_POWER_SHELL = "blockMsolPowerShell"
-    BLOCK_MSOL_POWER_SHELL_DESC = "blockMsolPowerShell desc"
-    DEFAULT_USER_ROLE_PERMISSIONS = "defaultUserRolePermissions"
-    DEFAULT_USER_ROLE_PERMISSIONS_DESC = "defaultUserRolePermissions desc"
-    ENABLED_PREVIEW_FEATURES = "enabledPreviewFeatures"
-    ENABLED_PREVIEW_FEATURES_DESC = "enabledPreviewFeatures desc"
-    GUEST_USER_ROLE_ID = "guestUserRoleId"
-    GUEST_USER_ROLE_ID_DESC = "guestUserRoleId desc"
-    PERMISSION_GRANT_POLICY_IDS_ASSIGNED_TO_DEFAULT_USER_ROLE = "permissionGrantPolicyIdsAssignedToDefaultUserRole"
-    PERMISSION_GRANT_POLICY_IDS_ASSIGNED_TO_DEFAULT_USER_ROLE_DESC = "permissionGrantPolicyIdsAssignedToDefaultUserRole desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ALLOWEDTOSIGNUPEMAILBASEDSUBSCRIPTIONS = "allowedToSignUpEmailBasedSubscriptions"
+    ALLOWEDTOSIGNUPEMAILBASEDSUBSCRIPTIONSDESC = "allowedToSignUpEmailBasedSubscriptions desc"
+    ALLOWEDTOUSESSPR = "allowedToUseSSPR"
+    ALLOWEDTOUSESSPRDESC = "allowedToUseSSPR desc"
+    ALLOWEMAILVERIFIEDUSERSTOJOINORGANIZATION = "allowEmailVerifiedUsersToJoinOrganization"
+    ALLOWEMAILVERIFIEDUSERSTOJOINORGANIZATIONDESC = "allowEmailVerifiedUsersToJoinOrganization desc"
+    ALLOWINVITESFROM = "allowInvitesFrom"
+    ALLOWINVITESFROMDESC = "allowInvitesFrom desc"
+    BLOCKMSOLPOWERSHELL = "blockMsolPowerShell"
+    BLOCKMSOLPOWERSHELLDESC = "blockMsolPowerShell desc"
+    DEFAULTUSERROLEPERMISSIONS = "defaultUserRolePermissions"
+    DEFAULTUSERROLEPERMISSIONSDESC = "defaultUserRolePermissions desc"
+    ENABLEDPREVIEWFEATURES = "enabledPreviewFeatures"
+    ENABLEDPREVIEWFEATURESDESC = "enabledPreviewFeatures desc"
+    GUESTUSERROLEID = "guestUserRoleId"
+    GUESTUSERROLEIDDESC = "guestUserRoleId desc"
+    PERMISSIONGRANTPOLICYIDSASSIGNEDTODEFAULTUSERROLE = "permissionGrantPolicyIdsAssignedToDefaultUserRole"
+    PERMISSIONGRANTPOLICYIDSASSIGNEDTODEFAULTUSERROLEDESC = "permissionGrantPolicyIdsAssignedToDefaultUserRole desc"
 
 class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    USER_FLOW_TYPE = "userFlowType"
-    USER_FLOW_TYPE_VERSION = "userFlowTypeVersion"
+    USERFLOWTYPE = "userFlowType"
+    USERFLOWTYPEVERSION = "userFlowTypeVersion"
 
 class Enum210(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    ALLOWED_TO_SIGN_UP_EMAIL_BASED_SUBSCRIPTIONS = "allowedToSignUpEmailBasedSubscriptions"
-    ALLOWED_TO_USE_SSPR = "allowedToUseSSPR"
-    ALLOW_EMAIL_VERIFIED_USERS_TO_JOIN_ORGANIZATION = "allowEmailVerifiedUsersToJoinOrganization"
-    ALLOW_INVITES_FROM = "allowInvitesFrom"
-    BLOCK_MSOL_POWER_SHELL = "blockMsolPowerShell"
-    DEFAULT_USER_ROLE_PERMISSIONS = "defaultUserRolePermissions"
-    ENABLED_PREVIEW_FEATURES = "enabledPreviewFeatures"
-    GUEST_USER_ROLE_ID = "guestUserRoleId"
-    PERMISSION_GRANT_POLICY_IDS_ASSIGNED_TO_DEFAULT_USER_ROLE = "permissionGrantPolicyIdsAssignedToDefaultUserRole"
+    DISPLAYNAME = "displayName"
+    ALLOWEDTOSIGNUPEMAILBASEDSUBSCRIPTIONS = "allowedToSignUpEmailBasedSubscriptions"
+    ALLOWEDTOUSESSPR = "allowedToUseSSPR"
+    ALLOWEMAILVERIFIEDUSERSTOJOINORGANIZATION = "allowEmailVerifiedUsersToJoinOrganization"
+    ALLOWINVITESFROM = "allowInvitesFrom"
+    BLOCKMSOLPOWERSHELL = "blockMsolPowerShell"
+    DEFAULTUSERROLEPERMISSIONS = "defaultUserRolePermissions"
+    ENABLEDPREVIEWFEATURES = "enabledPreviewFeatures"
+    GUESTUSERROLEID = "guestUserRoleId"
+    PERMISSIONGRANTPOLICYIDSASSIGNEDTODEFAULTUSERROLE = "permissionGrantPolicyIdsAssignedToDefaultUserRole"
 
 class Enum211(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    ALLOWED_TO_SIGN_UP_EMAIL_BASED_SUBSCRIPTIONS = "allowedToSignUpEmailBasedSubscriptions"
-    ALLOWED_TO_USE_SSPR = "allowedToUseSSPR"
-    ALLOW_EMAIL_VERIFIED_USERS_TO_JOIN_ORGANIZATION = "allowEmailVerifiedUsersToJoinOrganization"
-    ALLOW_INVITES_FROM = "allowInvitesFrom"
-    BLOCK_MSOL_POWER_SHELL = "blockMsolPowerShell"
-    DEFAULT_USER_ROLE_PERMISSIONS = "defaultUserRolePermissions"
-    ENABLED_PREVIEW_FEATURES = "enabledPreviewFeatures"
-    GUEST_USER_ROLE_ID = "guestUserRoleId"
-    PERMISSION_GRANT_POLICY_IDS_ASSIGNED_TO_DEFAULT_USER_ROLE = "permissionGrantPolicyIdsAssignedToDefaultUserRole"
+    DISPLAYNAME = "displayName"
+    ALLOWEDTOSIGNUPEMAILBASEDSUBSCRIPTIONS = "allowedToSignUpEmailBasedSubscriptions"
+    ALLOWEDTOUSESSPR = "allowedToUseSSPR"
+    ALLOWEMAILVERIFIEDUSERSTOJOINORGANIZATION = "allowEmailVerifiedUsersToJoinOrganization"
+    ALLOWINVITESFROM = "allowInvitesFrom"
+    BLOCKMSOLPOWERSHELL = "blockMsolPowerShell"
+    DEFAULTUSERROLEPERMISSIONS = "defaultUserRolePermissions"
+    ENABLEDPREVIEWFEATURES = "enabledPreviewFeatures"
+    GUESTUSERROLEID = "guestUserRoleId"
+    PERMISSIONGRANTPOLICYIDSASSIGNEDTODEFAULTUSERROLE = "permissionGrantPolicyIdsAssignedToDefaultUserRole"
 
 class Enum212(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    IS_EMAIL_PASSWORD_AUTHENTICATION_ENABLED = "isEmailPasswordAuthenticationEnabled"
-    IS_PHONE_ONE_TIME_PASSWORD_AUTHENTICATION_ENABLED = "isPhoneOneTimePasswordAuthenticationEnabled"
-    IS_USER_NAME_AUTHENTICATION_ENABLED = "isUserNameAuthenticationEnabled"
+    ISEMAILPASSWORDAUTHENTICATIONENABLED = "isEmailPasswordAuthenticationEnabled"
+    ISPHONEONETIMEPASSWORDAUTHENTICATIONENABLED = "isPhoneOneTimePasswordAuthenticationEnabled"
+    ISUSERNAMEAUTHENTICATIONENABLED = "isUserNameAuthenticationEnabled"
 
 class Enum213(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
     DEFINITION = "definition"
-    DEFINITION_DESC = "definition desc"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    IS_ORGANIZATION_DEFAULT_DESC = "isOrganizationDefault desc"
+    DEFINITIONDESC = "definition desc"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    ISORGANIZATIONDEFAULTDESC = "isOrganizationDefault desc"
 
 class Enum214(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum215(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum216(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum217(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum218(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CONDITIONS = "conditions"
-    CONDITIONS_DESC = "conditions desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CONDITIONSDESC = "conditions desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    GRANT_CONTROLS = "grantControls"
-    GRANT_CONTROLS_DESC = "grantControls desc"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
-    MODIFIED_DATE_TIME_DESC = "modifiedDateTime desc"
-    SESSION_CONTROLS = "sessionControls"
-    SESSION_CONTROLS_DESC = "sessionControls desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    GRANTCONTROLS = "grantControls"
+    GRANTCONTROLSDESC = "grantControls desc"
+    MODIFIEDDATETIME = "modifiedDateTime"
+    MODIFIEDDATETIMEDESC = "modifiedDateTime desc"
+    SESSIONCONTROLS = "sessionControls"
+    SESSIONCONTROLSDESC = "sessionControls desc"
     STATE = "state"
-    STATE_DESC = "state desc"
+    STATEDESC = "state desc"
 
 class Enum219(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CONDITIONS = "conditions"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    GRANT_CONTROLS = "grantControls"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
-    SESSION_CONTROLS = "sessionControls"
+    DISPLAYNAME = "displayName"
+    GRANTCONTROLS = "grantControls"
+    MODIFIEDDATETIME = "modifiedDateTime"
+    SESSIONCONTROLS = "sessionControls"
     STATE = "state"
 
 class Enum220(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CONDITIONS = "conditions"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    GRANT_CONTROLS = "grantControls"
-    MODIFIED_DATE_TIME = "modifiedDateTime"
-    SESSION_CONTROLS = "sessionControls"
+    DISPLAYNAME = "displayName"
+    GRANTCONTROLS = "grantControls"
+    MODIFIEDDATETIME = "modifiedDateTime"
+    SESSIONCONTROLS = "sessionControls"
     STATE = "state"
 
 class Enum221(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -654,81 +654,81 @@ class Enum221(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum222(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
     DEFINITION = "definition"
-    DEFINITION_DESC = "definition desc"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    IS_ORGANIZATION_DEFAULT_DESC = "isOrganizationDefault desc"
+    DEFINITIONDESC = "definition desc"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    ISORGANIZATIONDEFAULTDESC = "isOrganizationDefault desc"
 
 class Enum223(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum224(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum225(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum226(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum227(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    IS_ENABLED = "isEnabled"
+    DISPLAYNAME = "displayName"
+    ISENABLED = "isEnabled"
 
 class Enum228(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
 
 class Enum229(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     EXCLUDES = "excludes"
     INCLUDES = "includes"
 
 class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    USER_FLOW_TYPE = "userFlowType"
-    USER_FLOW_TYPE_VERSION = "userFlowTypeVersion"
+    USERFLOWTYPE = "userFlowType"
+    USERFLOWTYPEVERSION = "userFlowTypeVersion"
 
 class Enum230(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -739,9 +739,9 @@ class Enum230(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum231(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     EXCLUDES = "excludes"
     INCLUDES = "includes"
 
@@ -754,299 +754,299 @@ class Enum232(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum233(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CLIENT_APPLICATION_IDS = "clientApplicationIds"
-    CLIENT_APPLICATION_IDS_DESC = "clientApplicationIds desc"
-    CLIENT_APPLICATION_PUBLISHER_IDS = "clientApplicationPublisherIds"
-    CLIENT_APPLICATION_PUBLISHER_IDS_DESC = "clientApplicationPublisherIds desc"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY = "clientApplicationsFromVerifiedPublisherOnly"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY_DESC = "clientApplicationsFromVerifiedPublisherOnly desc"
-    CLIENT_APPLICATION_TENANT_IDS = "clientApplicationTenantIds"
-    CLIENT_APPLICATION_TENANT_IDS_DESC = "clientApplicationTenantIds desc"
-    PERMISSION_CLASSIFICATION = "permissionClassification"
-    PERMISSION_CLASSIFICATION_DESC = "permissionClassification desc"
+    IDDESC = "id desc"
+    CLIENTAPPLICATIONIDS = "clientApplicationIds"
+    CLIENTAPPLICATIONIDSDESC = "clientApplicationIds desc"
+    CLIENTAPPLICATIONPUBLISHERIDS = "clientApplicationPublisherIds"
+    CLIENTAPPLICATIONPUBLISHERIDSDESC = "clientApplicationPublisherIds desc"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLY = "clientApplicationsFromVerifiedPublisherOnly"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLYDESC = "clientApplicationsFromVerifiedPublisherOnly desc"
+    CLIENTAPPLICATIONTENANTIDS = "clientApplicationTenantIds"
+    CLIENTAPPLICATIONTENANTIDSDESC = "clientApplicationTenantIds desc"
+    PERMISSIONCLASSIFICATION = "permissionClassification"
+    PERMISSIONCLASSIFICATIONDESC = "permissionClassification desc"
     PERMISSIONS = "permissions"
-    PERMISSIONS_DESC = "permissions desc"
-    PERMISSION_TYPE = "permissionType"
-    PERMISSION_TYPE_DESC = "permissionType desc"
-    RESOURCE_APPLICATION = "resourceApplication"
-    RESOURCE_APPLICATION_DESC = "resourceApplication desc"
+    PERMISSIONSDESC = "permissions desc"
+    PERMISSIONTYPE = "permissionType"
+    PERMISSIONTYPEDESC = "permissionType desc"
+    RESOURCEAPPLICATION = "resourceApplication"
+    RESOURCEAPPLICATIONDESC = "resourceApplication desc"
 
 class Enum234(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_APPLICATION_IDS = "clientApplicationIds"
-    CLIENT_APPLICATION_PUBLISHER_IDS = "clientApplicationPublisherIds"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY = "clientApplicationsFromVerifiedPublisherOnly"
-    CLIENT_APPLICATION_TENANT_IDS = "clientApplicationTenantIds"
-    PERMISSION_CLASSIFICATION = "permissionClassification"
+    CLIENTAPPLICATIONIDS = "clientApplicationIds"
+    CLIENTAPPLICATIONPUBLISHERIDS = "clientApplicationPublisherIds"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLY = "clientApplicationsFromVerifiedPublisherOnly"
+    CLIENTAPPLICATIONTENANTIDS = "clientApplicationTenantIds"
+    PERMISSIONCLASSIFICATION = "permissionClassification"
     PERMISSIONS = "permissions"
-    PERMISSION_TYPE = "permissionType"
-    RESOURCE_APPLICATION = "resourceApplication"
+    PERMISSIONTYPE = "permissionType"
+    RESOURCEAPPLICATION = "resourceApplication"
 
 class Enum235(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_APPLICATION_IDS = "clientApplicationIds"
-    CLIENT_APPLICATION_PUBLISHER_IDS = "clientApplicationPublisherIds"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY = "clientApplicationsFromVerifiedPublisherOnly"
-    CLIENT_APPLICATION_TENANT_IDS = "clientApplicationTenantIds"
-    PERMISSION_CLASSIFICATION = "permissionClassification"
+    CLIENTAPPLICATIONIDS = "clientApplicationIds"
+    CLIENTAPPLICATIONPUBLISHERIDS = "clientApplicationPublisherIds"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLY = "clientApplicationsFromVerifiedPublisherOnly"
+    CLIENTAPPLICATIONTENANTIDS = "clientApplicationTenantIds"
+    PERMISSIONCLASSIFICATION = "permissionClassification"
     PERMISSIONS = "permissions"
-    PERMISSION_TYPE = "permissionType"
-    RESOURCE_APPLICATION = "resourceApplication"
+    PERMISSIONTYPE = "permissionType"
+    RESOURCEAPPLICATION = "resourceApplication"
 
 class Enum236(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CLIENT_APPLICATION_IDS = "clientApplicationIds"
-    CLIENT_APPLICATION_IDS_DESC = "clientApplicationIds desc"
-    CLIENT_APPLICATION_PUBLISHER_IDS = "clientApplicationPublisherIds"
-    CLIENT_APPLICATION_PUBLISHER_IDS_DESC = "clientApplicationPublisherIds desc"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY = "clientApplicationsFromVerifiedPublisherOnly"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY_DESC = "clientApplicationsFromVerifiedPublisherOnly desc"
-    CLIENT_APPLICATION_TENANT_IDS = "clientApplicationTenantIds"
-    CLIENT_APPLICATION_TENANT_IDS_DESC = "clientApplicationTenantIds desc"
-    PERMISSION_CLASSIFICATION = "permissionClassification"
-    PERMISSION_CLASSIFICATION_DESC = "permissionClassification desc"
+    IDDESC = "id desc"
+    CLIENTAPPLICATIONIDS = "clientApplicationIds"
+    CLIENTAPPLICATIONIDSDESC = "clientApplicationIds desc"
+    CLIENTAPPLICATIONPUBLISHERIDS = "clientApplicationPublisherIds"
+    CLIENTAPPLICATIONPUBLISHERIDSDESC = "clientApplicationPublisherIds desc"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLY = "clientApplicationsFromVerifiedPublisherOnly"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLYDESC = "clientApplicationsFromVerifiedPublisherOnly desc"
+    CLIENTAPPLICATIONTENANTIDS = "clientApplicationTenantIds"
+    CLIENTAPPLICATIONTENANTIDSDESC = "clientApplicationTenantIds desc"
+    PERMISSIONCLASSIFICATION = "permissionClassification"
+    PERMISSIONCLASSIFICATIONDESC = "permissionClassification desc"
     PERMISSIONS = "permissions"
-    PERMISSIONS_DESC = "permissions desc"
-    PERMISSION_TYPE = "permissionType"
-    PERMISSION_TYPE_DESC = "permissionType desc"
-    RESOURCE_APPLICATION = "resourceApplication"
-    RESOURCE_APPLICATION_DESC = "resourceApplication desc"
+    PERMISSIONSDESC = "permissions desc"
+    PERMISSIONTYPE = "permissionType"
+    PERMISSIONTYPEDESC = "permissionType desc"
+    RESOURCEAPPLICATION = "resourceApplication"
+    RESOURCEAPPLICATIONDESC = "resourceApplication desc"
 
 class Enum237(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_APPLICATION_IDS = "clientApplicationIds"
-    CLIENT_APPLICATION_PUBLISHER_IDS = "clientApplicationPublisherIds"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY = "clientApplicationsFromVerifiedPublisherOnly"
-    CLIENT_APPLICATION_TENANT_IDS = "clientApplicationTenantIds"
-    PERMISSION_CLASSIFICATION = "permissionClassification"
+    CLIENTAPPLICATIONIDS = "clientApplicationIds"
+    CLIENTAPPLICATIONPUBLISHERIDS = "clientApplicationPublisherIds"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLY = "clientApplicationsFromVerifiedPublisherOnly"
+    CLIENTAPPLICATIONTENANTIDS = "clientApplicationTenantIds"
+    PERMISSIONCLASSIFICATION = "permissionClassification"
     PERMISSIONS = "permissions"
-    PERMISSION_TYPE = "permissionType"
-    RESOURCE_APPLICATION = "resourceApplication"
+    PERMISSIONTYPE = "permissionType"
+    RESOURCEAPPLICATION = "resourceApplication"
 
 class Enum238(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_APPLICATION_IDS = "clientApplicationIds"
-    CLIENT_APPLICATION_PUBLISHER_IDS = "clientApplicationPublisherIds"
-    CLIENT_APPLICATIONS_FROM_VERIFIED_PUBLISHER_ONLY = "clientApplicationsFromVerifiedPublisherOnly"
-    CLIENT_APPLICATION_TENANT_IDS = "clientApplicationTenantIds"
-    PERMISSION_CLASSIFICATION = "permissionClassification"
+    CLIENTAPPLICATIONIDS = "clientApplicationIds"
+    CLIENTAPPLICATIONPUBLISHERIDS = "clientApplicationPublisherIds"
+    CLIENTAPPLICATIONSFROMVERIFIEDPUBLISHERONLY = "clientApplicationsFromVerifiedPublisherOnly"
+    CLIENTAPPLICATIONTENANTIDS = "clientApplicationTenantIds"
+    PERMISSIONCLASSIFICATION = "permissionClassification"
     PERMISSIONS = "permissions"
-    PERMISSION_TYPE = "permissionType"
-    RESOURCE_APPLICATION = "resourceApplication"
+    PERMISSIONTYPE = "permissionType"
+    RESOURCEAPPLICATION = "resourceApplication"
 
 class Enum239(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    ALLOWED_TENANT_IDS = "allowedTenantIds"
-    ALLOWED_TENANT_IDS_DESC = "allowedTenantIds desc"
-    ARM_RESOURCE_ID = "armResourceId"
-    ARM_RESOURCE_ID_DESC = "armResourceId desc"
+    IDDESC = "id desc"
+    ALLOWEDTENANTIDS = "allowedTenantIds"
+    ALLOWEDTENANTIDSDESC = "allowedTenantIds desc"
+    ARMRESOURCEID = "armResourceId"
+    ARMRESOURCEIDDESC = "armResourceId desc"
 
 class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CLIENT_ID = "clientId"
-    CLIENT_ID_DESC = "clientId desc"
-    CLIENT_SECRET = "clientSecret"
-    CLIENT_SECRET_DESC = "clientSecret desc"
+    IDDESC = "id desc"
+    CLIENTID = "clientId"
+    CLIENTIDDESC = "clientId desc"
+    CLIENTSECRET = "clientSecret"
+    CLIENTSECRETDESC = "clientSecret desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     TYPE = "type"
-    TYPE_DESC = "type desc"
+    TYPEDESC = "type desc"
 
 class Enum240(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ALLOWED_TENANT_IDS = "allowedTenantIds"
-    ARM_RESOURCE_ID = "armResourceId"
+    ALLOWEDTENANTIDS = "allowedTenantIds"
+    ARMRESOURCEID = "armResourceId"
 
 class Enum241(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ALLOWED_TENANT_IDS = "allowedTenantIds"
-    ARM_RESOURCE_ID = "armResourceId"
+    ALLOWEDTENANTIDS = "allowedTenantIds"
+    ARMRESOURCEID = "armResourceId"
 
 class Enum242(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
     DEFINITION = "definition"
-    DEFINITION_DESC = "definition desc"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    IS_ORGANIZATION_DEFAULT_DESC = "isOrganizationDefault desc"
+    DEFINITIONDESC = "definition desc"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    ISORGANIZATIONDEFAULTDESC = "isOrganizationDefault desc"
 
 class Enum243(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum244(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum245(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum246(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum247(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    IDDESC = "id desc"
+    DELETEDDATETIME = "deletedDateTime"
+    DELETEDDATETIMEDESC = "deletedDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
     DEFINITION = "definition"
-    DEFINITION_DESC = "definition desc"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    IS_ORGANIZATION_DEFAULT_DESC = "isOrganizationDefault desc"
+    DEFINITIONDESC = "definition desc"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    ISORGANIZATIONDEFAULTDESC = "isOrganizationDefault desc"
 
 class Enum248(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum249(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_ID = "clientId"
-    CLIENT_SECRET = "clientSecret"
+    CLIENTID = "clientId"
+    CLIENTSECRET = "clientSecret"
     NAME = "name"
     TYPE = "type"
 
 class Enum250(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    DELETEDDATETIME = "deletedDateTime"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     DEFINITION = "definition"
-    IS_ORGANIZATION_DEFAULT = "isOrganizationDefault"
-    APPLIES_TO = "appliesTo"
+    ISORGANIZATIONDEFAULT = "isOrganizationDefault"
+    APPLIESTO = "appliesTo"
 
 class Enum251(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLIES_TO = "appliesTo"
+    APPLIESTO = "appliesTo"
 
 class Enum252(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     ACTIVITY = "activity"
-    ACTIVITY_DESC = "activity desc"
-    ACTIVITY_DATE_TIME = "activityDateTime"
-    ACTIVITY_DATE_TIME_DESC = "activityDateTime desc"
-    ADDITIONAL_INFO = "additionalInfo"
-    ADDITIONAL_INFO_DESC = "additionalInfo desc"
-    CORRELATION_ID = "correlationId"
-    CORRELATION_ID_DESC = "correlationId desc"
-    DETECTED_DATE_TIME = "detectedDateTime"
-    DETECTED_DATE_TIME_DESC = "detectedDateTime desc"
-    DETECTION_TIMING_TYPE = "detectionTimingType"
-    DETECTION_TIMING_TYPE_DESC = "detectionTimingType desc"
-    IP_ADDRESS = "ipAddress"
-    IP_ADDRESS_DESC = "ipAddress desc"
-    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
-    LAST_UPDATED_DATE_TIME_DESC = "lastUpdatedDateTime desc"
+    ACTIVITYDESC = "activity desc"
+    ACTIVITYDATETIME = "activityDateTime"
+    ACTIVITYDATETIMEDESC = "activityDateTime desc"
+    ADDITIONALINFO = "additionalInfo"
+    ADDITIONALINFODESC = "additionalInfo desc"
+    CORRELATIONID = "correlationId"
+    CORRELATIONIDDESC = "correlationId desc"
+    DETECTEDDATETIME = "detectedDateTime"
+    DETECTEDDATETIMEDESC = "detectedDateTime desc"
+    DETECTIONTIMINGTYPE = "detectionTimingType"
+    DETECTIONTIMINGTYPEDESC = "detectionTimingType desc"
+    IPADDRESS = "ipAddress"
+    IPADDRESSDESC = "ipAddress desc"
+    LASTUPDATEDDATETIME = "lastUpdatedDateTime"
+    LASTUPDATEDDATETIMEDESC = "lastUpdatedDateTime desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
-    REQUEST_ID = "requestId"
-    REQUEST_ID_DESC = "requestId desc"
-    RISK_DETAIL = "riskDetail"
-    RISK_DETAIL_DESC = "riskDetail desc"
-    RISK_EVENT_TYPE = "riskEventType"
-    RISK_EVENT_TYPE_DESC = "riskEventType desc"
-    RISK_LEVEL = "riskLevel"
-    RISK_LEVEL_DESC = "riskLevel desc"
-    RISK_STATE = "riskState"
-    RISK_STATE_DESC = "riskState desc"
-    RISK_TYPE = "riskType"
-    RISK_TYPE_DESC = "riskType desc"
+    LOCATIONDESC = "location desc"
+    REQUESTID = "requestId"
+    REQUESTIDDESC = "requestId desc"
+    RISKDETAIL = "riskDetail"
+    RISKDETAILDESC = "riskDetail desc"
+    RISKEVENTTYPE = "riskEventType"
+    RISKEVENTTYPEDESC = "riskEventType desc"
+    RISKLEVEL = "riskLevel"
+    RISKLEVELDESC = "riskLevel desc"
+    RISKSTATE = "riskState"
+    RISKSTATEDESC = "riskState desc"
+    RISKTYPE = "riskType"
+    RISKTYPEDESC = "riskType desc"
     SOURCE = "source"
-    SOURCE_DESC = "source desc"
-    TOKEN_ISSUER_TYPE = "tokenIssuerType"
-    TOKEN_ISSUER_TYPE_DESC = "tokenIssuerType desc"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_DISPLAY_NAME_DESC = "userDisplayName desc"
-    USER_ID = "userId"
-    USER_ID_DESC = "userId desc"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    SOURCEDESC = "source desc"
+    TOKENISSUERTYPE = "tokenIssuerType"
+    TOKENISSUERTYPEDESC = "tokenIssuerType desc"
+    USERDISPLAYNAME = "userDisplayName"
+    USERDISPLAYNAMEDESC = "userDisplayName desc"
+    USERID = "userId"
+    USERIDDESC = "userId desc"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERPRINCIPALNAMEDESC = "userPrincipalName desc"
 
 class Enum253(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ACTIVITY = "activity"
-    ACTIVITY_DATE_TIME = "activityDateTime"
-    ADDITIONAL_INFO = "additionalInfo"
-    CORRELATION_ID = "correlationId"
-    DETECTED_DATE_TIME = "detectedDateTime"
-    DETECTION_TIMING_TYPE = "detectionTimingType"
-    IP_ADDRESS = "ipAddress"
-    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    ACTIVITYDATETIME = "activityDateTime"
+    ADDITIONALINFO = "additionalInfo"
+    CORRELATIONID = "correlationId"
+    DETECTEDDATETIME = "detectedDateTime"
+    DETECTIONTIMINGTYPE = "detectionTimingType"
+    IPADDRESS = "ipAddress"
+    LASTUPDATEDDATETIME = "lastUpdatedDateTime"
     LOCATION = "location"
-    REQUEST_ID = "requestId"
-    RISK_DETAIL = "riskDetail"
-    RISK_EVENT_TYPE = "riskEventType"
-    RISK_LEVEL = "riskLevel"
-    RISK_STATE = "riskState"
-    RISK_TYPE = "riskType"
+    REQUESTID = "requestId"
+    RISKDETAIL = "riskDetail"
+    RISKEVENTTYPE = "riskEventType"
+    RISKLEVEL = "riskLevel"
+    RISKSTATE = "riskState"
+    RISKTYPE = "riskType"
     SOURCE = "source"
-    TOKEN_ISSUER_TYPE = "tokenIssuerType"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_ID = "userId"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    TOKENISSUERTYPE = "tokenIssuerType"
+    USERDISPLAYNAME = "userDisplayName"
+    USERID = "userId"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_ID = "clientId"
-    CLIENT_SECRET = "clientSecret"
+    CLIENTID = "clientId"
+    CLIENTSECRET = "clientSecret"
     NAME = "name"
     TYPE = "type"
 
@@ -1054,58 +1054,58 @@ class Enum260(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ACTIVITY = "activity"
-    ACTIVITY_DATE_TIME = "activityDateTime"
-    ADDITIONAL_INFO = "additionalInfo"
-    CORRELATION_ID = "correlationId"
-    DETECTED_DATE_TIME = "detectedDateTime"
-    DETECTION_TIMING_TYPE = "detectionTimingType"
-    IP_ADDRESS = "ipAddress"
-    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    ACTIVITYDATETIME = "activityDateTime"
+    ADDITIONALINFO = "additionalInfo"
+    CORRELATIONID = "correlationId"
+    DETECTEDDATETIME = "detectedDateTime"
+    DETECTIONTIMINGTYPE = "detectionTimingType"
+    IPADDRESS = "ipAddress"
+    LASTUPDATEDDATETIME = "lastUpdatedDateTime"
     LOCATION = "location"
-    REQUEST_ID = "requestId"
-    RISK_DETAIL = "riskDetail"
-    RISK_EVENT_TYPE = "riskEventType"
-    RISK_LEVEL = "riskLevel"
-    RISK_STATE = "riskState"
-    RISK_TYPE = "riskType"
+    REQUESTID = "requestId"
+    RISKDETAIL = "riskDetail"
+    RISKEVENTTYPE = "riskEventType"
+    RISKLEVEL = "riskLevel"
+    RISKSTATE = "riskState"
+    RISKTYPE = "riskType"
     SOURCE = "source"
-    TOKEN_ISSUER_TYPE = "tokenIssuerType"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_ID = "userId"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    TOKENISSUERTYPE = "tokenIssuerType"
+    USERDISPLAYNAME = "userDisplayName"
+    USERID = "userId"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum261(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    IS_DELETED = "isDeleted"
-    IS_DELETED_DESC = "isDeleted desc"
-    IS_PROCESSING = "isProcessing"
-    IS_PROCESSING_DESC = "isProcessing desc"
-    RISK_DETAIL = "riskDetail"
-    RISK_DETAIL_DESC = "riskDetail desc"
-    RISK_LAST_UPDATED_DATE_TIME = "riskLastUpdatedDateTime"
-    RISK_LAST_UPDATED_DATE_TIME_DESC = "riskLastUpdatedDateTime desc"
-    RISK_LEVEL = "riskLevel"
-    RISK_LEVEL_DESC = "riskLevel desc"
-    RISK_STATE = "riskState"
-    RISK_STATE_DESC = "riskState desc"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_DISPLAY_NAME_DESC = "userDisplayName desc"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    IDDESC = "id desc"
+    ISDELETED = "isDeleted"
+    ISDELETEDDESC = "isDeleted desc"
+    ISPROCESSING = "isProcessing"
+    ISPROCESSINGDESC = "isProcessing desc"
+    RISKDETAIL = "riskDetail"
+    RISKDETAILDESC = "riskDetail desc"
+    RISKLASTUPDATEDDATETIME = "riskLastUpdatedDateTime"
+    RISKLASTUPDATEDDATETIMEDESC = "riskLastUpdatedDateTime desc"
+    RISKLEVEL = "riskLevel"
+    RISKLEVELDESC = "riskLevel desc"
+    RISKSTATE = "riskState"
+    RISKSTATEDESC = "riskState desc"
+    USERDISPLAYNAME = "userDisplayName"
+    USERDISPLAYNAMEDESC = "userDisplayName desc"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERPRINCIPALNAMEDESC = "userPrincipalName desc"
 
 class Enum262(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    IS_DELETED = "isDeleted"
-    IS_PROCESSING = "isProcessing"
-    RISK_DETAIL = "riskDetail"
-    RISK_LAST_UPDATED_DATE_TIME = "riskLastUpdatedDateTime"
-    RISK_LEVEL = "riskLevel"
-    RISK_STATE = "riskState"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    ISDELETED = "isDeleted"
+    ISPROCESSING = "isProcessing"
+    RISKDETAIL = "riskDetail"
+    RISKLASTUPDATEDDATETIME = "riskLastUpdatedDateTime"
+    RISKLEVEL = "riskLevel"
+    RISKSTATE = "riskState"
+    USERDISPLAYNAME = "userDisplayName"
+    USERPRINCIPALNAME = "userPrincipalName"
     HISTORY = "history"
 
 class Enum263(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -1116,14 +1116,14 @@ class Enum263(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum264(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    IS_DELETED = "isDeleted"
-    IS_PROCESSING = "isProcessing"
-    RISK_DETAIL = "riskDetail"
-    RISK_LAST_UPDATED_DATE_TIME = "riskLastUpdatedDateTime"
-    RISK_LEVEL = "riskLevel"
-    RISK_STATE = "riskState"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    ISDELETED = "isDeleted"
+    ISPROCESSING = "isProcessing"
+    RISKDETAIL = "riskDetail"
+    RISKLASTUPDATEDDATETIME = "riskLastUpdatedDateTime"
+    RISKLEVEL = "riskLevel"
+    RISKSTATE = "riskState"
+    USERDISPLAYNAME = "userDisplayName"
+    USERPRINCIPALNAME = "userPrincipalName"
     HISTORY = "history"
 
 class Enum265(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -1134,44 +1134,44 @@ class Enum265(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum266(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    IS_DELETED = "isDeleted"
-    IS_DELETED_DESC = "isDeleted desc"
-    IS_PROCESSING = "isProcessing"
-    IS_PROCESSING_DESC = "isProcessing desc"
-    RISK_DETAIL = "riskDetail"
-    RISK_DETAIL_DESC = "riskDetail desc"
-    RISK_LAST_UPDATED_DATE_TIME = "riskLastUpdatedDateTime"
-    RISK_LAST_UPDATED_DATE_TIME_DESC = "riskLastUpdatedDateTime desc"
-    RISK_LEVEL = "riskLevel"
-    RISK_LEVEL_DESC = "riskLevel desc"
-    RISK_STATE = "riskState"
-    RISK_STATE_DESC = "riskState desc"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_DISPLAY_NAME_DESC = "userDisplayName desc"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    IDDESC = "id desc"
+    ISDELETED = "isDeleted"
+    ISDELETEDDESC = "isDeleted desc"
+    ISPROCESSING = "isProcessing"
+    ISPROCESSINGDESC = "isProcessing desc"
+    RISKDETAIL = "riskDetail"
+    RISKDETAILDESC = "riskDetail desc"
+    RISKLASTUPDATEDDATETIME = "riskLastUpdatedDateTime"
+    RISKLASTUPDATEDDATETIMEDESC = "riskLastUpdatedDateTime desc"
+    RISKLEVEL = "riskLevel"
+    RISKLEVELDESC = "riskLevel desc"
+    RISKSTATE = "riskState"
+    RISKSTATEDESC = "riskState desc"
+    USERDISPLAYNAME = "userDisplayName"
+    USERDISPLAYNAMEDESC = "userDisplayName desc"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERPRINCIPALNAMEDESC = "userPrincipalName desc"
     ACTIVITY = "activity"
-    ACTIVITY_DESC = "activity desc"
-    INITIATED_BY = "initiatedBy"
-    INITIATED_BY_DESC = "initiatedBy desc"
-    USER_ID = "userId"
-    USER_ID_DESC = "userId desc"
+    ACTIVITYDESC = "activity desc"
+    INITIATEDBY = "initiatedBy"
+    INITIATEDBYDESC = "initiatedBy desc"
+    USERID = "userId"
+    USERIDDESC = "userId desc"
 
 class Enum267(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    IS_DELETED = "isDeleted"
-    IS_PROCESSING = "isProcessing"
-    RISK_DETAIL = "riskDetail"
-    RISK_LAST_UPDATED_DATE_TIME = "riskLastUpdatedDateTime"
-    RISK_LEVEL = "riskLevel"
-    RISK_STATE = "riskState"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    ISDELETED = "isDeleted"
+    ISPROCESSING = "isProcessing"
+    RISKDETAIL = "riskDetail"
+    RISKLASTUPDATEDDATETIME = "riskLastUpdatedDateTime"
+    RISKLEVEL = "riskLevel"
+    RISKSTATE = "riskState"
+    USERDISPLAYNAME = "userDisplayName"
+    USERPRINCIPALNAME = "userPrincipalName"
     ACTIVITY = "activity"
-    INITIATED_BY = "initiatedBy"
-    USER_ID = "userId"
+    INITIATEDBY = "initiatedBy"
+    USERID = "userId"
     HISTORY = "history"
 
 class Enum268(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -1182,27 +1182,27 @@ class Enum268(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum269(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    IS_DELETED = "isDeleted"
-    IS_PROCESSING = "isProcessing"
-    RISK_DETAIL = "riskDetail"
-    RISK_LAST_UPDATED_DATE_TIME = "riskLastUpdatedDateTime"
-    RISK_LEVEL = "riskLevel"
-    RISK_STATE = "riskState"
-    USER_DISPLAY_NAME = "userDisplayName"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    ISDELETED = "isDeleted"
+    ISPROCESSING = "isProcessing"
+    RISKDETAIL = "riskDetail"
+    RISKLASTUPDATEDDATETIME = "riskLastUpdatedDateTime"
+    RISKLEVEL = "riskLevel"
+    RISKSTATE = "riskState"
+    USERDISPLAYNAME = "userDisplayName"
+    USERPRINCIPALNAME = "userPrincipalName"
     ACTIVITY = "activity"
-    INITIATED_BY = "initiatedBy"
-    USER_ID = "userId"
+    INITIATEDBY = "initiatedBy"
+    USERID = "userId"
     HISTORY = "history"
 
 class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     POLICY = "policy"
-    DATA_LOSS_PREVENTION_POLICIES = "dataLossPreventionPolicies"
-    SENSITIVITY_LABELS = "sensitivityLabels"
-    SENSITIVITY_POLICY_SETTINGS = "sensitivityPolicySettings"
-    THREAT_ASSESSMENT_REQUESTS = "threatAssessmentRequests"
+    DATALOSSPREVENTIONPOLICIES = "dataLossPreventionPolicies"
+    SENSITIVITYLABELS = "sensitivityLabels"
+    SENSITIVITYPOLICYSETTINGS = "sensitivityPolicySettings"
+    THREATASSESSMENTREQUESTS = "threatAssessmentRequests"
 
 class Enum270(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -1211,21 +1211,21 @@ class Enum270(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
 class Enum271(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    KEY_SETS = "keySets"
+    KEYSETS = "keySets"
     POLICIES = "policies"
 
 class Enum272(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    KEY_SETS = "keySets"
+    KEYSETS = "keySets"
     POLICIES = "policies"
 
 class Enum273(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     KEYS = "keys"
-    KEYS_DESC = "keys desc"
+    KEYSDESC = "keys desc"
 
 class Enum274(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -1240,190 +1240,190 @@ class Enum275(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum276(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum277(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    EMAIL_METHODS = "emailMethods"
-    FIDO2_METHODS = "fido2Methods"
+    EMAILMETHODS = "emailMethods"
+    FIDO2METHODS = "fido2Methods"
     METHODS = "methods"
-    MICROSOFT_AUTHENTICATOR_METHODS = "microsoftAuthenticatorMethods"
-    OATH_METHODS = "oathMethods"
+    MICROSOFTAUTHENTICATORMETHODS = "microsoftAuthenticatorMethods"
+    OATHMETHODS = "oathMethods"
     OPERATIONS = "operations"
-    PASSWORDLESS_MICROSOFT_AUTHENTICATOR_METHODS = "passwordlessMicrosoftAuthenticatorMethods"
-    PASSWORD_METHODS = "passwordMethods"
-    PHONE_METHODS = "phoneMethods"
-    SECURITY_QUESTION_METHODS = "securityQuestionMethods"
-    TEMPORARY_ACCESS_PASS_METHODS = "temporaryAccessPassMethods"
+    PASSWORDLESSMICROSOFTAUTHENTICATORMETHODS = "passwordlessMicrosoftAuthenticatorMethods"
+    PASSWORDMETHODS = "passwordMethods"
+    PHONEMETHODS = "phoneMethods"
+    SECURITYQUESTIONMETHODS = "securityQuestionMethods"
+    TEMPORARYACCESSPASSMETHODS = "temporaryAccessPassMethods"
 
 class Enum278(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    EMAIL_METHODS = "emailMethods"
-    FIDO2_METHODS = "fido2Methods"
+    EMAILMETHODS = "emailMethods"
+    FIDO2METHODS = "fido2Methods"
     METHODS = "methods"
-    MICROSOFT_AUTHENTICATOR_METHODS = "microsoftAuthenticatorMethods"
-    OATH_METHODS = "oathMethods"
+    MICROSOFTAUTHENTICATORMETHODS = "microsoftAuthenticatorMethods"
+    OATHMETHODS = "oathMethods"
     OPERATIONS = "operations"
-    PASSWORDLESS_MICROSOFT_AUTHENTICATOR_METHODS = "passwordlessMicrosoftAuthenticatorMethods"
-    PASSWORD_METHODS = "passwordMethods"
-    PHONE_METHODS = "phoneMethods"
-    SECURITY_QUESTION_METHODS = "securityQuestionMethods"
-    TEMPORARY_ACCESS_PASS_METHODS = "temporaryAccessPassMethods"
+    PASSWORDLESSMICROSOFTAUTHENTICATORMETHODS = "passwordlessMicrosoftAuthenticatorMethods"
+    PASSWORDMETHODS = "passwordMethods"
+    PHONEMETHODS = "phoneMethods"
+    SECURITYQUESTIONMETHODS = "securityQuestionMethods"
+    TEMPORARYACCESSPASSMETHODS = "temporaryAccessPassMethods"
 
 class Enum279(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     POLICY = "policy"
-    DATA_LOSS_PREVENTION_POLICIES = "dataLossPreventionPolicies"
-    SENSITIVITY_LABELS = "sensitivityLabels"
-    SENSITIVITY_POLICY_SETTINGS = "sensitivityPolicySettings"
-    THREAT_ASSESSMENT_REQUESTS = "threatAssessmentRequests"
+    DATALOSSPREVENTIONPOLICIES = "dataLossPreventionPolicies"
+    SENSITIVITYLABELS = "sensitivityLabels"
+    SENSITIVITYPOLICYSETTINGS = "sensitivityPolicySettings"
+    THREATASSESSMENTREQUESTS = "threatAssessmentRequests"
 
 class Enum280(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum281(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum282(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum283(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum284(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_ACTION_DATE_TIME = "lastActionDateTime"
-    LAST_ACTION_DATE_TIME_DESC = "lastActionDateTime desc"
-    RESOURCE_LOCATION = "resourceLocation"
-    RESOURCE_LOCATION_DESC = "resourceLocation desc"
+    IDDESC = "id desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
+    LASTACTIONDATETIME = "lastActionDateTime"
+    LASTACTIONDATETIMEDESC = "lastActionDateTime desc"
+    RESOURCELOCATION = "resourceLocation"
+    RESOURCELOCATIONDESC = "resourceLocation desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
-    STATUS_DETAIL = "statusDetail"
-    STATUS_DETAIL_DESC = "statusDetail desc"
+    STATUSDESC = "status desc"
+    STATUSDETAIL = "statusDetail"
+    STATUSDETAILDESC = "statusDetail desc"
 
 class Enum285(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_ACTION_DATE_TIME = "lastActionDateTime"
-    RESOURCE_LOCATION = "resourceLocation"
+    CREATEDDATETIME = "createdDateTime"
+    LASTACTIONDATETIME = "lastActionDateTime"
+    RESOURCELOCATION = "resourceLocation"
     STATUS = "status"
-    STATUS_DETAIL = "statusDetail"
+    STATUSDETAIL = "statusDetail"
 
 class Enum286(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_ACTION_DATE_TIME = "lastActionDateTime"
-    RESOURCE_LOCATION = "resourceLocation"
+    CREATEDDATETIME = "createdDateTime"
+    LASTACTIONDATETIME = "lastActionDateTime"
+    RESOURCELOCATION = "resourceLocation"
     STATUS = "status"
-    STATUS_DETAIL = "statusDetail"
+    STATUSDETAIL = "statusDetail"
 
 class Enum287(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum288(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CREATION_DATE_TIME = "creationDateTime"
-    CREATION_DATE_TIME_DESC = "creationDateTime desc"
+    IDDESC = "id desc"
+    CREATIONDATETIME = "creationDateTime"
+    CREATIONDATETIMEDESC = "creationDateTime desc"
     PASSWORD = "password"
-    PASSWORD_DESC = "password desc"
+    PASSWORDDESC = "password desc"
 
 class Enum289(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATION_DATE_TIME = "creationDateTime"
+    CREATIONDATETIME = "creationDateTime"
     PASSWORD = "password"
 
 class Enum290(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATION_DATE_TIME = "creationDateTime"
+    CREATIONDATETIME = "creationDateTime"
     PASSWORD = "password"
 
 class Enum291(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    PHONE_NUMBER = "phoneNumber"
-    PHONE_NUMBER_DESC = "phoneNumber desc"
-    PHONE_TYPE = "phoneType"
-    PHONE_TYPE_DESC = "phoneType desc"
-    SMS_SIGN_IN_STATE = "smsSignInState"
-    SMS_SIGN_IN_STATE_DESC = "smsSignInState desc"
+    IDDESC = "id desc"
+    PHONENUMBER = "phoneNumber"
+    PHONENUMBERDESC = "phoneNumber desc"
+    PHONETYPE = "phoneType"
+    PHONETYPEDESC = "phoneType desc"
+    SMSSIGNINSTATE = "smsSignInState"
+    SMSSIGNINSTATEDESC = "smsSignInState desc"
 
 class Enum292(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    PHONE_NUMBER = "phoneNumber"
-    PHONE_TYPE = "phoneType"
-    SMS_SIGN_IN_STATE = "smsSignInState"
+    PHONENUMBER = "phoneNumber"
+    PHONETYPE = "phoneType"
+    SMSSIGNINSTATE = "smsSignInState"
 
 class Enum293(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    PHONE_NUMBER = "phoneNumber"
-    PHONE_TYPE = "phoneType"
-    SMS_SIGN_IN_STATE = "smsSignInState"
+    PHONENUMBER = "phoneNumber"
+    PHONETYPE = "phoneType"
+    SMSSIGNINSTATE = "smsSignInState"
 
 class Enum294(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum295(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum296(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     POLICY = "policy"
-    DATA_LOSS_PREVENTION_POLICIES = "dataLossPreventionPolicies"
-    SENSITIVITY_LABELS = "sensitivityLabels"
-    SENSITIVITY_POLICY_SETTINGS = "sensitivityPolicySettings"
-    THREAT_ASSESSMENT_REQUESTS = "threatAssessmentRequests"
+    DATALOSSPREVENTIONPOLICIES = "dataLossPreventionPolicies"
+    SENSITIVITYLABELS = "sensitivityLabels"
+    SENSITIVITYPOLICYSETTINGS = "sensitivityPolicySettings"
+    THREATASSESSMENTREQUESTS = "threatAssessmentRequests"
 
 class Enum297(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     POLICY = "policy"
-    DATA_LOSS_PREVENTION_POLICIES = "dataLossPreventionPolicies"
-    SENSITIVITY_LABELS = "sensitivityLabels"
-    SENSITIVITY_POLICY_SETTINGS = "sensitivityPolicySettings"
-    THREAT_ASSESSMENT_REQUESTS = "threatAssessmentRequests"
+    DATALOSSPREVENTIONPOLICIES = "dataLossPreventionPolicies"
+    SENSITIVITYLABELS = "sensitivityLabels"
+    SENSITIVITYPOLICYSETTINGS = "sensitivityPolicySettings"
+    THREATASSESSMENTREQUESTS = "threatAssessmentRequests"
 
 class Enum37(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
 
 class Enum38(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -1448,26 +1448,26 @@ class Enum48(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum49(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     COLOR = "color"
-    COLOR_DESC = "color desc"
+    COLORDESC = "color desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    IS_ACTIVE = "isActive"
-    IS_ACTIVE_DESC = "isActive desc"
+    DESCRIPTIONDESC = "description desc"
+    ISACTIVE = "isActive"
+    ISACTIVEDESC = "isActive desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     PARENT = "parent"
-    PARENT_DESC = "parent desc"
+    PARENTDESC = "parent desc"
     SENSITIVITY = "sensitivity"
-    SENSITIVITY_DESC = "sensitivity desc"
+    SENSITIVITYDESC = "sensitivity desc"
     TOOLTIP = "tooltip"
-    TOOLTIP_DESC = "tooltip desc"
+    TOOLTIPDESC = "tooltip desc"
 
 class Enum5(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    NAMED_LOCATIONS = "namedLocations"
+    NAMEDLOCATIONS = "namedLocations"
     POLICIES = "policies"
 
 class Enum50(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -1475,7 +1475,7 @@ class Enum50(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ID = "id"
     COLOR = "color"
     DESCRIPTION = "description"
-    IS_ACTIVE = "isActive"
+    ISACTIVE = "isActive"
     NAME = "name"
     PARENT = "parent"
     SENSITIVITY = "sensitivity"
@@ -1486,7 +1486,7 @@ class Enum51(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ID = "id"
     COLOR = "color"
     DESCRIPTION = "description"
-    IS_ACTIVE = "isActive"
+    ISACTIVE = "isActive"
     NAME = "name"
     PARENT = "parent"
     SENSITIVITY = "sensitivity"
@@ -1495,47 +1495,47 @@ class Enum51(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum55(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    APPLICABLE_TO = "applicableTo"
-    APPLICABLE_TO_DESC = "applicableTo desc"
-    APPLICATION_MODE = "applicationMode"
-    APPLICATION_MODE_DESC = "applicationMode desc"
-    ASSIGNED_POLICIES = "assignedPolicies"
-    ASSIGNED_POLICIES_DESC = "assignedPolicies desc"
-    AUTO_LABELING = "autoLabeling"
-    AUTO_LABELING_DESC = "autoLabeling desc"
+    IDDESC = "id desc"
+    APPLICABLETO = "applicableTo"
+    APPLICABLETODESC = "applicableTo desc"
+    APPLICATIONMODE = "applicationMode"
+    APPLICATIONMODEDESC = "applicationMode desc"
+    ASSIGNEDPOLICIES = "assignedPolicies"
+    ASSIGNEDPOLICIESDESC = "assignedPolicies desc"
+    AUTOLABELING = "autoLabeling"
+    AUTOLABELINGDESC = "autoLabeling desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_DEFAULT = "isDefault"
-    IS_DEFAULT_DESC = "isDefault desc"
-    IS_ENDPOINT_PROTECTION_ENABLED = "isEndpointProtectionEnabled"
-    IS_ENDPOINT_PROTECTION_ENABLED_DESC = "isEndpointProtectionEnabled desc"
-    LABEL_ACTIONS = "labelActions"
-    LABEL_ACTIONS_DESC = "labelActions desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ISDEFAULT = "isDefault"
+    ISDEFAULTDESC = "isDefault desc"
+    ISENDPOINTPROTECTIONENABLED = "isEndpointProtectionEnabled"
+    ISENDPOINTPROTECTIONENABLEDDESC = "isEndpointProtectionEnabled desc"
+    LABELACTIONS = "labelActions"
+    LABELACTIONSDESC = "labelActions desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     PRIORITY = "priority"
-    PRIORITY_DESC = "priority desc"
-    TOOL_TIP = "toolTip"
-    TOOL_TIP_DESC = "toolTip desc"
+    PRIORITYDESC = "priority desc"
+    TOOLTIP = "toolTip"
+    TOOLTIPDESC = "toolTip desc"
 
 class Enum56(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APPLICABLE_TO = "applicableTo"
-    APPLICATION_MODE = "applicationMode"
-    ASSIGNED_POLICIES = "assignedPolicies"
-    AUTO_LABELING = "autoLabeling"
+    APPLICABLETO = "applicableTo"
+    APPLICATIONMODE = "applicationMode"
+    ASSIGNEDPOLICIES = "assignedPolicies"
+    AUTOLABELING = "autoLabeling"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    IS_DEFAULT = "isDefault"
-    IS_ENDPOINT_PROTECTION_ENABLED = "isEndpointProtectionEnabled"
-    LABEL_ACTIONS = "labelActions"
+    DISPLAYNAME = "displayName"
+    ISDEFAULT = "isDefault"
+    ISENDPOINTPROTECTIONENABLED = "isEndpointProtectionEnabled"
+    LABELACTIONS = "labelActions"
     NAME = "name"
     PRIORITY = "priority"
-    TOOL_TIP = "toolTip"
+    TOOLTIP = "toolTip"
     SUBLABELS = "sublabels"
 
 class Enum57(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -1546,18 +1546,18 @@ class Enum57(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum58(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APPLICABLE_TO = "applicableTo"
-    APPLICATION_MODE = "applicationMode"
-    ASSIGNED_POLICIES = "assignedPolicies"
-    AUTO_LABELING = "autoLabeling"
+    APPLICABLETO = "applicableTo"
+    APPLICATIONMODE = "applicationMode"
+    ASSIGNEDPOLICIES = "assignedPolicies"
+    AUTOLABELING = "autoLabeling"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    IS_DEFAULT = "isDefault"
-    IS_ENDPOINT_PROTECTION_ENABLED = "isEndpointProtectionEnabled"
-    LABEL_ACTIONS = "labelActions"
+    DISPLAYNAME = "displayName"
+    ISDEFAULT = "isDefault"
+    ISENDPOINTPROTECTIONENABLED = "isEndpointProtectionEnabled"
+    LABELACTIONS = "labelActions"
     NAME = "name"
     PRIORITY = "priority"
-    TOOL_TIP = "toolTip"
+    TOOLTIP = "toolTip"
     SUBLABELS = "sublabels"
 
 class Enum59(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -1568,102 +1568,102 @@ class Enum59(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum60(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    APPLICABLE_TO = "applicableTo"
-    APPLICABLE_TO_DESC = "applicableTo desc"
-    APPLICATION_MODE = "applicationMode"
-    APPLICATION_MODE_DESC = "applicationMode desc"
-    ASSIGNED_POLICIES = "assignedPolicies"
-    ASSIGNED_POLICIES_DESC = "assignedPolicies desc"
-    AUTO_LABELING = "autoLabeling"
-    AUTO_LABELING_DESC = "autoLabeling desc"
+    IDDESC = "id desc"
+    APPLICABLETO = "applicableTo"
+    APPLICABLETODESC = "applicableTo desc"
+    APPLICATIONMODE = "applicationMode"
+    APPLICATIONMODEDESC = "applicationMode desc"
+    ASSIGNEDPOLICIES = "assignedPolicies"
+    ASSIGNEDPOLICIESDESC = "assignedPolicies desc"
+    AUTOLABELING = "autoLabeling"
+    AUTOLABELINGDESC = "autoLabeling desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_DEFAULT = "isDefault"
-    IS_DEFAULT_DESC = "isDefault desc"
-    IS_ENDPOINT_PROTECTION_ENABLED = "isEndpointProtectionEnabled"
-    IS_ENDPOINT_PROTECTION_ENABLED_DESC = "isEndpointProtectionEnabled desc"
-    LABEL_ACTIONS = "labelActions"
-    LABEL_ACTIONS_DESC = "labelActions desc"
+    DESCRIPTIONDESC = "description desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ISDEFAULT = "isDefault"
+    ISDEFAULTDESC = "isDefault desc"
+    ISENDPOINTPROTECTIONENABLED = "isEndpointProtectionEnabled"
+    ISENDPOINTPROTECTIONENABLEDDESC = "isEndpointProtectionEnabled desc"
+    LABELACTIONS = "labelActions"
+    LABELACTIONSDESC = "labelActions desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     PRIORITY = "priority"
-    PRIORITY_DESC = "priority desc"
-    TOOL_TIP = "toolTip"
-    TOOL_TIP_DESC = "toolTip desc"
+    PRIORITYDESC = "priority desc"
+    TOOLTIP = "toolTip"
+    TOOLTIPDESC = "toolTip desc"
 
 class Enum61(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APPLICABLE_TO = "applicableTo"
-    APPLICATION_MODE = "applicationMode"
-    ASSIGNED_POLICIES = "assignedPolicies"
-    AUTO_LABELING = "autoLabeling"
+    APPLICABLETO = "applicableTo"
+    APPLICATIONMODE = "applicationMode"
+    ASSIGNEDPOLICIES = "assignedPolicies"
+    AUTOLABELING = "autoLabeling"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    IS_DEFAULT = "isDefault"
-    IS_ENDPOINT_PROTECTION_ENABLED = "isEndpointProtectionEnabled"
-    LABEL_ACTIONS = "labelActions"
+    DISPLAYNAME = "displayName"
+    ISDEFAULT = "isDefault"
+    ISENDPOINTPROTECTIONENABLED = "isEndpointProtectionEnabled"
+    LABELACTIONS = "labelActions"
     NAME = "name"
     PRIORITY = "priority"
-    TOOL_TIP = "toolTip"
+    TOOLTIP = "toolTip"
     SUBLABELS = "sublabels"
 
 class Enum63(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APPLICABLE_TO = "applicableTo"
-    APPLICATION_MODE = "applicationMode"
-    ASSIGNED_POLICIES = "assignedPolicies"
-    AUTO_LABELING = "autoLabeling"
+    APPLICABLETO = "applicableTo"
+    APPLICATIONMODE = "applicationMode"
+    ASSIGNEDPOLICIES = "assignedPolicies"
+    AUTOLABELING = "autoLabeling"
     DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    IS_DEFAULT = "isDefault"
-    IS_ENDPOINT_PROTECTION_ENABLED = "isEndpointProtectionEnabled"
-    LABEL_ACTIONS = "labelActions"
+    DISPLAYNAME = "displayName"
+    ISDEFAULT = "isDefault"
+    ISENDPOINTPROTECTIONENABLED = "isEndpointProtectionEnabled"
+    LABELACTIONS = "labelActions"
     NAME = "name"
     PRIORITY = "priority"
-    TOOL_TIP = "toolTip"
+    TOOLTIP = "toolTip"
     SUBLABELS = "sublabels"
 
 class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APPLICABLE_TO = "applicableTo"
-    DOWNGRADE_SENSITIVITY_REQUIRES_JUSTIFICATION = "downgradeSensitivityRequiresJustification"
-    HELP_WEB_URL = "helpWebUrl"
-    IS_MANDATORY = "isMandatory"
+    APPLICABLETO = "applicableTo"
+    DOWNGRADESENSITIVITYREQUIRESJUSTIFICATION = "downgradeSensitivityRequiresJustification"
+    HELPWEBURL = "helpWebUrl"
+    ISMANDATORY = "isMandatory"
 
 class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CATEGORY = "category"
-    CATEGORY_DESC = "category desc"
-    CONTENT_TYPE = "contentType"
-    CONTENT_TYPE_DESC = "contentType desc"
-    CREATED_BY = "createdBy"
-    CREATED_BY_DESC = "createdBy desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    EXPECTED_ASSESSMENT = "expectedAssessment"
-    EXPECTED_ASSESSMENT_DESC = "expectedAssessment desc"
-    REQUEST_SOURCE = "requestSource"
-    REQUEST_SOURCE_DESC = "requestSource desc"
+    CATEGORYDESC = "category desc"
+    CONTENTTYPE = "contentType"
+    CONTENTTYPEDESC = "contentType desc"
+    CREATEDBY = "createdBy"
+    CREATEDBYDESC = "createdBy desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
+    EXPECTEDASSESSMENT = "expectedAssessment"
+    EXPECTEDASSESSMENTDESC = "expectedAssessment desc"
+    REQUESTSOURCE = "requestSource"
+    REQUESTSOURCEDESC = "requestSource desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
+    STATUSDESC = "status desc"
 
 class Enum67(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CATEGORY = "category"
-    CONTENT_TYPE = "contentType"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    EXPECTED_ASSESSMENT = "expectedAssessment"
-    REQUEST_SOURCE = "requestSource"
+    CONTENTTYPE = "contentType"
+    CREATEDBY = "createdBy"
+    CREATEDDATETIME = "createdDateTime"
+    EXPECTEDASSESSMENT = "expectedAssessment"
+    REQUESTSOURCE = "requestSource"
     STATUS = "status"
     RESULTS = "results"
 
@@ -1676,11 +1676,11 @@ class Enum69(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CATEGORY = "category"
-    CONTENT_TYPE = "contentType"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    EXPECTED_ASSESSMENT = "expectedAssessment"
-    REQUEST_SOURCE = "requestSource"
+    CONTENTTYPE = "contentType"
+    CREATEDBY = "createdBy"
+    CREATEDDATETIME = "createdDateTime"
+    EXPECTEDASSESSMENT = "expectedAssessment"
+    REQUESTSOURCE = "requestSource"
     STATUS = "status"
     RESULTS = "results"
 
@@ -1692,137 +1692,137 @@ class Enum70(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    IDDESC = "id desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
     MESSAGE = "message"
-    MESSAGE_DESC = "message desc"
-    RESULT_TYPE = "resultType"
-    RESULT_TYPE_DESC = "resultType desc"
+    MESSAGEDESC = "message desc"
+    RESULTTYPE = "resultType"
+    RESULTTYPEDESC = "resultType desc"
 
 class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     MESSAGE = "message"
-    RESULT_TYPE = "resultType"
+    RESULTTYPE = "resultType"
 
 class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     MESSAGE = "message"
-    RESULT_TYPE = "resultType"
+    RESULTTYPE = "resultType"
 
 class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    INVITED_USER_DISPLAY_NAME = "invitedUserDisplayName"
-    INVITED_USER_DISPLAY_NAME_DESC = "invitedUserDisplayName desc"
-    INVITED_USER_EMAIL_ADDRESS = "invitedUserEmailAddress"
-    INVITED_USER_EMAIL_ADDRESS_DESC = "invitedUserEmailAddress desc"
-    INVITED_USER_MESSAGE_INFO = "invitedUserMessageInfo"
-    INVITED_USER_MESSAGE_INFO_DESC = "invitedUserMessageInfo desc"
-    INVITED_USER_TYPE = "invitedUserType"
-    INVITED_USER_TYPE_DESC = "invitedUserType desc"
-    INVITE_REDEEM_URL = "inviteRedeemUrl"
-    INVITE_REDEEM_URL_DESC = "inviteRedeemUrl desc"
-    INVITE_REDIRECT_URL = "inviteRedirectUrl"
-    INVITE_REDIRECT_URL_DESC = "inviteRedirectUrl desc"
-    RESET_REDEMPTION = "resetRedemption"
-    RESET_REDEMPTION_DESC = "resetRedemption desc"
-    SEND_INVITATION_MESSAGE = "sendInvitationMessage"
-    SEND_INVITATION_MESSAGE_DESC = "sendInvitationMessage desc"
+    IDDESC = "id desc"
+    INVITEDUSERDISPLAYNAME = "invitedUserDisplayName"
+    INVITEDUSERDISPLAYNAMEDESC = "invitedUserDisplayName desc"
+    INVITEDUSEREMAILADDRESS = "invitedUserEmailAddress"
+    INVITEDUSEREMAILADDRESSDESC = "invitedUserEmailAddress desc"
+    INVITEDUSERMESSAGEINFO = "invitedUserMessageInfo"
+    INVITEDUSERMESSAGEINFODESC = "invitedUserMessageInfo desc"
+    INVITEDUSERTYPE = "invitedUserType"
+    INVITEDUSERTYPEDESC = "invitedUserType desc"
+    INVITEREDEEMURL = "inviteRedeemUrl"
+    INVITEREDEEMURLDESC = "inviteRedeemUrl desc"
+    INVITEREDIRECTURL = "inviteRedirectUrl"
+    INVITEREDIRECTURLDESC = "inviteRedirectUrl desc"
+    RESETREDEMPTION = "resetRedemption"
+    RESETREDEMPTIONDESC = "resetRedemption desc"
+    SENDINVITATIONMESSAGE = "sendInvitationMessage"
+    SENDINVITATIONMESSAGEDESC = "sendInvitationMessage desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
+    STATUSDESC = "status desc"
 
 class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    INVITED_USER_DISPLAY_NAME = "invitedUserDisplayName"
-    INVITED_USER_EMAIL_ADDRESS = "invitedUserEmailAddress"
-    INVITED_USER_MESSAGE_INFO = "invitedUserMessageInfo"
-    INVITED_USER_TYPE = "invitedUserType"
-    INVITE_REDEEM_URL = "inviteRedeemUrl"
-    INVITE_REDIRECT_URL = "inviteRedirectUrl"
-    RESET_REDEMPTION = "resetRedemption"
-    SEND_INVITATION_MESSAGE = "sendInvitationMessage"
+    INVITEDUSERDISPLAYNAME = "invitedUserDisplayName"
+    INVITEDUSEREMAILADDRESS = "invitedUserEmailAddress"
+    INVITEDUSERMESSAGEINFO = "invitedUserMessageInfo"
+    INVITEDUSERTYPE = "invitedUserType"
+    INVITEREDEEMURL = "inviteRedeemUrl"
+    INVITEREDIRECTURL = "inviteRedirectUrl"
+    RESETREDEMPTION = "resetRedemption"
+    SENDINVITATIONMESSAGE = "sendInvitationMessage"
     STATUS = "status"
-    INVITED_USER = "invitedUser"
+    INVITEDUSER = "invitedUser"
 
 class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    INVITED_USER = "invitedUser"
+    INVITEDUSER = "invitedUser"
 
-class Get0ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get0itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    NAMED_LOCATIONS = "namedLocations"
+    NAMEDLOCATIONS = "namedLocations"
     POLICIES = "policies"
 
-class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get1itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETEDDATETIME = "completedDateTime"
     PROGRESS = "progress"
     STATUS = "status"
-    STORAGE_LOCATION = "storageLocation"
-    SUBMITTED_DATE_TIME = "submittedDateTime"
-    USER_ID = "userId"
+    STORAGELOCATION = "storageLocation"
+    SUBMITTEDDATETIME = "submittedDateTime"
+    USERID = "userId"
 
-class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get3itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     SUBLABELS = "sublabels"
 
-class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get5itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    COMPLETED_DATE_TIME = "completedDateTime"
-    COMPLETED_DATE_TIME_DESC = "completedDateTime desc"
+    IDDESC = "id desc"
+    COMPLETEDDATETIME = "completedDateTime"
+    COMPLETEDDATETIMEDESC = "completedDateTime desc"
     PROGRESS = "progress"
-    PROGRESS_DESC = "progress desc"
+    PROGRESSDESC = "progress desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
-    STORAGE_LOCATION = "storageLocation"
-    STORAGE_LOCATION_DESC = "storageLocation desc"
-    SUBMITTED_DATE_TIME = "submittedDateTime"
-    SUBMITTED_DATE_TIME_DESC = "submittedDateTime desc"
-    USER_ID = "userId"
-    USER_ID_DESC = "userId desc"
+    STATUSDESC = "status desc"
+    STORAGELOCATION = "storageLocation"
+    STORAGELOCATIONDESC = "storageLocation desc"
+    SUBMITTEDDATETIME = "submittedDateTime"
+    SUBMITTEDDATETIMEDESC = "submittedDateTime desc"
+    USERID = "userId"
+    USERIDDESC = "userId desc"
 
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get6itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETEDDATETIME = "completedDateTime"
     PROGRESS = "progress"
     STATUS = "status"
-    STORAGE_LOCATION = "storageLocation"
-    SUBMITTED_DATE_TIME = "submittedDateTime"
-    USER_ID = "userId"
+    STORAGELOCATION = "storageLocation"
+    SUBMITTEDDATETIME = "submittedDateTime"
+    USERID = "userId"
 
-class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get8itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     SUBLABELS = "sublabels"
 
-class MicrosoftGraphAccessLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphaccesslevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EVERYONE = "everyone"
     INVITED = "invited"
     LOCKED = "locked"
-    SAME_ENTERPRISE = "sameEnterprise"
-    SAME_ENTERPRISE_AND_FEDERATED = "sameEnterpriseAndFederated"
+    SAMEENTERPRISE = "sameEnterprise"
+    SAMEENTERPRISEANDFEDERATED = "sameEnterpriseAndFederated"
 
-class MicrosoftGraphAccessScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphaccessscope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    IN_ORGANIZATION = "inOrganization"
-    NOT_IN_ORGANIZATION = "notInOrganization"
+    INORGANIZATION = "inOrganization"
+    NOTINORGANIZATION = "notInOrganization"
 
-class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphactionstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     PENDING = "pending"
@@ -1830,40 +1830,40 @@ class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, En
     ACTIVE = "active"
     DONE = "done"
     FAILED = "failed"
-    NOT_SUPPORTED = "notSupported"
+    NOTSUPPORTED = "notSupported"
 
-class MicrosoftGraphActivityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphactivitytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     SIGNIN = "signin"
     USER = "user"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphAgreementAcceptanceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphagreementacceptancestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ACCEPTED = "accepted"
     DECLINED = "declined"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphAllowedAudiences(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphallowedaudiences(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ME = "me"
     FAMILY = "family"
     CONTACTS = "contacts"
-    GROUP_MEMBERS = "groupMembers"
+    GROUPMEMBERS = "groupMembers"
     ORGANIZATION = "organization"
-    FEDERATED_ORGANIZATIONS = "federatedOrganizations"
+    FEDERATEDORGANIZATIONS = "federatedOrganizations"
     EVERYONE = "everyone"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphAllowInvitesFrom(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphallowinvitesfrom(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    ADMINS_AND_GUEST_INVITERS = "adminsAndGuestInviters"
-    ADMINS_GUEST_INVITERS_AND_ALL_MEMBERS = "adminsGuestInvitersAndAllMembers"
+    ADMINSANDGUESTINVITERS = "adminsAndGuestInviters"
+    ADMINSGUESTINVITERSANDALLMEMBERS = "adminsGuestInvitersAndAllMembers"
     EVERYONE = "everyone"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphAnalyticsActivityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphanalyticsactivitytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EMAIL = "Email"
     MEETING = "Meeting"
@@ -1871,90 +1871,90 @@ class MicrosoftGraphAnalyticsActivityType(with_metaclass(_CaseInsensitiveEnumMet
     CHAT = "Chat"
     CALL = "Call"
 
-class MicrosoftGraphAnniversaryType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphanniversarytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     BIRTHDAY = "birthday"
     WEDDING = "wedding"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphApplicationMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphapplicationmode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     MANUAL = "manual"
     AUTOMATIC = "automatic"
     RECOMMENDED = "recommended"
 
-class MicrosoftGraphAppLogUploadState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphapploguploadstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PENDING = "pending"
     COMPLETED = "completed"
     FAILED = "failed"
 
-class MicrosoftGraphAssignmentMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphassignmentmethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STANDARD = "standard"
     PRIVILEGED = "privileged"
     AUTO = "auto"
 
-class MicrosoftGraphAttendeeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphattendeetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     REQUIRED = "required"
     OPTIONAL = "optional"
     RESOURCE = "resource"
 
-class MicrosoftGraphAuthenticationMethodSignInState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphauthenticationmethodsigninstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_SUPPORTED = "notSupported"
-    NOT_ALLOWED_BY_POLICY = "notAllowedByPolicy"
-    NOT_ENABLED = "notEnabled"
-    PHONE_NUMBER_NOT_UNIQUE = "phoneNumberNotUnique"
+    NOTSUPPORTED = "notSupported"
+    NOTALLOWEDBYPOLICY = "notAllowedByPolicy"
+    NOTENABLED = "notEnabled"
+    PHONENUMBERNOTUNIQUE = "phoneNumberNotUnique"
     READY = "ready"
-    NOT_CONFIGURED = "notConfigured"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    NOTCONFIGURED = "notConfigured"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphAuthenticationPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphauthenticationphonetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     MOBILE = "mobile"
-    ALTERNATE_MOBILE = "alternateMobile"
+    ALTERNATEMOBILE = "alternateMobile"
     OFFICE = "office"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphAutomaticRepliesStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphautomaticrepliesstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DISABLED = "disabled"
-    ALWAYS_ENABLED = "alwaysEnabled"
+    ALWAYSENABLED = "alwaysEnabled"
     SCHEDULED = "scheduled"
 
-class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphbodytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     TEXT = "text"
     HTML = "html"
 
-class MicrosoftGraphCalendarColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcalendarcolor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    LIGHT_BLUE = "lightBlue"
-    LIGHT_GREEN = "lightGreen"
+    LIGHTBLUE = "lightBlue"
+    LIGHTGREEN = "lightGreen"
     AUTO = "auto"
-    LIGHT_ORANGE = "lightOrange"
-    LIGHT_GRAY = "lightGray"
-    LIGHT_YELLOW = "lightYellow"
-    LIGHT_TEAL = "lightTeal"
-    LIGHT_PINK = "lightPink"
-    LIGHT_BROWN = "lightBrown"
-    LIGHT_RED = "lightRed"
-    MAX_COLOR = "maxColor"
+    LIGHTORANGE = "lightOrange"
+    LIGHTGRAY = "lightGray"
+    LIGHTYELLOW = "lightYellow"
+    LIGHTTEAL = "lightTeal"
+    LIGHTPINK = "lightPink"
+    LIGHTBROWN = "lightBrown"
+    LIGHTRED = "lightRed"
+    MAXCOLOR = "maxColor"
 
-class MicrosoftGraphCalendarRoleType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcalendarroletype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    FREE_BUSY_READ = "freeBusyRead"
-    LIMITED_READ = "limitedRead"
+    FREEBUSYREAD = "freeBusyRead"
+    LIMITEDREAD = "limitedRead"
     READ = "read"
     WRITE = "write"
-    DELEGATE_WITHOUT_PRIVATE_EVENT_ACCESS = "delegateWithoutPrivateEventAccess"
-    DELEGATE_WITH_PRIVATE_EVENT_ACCESS = "delegateWithPrivateEventAccess"
+    DELEGATEWITHOUTPRIVATEEVENTACCESS = "delegateWithoutPrivateEventAccess"
+    DELEGATEWITHPRIVATEEVENTACCESS = "delegateWithPrivateEventAccess"
     CUSTOM = "custom"
 
-class MicrosoftGraphCategoryColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcategorycolor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PRESET0 = "preset0"
     PRESET1 = "preset1"
@@ -1983,164 +1983,164 @@ class MicrosoftGraphCategoryColor(with_metaclass(_CaseInsensitiveEnumMeta, str, 
     PRESET23 = "preset23"
     PRESET24 = "preset24"
 
-class MicrosoftGraphChannelMembershipType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphchannelmembershiptype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STANDARD = "standard"
     PRIVATE = "private"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphChassisType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphchassistype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     DESKTOP = "desktop"
     LAPTOP = "laptop"
-    WORKS_WORKSTATION = "worksWorkstation"
-    ENTERPRISE_SERVER = "enterpriseServer"
+    WORKSWORKSTATION = "worksWorkstation"
+    ENTERPRISESERVER = "enterpriseServer"
     PHONE = "phone"
     TABLET = "tablet"
-    MOBILE_OTHER = "mobileOther"
-    MOBILE_UNKNOWN = "mobileUnknown"
+    MOBILEOTHER = "mobileOther"
+    MOBILEUNKNOWN = "mobileUnknown"
 
-class MicrosoftGraphChatMessageImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphchatmessageimportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NORMAL = "normal"
     HIGH = "high"
     URGENT = "urgent"
 
-class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphchatmessagepolicyviolationdlpactiontypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    NOTIFY_SENDER = "notifySender"
-    BLOCK_ACCESS = "blockAccess"
-    BLOCK_ACCESS_EXTERNAL = "blockAccessExternal"
+    NOTIFYSENDER = "notifySender"
+    BLOCKACCESS = "blockAccess"
+    BLOCKACCESSEXTERNAL = "blockAccessExternal"
 
-class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphchatmessagepolicyviolationuseractiontypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     OVERRIDE = "override"
-    REPORT_FALSE_POSITIVE = "reportFalsePositive"
+    REPORTFALSEPOSITIVE = "reportFalsePositive"
 
-class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphchatmessagepolicyviolationverdictdetailstypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    ALLOW_FALSE_POSITIVE_OVERRIDE = "allowFalsePositiveOverride"
-    ALLOW_OVERRIDE_WITHOUT_JUSTIFICATION = "allowOverrideWithoutJustification"
-    ALLOW_OVERRIDE_WITH_JUSTIFICATION = "allowOverrideWithJustification"
+    ALLOWFALSEPOSITIVEOVERRIDE = "allowFalsePositiveOverride"
+    ALLOWOVERRIDEWITHOUTJUSTIFICATION = "allowOverrideWithoutJustification"
+    ALLOWOVERRIDEWITHJUSTIFICATION = "allowOverrideWithJustification"
 
-class MicrosoftGraphChatMessageType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphchatmessagetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     MESSAGE = "message"
-    CHAT_EVENT = "chatEvent"
+    CHATEVENT = "chatEvent"
     TYPING = "typing"
 
-class MicrosoftGraphClassificationMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphclassificationmethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    PATTERN_MATCH = "patternMatch"
-    EXACT_DATA_MATCH = "exactDataMatch"
+    PATTERNMATCH = "patternMatch"
+    EXACTDATAMATCH = "exactDataMatch"
     FINGERPRINT = "fingerprint"
-    MACHINE_LEARNING = "machineLearning"
+    MACHINELEARNING = "machineLearning"
 
-class MicrosoftGraphCloudAppSecuritySessionControlType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcloudappsecuritysessioncontroltype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    MCAS_CONFIGURED = "mcasConfigured"
-    MONITOR_ONLY = "monitorOnly"
-    BLOCK_DOWNLOADS = "blockDownloads"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    MCASCONFIGURED = "mcasConfigured"
+    MONITORONLY = "monitorOnly"
+    BLOCKDOWNLOADS = "blockDownloads"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcompliancestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     COMPLIANT = "compliant"
     NONCOMPLIANT = "noncompliant"
     CONFLICT = "conflict"
     ERROR = "error"
-    IN_GRACE_PERIOD = "inGracePeriod"
-    CONFIG_MANAGER = "configManager"
+    INGRACEPERIOD = "inGracePeriod"
+    CONFIGMANAGER = "configManager"
 
-class MicrosoftGraphComplianceStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcompliancestatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    NOT_APPLICABLE = "notApplicable"
+    NOTAPPLICABLE = "notApplicable"
     COMPLIANT = "compliant"
     REMEDIATED = "remediated"
-    NON_COMPLIANT = "nonCompliant"
+    NONCOMPLIANT = "nonCompliant"
     ERROR = "error"
     CONFLICT = "conflict"
-    NOT_ASSIGNED = "notAssigned"
+    NOTASSIGNED = "notAssigned"
 
-class MicrosoftGraphConditionalAccessClientApp(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphconditionalaccessclientapp(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ALL = "all"
     BROWSER = "browser"
-    MOBILE_APPS_AND_DESKTOP_CLIENTS = "mobileAppsAndDesktopClients"
-    EXCHANGE_ACTIVE_SYNC = "exchangeActiveSync"
-    EAS_SUPPORTED = "easSupported"
+    MOBILEAPPSANDDESKTOPCLIENTS = "mobileAppsAndDesktopClients"
+    EXCHANGEACTIVESYNC = "exchangeActiveSync"
+    EASSUPPORTED = "easSupported"
     OTHER = "other"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphConditionalAccessDevicePlatform(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphconditionalaccessdeviceplatform(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ANDROID = "android"
-    I_OS = "iOS"
+    IOS = "iOS"
     WINDOWS = "windows"
-    WINDOWS_PHONE = "windowsPhone"
-    MAC_OS = "macOS"
+    WINDOWSPHONE = "windowsPhone"
+    MACOS = "macOS"
     ALL = "all"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphConditionalAccessGrantControl(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphconditionalaccessgrantcontrol(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     BLOCK = "block"
     MFA = "mfa"
-    COMPLIANT_DEVICE = "compliantDevice"
-    DOMAIN_JOINED_DEVICE = "domainJoinedDevice"
-    APPROVED_APPLICATION = "approvedApplication"
-    COMPLIANT_APPLICATION = "compliantApplication"
-    PASSWORD_CHANGE = "passwordChange"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    COMPLIANTDEVICE = "compliantDevice"
+    DOMAINJOINEDDEVICE = "domainJoinedDevice"
+    APPROVEDAPPLICATION = "approvedApplication"
+    COMPLIANTAPPLICATION = "compliantApplication"
+    PASSWORDCHANGE = "passwordChange"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphConditionalAccessPolicyState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphconditionalaccesspolicystate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ENABLED = "enabled"
     DISABLED = "disabled"
-    ENABLED_FOR_REPORTING_BUT_NOT_ENFORCED = "enabledForReportingButNotEnforced"
+    ENABLEDFORREPORTINGBUTNOTENFORCED = "enabledForReportingButNotEnforced"
 
-class MicrosoftGraphConfigurationManagerClientState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphconfigurationmanagerclientstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     INSTALLED = "installed"
     HEALTHY = "healthy"
-    INSTALL_FAILED = "installFailed"
-    UPDATE_FAILED = "updateFailed"
-    COMMUNICATION_ERROR = "communicationError"
+    INSTALLFAILED = "installFailed"
+    UPDATEFAILED = "updateFailed"
+    COMMUNICATIONERROR = "communicationError"
 
-class MicrosoftGraphConfirmedBy(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphconfirmedby(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     USER = "user"
     MANAGER = "manager"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphContentFormat(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcontentformat(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DEFAULT = "default"
     EMAIL = "email"
 
-class MicrosoftGraphContentState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphcontentstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     REST = "rest"
     MOTION = "motion"
     USE = "use"
 
-class MicrosoftGraphDataPolicyOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdatapolicyoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_STARTED = "notStarted"
+    NOTSTARTED = "notStarted"
     RUNNING = "running"
     COMPLETE = "complete"
     FAILED = "failed"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphDayOfWeek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdayofweek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     SUNDAY = "sunday"
     MONDAY = "monday"
@@ -2150,68 +2150,68 @@ class MicrosoftGraphDayOfWeek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     FRIDAY = "friday"
     SATURDAY = "saturday"
 
-class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdelegatemeetingmessagedeliveryoptions(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    SEND_TO_DELEGATE_AND_INFORMATION_TO_PRINCIPAL = "sendToDelegateAndInformationToPrincipal"
-    SEND_TO_DELEGATE_AND_PRINCIPAL = "sendToDelegateAndPrincipal"
-    SEND_TO_DELEGATE_ONLY = "sendToDelegateOnly"
+    SENDTODELEGATEANDINFORMATIONTOPRINCIPAL = "sendToDelegateAndInformationToPrincipal"
+    SENDTODELEGATEANDPRINCIPAL = "sendToDelegateAndPrincipal"
+    SENDTODELEGATEONLY = "sendToDelegateOnly"
 
-class MicrosoftGraphDeviceAndAppManagementAssignmentFilterType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdeviceandappmanagementassignmentfiltertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     INCLUDE = "include"
 
-class MicrosoftGraphDeviceAndAppManagementAssignmentSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdeviceandappmanagementassignmentsource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DIRECT = "direct"
-    POLICY_SETS = "policySets"
+    POLICYSETS = "policySets"
 
-class MicrosoftGraphDeviceEnrollmentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdeviceenrollmenttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    USER_ENROLLMENT = "userEnrollment"
-    DEVICE_ENROLLMENT_MANAGER = "deviceEnrollmentManager"
-    APPLE_BULK_WITH_USER = "appleBulkWithUser"
-    APPLE_BULK_WITHOUT_USER = "appleBulkWithoutUser"
-    WINDOWS_AZURE_AD_JOIN = "windowsAzureADJoin"
-    WINDOWS_BULK_USERLESS = "windowsBulkUserless"
-    WINDOWS_AUTO_ENROLLMENT = "windowsAutoEnrollment"
-    WINDOWS_BULK_AZURE_DOMAIN_JOIN = "windowsBulkAzureDomainJoin"
-    WINDOWS_CO_MANAGEMENT = "windowsCoManagement"
-    APPLE_USER_ENROLLMENT = "appleUserEnrollment"
-    APPLE_USER_ENROLLMENT_WITH_SERVICE_ACCOUNT = "appleUserEnrollmentWithServiceAccount"
-    AZURE_AD_JOIN_USING_AZURE_VM_EXTENSION = "azureAdJoinUsingAzureVmExtension"
-    ANDROID_ENTERPRISE_DEDICATED_DEVICE = "androidEnterpriseDedicatedDevice"
-    ANDROID_ENTERPRISE_FULLY_MANAGED = "androidEnterpriseFullyManaged"
-    ANDROID_ENTERPRISE_CORPORATE_WORK_PROFILE = "androidEnterpriseCorporateWorkProfile"
+    USERENROLLMENT = "userEnrollment"
+    DEVICEENROLLMENTMANAGER = "deviceEnrollmentManager"
+    APPLEBULKWITHUSER = "appleBulkWithUser"
+    APPLEBULKWITHOUTUSER = "appleBulkWithoutUser"
+    WINDOWSAZUREADJOIN = "windowsAzureADJoin"
+    WINDOWSBULKUSERLESS = "windowsBulkUserless"
+    WINDOWSAUTOENROLLMENT = "windowsAutoEnrollment"
+    WINDOWSBULKAZUREDOMAINJOIN = "windowsBulkAzureDomainJoin"
+    WINDOWSCOMANAGEMENT = "windowsCoManagement"
+    APPLEUSERENROLLMENT = "appleUserEnrollment"
+    APPLEUSERENROLLMENTWITHSERVICEACCOUNT = "appleUserEnrollmentWithServiceAccount"
+    AZUREADJOINUSINGAZUREVMEXTENSION = "azureAdJoinUsingAzureVmExtension"
+    ANDROIDENTERPRISEDEDICATEDDEVICE = "androidEnterpriseDedicatedDevice"
+    ANDROIDENTERPRISEFULLYMANAGED = "androidEnterpriseFullyManaged"
+    ANDROIDENTERPRISECORPORATEWORKPROFILE = "androidEnterpriseCorporateWorkProfile"
 
-class MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    RUNNING = "running"
-    REBOOT_REQUIRED = "rebootRequired"
-    NOT_LICENSED = "notLicensed"
-    NOT_CONFIGURED = "notConfigured"
-    VIRTUALIZATION_BASED_SECURITY_NOT_RUNNING = "virtualizationBasedSecurityNotRunning"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    MEET_HARDWARE_REQUIREMENTS = "meetHardwareRequirements"
-    SECURE_BOOT_REQUIRED = "secureBootRequired"
-    DMA_PROTECTION_REQUIRED = "dmaProtectionRequired"
-    HYPER_V_NOT_SUPPORTED_FOR_GUEST_VM = "hyperVNotSupportedForGuestVM"
-    HYPER_V_NOT_AVAILABLE = "hyperVNotAvailable"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdeviceguardlocalsystemauthoritycredentialguardstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     RUNNING = "running"
-    REBOOT_REQUIRED = "rebootRequired"
-    REQUIRE64_BIT_ARCHITECTURE = "require64BitArchitecture"
-    NOT_LICENSED = "notLicensed"
-    NOT_CONFIGURED = "notConfigured"
-    DOES_NOT_MEET_HARDWARE_REQUIREMENTS = "doesNotMeetHardwareRequirements"
+    REBOOTREQUIRED = "rebootRequired"
+    NOTLICENSED = "notLicensed"
+    NOTCONFIGURED = "notConfigured"
+    VIRTUALIZATIONBASEDSECURITYNOTRUNNING = "virtualizationBasedSecurityNotRunning"
+
+class Microsoftgraphdeviceguardvirtualizationbasedsecurityhardwarerequirementstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MEETHARDWAREREQUIREMENTS = "meetHardwareRequirements"
+    SECUREBOOTREQUIRED = "secureBootRequired"
+    DMAPROTECTIONREQUIRED = "dmaProtectionRequired"
+    HYPERVNOTSUPPORTEDFORGUESTVM = "hyperVNotSupportedForGuestVM"
+    HYPERVNOTAVAILABLE = "hyperVNotAvailable"
+
+class Microsoftgraphdeviceguardvirtualizationbasedsecuritystate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    RUNNING = "running"
+    REBOOTREQUIRED = "rebootRequired"
+    REQUIRE64BITARCHITECTURE = "require64BitArchitecture"
+    NOTLICENSED = "notLicensed"
+    NOTCONFIGURED = "notConfigured"
+    DOESNOTMEETHARDWAREREQUIREMENTS = "doesNotMeetHardwareRequirements"
     OTHER = "other"
 
-class MicrosoftGraphDeviceManagementExchangeAccessState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdevicemanagementexchangeaccessstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     UNKNOWN = "unknown"
@@ -2219,71 +2219,71 @@ class MicrosoftGraphDeviceManagementExchangeAccessState(with_metaclass(_CaseInse
     BLOCKED = "blocked"
     QUARANTINED = "quarantined"
 
-class MicrosoftGraphDeviceManagementExchangeAccessStateReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdevicemanagementexchangeaccessstatereason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     UNKNOWN = "unknown"
-    EXCHANGE_GLOBAL_RULE = "exchangeGlobalRule"
-    EXCHANGE_INDIVIDUAL_RULE = "exchangeIndividualRule"
-    EXCHANGE_DEVICE_RULE = "exchangeDeviceRule"
-    EXCHANGE_UPGRADE = "exchangeUpgrade"
-    EXCHANGE_MAILBOX_POLICY = "exchangeMailboxPolicy"
+    EXCHANGEGLOBALRULE = "exchangeGlobalRule"
+    EXCHANGEINDIVIDUALRULE = "exchangeIndividualRule"
+    EXCHANGEDEVICERULE = "exchangeDeviceRule"
+    EXCHANGEUPGRADE = "exchangeUpgrade"
+    EXCHANGEMAILBOXPOLICY = "exchangeMailboxPolicy"
     OTHER = "other"
     COMPLIANT = "compliant"
-    NOT_COMPLIANT = "notCompliant"
-    NOT_ENROLLED = "notEnrolled"
-    UNKNOWN_LOCATION = "unknownLocation"
-    MFA_REQUIRED = "mfaRequired"
-    AZURE_AD_BLOCK_DUE_TO_ACCESS_POLICY = "azureADBlockDueToAccessPolicy"
-    COMPROMISED_PASSWORD = "compromisedPassword"
-    DEVICE_NOT_KNOWN_WITH_MANAGED_APP = "deviceNotKnownWithManagedApp"
+    NOTCOMPLIANT = "notCompliant"
+    NOTENROLLED = "notEnrolled"
+    UNKNOWNLOCATION = "unknownLocation"
+    MFAREQUIRED = "mfaRequired"
+    AZUREADBLOCKDUETOACCESSPOLICY = "azureADBlockDueToAccessPolicy"
+    COMPROMISEDPASSWORD = "compromisedPassword"
+    DEVICENOTKNOWNWITHMANAGEDAPP = "deviceNotKnownWithManagedApp"
 
-class MicrosoftGraphDeviceRegistrationState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdeviceregistrationstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_REGISTERED = "notRegistered"
+    NOTREGISTERED = "notRegistered"
     REGISTERED = "registered"
     REVOKED = "revoked"
-    KEY_CONFLICT = "keyConflict"
-    APPROVAL_PENDING = "approvalPending"
-    CERTIFICATE_RESET = "certificateReset"
-    NOT_REGISTERED_PENDING_ENROLLMENT = "notRegisteredPendingEnrollment"
+    KEYCONFLICT = "keyConflict"
+    APPROVALPENDING = "approvalPending"
+    CERTIFICATERESET = "certificateReset"
+    NOTREGISTEREDPENDINGENROLLMENT = "notRegisteredPendingEnrollment"
     UNKNOWN = "unknown"
 
-class MicrosoftGraphDeviceType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdevicetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DESKTOP = "desktop"
-    WINDOWS_RT = "windowsRT"
-    WIN_MO6 = "winMO6"
+    WINDOWSRT = "windowsRT"
+    WINMO6 = "winMO6"
     NOKIA = "nokia"
-    WINDOWS_PHONE = "windowsPhone"
+    WINDOWSPHONE = "windowsPhone"
     MAC = "mac"
-    WIN_CE = "winCE"
-    WIN_EMBEDDED = "winEmbedded"
-    I_PHONE = "iPhone"
-    I_PAD = "iPad"
-    I_POD = "iPod"
+    WINCE = "winCE"
+    WINEMBEDDED = "winEmbedded"
+    IPHONE = "iPhone"
+    IPAD = "iPad"
+    IPOD = "iPod"
     ANDROID = "android"
-    I_SOC_CONSUMER = "iSocConsumer"
+    ISOCCONSUMER = "iSocConsumer"
     UNIX = "unix"
-    MAC_MDM = "macMDM"
-    HOLO_LENS = "holoLens"
-    SURFACE_HUB = "surfaceHub"
-    ANDROID_FOR_WORK = "androidForWork"
-    ANDROID_ENTERPRISE = "androidEnterprise"
-    WINDOWS10_X = "windows10x"
-    ANDROIDN_GMS = "androidnGMS"
-    CLOUD_PC = "cloudPC"
+    MACMDM = "macMDM"
+    HOLOLENS = "holoLens"
+    SURFACEHUB = "surfaceHub"
+    ANDROIDFORWORK = "androidForWork"
+    ANDROIDENTERPRISE = "androidEnterprise"
+    WINDOWS10X = "windows10x"
+    ANDROIDNGMS = "androidnGMS"
+    CLOUDPC = "cloudPC"
     BLACKBERRY = "blackberry"
     PALM = "palm"
     UNKNOWN = "unknown"
 
-class MicrosoftGraphDlpAction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphdlpaction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOTIFY_USER = "notifyUser"
-    BLOCK_ACCESS = "blockAccess"
-    DEVICE_RESTRICTION = "deviceRestriction"
+    NOTIFYUSER = "notifyUser"
+    BLOCKACCESS = "blockAccess"
+    DEVICERESTRICTION = "deviceRestriction"
 
-class MicrosoftGraphEmailType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphemailtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     WORK = "work"
@@ -2291,117 +2291,117 @@ class MicrosoftGraphEmailType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     MAIN = "main"
     OTHER = "other"
 
-class MicrosoftGraphEventType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgrapheventtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    SINGLE_INSTANCE = "singleInstance"
+    SINGLEINSTANCE = "singleInstance"
     OCCURRENCE = "occurrence"
     EXCEPTION = "exception"
-    SERIES_MASTER = "seriesMaster"
+    SERIESMASTER = "seriesMaster"
 
-class MicrosoftGraphExternalAudienceScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphexternalaudiencescope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    CONTACTS_ONLY = "contactsOnly"
+    CONTACTSONLY = "contactsOnly"
     ALL = "all"
 
-class MicrosoftGraphFollowupFlagStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphfollowupflagstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_FLAGGED = "notFlagged"
+    NOTFLAGGED = "notFlagged"
     COMPLETE = "complete"
     FLAGGED = "flagged"
 
-class MicrosoftGraphFreeBusyStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphfreebusystatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     FREE = "free"
     TENTATIVE = "tentative"
     UNKNOWN = "unknown"
     BUSY = "busy"
     OOF = "oof"
-    WORKING_ELSEWHERE = "workingElsewhere"
+    WORKINGELSEWHERE = "workingElsewhere"
 
-class MicrosoftGraphGiphyRatingType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphgiphyratingtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STRICT = "strict"
     MODERATE = "moderate"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphGroupAccessType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphgroupaccesstype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     PRIVATE = "private"
     SECRET = "secret"
     PUBLIC = "public"
 
-class MicrosoftGraphImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphimportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     LOW = "low"
     NORMAL = "normal"
     HIGH = "high"
 
-class MicrosoftGraphInferenceClassificationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphinferenceclassificationtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     FOCUSED = "focused"
     OTHER = "other"
 
-class MicrosoftGraphJoinType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphjointype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    AZURE_AD_JOINED = "azureADJoined"
-    AZURE_AD_REGISTERED = "azureADRegistered"
-    HYBRID_AZURE_AD_JOINED = "hybridAzureADJoined"
+    AZUREADJOINED = "azureADJoined"
+    AZUREADREGISTERED = "azureADRegistered"
+    HYBRIDAZUREADJOINED = "hybridAzureADJoined"
 
-class MicrosoftGraphLanguageProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlanguageproficiencylevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ELEMENTARY = "elementary"
     CONVERSATIONAL = "conversational"
-    LIMITED_WORKING = "limitedWorking"
-    PROFESSIONAL_WORKING = "professionalWorking"
-    FULL_PROFESSIONAL = "fullProfessional"
-    NATIVE_OR_BILINGUAL = "nativeOrBilingual"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    LIMITEDWORKING = "limitedWorking"
+    PROFESSIONALWORKING = "professionalWorking"
+    FULLPROFESSIONAL = "fullProfessional"
+    NATIVEORBILINGUAL = "nativeOrBilingual"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphLobbyBypassScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlobbybypassscope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ORGANIZER = "organizer"
     ORGANIZATION = "organization"
-    ORGANIZATION_AND_FEDERATED = "organizationAndFederated"
+    ORGANIZATIONANDFEDERATED = "organizationAndFederated"
     EVERYONE = "everyone"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphLocationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlocationtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DEFAULT = "default"
-    CONFERENCE_ROOM = "conferenceRoom"
-    HOME_ADDRESS = "homeAddress"
-    BUSINESS_ADDRESS = "businessAddress"
-    GEO_COORDINATES = "geoCoordinates"
-    STREET_ADDRESS = "streetAddress"
+    CONFERENCEROOM = "conferenceRoom"
+    HOMEADDRESS = "homeAddress"
+    BUSINESSADDRESS = "businessAddress"
+    GEOCOORDINATES = "geoCoordinates"
+    STREETADDRESS = "streetAddress"
     HOTEL = "hotel"
     RESTAURANT = "restaurant"
-    LOCAL_BUSINESS = "localBusiness"
-    POSTAL_ADDRESS = "postalAddress"
+    LOCALBUSINESS = "localBusiness"
+    POSTALADDRESS = "postalAddress"
 
-class MicrosoftGraphLocationUniqueIdType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlocationuniqueidtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    LOCATION_STORE = "locationStore"
+    LOCATIONSTORE = "locationStore"
     DIRECTORY = "directory"
     PRIVATE = "private"
     BING = "bing"
 
-class MicrosoftGraphLongRunningOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlongrunningoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NOTSTARTED = "notstarted"
     RUNNING = "running"
     SUCCEEDED = "succeeded"
     FAILED = "failed"
 
-class MicrosoftGraphLostModeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphlostmodestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DISABLED = "disabled"
     ENABLED = "enabled"
 
-class MicrosoftGraphMailboxRecipientType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmailboxrecipienttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     USER = "user"
@@ -2411,352 +2411,352 @@ class MicrosoftGraphMailboxRecipientType(with_metaclass(_CaseInsensitiveEnumMeta
     EQUIPMENT = "equipment"
     OTHERS = "others"
 
-class MicrosoftGraphManagedAppFlaggedReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmanagedappflaggedreason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    ROOTED_DEVICE = "rootedDevice"
-    ANDROID_BOOTLOADER_UNLOCKED = "androidBootloaderUnlocked"
-    ANDROID_FACTORY_ROM_MODIFIED = "androidFactoryRomModified"
+    ROOTEDDEVICE = "rootedDevice"
+    ANDROIDBOOTLOADERUNLOCKED = "androidBootloaderUnlocked"
+    ANDROIDFACTORYROMMODIFIED = "androidFactoryRomModified"
 
-class MicrosoftGraphManagedDeviceArchitecture(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmanageddevicearchitecture(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     X86 = "x86"
     X64 = "x64"
     ARM = "arm"
-    AR_M64 = "arM64"
+    ARM64 = "arM64"
 
-class MicrosoftGraphManagedDeviceManagementFeatures(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmanageddevicemanagementfeatures(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    MICROSOFT_MANAGED_DESKTOP = "microsoftManagedDesktop"
+    MICROSOFTMANAGEDDESKTOP = "microsoftManagedDesktop"
 
-class MicrosoftGraphManagedDeviceOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmanageddeviceownertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     COMPANY = "company"
     PERSONAL = "personal"
 
-class MicrosoftGraphManagedDevicePartnerReportedHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmanageddevicepartnerreportedhealthstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     ACTIVATED = "activated"
     DEACTIVATED = "deactivated"
     SECURED = "secured"
-    LOW_SEVERITY = "lowSeverity"
-    MEDIUM_SEVERITY = "mediumSeverity"
-    HIGH_SEVERITY = "highSeverity"
+    LOWSEVERITY = "lowSeverity"
+    MEDIUMSEVERITY = "mediumSeverity"
+    HIGHSEVERITY = "highSeverity"
     UNRESPONSIVE = "unresponsive"
     COMPROMISED = "compromised"
     MISCONFIGURED = "misconfigured"
 
-class MicrosoftGraphManagementAgentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmanagementagenttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EAS = "eas"
     MDM = "mdm"
-    EAS_MDM = "easMdm"
-    INTUNE_CLIENT = "intuneClient"
-    EAS_INTUNE_CLIENT = "easIntuneClient"
-    CONFIGURATION_MANAGER_CLIENT = "configurationManagerClient"
-    CONFIGURATION_MANAGER_CLIENT_MDM = "configurationManagerClientMdm"
-    CONFIGURATION_MANAGER_CLIENT_MDM_EAS = "configurationManagerClientMdmEas"
+    EASMDM = "easMdm"
+    INTUNECLIENT = "intuneClient"
+    EASINTUNECLIENT = "easIntuneClient"
+    CONFIGURATIONMANAGERCLIENT = "configurationManagerClient"
+    CONFIGURATIONMANAGERCLIENTMDM = "configurationManagerClientMdm"
+    CONFIGURATIONMANAGERCLIENTMDMEAS = "configurationManagerClientMdmEas"
     UNKNOWN = "unknown"
     JAMF = "jamf"
-    GOOGLE_CLOUD_DEVICE_POLICY_CONTROLLER = "googleCloudDevicePolicyController"
-    MICROSOFT365_MANAGED_MDM = "microsoft365ManagedMdm"
-    WINDOWS_MANAGEMENT_CLOUD_API = "windowsManagementCloudApi"
+    GOOGLECLOUDDEVICEPOLICYCONTROLLER = "googleCloudDevicePolicyController"
+    MICROSOFT365MANAGEDMDM = "microsoft365ManagedMdm"
+    WINDOWSMANAGEMENTCLOUDAPI = "windowsManagementCloudApi"
 
-class MicrosoftGraphManagementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmanagementstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     MANAGED = "managed"
-    RETIRE_PENDING = "retirePending"
-    RETIRE_FAILED = "retireFailed"
-    WIPE_PENDING = "wipePending"
-    WIPE_FAILED = "wipeFailed"
+    RETIREPENDING = "retirePending"
+    RETIREFAILED = "retireFailed"
+    WIPEPENDING = "wipePending"
+    WIPEFAILED = "wipeFailed"
     UNHEALTHY = "unhealthy"
-    DELETE_PENDING = "deletePending"
-    RETIRE_ISSUED = "retireIssued"
-    WIPE_ISSUED = "wipeIssued"
-    WIPE_CANCELED = "wipeCanceled"
-    RETIRE_CANCELED = "retireCanceled"
+    DELETEPENDING = "deletePending"
+    RETIREISSUED = "retireIssued"
+    WIPEISSUED = "wipeIssued"
+    WIPECANCELED = "wipeCanceled"
+    RETIRECANCELED = "retireCanceled"
     DISCOVERED = "discovered"
 
-class MicrosoftGraphMeetingCapabilities(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmeetingcapabilities(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    QUESTION_AND_ANSWER = "questionAndAnswer"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    QUESTIONANDANSWER = "questionAndAnswer"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphMessageActionFlag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmessageactionflag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ANY = "any"
     CALL = "call"
-    DO_NOT_FORWARD = "doNotForward"
-    FOLLOW_UP = "followUp"
+    DONOTFORWARD = "doNotForward"
+    FOLLOWUP = "followUp"
     FYI = "fyi"
     FORWARD = "forward"
-    NO_RESPONSE_NECESSARY = "noResponseNecessary"
+    NORESPONSENECESSARY = "noResponseNecessary"
     READ = "read"
     REPLY = "reply"
-    REPLY_TO_ALL = "replyToAll"
+    REPLYTOALL = "replyToAll"
     REVIEW = "review"
 
-class MicrosoftGraphMlClassificationMatchTolerance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmlclassificationmatchtolerance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EXACT = "exact"
     NEAR = "near"
 
-class MicrosoftGraphMobileAppIntent(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphmobileappintent(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     AVAILABLE = "available"
-    NOT_AVAILABLE = "notAvailable"
-    REQUIRED_INSTALL = "requiredInstall"
-    REQUIRED_UNINSTALL = "requiredUninstall"
-    REQUIRED_AND_AVAILABLE_INSTALL = "requiredAndAvailableInstall"
-    AVAILABLE_INSTALL_WITHOUT_ENROLLMENT = "availableInstallWithoutEnrollment"
+    NOTAVAILABLE = "notAvailable"
+    REQUIREDINSTALL = "requiredInstall"
+    REQUIREDUNINSTALL = "requiredUninstall"
+    REQUIREDANDAVAILABLEINSTALL = "requiredAndAvailableInstall"
+    AVAILABLEINSTALLWITHOUTENROLLMENT = "availableInstallWithoutEnrollment"
     EXCLUDE = "exclude"
 
-class MicrosoftGraphOnenoteUserRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphonenoteuserrole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     OWNER = "Owner"
     CONTRIBUTOR = "Contributor"
     NONE = "None"
     READER = "Reader"
 
-class MicrosoftGraphOnlineMeetingPresenters(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphonlinemeetingpresenters(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EVERYONE = "everyone"
     ORGANIZATION = "organization"
-    ROLE_IS_PRESENTER = "roleIsPresenter"
+    ROLEISPRESENTER = "roleIsPresenter"
     ORGANIZER = "organizer"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphOnlineMeetingProviderType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphonlinemeetingprovidertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
-    SKYPE_FOR_BUSINESS = "skypeForBusiness"
-    SKYPE_FOR_CONSUMER = "skypeForConsumer"
-    TEAMS_FOR_BUSINESS = "teamsForBusiness"
+    SKYPEFORBUSINESS = "skypeForBusiness"
+    SKYPEFORCONSUMER = "skypeForConsumer"
+    TEAMSFORBUSINESS = "teamsForBusiness"
 
-class MicrosoftGraphOnlineMeetingRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphonlinemeetingrole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ATTENDEE = "attendee"
     PRESENTER = "presenter"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_STARTED = "NotStarted"
+    NOTSTARTED = "NotStarted"
     RUNNING = "Running"
     COMPLETED = "Completed"
     FAILED = "Failed"
 
-class MicrosoftGraphOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphownertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     COMPANY = "company"
     PERSONAL = "personal"
 
-class MicrosoftGraphPermissionType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphpermissiontype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     APPLICATION = "application"
     DELEGATED = "delegated"
-    DELEGATED_USER_CONSENTABLE = "delegatedUserConsentable"
+    DELEGATEDUSERCONSENTABLE = "delegatedUserConsentable"
 
-class MicrosoftGraphPersistentBrowserSessionMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphpersistentbrowsersessionmode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ALWAYS = "always"
     NEVER = "never"
 
-class MicrosoftGraphPersonRelationship(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphpersonrelationship(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     MANAGER = "manager"
     COLLEAGUE = "colleague"
-    DIRECT_REPORT = "directReport"
-    DOT_LINE_REPORT = "dotLineReport"
+    DIRECTREPORT = "directReport"
+    DOTLINEREPORT = "dotLineReport"
     ASSISTANT = "assistant"
-    DOT_LINE_MANAGER = "dotLineManager"
-    ALTERNATE_CONTACT = "alternateContact"
+    DOTLINEMANAGER = "dotLineManager"
+    ALTERNATECONTACT = "alternateContact"
     FRIEND = "friend"
     SPOUSE = "spouse"
     SIBLING = "sibling"
     CHILD = "child"
     PARENT = "parent"
     SPONSOR = "sponsor"
-    EMERGENCY_CONTACT = "emergencyContact"
+    EMERGENCYCONTACT = "emergencyContact"
     OTHER = "other"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphphonetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     HOME = "home"
     BUSINESS = "business"
     MOBILE = "mobile"
     OTHER = "other"
     ASSISTANT = "assistant"
-    HOME_FAX = "homeFax"
-    BUSINESS_FAX = "businessFax"
-    OTHER_FAX = "otherFax"
+    HOMEFAX = "homeFax"
+    BUSINESSFAX = "businessFax"
+    OTHERFAX = "otherFax"
     PAGER = "pager"
     RADIO = "radio"
 
-class MicrosoftGraphPhysicalAddressType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphphysicaladdresstype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     HOME = "home"
     BUSINESS = "business"
     OTHER = "other"
 
-class MicrosoftGraphPlannerPreviewType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphplannerpreviewtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     AUTOMATIC = "automatic"
-    NO_PREVIEW = "noPreview"
+    NOPREVIEW = "noPreview"
     CHECKLIST = "checklist"
     DESCRIPTION = "description"
     REFERENCE = "reference"
 
-class MicrosoftGraphPolicyPlatformType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphpolicyplatformtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ANDROID = "android"
-    ANDROID_FOR_WORK = "androidForWork"
-    I_OS = "iOS"
-    MAC_OS = "macOS"
-    WINDOWS_PHONE81 = "windowsPhone81"
-    WINDOWS81_AND_LATER = "windows81AndLater"
-    WINDOWS10_AND_LATER = "windows10AndLater"
-    ANDROID_WORK_PROFILE = "androidWorkProfile"
-    WINDOWS10_X_PROFILE = "windows10XProfile"
+    ANDROIDFORWORK = "androidForWork"
+    IOS = "iOS"
+    MACOS = "macOS"
+    WINDOWSPHONE81 = "windowsPhone81"
+    WINDOWS81ANDLATER = "windows81AndLater"
+    WINDOWS10ANDLATER = "windows10AndLater"
+    ANDROIDWORKPROFILE = "androidWorkProfile"
+    WINDOWS10XPROFILE = "windows10XProfile"
     ALL = "all"
 
-class MicrosoftGraphPriority(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphpriority(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "None"
     HIGH = "High"
     LOW = "Low"
 
-class MicrosoftGraphRecurrencePatternType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphrecurrencepatterntype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DAILY = "daily"
     WEEKLY = "weekly"
-    ABSOLUTE_MONTHLY = "absoluteMonthly"
-    RELATIVE_MONTHLY = "relativeMonthly"
-    ABSOLUTE_YEARLY = "absoluteYearly"
-    RELATIVE_YEARLY = "relativeYearly"
+    ABSOLUTEMONTHLY = "absoluteMonthly"
+    RELATIVEMONTHLY = "relativeMonthly"
+    ABSOLUTEYEARLY = "absoluteYearly"
+    RELATIVEYEARLY = "relativeYearly"
 
-class MicrosoftGraphRecurrenceRangeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphrecurrencerangetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    END_DATE = "endDate"
-    NO_END = "noEnd"
+    ENDDATE = "endDate"
+    NOEND = "noEnd"
     NUMBERED = "numbered"
 
-class MicrosoftGraphReplyRestriction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphreplyrestriction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EVERYONE = "everyone"
-    AUTHOR_AND_MODERATORS = "authorAndModerators"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    AUTHORANDMODERATORS = "authorAndModerators"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphResponseType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphresponsetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     ORGANIZER = "organizer"
-    TENTATIVELY_ACCEPTED = "tentativelyAccepted"
+    TENTATIVELYACCEPTED = "tentativelyAccepted"
     ACCEPTED = "accepted"
     DECLINED = "declined"
-    NOT_RESPONDED = "notResponded"
+    NOTRESPONDED = "notResponded"
 
-class MicrosoftGraphResultantAppState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphresultantappstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     INSTALLED = "installed"
-    NOT_APPLICABLE = "notApplicable"
+    NOTAPPLICABLE = "notApplicable"
     FAILED = "failed"
-    NOT_INSTALLED = "notInstalled"
-    UNINSTALL_FAILED = "uninstallFailed"
-    PENDING_INSTALL = "pendingInstall"
+    NOTINSTALLED = "notInstalled"
+    UNINSTALLFAILED = "uninstallFailed"
+    PENDINGINSTALL = "pendingInstall"
     UNKNOWN = "unknown"
 
-class MicrosoftGraphRiskDetail(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphriskdetail(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    ADMIN_GENERATED_TEMPORARY_PASSWORD = "adminGeneratedTemporaryPassword"
-    USER_PERFORMED_SECURED_PASSWORD_CHANGE = "userPerformedSecuredPasswordChange"
-    USER_PERFORMED_SECURED_PASSWORD_RESET = "userPerformedSecuredPasswordReset"
-    ADMIN_CONFIRMED_SIGNIN_SAFE = "adminConfirmedSigninSafe"
-    AI_CONFIRMED_SIGNIN_SAFE = "aiConfirmedSigninSafe"
-    USER_PASSED_MFA_DRIVEN_BY_RISK_BASED_POLICY = "userPassedMFADrivenByRiskBasedPolicy"
-    ADMIN_DISMISSED_ALL_RISK_FOR_USER = "adminDismissedAllRiskForUser"
-    ADMIN_CONFIRMED_SIGNIN_COMPROMISED = "adminConfirmedSigninCompromised"
+    ADMINGENERATEDTEMPORARYPASSWORD = "adminGeneratedTemporaryPassword"
+    USERPERFORMEDSECUREDPASSWORDCHANGE = "userPerformedSecuredPasswordChange"
+    USERPERFORMEDSECUREDPASSWORDRESET = "userPerformedSecuredPasswordReset"
+    ADMINCONFIRMEDSIGNINSAFE = "adminConfirmedSigninSafe"
+    AICONFIRMEDSIGNINSAFE = "aiConfirmedSigninSafe"
+    USERPASSEDMFADRIVENBYRISKBASEDPOLICY = "userPassedMFADrivenByRiskBasedPolicy"
+    ADMINDISMISSEDALLRISKFORUSER = "adminDismissedAllRiskForUser"
+    ADMINCONFIRMEDSIGNINCOMPROMISED = "adminConfirmedSigninCompromised"
     HIDDEN = "hidden"
-    ADMIN_CONFIRMED_USER_COMPROMISED = "adminConfirmedUserCompromised"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    ADMINCONFIRMEDUSERCOMPROMISED = "adminConfirmedUserCompromised"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphRiskDetectionTimingType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphriskdetectiontimingtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_DEFINED = "notDefined"
+    NOTDEFINED = "notDefined"
     REALTIME = "realtime"
-    NEAR_REALTIME = "nearRealtime"
+    NEARREALTIME = "nearRealtime"
     OFFLINE = "offline"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphRiskEventType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphriskeventtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    UNLIKELY_TRAVEL = "unlikelyTravel"
-    ANONYMIZED_IP_ADDRESS = "anonymizedIPAddress"
-    MALICIOUS_IP_ADDRESS = "maliciousIPAddress"
-    UNFAMILIAR_FEATURES = "unfamiliarFeatures"
-    MALWARE_INFECTED_IP_ADDRESS = "malwareInfectedIPAddress"
-    SUSPICIOUS_IP_ADDRESS = "suspiciousIPAddress"
-    LEAKED_CREDENTIALS = "leakedCredentials"
-    INVESTIGATIONS_THREAT_INTELLIGENCE = "investigationsThreatIntelligence"
+    UNLIKELYTRAVEL = "unlikelyTravel"
+    ANONYMIZEDIPADDRESS = "anonymizedIPAddress"
+    MALICIOUSIPADDRESS = "maliciousIPAddress"
+    UNFAMILIARFEATURES = "unfamiliarFeatures"
+    MALWAREINFECTEDIPADDRESS = "malwareInfectedIPAddress"
+    SUSPICIOUSIPADDRESS = "suspiciousIPAddress"
+    LEAKEDCREDENTIALS = "leakedCredentials"
+    INVESTIGATIONSTHREATINTELLIGENCE = "investigationsThreatIntelligence"
     GENERIC = "generic"
-    ADMIN_CONFIRMED_USER_COMPROMISED = "adminConfirmedUserCompromised"
-    MCAS_IMPOSSIBLE_TRAVEL = "mcasImpossibleTravel"
-    MCAS_SUSPICIOUS_INBOX_MANIPULATION_RULES = "mcasSuspiciousInboxManipulationRules"
-    INVESTIGATIONS_THREAT_INTELLIGENCE_SIGNIN_LINKED = "investigationsThreatIntelligenceSigninLinked"
-    MALICIOUS_IP_ADDRESS_VALID_CREDENTIALS_BLOCKED_IP = "maliciousIPAddressValidCredentialsBlockedIP"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    ADMINCONFIRMEDUSERCOMPROMISED = "adminConfirmedUserCompromised"
+    MCASIMPOSSIBLETRAVEL = "mcasImpossibleTravel"
+    MCASSUSPICIOUSINBOXMANIPULATIONRULES = "mcasSuspiciousInboxManipulationRules"
+    INVESTIGATIONSTHREATINTELLIGENCESIGNINLINKED = "investigationsThreatIntelligenceSigninLinked"
+    MALICIOUSIPADDRESSVALIDCREDENTIALSBLOCKEDIP = "maliciousIPAddressValidCredentialsBlockedIP"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphRiskLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphrisklevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
     HIDDEN = "hidden"
     NONE = "none"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphRiskState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphriskstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    CONFIRMED_SAFE = "confirmedSafe"
+    CONFIRMEDSAFE = "confirmedSafe"
     REMEDIATED = "remediated"
     DISMISSED = "dismissed"
-    AT_RISK = "atRisk"
-    CONFIRMED_COMPROMISED = "confirmedCompromised"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    ATRISK = "atRisk"
+    CONFIRMEDCOMPROMISED = "confirmedCompromised"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphRuleMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphrulemode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     AUDIT = "audit"
-    AUDIT_AND_NOTIFY = "auditAndNotify"
+    AUDITANDNOTIFY = "auditAndNotify"
     ENFORCE = "enforce"
-    PENDING_DELETION = "pendingDeletion"
+    PENDINGDELETION = "pendingDeletion"
     TEST = "test"
 
-class MicrosoftGraphScheduleChangeRequestActor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphschedulechangerequestactor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     SENDER = "sender"
     RECIPIENT = "recipient"
     MANAGER = "manager"
     SYSTEM = "system"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphScheduleChangeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphschedulechangestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PENDING = "pending"
     APPROVED = "approved"
     DECLINED = "declined"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphScheduleEntityTheme(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphscheduleentitytheme(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     WHITE = "white"
     BLUE = "blue"
@@ -2765,228 +2765,228 @@ class MicrosoftGraphScheduleEntityTheme(with_metaclass(_CaseInsensitiveEnumMeta,
     PINK = "pink"
     YELLOW = "yellow"
     GRAY = "gray"
-    DARK_BLUE = "darkBlue"
-    DARK_GREEN = "darkGreen"
-    DARK_PURPLE = "darkPurple"
-    DARK_PINK = "darkPink"
-    DARK_YELLOW = "darkYellow"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    DARKBLUE = "darkBlue"
+    DARKGREEN = "darkGreen"
+    DARKPURPLE = "darkPurple"
+    DARKPINK = "darkPink"
+    DARKYELLOW = "darkYellow"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphSecurityBaselineComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsecuritybaselinecompliancestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     SECURE = "secure"
-    NOT_APPLICABLE = "notApplicable"
-    NOT_SECURE = "notSecure"
+    NOTAPPLICABLE = "notApplicable"
+    NOTSECURE = "notSecure"
     ERROR = "error"
     CONFLICT = "conflict"
 
-class MicrosoftGraphSecurityBaselinePolicySourceType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsecuritybaselinepolicysourcetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    DEVICE_CONFIGURATION = "deviceConfiguration"
-    DEVICE_INTENT = "deviceIntent"
+    DEVICECONFIGURATION = "deviceConfiguration"
+    DEVICEINTENT = "deviceIntent"
 
-class MicrosoftGraphSensitiveTypeScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsensitivetypescope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    FULL_DOCUMENT = "fullDocument"
-    PARTIAL_DOCUMENT = "partialDocument"
+    FULLDOCUMENT = "fullDocument"
+    PARTIALDOCUMENT = "partialDocument"
 
-class MicrosoftGraphSensitiveTypeSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsensitivetypesource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    OUT_OF_BOX = "outOfBox"
+    OUTOFBOX = "outOfBox"
     TENANT = "tenant"
 
-class MicrosoftGraphSensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NORMAL = "normal"
     PERSONAL = "personal"
     PRIVATE = "private"
     CONFIDENTIAL = "confidential"
 
-class MicrosoftGraphSensitivityLabelTarget(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsensitivitylabeltarget(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EMAIL = "email"
     SITE = "site"
-    UNIFIED_GROUP = "unifiedGroup"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNIFIEDGROUP = "unifiedGroup"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphSettingSourceType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsettingsourcetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    DEVICE_CONFIGURATION = "deviceConfiguration"
-    DEVICE_INTENT = "deviceIntent"
+    DEVICECONFIGURATION = "deviceConfiguration"
+    DEVICEINTENT = "deviceIntent"
 
-class MicrosoftGraphSigninFrequencyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphsigninfrequencytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     DAYS = "days"
     HOURS = "hours"
 
-class MicrosoftGraphSkillProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphskillproficiencylevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ELEMENTARY = "elementary"
-    LIMITED_WORKING = "limitedWorking"
-    GENERAL_PROFESSIONAL = "generalProfessional"
-    ADVANCED_PROFESSIONAL = "advancedProfessional"
+    LIMITEDWORKING = "limitedWorking"
+    GENERALPROFESSIONAL = "generalProfessional"
+    ADVANCEDPROFESSIONAL = "advancedProfessional"
     EXPERT = "expert"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ACTIVE = "active"
     UPDATED = "updated"
     DELETED = "deleted"
     IGNORED = "ignored"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphtaskstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_STARTED = "notStarted"
-    IN_PROGRESS = "inProgress"
+    NOTSTARTED = "notStarted"
+    INPROGRESS = "inProgress"
     COMPLETED = "completed"
-    WAITING_ON_OTHERS = "waitingOnOthers"
+    WAITINGONOTHERS = "waitingOnOthers"
     DEFERRED = "deferred"
 
-class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphteamsappdistributionmethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STORE = "store"
     ORGANIZATION = "organization"
     SIDELOADED = "sideloaded"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTeamsAppPublishingState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphteamsapppublishingstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     SUBMITTED = "submitted"
     REJECTED = "rejected"
     PUBLISHED = "published"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTeamsAsyncOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphteamsasyncoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     INVALID = "invalid"
-    NOT_STARTED = "notStarted"
-    IN_PROGRESS = "inProgress"
+    NOTSTARTED = "notStarted"
+    INPROGRESS = "inProgress"
     SUCCEEDED = "succeeded"
     FAILED = "failed"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTeamsAsyncOperationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphteamsasyncoperationtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     INVALID = "invalid"
-    CLONE_TEAM = "cloneTeam"
-    ARCHIVE_TEAM = "archiveTeam"
-    UNARCHIVE_TEAM = "unarchiveTeam"
-    CREATE_TEAM = "createTeam"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    CLONETEAM = "cloneTeam"
+    ARCHIVETEAM = "archiveTeam"
+    UNARCHIVETEAM = "unarchiveTeam"
+    CREATETEAM = "createTeam"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTeamSpecialization(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphteamspecialization(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    EDUCATION_STANDARD = "educationStandard"
-    EDUCATION_CLASS = "educationClass"
-    EDUCATION_PROFESSIONAL_LEARNING_COMMUNITY = "educationProfessionalLearningCommunity"
-    EDUCATION_STAFF = "educationStaff"
-    HEALTHCARE_STANDARD = "healthcareStandard"
-    HEALTHCARE_CARE_COORDINATION = "healthcareCareCoordination"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    EDUCATIONSTANDARD = "educationStandard"
+    EDUCATIONCLASS = "educationClass"
+    EDUCATIONPROFESSIONALLEARNINGCOMMUNITY = "educationProfessionalLearningCommunity"
+    EDUCATIONSTAFF = "educationStaff"
+    HEALTHCARESTANDARD = "healthcareStandard"
+    HEALTHCARECARECOORDINATION = "healthcareCareCoordination"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTeamVisibilityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphteamvisibilitytype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PRIVATE = "private"
     PUBLIC = "public"
-    HIDDEN_MEMBERSHIP = "hiddenMembership"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    HIDDENMEMBERSHIP = "hiddenMembership"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphThreatAssessmentContentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphthreatassessmentcontenttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     MAIL = "mail"
     URL = "url"
     FILE = "file"
 
-class MicrosoftGraphThreatAssessmentRequestSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphthreatassessmentrequestsource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNDEFINED = "undefined"
     USER = "user"
     ADMINISTRATOR = "administrator"
 
-class MicrosoftGraphThreatAssessmentResultType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphthreatassessmentresulttype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    CHECK_POLICY = "checkPolicy"
+    CHECKPOLICY = "checkPolicy"
     RESCAN = "rescan"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphThreatAssessmentStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphthreatassessmentstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PENDING = "pending"
     COMPLETED = "completed"
 
-class MicrosoftGraphThreatCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphthreatcategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNDEFINED = "undefined"
     SPAM = "spam"
     PHISHING = "phishing"
     MALWARE = "malware"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphThreatExpectedAssessment(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphthreatexpectedassessment(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     BLOCK = "block"
     UNBLOCK = "unblock"
 
-class MicrosoftGraphTimeCardState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphtimecardstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    CLOCKED_IN = "clockedIn"
-    ON_BREAK = "onBreak"
-    CLOCKED_OUT = "clockedOut"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    CLOCKEDIN = "clockedIn"
+    ONBREAK = "onBreak"
+    CLOCKEDOUT = "clockedOut"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTimeOffReasonIconType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphtimeoffreasonicontype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     CAR = "car"
     CALENDAR = "calendar"
     RUNNING = "running"
     PLANE = "plane"
-    FIRST_AID = "firstAid"
+    FIRSTAID = "firstAid"
     DOCTOR = "doctor"
-    NOT_WORKING = "notWorking"
+    NOTWORKING = "notWorking"
     CLOCK = "clock"
-    JURY_DUTY = "juryDuty"
+    JURYDUTY = "juryDuty"
     GLOBE = "globe"
     CUP = "cup"
     PHONE = "phone"
     WEATHER = "weather"
     UMBRELLA = "umbrella"
-    PIGGY_BANK = "piggyBank"
+    PIGGYBANK = "piggyBank"
     DOG = "dog"
     CAKE = "cake"
-    TRAFFIC_CONE = "trafficCone"
+    TRAFFICCONE = "trafficCone"
     PIN = "pin"
     SUNNY = "sunny"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphTokenIssuerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphtokenissuertype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    AZURE_AD = "AzureAD"
-    AD_FEDERATION_SERVICES = "ADFederationServices"
-    UNKNOWN_FUTURE_VALUE = "UnknownFutureValue"
+    AZUREAD = "AzureAD"
+    ADFEDERATIONSERVICES = "ADFederationServices"
+    UNKNOWNFUTUREVALUE = "UnknownFutureValue"
 
-class MicrosoftGraphUserFlowType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphuserflowtype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    SIGN_UP = "signUp"
-    SIGN_IN = "signIn"
-    SIGN_UP_OR_SIGN_IN = "signUpOrSignIn"
-    PASSWORD_RESET = "passwordReset"
-    PROFILE_UPDATE = "profileUpdate"
-    RESOURCE_OWNER = "resourceOwner"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    SIGNUP = "signUp"
+    SIGNIN = "signIn"
+    SIGNUPORSIGNIN = "signUpOrSignIn"
+    PASSWORDRESET = "passwordReset"
+    PROFILEUPDATE = "profileUpdate"
+    RESOURCEOWNER = "resourceOwner"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphUserNewMessageRestriction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphusernewmessagerestriction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EVERYONE = "everyone"
-    EVERYONE_EXCEPT_GUESTS = "everyoneExceptGuests"
+    EVERYONEEXCEPTGUESTS = "everyoneExceptGuests"
     MODERATORS = "moderators"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwebsitetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     OTHER = "other"
     HOME = "home"
@@ -2994,7 +2994,7 @@ class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, En
     BLOG = "blog"
     PROFILE = "profile"
 
-class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphweekindex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     FIRST = "first"
     SECOND = "second"
@@ -3002,63 +3002,63 @@ class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     FOURTH = "fourth"
     LAST = "last"
 
-class MicrosoftGraphWellknownListName(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwellknownlistname(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
-    DEFAULT_LIST = "defaultList"
-    FLAGGED_EMAILS = "flaggedEmails"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    DEFAULTLIST = "defaultList"
+    FLAGGEDEMAILS = "flaggedEmails"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphWindowsDeviceHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwindowsdevicehealthstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     CLEAN = "clean"
-    FULL_SCAN_PENDING = "fullScanPending"
-    REBOOT_PENDING = "rebootPending"
-    MANUAL_STEPS_PENDING = "manualStepsPending"
-    OFFLINE_SCAN_PENDING = "offlineScanPending"
+    FULLSCANPENDING = "fullScanPending"
+    REBOOTPENDING = "rebootPending"
+    MANUALSTEPSPENDING = "manualStepsPending"
+    OFFLINESCANPENDING = "offlineScanPending"
     CRITICAL = "critical"
 
-class MicrosoftGraphWindowsMalwareCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwindowsmalwarecategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     INVALID = "invalid"
     ADWARE = "adware"
     SPYWARE = "spyware"
-    PASSWORD_STEALER = "passwordStealer"
-    TROJAN_DOWNLOADER = "trojanDownloader"
+    PASSWORDSTEALER = "passwordStealer"
+    TROJANDOWNLOADER = "trojanDownloader"
     WORM = "worm"
     BACKDOOR = "backdoor"
-    REMOTE_ACCESS_TROJAN = "remoteAccessTrojan"
+    REMOTEACCESSTROJAN = "remoteAccessTrojan"
     TROJAN = "trojan"
-    EMAIL_FLOODER = "emailFlooder"
+    EMAILFLOODER = "emailFlooder"
     KEYLOGGER = "keylogger"
     DIALER = "dialer"
-    MONITORING_SOFTWARE = "monitoringSoftware"
-    BROWSER_MODIFIER = "browserModifier"
+    MONITORINGSOFTWARE = "monitoringSoftware"
+    BROWSERMODIFIER = "browserModifier"
     COOKIE = "cookie"
-    BROWSER_PLUGIN = "browserPlugin"
-    AOL_EXPLOIT = "aolExploit"
+    BROWSERPLUGIN = "browserPlugin"
+    AOLEXPLOIT = "aolExploit"
     NUKER = "nuker"
-    SECURITY_DISABLER = "securityDisabler"
-    JOKE_PROGRAM = "jokeProgram"
-    HOSTILE_ACTIVE_X_CONTROL = "hostileActiveXControl"
-    SOFTWARE_BUNDLER = "softwareBundler"
-    STEALTH_NOTIFIER = "stealthNotifier"
-    SETTINGS_MODIFIER = "settingsModifier"
-    TOOL_BAR = "toolBar"
-    REMOTE_CONTROL_SOFTWARE = "remoteControlSoftware"
-    TROJAN_FTP = "trojanFtp"
-    POTENTIAL_UNWANTED_SOFTWARE = "potentialUnwantedSoftware"
-    ICQ_EXPLOIT = "icqExploit"
-    TROJAN_TELNET = "trojanTelnet"
+    SECURITYDISABLER = "securityDisabler"
+    JOKEPROGRAM = "jokeProgram"
+    HOSTILEACTIVEXCONTROL = "hostileActiveXControl"
+    SOFTWAREBUNDLER = "softwareBundler"
+    STEALTHNOTIFIER = "stealthNotifier"
+    SETTINGSMODIFIER = "settingsModifier"
+    TOOLBAR = "toolBar"
+    REMOTECONTROLSOFTWARE = "remoteControlSoftware"
+    TROJANFTP = "trojanFtp"
+    POTENTIALUNWANTEDSOFTWARE = "potentialUnwantedSoftware"
+    ICQEXPLOIT = "icqExploit"
+    TROJANTELNET = "trojanTelnet"
     EXPLOIT = "exploit"
-    FILESHARING_PROGRAM = "filesharingProgram"
-    MALWARE_CREATION_TOOL = "malwareCreationTool"
+    FILESHARINGPROGRAM = "filesharingProgram"
+    MALWARECREATIONTOOL = "malwareCreationTool"
     TOOL = "tool"
-    TROJAN_DENIAL_OF_SERVICE = "trojanDenialOfService"
-    TROJAN_DROPPER = "trojanDropper"
-    TROJAN_MASS_MAILER = "trojanMassMailer"
-    TROJAN_MONITORING_SOFTWARE = "trojanMonitoringSoftware"
-    TROJAN_PROXY_SERVER = "trojanProxyServer"
+    TROJANDENIALOFSERVICE = "trojanDenialOfService"
+    TROJANDROPPER = "trojanDropper"
+    TROJANMASSMAILER = "trojanMassMailer"
+    TROJANMONITORINGSOFTWARE = "trojanMonitoringSoftware"
+    TROJANPROXYSERVER = "trojanProxyServer"
     VIRUS = "virus"
     KNOWN = "known"
     UNKNOWN = "unknown"
@@ -3066,19 +3066,19 @@ class MicrosoftGraphWindowsMalwareCategory(with_metaclass(_CaseInsensitiveEnumMe
     BEHAVIOR = "behavior"
     VULNERABILITY = "vulnerability"
     POLICY = "policy"
-    ENTERPRISE_UNWANTED_SOFTWARE = "enterpriseUnwantedSoftware"
+    ENTERPRISEUNWANTEDSOFTWARE = "enterpriseUnwantedSoftware"
     RANSOM = "ransom"
-    HIPS_RULE = "hipsRule"
+    HIPSRULE = "hipsRule"
 
-class MicrosoftGraphWindowsMalwareExecutionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwindowsmalwareexecutionstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     BLOCKED = "blocked"
     ALLOWED = "allowed"
     RUNNING = "running"
-    NOT_RUNNING = "notRunning"
+    NOTRUNNING = "notRunning"
 
-class MicrosoftGraphWindowsMalwareSeverity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwindowsmalwareseverity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     LOW = "low"
@@ -3086,7 +3086,7 @@ class MicrosoftGraphWindowsMalwareSeverity(with_metaclass(_CaseInsensitiveEnumMe
     HIGH = "high"
     SEVERE = "severe"
 
-class MicrosoftGraphWindowsMalwareState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwindowsmalwarestate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     DETECTED = "detected"
@@ -3095,30 +3095,30 @@ class MicrosoftGraphWindowsMalwareState(with_metaclass(_CaseInsensitiveEnumMeta,
     REMOVED = "removed"
     ALLOWED = "allowed"
     BLOCKED = "blocked"
-    CLEAN_FAILED = "cleanFailed"
-    QUARANTINE_FAILED = "quarantineFailed"
-    REMOVE_FAILED = "removeFailed"
-    ALLOW_FAILED = "allowFailed"
+    CLEANFAILED = "cleanFailed"
+    QUARANTINEFAILED = "quarantineFailed"
+    REMOVEFAILED = "removeFailed"
+    ALLOWFAILED = "allowFailed"
     ABANDONED = "abandoned"
-    BLOCK_FAILED = "blockFailed"
+    BLOCKFAILED = "blockFailed"
 
-class MicrosoftGraphWindowsMalwareThreatState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphwindowsmalwarethreatstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ACTIVE = "active"
-    ACTION_FAILED = "actionFailed"
-    MANUAL_STEPS_REQUIRED = "manualStepsRequired"
-    FULL_SCAN_REQUIRED = "fullScanRequired"
-    REBOOT_REQUIRED = "rebootRequired"
-    REMEDIATED_WITH_NON_CRITICAL_FAILURES = "remediatedWithNonCriticalFailures"
+    ACTIONFAILED = "actionFailed"
+    MANUALSTEPSREQUIRED = "manualStepsRequired"
+    FULLSCANREQUIRED = "fullScanRequired"
+    REBOOTREQUIRED = "rebootRequired"
+    REMEDIATEDWITHNONCRITICALFAILURES = "remediatedWithNonCriticalFailures"
     QUARANTINED = "quarantined"
     REMOVED = "removed"
     CLEANED = "cleaned"
     ALLOWED = "allowed"
-    NO_STATUS_CLEARED = "noStatusCleared"
+    NOSTATUSCLEARED = "noStatusCleared"
 
-class MicrosoftGraphWorkbookOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphworkbookoperationstatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_STARTED = "notStarted"
+    NOTSTARTED = "notStarted"
     RUNNING = "running"
     SUCCEEDED = "succeeded"
     FAILED = "failed"

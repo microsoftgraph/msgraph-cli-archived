@@ -11,68 +11,68 @@
 
 def cf_identitysignins_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.identitysignins import IdentitySignIns
+    from azext_identitysignins_v1_0.vendored_sdks.identitysignins import IdentitySignIns
     return get_mgmt_service_client(cli_ctx,
                                    IdentitySignIns,
                                    subscription_bound=False,
                                    base_url_bound=False)
 
 
-def cf_data_policy_operation_data_policy_operation(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).data_policy_operation_data_policy_operation
+def cf_datapolicyoperationsdatapolicyoperation(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).datapolicyoperationsdatapolicyoperation
 
 
 def cf_identity(cli_ctx, *_):
     return cf_identitysignins_v1_0_cl(cli_ctx).identity
 
 
-def cf_identity_conditional_access(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).identity_conditional_access
+def cf_identityconditionalaccess(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).identityconditionalaccess
 
 
-def cf_identity_provider_identity_provider(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).identity_provider_identity_provider
+def cf_identityprovidersidentityprovider(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).identityprovidersidentityprovider
 
 
-def cf_information_protection_information_protection(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).information_protection_information_protection
+def cf_informationprotection(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).informationprotectioninformationprotection
 
 
-def cf_information_protection(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).information_protection
+def cf_informationprotection(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).informationprotection
 
 
-def cf_information_protection_threat_assessment_request(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).information_protection_threat_assessment_request
+def cf_informationprotectionthreatassessmentrequest(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).informationprotectionthreatassessmentrequests
 
 
-def cf_invitation_invitation(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).invitation_invitation
+def cf_invitationsinvitation(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).invitationsinvitation
 
 
 def cf_invitation(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).invitation
+    return cf_identitysignins_v1_0_cl(cli_ctx).invitations
 
 
-def cf_oauth2permission_grant_oauth2permission_grant(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).oauth2_permission_grant_oauth2_permission_grant
+def cf_oauth2permissiongrantsoauth2permissiongrant(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).oauth2permissiongrantsoauth2permissiongrant
 
 
-def cf_oauth2permission_grant(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).oauth2_permission_grant
+def cf_oauth2permissiongrant(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).oauth2permissiongrants
 
 
 def cf_organization(cli_ctx, *_):
     return cf_identitysignins_v1_0_cl(cli_ctx).organization
 
 
-def cf_policy_policy_root(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).policy_policy_root
+def cf_policiespolicyroot(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).policiespolicyroot
 
 
 def cf_policy(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).policy
+    return cf_identitysignins_v1_0_cl(cli_ctx).policies
 
 
-def cf_policy_permission_grant_policy(cli_ctx, *_):
-    return cf_identitysignins_v1_0_cl(cli_ctx).policy_permission_grant_policy
+def cf_policiespermissiongrantpolicy(cli_ctx, *_):
+    return cf_identitysignins_v1_0_cl(cli_ctx).policiespermissiongrantpolicies

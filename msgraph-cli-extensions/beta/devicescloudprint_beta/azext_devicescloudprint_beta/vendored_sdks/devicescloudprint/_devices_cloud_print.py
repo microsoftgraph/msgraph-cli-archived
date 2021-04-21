@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,48 +18,48 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import DevicesCloudPrintConfiguration
-from .operations import PrintPrintOperations
-from .operations import PrintOperations
-from .operations import PrintPrinterOperations
-from .operations import PrintPrinterTaskTriggerOperations
-from .operations import PrintPrinterShareOperations
-from .operations import PrintPrinterSharePrinterOperations
-from .operations import PrintReportOperations
-from .operations import PrintServiceOperations
-from .operations import PrintShareOperations
-from .operations import PrintSharePrinterOperations
-from .operations import PrintTaskDefinitionOperations
-from .operations import PrintTaskDefinitionTaskOperations
+from .operations import printprintOperations
+from .operations import printOperations
+from .operations import printprintersOperations
+from .operations import printprinterstasktriggersOperations
+from .operations import printprintersharesOperations
+from .operations import printprintersharesprinterOperations
+from .operations import printreportsOperations
+from .operations import printservicesOperations
+from .operations import printsharesOperations
+from .operations import printsharesprinterOperations
+from .operations import printtaskdefinitionsOperations
+from .operations import printtaskdefinitionstasksOperations
 from . import models
 
 
 class DevicesCloudPrint(object):
     """DevicesCloudPrint.
 
-    :ivar print_print: PrintPrintOperations operations
-    :vartype print_print: devices_cloud_print.operations.PrintPrintOperations
-    :ivar print: PrintOperations operations
-    :vartype print: devices_cloud_print.operations.PrintOperations
-    :ivar print_printer: PrintPrinterOperations operations
-    :vartype print_printer: devices_cloud_print.operations.PrintPrinterOperations
-    :ivar print_printer_task_trigger: PrintPrinterTaskTriggerOperations operations
-    :vartype print_printer_task_trigger: devices_cloud_print.operations.PrintPrinterTaskTriggerOperations
-    :ivar print_printer_share: PrintPrinterShareOperations operations
-    :vartype print_printer_share: devices_cloud_print.operations.PrintPrinterShareOperations
-    :ivar print_printer_share_printer: PrintPrinterSharePrinterOperations operations
-    :vartype print_printer_share_printer: devices_cloud_print.operations.PrintPrinterSharePrinterOperations
-    :ivar print_report: PrintReportOperations operations
-    :vartype print_report: devices_cloud_print.operations.PrintReportOperations
-    :ivar print_service: PrintServiceOperations operations
-    :vartype print_service: devices_cloud_print.operations.PrintServiceOperations
-    :ivar print_share: PrintShareOperations operations
-    :vartype print_share: devices_cloud_print.operations.PrintShareOperations
-    :ivar print_share_printer: PrintSharePrinterOperations operations
-    :vartype print_share_printer: devices_cloud_print.operations.PrintSharePrinterOperations
-    :ivar print_task_definition: PrintTaskDefinitionOperations operations
-    :vartype print_task_definition: devices_cloud_print.operations.PrintTaskDefinitionOperations
-    :ivar print_task_definition_task: PrintTaskDefinitionTaskOperations operations
-    :vartype print_task_definition_task: devices_cloud_print.operations.PrintTaskDefinitionTaskOperations
+    :ivar printprint: printprintOperations operations
+    :vartype printprint: devices_cloud_print.operations.printprintOperations
+    :ivar print: printOperations operations
+    :vartype print: devices_cloud_print.operations.printOperations
+    :ivar printprinters: printprintersOperations operations
+    :vartype printprinters: devices_cloud_print.operations.printprintersOperations
+    :ivar printprinterstasktriggers: printprinterstasktriggersOperations operations
+    :vartype printprinterstasktriggers: devices_cloud_print.operations.printprinterstasktriggersOperations
+    :ivar printprintershares: printprintersharesOperations operations
+    :vartype printprintershares: devices_cloud_print.operations.printprintersharesOperations
+    :ivar printprintersharesprinter: printprintersharesprinterOperations operations
+    :vartype printprintersharesprinter: devices_cloud_print.operations.printprintersharesprinterOperations
+    :ivar printreports: printreportsOperations operations
+    :vartype printreports: devices_cloud_print.operations.printreportsOperations
+    :ivar printservices: printservicesOperations operations
+    :vartype printservices: devices_cloud_print.operations.printservicesOperations
+    :ivar printshares: printsharesOperations operations
+    :vartype printshares: devices_cloud_print.operations.printsharesOperations
+    :ivar printsharesprinter: printsharesprinterOperations operations
+    :vartype printsharesprinter: devices_cloud_print.operations.printsharesprinterOperations
+    :ivar printtaskdefinitions: printtaskdefinitionsOperations operations
+    :vartype printtaskdefinitions: devices_cloud_print.operations.printtaskdefinitionsOperations
+    :ivar printtaskdefinitionstasks: printtaskdefinitionstasksOperations operations
+    :vartype printtaskdefinitionstasks: devices_cloud_print.operations.printtaskdefinitionstasksOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -73,7 +73,6 @@ class DevicesCloudPrint(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -91,35 +90,36 @@ class DevicesCloudPrint(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = DevicesCloudPrintConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.print_print = PrintPrintOperations(
+        self.printprint = printprintOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print = PrintOperations(
+        self.print = printOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_printer = PrintPrinterOperations(
+        self.printprinters = printprintersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_printer_task_trigger = PrintPrinterTaskTriggerOperations(
+        self.printprinterstasktriggers = printprinterstasktriggersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_printer_share = PrintPrinterShareOperations(
+        self.printprintershares = printprintersharesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_printer_share_printer = PrintPrinterSharePrinterOperations(
+        self.printprintersharesprinter = printprintersharesprinterOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_report = PrintReportOperations(
+        self.printreports = printreportsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_service = PrintServiceOperations(
+        self.printservices = printservicesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_share = PrintShareOperations(
+        self.printshares = printsharesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_share_printer = PrintSharePrinterOperations(
+        self.printsharesprinter = printsharesprinterOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_task_definition = PrintTaskDefinitionOperations(
+        self.printtaskdefinitions = printtaskdefinitionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.print_task_definition_task = PrintTaskDefinitionTaskOperations(
+        self.printtaskdefinitionstasks = printtaskdefinitionstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

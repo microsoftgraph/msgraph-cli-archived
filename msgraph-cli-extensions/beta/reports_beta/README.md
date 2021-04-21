@@ -1,5 +1,14 @@
-Microsoft Azure CLI 'reports_beta' Extension
-==========================================
+# Azure CLI reports_beta Extension #
+This is the extension for reports_beta
 
-This package is for the 'reports_beta' extension.
-i.e. 'az reports_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name reports_beta
+```
+
+### Included Features ###
+#### reports auditlogsauditlogroot ####
+#### reports auditlog ####
+#### reports reportsreportroot ####
+#### reports report ####

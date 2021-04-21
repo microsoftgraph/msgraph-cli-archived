@@ -7,359 +7,758 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_devicescorpmgt_v1_0.generated._client_factory import (
+    cf_deviceappmanagementdeviceappmanagement,
+    cf_deviceappmanagement,
+    cf_deviceappmanagementandroidmanagedappprotection,
+    cf_deviceappmanagementdefaultmanagedappprotection,
+    cf_deviceappmanagementiosmanagedappprotection,
+    cf_deviceappmanagementmanagedapppolicy,
+    cf_deviceappmanagementmanagedappregistration,
+    cf_deviceappmanagementmanagedappregistrationsappliedpolicy,
+    cf_deviceappmanagementmanagedappregistrationsintendedpolicy,
+    cf_deviceappmanagementmanagedebook,
+    cf_deviceappmanagementmanagedebooksuserstatesummary,
+    cf_deviceappmanagementmobileappconfiguration,
+    cf_deviceappmanagementmobileapp,
+    cf_deviceappmanagementtargetedmanagedappconfiguration,
+    cf_deviceappmanagementvpptoken,
+    cf_user,
+    cf_usersmanageddevice,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementdeviceappmanagement = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementdeviceappmanagement_operations#deviceappmanagementdeviceappmanagementOperations.{}',
+    client_factory=cf_deviceappmanagementdeviceappmanagement,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagement = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagement_operations#deviceappmanagementOperations.{}',
+    client_factory=cf_deviceappmanagement,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementandroidmanagedappprotection = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementandroidmanagedappprotections_operations#deviceappmanagementandroidmanagedappprotectionsOperations.{}',
+    client_factory=cf_deviceappmanagementandroidmanagedappprotection,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementdefaultmanagedappprotection = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementdefaultmanagedappprotections_operations#deviceappmanagementdefaultmanagedappprotectionsOperations.{}',
+    client_factory=cf_deviceappmanagementdefaultmanagedappprotection,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementiosmanagedappprotection = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementiosmanagedappprotections_operations#deviceappmanagementiosmanagedappprotectionsOperations.{}',
+    client_factory=cf_deviceappmanagementiosmanagedappprotection,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmanagedapppolicy = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmanagedapppolicies_operations#deviceappmanagementmanagedapppoliciesOperations.{}',
+    client_factory=cf_deviceappmanagementmanagedapppolicy,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmanagedappregistration = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmanagedappregistrations_operations#deviceappmanagementmanagedappregistrationsOperations.{}',
+    client_factory=cf_deviceappmanagementmanagedappregistration,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmanagedappregistrationsappliedpolicy = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmanagedappregistrationsappliedpolicies_operations#deviceappmanagementmanagedappregistrationsappliedpoliciesOperations.{}',
+    client_factory=cf_deviceappmanagementmanagedappregistrationsappliedpolicy,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmanagedappregistrationsintendedpolicy = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmanagedappregistrationsintendedpolicies_operations#deviceappmanagementmanagedappregistrationsintendedpoliciesOperations.{}',
+    client_factory=cf_deviceappmanagementmanagedappregistrationsintendedpolicy,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmanagedebook = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmanagedebooks_operations#deviceappmanagementmanagedebooksOperations.{}',
+    client_factory=cf_deviceappmanagementmanagedebook,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmanagedebooksuserstatesummary = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmanagedebooksuserstatesummary_operations#deviceappmanagementmanagedebooksuserstatesummaryOperations.{}',
+    client_factory=cf_deviceappmanagementmanagedebooksuserstatesummary,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmobileappconfiguration = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmobileappconfigurations_operations#deviceappmanagementmobileappconfigurationsOperations.{}',
+    client_factory=cf_deviceappmanagementmobileappconfiguration,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementmobileapp = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementmobileapps_operations#deviceappmanagementmobileappsOperations.{}',
+    client_factory=cf_deviceappmanagementmobileapp,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementtargetedmanagedappconfiguration = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementtargetedmanagedappconfigurations_operations#deviceappmanagementtargetedmanagedappconfigurationsOperations.{}',
+    client_factory=cf_deviceappmanagementtargetedmanagedappconfiguration,
+)
+
+
+devicescorpmgt_v1_0_deviceappmanagementvpptoken = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._deviceappmanagementvpptokens_operations#deviceappmanagementvpptokensOperations.{}',
+    client_factory=cf_deviceappmanagementvpptoken,
+)
+
+
+devicescorpmgt_v1_0_user = CliCommandType(
+    operations_tmpl=(
+        'azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._users_operations#usersOperations.{}'
+    ),
+    client_factory=cf_user,
+)
+
+
+devicescorpmgt_v1_0_usersmanageddevice = CliCommandType(
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._usersmanageddevices_operations#usersmanageddevicesOperations.{}',
+    client_factory=cf_usersmanageddevice,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_device_app_management
-    devicescorpmgt_v1_0_device_app_management_device_app_management = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_devic'
-        'e_app_management_operations#DeviceAppManagementDeviceAppManagementOperations.{}',
-        client_factory=cf_device_app_management_device_app_management)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_device_app_management,
-                            client_factory=cf_device_app_management_device_app_management) as g:
-        g.custom_command('get-device-app-management', 'devicescorpmgt_get_device_app_management')
-        g.custom_command('update-device-app-management', 'devicescorpmgt_update_device_app_management')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementdeviceappmanagement',
+        devicescorpmgt_v1_0_deviceappmanagementdeviceappmanagement,
+        client_factory=cf_deviceappmanagementdeviceappmanagement,
+    ) as g:
+        g.custom_command(
+            'show-device-app-management',
+            'devicescorpmgt_deviceappmanagementdeviceappmanagement_show_device_app_management',
+        )
+        g.custom_command(
+            'update-device-app-management',
+            'devicescorpmgt_deviceappmanagementdeviceappmanagement_update_device_app_management',
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management
-    devicescorpmgt_v1_0_device_app_management = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_opera'
-        'tions#DeviceAppManagementOperations.{}',
-        client_factory=cf_device_app_management)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management,
-                            client_factory=cf_device_app_management) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-android-managed-app-protection', 'devicescorpmgt_create_android_managed_app_protection'
-                         '')
-        g.custom_command('create-default-managed-app-protection', 'devicescorpmgt_create_default_managed_app_protection'
-                         '')
-        g.custom_command('create-io-managed-app-protection', 'devicescorpmgt_create_io_managed_app_protection')
-        g.custom_command('create-managed-app-policy', 'devicescorpmgt_create_managed_app_policy')
-        g.custom_command('create-managed-app-registration', 'devicescorpmgt_create_managed_app_registration')
-        g.custom_command('create-managed-app-statuses', 'devicescorpmgt_create_managed_app_statuses')
-        g.custom_command('create-managed-e-book', 'devicescorpmgt_create_managed_e_book')
-        g.custom_command('create-mdm-window-information-protection-policy', 'devicescorpmgt_create_mdm_window_informati'
-                         'on_protection_policy')
-        g.custom_command('create-mobile-app', 'devicescorpmgt_create_mobile_app')
-        g.custom_command('create-mobile-app-category', 'devicescorpmgt_create_mobile_app_category')
-        g.custom_command('create-mobile-app-configuration', 'devicescorpmgt_create_mobile_app_configuration')
-        g.custom_command('create-targeted-managed-app-configuration', 'devicescorpmgt_create_targeted_managed_app_confi'
-                         'guration')
-        g.custom_command('create-vpp-token', 'devicescorpmgt_create_vpp_token')
-        g.custom_command('create-window-information-protection-policy', 'devicescorpmgt_create_window_information_prote'
-                         'ction_policy')
-        g.custom_command('get-android-managed-app-protection', 'devicescorpmgt_get_android_managed_app_protection')
-        g.custom_command('get-default-managed-app-protection', 'devicescorpmgt_get_default_managed_app_protection')
-        g.custom_command('get-io-managed-app-protection', 'devicescorpmgt_get_io_managed_app_protection')
-        g.custom_command('get-managed-app-policy', 'devicescorpmgt_get_managed_app_policy')
-        g.custom_command('get-managed-app-registration', 'devicescorpmgt_get_managed_app_registration')
-        g.custom_command('get-managed-app-statuses', 'devicescorpmgt_get_managed_app_statuses')
-        g.custom_command('get-managed-e-book', 'devicescorpmgt_get_managed_e_book')
-        g.custom_command('get-mdm-window-information-protection-policy', 'devicescorpmgt_get_mdm_window_information_pro'
-                         'tection_policy')
-        g.custom_command('get-mobile-app', 'devicescorpmgt_get_mobile_app')
-        g.custom_command('get-mobile-app-category', 'devicescorpmgt_get_mobile_app_category')
-        g.custom_command('get-mobile-app-configuration', 'devicescorpmgt_get_mobile_app_configuration')
-        g.custom_command('get-targeted-managed-app-configuration', 'devicescorpmgt_get_targeted_managed_app_configurati'
-                         'on')
-        g.custom_command('get-vpp-token', 'devicescorpmgt_get_vpp_token')
-        g.custom_command('get-window-information-protection-policy', 'devicescorpmgt_get_window_information_protection_'
-                         'policy')
-        g.custom_command('list-android-managed-app-protection', 'devicescorpmgt_list_android_managed_app_protection')
-        g.custom_command('list-default-managed-app-protection', 'devicescorpmgt_list_default_managed_app_protection')
-        g.custom_command('list-io-managed-app-protection', 'devicescorpmgt_list_io_managed_app_protection')
-        g.custom_command('list-managed-app-policy', 'devicescorpmgt_list_managed_app_policy')
-        g.custom_command('list-managed-app-registration', 'devicescorpmgt_list_managed_app_registration')
-        g.custom_command('list-managed-app-statuses', 'devicescorpmgt_list_managed_app_statuses')
-        g.custom_command('list-managed-e-book', 'devicescorpmgt_list_managed_e_book')
-        g.custom_command('list-mdm-window-information-protection-policy', 'devicescorpmgt_list_mdm_window_information_p'
-                         'rotection_policy')
-        g.custom_command('list-mobile-app', 'devicescorpmgt_list_mobile_app')
-        g.custom_command('list-mobile-app-category', 'devicescorpmgt_list_mobile_app_category')
-        g.custom_command('list-mobile-app-configuration', 'devicescorpmgt_list_mobile_app_configuration')
-        g.custom_command('list-targeted-managed-app-configuration', 'devicescorpmgt_list_targeted_managed_app_configura'
-                         'tion')
-        g.custom_command('list-vpp-token', 'devicescorpmgt_list_vpp_token')
-        g.custom_command('list-window-information-protection-policy', 'devicescorpmgt_list_window_information_protectio'
-                         'n_policy')
-        g.custom_command('sync-microsoft-store-for-business-app', 'devicescorpmgt_sync_microsoft_store_for_business_app'
-                         '')
-        g.custom_command('update-android-managed-app-protection', 'devicescorpmgt_update_android_managed_app_protection'
-                         '')
-        g.custom_command('update-default-managed-app-protection', 'devicescorpmgt_update_default_managed_app_protection'
-                         '')
-        g.custom_command('update-io-managed-app-protection', 'devicescorpmgt_update_io_managed_app_protection')
-        g.custom_command('update-managed-app-policy', 'devicescorpmgt_update_managed_app_policy')
-        g.custom_command('update-managed-app-registration', 'devicescorpmgt_update_managed_app_registration')
-        g.custom_command('update-managed-app-statuses', 'devicescorpmgt_update_managed_app_statuses')
-        g.custom_command('update-managed-e-book', 'devicescorpmgt_update_managed_e_book')
-        g.custom_command('update-mdm-window-information-protection-policy', 'devicescorpmgt_update_mdm_window_informati'
-                         'on_protection_policy')
-        g.custom_command('update-mobile-app', 'devicescorpmgt_update_mobile_app')
-        g.custom_command('update-mobile-app-category', 'devicescorpmgt_update_mobile_app_category')
-        g.custom_command('update-mobile-app-configuration', 'devicescorpmgt_update_mobile_app_configuration')
-        g.custom_command('update-targeted-managed-app-configuration', 'devicescorpmgt_update_targeted_managed_app_confi'
-                         'guration')
-        g.custom_command('update-vpp-token', 'devicescorpmgt_update_vpp_token')
-        g.custom_command('update-window-information-protection-policy', 'devicescorpmgt_update_window_information_prote'
-                         'ction_policy')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagement',
+        devicescorpmgt_v1_0_deviceappmanagement,
+        client_factory=cf_deviceappmanagement,
+    ) as g:
+        g.custom_command(
+            'create-android-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_create_android_managed_app_protection',
+        )
+        g.custom_command(
+            'create-default-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_create_default_managed_app_protection',
+        )
+        g.custom_command(
+            'create-io-managed-app-protection', 'devicescorpmgt_deviceappmanagement_create_io_managed_app_protection'
+        )
+        g.custom_command('create-managed-app-policy', 'devicescorpmgt_deviceappmanagement_create_managed_app_policy')
+        g.custom_command(
+            'create-managed-app-registration', 'devicescorpmgt_deviceappmanagement_create_managed_app_registration'
+        )
+        g.custom_command(
+            'create-managed-app-statuses', 'devicescorpmgt_deviceappmanagement_create_managed_app_statuses'
+        )
+        g.custom_command('create-managed-e-book', 'devicescorpmgt_deviceappmanagement_create_managed_e_book')
+        g.custom_command(
+            'create-mdm-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_create_mdm_window_information_protection_policy',
+        )
+        g.custom_command('create-mobile-app', 'devicescorpmgt_deviceappmanagement_create_mobile_app')
+        g.custom_command('create-mobile-app-category', 'devicescorpmgt_deviceappmanagement_create_mobile_app_category')
+        g.custom_command(
+            'create-mobile-app-configuration', 'devicescorpmgt_deviceappmanagement_create_mobile_app_configuration'
+        )
+        g.custom_command(
+            'create-targeted-managed-app-configuration',
+            'devicescorpmgt_deviceappmanagement_create_targeted_managed_app_configuration',
+        )
+        g.custom_command('create-vpp-token', 'devicescorpmgt_deviceappmanagement_create_vpp_token')
+        g.custom_command(
+            'create-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_create_window_information_protection_policy',
+        )
+        g.custom_command(
+            'delete-android-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_delete_android_managed_app_protection',
+        )
+        g.custom_command(
+            'delete-default-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_delete_default_managed_app_protection',
+        )
+        g.custom_command(
+            'delete-io-managed-app-protection', 'devicescorpmgt_deviceappmanagement_delete_io_managed_app_protection'
+        )
+        g.custom_command('delete-managed-app-policy', 'devicescorpmgt_deviceappmanagement_delete_managed_app_policy')
+        g.custom_command(
+            'delete-managed-app-registration', 'devicescorpmgt_deviceappmanagement_delete_managed_app_registration'
+        )
+        g.custom_command(
+            'delete-managed-app-statuses', 'devicescorpmgt_deviceappmanagement_delete_managed_app_statuses'
+        )
+        g.custom_command('delete-managed-e-book', 'devicescorpmgt_deviceappmanagement_delete_managed_e_book')
+        g.custom_command(
+            'delete-mdm-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_delete_mdm_window_information_protection_policy',
+        )
+        g.custom_command('delete-mobile-app', 'devicescorpmgt_deviceappmanagement_delete_mobile_app')
+        g.custom_command('delete-mobile-app-category', 'devicescorpmgt_deviceappmanagement_delete_mobile_app_category')
+        g.custom_command(
+            'delete-mobile-app-configuration', 'devicescorpmgt_deviceappmanagement_delete_mobile_app_configuration'
+        )
+        g.custom_command(
+            'delete-targeted-managed-app-configuration',
+            'devicescorpmgt_deviceappmanagement_delete_targeted_managed_app_configuration',
+        )
+        g.custom_command('delete-vpp-token', 'devicescorpmgt_deviceappmanagement_delete_vpp_token')
+        g.custom_command(
+            'delete-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_delete_window_information_protection_policy',
+        )
+        g.custom_command(
+            'list-android-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_list_android_managed_app_protection',
+        )
+        g.custom_command(
+            'list-default-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_list_default_managed_app_protection',
+        )
+        g.custom_command(
+            'list-io-managed-app-protection', 'devicescorpmgt_deviceappmanagement_list_io_managed_app_protection'
+        )
+        g.custom_command('list-managed-app-policy', 'devicescorpmgt_deviceappmanagement_list_managed_app_policy')
+        g.custom_command(
+            'list-managed-app-registration', 'devicescorpmgt_deviceappmanagement_list_managed_app_registration'
+        )
+        g.custom_command('list-managed-app-statuses', 'devicescorpmgt_deviceappmanagement_list_managed_app_statuses')
+        g.custom_command('list-managed-e-book', 'devicescorpmgt_deviceappmanagement_list_managed_e_book')
+        g.custom_command(
+            'list-mdm-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_list_mdm_window_information_protection_policy',
+        )
+        g.custom_command('list-mobile-app', 'devicescorpmgt_deviceappmanagement_list_mobile_app')
+        g.custom_command('list-mobile-app-category', 'devicescorpmgt_deviceappmanagement_list_mobile_app_category')
+        g.custom_command(
+            'list-mobile-app-configuration', 'devicescorpmgt_deviceappmanagement_list_mobile_app_configuration'
+        )
+        g.custom_command(
+            'list-targeted-managed-app-configuration',
+            'devicescorpmgt_deviceappmanagement_list_targeted_managed_app_configuration',
+        )
+        g.custom_command('list-vpp-token', 'devicescorpmgt_deviceappmanagement_list_vpp_token')
+        g.custom_command(
+            'list-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_list_window_information_protection_policy',
+        )
+        g.custom_command(
+            'show-android-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_show_android_managed_app_protection',
+        )
+        g.custom_command(
+            'show-default-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_show_default_managed_app_protection',
+        )
+        g.custom_command(
+            'show-io-managed-app-protection', 'devicescorpmgt_deviceappmanagement_show_io_managed_app_protection'
+        )
+        g.custom_command('show-managed-app-policy', 'devicescorpmgt_deviceappmanagement_show_managed_app_policy')
+        g.custom_command(
+            'show-managed-app-registration', 'devicescorpmgt_deviceappmanagement_show_managed_app_registration'
+        )
+        g.custom_command('show-managed-app-statuses', 'devicescorpmgt_deviceappmanagement_show_managed_app_statuses')
+        g.custom_command('show-managed-e-book', 'devicescorpmgt_deviceappmanagement_show_managed_e_book')
+        g.custom_command(
+            'show-mdm-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_show_mdm_window_information_protection_policy',
+        )
+        g.custom_command('show-mobile-app', 'devicescorpmgt_deviceappmanagement_show_mobile_app')
+        g.custom_command('show-mobile-app-category', 'devicescorpmgt_deviceappmanagement_show_mobile_app_category')
+        g.custom_command(
+            'show-mobile-app-configuration', 'devicescorpmgt_deviceappmanagement_show_mobile_app_configuration'
+        )
+        g.custom_command(
+            'show-targeted-managed-app-configuration',
+            'devicescorpmgt_deviceappmanagement_show_targeted_managed_app_configuration',
+        )
+        g.custom_command('show-vpp-token', 'devicescorpmgt_deviceappmanagement_show_vpp_token')
+        g.custom_command(
+            'show-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_show_window_information_protection_policy',
+        )
+        g.custom_command(
+            'sync-microsoft-store-for-business-app',
+            'devicescorpmgt_deviceappmanagement_sync_microsoft_store_for_business_app',
+        )
+        g.custom_command(
+            'update-android-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_update_android_managed_app_protection',
+        )
+        g.custom_command(
+            'update-default-managed-app-protection',
+            'devicescorpmgt_deviceappmanagement_update_default_managed_app_protection',
+        )
+        g.custom_command(
+            'update-io-managed-app-protection', 'devicescorpmgt_deviceappmanagement_update_io_managed_app_protection'
+        )
+        g.custom_command('update-managed-app-policy', 'devicescorpmgt_deviceappmanagement_update_managed_app_policy')
+        g.custom_command(
+            'update-managed-app-registration', 'devicescorpmgt_deviceappmanagement_update_managed_app_registration'
+        )
+        g.custom_command(
+            'update-managed-app-statuses', 'devicescorpmgt_deviceappmanagement_update_managed_app_statuses'
+        )
+        g.custom_command('update-managed-e-book', 'devicescorpmgt_deviceappmanagement_update_managed_e_book')
+        g.custom_command(
+            'update-mdm-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_update_mdm_window_information_protection_policy',
+        )
+        g.custom_command('update-mobile-app', 'devicescorpmgt_deviceappmanagement_update_mobile_app')
+        g.custom_command('update-mobile-app-category', 'devicescorpmgt_deviceappmanagement_update_mobile_app_category')
+        g.custom_command(
+            'update-mobile-app-configuration', 'devicescorpmgt_deviceappmanagement_update_mobile_app_configuration'
+        )
+        g.custom_command(
+            'update-targeted-managed-app-configuration',
+            'devicescorpmgt_deviceappmanagement_update_targeted_managed_app_configuration',
+        )
+        g.custom_command('update-vpp-token', 'devicescorpmgt_deviceappmanagement_update_vpp_token')
+        g.custom_command(
+            'update-window-information-protection-policy',
+            'devicescorpmgt_deviceappmanagement_update_window_information_protection_policy',
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_android_managed_app_protection
-    devicescorpmgt_v1_0_device_app_management_android_managed_app_protection = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_andro'
-        'id_managed_app_protection_operations#DeviceAppManagementAndroidManagedAppProtectionOperations.{}',
-        client_factory=cf_device_app_management_android_managed_app_protection)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_android_managed_app_protection,
-                            client_factory=cf_device_app_management_android_managed_app_protection) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-app', 'devicescorpmgt_create_app')
-        g.custom_command('get-app', 'devicescorpmgt_get_app')
-        g.custom_command('get-deployment-summary', 'devicescorpmgt_get_deployment_summary')
-        g.custom_command('list-app', 'devicescorpmgt_list_app')
-        g.custom_command('update-app', 'devicescorpmgt_update_app')
-        g.custom_command('update-deployment-summary', 'devicescorpmgt_update_deployment_summary')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementandroidmanagedappprotection',
+        devicescorpmgt_v1_0_deviceappmanagementandroidmanagedappprotection,
+        client_factory=cf_deviceappmanagementandroidmanagedappprotection,
+    ) as g:
+        g.custom_command('create-app', 'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_create_app')
+        g.custom_command('delete-app', 'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_delete_app')
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_delete_deployment_summary',
+        )
+        g.custom_command('list-app', 'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_list_app')
+        g.custom_command('show-app', 'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_show_app')
+        g.custom_command(
+            'show-deployment-summary',
+            'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_show_deployment_summary',
+        )
+        g.custom_command('update-app', 'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_update_app')
+        g.custom_command(
+            'update-deployment-summary',
+            'devicescorpmgt_deviceappmanagementandroidmanagedappprotection_update_deployment_summary',
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_default_managed_app_protection
-    devicescorpmgt_v1_0_device_app_management_default_managed_app_protection = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_defau'
-        'lt_managed_app_protection_operations#DeviceAppManagementDefaultManagedAppProtectionOperations.{}',
-        client_factory=cf_device_app_management_default_managed_app_protection)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_default_managed_app_protection,
-                            client_factory=cf_device_app_management_default_managed_app_protection) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-app', 'devicescorpmgt_create_app')
-        g.custom_command('get-app', 'devicescorpmgt_get_app')
-        g.custom_command('get-deployment-summary', 'devicescorpmgt_get_deployment_summary')
-        g.custom_command('list-app', 'devicescorpmgt_list_app')
-        g.custom_command('update-app', 'devicescorpmgt_update_app')
-        g.custom_command('update-deployment-summary', 'devicescorpmgt_update_deployment_summary')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementdefaultmanagedappprotection',
+        devicescorpmgt_v1_0_deviceappmanagementdefaultmanagedappprotection,
+        client_factory=cf_deviceappmanagementdefaultmanagedappprotection,
+    ) as g:
+        g.custom_command('create-app', 'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_create_app')
+        g.custom_command('delete-app', 'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_delete_app')
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_delete_deployment_summary',
+        )
+        g.custom_command('list-app', 'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_list_app')
+        g.custom_command('show-app', 'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_show_app')
+        g.custom_command(
+            'show-deployment-summary',
+            'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_show_deployment_summary',
+        )
+        g.custom_command('update-app', 'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_update_app')
+        g.custom_command(
+            'update-deployment-summary',
+            'devicescorpmgt_deviceappmanagementdefaultmanagedappprotection_update_deployment_summary',
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_io_managed_app_protection
-    devicescorpmgt_v1_0_device_app_management_io_managed_app_protection = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_io_ma'
-        'naged_app_protection_operations#DeviceAppManagementIoManagedAppProtectionOperations.{}',
-        client_factory=cf_device_app_management_io_managed_app_protection)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_io_managed_app_protection,
-                            client_factory=cf_device_app_management_io_managed_app_protection) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-app', 'devicescorpmgt_create_app')
-        g.custom_command('get-app', 'devicescorpmgt_get_app')
-        g.custom_command('get-deployment-summary', 'devicescorpmgt_get_deployment_summary')
-        g.custom_command('list-app', 'devicescorpmgt_list_app')
-        g.custom_command('update-app', 'devicescorpmgt_update_app')
-        g.custom_command('update-deployment-summary', 'devicescorpmgt_update_deployment_summary')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementiosmanagedappprotection',
+        devicescorpmgt_v1_0_deviceappmanagementiosmanagedappprotection,
+        client_factory=cf_deviceappmanagementiosmanagedappprotection,
+    ) as g:
+        g.custom_command('create-app', 'devicescorpmgt_deviceappmanagementiosmanagedappprotection_create_app')
+        g.custom_command('delete-app', 'devicescorpmgt_deviceappmanagementiosmanagedappprotection_delete_app')
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_deviceappmanagementiosmanagedappprotection_delete_deployment_summary',
+        )
+        g.custom_command('list-app', 'devicescorpmgt_deviceappmanagementiosmanagedappprotection_list_app')
+        g.custom_command('show-app', 'devicescorpmgt_deviceappmanagementiosmanagedappprotection_show_app')
+        g.custom_command(
+            'show-deployment-summary',
+            'devicescorpmgt_deviceappmanagementiosmanagedappprotection_show_deployment_summary',
+        )
+        g.custom_command('update-app', 'devicescorpmgt_deviceappmanagementiosmanagedappprotection_update_app')
+        g.custom_command(
+            'update-deployment-summary',
+            'devicescorpmgt_deviceappmanagementiosmanagedappprotection_update_deployment_summary',
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_managed_app_policy
-    devicescorpmgt_v1_0_device_app_management_managed_app_policy = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_manag'
-        'ed_app_policy_operations#DeviceAppManagementManagedAppPolicyOperations.{}',
-        client_factory=cf_device_app_management_managed_app_policy)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_managed_app_policy,
-                            client_factory=cf_device_app_management_managed_app_policy) as g:
-        g.custom_command('target-app', 'devicescorpmgt_target_app')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmanagedapppolicy',
+        devicescorpmgt_v1_0_deviceappmanagementmanagedapppolicy,
+        client_factory=cf_deviceappmanagementmanagedapppolicy,
+    ) as g:
+        g.custom_command('target-app', 'devicescorpmgt_deviceappmanagementmanagedapppolicy_target_app')
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_managed_app_registration
-    devicescorpmgt_v1_0_device_app_management_managed_app_registration = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_manag'
-        'ed_app_registration_operations#DeviceAppManagementManagedAppRegistrationOperations.{}',
-        client_factory=cf_device_app_management_managed_app_registration)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_managed_app_registration,
-                            client_factory=cf_device_app_management_managed_app_registration) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-applied-policy', 'devicescorpmgt_create_applied_policy')
-        g.custom_command('create-intended-policy', 'devicescorpmgt_create_intended_policy')
-        g.custom_command('create-operation', 'devicescorpmgt_create_operation')
-        g.custom_command('get-applied-policy', 'devicescorpmgt_get_applied_policy')
-        g.custom_command('get-intended-policy', 'devicescorpmgt_get_intended_policy')
-        g.custom_command('get-operation', 'devicescorpmgt_get_operation')
-        g.custom_command('get-user-id-with-flagged-app-registration', 'devicescorpmgt_get_user_id_with_flagged_app_regi'
-                         'stration')
-        g.custom_command('list-applied-policy', 'devicescorpmgt_list_applied_policy')
-        g.custom_command('list-intended-policy', 'devicescorpmgt_list_intended_policy')
-        g.custom_command('list-operation', 'devicescorpmgt_list_operation')
-        g.custom_command('update-applied-policy', 'devicescorpmgt_update_applied_policy')
-        g.custom_command('update-intended-policy', 'devicescorpmgt_update_intended_policy')
-        g.custom_command('update-operation', 'devicescorpmgt_update_operation')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmanagedappregistration',
+        devicescorpmgt_v1_0_deviceappmanagementmanagedappregistration,
+        client_factory=cf_deviceappmanagementmanagedappregistration,
+    ) as g:
+        g.custom_command(
+            'create-applied-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_create_applied_policy'
+        )
+        g.custom_command(
+            'create-intended-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_create_intended_policy'
+        )
+        g.custom_command(
+            'create-operation', 'devicescorpmgt_deviceappmanagementmanagedappregistration_create_operation'
+        )
+        g.custom_command(
+            'delete-applied-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_delete_applied_policy'
+        )
+        g.custom_command(
+            'delete-intended-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_delete_intended_policy'
+        )
+        g.custom_command(
+            'delete-operation', 'devicescorpmgt_deviceappmanagementmanagedappregistration_delete_operation'
+        )
+        g.custom_command(
+            'list-applied-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_list_applied_policy'
+        )
+        g.custom_command(
+            'list-intended-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_list_intended_policy'
+        )
+        g.custom_command('list-operation', 'devicescorpmgt_deviceappmanagementmanagedappregistration_list_operation')
+        g.custom_command(
+            'show-applied-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_show_applied_policy'
+        )
+        g.custom_command(
+            'show-intended-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_show_intended_policy'
+        )
+        g.custom_command('show-operation', 'devicescorpmgt_deviceappmanagementmanagedappregistration_show_operation')
+        g.custom_command(
+            'show-user-id-with-flagged-app-registration',
+            'devicescorpmgt_deviceappmanagementmanagedappregistration_show_user_id_with_flagged_app_registration',
+        )
+        g.custom_command(
+            'update-applied-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_update_applied_policy'
+        )
+        g.custom_command(
+            'update-intended-policy', 'devicescorpmgt_deviceappmanagementmanagedappregistration_update_intended_policy'
+        )
+        g.custom_command(
+            'update-operation', 'devicescorpmgt_deviceappmanagementmanagedappregistration_update_operation'
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_managed_app_registration_applied_policy
-    devicescorpmgt_v1_0_device_app_management_managed_app_registration_applied_policy = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_manag'
-        'ed_app_registration_applied_policy_operations#DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations'
-        '.{}',
-        client_factory=cf_device_app_management_managed_app_registration_applied_policy)
-    with self.command_group('devicescorpmgt',
-                            devicescorpmgt_v1_0_device_app_management_managed_app_registration_applied_policy,
-                            client_factory=cf_device_app_management_managed_app_registration_applied_policy) as g:
-        g.custom_command('target-app', 'devicescorpmgt_target_app')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmanagedappregistrationsappliedpolicy',
+        devicescorpmgt_v1_0_deviceappmanagementmanagedappregistrationsappliedpolicy,
+        client_factory=cf_deviceappmanagementmanagedappregistrationsappliedpolicy,
+    ) as g:
+        g.custom_command(
+            'target-app', 'devicescorpmgt_deviceappmanagementmanagedappregistrationsappliedpolicy_target_app'
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_managed_app_registration_intended_policy
-    devicescorpmgt_v1_0_device_app_management_managed_app_registration_intended_policy = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_manag'
-        'ed_app_registration_intended_policy_operations#DeviceAppManagementManagedAppRegistrationIntendedPolicyOperatio'
-        'ns.{}',
-        client_factory=cf_device_app_management_managed_app_registration_intended_policy)
-    with self.command_group('devicescorpmgt',
-                            devicescorpmgt_v1_0_device_app_management_managed_app_registration_intended_policy,
-                            client_factory=cf_device_app_management_managed_app_registration_intended_policy) as g:
-        g.custom_command('target-app', 'devicescorpmgt_target_app')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmanagedappregistrationsintendedpolicy',
+        devicescorpmgt_v1_0_deviceappmanagementmanagedappregistrationsintendedpolicy,
+        client_factory=cf_deviceappmanagementmanagedappregistrationsintendedpolicy,
+    ) as g:
+        g.custom_command(
+            'target-app', 'devicescorpmgt_deviceappmanagementmanagedappregistrationsintendedpolicy_target_app'
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_managed_ebook
-    devicescorpmgt_v1_0_device_app_management_managed_ebook = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_manag'
-        'ed_ebook_operations#DeviceAppManagementManagedEBookOperations.{}',
-        client_factory=cf_device_app_management_managed_ebook)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_managed_ebook,
-                            client_factory=cf_device_app_management_managed_ebook) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('assign', 'devicescorpmgt_assign')
-        g.custom_command('create-assignment', 'devicescorpmgt_create_assignment')
-        g.custom_command('create-device-state', 'devicescorpmgt_create_device_state')
-        g.custom_command('create-user-state-summary', 'devicescorpmgt_create_user_state_summary')
-        g.custom_command('get-assignment', 'devicescorpmgt_get_assignment')
-        g.custom_command('get-device-state', 'devicescorpmgt_get_device_state')
-        g.custom_command('get-install-summary', 'devicescorpmgt_get_install_summary')
-        g.custom_command('get-user-state-summary', 'devicescorpmgt_get_user_state_summary')
-        g.custom_command('list-assignment', 'devicescorpmgt_list_assignment')
-        g.custom_command('list-device-state', 'devicescorpmgt_list_device_state')
-        g.custom_command('list-user-state-summary', 'devicescorpmgt_list_user_state_summary')
-        g.custom_command('update-assignment', 'devicescorpmgt_update_assignment')
-        g.custom_command('update-device-state', 'devicescorpmgt_update_device_state')
-        g.custom_command('update-install-summary', 'devicescorpmgt_update_install_summary')
-        g.custom_command('update-user-state-summary', 'devicescorpmgt_update_user_state_summary')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmanagedebook',
+        devicescorpmgt_v1_0_deviceappmanagementmanagedebook,
+        client_factory=cf_deviceappmanagementmanagedebook,
+    ) as g:
+        g.custom_command('assign', 'devicescorpmgt_deviceappmanagementmanagedebook_assign')
+        g.custom_command('create-assignment', 'devicescorpmgt_deviceappmanagementmanagedebook_create_assignment')
+        g.custom_command('create-device-state', 'devicescorpmgt_deviceappmanagementmanagedebook_create_device_state')
+        g.custom_command(
+            'create-user-state-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_create_user_state_summary'
+        )
+        g.custom_command('delete-assignment', 'devicescorpmgt_deviceappmanagementmanagedebook_delete_assignment')
+        g.custom_command('delete-device-state', 'devicescorpmgt_deviceappmanagementmanagedebook_delete_device_state')
+        g.custom_command(
+            'delete-install-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_delete_install_summary'
+        )
+        g.custom_command(
+            'delete-user-state-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_delete_user_state_summary'
+        )
+        g.custom_command('list-assignment', 'devicescorpmgt_deviceappmanagementmanagedebook_list_assignment')
+        g.custom_command('list-device-state', 'devicescorpmgt_deviceappmanagementmanagedebook_list_device_state')
+        g.custom_command(
+            'list-user-state-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_list_user_state_summary'
+        )
+        g.custom_command('show-assignment', 'devicescorpmgt_deviceappmanagementmanagedebook_show_assignment')
+        g.custom_command('show-device-state', 'devicescorpmgt_deviceappmanagementmanagedebook_show_device_state')
+        g.custom_command('show-install-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_show_install_summary')
+        g.custom_command(
+            'show-user-state-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_show_user_state_summary'
+        )
+        g.custom_command('update-assignment', 'devicescorpmgt_deviceappmanagementmanagedebook_update_assignment')
+        g.custom_command('update-device-state', 'devicescorpmgt_deviceappmanagementmanagedebook_update_device_state')
+        g.custom_command(
+            'update-install-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_update_install_summary'
+        )
+        g.custom_command(
+            'update-user-state-summary', 'devicescorpmgt_deviceappmanagementmanagedebook_update_user_state_summary'
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_managed_ebook_user_state_summary
-    devicescorpmgt_v1_0_device_app_management_managed_ebook_user_state_summary = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_manag'
-        'ed_ebook_user_state_summary_operations#DeviceAppManagementManagedEBookUserStateSummaryOperations.{}',
-        client_factory=cf_device_app_management_managed_ebook_user_state_summary)
-    with self.command_group('devicescorpmgt',
-                            devicescorpmgt_v1_0_device_app_management_managed_ebook_user_state_summary,
-                            client_factory=cf_device_app_management_managed_ebook_user_state_summary) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-device-state', 'devicescorpmgt_create_device_state')
-        g.custom_command('get-device-state', 'devicescorpmgt_get_device_state')
-        g.custom_command('list-device-state', 'devicescorpmgt_list_device_state')
-        g.custom_command('update-device-state', 'devicescorpmgt_update_device_state')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary',
+        devicescorpmgt_v1_0_deviceappmanagementmanagedebooksuserstatesummary,
+        client_factory=cf_deviceappmanagementmanagedebooksuserstatesummary,
+    ) as g:
+        g.custom_command(
+            'create-device-state', 'devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_create_device_state'
+        )
+        g.custom_command(
+            'delete-device-state', 'devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_delete_device_state'
+        )
+        g.custom_command(
+            'list-device-state', 'devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_list_device_state'
+        )
+        g.custom_command(
+            'show-device-state', 'devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_show_device_state'
+        )
+        g.custom_command(
+            'update-device-state', 'devicescorpmgt_deviceappmanagementmanagedebooksuserstatesummary_update_device_state'
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_mobile_app_configuration
-    devicescorpmgt_v1_0_device_app_management_mobile_app_configuration = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_mobil'
-        'e_app_configuration_operations#DeviceAppManagementMobileAppConfigurationOperations.{}',
-        client_factory=cf_device_app_management_mobile_app_configuration)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_mobile_app_configuration,
-                            client_factory=cf_device_app_management_mobile_app_configuration) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('assign', 'devicescorpmgt_assign')
-        g.custom_command('create-assignment', 'devicescorpmgt_create_assignment')
-        g.custom_command('create-device-statuses', 'devicescorpmgt_create_device_statuses')
-        g.custom_command('create-user-statuses', 'devicescorpmgt_create_user_statuses')
-        g.custom_command('get-assignment', 'devicescorpmgt_get_assignment')
-        g.custom_command('get-device-status-summary', 'devicescorpmgt_get_device_status_summary')
-        g.custom_command('get-device-statuses', 'devicescorpmgt_get_device_statuses')
-        g.custom_command('get-user-status-summary', 'devicescorpmgt_get_user_status_summary')
-        g.custom_command('get-user-statuses', 'devicescorpmgt_get_user_statuses')
-        g.custom_command('list-assignment', 'devicescorpmgt_list_assignment')
-        g.custom_command('list-device-statuses', 'devicescorpmgt_list_device_statuses')
-        g.custom_command('list-user-statuses', 'devicescorpmgt_list_user_statuses')
-        g.custom_command('update-assignment', 'devicescorpmgt_update_assignment')
-        g.custom_command('update-device-status-summary', 'devicescorpmgt_update_device_status_summary')
-        g.custom_command('update-device-statuses', 'devicescorpmgt_update_device_statuses')
-        g.custom_command('update-user-status-summary', 'devicescorpmgt_update_user_status_summary')
-        g.custom_command('update-user-statuses', 'devicescorpmgt_update_user_statuses')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmobileappconfiguration',
+        devicescorpmgt_v1_0_deviceappmanagementmobileappconfiguration,
+        client_factory=cf_deviceappmanagementmobileappconfiguration,
+    ) as g:
+        g.custom_command('assign', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_assign')
+        g.custom_command(
+            'create-assignment', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_create_assignment'
+        )
+        g.custom_command(
+            'create-device-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_create_device_statuses'
+        )
+        g.custom_command(
+            'create-user-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_create_user_statuses'
+        )
+        g.custom_command(
+            'delete-assignment', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_assignment'
+        )
+        g.custom_command(
+            'delete-device-status-summary',
+            'devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_device_status_summary',
+        )
+        g.custom_command(
+            'delete-device-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_device_statuses'
+        )
+        g.custom_command(
+            'delete-user-status-summary',
+            'devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_user_status_summary',
+        )
+        g.custom_command(
+            'delete-user-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_delete_user_statuses'
+        )
+        g.custom_command('list-assignment', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_list_assignment')
+        g.custom_command(
+            'list-device-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_list_device_statuses'
+        )
+        g.custom_command(
+            'list-user-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_list_user_statuses'
+        )
+        g.custom_command('show-assignment', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_show_assignment')
+        g.custom_command(
+            'show-device-status-summary',
+            'devicescorpmgt_deviceappmanagementmobileappconfiguration_show_device_status_summary',
+        )
+        g.custom_command(
+            'show-device-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_show_device_statuses'
+        )
+        g.custom_command(
+            'show-user-status-summary',
+            'devicescorpmgt_deviceappmanagementmobileappconfiguration_show_user_status_summary',
+        )
+        g.custom_command(
+            'show-user-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_show_user_statuses'
+        )
+        g.custom_command(
+            'update-assignment', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_update_assignment'
+        )
+        g.custom_command(
+            'update-device-status-summary',
+            'devicescorpmgt_deviceappmanagementmobileappconfiguration_update_device_status_summary',
+        )
+        g.custom_command(
+            'update-device-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_update_device_statuses'
+        )
+        g.custom_command(
+            'update-user-status-summary',
+            'devicescorpmgt_deviceappmanagementmobileappconfiguration_update_user_status_summary',
+        )
+        g.custom_command(
+            'update-user-statuses', 'devicescorpmgt_deviceappmanagementmobileappconfiguration_update_user_statuses'
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_mobile_app
-    devicescorpmgt_v1_0_device_app_management_mobile_app = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_mobil'
-        'e_app_operations#DeviceAppManagementMobileAppOperations.{}',
-        client_factory=cf_device_app_management_mobile_app)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_mobile_app,
-                            client_factory=cf_device_app_management_mobile_app) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('assign', 'devicescorpmgt_assign')
-        g.custom_command('create-assignment', 'devicescorpmgt_create_assignment')
-        g.custom_command('create-ref-category', 'devicescorpmgt_create_ref_category')
-        g.custom_command('get-assignment', 'devicescorpmgt_get_assignment')
-        g.custom_command('list-assignment', 'devicescorpmgt_list_assignment')
-        g.custom_command('list-category', 'devicescorpmgt_list_category')
-        g.custom_command('list-ref-category', 'devicescorpmgt_list_ref_category')
-        g.custom_command('update-assignment', 'devicescorpmgt_update_assignment')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementmobileapp',
+        devicescorpmgt_v1_0_deviceappmanagementmobileapp,
+        client_factory=cf_deviceappmanagementmobileapp,
+    ) as g:
+        g.custom_command('assign', 'devicescorpmgt_deviceappmanagementmobileapp_assign')
+        g.custom_command('create-assignment', 'devicescorpmgt_deviceappmanagementmobileapp_create_assignment')
+        g.custom_command('create-ref-category', 'devicescorpmgt_deviceappmanagementmobileapp_create_ref_category')
+        g.custom_command('delete-assignment', 'devicescorpmgt_deviceappmanagementmobileapp_delete_assignment')
+        g.custom_command('list-assignment', 'devicescorpmgt_deviceappmanagementmobileapp_list_assignment')
+        g.custom_command('list-category', 'devicescorpmgt_deviceappmanagementmobileapp_list_category')
+        g.custom_command('list-ref-category', 'devicescorpmgt_deviceappmanagementmobileapp_list_ref_category')
+        g.custom_command('show-assignment', 'devicescorpmgt_deviceappmanagementmobileapp_show_assignment')
+        g.custom_command('update-assignment', 'devicescorpmgt_deviceappmanagementmobileapp_update_assignment')
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_targeted_managed_app_configuration
-    devicescorpmgt_v1_0_device_app_management_targeted_managed_app_configuration = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_targe'
-        'ted_managed_app_configuration_operations#DeviceAppManagementTargetedManagedAppConfigurationOperations.{}',
-        client_factory=cf_device_app_management_targeted_managed_app_configuration)
-    with self.command_group('devicescorpmgt',
-                            devicescorpmgt_v1_0_device_app_management_targeted_managed_app_configuration,
-                            client_factory=cf_device_app_management_targeted_managed_app_configuration) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('assign', 'devicescorpmgt_assign')
-        g.custom_command('create-app', 'devicescorpmgt_create_app')
-        g.custom_command('create-assignment', 'devicescorpmgt_create_assignment')
-        g.custom_command('get-app', 'devicescorpmgt_get_app')
-        g.custom_command('get-assignment', 'devicescorpmgt_get_assignment')
-        g.custom_command('get-deployment-summary', 'devicescorpmgt_get_deployment_summary')
-        g.custom_command('list-app', 'devicescorpmgt_list_app')
-        g.custom_command('list-assignment', 'devicescorpmgt_list_assignment')
-        g.custom_command('target-app', 'devicescorpmgt_target_app')
-        g.custom_command('update-app', 'devicescorpmgt_update_app')
-        g.custom_command('update-assignment', 'devicescorpmgt_update_assignment')
-        g.custom_command('update-deployment-summary', 'devicescorpmgt_update_deployment_summary')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration',
+        devicescorpmgt_v1_0_deviceappmanagementtargetedmanagedappconfiguration,
+        client_factory=cf_deviceappmanagementtargetedmanagedappconfiguration,
+    ) as g:
+        g.custom_command('assign', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_assign')
+        g.custom_command('create-app', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_create_app')
+        g.custom_command(
+            'create-assignment', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_create_assignment'
+        )
+        g.custom_command('delete-app', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_delete_app')
+        g.custom_command(
+            'delete-assignment', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_delete_assignment'
+        )
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_delete_deployment_summary',
+        )
+        g.custom_command('list-app', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_list_app')
+        g.custom_command(
+            'list-assignment', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_list_assignment'
+        )
+        g.custom_command('show-app', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_show_app')
+        g.custom_command(
+            'show-assignment', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_show_assignment'
+        )
+        g.custom_command(
+            'show-deployment-summary',
+            'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_show_deployment_summary',
+        )
+        g.custom_command('target-app', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_target_app')
+        g.custom_command('update-app', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_app')
+        g.custom_command(
+            'update-assignment', 'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_assignment'
+        )
+        g.custom_command(
+            'update-deployment-summary',
+            'devicescorpmgt_deviceappmanagementtargetedmanagedappconfiguration_update_deployment_summary',
+        )
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_device_app_management_vpp_token
-    devicescorpmgt_v1_0_device_app_management_vpp_token = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_vpp_t'
-        'oken_operations#DeviceAppManagementVppTokenOperations.{}',
-        client_factory=cf_device_app_management_vpp_token)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_device_app_management_vpp_token,
-                            client_factory=cf_device_app_management_vpp_token) as g:
-        g.custom_command('sync-license', 'devicescorpmgt_sync_license')
+    with self.command_group(
+        'devicescorpmgt deviceappmanagementvpptoken',
+        devicescorpmgt_v1_0_deviceappmanagementvpptoken,
+        client_factory=cf_deviceappmanagementvpptoken,
+    ) as g:
+        g.custom_command('sync-license', 'devicescorpmgt_deviceappmanagementvpptoken_sync_license')
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_user
-    devicescorpmgt_v1_0_user = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._user_operations#UserOperati'
-        'ons.{}',
-        client_factory=cf_user)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-device-management-troubleshooting-event', 'devicescorpmgt_create_device_management_tro'
-                         'ubleshooting_event')
-        g.custom_command('create-managed-device', 'devicescorpmgt_create_managed_device')
-        g.custom_command('create-ref-managed-app-registration', 'devicescorpmgt_create_ref_managed_app_registration')
-        g.custom_command('get-device-management-troubleshooting-event', 'devicescorpmgt_get_device_management_troublesh'
-                         'ooting_event')
-        g.custom_command('get-managed-device', 'devicescorpmgt_get_managed_device')
-        g.custom_command('list-device-management-troubleshooting-event', 'devicescorpmgt_list_device_management_trouble'
-                         'shooting_event')
-        g.custom_command('list-managed-app-registration', 'devicescorpmgt_list_managed_app_registration')
-        g.custom_command('list-managed-device', 'devicescorpmgt_list_managed_device')
-        g.custom_command('list-ref-managed-app-registration', 'devicescorpmgt_list_ref_managed_app_registration')
-        g.custom_command('update-device-management-troubleshooting-event', 'devicescorpmgt_update_device_management_tro'
-                         'ubleshooting_event')
-        g.custom_command('update-managed-device', 'devicescorpmgt_update_managed_device')
+    with self.command_group('devicescorpmgt user', devicescorpmgt_v1_0_user, client_factory=cf_user) as g:
+        g.custom_command(
+            'create-device-management-troubleshooting-event',
+            'devicescorpmgt_user_create_device_management_troubleshooting_event',
+        )
+        g.custom_command('create-managed-device', 'devicescorpmgt_user_create_managed_device')
+        g.custom_command(
+            'create-ref-managed-app-registration', 'devicescorpmgt_user_create_ref_managed_app_registration'
+        )
+        g.custom_command(
+            'delete-device-management-troubleshooting-event',
+            'devicescorpmgt_user_delete_device_management_troubleshooting_event',
+        )
+        g.custom_command('delete-managed-device', 'devicescorpmgt_user_delete_managed_device')
+        g.custom_command(
+            'list-device-management-troubleshooting-event',
+            'devicescorpmgt_user_list_device_management_troubleshooting_event',
+        )
+        g.custom_command('list-managed-app-registration', 'devicescorpmgt_user_list_managed_app_registration')
+        g.custom_command('list-managed-device', 'devicescorpmgt_user_list_managed_device')
+        g.custom_command('list-ref-managed-app-registration', 'devicescorpmgt_user_list_ref_managed_app_registration')
+        g.custom_command(
+            'show-device-management-troubleshooting-event',
+            'devicescorpmgt_user_show_device_management_troubleshooting_event',
+        )
+        g.custom_command('show-managed-device', 'devicescorpmgt_user_show_managed_device')
+        g.custom_command(
+            'update-device-management-troubleshooting-event',
+            'devicescorpmgt_user_update_device_management_troubleshooting_event',
+        )
+        g.custom_command('update-managed-device', 'devicescorpmgt_user_update_managed_device')
 
-    from azext_devicescorpmgt_v1_0.generated._client_factory import cf_user_managed_device
-    devicescorpmgt_v1_0_user_managed_device = CliCommandType(
-        operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._user_managed_device_operati'
-        'ons#UserManagedDeviceOperations.{}',
-        client_factory=cf_user_managed_device)
-    with self.command_group('devicescorpmgt', devicescorpmgt_v1_0_user_managed_device,
-                            client_factory=cf_user_managed_device) as g:
-        g.custom_command('delete', 'devicescorpmgt_delete', confirmation=True)
-        g.custom_command('create-device-compliance-policy-state', 'devicescorpmgt_create_device_compliance_policy_state'
-                         '')
-        g.custom_command('create-device-configuration-state', 'devicescorpmgt_create_device_configuration_state')
-        g.custom_command('get-device-category', 'devicescorpmgt_get_device_category')
-        g.custom_command('get-device-compliance-policy-state', 'devicescorpmgt_get_device_compliance_policy_state')
-        g.custom_command('get-device-configuration-state', 'devicescorpmgt_get_device_configuration_state')
-        g.custom_command('list-device-compliance-policy-state', 'devicescorpmgt_list_device_compliance_policy_state')
-        g.custom_command('list-device-configuration-state', 'devicescorpmgt_list_device_configuration_state')
-        g.custom_command('update-device-category', 'devicescorpmgt_update_device_category')
-        g.custom_command('update-device-compliance-policy-state', 'devicescorpmgt_update_device_compliance_policy_state'
-                         '')
-        g.custom_command('update-device-configuration-state', 'devicescorpmgt_update_device_configuration_state')
+    with self.command_group(
+        'devicescorpmgt usersmanageddevice',
+        devicescorpmgt_v1_0_usersmanageddevice,
+        client_factory=cf_usersmanageddevice,
+    ) as g:
+        g.custom_command(
+            'create-device-compliance-policy-state',
+            'devicescorpmgt_usersmanageddevice_create_device_compliance_policy_state',
+        )
+        g.custom_command(
+            'create-device-configuration-state', 'devicescorpmgt_usersmanageddevice_create_device_configuration_state'
+        )
+        g.custom_command('delete-device-category', 'devicescorpmgt_usersmanageddevice_delete_device_category')
+        g.custom_command(
+            'delete-device-compliance-policy-state',
+            'devicescorpmgt_usersmanageddevice_delete_device_compliance_policy_state',
+        )
+        g.custom_command(
+            'delete-device-configuration-state', 'devicescorpmgt_usersmanageddevice_delete_device_configuration_state'
+        )
+        g.custom_command(
+            'list-device-compliance-policy-state',
+            'devicescorpmgt_usersmanageddevice_list_device_compliance_policy_state',
+        )
+        g.custom_command(
+            'list-device-configuration-state', 'devicescorpmgt_usersmanageddevice_list_device_configuration_state'
+        )
+        g.custom_command('show-device-category', 'devicescorpmgt_usersmanageddevice_show_device_category')
+        g.custom_command(
+            'show-device-compliance-policy-state',
+            'devicescorpmgt_usersmanageddevice_show_device_compliance_policy_state',
+        )
+        g.custom_command(
+            'show-device-configuration-state', 'devicescorpmgt_usersmanageddevice_show_device_configuration_state'
+        )
+        g.custom_command('update-device-category', 'devicescorpmgt_usersmanageddevice_update_device_category')
+        g.custom_command(
+            'update-device-compliance-policy-state',
+            'devicescorpmgt_usersmanageddevice_update_device_compliance_policy_state',
+        )
+        g.custom_command(
+            'update-device-configuration-state', 'devicescorpmgt_usersmanageddevice_update_device_configuration_state'
+        )
+
+    with self.command_group('devicescorpmgt_v1_0', is_experimental=True):
+        pass

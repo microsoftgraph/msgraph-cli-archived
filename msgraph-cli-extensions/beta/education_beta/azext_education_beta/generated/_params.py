@@ -19,28 +19,25 @@ from azext_education_beta.action import (
     AddCourse,
     AddTerm,
     AddAssignmentCategories,
+    AddApplication,
     AddAddress,
-    AddAdministrativeUnitMembers,
-    AddAdministrativeUnitExtensions,
+    AddMembers,
+    AddExtensions,
     AddLicensesToAssign,
     AddErrors,
     AddProfileStatus,
     AddInstructions,
-    AddCategories,
-    AddEducationClassesResources,
-    AddOutcomes,
-    AddEducationClassesAssignmentsResources,
-    AddSubmittedResources
+    AddCategories
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('education get-education-root') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationroot show-education-root') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education update-education-root') as c:
+    with self.argument_context('education educationroot update-education-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('synchronization_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
@@ -52,18 +49,10 @@ def load_arguments(self, _):
         c.argument('users', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('education_synchronization_profile_id', type=str,
-                   help='key: id of educationSynchronizationProfile')
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-
-    with self.argument_context('education create-class') as c:
+    with self.argument_context('education education create-class') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('class_code', type=str, help='Class code used by the school to identify the class.')
-        c.argument('course', action=AddCourse, nargs='*', help='educationCourse')
+        c.argument('course', action=AddCourse, nargs='+', help='educationCourse')
         c.argument('description', type=str, help='Description of the class.')
         c.argument('display_name', type=str, help='Name of the class.')
         c.argument('external_id', type=str, help='ID of the class from the syncing system.')
@@ -72,8 +61,8 @@ def load_arguments(self, _):
         c.argument('external_source_detail', type=str, help='')
         c.argument('grade', type=str, help='')
         c.argument('mail_nickname', type=str, help='Mail name for sending email to all members, if this is enabled.')
-        c.argument('term', action=AddTerm, nargs='*', help='educationTerm')
-        c.argument('assignment_categories', action=AddAssignmentCategories, nargs='*', help='')
+        c.argument('term', action=AddTerm, nargs='+', help='educationTerm')
+        c.argument('assignment_categories', action=AddAssignmentCategories, nargs='+', help='')
         c.argument('assignments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
@@ -84,29 +73,17 @@ def load_arguments(self, _):
                    'Nullable. Expected value: json-string/@json-file.')
         c.argument('teachers', type=validate_file_or_dict, help='All teachers in the class. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education create-school') as c:
+    with self.argument_context('education education create-school') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue', 'lms']), help='')
         c.argument('external_source_detail', type=str, help='')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -120,108 +97,117 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('users', type=validate_file_or_dict, help='Users in the school. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('administrative_unit_id', type=str, help='Read-only.')
-        c.argument('administrative_unit_deleted_date_time', help='')
-        c.argument('administrative_unit_description', type=str, help='An optional description for the administrative '
-                   'unit.')
-        c.argument('administrative_unit_display_name', type=str, help='Display name for the administrative unit.')
-        c.argument('administrative_unit_visibility', type=str, help='Controls whether the administrative unit and its '
-                   'members are hidden or public. Can be set to HiddenMembership or Public. If not set, default '
-                   'behavior is Public. When set to HiddenMembership, only members of the administrative unit can list '
-                   'other members of the adminstrative unit.')
-        c.argument('administrative_unit_members', action=AddAdministrativeUnitMembers, nargs='*', help='Users and '
-                   'groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add '
-                   'members), DELETE (remove members).')
-        c.argument('administrative_unit_scoped_role_members', type=validate_file_or_dict, help='Scoped-role members of '
-                   'this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add '
-                   'scopedRoleMembership), DELETE (remove scopedRoleMembership). Expected value: '
-                   'json-string/@json-file.')
-        c.argument('administrative_unit_extensions', action=AddAdministrativeUnitExtensions, nargs='*', help='')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Administrative Unit')
+        c.argument('deleted_date_time', help='', arg_group='Administrative Unit')
+        c.argument('microsoft_graph_administrative_unit_description', type=str, help='An optional description for the '
+                   'administrative unit.', arg_group='Administrative Unit')
+        c.argument('microsoft_graph_administrative_unit_display_name', type=str, help='Display name for the '
+                   'administrative unit.', arg_group='Administrative Unit')
+        c.argument('visibility', type=str, help='Controls whether the administrative unit and its members are hidden '
+                   'or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When '
+                   'set to HiddenMembership, only members of the administrative unit can list other members of the '
+                   'adminstrative unit.', arg_group='Administrative Unit')
+        c.argument('members', action=AddMembers, nargs='+', help='Users and groups that are members of this '
+                   'Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove '
+                   'members).', arg_group='Administrative Unit')
+        c.argument('scoped_role_members', type=validate_file_or_dict, help='Scoped-role members of this Administrative '
+                   'Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE '
+                   '(remove scopedRoleMembership). Expected value: json-string/@json-file.', arg_group='Administrative '
+                   'Unit')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='', arg_group='Administrative Unit')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education create-synchronization-profile') as c:
+    with self.argument_context('education education create-synchronization-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('data_provider', type=validate_file_or_dict, help='educationSynchronizationDataProvider Expected '
                    'value: json-string/@json-file.')
         c.argument('display_name', type=str, help='')
         c.argument('expiration_date', help='')
         c.argument('handle_special_character_constraint', arg_type=get_three_state_flag(), help='')
-        c.argument('identity_synchronization_configuration', type=validate_file_or_dict, help=''
-                   'educationIdentitySynchronizationConfiguration Expected value: json-string/@json-file.')
-        c.argument('licenses_to_assign', action=AddLicensesToAssign, nargs='*', help='')
+        c.argument('identity_synchronization_configuration', type=validate_file_or_dict,
+                   help='educationIdentitySynchronizationConfiguration Expected value: json-string/@json-file.')
+        c.argument('licenses_to_assign', action=AddLicensesToAssign, nargs='+', help='')
         c.argument('state', arg_type=get_enum_type(['deleting', 'deletionFailed', 'provisioningFailed', 'provisioned',
                                                     'provisioning', 'unknownFutureValue']), help='')
-        c.argument('errors', action=AddErrors, nargs='*', help='')
-        c.argument('profile_status', action=AddProfileStatus, nargs='*', help='educationSynchronizationProfileStatus')
+        c.argument('errors', action=AddErrors, nargs='+', help='')
+        c.argument('profile_status', action=AddProfileStatus, nargs='+', help='educationSynchronizationProfileStatus')
 
-    with self.argument_context('education create-user') as c:
+    with self.argument_context('education education create-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education get-class') as c:
+    with self.argument_context('education education delete-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-me') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education delete-me') as c:
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-school') as c:
+    with self.argument_context('education education delete-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-synchronization-profile') as c:
+    with self.argument_context('education education delete-synchronization-profile') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-user') as c:
+    with self.argument_context('education education delete-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education list-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education list-school') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-synchronization-profile') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education list-synchronization-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-user') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education list-user') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education update-class') as c:
+    with self.argument_context('education education show-class') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-me') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-school') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-synchronization-profile') as c:
+        c.argument('education_synchronization_profile_id', type=str,
+                   help='key: id of educationSynchronizationProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education update-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('class_code', type=str, help='Class code used by the school to identify the class.')
-        c.argument('course', action=AddCourse, nargs='*', help='educationCourse')
+        c.argument('course', action=AddCourse, nargs='+', help='educationCourse')
         c.argument('description', type=str, help='Description of the class.')
         c.argument('display_name', type=str, help='Name of the class.')
         c.argument('external_id', type=str, help='ID of the class from the syncing system.')
@@ -230,8 +216,8 @@ def load_arguments(self, _):
         c.argument('external_source_detail', type=str, help='')
         c.argument('grade', type=str, help='')
         c.argument('mail_nickname', type=str, help='Mail name for sending email to all members, if this is enabled.')
-        c.argument('term', action=AddTerm, nargs='*', help='educationTerm')
-        c.argument('assignment_categories', action=AddAssignmentCategories, nargs='*', help='')
+        c.argument('term', action=AddTerm, nargs='+', help='educationTerm')
+        c.argument('assignment_categories', action=AddAssignmentCategories, nargs='+', help='')
         c.argument('assignments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
@@ -242,34 +228,22 @@ def load_arguments(self, _):
                    'Nullable. Expected value: json-string/@json-file.')
         c.argument('teachers', type=validate_file_or_dict, help='All teachers in the class. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education update-me') as c:
+    with self.argument_context('education education update-me') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education update-school') as c:
+    with self.argument_context('education education update-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue', 'lms']), help='')
         c.argument('external_source_detail', type=str, help='')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -283,40 +257,29 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('users', type=validate_file_or_dict, help='Users in the school. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('administrative_unit_id', type=str, help='Read-only.')
-        c.argument('administrative_unit_deleted_date_time', help='')
-        c.argument('administrative_unit_description', type=str, help='An optional description for the administrative '
-                   'unit.')
-        c.argument('administrative_unit_display_name', type=str, help='Display name for the administrative unit.')
-        c.argument('administrative_unit_visibility', type=str, help='Controls whether the administrative unit and its '
-                   'members are hidden or public. Can be set to HiddenMembership or Public. If not set, default '
-                   'behavior is Public. When set to HiddenMembership, only members of the administrative unit can list '
-                   'other members of the adminstrative unit.')
-        c.argument('administrative_unit_members', action=AddAdministrativeUnitMembers, nargs='*', help='Users and '
-                   'groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add '
-                   'members), DELETE (remove members).')
-        c.argument('administrative_unit_scoped_role_members', type=validate_file_or_dict, help='Scoped-role members of '
-                   'this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add '
-                   'scopedRoleMembership), DELETE (remove scopedRoleMembership). Expected value: '
-                   'json-string/@json-file.')
-        c.argument('administrative_unit_extensions', action=AddAdministrativeUnitExtensions, nargs='*', help='')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Administrative Unit')
+        c.argument('deleted_date_time', help='', arg_group='Administrative Unit')
+        c.argument('microsoft_graph_administrative_unit_description', type=str, help='An optional description for the '
+                   'administrative unit.', arg_group='Administrative Unit')
+        c.argument('microsoft_graph_administrative_unit_display_name', type=str, help='Display name for the '
+                   'administrative unit.', arg_group='Administrative Unit')
+        c.argument('visibility', type=str, help='Controls whether the administrative unit and its members are hidden '
+                   'or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When '
+                   'set to HiddenMembership, only members of the administrative unit can list other members of the '
+                   'adminstrative unit.', arg_group='Administrative Unit')
+        c.argument('members', action=AddMembers, nargs='+', help='Users and groups that are members of this '
+                   'Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove '
+                   'members).', arg_group='Administrative Unit')
+        c.argument('scoped_role_members', type=validate_file_or_dict, help='Scoped-role members of this Administrative '
+                   'Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE '
+                   '(remove scopedRoleMembership). Expected value: json-string/@json-file.', arg_group='Administrative '
+                   'Unit')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='', arg_group='Administrative Unit')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education update-synchronization-profile') as c:
+    with self.argument_context('education education update-synchronization-profile') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -325,26 +288,20 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('expiration_date', help='')
         c.argument('handle_special_character_constraint', arg_type=get_three_state_flag(), help='')
-        c.argument('identity_synchronization_configuration', type=validate_file_or_dict, help=''
-                   'educationIdentitySynchronizationConfiguration Expected value: json-string/@json-file.')
-        c.argument('licenses_to_assign', action=AddLicensesToAssign, nargs='*', help='')
+        c.argument('identity_synchronization_configuration', type=validate_file_or_dict,
+                   help='educationIdentitySynchronizationConfiguration Expected value: json-string/@json-file.')
+        c.argument('licenses_to_assign', action=AddLicensesToAssign, nargs='+', help='')
         c.argument('state', arg_type=get_enum_type(['deleting', 'deletionFailed', 'provisioningFailed', 'provisioned',
                                                     'provisioning', 'unknownFutureValue']), help='')
-        c.argument('errors', action=AddErrors, nargs='*', help='')
-        c.argument('profile_status', action=AddProfileStatus, nargs='*', help='educationSynchronizationProfileStatus')
+        c.argument('errors', action=AddErrors, nargs='+', help='')
+        c.argument('profile_status', action=AddProfileStatus, nargs='+', help='educationSynchronizationProfileStatus')
 
-    with self.argument_context('education update-user') as c:
+    with self.argument_context('education education update-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-
-    with self.argument_context('education create-assignment') as c:
+    with self.argument_context('education educationclass create-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
@@ -360,171 +317,145 @@ def load_arguments(self, _):
         c.argument('due_date_time', help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
-        c.argument('instructions', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('instructions', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('last_modified_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['draft', 'published', 'assigned', 'unknownFutureValue']),
                    help='')
-        c.argument('categories', action=AddCategories, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesResources, nargs='*', help='')
+        c.argument('categories', action=AddCategories, nargs='+', help='')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('submissions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_id', type=str, help='Read-only.')
-        c.argument('rubric_created_date_time', help='')
-        c.argument('rubric_description', action=AddInstructions, nargs='*', help='educationItemBody')
-        c.argument('rubric_display_name', type=str, help='')
-        c.argument('rubric_grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
-                   'json-string/@json-file.')
-        c.argument('rubric_last_modified_date_time', help='')
-        c.argument('rubric_levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_created_date_time_created_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_display_name', type=str, help='', arg_group='Rubric')
+        c.argument('microsoft_graph_education_assignment_grade_type_grading', type=validate_file_or_dict,
+                   help='educationAssignmentGradeType Expected value: json-string/@json-file.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education create-assignment-category') as c:
+    with self.argument_context('education educationclass create-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education create-ref-member') as c:
+    with self.argument_context('education educationclass create-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-school') as c:
+    with self.argument_context('education educationclass create-ref-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-teacher') as c:
+    with self.argument_context('education educationclass create-ref-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education get-assignment') as c:
+    with self.argument_context('education educationclass delete-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-assignment-category') as c:
+    with self.argument_context('education educationclass delete-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-group') as c:
+    with self.argument_context('education educationclass delete-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-ref-group') as c:
+    with self.argument_context('education educationclass list-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-assignment') as c:
+    with self.argument_context('education educationclass list-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-assignment-category') as c:
+    with self.argument_context('education educationclass list-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-member') as c:
+    with self.argument_context('education educationclass list-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-member') as c:
+    with self.argument_context('education educationclass list-ref-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-school') as c:
+    with self.argument_context('education educationclass list-ref-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-teacher') as c:
+    with self.argument_context('education educationclass list-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-school') as c:
+    with self.argument_context('education educationclass list-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-teacher') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education set-ref-group') as c:
+    with self.argument_context('education educationclass set-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education update-assignment') as c:
+    with self.argument_context('education educationclass show-assignment') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclass show-assignment-category') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_category_id', type=str, help='key: id of educationCategory')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclass show-group') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclass show-ref-group') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+
+    with self.argument_context('education educationclass update-assignment') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -541,143 +472,75 @@ def load_arguments(self, _):
         c.argument('due_date_time', help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
-        c.argument('instructions', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('instructions', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('last_modified_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['draft', 'published', 'assigned', 'unknownFutureValue']),
                    help='')
-        c.argument('categories', action=AddCategories, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesResources, nargs='*', help='')
+        c.argument('categories', action=AddCategories, nargs='+', help='')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('submissions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_id', type=str, help='Read-only.')
-        c.argument('rubric_created_date_time', help='')
-        c.argument('rubric_description', action=AddInstructions, nargs='*', help='educationItemBody')
-        c.argument('rubric_display_name', type=str, help='')
-        c.argument('rubric_grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
-                   'json-string/@json-file.')
-        c.argument('rubric_last_modified_date_time', help='')
-        c.argument('rubric_levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_created_date_time_created_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_display_name', type=str, help='', arg_group='Rubric')
+        c.argument('microsoft_graph_education_assignment_grade_type_grading', type=validate_file_or_dict,
+                   help='educationAssignmentGradeType Expected value: json-string/@json-file.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education update-assignment-category') as c:
+    with self.argument_context('education educationclass update-assignment-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-
-    with self.argument_context('education create-category') as c:
+    with self.argument_context('education educationclassesassignment create-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education create-resource') as c:
+    with self.argument_context('education educationclassesassignment create-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education create-submission') as c:
+    with self.argument_context('education educationclassesassignment create-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -686,221 +549,158 @@ def load_arguments(self, _):
         c.argument('released_date_time', help='')
         c.argument('resources_folder_url', type=str, help='')
         c.argument('returned_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned', ''
+        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned',
                                                      'unknownFutureValue']), help='')
         c.argument('submitted_date_time', help='')
         c.argument('unsubmitted_date_time', help='')
-        c.argument('outcomes', action=AddOutcomes, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesAssignmentsResources, nargs='*', help='')
-        c.argument('submitted_resources', action=AddSubmittedResources, nargs='*', help='')
-        c.argument('unsubmitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('submitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('returned_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('released_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('outcomes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('submitted_resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education get-category') as c:
+    with self.argument_context('education educationclassesassignment delete-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource') as c:
+    with self.argument_context('education educationclassesassignment delete-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource-folder-url') as c:
+    with self.argument_context('education educationclassesassignment delete-rubric') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-rubric') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education get-submission') as c:
+    with self.argument_context('education educationclassesassignment delete-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-category') as c:
+    with self.argument_context('education educationclassesassignment list-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-resource') as c:
+    with self.argument_context('education educationclassesassignment list-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-submission') as c:
+    with self.argument_context('education educationclassesassignment list-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education publish') as c:
+    with self.argument_context('education educationclassesassignment publish') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education update-category') as c:
+    with self.argument_context('education educationclassesassignment show-category') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_category_id', type=str, help='key: id of educationCategory')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclassesassignment show-resource') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclassesassignment show-resource-folder-url') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+
+    with self.argument_context('education educationclassesassignment show-rubric') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclassesassignment show-submission') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclassesassignment update-category') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education update-resource') as c:
+    with self.argument_context('education educationclassesassignment update-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education update-rubric') as c:
+    with self.argument_context('education educationclassesassignment update-rubric') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('description', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('display_name', type=str, help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
         c.argument('last_modified_date_time', help='')
         c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education update-submission') as c:
+    with self.argument_context('education educationclassesassignment update-submission') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -910,367 +710,226 @@ def load_arguments(self, _):
         c.argument('released_date_time', help='')
         c.argument('resources_folder_url', type=str, help='')
         c.argument('returned_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned', ''
+        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned',
                                                      'unknownFutureValue']), help='')
         c.argument('submitted_date_time', help='')
         c.argument('unsubmitted_date_time', help='')
-        c.argument('outcomes', action=AddOutcomes, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesAssignmentsResources, nargs='*', help='')
-        c.argument('submitted_resources', action=AddSubmittedResources, nargs='*', help='')
-        c.argument('unsubmitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('submitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('returned_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('released_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('outcomes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('submitted_resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-
-    with self.argument_context('education create-outcome') as c:
+    with self.argument_context('education educationclassesassignmentssubmission create-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education create-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission create-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education create-submitted-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission create-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education get-outcome') as c:
+    with self.argument_context('education educationclassesassignmentssubmission delete-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission delete-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-submitted-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission delete-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-outcome') as c:
+    with self.argument_context('education educationclassesassignmentssubmission list-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission list-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-submitted-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission list-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education return') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-
-    with self.argument_context('education submit') as c:
+    with self.argument_context('education educationclassesassignmentssubmission return') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education unsubmit') as c:
+    with self.argument_context('education educationclassesassignmentssubmission show-outcome') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclassesassignmentssubmission show-resource') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclassesassignmentssubmission show-submitted-resource') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationclassesassignmentssubmission submit') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education update-outcome') as c:
+    with self.argument_context('education educationclassesassignmentssubmission unsubmit') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+
+    with self.argument_context('education educationclassesassignmentssubmission update-outcome') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education update-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission update-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education update-submitted-resource') as c:
+    with self.argument_context('education educationclassesassignmentssubmission update-submitted-resource') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationclassesmember delta') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationclassesschool delta') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationclassesteacher delta') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
-
-    with self.argument_context('education create-assignment') as c:
+    with self.argument_context('education educationme create-assignment') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
         c.argument('allow_students_to_add_resources_to_submission', arg_type=get_three_state_flag(), help='')
@@ -1285,189 +944,139 @@ def load_arguments(self, _):
         c.argument('due_date_time', help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
-        c.argument('instructions', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('instructions', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('last_modified_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['draft', 'published', 'assigned', 'unknownFutureValue']),
                    help='')
-        c.argument('categories', action=AddCategories, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesResources, nargs='*', help='')
+        c.argument('categories', action=AddCategories, nargs='+', help='')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('submissions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_id', type=str, help='Read-only.')
-        c.argument('rubric_created_date_time', help='')
-        c.argument('rubric_description', action=AddInstructions, nargs='*', help='educationItemBody')
-        c.argument('rubric_display_name', type=str, help='')
-        c.argument('rubric_grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
-                   'json-string/@json-file.')
-        c.argument('rubric_last_modified_date_time', help='')
-        c.argument('rubric_levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_created_date_time_created_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_display_name', type=str, help='', arg_group='Rubric')
+        c.argument('microsoft_graph_education_assignment_grade_type_grading', type=validate_file_or_dict,
+                   help='educationAssignmentGradeType Expected value: json-string/@json-file.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education create-ref-class') as c:
+    with self.argument_context('education educationme create-ref-class') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-school') as c:
+    with self.argument_context('education educationme create-ref-school') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-taught-class') as c:
+    with self.argument_context('education educationme create-ref-taught-class') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-rubric') as c:
+    with self.argument_context('education educationme create-rubric') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('description', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('display_name', type=str, help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
         c.argument('last_modified_date_time', help='')
         c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education get-assignment') as c:
+    with self.argument_context('education educationme delete-assignment') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-rubric') as c:
+    with self.argument_context('education educationme delete-ref-user') as c:
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('education educationme delete-rubric') as c:
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-user') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationme list-assignment') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-assignment') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationme list-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationme list-ref-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
+    with self.argument_context('education educationme list-ref-school') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
+    with self.argument_context('education educationme list-ref-taught-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-taught-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
+    with self.argument_context('education educationme list-rubric') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-rubric') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationme list-school') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education educationme list-taught-class') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-taught-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education set-ref-user') as c:
+    with self.argument_context('education educationme set-ref-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education update-assignment') as c:
+    with self.argument_context('education educationme show-assignment') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationme show-rubric') as c:
+        c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationme show-user') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationme update-assignment') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
@@ -1483,176 +1092,88 @@ def load_arguments(self, _):
         c.argument('due_date_time', help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
-        c.argument('instructions', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('instructions', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('last_modified_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['draft', 'published', 'assigned', 'unknownFutureValue']),
                    help='')
-        c.argument('categories', action=AddCategories, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesResources, nargs='*', help='')
+        c.argument('categories', action=AddCategories, nargs='+', help='')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('submissions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_id', type=str, help='Read-only.')
-        c.argument('rubric_created_date_time', help='')
-        c.argument('rubric_description', action=AddInstructions, nargs='*', help='educationItemBody')
-        c.argument('rubric_display_name', type=str, help='')
-        c.argument('rubric_grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
-                   'json-string/@json-file.')
-        c.argument('rubric_last_modified_date_time', help='')
-        c.argument('rubric_levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_created_date_time_created_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_display_name', type=str, help='', arg_group='Rubric')
+        c.argument('microsoft_graph_education_assignment_grade_type_grading', type=validate_file_or_dict,
+                   help='educationAssignmentGradeType Expected value: json-string/@json-file.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education update-rubric') as c:
+    with self.argument_context('education educationme update-rubric') as c:
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('description', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('display_name', type=str, help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
         c.argument('last_modified_date_time', help='')
         c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-
-    with self.argument_context('education create-category') as c:
+    with self.argument_context('education educationmeassignment create-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education create-resource') as c:
+    with self.argument_context('education educationmeassignment create-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education create-submission') as c:
+    with self.argument_context('education educationmeassignment create-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('recipient', type=validate_file_or_dict, help='educationSubmissionRecipient Expected value: '
@@ -1660,209 +1181,142 @@ def load_arguments(self, _):
         c.argument('released_date_time', help='')
         c.argument('resources_folder_url', type=str, help='')
         c.argument('returned_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned', ''
+        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned',
                                                      'unknownFutureValue']), help='')
         c.argument('submitted_date_time', help='')
         c.argument('unsubmitted_date_time', help='')
-        c.argument('outcomes', action=AddOutcomes, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesAssignmentsResources, nargs='*', help='')
-        c.argument('submitted_resources', action=AddSubmittedResources, nargs='*', help='')
-        c.argument('unsubmitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('submitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('returned_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('released_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('outcomes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('submitted_resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education get-category') as c:
+    with self.argument_context('education educationmeassignment delete-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource') as c:
+    with self.argument_context('education educationmeassignment delete-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource-folder-url') as c:
+    with self.argument_context('education educationmeassignment delete-rubric') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-rubric') as c:
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education get-submission') as c:
+    with self.argument_context('education educationmeassignment delete-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-category') as c:
+    with self.argument_context('education educationmeassignment list-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-resource') as c:
+    with self.argument_context('education educationmeassignment list-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-submission') as c:
+    with self.argument_context('education educationmeassignment list-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education publish') as c:
+    with self.argument_context('education educationmeassignment publish') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education update-category') as c:
+    with self.argument_context('education educationmeassignment show-category') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_category_id', type=str, help='key: id of educationCategory')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationmeassignment show-resource') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationmeassignment show-resource-folder-url') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+
+    with self.argument_context('education educationmeassignment show-rubric') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationmeassignment show-submission') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationmeassignment update-category') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education update-resource') as c:
+    with self.argument_context('education educationmeassignment update-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education update-rubric') as c:
+    with self.argument_context('education educationmeassignment update-rubric') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('description', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('display_name', type=str, help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
         c.argument('last_modified_date_time', help='')
         c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education update-submission') as c:
+    with self.argument_context('education educationmeassignment update-submission') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1871,396 +1325,252 @@ def load_arguments(self, _):
         c.argument('released_date_time', help='')
         c.argument('resources_folder_url', type=str, help='')
         c.argument('returned_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned', ''
+        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned',
                                                      'unknownFutureValue']), help='')
         c.argument('submitted_date_time', help='')
         c.argument('unsubmitted_date_time', help='')
-        c.argument('outcomes', action=AddOutcomes, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesAssignmentsResources, nargs='*', help='')
-        c.argument('submitted_resources', action=AddSubmittedResources, nargs='*', help='')
-        c.argument('unsubmitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('submitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('returned_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('released_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('outcomes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('submitted_resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-
-    with self.argument_context('education create-outcome') as c:
+    with self.argument_context('education educationmeassignmentssubmission create-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education create-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission create-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education create-submitted-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission create-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education get-outcome') as c:
+    with self.argument_context('education educationmeassignmentssubmission delete-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission delete-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-submitted-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission delete-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-outcome') as c:
+    with self.argument_context('education educationmeassignmentssubmission list-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission list-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-submitted-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission list-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education return') as c:
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-
-    with self.argument_context('education submit') as c:
+    with self.argument_context('education educationmeassignmentssubmission return') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education unsubmit') as c:
+    with self.argument_context('education educationmeassignmentssubmission show-outcome') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationmeassignmentssubmission show-resource') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationmeassignmentssubmission show-submitted-resource') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationmeassignmentssubmission submit') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education update-outcome') as c:
+    with self.argument_context('education educationmeassignmentssubmission unsubmit') as c:
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+
+    with self.argument_context('education educationmeassignmentssubmission update-outcome') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education update-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission update-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education update-submitted-resource') as c:
+    with self.argument_context('education educationmeassignmentssubmission update-submitted-resource') as c:
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education delete') as c:
+    with self.argument_context('education educationschool create-ref-class') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationschool create-ref-user') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('education educationschool delete-ref-administrative-unit') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education create-ref-class') as c:
+    with self.argument_context('education educationschool list-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education create-ref-user') as c:
+    with self.argument_context('education educationschool list-ref-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
-                   'json-string/@json-file.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education get-administrative-unit') as c:
+    with self.argument_context('education educationschool list-ref-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education get-ref-administrative-unit') as c:
+    with self.argument_context('education educationschool list-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-class') as c:
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education list-ref-class') as c:
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-ref-user') as c:
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('education list-user') as c:
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education set-ref-administrative-unit') as c:
+    with self.argument_context('education educationschool set-ref-administrative-unit') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationschool show-administrative-unit') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationschool show-ref-administrative-unit') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationschoolsclass delta') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_synchronization_profile_id', type=str,
-                   help='key: id of educationSynchronizationProfile')
-        c.argument('education_synchronization_error_id', type=str, help='key: id of educationSynchronizationError')
-        c.argument('if_match', type=str, help='ETag')
+    with self.argument_context('education educationschoolsuser delta') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
 
-    with self.argument_context('education create-error') as c:
+    with self.argument_context('education educationsynchronizationprofile create-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2271,43 +1581,54 @@ def load_arguments(self, _):
         c.argument('recorded_date_time', help='')
         c.argument('reportable_identifier', type=str, help='')
 
-    with self.argument_context('education get-error') as c:
+    with self.argument_context('education educationsynchronizationprofile delete-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('education_synchronization_error_id', type=str, help='key: id of educationSynchronizationError')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-profile-status') as c:
+    with self.argument_context('education educationsynchronizationprofile delete-profile-status') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-error') as c:
+    with self.argument_context('education educationsynchronizationprofile list-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education pause') as c:
-        c.argument('education_synchronization_profile_id', type=str,
-                   help='key: id of educationSynchronizationProfile')
-
-    with self.argument_context('education reset') as c:
+    with self.argument_context('education educationsynchronizationprofile pause') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education resume') as c:
+    with self.argument_context('education educationsynchronizationprofile reset') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education start') as c:
+    with self.argument_context('education educationsynchronizationprofile resume') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education update-error') as c:
+    with self.argument_context('education educationsynchronizationprofile show-error') as c:
+        c.argument('education_synchronization_profile_id', type=str,
+                   help='key: id of educationSynchronizationProfile')
+        c.argument('education_synchronization_error_id', type=str, help='key: id of educationSynchronizationError')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationsynchronizationprofile show-profile-status') as c:
+        c.argument('education_synchronization_profile_id', type=str,
+                   help='key: id of educationSynchronizationProfile')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationsynchronizationprofile start') as c:
+        c.argument('education_synchronization_profile_id', type=str,
+                   help='key: id of educationSynchronizationProfile')
+
+    with self.argument_context('education educationsynchronizationprofile update-error') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('education_synchronization_error_id', type=str, help='key: id of educationSynchronizationError')
@@ -2319,25 +1640,19 @@ def load_arguments(self, _):
         c.argument('recorded_date_time', help='')
         c.argument('reportable_identifier', type=str, help='')
 
-    with self.argument_context('education update-profile-status') as c:
+    with self.argument_context('education educationsynchronizationprofile update-profile-status') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_synchronization_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['paused', 'inProgress', 'success', 'error', 'validationError', ''
+        c.argument('status', arg_type=get_enum_type(['paused', 'inProgress', 'success', 'error', 'validationError',
                                                      'quarantined', 'unknownFutureValue']), help='')
 
-    with self.argument_context('education upload-url') as c:
+    with self.argument_context('education educationsynchronizationprofile upload-url') as c:
         c.argument('education_synchronization_profile_id', type=str,
                    help='key: id of educationSynchronizationProfile')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
-
-    with self.argument_context('education create-assignment') as c:
+    with self.argument_context('education educationuser create-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('allow_late_submissions', arg_type=get_three_state_flag(), help='')
@@ -2353,208 +1668,161 @@ def load_arguments(self, _):
         c.argument('due_date_time', help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
-        c.argument('instructions', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('instructions', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('last_modified_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['draft', 'published', 'assigned', 'unknownFutureValue']),
                    help='')
-        c.argument('categories', action=AddCategories, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesResources, nargs='*', help='')
+        c.argument('categories', action=AddCategories, nargs='+', help='')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('submissions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_id', type=str, help='Read-only.')
-        c.argument('rubric_created_date_time', help='')
-        c.argument('rubric_description', action=AddInstructions, nargs='*', help='educationItemBody')
-        c.argument('rubric_display_name', type=str, help='')
-        c.argument('rubric_grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
-                   'json-string/@json-file.')
-        c.argument('rubric_last_modified_date_time', help='')
-        c.argument('rubric_levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_created_date_time_created_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_display_name', type=str, help='', arg_group='Rubric')
+        c.argument('microsoft_graph_education_assignment_grade_type_grading', type=validate_file_or_dict,
+                   help='educationAssignmentGradeType Expected value: json-string/@json-file.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education create-ref-class') as c:
+    with self.argument_context('education educationuser create-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-school') as c:
+    with self.argument_context('education educationuser create-ref-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-ref-taught-class') as c:
+    with self.argument_context('education educationuser create-ref-taught-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education create-rubric') as c:
+    with self.argument_context('education educationuser create-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('description', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('display_name', type=str, help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
         c.argument('last_modified_date_time', help='')
         c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education get-assignment') as c:
+    with self.argument_context('education educationuser delete-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-ref-user') as c:
+    with self.argument_context('education educationuser delete-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-rubric') as c:
+    with self.argument_context('education educationuser delete-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-user') as c:
+    with self.argument_context('education educationuser list-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-assignment') as c:
+    with self.argument_context('education educationuser list-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-class') as c:
+    with self.argument_context('education educationuser list-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-class') as c:
+    with self.argument_context('education educationuser list-ref-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-school') as c:
+    with self.argument_context('education educationuser list-ref-taught-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('education list-ref-taught-class') as c:
+    with self.argument_context('education educationuser list-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-rubric') as c:
+    with self.argument_context('education educationuser list-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-school') as c:
+    with self.argument_context('education educationuser list-taught-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-taught-class') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education set-ref-user') as c:
+    with self.argument_context('education educationuser set-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education update-assignment') as c:
+    with self.argument_context('education educationuser show-assignment') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationuser show-ref-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+
+    with self.argument_context('education educationuser show-rubric') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationuser show-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationuser update-assignment') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2571,180 +1839,91 @@ def load_arguments(self, _):
         c.argument('due_date_time', help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
-        c.argument('instructions', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('instructions', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('last_modified_date_time', help='')
         c.argument('status', arg_type=get_enum_type(['draft', 'published', 'assigned', 'unknownFutureValue']),
                    help='')
-        c.argument('categories', action=AddCategories, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesResources, nargs='*', help='')
+        c.argument('categories', action=AddCategories, nargs='+', help='')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('submissions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_id', type=str, help='Read-only.')
-        c.argument('rubric_created_date_time', help='')
-        c.argument('rubric_description', action=AddInstructions, nargs='*', help='educationItemBody')
-        c.argument('rubric_display_name', type=str, help='')
-        c.argument('rubric_grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
-                   'json-string/@json-file.')
-        c.argument('rubric_last_modified_date_time', help='')
-        c.argument('rubric_levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('rubric_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('rubric_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('rubric_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('rubric_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('rubric_created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_created_date_time_created_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_display_name', type=str, help='', arg_group='Rubric')
+        c.argument('microsoft_graph_education_assignment_grade_type_grading', type=validate_file_or_dict,
+                   help='educationAssignmentGradeType Expected value: json-string/@json-file.', arg_group='Rubric')
+        c.argument('microsoft_graph_education_rubric_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Rubric')
+        c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Rubric')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Rubric Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Rubric Created By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('education update-rubric') as c:
+    with self.argument_context('education educationuser update-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_rubric_id', type=str, help='key: id of educationRubric')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('description', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('display_name', type=str, help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
         c.argument('last_modified_date_time', help='')
         c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education delete') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-
-    with self.argument_context('education create-category') as c:
+    with self.argument_context('education educationusersassignment create-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education create-resource') as c:
+    with self.argument_context('education educationusersassignment create-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education create-submission') as c:
+    with self.argument_context('education educationusersassignment create-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2753,221 +1932,158 @@ def load_arguments(self, _):
         c.argument('released_date_time', help='')
         c.argument('resources_folder_url', type=str, help='')
         c.argument('returned_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned', ''
+        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned',
                                                      'unknownFutureValue']), help='')
         c.argument('submitted_date_time', help='')
         c.argument('unsubmitted_date_time', help='')
-        c.argument('outcomes', action=AddOutcomes, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesAssignmentsResources, nargs='*', help='')
-        c.argument('submitted_resources', action=AddSubmittedResources, nargs='*', help='')
-        c.argument('unsubmitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('submitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('returned_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('released_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('outcomes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('submitted_resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education get-category') as c:
+    with self.argument_context('education educationusersassignment delete-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource') as c:
+    with self.argument_context('education educationusersassignment delete-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-resource-folder-url') as c:
+    with self.argument_context('education educationusersassignment delete-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education get-rubric') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education get-submission') as c:
+    with self.argument_context('education educationusersassignment delete-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education list-category') as c:
+    with self.argument_context('education educationusersassignment list-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-resource') as c:
+    with self.argument_context('education educationusersassignment list-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-submission') as c:
+    with self.argument_context('education educationusersassignment list-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education publish') as c:
+    with self.argument_context('education educationusersassignment publish') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
 
-    with self.argument_context('education update-category') as c:
+    with self.argument_context('education educationusersassignment show-category') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_category_id', type=str, help='key: id of educationCategory')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationusersassignment show-resource') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationusersassignment show-resource-folder-url') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+
+    with self.argument_context('education educationusersassignment show-rubric') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationusersassignment show-submission') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationusersassignment update-category') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_category_id', type=str, help='key: id of educationCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
 
-    with self.argument_context('education update-resource') as c:
+    with self.argument_context('education educationusersassignment update-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_assignment_resource_id', type=str, help='key: id of educationAssignmentResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('distribute_for_student_work', arg_type=get_three_state_flag(), help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education update-rubric') as c:
+    with self.argument_context('education educationusersassignment update-rubric') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('description', action=AddInstructions, nargs='*', help='educationItemBody')
+        c.argument('description', action=AddInstructions, nargs='+', help='educationItemBody')
         c.argument('display_name', type=str, help='')
         c.argument('grading', type=validate_file_or_dict, help='educationAssignmentGradeType Expected value: '
                    'json-string/@json-file.')
         c.argument('last_modified_date_time', help='')
         c.argument('levels', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('qualities', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education update-submission') as c:
+    with self.argument_context('education educationusersassignment update-submission') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
@@ -2977,357 +2093,221 @@ def load_arguments(self, _):
         c.argument('released_date_time', help='')
         c.argument('resources_folder_url', type=str, help='')
         c.argument('returned_date_time', help='')
-        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned', ''
+        c.argument('status', arg_type=get_enum_type(['working', 'submitted', 'released', 'returned',
                                                      'unknownFutureValue']), help='')
         c.argument('submitted_date_time', help='')
         c.argument('unsubmitted_date_time', help='')
-        c.argument('outcomes', action=AddOutcomes, nargs='*', help='')
-        c.argument('resources', action=AddEducationClassesAssignmentsResources, nargs='*', help='')
-        c.argument('submitted_resources', action=AddSubmittedResources, nargs='*', help='')
-        c.argument('unsubmitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('unsubmitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('unsubmitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('submitted_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_device_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('submitted_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('submitted_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('returned_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('returned_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('returned_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('released_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('released_by_application_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('released_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('outcomes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('submitted_resources', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Unsubmitted By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Submitted By')
+        c.argument('application1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('device1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('user1', action=AddApplication, nargs='+', help='identity', arg_group='Returned By')
+        c.argument('application2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
+        c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='Released By')
 
-    with self.argument_context('education delete') as c:
+    with self.argument_context('education educationusersassignmentssubmission create-outcome') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('last_modified_date_time', help='')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+
+    with self.argument_context('education educationusersassignmentssubmission create-resource') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+
+    with self.argument_context('education educationusersassignmentssubmission create-submitted-resource') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('assignment_resource_url', type=str, help='')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+
+    with self.argument_context('education educationusersassignmentssubmission delete-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('education educationusersassignmentssubmission delete-resource') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education create-outcome') as c:
+    with self.argument_context('education educationusersassignmentssubmission delete-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('last_modified_date_time', help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education create-resource') as c:
+    with self.argument_context('education educationusersassignmentssubmission list-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education create-submitted-resource') as c:
+    with self.argument_context('education educationusersassignmentssubmission list-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education get-outcome') as c:
+    with self.argument_context('education educationusersassignmentssubmission list-submitted-resource') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education educationusersassignmentssubmission return') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
+        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
+
+    with self.argument_context('education educationusersassignmentssubmission show-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education get-resource') as c:
+    with self.argument_context('education educationusersassignmentssubmission show-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education get-submitted-resource') as c:
+    with self.argument_context('education educationusersassignmentssubmission show-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education list-outcome') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education list-resource') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education list-submitted-resource') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education return') as c:
+    with self.argument_context('education educationusersassignmentssubmission submit') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education submit') as c:
+    with self.argument_context('education educationusersassignmentssubmission unsubmit') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
 
-    with self.argument_context('education unsubmit') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
-        c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
-
-    with self.argument_context('education update-outcome') as c:
+    with self.argument_context('education educationusersassignmentssubmission update-outcome') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_outcome_id', type=str, help='key: id of educationOutcome')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
 
-    with self.argument_context('education update-resource') as c:
+    with self.argument_context('education educationusersassignmentssubmission update-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education update-submitted-resource') as c:
+    with self.argument_context('education educationusersassignmentssubmission update-submitted-resource') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('education_assignment_id', type=str, help='key: id of educationAssignment')
         c.argument('education_submission_id', type=str, help='key: id of educationSubmission')
         c.argument('education_submission_resource_id', type=str, help='key: id of educationSubmissionResource')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('assignment_resource_url', type=str, help='')
-        c.argument('resource_created_date_time', help='')
-        c.argument('resource_display_name', type=str, help='')
-        c.argument('resource_last_modified_date_time', help='')
-        c.argument('resource_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_last_modified_by_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('resource_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('resource_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('resource_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('resource_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_date_time', help='', arg_group='Resource')
+        c.argument('display_name', type=str, help='', arg_group='Resource')
+        c.argument('last_modified_date_time', help='', arg_group='Resource')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified '
+                   'By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Resource Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Resource Created By')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationusersclass delta') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationusersschool delta') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
 
-    with self.argument_context('education delta') as c:
+    with self.argument_context('education educationuserstaughtclass delta') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')

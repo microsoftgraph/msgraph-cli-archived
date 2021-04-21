@@ -1,20 +1,586 @@
 # Azure CLI Module Creation Report
 
-### applications add-key
-
-add-key a applications.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|applications|servicePrincipals|
+|az applications_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|add-key|addKey|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az applications_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az applications applicationsapplication|applications.application|[commands](#CommandsInapplications.application)|
+|az applications application|applications|[commands](#CommandsInapplications)|
+|az applications group|groups|[commands](#CommandsIngroups)|
+|az applications serviceprincipalsserviceprincipal|servicePrincipals.servicePrincipal|[commands](#CommandsInservicePrincipals.servicePrincipal)|
+|az applications serviceprincipal|servicePrincipals|[commands](#CommandsInservicePrincipals)|
+|az applications user|users|[commands](#CommandsInusers)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInapplications">Commands in `az applications application` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az applications application add-key](#applicationsaddKey)|addKey|[Parameters](#ParametersapplicationsaddKey)|Not Found|
+|[az applications application add-password](#applicationsaddPassword)|addPassword|[Parameters](#ParametersapplicationsaddPassword)|Not Found|
+|[az applications application check-member-group](#applicationscheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersapplicationscheckMemberGroups)|Not Found|
+|[az applications application check-member-object](#applicationscheckMemberObjects)|checkMemberObjects|[Parameters](#ParametersapplicationscheckMemberObjects)|Not Found|
+|[az applications application create-extension-property](#applicationsCreateExtensionProperties)|CreateExtensionProperties|[Parameters](#ParametersapplicationsCreateExtensionProperties)|Not Found|
+|[az applications application create-ref-home-realm-discovery-policy](#applicationsCreateRefHomeRealmDiscoveryPolicies)|CreateRefHomeRealmDiscoveryPolicies|[Parameters](#ParametersapplicationsCreateRefHomeRealmDiscoveryPolicies)|Not Found|
+|[az applications application create-ref-owner](#applicationsCreateRefOwners)|CreateRefOwners|[Parameters](#ParametersapplicationsCreateRefOwners)|Not Found|
+|[az applications application create-ref-token-issuance-policy](#applicationsCreateRefTokenIssuancePolicies)|CreateRefTokenIssuancePolicies|[Parameters](#ParametersapplicationsCreateRefTokenIssuancePolicies)|Not Found|
+|[az applications application create-ref-token-lifetime-policy](#applicationsCreateRefTokenLifetimePolicies)|CreateRefTokenLifetimePolicies|[Parameters](#ParametersapplicationsCreateRefTokenLifetimePolicies)|Not Found|
+|[az applications application delete-extension-property](#applicationsDeleteExtensionProperties)|DeleteExtensionProperties|[Parameters](#ParametersapplicationsDeleteExtensionProperties)|Not Found|
+|[az applications application delete-ref-created-on-behalf-of](#applicationsDeleteRefCreatedOnBehalfOf)|DeleteRefCreatedOnBehalfOf|[Parameters](#ParametersapplicationsDeleteRefCreatedOnBehalfOf)|Not Found|
+|[az applications application delta](#applicationsdelta)|delta|[Parameters](#Parametersapplicationsdelta)|Not Found|
+|[az applications application get-available-extension-property](#applicationsgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersapplicationsgetAvailableExtensionProperties)|Not Found|
+|[az applications application get-by-id](#applicationsgetByIds)|getByIds|[Parameters](#ParametersapplicationsgetByIds)|Not Found|
+|[az applications application get-member-group](#applicationsgetMemberGroups)|getMemberGroups|[Parameters](#ParametersapplicationsgetMemberGroups)|Not Found|
+|[az applications application get-member-object](#applicationsgetMemberObjects)|getMemberObjects|[Parameters](#ParametersapplicationsgetMemberObjects)|Not Found|
+|[az applications application list-extension-property](#applicationsListExtensionProperties)|ListExtensionProperties|[Parameters](#ParametersapplicationsListExtensionProperties)|Not Found|
+|[az applications application list-home-realm-discovery-policy](#applicationsListHomeRealmDiscoveryPolicies)|ListHomeRealmDiscoveryPolicies|[Parameters](#ParametersapplicationsListHomeRealmDiscoveryPolicies)|Not Found|
+|[az applications application list-owner](#applicationsListOwners)|ListOwners|[Parameters](#ParametersapplicationsListOwners)|Not Found|
+|[az applications application list-ref-home-realm-discovery-policy](#applicationsListRefHomeRealmDiscoveryPolicies)|ListRefHomeRealmDiscoveryPolicies|[Parameters](#ParametersapplicationsListRefHomeRealmDiscoveryPolicies)|Not Found|
+|[az applications application list-ref-owner](#applicationsListRefOwners)|ListRefOwners|[Parameters](#ParametersapplicationsListRefOwners)|Not Found|
+|[az applications application list-ref-token-issuance-policy](#applicationsListRefTokenIssuancePolicies)|ListRefTokenIssuancePolicies|[Parameters](#ParametersapplicationsListRefTokenIssuancePolicies)|Not Found|
+|[az applications application list-ref-token-lifetime-policy](#applicationsListRefTokenLifetimePolicies)|ListRefTokenLifetimePolicies|[Parameters](#ParametersapplicationsListRefTokenLifetimePolicies)|Not Found|
+|[az applications application list-token-issuance-policy](#applicationsListTokenIssuancePolicies)|ListTokenIssuancePolicies|[Parameters](#ParametersapplicationsListTokenIssuancePolicies)|Not Found|
+|[az applications application list-token-lifetime-policy](#applicationsListTokenLifetimePolicies)|ListTokenLifetimePolicies|[Parameters](#ParametersapplicationsListTokenLifetimePolicies)|Not Found|
+|[az applications application remove-key](#applicationsremoveKey)|removeKey|[Parameters](#ParametersapplicationsremoveKey)|Not Found|
+|[az applications application remove-password](#applicationsremovePassword)|removePassword|[Parameters](#ParametersapplicationsremovePassword)|Not Found|
+|[az applications application restore](#applicationsrestore)|restore|[Parameters](#Parametersapplicationsrestore)|Not Found|
+|[az applications application set-ref-created-on-behalf-of](#applicationsSetRefCreatedOnBehalfOf)|SetRefCreatedOnBehalfOf|[Parameters](#ParametersapplicationsSetRefCreatedOnBehalfOf)|Not Found|
+|[az applications application show-created-on-behalf-of](#applicationsGetCreatedOnBehalfOf)|GetCreatedOnBehalfOf|[Parameters](#ParametersapplicationsGetCreatedOnBehalfOf)|Not Found|
+|[az applications application show-extension-property](#applicationsGetExtensionProperties)|GetExtensionProperties|[Parameters](#ParametersapplicationsGetExtensionProperties)|Not Found|
+|[az applications application show-ref-created-on-behalf-of](#applicationsGetRefCreatedOnBehalfOf)|GetRefCreatedOnBehalfOf|[Parameters](#ParametersapplicationsGetRefCreatedOnBehalfOf)|Not Found|
+|[az applications application update-extension-property](#applicationsUpdateExtensionProperties)|UpdateExtensionProperties|[Parameters](#ParametersapplicationsUpdateExtensionProperties)|Not Found|
+|[az applications application validate-property](#applicationsvalidateProperties)|validateProperties|[Parameters](#ParametersapplicationsvalidateProperties)|Not Found|
+
+### <a name="CommandsInapplications.application">Commands in `az applications applicationsapplication` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az applications applicationsapplication create-application](#applications.applicationCreateApplication)|CreateApplication|[Parameters](#Parametersapplications.applicationCreateApplication)|Not Found|
+|[az applications applicationsapplication delete-application](#applications.applicationDeleteApplication)|DeleteApplication|[Parameters](#Parametersapplications.applicationDeleteApplication)|Not Found|
+|[az applications applicationsapplication list-application](#applications.applicationListApplication)|ListApplication|[Parameters](#Parametersapplications.applicationListApplication)|Not Found|
+|[az applications applicationsapplication set-logo](#applications.applicationSetLogo)|SetLogo|[Parameters](#Parametersapplications.applicationSetLogo)|Not Found|
+|[az applications applicationsapplication show-application](#applications.applicationGetApplication)|GetApplication|[Parameters](#Parametersapplications.applicationGetApplication)|Not Found|
+|[az applications applicationsapplication show-logo](#applications.applicationGetLogo)|GetLogo|[Parameters](#Parametersapplications.applicationGetLogo)|Not Found|
+|[az applications applicationsapplication update-application](#applications.applicationUpdateApplication)|UpdateApplication|[Parameters](#Parametersapplications.applicationUpdateApplication)|Not Found|
+
+### <a name="CommandsIngroups">Commands in `az applications group` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az applications group create-app-role-assignment](#groupsCreateAppRoleAssignments)|CreateAppRoleAssignments|[Parameters](#ParametersgroupsCreateAppRoleAssignments)|Not Found|
+|[az applications group delete-app-role-assignment](#groupsDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersgroupsDeleteAppRoleAssignments)|Not Found|
+|[az applications group list-app-role-assignment](#groupsListAppRoleAssignments)|ListAppRoleAssignments|[Parameters](#ParametersgroupsListAppRoleAssignments)|Not Found|
+|[az applications group show-app-role-assignment](#groupsGetAppRoleAssignments)|GetAppRoleAssignments|[Parameters](#ParametersgroupsGetAppRoleAssignments)|Not Found|
+|[az applications group update-app-role-assignment](#groupsUpdateAppRoleAssignments)|UpdateAppRoleAssignments|[Parameters](#ParametersgroupsUpdateAppRoleAssignments)|Not Found|
+
+### <a name="CommandsInservicePrincipals">Commands in `az applications serviceprincipal` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az applications serviceprincipal add-key](#servicePrincipalsaddKey)|addKey|[Parameters](#ParametersservicePrincipalsaddKey)|Not Found|
+|[az applications serviceprincipal add-password](#servicePrincipalsaddPassword)|addPassword|[Parameters](#ParametersservicePrincipalsaddPassword)|Not Found|
+|[az applications serviceprincipal check-member-group](#servicePrincipalscheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersservicePrincipalscheckMemberGroups)|Not Found|
+|[az applications serviceprincipal check-member-object](#servicePrincipalscheckMemberObjects)|checkMemberObjects|[Parameters](#ParametersservicePrincipalscheckMemberObjects)|Not Found|
+|[az applications serviceprincipal create-app-role-assigned-to](#servicePrincipalsCreateAppRoleAssignedTo)|CreateAppRoleAssignedTo|[Parameters](#ParametersservicePrincipalsCreateAppRoleAssignedTo)|Not Found|
+|[az applications serviceprincipal create-app-role-assignment](#servicePrincipalsCreateAppRoleAssignments)|CreateAppRoleAssignments|[Parameters](#ParametersservicePrincipalsCreateAppRoleAssignments)|Not Found|
+|[az applications serviceprincipal create-endpoint](#servicePrincipalsCreateEndpoints)|CreateEndpoints|[Parameters](#ParametersservicePrincipalsCreateEndpoints)|Not Found|
+|[az applications serviceprincipal create-ref-claim-mapping-policy](#servicePrincipalsCreateRefClaimsMappingPolicies)|CreateRefClaimsMappingPolicies|[Parameters](#ParametersservicePrincipalsCreateRefClaimsMappingPolicies)|Not Found|
+|[az applications serviceprincipal create-ref-created-object](#servicePrincipalsCreateRefCreatedObjects)|CreateRefCreatedObjects|[Parameters](#ParametersservicePrincipalsCreateRefCreatedObjects)|Not Found|
+|[az applications serviceprincipal create-ref-home-realm-discovery-policy](#servicePrincipalsCreateRefHomeRealmDiscoveryPolicies)|CreateRefHomeRealmDiscoveryPolicies|[Parameters](#ParametersservicePrincipalsCreateRefHomeRealmDiscoveryPolicies)|Not Found|
+|[az applications serviceprincipal create-ref-member-of](#servicePrincipalsCreateRefMemberOf)|CreateRefMemberOf|[Parameters](#ParametersservicePrincipalsCreateRefMemberOf)|Not Found|
+|[az applications serviceprincipal create-ref-oauth2-permission-grant](#servicePrincipalsCreateRefOauth2PermissionGrants)|CreateRefOauth2PermissionGrants|[Parameters](#ParametersservicePrincipalsCreateRefOauth2PermissionGrants)|Not Found|
+|[az applications serviceprincipal create-ref-owned-object](#servicePrincipalsCreateRefOwnedObjects)|CreateRefOwnedObjects|[Parameters](#ParametersservicePrincipalsCreateRefOwnedObjects)|Not Found|
+|[az applications serviceprincipal create-ref-owner](#servicePrincipalsCreateRefOwners)|CreateRefOwners|[Parameters](#ParametersservicePrincipalsCreateRefOwners)|Not Found|
+|[az applications serviceprincipal create-ref-token-issuance-policy](#servicePrincipalsCreateRefTokenIssuancePolicies)|CreateRefTokenIssuancePolicies|[Parameters](#ParametersservicePrincipalsCreateRefTokenIssuancePolicies)|Not Found|
+|[az applications serviceprincipal create-ref-token-lifetime-policy](#servicePrincipalsCreateRefTokenLifetimePolicies)|CreateRefTokenLifetimePolicies|[Parameters](#ParametersservicePrincipalsCreateRefTokenLifetimePolicies)|Not Found|
+|[az applications serviceprincipal create-ref-transitive-member-of](#servicePrincipalsCreateRefTransitiveMemberOf)|CreateRefTransitiveMemberOf|[Parameters](#ParametersservicePrincipalsCreateRefTransitiveMemberOf)|Not Found|
+|[az applications serviceprincipal delete-app-role-assigned-to](#servicePrincipalsDeleteAppRoleAssignedTo)|DeleteAppRoleAssignedTo|[Parameters](#ParametersservicePrincipalsDeleteAppRoleAssignedTo)|Not Found|
+|[az applications serviceprincipal delete-app-role-assignment](#servicePrincipalsDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersservicePrincipalsDeleteAppRoleAssignments)|Not Found|
+|[az applications serviceprincipal delete-endpoint](#servicePrincipalsDeleteEndpoints)|DeleteEndpoints|[Parameters](#ParametersservicePrincipalsDeleteEndpoints)|Not Found|
+|[az applications serviceprincipal delta](#servicePrincipalsdelta)|delta|[Parameters](#ParametersservicePrincipalsdelta)|Not Found|
+|[az applications serviceprincipal get-available-extension-property](#servicePrincipalsgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersservicePrincipalsgetAvailableExtensionProperties)|Not Found|
+|[az applications serviceprincipal get-by-id](#servicePrincipalsgetByIds)|getByIds|[Parameters](#ParametersservicePrincipalsgetByIds)|Not Found|
+|[az applications serviceprincipal get-member-group](#servicePrincipalsgetMemberGroups)|getMemberGroups|[Parameters](#ParametersservicePrincipalsgetMemberGroups)|Not Found|
+|[az applications serviceprincipal get-member-object](#servicePrincipalsgetMemberObjects)|getMemberObjects|[Parameters](#ParametersservicePrincipalsgetMemberObjects)|Not Found|
+|[az applications serviceprincipal list-app-role-assigned-to](#servicePrincipalsListAppRoleAssignedTo)|ListAppRoleAssignedTo|[Parameters](#ParametersservicePrincipalsListAppRoleAssignedTo)|Not Found|
+|[az applications serviceprincipal list-app-role-assignment](#servicePrincipalsListAppRoleAssignments)|ListAppRoleAssignments|[Parameters](#ParametersservicePrincipalsListAppRoleAssignments)|Not Found|
+|[az applications serviceprincipal list-claim-mapping-policy](#servicePrincipalsListClaimsMappingPolicies)|ListClaimsMappingPolicies|[Parameters](#ParametersservicePrincipalsListClaimsMappingPolicies)|Not Found|
+|[az applications serviceprincipal list-created-object](#servicePrincipalsListCreatedObjects)|ListCreatedObjects|[Parameters](#ParametersservicePrincipalsListCreatedObjects)|Not Found|
+|[az applications serviceprincipal list-endpoint](#servicePrincipalsListEndpoints)|ListEndpoints|[Parameters](#ParametersservicePrincipalsListEndpoints)|Not Found|
+|[az applications serviceprincipal list-home-realm-discovery-policy](#servicePrincipalsListHomeRealmDiscoveryPolicies)|ListHomeRealmDiscoveryPolicies|[Parameters](#ParametersservicePrincipalsListHomeRealmDiscoveryPolicies)|Not Found|
+|[az applications serviceprincipal list-member-of](#servicePrincipalsListMemberOf)|ListMemberOf|[Parameters](#ParametersservicePrincipalsListMemberOf)|Not Found|
+|[az applications serviceprincipal list-oauth2-permission-grant](#servicePrincipalsListOauth2PermissionGrants)|ListOauth2PermissionGrants|[Parameters](#ParametersservicePrincipalsListOauth2PermissionGrants)|Not Found|
+|[az applications serviceprincipal list-owned-object](#servicePrincipalsListOwnedObjects)|ListOwnedObjects|[Parameters](#ParametersservicePrincipalsListOwnedObjects)|Not Found|
+|[az applications serviceprincipal list-owner](#servicePrincipalsListOwners)|ListOwners|[Parameters](#ParametersservicePrincipalsListOwners)|Not Found|
+|[az applications serviceprincipal list-ref-claim-mapping-policy](#servicePrincipalsListRefClaimsMappingPolicies)|ListRefClaimsMappingPolicies|[Parameters](#ParametersservicePrincipalsListRefClaimsMappingPolicies)|Not Found|
+|[az applications serviceprincipal list-ref-created-object](#servicePrincipalsListRefCreatedObjects)|ListRefCreatedObjects|[Parameters](#ParametersservicePrincipalsListRefCreatedObjects)|Not Found|
+|[az applications serviceprincipal list-ref-home-realm-discovery-policy](#servicePrincipalsListRefHomeRealmDiscoveryPolicies)|ListRefHomeRealmDiscoveryPolicies|[Parameters](#ParametersservicePrincipalsListRefHomeRealmDiscoveryPolicies)|Not Found|
+|[az applications serviceprincipal list-ref-member-of](#servicePrincipalsListRefMemberOf)|ListRefMemberOf|[Parameters](#ParametersservicePrincipalsListRefMemberOf)|Not Found|
+|[az applications serviceprincipal list-ref-oauth2-permission-grant](#servicePrincipalsListRefOauth2PermissionGrants)|ListRefOauth2PermissionGrants|[Parameters](#ParametersservicePrincipalsListRefOauth2PermissionGrants)|Not Found|
+|[az applications serviceprincipal list-ref-owned-object](#servicePrincipalsListRefOwnedObjects)|ListRefOwnedObjects|[Parameters](#ParametersservicePrincipalsListRefOwnedObjects)|Not Found|
+|[az applications serviceprincipal list-ref-owner](#servicePrincipalsListRefOwners)|ListRefOwners|[Parameters](#ParametersservicePrincipalsListRefOwners)|Not Found|
+|[az applications serviceprincipal list-ref-token-issuance-policy](#servicePrincipalsListRefTokenIssuancePolicies)|ListRefTokenIssuancePolicies|[Parameters](#ParametersservicePrincipalsListRefTokenIssuancePolicies)|Not Found|
+|[az applications serviceprincipal list-ref-token-lifetime-policy](#servicePrincipalsListRefTokenLifetimePolicies)|ListRefTokenLifetimePolicies|[Parameters](#ParametersservicePrincipalsListRefTokenLifetimePolicies)|Not Found|
+|[az applications serviceprincipal list-ref-transitive-member-of](#servicePrincipalsListRefTransitiveMemberOf)|ListRefTransitiveMemberOf|[Parameters](#ParametersservicePrincipalsListRefTransitiveMemberOf)|Not Found|
+|[az applications serviceprincipal list-token-issuance-policy](#servicePrincipalsListTokenIssuancePolicies)|ListTokenIssuancePolicies|[Parameters](#ParametersservicePrincipalsListTokenIssuancePolicies)|Not Found|
+|[az applications serviceprincipal list-token-lifetime-policy](#servicePrincipalsListTokenLifetimePolicies)|ListTokenLifetimePolicies|[Parameters](#ParametersservicePrincipalsListTokenLifetimePolicies)|Not Found|
+|[az applications serviceprincipal list-transitive-member-of](#servicePrincipalsListTransitiveMemberOf)|ListTransitiveMemberOf|[Parameters](#ParametersservicePrincipalsListTransitiveMemberOf)|Not Found|
+|[az applications serviceprincipal remove-key](#servicePrincipalsremoveKey)|removeKey|[Parameters](#ParametersservicePrincipalsremoveKey)|Not Found|
+|[az applications serviceprincipal remove-password](#servicePrincipalsremovePassword)|removePassword|[Parameters](#ParametersservicePrincipalsremovePassword)|Not Found|
+|[az applications serviceprincipal restore](#servicePrincipalsrestore)|restore|[Parameters](#ParametersservicePrincipalsrestore)|Not Found|
+|[az applications serviceprincipal show-app-role-assigned-to](#servicePrincipalsGetAppRoleAssignedTo)|GetAppRoleAssignedTo|[Parameters](#ParametersservicePrincipalsGetAppRoleAssignedTo)|Not Found|
+|[az applications serviceprincipal show-app-role-assignment](#servicePrincipalsGetAppRoleAssignments)|GetAppRoleAssignments|[Parameters](#ParametersservicePrincipalsGetAppRoleAssignments)|Not Found|
+|[az applications serviceprincipal show-endpoint](#servicePrincipalsGetEndpoints)|GetEndpoints|[Parameters](#ParametersservicePrincipalsGetEndpoints)|Not Found|
+|[az applications serviceprincipal update-app-role-assigned-to](#servicePrincipalsUpdateAppRoleAssignedTo)|UpdateAppRoleAssignedTo|[Parameters](#ParametersservicePrincipalsUpdateAppRoleAssignedTo)|Not Found|
+|[az applications serviceprincipal update-app-role-assignment](#servicePrincipalsUpdateAppRoleAssignments)|UpdateAppRoleAssignments|[Parameters](#ParametersservicePrincipalsUpdateAppRoleAssignments)|Not Found|
+|[az applications serviceprincipal update-endpoint](#servicePrincipalsUpdateEndpoints)|UpdateEndpoints|[Parameters](#ParametersservicePrincipalsUpdateEndpoints)|Not Found|
+|[az applications serviceprincipal validate-property](#servicePrincipalsvalidateProperties)|validateProperties|[Parameters](#ParametersservicePrincipalsvalidateProperties)|Not Found|
+
+### <a name="CommandsInservicePrincipals.servicePrincipal">Commands in `az applications serviceprincipalsserviceprincipal` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az applications serviceprincipalsserviceprincipal create-service-principal](#servicePrincipals.servicePrincipalCreateServicePrincipal)|CreateServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalCreateServicePrincipal)|Not Found|
+|[az applications serviceprincipalsserviceprincipal delete-service-principal](#servicePrincipals.servicePrincipalDeleteServicePrincipal)|DeleteServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalDeleteServicePrincipal)|Not Found|
+|[az applications serviceprincipalsserviceprincipal list-service-principal](#servicePrincipals.servicePrincipalListServicePrincipal)|ListServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalListServicePrincipal)|Not Found|
+|[az applications serviceprincipalsserviceprincipal show-service-principal](#servicePrincipals.servicePrincipalGetServicePrincipal)|GetServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalGetServicePrincipal)|Not Found|
+|[az applications serviceprincipalsserviceprincipal update-service-principal](#servicePrincipals.servicePrincipalUpdateServicePrincipal)|UpdateServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalUpdateServicePrincipal)|Not Found|
+
+### <a name="CommandsInusers">Commands in `az applications user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az applications user create-app-role-assignment](#usersCreateAppRoleAssignments)|CreateAppRoleAssignments|[Parameters](#ParametersusersCreateAppRoleAssignments)|Not Found|
+|[az applications user delete-app-role-assignment](#usersDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersusersDeleteAppRoleAssignments)|Not Found|
+|[az applications user list-app-role-assignment](#usersListAppRoleAssignments)|ListAppRoleAssignments|[Parameters](#ParametersusersListAppRoleAssignments)|Not Found|
+|[az applications user show-app-role-assignment](#usersGetAppRoleAssignments)|GetAppRoleAssignments|[Parameters](#ParametersusersGetAppRoleAssignments)|Not Found|
+|[az applications user update-app-role-assignment](#usersUpdateAppRoleAssignments)|UpdateAppRoleAssignments|[Parameters](#ParametersusersUpdateAppRoleAssignments)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az applications application`
+#### <a name="applicationsaddKey">Command `az applications application add-key`</a>
+
+##### <a name="ParametersapplicationsaddKey">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--key-credential**|object|keyCredential|key_credential|keyCredential|
+|**--password-credential**|object|passwordCredential|password_credential|passwordCredential|
+|**--proof**|string||proof|proof|
+
+#### <a name="applicationsaddPassword">Command `az applications application add-password`</a>
+
+##### <a name="ParametersapplicationsaddPassword">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--password-credential**|object|passwordCredential|password_credential|passwordCredential|
+
+#### <a name="applicationscheckMemberGroups">Command `az applications application check-member-group`</a>
+
+##### <a name="ParametersapplicationscheckMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--group-ids**|array||group_ids|groupIds|
+
+#### <a name="applicationscheckMemberObjects">Command `az applications application check-member-object`</a>
+
+##### <a name="ParametersapplicationscheckMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--ids**|array||ids|ids|
+
+#### <a name="applicationsCreateExtensionProperties">Command `az applications application create-extension-property`</a>
+
+##### <a name="ParametersapplicationsCreateExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--app-display-name**|string|Display name of the application object on which this extension property is defined. Read-only.|app_display_name|appDisplayName|
+|**--data-type**|string|Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum|data_type|dataType|
+|**--is-synced-from-on-premises**|boolean|Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.|is_synced_from_on_premises|isSyncedFromOnPremises|
+|**--name**|string|Name of the extension property. Not nullable.|name|name|
+|**--target-objects**|array|Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication|target_objects|targetObjects|
+
+#### <a name="applicationsCreateRefHomeRealmDiscoveryPolicies">Command `az applications application create-ref-home-realm-discovery-policy`</a>
+
+##### <a name="ParametersapplicationsCreateRefHomeRealmDiscoveryPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="applicationsCreateRefOwners">Command `az applications application create-ref-owner`</a>
+
+##### <a name="ParametersapplicationsCreateRefOwners">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="applicationsCreateRefTokenIssuancePolicies">Command `az applications application create-ref-token-issuance-policy`</a>
+
+##### <a name="ParametersapplicationsCreateRefTokenIssuancePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="applicationsCreateRefTokenLifetimePolicies">Command `az applications application create-ref-token-lifetime-policy`</a>
+
+##### <a name="ParametersapplicationsCreateRefTokenLifetimePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="applicationsDeleteExtensionProperties">Command `az applications application delete-extension-property`</a>
+
+##### <a name="ParametersapplicationsDeleteExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--extension-property-id**|string|key: id of extensionProperty|extension_property_id|extensionProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="applicationsDeleteRefCreatedOnBehalfOf">Command `az applications application delete-ref-created-on-behalf-of`</a>
+
+##### <a name="ParametersapplicationsDeleteRefCreatedOnBehalfOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="applicationsdelta">Command `az applications application delta`</a>
+
+##### <a name="Parametersapplicationsdelta">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="applicationsgetAvailableExtensionProperties">Command `az applications application get-available-extension-property`</a>
+
+##### <a name="ParametersapplicationsgetAvailableExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
+
+#### <a name="applicationsgetByIds">Command `az applications application get-by-id`</a>
+
+##### <a name="ParametersapplicationsgetByIds">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ids**|array||ids|ids|
+|**--types**|array||types|types|
+
+#### <a name="applicationsgetMemberGroups">Command `az applications application get-member-group`</a>
+
+##### <a name="ParametersapplicationsgetMemberGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="applicationsgetMemberObjects">Command `az applications application get-member-object`</a>
+
+##### <a name="ParametersapplicationsgetMemberObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
+
+#### <a name="applicationsListExtensionProperties">Command `az applications application list-extension-property`</a>
+
+##### <a name="ParametersapplicationsListExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applicationsListHomeRealmDiscoveryPolicies">Command `az applications application list-home-realm-discovery-policy`</a>
+
+##### <a name="ParametersapplicationsListHomeRealmDiscoveryPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applicationsListOwners">Command `az applications application list-owner`</a>
+
+##### <a name="ParametersapplicationsListOwners">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applicationsListRefHomeRealmDiscoveryPolicies">Command `az applications application list-ref-home-realm-discovery-policy`</a>
+
+##### <a name="ParametersapplicationsListRefHomeRealmDiscoveryPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="applicationsListRefOwners">Command `az applications application list-ref-owner`</a>
+
+##### <a name="ParametersapplicationsListRefOwners">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="applicationsListRefTokenIssuancePolicies">Command `az applications application list-ref-token-issuance-policy`</a>
+
+##### <a name="ParametersapplicationsListRefTokenIssuancePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="applicationsListRefTokenLifetimePolicies">Command `az applications application list-ref-token-lifetime-policy`</a>
+
+##### <a name="ParametersapplicationsListRefTokenLifetimePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="applicationsListTokenIssuancePolicies">Command `az applications application list-token-issuance-policy`</a>
+
+##### <a name="ParametersapplicationsListTokenIssuancePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applicationsListTokenLifetimePolicies">Command `az applications application list-token-lifetime-policy`</a>
+
+##### <a name="ParametersapplicationsListTokenLifetimePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applicationsremoveKey">Command `az applications application remove-key`</a>
+
+##### <a name="ParametersapplicationsremoveKey">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--key-id**|uuid||key_id|keyId|
+|**--proof**|string||proof|proof|
+
+#### <a name="applicationsremovePassword">Command `az applications application remove-password`</a>
+
+##### <a name="ParametersapplicationsremovePassword">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--key-id**|uuid||key_id|keyId|
+
+#### <a name="applicationsrestore">Command `az applications application restore`</a>
+
+##### <a name="Parametersapplicationsrestore">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+
+#### <a name="applicationsSetRefCreatedOnBehalfOf">Command `az applications application set-ref-created-on-behalf-of`</a>
+
+##### <a name="ParametersapplicationsSetRefCreatedOnBehalfOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="applicationsGetCreatedOnBehalfOf">Command `az applications application show-created-on-behalf-of`</a>
+
+##### <a name="ParametersapplicationsGetCreatedOnBehalfOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applicationsGetExtensionProperties">Command `az applications application show-extension-property`</a>
+
+##### <a name="ParametersapplicationsGetExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--extension-property-id**|string|key: id of extensionProperty|extension_property_id|extensionProperty-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applicationsGetRefCreatedOnBehalfOf">Command `az applications application show-ref-created-on-behalf-of`</a>
+
+##### <a name="ParametersapplicationsGetRefCreatedOnBehalfOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+
+#### <a name="applicationsUpdateExtensionProperties">Command `az applications application update-extension-property`</a>
+
+##### <a name="ParametersapplicationsUpdateExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--extension-property-id**|string|key: id of extensionProperty|extension_property_id|extensionProperty-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--app-display-name**|string|Display name of the application object on which this extension property is defined. Read-only.|app_display_name|appDisplayName|
+|**--data-type**|string|Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum|data_type|dataType|
+|**--is-synced-from-on-premises**|boolean|Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.|is_synced_from_on_premises|isSyncedFromOnPremises|
+|**--name**|string|Name of the extension property. Not nullable.|name|name|
+|**--target-objects**|array|Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication|target_objects|targetObjects|
+
+#### <a name="applicationsvalidateProperties">Command `az applications application validate-property`</a>
+
+##### <a name="ParametersapplicationsvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### group `az applications applicationsapplication`
+#### <a name="applications.applicationCreateApplication">Command `az applications applicationsapplication create-application`</a>
+
+##### <a name="Parametersapplications.applicationCreateApplication">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--body**|object|New entity|body|body|
+
+#### <a name="applications.applicationDeleteApplication">Command `az applications applicationsapplication delete-application`</a>
+
+##### <a name="Parametersapplications.applicationDeleteApplication">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="applications.applicationListApplication">Command `az applications applicationsapplication list-application`</a>
+
+##### <a name="Parametersapplications.applicationListApplication">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applications.applicationSetLogo">Command `az applications applicationsapplication set-logo`</a>
+
+##### <a name="Parametersapplications.applicationSetLogo">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--data**|binary|New media content.|data|data|
+
+#### <a name="applications.applicationGetApplication">Command `az applications applicationsapplication show-application`</a>
+
+##### <a name="Parametersapplications.applicationGetApplication">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="applications.applicationGetLogo">Command `az applications applicationsapplication show-logo`</a>
+
+##### <a name="Parametersapplications.applicationGetLogo">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+
+#### <a name="applications.applicationUpdateApplication">Command `az applications applicationsapplication update-application`</a>
+
+##### <a name="Parametersapplications.applicationUpdateApplication">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--body**|object|New property values|body|body|
+
+### group `az applications group`
+#### <a name="groupsCreateAppRoleAssignments">Command `az applications group create-app-role-assignment`</a>
+
+##### <a name="ParametersgroupsCreateAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--app-role-id**|uuid|The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. Does not support $filter.|app_role_id|appRoleId|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--principal-display-name**|string|The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).|principal_display_name|principalDisplayName|
+|**--principal-id**|uuid|The unique identifier (id) for the user, group or service principal being granted the app role. Required on create. Does not support $filter.|principal_id|principalId|
+|**--principal-type**|string|The type of the assigned principal. This can either be 'User', 'Group' or 'ServicePrincipal'. Read-only. Does not support $filter.|principal_type|principalType|
+|**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
+|**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
+
+#### <a name="groupsDeleteAppRoleAssignments">Command `az applications group delete-app-role-assignment`</a>
+
+##### <a name="ParametersgroupsDeleteAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groupsListAppRoleAssignments">Command `az applications group list-app-role-assignment`</a>
+
+##### <a name="ParametersgroupsListAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="groupsGetAppRoleAssignments">Command `az applications group show-app-role-assignment`</a>
+
+##### <a name="ParametersgroupsGetAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="groupsUpdateAppRoleAssignments">Command `az applications group update-app-role-assignment`</a>
+
+##### <a name="ParametersgroupsUpdateAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--app-role-id**|uuid|The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. Does not support $filter.|app_role_id|appRoleId|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--principal-display-name**|string|The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).|principal_display_name|principalDisplayName|
+|**--principal-id**|uuid|The unique identifier (id) for the user, group or service principal being granted the app role. Required on create. Does not support $filter.|principal_id|principalId|
+|**--principal-type**|string|The type of the assigned principal. This can either be 'User', 'Group' or 'ServicePrincipal'. Read-only. Does not support $filter.|principal_type|principalType|
+|**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
+|**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
+
+### group `az applications serviceprincipal`
+#### <a name="servicePrincipalsaddKey">Command `az applications serviceprincipal add-key`</a>
+
+##### <a name="ParametersservicePrincipalsaddKey">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -22,81 +588,33 @@ add-key a applications.
 |**--password-credential**|object|passwordCredential|password_credential|passwordCredential|
 |**--proof**|string||proof|proof|
 
-### applications add-password
+#### <a name="servicePrincipalsaddPassword">Command `az applications serviceprincipal add-password`</a>
 
-add-password a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|add-password|addPassword|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsaddPassword">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--password-credential**|object|passwordCredential|password_credential|passwordCredential|
 
-### applications check-member-group
+#### <a name="servicePrincipalscheckMemberGroups">Command `az applications serviceprincipal check-member-group`</a>
 
-check-member-group a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|check-member-group|checkMemberGroups|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalscheckMemberGroups">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--group-ids**|array||group_ids|groupIds|
 
-### applications check-member-object
+#### <a name="servicePrincipalscheckMemberObjects">Command `az applications serviceprincipal check-member-object`</a>
 
-check-member-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|check-member-object|checkMemberObjects|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalscheckMemberObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--ids**|array||ids|ids|
 
-### applications create-app-role-assigned-to
+#### <a name="servicePrincipalsCreateAppRoleAssignedTo">Command `az applications serviceprincipal create-app-role-assigned-to`</a>
 
-create-app-role-assigned-to a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app-role-assigned-to|CreateAppRoleAssignedTo|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateAppRoleAssignedTo">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -110,24 +628,12 @@ create-app-role-assigned-to a applications.
 |**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
 |**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
 
-### applications create-app-role-assignment
+#### <a name="servicePrincipalsCreateAppRoleAssignments">Command `az applications serviceprincipal create-app-role-assignment`</a>
 
-create-app-role-assignment a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app-role-assignment|CreateAppRoleAssignments|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateAppRoleAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--id**|string|Read-only.|id|id|
 |**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
 |**--app-role-id**|uuid|The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. Does not support $filter.|app_role_id|appRoleId|
@@ -138,40 +644,9 @@ create-app-role-assignment a applications.
 |**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
 |**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
 
-### applications create-application
+#### <a name="servicePrincipalsCreateEndpoints">Command `az applications serviceprincipal create-endpoint`</a>
 
-create-application a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications.application|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-application|CreateApplication|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--body**|object|New entity|body|body|
-
-### applications create-endpoint
-
-create-endpoint a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-endpoint|CreateEndpoints|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateEndpoints">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -183,573 +658,152 @@ create-endpoint a applications.
 |**--provider-resource-id**|string|For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.|provider_resource_id|providerResourceId|
 |**--uri**|string|URL of the published resource. Not nullable. Read-only.|uri|uri|
 
-### applications create-extension-property
+#### <a name="servicePrincipalsCreateRefClaimsMappingPolicies">Command `az applications serviceprincipal create-ref-claim-mapping-policy`</a>
 
-create-extension-property a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-extension-property|CreateExtensionProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--app-display-name**|string|Display name of the application object on which this extension property is defined. Read-only.|app_display_name|appDisplayName|
-|**--data-type**|string|Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum|data_type|dataType|
-|**--is-synced-from-on-premises**|boolean|Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.|is_synced_from_on_premises|isSyncedFromOnPremises|
-|**--name**|string|Name of the extension property. Not nullable.|name|name|
-|**--target-objects**|array|Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication|target_objects|targetObjects|
-
-### applications create-ref-claim-mapping-policy
-
-create-ref-claim-mapping-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-claim-mapping-policy|CreateRefClaimsMappingPolicies|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefClaimsMappingPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-created-object
+#### <a name="servicePrincipalsCreateRefCreatedObjects">Command `az applications serviceprincipal create-ref-created-object`</a>
 
-create-ref-created-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-created-object|CreateRefCreatedObjects|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefCreatedObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-home-realm-discovery-policy
+#### <a name="servicePrincipalsCreateRefHomeRealmDiscoveryPolicies">Command `az applications serviceprincipal create-ref-home-realm-discovery-policy`</a>
 
-create-ref-home-realm-discovery-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-home-realm-discovery-policy|CreateRefHomeRealmDiscoveryPolicies|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefHomeRealmDiscoveryPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-member-of
+#### <a name="servicePrincipalsCreateRefMemberOf">Command `az applications serviceprincipal create-ref-member-of`</a>
 
-create-ref-member-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-member-of|CreateRefMemberOf|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-oauth2-permission-grant
+#### <a name="servicePrincipalsCreateRefOauth2PermissionGrants">Command `az applications serviceprincipal create-ref-oauth2-permission-grant`</a>
 
-create-ref-oauth2-permission-grant a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-oauth2-permission-grant|CreateRefOauth2PermissionGrants|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefOauth2PermissionGrants">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-owned-object
+#### <a name="servicePrincipalsCreateRefOwnedObjects">Command `az applications serviceprincipal create-ref-owned-object`</a>
 
-create-ref-owned-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-owned-object|CreateRefOwnedObjects|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefOwnedObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-owner
+#### <a name="servicePrincipalsCreateRefOwners">Command `az applications serviceprincipal create-ref-owner`</a>
 
-create-ref-owner a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-owner|CreateRefOwners|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefOwners">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-token-issuance-policy
+#### <a name="servicePrincipalsCreateRefTokenIssuancePolicies">Command `az applications serviceprincipal create-ref-token-issuance-policy`</a>
 
-create-ref-token-issuance-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-token-issuance-policy|CreateRefTokenIssuancePolicies|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefTokenIssuancePolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-token-lifetime-policy
+#### <a name="servicePrincipalsCreateRefTokenLifetimePolicies">Command `az applications serviceprincipal create-ref-token-lifetime-policy`</a>
 
-create-ref-token-lifetime-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-token-lifetime-policy|CreateRefTokenLifetimePolicies|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefTokenLifetimePolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-ref-transitive-member-of
+#### <a name="servicePrincipalsCreateRefTransitiveMemberOf">Command `az applications serviceprincipal create-ref-transitive-member-of`</a>
 
-create-ref-transitive-member-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-transitive-member-of|CreateRefTransitiveMemberOf|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsCreateRefTransitiveMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### applications create-service-principal
+#### <a name="servicePrincipalsDeleteAppRoleAssignedTo">Command `az applications serviceprincipal delete-app-role-assigned-to`</a>
 
-create-service-principal a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals.servicePrincipal|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-service-principal|CreateServicePrincipal|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsDeleteAppRoleAssignedTo">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New entity|body|body|
-
-### applications delete
-
-delete a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAppRoleAssignments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="servicePrincipalsDeleteAppRoleAssignments">Command `az applications serviceprincipal delete-app-role-assignment`</a>
+
+##### <a name="ParametersservicePrincipalsDeleteAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="servicePrincipalsDeleteEndpoints">Command `az applications serviceprincipal delete-endpoint`</a>
+
+##### <a name="ParametersservicePrincipalsDeleteEndpoints">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--endpoint-id**|string|key: id of endpoint|endpoint_id|endpoint-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### applications delta
+#### <a name="servicePrincipalsdelta">Command `az applications serviceprincipal delta`</a>
 
-delta a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="servicePrincipalsgetAvailableExtensionProperties">Command `az applications serviceprincipal get-available-extension-property`</a>
 
-### applications get-app-role-assigned-to
-
-get-app-role-assigned-to a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app-role-assigned-to|GetAppRoleAssignedTo|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications get-app-role-assignment
-
-get-app-role-assignment a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app-role-assignment|GetAppRoleAssignments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications get-application
-
-get-application a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications.application|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-application|GetApplication|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications get-available-extension-property
-
-get-available-extension-property a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-available-extension-property|getAvailableExtensionProperties|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsgetAvailableExtensionProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--is-synced-from-on-premises**|boolean||is_synced_from_on_premises|isSyncedFromOnPremises|
 
-### applications get-by-id
+#### <a name="servicePrincipalsgetByIds">Command `az applications serviceprincipal get-by-id`</a>
 
-get-by-id a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-by-id|getByIds|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsgetByIds">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ids**|array||ids|ids|
 |**--types**|array||types|types|
 
-### applications get-created-on-behalf-of
+#### <a name="servicePrincipalsgetMemberGroups">Command `az applications serviceprincipal get-member-group`</a>
 
-get-created-on-behalf-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-created-on-behalf-of|GetCreatedOnBehalfOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications get-endpoint
-
-get-endpoint a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-endpoint|GetEndpoints|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--endpoint-id**|string|key: id of endpoint|endpoint_id|endpoint-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications get-extension-property
-
-get-extension-property a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-extension-property|GetExtensionProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--extension-property-id**|string|key: id of extensionProperty|extension_property_id|extensionProperty-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications get-logo
-
-get-logo a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications.application|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-logo|GetLogo|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-
-### applications get-member-group
-
-get-member-group a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member-group|getMemberGroups|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsgetMemberGroups">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
 
-### applications get-member-object
+#### <a name="servicePrincipalsgetMemberObjects">Command `az applications serviceprincipal get-member-object`</a>
 
-get-member-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member-object|getMemberObjects|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsgetMemberObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--security-enabled-only**|boolean||security_enabled_only|securityEnabledOnly|
 
-### applications get-ref-created-on-behalf-of
+#### <a name="servicePrincipalsListAppRoleAssignedTo">Command `az applications serviceprincipal list-app-role-assigned-to`</a>
 
-get-ref-created-on-behalf-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-created-on-behalf-of|GetRefCreatedOnBehalfOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-
-### applications get-service-principal
-
-get-service-principal a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals.servicePrincipal|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-service-principal|GetServicePrincipal|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications list-app-role-assigned-to
-
-list-app-role-assigned-to a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app-role-assigned-to|ListAppRoleAssignedTo|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListAppRoleAssignedTo">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -757,64 +811,9 @@ list-app-role-assigned-to a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-app-role-assignment
+#### <a name="servicePrincipalsListAppRoleAssignments">Command `az applications serviceprincipal list-app-role-assignment`</a>
 
-list-app-role-assignment a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app-role-assignment|ListAppRoleAssignments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications list-application
-
-list-application a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications.application|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-application|ListApplication|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications list-claim-mapping-policy
-
-list-claim-mapping-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-claim-mapping-policy|ListClaimsMappingPolicies|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListAppRoleAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -822,21 +821,9 @@ list-claim-mapping-policy a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-created-object
+#### <a name="servicePrincipalsListClaimsMappingPolicies">Command `az applications serviceprincipal list-claim-mapping-policy`</a>
 
-list-created-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-created-object|ListCreatedObjects|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListClaimsMappingPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -844,21 +831,9 @@ list-created-object a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-endpoint
+#### <a name="servicePrincipalsListCreatedObjects">Command `az applications serviceprincipal list-created-object`</a>
 
-list-endpoint a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-endpoint|ListEndpoints|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListCreatedObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -866,43 +841,9 @@ list-endpoint a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-extension-property
+#### <a name="servicePrincipalsListEndpoints">Command `az applications serviceprincipal list-endpoint`</a>
 
-list-extension-property a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-extension-property|ListExtensionProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications list-home-realm-discovery-policy
-
-list-home-realm-discovery-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-home-realm-discovery-policy|ListHomeRealmDiscoveryPolicies|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListEndpoints">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -910,21 +851,9 @@ list-home-realm-discovery-policy a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-member-of
+#### <a name="servicePrincipalsListHomeRealmDiscoveryPolicies">Command `az applications serviceprincipal list-home-realm-discovery-policy`</a>
 
-list-member-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member-of|ListMemberOf|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListHomeRealmDiscoveryPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -932,21 +861,9 @@ list-member-of a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-oauth2-permission-grant
+#### <a name="servicePrincipalsListMemberOf">Command `az applications serviceprincipal list-member-of`</a>
 
-list-oauth2-permission-grant a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-oauth2-permission-grant|ListOauth2PermissionGrants|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListMemberOf">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -954,21 +871,9 @@ list-oauth2-permission-grant a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-owned-object
+#### <a name="servicePrincipalsListOauth2PermissionGrants">Command `az applications serviceprincipal list-oauth2-permission-grant`</a>
 
-list-owned-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-owned-object|ListOwnedObjects|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListOauth2PermissionGrants">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -976,21 +881,9 @@ list-owned-object a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-owner
+#### <a name="servicePrincipalsListOwnedObjects">Command `az applications serviceprincipal list-owned-object`</a>
 
-list-owner a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-owner|ListOwners|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListOwnedObjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -998,242 +891,9 @@ list-owner a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-ref-claim-mapping-policy
+#### <a name="servicePrincipalsListOwners">Command `az applications serviceprincipal list-owner`</a>
 
-list-ref-claim-mapping-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-claim-mapping-policy|ListRefClaimsMappingPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-created-object
-
-list-ref-created-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-created-object|ListRefCreatedObjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-home-realm-discovery-policy
-
-list-ref-home-realm-discovery-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-home-realm-discovery-policy|ListRefHomeRealmDiscoveryPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-member-of
-
-list-ref-member-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-member-of|ListRefMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-oauth2-permission-grant
-
-list-ref-oauth2-permission-grant a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-oauth2-permission-grant|ListRefOauth2PermissionGrants|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-owned-object
-
-list-ref-owned-object a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-owned-object|ListRefOwnedObjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-owner
-
-list-ref-owner a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-owner|ListRefOwners|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-token-issuance-policy
-
-list-ref-token-issuance-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-token-issuance-policy|ListRefTokenIssuancePolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-token-lifetime-policy
-
-list-ref-token-lifetime-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-token-lifetime-policy|ListRefTokenLifetimePolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-ref-transitive-member-of
-
-list-ref-transitive-member-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-transitive-member-of|ListRefTransitiveMemberOf|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### applications list-service-principal
-
-list-service-principal a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals.servicePrincipal|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-service-principal|ListServicePrincipal|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### applications list-token-issuance-policy
-
-list-token-issuance-policy a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-token-issuance-policy|ListTokenIssuancePolicies|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListOwners">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -1241,21 +901,89 @@ list-token-issuance-policy a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-token-lifetime-policy
+#### <a name="servicePrincipalsListRefClaimsMappingPolicies">Command `az applications serviceprincipal list-ref-claim-mapping-policy`</a>
 
-list-token-lifetime-policy a applications.
+##### <a name="ParametersservicePrincipalsListRefClaimsMappingPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
+#### <a name="servicePrincipalsListRefCreatedObjects">Command `az applications serviceprincipal list-ref-created-object`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-token-lifetime-policy|ListTokenLifetimePolicies|
+##### <a name="ParametersservicePrincipalsListRefCreatedObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
 
-#### Parameters
+#### <a name="servicePrincipalsListRefHomeRealmDiscoveryPolicies">Command `az applications serviceprincipal list-ref-home-realm-discovery-policy`</a>
+
+##### <a name="ParametersservicePrincipalsListRefHomeRealmDiscoveryPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListRefMemberOf">Command `az applications serviceprincipal list-ref-member-of`</a>
+
+##### <a name="ParametersservicePrincipalsListRefMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListRefOauth2PermissionGrants">Command `az applications serviceprincipal list-ref-oauth2-permission-grant`</a>
+
+##### <a name="ParametersservicePrincipalsListRefOauth2PermissionGrants">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListRefOwnedObjects">Command `az applications serviceprincipal list-ref-owned-object`</a>
+
+##### <a name="ParametersservicePrincipalsListRefOwnedObjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListRefOwners">Command `az applications serviceprincipal list-ref-owner`</a>
+
+##### <a name="ParametersservicePrincipalsListRefOwners">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListRefTokenIssuancePolicies">Command `az applications serviceprincipal list-ref-token-issuance-policy`</a>
+
+##### <a name="ParametersservicePrincipalsListRefTokenIssuancePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListRefTokenLifetimePolicies">Command `az applications serviceprincipal list-ref-token-lifetime-policy`</a>
+
+##### <a name="ParametersservicePrincipalsListRefTokenLifetimePolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListRefTransitiveMemberOf">Command `az applications serviceprincipal list-ref-transitive-member-of`</a>
+
+##### <a name="ParametersservicePrincipalsListRefTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="servicePrincipalsListTokenIssuancePolicies">Command `az applications serviceprincipal list-token-issuance-policy`</a>
+
+##### <a name="ParametersservicePrincipalsListTokenIssuancePolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -1263,21 +991,9 @@ list-token-lifetime-policy a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications list-transitive-member-of
+#### <a name="servicePrincipalsListTokenLifetimePolicies">Command `az applications serviceprincipal list-token-lifetime-policy`</a>
 
-list-transitive-member-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-transitive-member-of|ListTransitiveMemberOf|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsListTokenLifetimePolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -1285,121 +1001,73 @@ list-transitive-member-of a applications.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### applications remove-key
+#### <a name="servicePrincipalsListTransitiveMemberOf">Command `az applications serviceprincipal list-transitive-member-of`</a>
 
-remove-key a applications.
+##### <a name="ParametersservicePrincipalsListTransitiveMemberOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
+#### <a name="servicePrincipalsremoveKey">Command `az applications serviceprincipal remove-key`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|remove-key|removeKey|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsremoveKey">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--key-id**|uuid||key_id|keyId|
 |**--proof**|string||proof|proof|
 
-### applications remove-password
+#### <a name="servicePrincipalsremovePassword">Command `az applications serviceprincipal remove-password`</a>
 
-remove-password a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|remove-password|removePassword|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsremovePassword">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--key-id**|uuid||key_id|keyId|
 
-### applications restore
+#### <a name="servicePrincipalsrestore">Command `az applications serviceprincipal restore`</a>
 
-restore a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|restore|restore|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsrestore">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 
-### applications set-logo
+#### <a name="servicePrincipalsGetAppRoleAssignedTo">Command `az applications serviceprincipal show-app-role-assigned-to`</a>
 
-set-logo a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications.application|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-logo|SetLogo|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsGetAppRoleAssignedTo">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--data**|binary|New media content.|data|data|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### applications set-ref-created-on-behalf-of
+#### <a name="servicePrincipalsGetAppRoleAssignments">Command `az applications serviceprincipal show-app-role-assignment`</a>
 
-set-ref-created-on-behalf-of a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-created-on-behalf-of|SetRefCreatedOnBehalfOf|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsGetAppRoleAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### applications update-app-role-assigned-to
+#### <a name="servicePrincipalsGetEndpoints">Command `az applications serviceprincipal show-endpoint`</a>
 
-update-app-role-assigned-to a applications.
+##### <a name="ParametersservicePrincipalsGetEndpoints">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--endpoint-id**|string|key: id of endpoint|endpoint_id|endpoint-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
+#### <a name="servicePrincipalsUpdateAppRoleAssignedTo">Command `az applications serviceprincipal update-app-role-assigned-to`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app-role-assigned-to|UpdateAppRoleAssignedTo|
-
-#### Parameters
+##### <a name="ParametersservicePrincipalsUpdateAppRoleAssignedTo">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
@@ -1414,21 +1082,139 @@ update-app-role-assigned-to a applications.
 |**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
 |**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
 
-### applications update-app-role-assignment
+#### <a name="servicePrincipalsUpdateAppRoleAssignments">Command `az applications serviceprincipal update-app-role-assignment`</a>
 
-update-app-role-assignment a applications.
+##### <a name="ParametersservicePrincipalsUpdateAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--app-role-id**|uuid|The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. Does not support $filter.|app_role_id|appRoleId|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--principal-display-name**|string|The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).|principal_display_name|principalDisplayName|
+|**--principal-id**|uuid|The unique identifier (id) for the user, group or service principal being granted the app role. Required on create. Does not support $filter.|principal_id|principalId|
+|**--principal-type**|string|The type of the assigned principal. This can either be 'User', 'Group' or 'ServicePrincipal'. Read-only. Does not support $filter.|principal_type|principalType|
+|**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
+|**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|users|
+#### <a name="servicePrincipalsUpdateEndpoints">Command `az applications serviceprincipal update-endpoint`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app-role-assignment|UpdateAppRoleAssignments|
+##### <a name="ParametersservicePrincipalsUpdateEndpoints">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--endpoint-id**|string|key: id of endpoint|endpoint_id|endpoint-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--capability**|string|Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.)  Not nullable. Read-only.|capability|capability|
+|**--provider-id**|string|Application id of the publishing underlying service. Not nullable. Read-only.|provider_id|providerId|
+|**--provider-name**|string|Name of the publishing underlying service. Read-only.|provider_name|providerName|
+|**--provider-resource-id**|string|For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.|provider_resource_id|providerResourceId|
+|**--uri**|string|URL of the published resource. Not nullable. Read-only.|uri|uri|
 
-#### Parameters
+#### <a name="servicePrincipalsvalidateProperties">Command `az applications serviceprincipal validate-property`</a>
+
+##### <a name="ParametersservicePrincipalsvalidateProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--entity-type**|string||entity_type|entityType|
+|**--display-name**|string||display_name|displayName|
+|**--mail-nickname**|string||mail_nickname|mailNickname|
+|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
+
+### group `az applications serviceprincipalsserviceprincipal`
+#### <a name="servicePrincipals.servicePrincipalCreateServicePrincipal">Command `az applications serviceprincipalsserviceprincipal create-service-principal`</a>
+
+##### <a name="ParametersservicePrincipals.servicePrincipalCreateServicePrincipal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--body**|object|New entity|body|body|
+
+#### <a name="servicePrincipals.servicePrincipalDeleteServicePrincipal">Command `az applications serviceprincipalsserviceprincipal delete-service-principal`</a>
+
+##### <a name="ParametersservicePrincipals.servicePrincipalDeleteServicePrincipal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="servicePrincipals.servicePrincipalListServicePrincipal">Command `az applications serviceprincipalsserviceprincipal list-service-principal`</a>
+
+##### <a name="ParametersservicePrincipals.servicePrincipalListServicePrincipal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="servicePrincipals.servicePrincipalGetServicePrincipal">Command `az applications serviceprincipalsserviceprincipal show-service-principal`</a>
+
+##### <a name="ParametersservicePrincipals.servicePrincipalGetServicePrincipal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="servicePrincipals.servicePrincipalUpdateServicePrincipal">Command `az applications serviceprincipalsserviceprincipal update-service-principal`</a>
+
+##### <a name="ParametersservicePrincipals.servicePrincipalUpdateServicePrincipal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--body**|object|New property values|body|body|
+
+### group `az applications user`
+#### <a name="usersCreateAppRoleAssignments">Command `az applications user create-app-role-assignment`</a>
+
+##### <a name="ParametersusersCreateAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--app-role-id**|uuid|The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. Does not support $filter.|app_role_id|appRoleId|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--principal-display-name**|string|The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).|principal_display_name|principalDisplayName|
+|**--principal-id**|uuid|The unique identifier (id) for the user, group or service principal being granted the app role. Required on create. Does not support $filter.|principal_id|principalId|
+|**--principal-type**|string|The type of the assigned principal. This can either be 'User', 'Group' or 'ServicePrincipal'. Read-only. Does not support $filter.|principal_type|principalType|
+|**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
+|**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
+
+#### <a name="usersDeleteAppRoleAssignments">Command `az applications user delete-app-role-assignment`</a>
+
+##### <a name="ParametersusersDeleteAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersListAppRoleAssignments">Command `az applications user list-app-role-assignment`</a>
+
+##### <a name="ParametersusersListAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersGetAppRoleAssignments">Command `az applications user show-app-role-assignment`</a>
+
+##### <a name="ParametersusersGetAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersUpdateAppRoleAssignments">Command `az applications user update-app-role-assignment`</a>
+
+##### <a name="ParametersusersUpdateAppRoleAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1442,119 +1228,3 @@ update-app-role-assignment a applications.
 |**--principal-type**|string|The type of the assigned principal. This can either be 'User', 'Group' or 'ServicePrincipal'. Read-only. Does not support $filter.|principal_type|principalType|
 |**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
 |**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
-
-### applications update-application
-
-update-application a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications.application|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-application|UpdateApplication|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--body**|object|New property values|body|body|
-
-### applications update-endpoint
-
-update-endpoint a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-endpoint|UpdateEndpoints|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--endpoint-id**|string|key: id of endpoint|endpoint_id|endpoint-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--capability**|string|Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.)  Not nullable. Read-only.|capability|capability|
-|**--provider-id**|string|Application id of the publishing underlying service. Not nullable. Read-only.|provider_id|providerId|
-|**--provider-name**|string|Name of the publishing underlying service. Read-only.|provider_name|providerName|
-|**--provider-resource-id**|string|For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.|provider_resource_id|providerResourceId|
-|**--uri**|string|URL of the published resource. Not nullable. Read-only.|uri|uri|
-
-### applications update-extension-property
-
-update-extension-property a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|applications|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-extension-property|UpdateExtensionProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--extension-property-id**|string|key: id of extensionProperty|extension_property_id|extensionProperty-id|
-|**--id**|string|Read-only.|id|id|
-|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
-|**--app-display-name**|string|Display name of the application object on which this extension property is defined. Read-only.|app_display_name|appDisplayName|
-|**--data-type**|string|Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum|data_type|dataType|
-|**--is-synced-from-on-premises**|boolean|Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.|is_synced_from_on_premises|isSyncedFromOnPremises|
-|**--name**|string|Name of the extension property. Not nullable.|name|name|
-|**--target-objects**|array|Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication|target_objects|targetObjects|
-
-### applications update-service-principal
-
-update-service-principal a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals.servicePrincipal|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-service-principal|UpdateServicePrincipal|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--body**|object|New property values|body|body|
-
-### applications validate-property
-
-validate-property a applications.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|applications|servicePrincipals|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|validate-property|validateProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--entity-type**|string||entity_type|entityType|
-|**--display-name**|string||display_name|displayName|
-|**--mail-nickname**|string||mail_nickname|mailNickname|
-|**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|

@@ -12,104 +12,104 @@
 from knack.help_files import helps
 
 
-helps['compliance'] = """
+helps['compliance_beta'] = '''
     type: group
-    short-summary: compliance
-"""
+    short-summary: Manage Compliance
+'''
 
-helps['compliance get-compliance'] = """
-    type: command
-    short-summary: "Get compliance"
-"""
-
-helps['compliance update-compliance'] = """
-    type: command
-    short-summary: "Update compliance"
-"""
-
-helps['compliance'] = """
+helps['compliance compliance'] = """
     type: group
-    short-summary: compliance
+    short-summary: Manage compliance with compliance_beta
 """
 
-helps['compliance delete'] = """
+helps['compliance compliance show-compliance'] = """
     type: command
-    short-summary: "Delete navigation property ediscovery for compliance"
+    short-summary: "Get compliance."
 """
 
-helps['compliance get-ediscovery'] = """
+helps['compliance compliance update-compliance'] = """
     type: command
-    short-summary: "Get ediscovery from compliance"
+    short-summary: "Update compliance."
 """
 
-helps['compliance update-ediscovery'] = """
-    type: command
-    short-summary: "Update the navigation property ediscovery in compliance"
-"""
-
-helps['compliance'] = """
+helps['compliance compliance'] = """
     type: group
-    short-summary: compliance
+    short-summary: Manage compliance with compliance_beta
 """
 
-helps['compliance delete'] = """
+helps['compliance compliance delete-ediscovery'] = """
     type: command
-    short-summary: "Delete navigation property cases for compliance"
+    short-summary: "Delete navigation property ediscovery for compliance."
 """
 
-helps['compliance create-case'] = """
+helps['compliance compliance show-ediscovery'] = """
     type: command
-    short-summary: "Create new navigation property to cases for compliance"
+    short-summary: "Get ediscovery from compliance."
+"""
+
+helps['compliance compliance update-ediscovery'] = """
+    type: command
+    short-summary: "Update the navigation property ediscovery in compliance."
+"""
+
+helps['compliance complianceediscovery'] = """
+    type: group
+    short-summary: Manage complianceediscovery with compliance_beta
+"""
+
+helps['compliance complianceediscovery create-case'] = """
+    type: command
+    short-summary: "Create new navigation property to cases for compliance."
     parameters:
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --closed-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --closed-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --closed-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --closed-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --closed-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --closed-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -117,69 +117,74 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance get-case'] = """
+helps['compliance complianceediscovery delete-case'] = """
     type: command
-    short-summary: "Get cases from compliance"
+    short-summary: "Delete navigation property cases for compliance."
 """
 
-helps['compliance list-case'] = """
+helps['compliance complianceediscovery list-case'] = """
     type: command
-    short-summary: "Get cases from compliance"
+    short-summary: "Get cases from compliance."
 """
 
-helps['compliance update-case'] = """
+helps['compliance complianceediscovery show-case'] = """
     type: command
-    short-summary: "Update the navigation property cases in compliance"
+    short-summary: "Get cases from compliance."
+"""
+
+helps['compliance complianceediscovery update-case'] = """
+    type: command
+    short-summary: "Update the navigation property cases in compliance."
     parameters:
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --closed-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --closed-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --closed-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --closed-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --closed-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --closed-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -187,24 +192,19 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance'] = """
+helps['compliance complianceediscoverycase'] = """
     type: group
-    short-summary: compliance
+    short-summary: Manage complianceediscoverycase with compliance_beta
 """
 
-helps['compliance delete'] = """
+helps['compliance complianceediscoverycase close'] = """
     type: command
-    short-summary: "Delete navigation property reviewSets for compliance"
+    short-summary: "Invoke action close."
 """
 
-helps['compliance close'] = """
+helps['compliance complianceediscoverycase create-custodian'] = """
     type: command
-    short-summary: "Invoke action close"
-"""
-
-helps['compliance create-custodian'] = """
-    type: command
-    short-summary: "Create new navigation property to custodians for compliance"
+    short-summary: "Create new navigation property to custodians for compliance."
     parameters:
       - name: --last-index-operation
         short-summary: "caseIndexOperation"
@@ -226,32 +226,32 @@ device=XX user=XX id=XX
             Multiple actions can be specified by using more than one --user-sources argument.
 """
 
-helps['compliance create-review-set'] = """
+helps['compliance complianceediscoverycase create-review-set'] = """
     type: command
-    short-summary: "Create new navigation property to reviewSets for compliance"
+    short-summary: "Create new navigation property to reviewSets for compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -259,34 +259,44 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance get-custodian'] = """
+helps['compliance complianceediscoverycase delete-custodian'] = """
     type: command
-    short-summary: "Get custodians from compliance"
+    short-summary: "Delete navigation property custodians for compliance."
 """
 
-helps['compliance get-review-set'] = """
+helps['compliance complianceediscoverycase delete-review-set'] = """
     type: command
-    short-summary: "Get reviewSets from compliance"
+    short-summary: "Delete navigation property reviewSets for compliance."
 """
 
-helps['compliance list-custodian'] = """
+helps['compliance complianceediscoverycase list-custodian'] = """
     type: command
-    short-summary: "Get custodians from compliance"
+    short-summary: "Get custodians from compliance."
 """
 
-helps['compliance list-review-set'] = """
+helps['compliance complianceediscoverycase list-review-set'] = """
     type: command
-    short-summary: "Get reviewSets from compliance"
+    short-summary: "Get reviewSets from compliance."
 """
 
-helps['compliance reopen'] = """
+helps['compliance complianceediscoverycase reopen'] = """
     type: command
-    short-summary: "Invoke action reopen"
+    short-summary: "Invoke action reopen."
 """
 
-helps['compliance update-custodian'] = """
+helps['compliance complianceediscoverycase show-custodian'] = """
     type: command
-    short-summary: "Update the navigation property custodians in compliance"
+    short-summary: "Get custodians from compliance."
+"""
+
+helps['compliance complianceediscoverycase show-review-set'] = """
+    type: command
+    short-summary: "Get reviewSets from compliance."
+"""
+
+helps['compliance complianceediscoverycase update-custodian'] = """
+    type: command
+    short-summary: "Update the navigation property custodians in compliance."
     parameters:
       - name: --last-index-operation
         short-summary: "caseIndexOperation"
@@ -308,32 +318,32 @@ device=XX user=XX id=XX
             Multiple actions can be specified by using more than one --user-sources argument.
 """
 
-helps['compliance update-review-set'] = """
+helps['compliance complianceediscoverycase update-review-set'] = """
     type: command
-    short-summary: "Update the navigation property reviewSets in compliance"
+    short-summary: "Update the navigation property reviewSets in compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -341,47 +351,42 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance'] = """
+helps['compliance complianceediscoverycasescustodian'] = """
     type: group
-    short-summary: compliance
+    short-summary: Manage complianceediscoverycasescustodian with compliance_beta
 """
 
-helps['compliance delete'] = """
+helps['compliance complianceediscoverycasescustodian activate'] = """
     type: command
-    short-summary: "Delete ref of navigation property lastIndexOperation for compliance"
+    short-summary: "Invoke action activate."
 """
 
-helps['compliance activate'] = """
+helps['compliance complianceediscoverycasescustodian create-site-source'] = """
     type: command
-    short-summary: "Invoke action activate"
-"""
-
-helps['compliance create-site-source'] = """
-    type: command
-    short-summary: "Create new navigation property to siteSources for compliance"
+    short-summary: "Create new navigation property to siteSources for compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -389,32 +394,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance create-unified-group-source'] = """
+helps['compliance complianceediscoverycasescustodian create-unified-group-source'] = """
     type: command
-    short-summary: "Create new navigation property to unifiedGroupSources for compliance"
+    short-summary: "Create new navigation property to unifiedGroupSources for compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -422,32 +427,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance create-user-source'] = """
+helps['compliance complianceediscoverycasescustodian create-user-source'] = """
     type: command
-    short-summary: "Create new navigation property to userSources for compliance"
+    short-summary: "Create new navigation property to userSources for compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -455,87 +460,107 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance get-last-index-operation'] = """
+helps['compliance complianceediscoverycasescustodian delete-ref-last-index-operation'] = """
     type: command
-    short-summary: "Get lastIndexOperation from compliance"
+    short-summary: "Delete ref of navigation property lastIndexOperation for compliance."
 """
 
-helps['compliance get-ref-last-index-operation'] = """
+helps['compliance complianceediscoverycasescustodian delete-site-source'] = """
     type: command
-    short-summary: "Get ref of lastIndexOperation from compliance"
+    short-summary: "Delete navigation property siteSources for compliance."
 """
 
-helps['compliance get-site-source'] = """
+helps['compliance complianceediscoverycasescustodian delete-unified-group-source'] = """
     type: command
-    short-summary: "Get siteSources from compliance"
+    short-summary: "Delete navigation property unifiedGroupSources for compliance."
 """
 
-helps['compliance get-unified-group-source'] = """
+helps['compliance complianceediscoverycasescustodian delete-user-source'] = """
     type: command
-    short-summary: "Get unifiedGroupSources from compliance"
+    short-summary: "Delete navigation property userSources for compliance."
 """
 
-helps['compliance get-user-source'] = """
+helps['compliance complianceediscoverycasescustodian list-site-source'] = """
     type: command
-    short-summary: "Get userSources from compliance"
+    short-summary: "Get siteSources from compliance."
 """
 
-helps['compliance list-site-source'] = """
+helps['compliance complianceediscoverycasescustodian list-unified-group-source'] = """
     type: command
-    short-summary: "Get siteSources from compliance"
+    short-summary: "Get unifiedGroupSources from compliance."
 """
 
-helps['compliance list-unified-group-source'] = """
+helps['compliance complianceediscoverycasescustodian list-user-source'] = """
     type: command
-    short-summary: "Get unifiedGroupSources from compliance"
+    short-summary: "Get userSources from compliance."
 """
 
-helps['compliance list-user-source'] = """
+helps['compliance complianceediscoverycasescustodian release'] = """
     type: command
-    short-summary: "Get userSources from compliance"
+    short-summary: "Invoke action release."
 """
 
-helps['compliance release'] = """
+helps['compliance complianceediscoverycasescustodian set-ref-last-index-operation'] = """
     type: command
-    short-summary: "Invoke action release"
+    short-summary: "Update the ref of navigation property lastIndexOperation in compliance."
 """
 
-helps['compliance set-ref-last-index-operation'] = """
+helps['compliance complianceediscoverycasescustodian show-last-index-operation'] = """
     type: command
-    short-summary: "Update the ref of navigation property lastIndexOperation in compliance"
+    short-summary: "Get lastIndexOperation from compliance."
 """
 
-helps['compliance update-index'] = """
+helps['compliance complianceediscoverycasescustodian show-ref-last-index-operation'] = """
     type: command
-    short-summary: "Invoke action updateIndex"
+    short-summary: "Get ref of lastIndexOperation from compliance."
 """
 
-helps['compliance update-site-source'] = """
+helps['compliance complianceediscoverycasescustodian show-site-source'] = """
     type: command
-    short-summary: "Update the navigation property siteSources in compliance"
+    short-summary: "Get siteSources from compliance."
+"""
+
+helps['compliance complianceediscoverycasescustodian show-unified-group-source'] = """
+    type: command
+    short-summary: "Get unifiedGroupSources from compliance."
+"""
+
+helps['compliance complianceediscoverycasescustodian show-user-source'] = """
+    type: command
+    short-summary: "Get userSources from compliance."
+"""
+
+helps['compliance complianceediscoverycasescustodian update-index'] = """
+    type: command
+    short-summary: "Invoke action updateIndex."
+"""
+
+helps['compliance complianceediscoverycasescustodian update-site-source'] = """
+    type: command
+    short-summary: "Update the navigation property siteSources in compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -543,32 +568,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance update-unified-group-source'] = """
+helps['compliance complianceediscoverycasescustodian update-unified-group-source'] = """
     type: command
-    short-summary: "Update the navigation property unifiedGroupSources in compliance"
+    short-summary: "Update the navigation property unifiedGroupSources in compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -576,32 +601,32 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance update-user-source'] = """
+helps['compliance complianceediscoverycasescustodian update-user-source'] = """
     type: command
-    short-summary: "Update the navigation property userSources in compliance"
+    short-summary: "Update the navigation property userSources in compliance."
     parameters:
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -609,119 +634,114 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance'] = """
+helps['compliance complianceediscoverycasescustodianssitesource'] = """
     type: group
-    short-summary: compliance
+    short-summary: Manage complianceediscoverycasescustodianssitesource with compliance_beta
 """
 
-helps['compliance delete'] = """
+helps['compliance complianceediscoverycasescustodianssitesource delete-ref-site'] = """
     type: command
-    short-summary: "Delete ref of navigation property site for compliance"
+    short-summary: "Delete ref of navigation property site for compliance."
 """
 
-helps['compliance get-ref-site'] = """
+helps['compliance complianceediscoverycasescustodianssitesource set-ref-site'] = """
     type: command
-    short-summary: "Get ref of site from compliance"
+    short-summary: "Update the ref of navigation property site in compliance."
 """
 
-helps['compliance get-site'] = """
+helps['compliance complianceediscoverycasescustodianssitesource show-ref-site'] = """
     type: command
-    short-summary: "Get site from compliance"
+    short-summary: "Get ref of site from compliance."
 """
 
-helps['compliance set-ref-site'] = """
+helps['compliance complianceediscoverycasescustodianssitesource show-site'] = """
     type: command
-    short-summary: "Update the ref of navigation property site in compliance"
+    short-summary: "Get site from compliance."
 """
 
-helps['compliance'] = """
+helps['compliance complianceediscoverycasescustodiansunifiedgroupsource'] = """
     type: group
-    short-summary: compliance
+    short-summary: Manage complianceediscoverycasescustodiansunifiedgroupsource with compliance_beta
 """
 
-helps['compliance delete'] = """
+helps['compliance complianceediscoverycasescustodiansunifiedgroupsource delete-ref-group'] = """
     type: command
-    short-summary: "Delete ref of navigation property group for compliance"
+    short-summary: "Delete ref of navigation property group for compliance."
 """
 
-helps['compliance get-group'] = """
+helps['compliance complianceediscoverycasescustodiansunifiedgroupsource set-ref-group'] = """
     type: command
-    short-summary: "Get group from compliance"
+    short-summary: "Update the ref of navigation property group in compliance."
 """
 
-helps['compliance get-ref-group'] = """
+helps['compliance complianceediscoverycasescustodiansunifiedgroupsource show-group'] = """
     type: command
-    short-summary: "Get ref of group from compliance"
+    short-summary: "Get group from compliance."
 """
 
-helps['compliance set-ref-group'] = """
+helps['compliance complianceediscoverycasescustodiansunifiedgroupsource show-ref-group'] = """
     type: command
-    short-summary: "Update the ref of navigation property group in compliance"
+    short-summary: "Get ref of group from compliance."
 """
 
-helps['compliance'] = """
+helps['compliance complianceediscoverycasesreviewset'] = """
     type: group
-    short-summary: compliance
+    short-summary: Manage complianceediscoverycasesreviewset with compliance_beta
 """
 
-helps['compliance delete'] = """
+helps['compliance complianceediscoverycasesreviewset create-query'] = """
     type: command
-    short-summary: "Delete navigation property queries for compliance"
-"""
-
-helps['compliance create-query'] = """
-    type: command
-    short-summary: "Create new navigation property to queries for compliance"
+    short-summary: "Create new navigation property to queries for compliance."
     parameters:
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -729,69 +749,74 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['compliance get-query'] = """
+helps['compliance complianceediscoverycasesreviewset delete-query'] = """
     type: command
-    short-summary: "Get queries from compliance"
+    short-summary: "Delete navigation property queries for compliance."
 """
 
-helps['compliance list-query'] = """
+helps['compliance complianceediscoverycasesreviewset list-query'] = """
     type: command
-    short-summary: "Get queries from compliance"
+    short-summary: "Get queries from compliance."
 """
 
-helps['compliance update-query'] = """
+helps['compliance complianceediscoverycasesreviewset show-query'] = """
     type: command
-    short-summary: "Update the navigation property queries in compliance"
+    short-summary: "Get queries from compliance."
+"""
+
+helps['compliance complianceediscoverycasesreviewset update-query'] = """
+    type: command
+    short-summary: "Update the navigation property queries in compliance."
     parameters:
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \

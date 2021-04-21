@@ -1,5 +1,14 @@
-Microsoft Azure CLI 'personalcontacts_beta' Extension
-==========================================
+# Azure CLI personalcontacts_beta Extension #
+This is the extension for personalcontacts_beta
 
-This package is for the 'personalcontacts_beta' extension.
-i.e. 'az personalcontacts_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name personalcontacts_beta
+```
+
+### Included Features ###
+#### personalcontacts user ####
+#### personalcontacts userscontactfolder ####
+#### personalcontacts userscontactfolderscontact ####
+#### personalcontacts userscontact ####

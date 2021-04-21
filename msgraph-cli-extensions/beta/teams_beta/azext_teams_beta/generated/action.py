@@ -14,10 +14,10 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddAppDefinitions(argparse._AppendAction):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddAppDefinitions, self).__call__(parser, namespace, action, option_string)
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -31,98 +31,13 @@ class AddAppDefinitions(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'azure-ad-app-id':
-                d['azure_ad_app_id'] = v[0]
-            elif kl == 'description':
-                d['description'] = v[0]
-            elif kl == 'display-name':
+            if kl == 'display-name':
                 d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'publishing-state':
-                d['publishing_state'] = v[0]
-            elif kl == 'shortdescription':
-                d['shortdescription'] = v[0]
-            elif kl == 'teams-app-id':
-                d['teams_app_id'] = v[0]
-            elif kl == 'version':
-                d['version'] = v[0]
-            elif kl == 'display-name-created-by-user-display-name':
-                d['display_name_created_by_user_display_name'] = v[0]
-            elif kl == 'id-created-by-user-id':
-                d['id_created_by_user_id'] = v[0]
-            elif kl == 'display-name-created-by-device-display-name':
-                d['display_name_created_by_device_display_name'] = v[0]
-            elif kl == 'id-created-by-device-id':
-                d['id_created_by_device_id'] = v[0]
-            elif kl == 'display-name-created-by-application-display-name':
-                d['display_name_created_by_application_display_name'] = v[0]
-            elif kl == 'id-created-by-application-id':
-                d['id_created_by_application_id'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
-        return d
-
-
-class AddChatsChatInstalledApps(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddChatsChatInstalledApps, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'id-teams-app-definition-id':
-                d['id_teams_app_definition_id'] = v[0]
-            elif kl == 'azure-ad-app-id':
-                d['azure_ad_app_id'] = v[0]
-            elif kl == 'description':
-                d['description'] = v[0]
-            elif kl == 'display-name-teams-app-definition-display-name':
-                d['display_name_teams_app_definition_display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'publishing-state':
-                d['publishing_state'] = v[0]
-            elif kl == 'shortdescription':
-                d['shortdescription'] = v[0]
-            elif kl == 'teams-app-id':
-                d['teams_app_id'] = v[0]
-            elif kl == 'version':
-                d['version'] = v[0]
-            elif kl == 'display-name-teams-app-definition-created-by-user-display-name':
-                d['display_name_teams_app_definition_created_by_user_display_name'] = v[0]
-            elif kl == 'id-teams-app-definition-created-by-user-id':
-                d['id_teams_app_definition_created_by_user_id'] = v[0]
-            elif kl == 'display-name-teams-app-definition-created-by-device-display-name':
-                d['display_name_teams_app_definition_created_by_device_display_name'] = v[0]
-            elif kl == 'id-teams-app-definition-created-by-device-id':
-                d['id_teams_app_definition_created_by_device_id'] = v[0]
-            elif kl == 'display-name-teams-app-definition-created-by-application-display-name':
-                d['display_name_teams_app_definition_created_by_application_display_name'] = v[0]
-            elif kl == 'id-teams-app-definition-created-by-application-id':
-                d['id_teams_app_definition_created_by_application_id'] = v[0]
-            elif kl == 'id-teams-app-id':
-                d['id_teams_app_id'] = v[0]
-            elif kl == 'display-name-teams-app-display-name':
-                d['display_name_teams_app_display_name'] = v[0]
-            elif kl == 'distribution-method':
-                d['distribution_method'] = v[0]
-            elif kl == 'external-id':
-                d['external_id'] = v[0]
-            elif kl == 'app-definitions':
-                d['app_definitions'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -149,6 +64,9 @@ class AddUsersMembers(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter members. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -181,6 +99,9 @@ class AddAttachments(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'thumbnail-url':
                 d['thumbnail_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attachments. All possible keys are: '
+                               'content, content-type, content-url, id, name, thumbnail-url'.format(k))
         return d
 
 
@@ -205,6 +126,9 @@ class AddBody(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter body. All possible keys are: content, '
+                               'content-type'.format(k))
         return d
 
 
@@ -229,78 +153,9 @@ class AddChannelIdentity(argparse.Action):
                 d['channel_id'] = v[0]
             elif kl == 'team-id':
                 d['team_id'] = v[0]
-        return d
-
-
-class AddMentions(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddMentions, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'mention-text':
-                d['mention_text'] = v[0]
-            elif kl == 'display-name-mentioned-user-display-name':
-                d['display_name_mentioned_user_display_name'] = v[0]
-            elif kl == 'id-mentioned-user-id':
-                d['id_mentioned_user_id'] = v[0]
-            elif kl == 'display-name-mentioned-device-display-name':
-                d['display_name_mentioned_device_display_name'] = v[0]
-            elif kl == 'id-mentioned-device-id':
-                d['id_mentioned_device_id'] = v[0]
-            elif kl == 'display-name-mentioned-application-display-name':
-                d['display_name_mentioned_application_display_name'] = v[0]
-            elif kl == 'id-mentioned-application-id':
-                d['id_mentioned_application_id'] = v[0]
-        return d
-
-
-class AddReactions(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddReactions, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'created-date-time':
-                d['created_date_time'] = v[0]
-            elif kl == 'reaction-type':
-                d['reaction_type'] = v[0]
-            elif kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-user-device-display-name':
-                d['display_name_user_device_display_name'] = v[0]
-            elif kl == 'id-user-device-id':
-                d['id_user_device_id'] = v[0]
-            elif kl == 'display-name-user-application-display-name':
-                d['display_name_user_application_display_name'] = v[0]
-            elif kl == 'id-user-application-id':
-                d['id_user_application_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter channel_identity. All possible keys are: '
+                               'channel-id, team-id'.format(k))
         return d
 
 
@@ -327,13 +182,16 @@ class AddHostedContents(argparse._AppendAction):
                 d['content_type'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter hosted_contents. All possible keys are: '
+                               'content-bytes, content-type, id'.format(k))
         return d
 
 
-class AddPolicyViolationPolicyTip(argparse.Action):
+class AddPolicyTip(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.policy_violation_policy_tip = action
+        namespace.policy_tip = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -353,6 +211,9 @@ class AddPolicyViolationPolicyTip(argparse.Action):
                 d['general_text'] = v[0]
             elif kl == 'matched-condition-descriptions':
                 d['matched_condition_descriptions'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter policy_tip. All possible keys are: '
+                               'compliance-url, general-text, matched-condition-descriptions'.format(k))
         return d
 
 
@@ -381,6 +242,9 @@ class AddConfiguration(argparse.Action):
                 d['remove_url'] = v[0]
             elif kl == 'website-url':
                 d['website_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter configuration. All possible keys are: '
+                               'content-url, entity-id, remove-url, website-url'.format(k))
         return d
 
 
@@ -407,6 +271,9 @@ class AddTopic(argparse.Action):
                 d['value'] = v[0]
             elif kl == 'web-url':
                 d['web_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter topic. All possible keys are: source, '
+                               'value, web-url'.format(k))
         return d
 
 
@@ -431,6 +298,9 @@ class AddChatsTemplateParameters(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter template_parameters. All possible keys '
+                               'are: name, value'.format(k))
         return d
 
 
@@ -457,6 +327,9 @@ class AddChatsMembersValues(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter values. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -485,6 +358,10 @@ class AddFunSettings(argparse.Action):
                 d['allow_stickers_and_memes'] = v[0]
             elif kl == 'giphy-content-rating':
                 d['giphy_content_rating'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter fun_settings. All possible keys are: '
+                               'allow-custom-memes, allow-giphy, allow-stickers-and-memes, giphy-content-rating'.
+                               format(k))
         return d
 
 
@@ -509,6 +386,9 @@ class AddGuestSettings(argparse.Action):
                 d['allow_create_update_channels'] = v[0]
             elif kl == 'allow-delete-channels':
                 d['allow_delete_channels'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter guest_settings. All possible keys are: '
+                               'allow-create-update-channels, allow-delete-channels'.format(k))
         return d
 
 
@@ -541,6 +421,11 @@ class AddMemberSettings(argparse.Action):
                 d['allow_create_update_remove_tabs'] = v[0]
             elif kl == 'allow-delete-channels':
                 d['allow_delete_channels'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter member_settings. All possible keys are: '
+                               'allow-add-remove-apps, allow-create-private-channels, allow-create-update-channels, '
+                               'allow-create-update-remove-connectors, allow-create-update-remove-tabs, '
+                               'allow-delete-channels'.format(k))
         return d
 
 
@@ -571,68 +456,10 @@ class AddMessagingSettings(argparse.Action):
                 d['allow_user_delete_messages'] = v[0]
             elif kl == 'allow-user-edit-messages':
                 d['allow_user_edit_messages'] = v[0]
-        return d
-
-
-class AddGroupsInstalledApps(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddGroupsInstalledApps, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'id-teams-app-definition-id':
-                d['id_teams_app_definition_id'] = v[0]
-            elif kl == 'azure-ad-app-id':
-                d['azure_ad_app_id'] = v[0]
-            elif kl == 'description':
-                d['description'] = v[0]
-            elif kl == 'display-name-teams-app-definition-display-name':
-                d['display_name_teams_app_definition_display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'publishing-state':
-                d['publishing_state'] = v[0]
-            elif kl == 'shortdescription':
-                d['shortdescription'] = v[0]
-            elif kl == 'teams-app-id':
-                d['teams_app_id'] = v[0]
-            elif kl == 'version':
-                d['version'] = v[0]
-            elif kl == 'display-name-teams-app-definition-created-by-user-display-name':
-                d['display_name_teams_app_definition_created_by_user_display_name'] = v[0]
-            elif kl == 'id-teams-app-definition-created-by-user-id':
-                d['id_teams_app_definition_created_by_user_id'] = v[0]
-            elif kl == 'display-name-teams-app-definition-created-by-device-display-name':
-                d['display_name_teams_app_definition_created_by_device_display_name'] = v[0]
-            elif kl == 'id-teams-app-definition-created-by-device-id':
-                d['id_teams_app_definition_created_by_device_id'] = v[0]
-            elif kl == 'display-name-teams-app-definition-created-by-application-display-name':
-                d['display_name_teams_app_definition_created_by_application_display_name'] = v[0]
-            elif kl == 'id-teams-app-definition-created-by-application-id':
-                d['id_teams_app_definition_created_by_application_id'] = v[0]
-            elif kl == 'id-teams-app-id':
-                d['id_teams_app_id'] = v[0]
-            elif kl == 'display-name-teams-app-display-name':
-                d['display_name_teams_app_display_name'] = v[0]
-            elif kl == 'distribution-method':
-                d['distribution_method'] = v[0]
-            elif kl == 'external-id':
-                d['external_id'] = v[0]
-            elif kl == 'app-definitions':
-                d['app_definitions'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter messaging_settings. All possible keys '
+                               'are: allow-channel-mentions, allow-owner-delete-messages, allow-team-mentions, '
+                               'allow-user-delete-messages, allow-user-edit-messages'.format(k))
         return d
 
 
@@ -659,6 +486,9 @@ class AddGroupsMembers(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter members. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -685,13 +515,16 @@ class AddPhoto(argparse.Action):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter photo. All possible keys are: height, '
+                               'width, id'.format(k))
         return d
 
 
-class AddScheduleOfferShiftRequests(argparse._AppendAction):
+class AddOfferShiftRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleOfferShiftRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddOfferShiftRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -733,39 +566,36 @@ class AddScheduleOfferShiftRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-created-by-user-display-name':
-                d['display_name_created_by_user_display_name'] = v[0]
-            elif kl == 'id-created-by-user-id':
-                d['id_created_by_user_id'] = v[0]
-            elif kl == 'display-name-created-by-device-display-name':
-                d['display_name_created_by_device_display_name'] = v[0]
-            elif kl == 'id-created-by-device-id':
-                d['id_created_by_device_id'] = v[0]
-            elif kl == 'display-name-created-by-application-display-name':
-                d['display_name_created_by_application_display_name'] = v[0]
-            elif kl == 'id-created-by-application-id':
-                d['id_created_by_application_id'] = v[0]
+            elif kl == 'application-last-modified-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-last-modified-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-last-modified-by-user':
+                d['user'] = v[0]
+            elif kl == 'application-created-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-created-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-created-by-user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter offer_shift_requests. All possible keys '
+                               'are: recipient-action-date-time, recipient-action-message, recipient-user-id, '
+                               'sender-shift-id, assigned-to, manager-action-date-time, manager-action-message, '
+                               'manager-user-id, sender-date-time, sender-message, sender-user-id, state, '
+                               'created-date-time, last-modified-date-time, application-last-modified-by-application, '
+                               'device-last-modified-by-device, user-last-modified-by-user, '
+                               'application-created-by-application, device-created-by-device, user-created-by-user, id'
+                               .format(k))
         return d
 
 
-class AddScheduleOpenShiftChangeRequests(argparse._AppendAction):
+class AddOpenShiftChangeRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleOpenShiftChangeRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddOpenShiftChangeRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -801,39 +631,35 @@ class AddScheduleOpenShiftChangeRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-created-by-user-display-name':
-                d['display_name_created_by_user_display_name'] = v[0]
-            elif kl == 'id-created-by-user-id':
-                d['id_created_by_user_id'] = v[0]
-            elif kl == 'display-name-created-by-device-display-name':
-                d['display_name_created_by_device_display_name'] = v[0]
-            elif kl == 'id-created-by-device-id':
-                d['id_created_by_device_id'] = v[0]
-            elif kl == 'display-name-created-by-application-display-name':
-                d['display_name_created_by_application_display_name'] = v[0]
-            elif kl == 'id-created-by-application-id':
-                d['id_created_by_application_id'] = v[0]
+            elif kl == 'application-last-modified-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-last-modified-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-last-modified-by-user':
+                d['user'] = v[0]
+            elif kl == 'application-created-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-created-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-created-by-user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter open_shift_change_requests. All possible '
+                               'keys are: open-shift-id, assigned-to, manager-action-date-time, '
+                               'manager-action-message, manager-user-id, sender-date-time, sender-message, '
+                               'sender-user-id, state, created-date-time, last-modified-date-time, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
-class AddScheduleSchedulingGroups(argparse._AppendAction):
+class AddSchedulingGroups(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleSchedulingGroups, self).__call__(parser, namespace, action, option_string)
+        super(AddSchedulingGroups, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -857,39 +683,33 @@ class AddScheduleSchedulingGroups(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-created-by-user-display-name':
-                d['display_name_created_by_user_display_name'] = v[0]
-            elif kl == 'id-created-by-user-id':
-                d['id_created_by_user_id'] = v[0]
-            elif kl == 'display-name-created-by-device-display-name':
-                d['display_name_created_by_device_display_name'] = v[0]
-            elif kl == 'id-created-by-device-id':
-                d['id_created_by_device_id'] = v[0]
-            elif kl == 'display-name-created-by-application-display-name':
-                d['display_name_created_by_application_display_name'] = v[0]
-            elif kl == 'id-created-by-application-id':
-                d['id_created_by_application_id'] = v[0]
+            elif kl == 'application-last-modified-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-last-modified-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-last-modified-by-user':
+                d['user'] = v[0]
+            elif kl == 'application-created-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-created-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-created-by-user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter scheduling_groups. All possible keys are: '
+                               'display-name, is-active, user-ids, created-date-time, last-modified-date-time, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
-class AddScheduleSwapShiftsChangeRequests(argparse._AppendAction):
+class AddSwapShiftsChangeRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleSwapShiftsChangeRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddSwapShiftsChangeRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -933,39 +753,36 @@ class AddScheduleSwapShiftsChangeRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-created-by-user-display-name':
-                d['display_name_created_by_user_display_name'] = v[0]
-            elif kl == 'id-created-by-user-id':
-                d['id_created_by_user_id'] = v[0]
-            elif kl == 'display-name-created-by-device-display-name':
-                d['display_name_created_by_device_display_name'] = v[0]
-            elif kl == 'id-created-by-device-id':
-                d['id_created_by_device_id'] = v[0]
-            elif kl == 'display-name-created-by-application-display-name':
-                d['display_name_created_by_application_display_name'] = v[0]
-            elif kl == 'id-created-by-application-id':
-                d['id_created_by_application_id'] = v[0]
+            elif kl == 'application-last-modified-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-last-modified-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-last-modified-by-user':
+                d['user'] = v[0]
+            elif kl == 'application-created-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-created-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-created-by-user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter swap_shifts_change_requests. All possible '
+                               'keys are: recipient-shift-id, recipient-action-date-time, recipient-action-message, '
+                               'recipient-user-id, sender-shift-id, assigned-to, manager-action-date-time, '
+                               'manager-action-message, manager-user-id, sender-date-time, sender-message, '
+                               'sender-user-id, state, created-date-time, last-modified-date-time, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
-class AddScheduleTimeOffReasons(argparse._AppendAction):
+class AddTimeOffReasons(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleTimeOffReasons, self).__call__(parser, namespace, action, option_string)
+        super(AddTimeOffReasons, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -989,39 +806,33 @@ class AddScheduleTimeOffReasons(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-created-by-user-display-name':
-                d['display_name_created_by_user_display_name'] = v[0]
-            elif kl == 'id-created-by-user-id':
-                d['id_created_by_user_id'] = v[0]
-            elif kl == 'display-name-created-by-device-display-name':
-                d['display_name_created_by_device_display_name'] = v[0]
-            elif kl == 'id-created-by-device-id':
-                d['id_created_by_device_id'] = v[0]
-            elif kl == 'display-name-created-by-application-display-name':
-                d['display_name_created_by_application_display_name'] = v[0]
-            elif kl == 'id-created-by-application-id':
-                d['id_created_by_application_id'] = v[0]
+            elif kl == 'application-last-modified-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-last-modified-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-last-modified-by-user':
+                d['user'] = v[0]
+            elif kl == 'application-created-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-created-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-created-by-user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter time_off_reasons. All possible keys are: '
+                               'display-name, icon-type, is-active, created-date-time, last-modified-date-time, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
-class AddScheduleTimeOffRequests(argparse._AppendAction):
+class AddTimeOffRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleTimeOffRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddTimeOffRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1061,39 +872,35 @@ class AddScheduleTimeOffRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'display-name-created-by-user-display-name':
-                d['display_name_created_by_user_display_name'] = v[0]
-            elif kl == 'id-created-by-user-id':
-                d['id_created_by_user_id'] = v[0]
-            elif kl == 'display-name-created-by-device-display-name':
-                d['display_name_created_by_device_display_name'] = v[0]
-            elif kl == 'id-created-by-device-id':
-                d['id_created_by_device_id'] = v[0]
-            elif kl == 'display-name-created-by-application-display-name':
-                d['display_name_created_by_application_display_name'] = v[0]
-            elif kl == 'id-created-by-application-id':
-                d['id_created_by_application_id'] = v[0]
+            elif kl == 'application-last-modified-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-last-modified-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-last-modified-by-user':
+                d['user'] = v[0]
+            elif kl == 'application-created-by-application':
+                d['application'] = v[0]
+            elif kl == 'device-created-by-device':
+                d['device'] = v[0]
+            elif kl == 'user-created-by-user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter time_off_requests. All possible keys are: '
+                               'end-date-time, start-date-time, time-off-reason-id, assigned-to, '
+                               'manager-action-date-time, manager-action-message, manager-user-id, sender-date-time, '
+                               'sender-message, sender-user-id, state, created-date-time, last-modified-date-time, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
-class AddScheduleTimeClockSettingsApprovedLocation(argparse.Action):
+class AddApprovedLocation(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.schedule_time_clock_settings_approved_location = action
+        namespace.approved_location = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1113,6 +920,9 @@ class AddScheduleTimeClockSettingsApprovedLocation(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter approved_location. All possible keys are: '
+                               'altitude, latitude, longitude'.format(k))
         return d
 
 
@@ -1141,6 +951,10 @@ class AddModerationSettings(argparse.Action):
                 d['reply_restriction'] = v[0]
             elif kl == 'user-new-message-restriction':
                 d['user_new_message_restriction'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter moderation_settings. All possible keys '
+                               'are: allow-new-message-from-bots, allow-new-message-from-connectors, '
+                               'reply-restriction, user-new-message-restriction'.format(k))
         return d
 
 
@@ -1167,6 +981,9 @@ class AddTeamsMembers(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter members. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -1191,6 +1008,9 @@ class AddError(argparse.Action):
                 d['code'] = v[0]
             elif kl == 'message':
                 d['message'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter error. All possible keys are: code, '
+                               'message'.format(k))
         return d
 
 
@@ -1215,6 +1035,9 @@ class AddTeamsTemplateParameters(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter template_parameters. All possible keys '
+                               'are: name, value'.format(k))
         return d
 
 
@@ -1241,6 +1064,9 @@ class AddTeamsChannelsMembersValues(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter values. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -1267,6 +1093,9 @@ class AddTeamsMembersValues(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter values. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -1293,6 +1122,9 @@ class AddTeamsPrimarychannelMembersValues(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter values. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -1327,6 +1159,10 @@ class AddDraftOpenShift(argparse.Action):
                 d['start_date_time'] = v[0]
             elif kl == 'theme':
                 d['theme'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter draft_open_shift. All possible keys are: '
+                               'open-slot-count, activities, display-name, notes, end-date-time, start-date-time, '
+                               'theme'.format(k))
         return d
 
 
@@ -1355,6 +1191,9 @@ class AddDraftTimeOff(argparse.Action):
                 d['start_date_time'] = v[0]
             elif kl == 'theme':
                 d['theme'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter draft_time_off. All possible keys are: '
+                               'time-off-reason-id, end-date-time, start-date-time, theme'.format(k))
         return d
 
 
@@ -1379,4 +1218,7 @@ class AddEncryption(argparse.Action):
                 d['protocol'] = v[0]
             elif kl == 'secret':
                 d['secret'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter encryption. All possible keys are: '
+                               'protocol, secret'.format(k))
         return d

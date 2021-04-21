@@ -47,6 +47,10 @@ class AddKeyCredential(argparse.Action):
                 d['type'] = v[0]
             elif kl == 'usage':
                 d['usage'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter key_credential. All possible keys are: '
+                               'custom-key-identifier, display-name, end-date-time, key, key-id, start-date-time, '
+                               'type, usage'.format(k))
         return d
 
 
@@ -81,4 +85,8 @@ class AddPasswordCredential(argparse.Action):
                 d['secret_text'] = v[0]
             elif kl == 'start-date-time':
                 d['start_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter password_credential. All possible keys '
+                               'are: custom-key-identifier, display-name, end-date-time, hint, key-id, secret-text, '
+                               'start-date-time'.format(k))
         return d

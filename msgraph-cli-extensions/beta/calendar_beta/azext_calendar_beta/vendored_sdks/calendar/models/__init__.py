@@ -7,307 +7,307 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfAttachment
-    from ._models_py3 import CollectionOfAttachment0
-    from ._models_py3 import CollectionOfAttachment1
-    from ._models_py3 import CollectionOfAttachment10
-    from ._models_py3 import CollectionOfAttachment2
-    from ._models_py3 import CollectionOfAttachment3
-    from ._models_py3 import CollectionOfAttachment4
-    from ._models_py3 import CollectionOfAttachment5
-    from ._models_py3 import CollectionOfAttachment6
-    from ._models_py3 import CollectionOfAttachment7
-    from ._models_py3 import CollectionOfAttachment8
-    from ._models_py3 import CollectionOfAttachment9
-    from ._models_py3 import CollectionOfCalendar
-    from ._models_py3 import CollectionOfCalendar0
-    from ._models_py3 import CollectionOfCalendarGroup
-    from ._models_py3 import CollectionOfCalendarPermission
-    from ._models_py3 import CollectionOfCalendarPermission0
-    from ._models_py3 import CollectionOfCalendarPermission1
-    from ._models_py3 import CollectionOfCalendarPermission2
-    from ._models_py3 import CollectionOfCalendarPermission3
-    from ._models_py3 import CollectionOfCalendarPermission4
-    from ._models_py3 import CollectionOfCalendarPermission5
-    from ._models_py3 import CollectionOfCalendarPermission6
-    from ._models_py3 import CollectionOfEvent
-    from ._models_py3 import CollectionOfEvent0
-    from ._models_py3 import CollectionOfEvent1
-    from ._models_py3 import CollectionOfEvent10
-    from ._models_py3 import CollectionOfEvent11
-    from ._models_py3 import CollectionOfEvent12
-    from ._models_py3 import CollectionOfEvent13
-    from ._models_py3 import CollectionOfEvent14
-    from ._models_py3 import CollectionOfEvent15
-    from ._models_py3 import CollectionOfEvent16
-    from ._models_py3 import CollectionOfEvent17
-    from ._models_py3 import CollectionOfEvent18
-    from ._models_py3 import CollectionOfEvent19
-    from ._models_py3 import CollectionOfEvent2
-    from ._models_py3 import CollectionOfEvent20
-    from ._models_py3 import CollectionOfEvent21
-    from ._models_py3 import CollectionOfEvent22
-    from ._models_py3 import CollectionOfEvent23
-    from ._models_py3 import CollectionOfEvent24
-    from ._models_py3 import CollectionOfEvent25
-    from ._models_py3 import CollectionOfEvent26
-    from ._models_py3 import CollectionOfEvent27
-    from ._models_py3 import CollectionOfEvent28
-    from ._models_py3 import CollectionOfEvent29
-    from ._models_py3 import CollectionOfEvent3
-    from ._models_py3 import CollectionOfEvent30
-    from ._models_py3 import CollectionOfEvent31
-    from ._models_py3 import CollectionOfEvent32
-    from ._models_py3 import CollectionOfEvent33
-    from ._models_py3 import CollectionOfEvent34
-    from ._models_py3 import CollectionOfEvent35
-    from ._models_py3 import CollectionOfEvent36
-    from ._models_py3 import CollectionOfEvent37
-    from ._models_py3 import CollectionOfEvent38
-    from ._models_py3 import CollectionOfEvent39
-    from ._models_py3 import CollectionOfEvent4
-    from ._models_py3 import CollectionOfEvent40
-    from ._models_py3 import CollectionOfEvent41
-    from ._models_py3 import CollectionOfEvent42
-    from ._models_py3 import CollectionOfEvent5
-    from ._models_py3 import CollectionOfEvent6
-    from ._models_py3 import CollectionOfEvent7
-    from ._models_py3 import CollectionOfEvent8
-    from ._models_py3 import CollectionOfEvent9
-    from ._models_py3 import CollectionOfExtension
-    from ._models_py3 import CollectionOfExtension0
-    from ._models_py3 import CollectionOfExtension1
-    from ._models_py3 import CollectionOfExtension10
-    from ._models_py3 import CollectionOfExtension2
-    from ._models_py3 import CollectionOfExtension3
-    from ._models_py3 import CollectionOfExtension4
-    from ._models_py3 import CollectionOfExtension5
-    from ._models_py3 import CollectionOfExtension6
-    from ._models_py3 import CollectionOfExtension7
-    from ._models_py3 import CollectionOfExtension8
-    from ._models_py3 import CollectionOfExtension9
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty0
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty1
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty10
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty11
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty12
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty13
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty14
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty15
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty16
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty17
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty18
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty2
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty3
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty4
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty5
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty6
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty7
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty8
-    from ._models_py3 import CollectionOfMultiValueLegacyExtendedProperty9
-    from ._models_py3 import CollectionOfPlace
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty0
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty1
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty10
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty11
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty12
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty13
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty14
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty15
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty16
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty17
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty18
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty2
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty3
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty4
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty5
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty6
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty7
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty8
-    from ._models_py3 import CollectionOfSingleValueLegacyExtendedProperty9
-    from ._models_py3 import MicrosoftGraphAttachment
-    from ._models_py3 import MicrosoftGraphAttendee
-    from ._models_py3 import MicrosoftGraphAttendeeBase
-    from ._models_py3 import MicrosoftGraphCalendar
-    from ._models_py3 import MicrosoftGraphCalendarGroup
-    from ._models_py3 import MicrosoftGraphCalendarPermission
-    from ._models_py3 import MicrosoftGraphDateTimeZone
-    from ._models_py3 import MicrosoftGraphEmailAddress
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphEvent
-    from ._models_py3 import MicrosoftGraphExtension
-    from ._models_py3 import MicrosoftGraphItemBody
-    from ._models_py3 import MicrosoftGraphLocation
-    from ._models_py3 import MicrosoftGraphMultiValueLegacyExtendedProperty
-    from ._models_py3 import MicrosoftGraphOnlineMeetingInfo
-    from ._models_py3 import MicrosoftGraphOutlookGeoCoordinates
-    from ._models_py3 import MicrosoftGraphOutlookItem
-    from ._models_py3 import MicrosoftGraphPatternedRecurrence
-    from ._models_py3 import MicrosoftGraphPhone
-    from ._models_py3 import MicrosoftGraphPhysicalAddress
-    from ._models_py3 import MicrosoftGraphPlace
-    from ._models_py3 import MicrosoftGraphRecipient
-    from ._models_py3 import MicrosoftGraphRecurrencePattern
-    from ._models_py3 import MicrosoftGraphRecurrenceRange
-    from ._models_py3 import MicrosoftGraphResponseStatus
-    from ._models_py3 import MicrosoftGraphSingleValueLegacyExtendedProperty
-    from ._models_py3 import MicrosoftGraphTimeSlot
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionofattachment
+    from ._models_py3 import collectionofattachment0
+    from ._models_py3 import collectionofattachment1
+    from ._models_py3 import collectionofattachment10
+    from ._models_py3 import collectionofattachment2
+    from ._models_py3 import collectionofattachment3
+    from ._models_py3 import collectionofattachment4
+    from ._models_py3 import collectionofattachment5
+    from ._models_py3 import collectionofattachment6
+    from ._models_py3 import collectionofattachment7
+    from ._models_py3 import collectionofattachment8
+    from ._models_py3 import collectionofattachment9
+    from ._models_py3 import collectionofcalendar
+    from ._models_py3 import collectionofcalendar0
+    from ._models_py3 import collectionofcalendargroup
+    from ._models_py3 import collectionofcalendarpermission
+    from ._models_py3 import collectionofcalendarpermission0
+    from ._models_py3 import collectionofcalendarpermission1
+    from ._models_py3 import collectionofcalendarpermission2
+    from ._models_py3 import collectionofcalendarpermission3
+    from ._models_py3 import collectionofcalendarpermission4
+    from ._models_py3 import collectionofcalendarpermission5
+    from ._models_py3 import collectionofcalendarpermission6
+    from ._models_py3 import collectionofevent
+    from ._models_py3 import collectionofevent0
+    from ._models_py3 import collectionofevent1
+    from ._models_py3 import collectionofevent10
+    from ._models_py3 import collectionofevent11
+    from ._models_py3 import collectionofevent12
+    from ._models_py3 import collectionofevent13
+    from ._models_py3 import collectionofevent14
+    from ._models_py3 import collectionofevent15
+    from ._models_py3 import collectionofevent16
+    from ._models_py3 import collectionofevent17
+    from ._models_py3 import collectionofevent18
+    from ._models_py3 import collectionofevent19
+    from ._models_py3 import collectionofevent2
+    from ._models_py3 import collectionofevent20
+    from ._models_py3 import collectionofevent21
+    from ._models_py3 import collectionofevent22
+    from ._models_py3 import collectionofevent23
+    from ._models_py3 import collectionofevent24
+    from ._models_py3 import collectionofevent25
+    from ._models_py3 import collectionofevent26
+    from ._models_py3 import collectionofevent27
+    from ._models_py3 import collectionofevent28
+    from ._models_py3 import collectionofevent29
+    from ._models_py3 import collectionofevent3
+    from ._models_py3 import collectionofevent30
+    from ._models_py3 import collectionofevent31
+    from ._models_py3 import collectionofevent32
+    from ._models_py3 import collectionofevent33
+    from ._models_py3 import collectionofevent34
+    from ._models_py3 import collectionofevent35
+    from ._models_py3 import collectionofevent36
+    from ._models_py3 import collectionofevent37
+    from ._models_py3 import collectionofevent38
+    from ._models_py3 import collectionofevent39
+    from ._models_py3 import collectionofevent4
+    from ._models_py3 import collectionofevent40
+    from ._models_py3 import collectionofevent41
+    from ._models_py3 import collectionofevent42
+    from ._models_py3 import collectionofevent5
+    from ._models_py3 import collectionofevent6
+    from ._models_py3 import collectionofevent7
+    from ._models_py3 import collectionofevent8
+    from ._models_py3 import collectionofevent9
+    from ._models_py3 import collectionofextension
+    from ._models_py3 import collectionofextension0
+    from ._models_py3 import collectionofextension1
+    from ._models_py3 import collectionofextension10
+    from ._models_py3 import collectionofextension2
+    from ._models_py3 import collectionofextension3
+    from ._models_py3 import collectionofextension4
+    from ._models_py3 import collectionofextension5
+    from ._models_py3 import collectionofextension6
+    from ._models_py3 import collectionofextension7
+    from ._models_py3 import collectionofextension8
+    from ._models_py3 import collectionofextension9
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty0
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty1
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty10
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty11
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty12
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty13
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty14
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty15
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty16
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty17
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty18
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty2
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty3
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty4
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty5
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty6
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty7
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty8
+    from ._models_py3 import collectionofmultivaluelegacyextendedproperty9
+    from ._models_py3 import collectionofplace
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty0
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty1
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty10
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty11
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty12
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty13
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty14
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty15
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty16
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty17
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty18
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty2
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty3
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty4
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty5
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty6
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty7
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty8
+    from ._models_py3 import collectionofsinglevaluelegacyextendedproperty9
+    from ._models_py3 import microsoftgraphattachment
+    from ._models_py3 import microsoftgraphattendee
+    from ._models_py3 import microsoftgraphattendeebase
+    from ._models_py3 import microsoftgraphcalendar
+    from ._models_py3 import microsoftgraphcalendargroup
+    from ._models_py3 import microsoftgraphcalendarpermission
+    from ._models_py3 import microsoftgraphdatetimezone
+    from ._models_py3 import microsoftgraphemailaddress
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphevent
+    from ._models_py3 import microsoftgraphextension
+    from ._models_py3 import microsoftgraphitembody
+    from ._models_py3 import microsoftgraphlocation
+    from ._models_py3 import microsoftgraphmultivaluelegacyextendedproperty
+    from ._models_py3 import microsoftgraphonlinemeetinginfo
+    from ._models_py3 import microsoftgraphoutlookgeocoordinates
+    from ._models_py3 import microsoftgraphoutlookitem
+    from ._models_py3 import microsoftgraphpatternedrecurrence
+    from ._models_py3 import microsoftgraphphone
+    from ._models_py3 import microsoftgraphphysicaladdress
+    from ._models_py3 import microsoftgraphplace
+    from ._models_py3 import microsoftgraphrecipient
+    from ._models_py3 import microsoftgraphrecurrencepattern
+    from ._models_py3 import microsoftgraphrecurrencerange
+    from ._models_py3 import microsoftgraphresponsestatus
+    from ._models_py3 import microsoftgraphsinglevaluelegacyextendedproperty
+    from ._models_py3 import microsoftgraphtimeslot
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfAttachment  # type: ignore
-    from ._models import CollectionOfAttachment0  # type: ignore
-    from ._models import CollectionOfAttachment1  # type: ignore
-    from ._models import CollectionOfAttachment10  # type: ignore
-    from ._models import CollectionOfAttachment2  # type: ignore
-    from ._models import CollectionOfAttachment3  # type: ignore
-    from ._models import CollectionOfAttachment4  # type: ignore
-    from ._models import CollectionOfAttachment5  # type: ignore
-    from ._models import CollectionOfAttachment6  # type: ignore
-    from ._models import CollectionOfAttachment7  # type: ignore
-    from ._models import CollectionOfAttachment8  # type: ignore
-    from ._models import CollectionOfAttachment9  # type: ignore
-    from ._models import CollectionOfCalendar  # type: ignore
-    from ._models import CollectionOfCalendar0  # type: ignore
-    from ._models import CollectionOfCalendarGroup  # type: ignore
-    from ._models import CollectionOfCalendarPermission  # type: ignore
-    from ._models import CollectionOfCalendarPermission0  # type: ignore
-    from ._models import CollectionOfCalendarPermission1  # type: ignore
-    from ._models import CollectionOfCalendarPermission2  # type: ignore
-    from ._models import CollectionOfCalendarPermission3  # type: ignore
-    from ._models import CollectionOfCalendarPermission4  # type: ignore
-    from ._models import CollectionOfCalendarPermission5  # type: ignore
-    from ._models import CollectionOfCalendarPermission6  # type: ignore
-    from ._models import CollectionOfEvent  # type: ignore
-    from ._models import CollectionOfEvent0  # type: ignore
-    from ._models import CollectionOfEvent1  # type: ignore
-    from ._models import CollectionOfEvent10  # type: ignore
-    from ._models import CollectionOfEvent11  # type: ignore
-    from ._models import CollectionOfEvent12  # type: ignore
-    from ._models import CollectionOfEvent13  # type: ignore
-    from ._models import CollectionOfEvent14  # type: ignore
-    from ._models import CollectionOfEvent15  # type: ignore
-    from ._models import CollectionOfEvent16  # type: ignore
-    from ._models import CollectionOfEvent17  # type: ignore
-    from ._models import CollectionOfEvent18  # type: ignore
-    from ._models import CollectionOfEvent19  # type: ignore
-    from ._models import CollectionOfEvent2  # type: ignore
-    from ._models import CollectionOfEvent20  # type: ignore
-    from ._models import CollectionOfEvent21  # type: ignore
-    from ._models import CollectionOfEvent22  # type: ignore
-    from ._models import CollectionOfEvent23  # type: ignore
-    from ._models import CollectionOfEvent24  # type: ignore
-    from ._models import CollectionOfEvent25  # type: ignore
-    from ._models import CollectionOfEvent26  # type: ignore
-    from ._models import CollectionOfEvent27  # type: ignore
-    from ._models import CollectionOfEvent28  # type: ignore
-    from ._models import CollectionOfEvent29  # type: ignore
-    from ._models import CollectionOfEvent3  # type: ignore
-    from ._models import CollectionOfEvent30  # type: ignore
-    from ._models import CollectionOfEvent31  # type: ignore
-    from ._models import CollectionOfEvent32  # type: ignore
-    from ._models import CollectionOfEvent33  # type: ignore
-    from ._models import CollectionOfEvent34  # type: ignore
-    from ._models import CollectionOfEvent35  # type: ignore
-    from ._models import CollectionOfEvent36  # type: ignore
-    from ._models import CollectionOfEvent37  # type: ignore
-    from ._models import CollectionOfEvent38  # type: ignore
-    from ._models import CollectionOfEvent39  # type: ignore
-    from ._models import CollectionOfEvent4  # type: ignore
-    from ._models import CollectionOfEvent40  # type: ignore
-    from ._models import CollectionOfEvent41  # type: ignore
-    from ._models import CollectionOfEvent42  # type: ignore
-    from ._models import CollectionOfEvent5  # type: ignore
-    from ._models import CollectionOfEvent6  # type: ignore
-    from ._models import CollectionOfEvent7  # type: ignore
-    from ._models import CollectionOfEvent8  # type: ignore
-    from ._models import CollectionOfEvent9  # type: ignore
-    from ._models import CollectionOfExtension  # type: ignore
-    from ._models import CollectionOfExtension0  # type: ignore
-    from ._models import CollectionOfExtension1  # type: ignore
-    from ._models import CollectionOfExtension10  # type: ignore
-    from ._models import CollectionOfExtension2  # type: ignore
-    from ._models import CollectionOfExtension3  # type: ignore
-    from ._models import CollectionOfExtension4  # type: ignore
-    from ._models import CollectionOfExtension5  # type: ignore
-    from ._models import CollectionOfExtension6  # type: ignore
-    from ._models import CollectionOfExtension7  # type: ignore
-    from ._models import CollectionOfExtension8  # type: ignore
-    from ._models import CollectionOfExtension9  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty0  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty1  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty10  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty11  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty12  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty13  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty14  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty15  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty16  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty17  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty18  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty2  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty3  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty4  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty5  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty6  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty7  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty8  # type: ignore
-    from ._models import CollectionOfMultiValueLegacyExtendedProperty9  # type: ignore
-    from ._models import CollectionOfPlace  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty0  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty1  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty10  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty11  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty12  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty13  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty14  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty15  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty16  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty17  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty18  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty2  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty3  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty4  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty5  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty6  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty7  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty8  # type: ignore
-    from ._models import CollectionOfSingleValueLegacyExtendedProperty9  # type: ignore
-    from ._models import MicrosoftGraphAttachment  # type: ignore
-    from ._models import MicrosoftGraphAttendee  # type: ignore
-    from ._models import MicrosoftGraphAttendeeBase  # type: ignore
-    from ._models import MicrosoftGraphCalendar  # type: ignore
-    from ._models import MicrosoftGraphCalendarGroup  # type: ignore
-    from ._models import MicrosoftGraphCalendarPermission  # type: ignore
-    from ._models import MicrosoftGraphDateTimeZone  # type: ignore
-    from ._models import MicrosoftGraphEmailAddress  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphEvent  # type: ignore
-    from ._models import MicrosoftGraphExtension  # type: ignore
-    from ._models import MicrosoftGraphItemBody  # type: ignore
-    from ._models import MicrosoftGraphLocation  # type: ignore
-    from ._models import MicrosoftGraphMultiValueLegacyExtendedProperty  # type: ignore
-    from ._models import MicrosoftGraphOnlineMeetingInfo  # type: ignore
-    from ._models import MicrosoftGraphOutlookGeoCoordinates  # type: ignore
-    from ._models import MicrosoftGraphOutlookItem  # type: ignore
-    from ._models import MicrosoftGraphPatternedRecurrence  # type: ignore
-    from ._models import MicrosoftGraphPhone  # type: ignore
-    from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
-    from ._models import MicrosoftGraphPlace  # type: ignore
-    from ._models import MicrosoftGraphRecipient  # type: ignore
-    from ._models import MicrosoftGraphRecurrencePattern  # type: ignore
-    from ._models import MicrosoftGraphRecurrenceRange  # type: ignore
-    from ._models import MicrosoftGraphResponseStatus  # type: ignore
-    from ._models import MicrosoftGraphSingleValueLegacyExtendedProperty  # type: ignore
-    from ._models import MicrosoftGraphTimeSlot  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionofattachment  # type: ignore
+    from ._models import collectionofattachment0  # type: ignore
+    from ._models import collectionofattachment1  # type: ignore
+    from ._models import collectionofattachment10  # type: ignore
+    from ._models import collectionofattachment2  # type: ignore
+    from ._models import collectionofattachment3  # type: ignore
+    from ._models import collectionofattachment4  # type: ignore
+    from ._models import collectionofattachment5  # type: ignore
+    from ._models import collectionofattachment6  # type: ignore
+    from ._models import collectionofattachment7  # type: ignore
+    from ._models import collectionofattachment8  # type: ignore
+    from ._models import collectionofattachment9  # type: ignore
+    from ._models import collectionofcalendar  # type: ignore
+    from ._models import collectionofcalendar0  # type: ignore
+    from ._models import collectionofcalendargroup  # type: ignore
+    from ._models import collectionofcalendarpermission  # type: ignore
+    from ._models import collectionofcalendarpermission0  # type: ignore
+    from ._models import collectionofcalendarpermission1  # type: ignore
+    from ._models import collectionofcalendarpermission2  # type: ignore
+    from ._models import collectionofcalendarpermission3  # type: ignore
+    from ._models import collectionofcalendarpermission4  # type: ignore
+    from ._models import collectionofcalendarpermission5  # type: ignore
+    from ._models import collectionofcalendarpermission6  # type: ignore
+    from ._models import collectionofevent  # type: ignore
+    from ._models import collectionofevent0  # type: ignore
+    from ._models import collectionofevent1  # type: ignore
+    from ._models import collectionofevent10  # type: ignore
+    from ._models import collectionofevent11  # type: ignore
+    from ._models import collectionofevent12  # type: ignore
+    from ._models import collectionofevent13  # type: ignore
+    from ._models import collectionofevent14  # type: ignore
+    from ._models import collectionofevent15  # type: ignore
+    from ._models import collectionofevent16  # type: ignore
+    from ._models import collectionofevent17  # type: ignore
+    from ._models import collectionofevent18  # type: ignore
+    from ._models import collectionofevent19  # type: ignore
+    from ._models import collectionofevent2  # type: ignore
+    from ._models import collectionofevent20  # type: ignore
+    from ._models import collectionofevent21  # type: ignore
+    from ._models import collectionofevent22  # type: ignore
+    from ._models import collectionofevent23  # type: ignore
+    from ._models import collectionofevent24  # type: ignore
+    from ._models import collectionofevent25  # type: ignore
+    from ._models import collectionofevent26  # type: ignore
+    from ._models import collectionofevent27  # type: ignore
+    from ._models import collectionofevent28  # type: ignore
+    from ._models import collectionofevent29  # type: ignore
+    from ._models import collectionofevent3  # type: ignore
+    from ._models import collectionofevent30  # type: ignore
+    from ._models import collectionofevent31  # type: ignore
+    from ._models import collectionofevent32  # type: ignore
+    from ._models import collectionofevent33  # type: ignore
+    from ._models import collectionofevent34  # type: ignore
+    from ._models import collectionofevent35  # type: ignore
+    from ._models import collectionofevent36  # type: ignore
+    from ._models import collectionofevent37  # type: ignore
+    from ._models import collectionofevent38  # type: ignore
+    from ._models import collectionofevent39  # type: ignore
+    from ._models import collectionofevent4  # type: ignore
+    from ._models import collectionofevent40  # type: ignore
+    from ._models import collectionofevent41  # type: ignore
+    from ._models import collectionofevent42  # type: ignore
+    from ._models import collectionofevent5  # type: ignore
+    from ._models import collectionofevent6  # type: ignore
+    from ._models import collectionofevent7  # type: ignore
+    from ._models import collectionofevent8  # type: ignore
+    from ._models import collectionofevent9  # type: ignore
+    from ._models import collectionofextension  # type: ignore
+    from ._models import collectionofextension0  # type: ignore
+    from ._models import collectionofextension1  # type: ignore
+    from ._models import collectionofextension10  # type: ignore
+    from ._models import collectionofextension2  # type: ignore
+    from ._models import collectionofextension3  # type: ignore
+    from ._models import collectionofextension4  # type: ignore
+    from ._models import collectionofextension5  # type: ignore
+    from ._models import collectionofextension6  # type: ignore
+    from ._models import collectionofextension7  # type: ignore
+    from ._models import collectionofextension8  # type: ignore
+    from ._models import collectionofextension9  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty0  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty1  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty10  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty11  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty12  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty13  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty14  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty15  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty16  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty17  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty18  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty2  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty3  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty4  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty5  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty6  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty7  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty8  # type: ignore
+    from ._models import collectionofmultivaluelegacyextendedproperty9  # type: ignore
+    from ._models import collectionofplace  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty0  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty1  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty10  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty11  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty12  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty13  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty14  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty15  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty16  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty17  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty18  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty2  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty3  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty4  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty5  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty6  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty7  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty8  # type: ignore
+    from ._models import collectionofsinglevaluelegacyextendedproperty9  # type: ignore
+    from ._models import microsoftgraphattachment  # type: ignore
+    from ._models import microsoftgraphattendee  # type: ignore
+    from ._models import microsoftgraphattendeebase  # type: ignore
+    from ._models import microsoftgraphcalendar  # type: ignore
+    from ._models import microsoftgraphcalendargroup  # type: ignore
+    from ._models import microsoftgraphcalendarpermission  # type: ignore
+    from ._models import microsoftgraphdatetimezone  # type: ignore
+    from ._models import microsoftgraphemailaddress  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphevent  # type: ignore
+    from ._models import microsoftgraphextension  # type: ignore
+    from ._models import microsoftgraphitembody  # type: ignore
+    from ._models import microsoftgraphlocation  # type: ignore
+    from ._models import microsoftgraphmultivaluelegacyextendedproperty  # type: ignore
+    from ._models import microsoftgraphonlinemeetinginfo  # type: ignore
+    from ._models import microsoftgraphoutlookgeocoordinates  # type: ignore
+    from ._models import microsoftgraphoutlookitem  # type: ignore
+    from ._models import microsoftgraphpatternedrecurrence  # type: ignore
+    from ._models import microsoftgraphphone  # type: ignore
+    from ._models import microsoftgraphphysicaladdress  # type: ignore
+    from ._models import microsoftgraphplace  # type: ignore
+    from ._models import microsoftgraphrecipient  # type: ignore
+    from ._models import microsoftgraphrecurrencepattern  # type: ignore
+    from ._models import microsoftgraphrecurrencerange  # type: ignore
+    from ._models import microsoftgraphresponsestatus  # type: ignore
+    from ._models import microsoftgraphsinglevaluelegacyextendedproperty  # type: ignore
+    from ._models import microsoftgraphtimeslot  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._calendar_enums import (
     Enum100,
@@ -760,185 +760,185 @@ from ._calendar_enums import (
     Enum97,
     Enum98,
     Enum99,
-    Get10ItemsItem,
-    Get1ItemsItem,
-    Get2ItemsItem,
-    Get4ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    Get9ItemsItem,
-    MicrosoftGraphAttendeeType,
-    MicrosoftGraphBodyType,
-    MicrosoftGraphCalendarColor,
-    MicrosoftGraphCalendarRoleType,
-    MicrosoftGraphDayOfWeek,
-    MicrosoftGraphEventType,
-    MicrosoftGraphFreeBusyStatus,
-    MicrosoftGraphImportance,
-    MicrosoftGraphLocationType,
-    MicrosoftGraphLocationUniqueIdType,
-    MicrosoftGraphOnlineMeetingProviderType,
-    MicrosoftGraphPhoneType,
-    MicrosoftGraphPhysicalAddressType,
-    MicrosoftGraphRecurrencePatternType,
-    MicrosoftGraphRecurrenceRangeType,
-    MicrosoftGraphResponseType,
-    MicrosoftGraphSensitivity,
-    MicrosoftGraphWeekIndex,
+    Get10itemsitem,
+    Get1itemsitem,
+    Get2itemsitem,
+    Get4itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Get9itemsitem,
+    Microsoftgraphattendeetype,
+    Microsoftgraphbodytype,
+    Microsoftgraphcalendarcolor,
+    Microsoftgraphcalendarroletype,
+    Microsoftgraphdayofweek,
+    Microsoftgrapheventtype,
+    Microsoftgraphfreebusystatus,
+    Microsoftgraphimportance,
+    Microsoftgraphlocationtype,
+    Microsoftgraphlocationuniqueidtype,
+    Microsoftgraphonlinemeetingprovidertype,
+    Microsoftgraphphonetype,
+    Microsoftgraphphysicaladdresstype,
+    Microsoftgraphrecurrencepatterntype,
+    Microsoftgraphrecurrencerangetype,
+    Microsoftgraphresponsetype,
+    Microsoftgraphsensitivity,
+    Microsoftgraphweekindex,
 )
 
 __all__ = [
-    'CollectionOfAttachment',
-    'CollectionOfAttachment0',
-    'CollectionOfAttachment1',
-    'CollectionOfAttachment10',
-    'CollectionOfAttachment2',
-    'CollectionOfAttachment3',
-    'CollectionOfAttachment4',
-    'CollectionOfAttachment5',
-    'CollectionOfAttachment6',
-    'CollectionOfAttachment7',
-    'CollectionOfAttachment8',
-    'CollectionOfAttachment9',
-    'CollectionOfCalendar',
-    'CollectionOfCalendar0',
-    'CollectionOfCalendarGroup',
-    'CollectionOfCalendarPermission',
-    'CollectionOfCalendarPermission0',
-    'CollectionOfCalendarPermission1',
-    'CollectionOfCalendarPermission2',
-    'CollectionOfCalendarPermission3',
-    'CollectionOfCalendarPermission4',
-    'CollectionOfCalendarPermission5',
-    'CollectionOfCalendarPermission6',
-    'CollectionOfEvent',
-    'CollectionOfEvent0',
-    'CollectionOfEvent1',
-    'CollectionOfEvent10',
-    'CollectionOfEvent11',
-    'CollectionOfEvent12',
-    'CollectionOfEvent13',
-    'CollectionOfEvent14',
-    'CollectionOfEvent15',
-    'CollectionOfEvent16',
-    'CollectionOfEvent17',
-    'CollectionOfEvent18',
-    'CollectionOfEvent19',
-    'CollectionOfEvent2',
-    'CollectionOfEvent20',
-    'CollectionOfEvent21',
-    'CollectionOfEvent22',
-    'CollectionOfEvent23',
-    'CollectionOfEvent24',
-    'CollectionOfEvent25',
-    'CollectionOfEvent26',
-    'CollectionOfEvent27',
-    'CollectionOfEvent28',
-    'CollectionOfEvent29',
-    'CollectionOfEvent3',
-    'CollectionOfEvent30',
-    'CollectionOfEvent31',
-    'CollectionOfEvent32',
-    'CollectionOfEvent33',
-    'CollectionOfEvent34',
-    'CollectionOfEvent35',
-    'CollectionOfEvent36',
-    'CollectionOfEvent37',
-    'CollectionOfEvent38',
-    'CollectionOfEvent39',
-    'CollectionOfEvent4',
-    'CollectionOfEvent40',
-    'CollectionOfEvent41',
-    'CollectionOfEvent42',
-    'CollectionOfEvent5',
-    'CollectionOfEvent6',
-    'CollectionOfEvent7',
-    'CollectionOfEvent8',
-    'CollectionOfEvent9',
-    'CollectionOfExtension',
-    'CollectionOfExtension0',
-    'CollectionOfExtension1',
-    'CollectionOfExtension10',
-    'CollectionOfExtension2',
-    'CollectionOfExtension3',
-    'CollectionOfExtension4',
-    'CollectionOfExtension5',
-    'CollectionOfExtension6',
-    'CollectionOfExtension7',
-    'CollectionOfExtension8',
-    'CollectionOfExtension9',
-    'CollectionOfMultiValueLegacyExtendedProperty',
-    'CollectionOfMultiValueLegacyExtendedProperty0',
-    'CollectionOfMultiValueLegacyExtendedProperty1',
-    'CollectionOfMultiValueLegacyExtendedProperty10',
-    'CollectionOfMultiValueLegacyExtendedProperty11',
-    'CollectionOfMultiValueLegacyExtendedProperty12',
-    'CollectionOfMultiValueLegacyExtendedProperty13',
-    'CollectionOfMultiValueLegacyExtendedProperty14',
-    'CollectionOfMultiValueLegacyExtendedProperty15',
-    'CollectionOfMultiValueLegacyExtendedProperty16',
-    'CollectionOfMultiValueLegacyExtendedProperty17',
-    'CollectionOfMultiValueLegacyExtendedProperty18',
-    'CollectionOfMultiValueLegacyExtendedProperty2',
-    'CollectionOfMultiValueLegacyExtendedProperty3',
-    'CollectionOfMultiValueLegacyExtendedProperty4',
-    'CollectionOfMultiValueLegacyExtendedProperty5',
-    'CollectionOfMultiValueLegacyExtendedProperty6',
-    'CollectionOfMultiValueLegacyExtendedProperty7',
-    'CollectionOfMultiValueLegacyExtendedProperty8',
-    'CollectionOfMultiValueLegacyExtendedProperty9',
-    'CollectionOfPlace',
-    'CollectionOfSingleValueLegacyExtendedProperty',
-    'CollectionOfSingleValueLegacyExtendedProperty0',
-    'CollectionOfSingleValueLegacyExtendedProperty1',
-    'CollectionOfSingleValueLegacyExtendedProperty10',
-    'CollectionOfSingleValueLegacyExtendedProperty11',
-    'CollectionOfSingleValueLegacyExtendedProperty12',
-    'CollectionOfSingleValueLegacyExtendedProperty13',
-    'CollectionOfSingleValueLegacyExtendedProperty14',
-    'CollectionOfSingleValueLegacyExtendedProperty15',
-    'CollectionOfSingleValueLegacyExtendedProperty16',
-    'CollectionOfSingleValueLegacyExtendedProperty17',
-    'CollectionOfSingleValueLegacyExtendedProperty18',
-    'CollectionOfSingleValueLegacyExtendedProperty2',
-    'CollectionOfSingleValueLegacyExtendedProperty3',
-    'CollectionOfSingleValueLegacyExtendedProperty4',
-    'CollectionOfSingleValueLegacyExtendedProperty5',
-    'CollectionOfSingleValueLegacyExtendedProperty6',
-    'CollectionOfSingleValueLegacyExtendedProperty7',
-    'CollectionOfSingleValueLegacyExtendedProperty8',
-    'CollectionOfSingleValueLegacyExtendedProperty9',
-    'MicrosoftGraphAttachment',
-    'MicrosoftGraphAttendee',
-    'MicrosoftGraphAttendeeBase',
-    'MicrosoftGraphCalendar',
-    'MicrosoftGraphCalendarGroup',
-    'MicrosoftGraphCalendarPermission',
-    'MicrosoftGraphDateTimeZone',
-    'MicrosoftGraphEmailAddress',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphEvent',
-    'MicrosoftGraphExtension',
-    'MicrosoftGraphItemBody',
-    'MicrosoftGraphLocation',
-    'MicrosoftGraphMultiValueLegacyExtendedProperty',
-    'MicrosoftGraphOnlineMeetingInfo',
-    'MicrosoftGraphOutlookGeoCoordinates',
-    'MicrosoftGraphOutlookItem',
-    'MicrosoftGraphPatternedRecurrence',
-    'MicrosoftGraphPhone',
-    'MicrosoftGraphPhysicalAddress',
-    'MicrosoftGraphPlace',
-    'MicrosoftGraphRecipient',
-    'MicrosoftGraphRecurrencePattern',
-    'MicrosoftGraphRecurrenceRange',
-    'MicrosoftGraphResponseStatus',
-    'MicrosoftGraphSingleValueLegacyExtendedProperty',
-    'MicrosoftGraphTimeSlot',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
+    'collectionofattachment',
+    'collectionofattachment0',
+    'collectionofattachment1',
+    'collectionofattachment10',
+    'collectionofattachment2',
+    'collectionofattachment3',
+    'collectionofattachment4',
+    'collectionofattachment5',
+    'collectionofattachment6',
+    'collectionofattachment7',
+    'collectionofattachment8',
+    'collectionofattachment9',
+    'collectionofcalendar',
+    'collectionofcalendar0',
+    'collectionofcalendargroup',
+    'collectionofcalendarpermission',
+    'collectionofcalendarpermission0',
+    'collectionofcalendarpermission1',
+    'collectionofcalendarpermission2',
+    'collectionofcalendarpermission3',
+    'collectionofcalendarpermission4',
+    'collectionofcalendarpermission5',
+    'collectionofcalendarpermission6',
+    'collectionofevent',
+    'collectionofevent0',
+    'collectionofevent1',
+    'collectionofevent10',
+    'collectionofevent11',
+    'collectionofevent12',
+    'collectionofevent13',
+    'collectionofevent14',
+    'collectionofevent15',
+    'collectionofevent16',
+    'collectionofevent17',
+    'collectionofevent18',
+    'collectionofevent19',
+    'collectionofevent2',
+    'collectionofevent20',
+    'collectionofevent21',
+    'collectionofevent22',
+    'collectionofevent23',
+    'collectionofevent24',
+    'collectionofevent25',
+    'collectionofevent26',
+    'collectionofevent27',
+    'collectionofevent28',
+    'collectionofevent29',
+    'collectionofevent3',
+    'collectionofevent30',
+    'collectionofevent31',
+    'collectionofevent32',
+    'collectionofevent33',
+    'collectionofevent34',
+    'collectionofevent35',
+    'collectionofevent36',
+    'collectionofevent37',
+    'collectionofevent38',
+    'collectionofevent39',
+    'collectionofevent4',
+    'collectionofevent40',
+    'collectionofevent41',
+    'collectionofevent42',
+    'collectionofevent5',
+    'collectionofevent6',
+    'collectionofevent7',
+    'collectionofevent8',
+    'collectionofevent9',
+    'collectionofextension',
+    'collectionofextension0',
+    'collectionofextension1',
+    'collectionofextension10',
+    'collectionofextension2',
+    'collectionofextension3',
+    'collectionofextension4',
+    'collectionofextension5',
+    'collectionofextension6',
+    'collectionofextension7',
+    'collectionofextension8',
+    'collectionofextension9',
+    'collectionofmultivaluelegacyextendedproperty',
+    'collectionofmultivaluelegacyextendedproperty0',
+    'collectionofmultivaluelegacyextendedproperty1',
+    'collectionofmultivaluelegacyextendedproperty10',
+    'collectionofmultivaluelegacyextendedproperty11',
+    'collectionofmultivaluelegacyextendedproperty12',
+    'collectionofmultivaluelegacyextendedproperty13',
+    'collectionofmultivaluelegacyextendedproperty14',
+    'collectionofmultivaluelegacyextendedproperty15',
+    'collectionofmultivaluelegacyextendedproperty16',
+    'collectionofmultivaluelegacyextendedproperty17',
+    'collectionofmultivaluelegacyextendedproperty18',
+    'collectionofmultivaluelegacyextendedproperty2',
+    'collectionofmultivaluelegacyextendedproperty3',
+    'collectionofmultivaluelegacyextendedproperty4',
+    'collectionofmultivaluelegacyextendedproperty5',
+    'collectionofmultivaluelegacyextendedproperty6',
+    'collectionofmultivaluelegacyextendedproperty7',
+    'collectionofmultivaluelegacyextendedproperty8',
+    'collectionofmultivaluelegacyextendedproperty9',
+    'collectionofplace',
+    'collectionofsinglevaluelegacyextendedproperty',
+    'collectionofsinglevaluelegacyextendedproperty0',
+    'collectionofsinglevaluelegacyextendedproperty1',
+    'collectionofsinglevaluelegacyextendedproperty10',
+    'collectionofsinglevaluelegacyextendedproperty11',
+    'collectionofsinglevaluelegacyextendedproperty12',
+    'collectionofsinglevaluelegacyextendedproperty13',
+    'collectionofsinglevaluelegacyextendedproperty14',
+    'collectionofsinglevaluelegacyextendedproperty15',
+    'collectionofsinglevaluelegacyextendedproperty16',
+    'collectionofsinglevaluelegacyextendedproperty17',
+    'collectionofsinglevaluelegacyextendedproperty18',
+    'collectionofsinglevaluelegacyextendedproperty2',
+    'collectionofsinglevaluelegacyextendedproperty3',
+    'collectionofsinglevaluelegacyextendedproperty4',
+    'collectionofsinglevaluelegacyextendedproperty5',
+    'collectionofsinglevaluelegacyextendedproperty6',
+    'collectionofsinglevaluelegacyextendedproperty7',
+    'collectionofsinglevaluelegacyextendedproperty8',
+    'collectionofsinglevaluelegacyextendedproperty9',
+    'microsoftgraphattachment',
+    'microsoftgraphattendee',
+    'microsoftgraphattendeebase',
+    'microsoftgraphcalendar',
+    'microsoftgraphcalendargroup',
+    'microsoftgraphcalendarpermission',
+    'microsoftgraphdatetimezone',
+    'microsoftgraphemailaddress',
+    'microsoftgraphentity',
+    'microsoftgraphevent',
+    'microsoftgraphextension',
+    'microsoftgraphitembody',
+    'microsoftgraphlocation',
+    'microsoftgraphmultivaluelegacyextendedproperty',
+    'microsoftgraphonlinemeetinginfo',
+    'microsoftgraphoutlookgeocoordinates',
+    'microsoftgraphoutlookitem',
+    'microsoftgraphpatternedrecurrence',
+    'microsoftgraphphone',
+    'microsoftgraphphysicaladdress',
+    'microsoftgraphplace',
+    'microsoftgraphrecipient',
+    'microsoftgraphrecurrencepattern',
+    'microsoftgraphrecurrencerange',
+    'microsoftgraphresponsestatus',
+    'microsoftgraphsinglevaluelegacyextendedproperty',
+    'microsoftgraphtimeslot',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
     'Enum100',
     'Enum101',
     'Enum102',
@@ -1389,30 +1389,30 @@ __all__ = [
     'Enum97',
     'Enum98',
     'Enum99',
-    'Get10ItemsItem',
-    'Get1ItemsItem',
-    'Get2ItemsItem',
-    'Get4ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'Get9ItemsItem',
-    'MicrosoftGraphAttendeeType',
-    'MicrosoftGraphBodyType',
-    'MicrosoftGraphCalendarColor',
-    'MicrosoftGraphCalendarRoleType',
-    'MicrosoftGraphDayOfWeek',
-    'MicrosoftGraphEventType',
-    'MicrosoftGraphFreeBusyStatus',
-    'MicrosoftGraphImportance',
-    'MicrosoftGraphLocationType',
-    'MicrosoftGraphLocationUniqueIdType',
-    'MicrosoftGraphOnlineMeetingProviderType',
-    'MicrosoftGraphPhoneType',
-    'MicrosoftGraphPhysicalAddressType',
-    'MicrosoftGraphRecurrencePatternType',
-    'MicrosoftGraphRecurrenceRangeType',
-    'MicrosoftGraphResponseType',
-    'MicrosoftGraphSensitivity',
-    'MicrosoftGraphWeekIndex',
+    'Get10itemsitem',
+    'Get1itemsitem',
+    'Get2itemsitem',
+    'Get4itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Get9itemsitem',
+    'Microsoftgraphattendeetype',
+    'Microsoftgraphbodytype',
+    'Microsoftgraphcalendarcolor',
+    'Microsoftgraphcalendarroletype',
+    'Microsoftgraphdayofweek',
+    'Microsoftgrapheventtype',
+    'Microsoftgraphfreebusystatus',
+    'Microsoftgraphimportance',
+    'Microsoftgraphlocationtype',
+    'Microsoftgraphlocationuniqueidtype',
+    'Microsoftgraphonlinemeetingprovidertype',
+    'Microsoftgraphphonetype',
+    'Microsoftgraphphysicaladdresstype',
+    'Microsoftgraphrecurrencepatterntype',
+    'Microsoftgraphrecurrencerangetype',
+    'Microsoftgraphresponsetype',
+    'Microsoftgraphsensitivity',
+    'Microsoftgraphweekindex',
 ]

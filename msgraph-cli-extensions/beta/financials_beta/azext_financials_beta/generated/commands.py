@@ -7,930 +7,1641 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_financials_beta.generated._client_factory import (
+    cf_financialsfinancial,
+    cf_financial,
+    cf_financialscompany,
+    cf_financialscompaniescustomerpaymentjournal,
+    cf_financialscompaniescustomerpaymentjournalscustomerpayment,
+    cf_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer,
+    cf_financialscompaniescustomerpayment,
+    cf_financialscompaniescustomerpaymentscustomer,
+    cf_financialscompaniescustomer,
+    cf_financialscompaniesdimension,
+    cf_financialscompaniesemployee,
+    cf_financialscompaniesgeneralledgerentry,
+    cf_financialscompaniesitem,
+    cf_financialscompaniesjournalline,
+    cf_financialscompaniesjournal,
+    cf_financialscompaniesjournalsjournalline,
+    cf_financialscompaniespurchaseinvoiceline,
+    cf_financialscompaniespurchaseinvoicelinesitem,
+    cf_financialscompaniespurchaseinvoice,
+    cf_financialscompaniespurchaseinvoicespurchaseinvoiceline,
+    cf_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem,
+    cf_financialscompaniespurchaseinvoicesvendor,
+    cf_financialscompaniessalescreditmemoline,
+    cf_financialscompaniessalescreditmemolinesitem,
+    cf_financialscompaniessalescreditmemo,
+    cf_financialscompaniessalescreditmemoscustomer,
+    cf_financialscompaniessalescreditmemossalescreditmemoline,
+    cf_financialscompaniessalescreditmemossalescreditmemolinesitem,
+    cf_financialscompaniessalesinvoiceline,
+    cf_financialscompaniessalesinvoicelinesitem,
+    cf_financialscompaniessalesinvoice,
+    cf_financialscompaniessalesinvoicescustomer,
+    cf_financialscompaniessalesinvoicessalesinvoiceline,
+    cf_financialscompaniessalesinvoicessalesinvoicelinesitem,
+    cf_financialscompaniessalesorderline,
+    cf_financialscompaniessalesorderlinesitem,
+    cf_financialscompaniessalesorder,
+    cf_financialscompaniessalesorderscustomer,
+    cf_financialscompaniessalesorderssalesorderline,
+    cf_financialscompaniessalesorderssalesorderlinesitem,
+    cf_financialscompaniessalesquoteline,
+    cf_financialscompaniessalesquotelinesitem,
+    cf_financialscompaniessalesquote,
+    cf_financialscompaniessalesquotescustomer,
+    cf_financialscompaniessalesquotessalesquoteline,
+    cf_financialscompaniessalesquotessalesquotelinesitem,
+    cf_financialscompaniesvendor,
+)
+
+
+financials_beta_financialsfinancial = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialsfinancials_operations#financialsfinancialsOperations.{}',
+    client_factory=cf_financialsfinancial,
+)
+
+
+financials_beta_financial = CliCommandType(
+    operations_tmpl=(
+        'azext_financials_beta.vendored_sdks.financials.operations._financials_operations#financialsOperations.{}'
+    ),
+    client_factory=cf_financial,
+)
+
+
+financials_beta_financialscompany = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompanies_operations#financialscompaniesOperations.{}',
+    client_factory=cf_financialscompany,
+)
+
+
+financials_beta_financialscompaniescustomerpaymentjournal = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniescustomerpaymentjournals_operations#financialscompaniescustomerpaymentjournalsOperations.{}',
+    client_factory=cf_financialscompaniescustomerpaymentjournal,
+)
+
+
+financials_beta_financialscompaniescustomerpaymentjournalscustomerpayment = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniescustomerpaymentjournalscustomerpayments_operations#financialscompaniescustomerpaymentjournalscustomerpaymentsOperations.{}',
+    client_factory=cf_financialscompaniescustomerpaymentjournalscustomerpayment,
+)
+
+
+financials_beta_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_operations#financialscompaniescustomerpaymentjournalscustomerpaymentscustomerOperations.{}',
+    client_factory=cf_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer,
+)
+
+
+financials_beta_financialscompaniescustomerpayment = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniescustomerpayments_operations#financialscompaniescustomerpaymentsOperations.{}',
+    client_factory=cf_financialscompaniescustomerpayment,
+)
+
+
+financials_beta_financialscompaniescustomerpaymentscustomer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniescustomerpaymentscustomer_operations#financialscompaniescustomerpaymentscustomerOperations.{}',
+    client_factory=cf_financialscompaniescustomerpaymentscustomer,
+)
+
+
+financials_beta_financialscompaniescustomer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniescustomers_operations#financialscompaniescustomersOperations.{}',
+    client_factory=cf_financialscompaniescustomer,
+)
+
+
+financials_beta_financialscompaniesdimension = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesdimensions_operations#financialscompaniesdimensionsOperations.{}',
+    client_factory=cf_financialscompaniesdimension,
+)
+
+
+financials_beta_financialscompaniesemployee = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesemployees_operations#financialscompaniesemployeesOperations.{}',
+    client_factory=cf_financialscompaniesemployee,
+)
+
+
+financials_beta_financialscompaniesgeneralledgerentry = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesgeneralledgerentries_operations#financialscompaniesgeneralledgerentriesOperations.{}',
+    client_factory=cf_financialscompaniesgeneralledgerentry,
+)
+
+
+financials_beta_financialscompaniesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesitems_operations#financialscompaniesitemsOperations.{}',
+    client_factory=cf_financialscompaniesitem,
+)
+
+
+financials_beta_financialscompaniesjournalline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesjournallines_operations#financialscompaniesjournallinesOperations.{}',
+    client_factory=cf_financialscompaniesjournalline,
+)
+
+
+financials_beta_financialscompaniesjournal = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesjournals_operations#financialscompaniesjournalsOperations.{}',
+    client_factory=cf_financialscompaniesjournal,
+)
+
+
+financials_beta_financialscompaniesjournalsjournalline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesjournalsjournallines_operations#financialscompaniesjournalsjournallinesOperations.{}',
+    client_factory=cf_financialscompaniesjournalsjournalline,
+)
+
+
+financials_beta_financialscompaniespurchaseinvoiceline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniespurchaseinvoicelines_operations#financialscompaniespurchaseinvoicelinesOperations.{}',
+    client_factory=cf_financialscompaniespurchaseinvoiceline,
+)
+
+
+financials_beta_financialscompaniespurchaseinvoicelinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniespurchaseinvoicelinesitem_operations#financialscompaniespurchaseinvoicelinesitemOperations.{}',
+    client_factory=cf_financialscompaniespurchaseinvoicelinesitem,
+)
+
+
+financials_beta_financialscompaniespurchaseinvoice = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniespurchaseinvoices_operations#financialscompaniespurchaseinvoicesOperations.{}',
+    client_factory=cf_financialscompaniespurchaseinvoice,
+)
+
+
+financials_beta_financialscompaniespurchaseinvoicespurchaseinvoiceline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniespurchaseinvoicespurchaseinvoicelines_operations#financialscompaniespurchaseinvoicespurchaseinvoicelinesOperations.{}',
+    client_factory=cf_financialscompaniespurchaseinvoicespurchaseinvoiceline,
+)
+
+
+financials_beta_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_operations#financialscompaniespurchaseinvoicespurchaseinvoicelinesitemOperations.{}',
+    client_factory=cf_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem,
+)
+
+
+financials_beta_financialscompaniespurchaseinvoicesvendor = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniespurchaseinvoicesvendor_operations#financialscompaniespurchaseinvoicesvendorOperations.{}',
+    client_factory=cf_financialscompaniespurchaseinvoicesvendor,
+)
+
+
+financials_beta_financialscompaniessalescreditmemoline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalescreditmemolines_operations#financialscompaniessalescreditmemolinesOperations.{}',
+    client_factory=cf_financialscompaniessalescreditmemoline,
+)
+
+
+financials_beta_financialscompaniessalescreditmemolinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalescreditmemolinesitem_operations#financialscompaniessalescreditmemolinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalescreditmemolinesitem,
+)
+
+
+financials_beta_financialscompaniessalescreditmemo = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalescreditmemos_operations#financialscompaniessalescreditmemosOperations.{}',
+    client_factory=cf_financialscompaniessalescreditmemo,
+)
+
+
+financials_beta_financialscompaniessalescreditmemoscustomer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalescreditmemoscustomer_operations#financialscompaniessalescreditmemoscustomerOperations.{}',
+    client_factory=cf_financialscompaniessalescreditmemoscustomer,
+)
+
+
+financials_beta_financialscompaniessalescreditmemossalescreditmemoline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalescreditmemossalescreditmemolines_operations#financialscompaniessalescreditmemossalescreditmemolinesOperations.{}',
+    client_factory=cf_financialscompaniessalescreditmemossalescreditmemoline,
+)
+
+
+financials_beta_financialscompaniessalescreditmemossalescreditmemolinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalescreditmemossalescreditmemolinesitem_operations#financialscompaniessalescreditmemossalescreditmemolinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalescreditmemossalescreditmemolinesitem,
+)
+
+
+financials_beta_financialscompaniessalesinvoiceline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesinvoicelines_operations#financialscompaniessalesinvoicelinesOperations.{}',
+    client_factory=cf_financialscompaniessalesinvoiceline,
+)
+
+
+financials_beta_financialscompaniessalesinvoicelinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesinvoicelinesitem_operations#financialscompaniessalesinvoicelinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalesinvoicelinesitem,
+)
+
+
+financials_beta_financialscompaniessalesinvoice = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesinvoices_operations#financialscompaniessalesinvoicesOperations.{}',
+    client_factory=cf_financialscompaniessalesinvoice,
+)
+
+
+financials_beta_financialscompaniessalesinvoicescustomer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesinvoicescustomer_operations#financialscompaniessalesinvoicescustomerOperations.{}',
+    client_factory=cf_financialscompaniessalesinvoicescustomer,
+)
+
+
+financials_beta_financialscompaniessalesinvoicessalesinvoiceline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesinvoicessalesinvoicelines_operations#financialscompaniessalesinvoicessalesinvoicelinesOperations.{}',
+    client_factory=cf_financialscompaniessalesinvoicessalesinvoiceline,
+)
+
+
+financials_beta_financialscompaniessalesinvoicessalesinvoicelinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesinvoicessalesinvoicelinesitem_operations#financialscompaniessalesinvoicessalesinvoicelinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalesinvoicessalesinvoicelinesitem,
+)
+
+
+financials_beta_financialscompaniessalesorderline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesorderlines_operations#financialscompaniessalesorderlinesOperations.{}',
+    client_factory=cf_financialscompaniessalesorderline,
+)
+
+
+financials_beta_financialscompaniessalesorderlinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesorderlinesitem_operations#financialscompaniessalesorderlinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalesorderlinesitem,
+)
+
+
+financials_beta_financialscompaniessalesorder = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesorders_operations#financialscompaniessalesordersOperations.{}',
+    client_factory=cf_financialscompaniessalesorder,
+)
+
+
+financials_beta_financialscompaniessalesorderscustomer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesorderscustomer_operations#financialscompaniessalesorderscustomerOperations.{}',
+    client_factory=cf_financialscompaniessalesorderscustomer,
+)
+
+
+financials_beta_financialscompaniessalesorderssalesorderline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesorderssalesorderlines_operations#financialscompaniessalesorderssalesorderlinesOperations.{}',
+    client_factory=cf_financialscompaniessalesorderssalesorderline,
+)
+
+
+financials_beta_financialscompaniessalesorderssalesorderlinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesorderssalesorderlinesitem_operations#financialscompaniessalesorderssalesorderlinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalesorderssalesorderlinesitem,
+)
+
+
+financials_beta_financialscompaniessalesquoteline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesquotelines_operations#financialscompaniessalesquotelinesOperations.{}',
+    client_factory=cf_financialscompaniessalesquoteline,
+)
+
+
+financials_beta_financialscompaniessalesquotelinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesquotelinesitem_operations#financialscompaniessalesquotelinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalesquotelinesitem,
+)
+
+
+financials_beta_financialscompaniessalesquote = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesquotes_operations#financialscompaniessalesquotesOperations.{}',
+    client_factory=cf_financialscompaniessalesquote,
+)
+
+
+financials_beta_financialscompaniessalesquotescustomer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesquotescustomer_operations#financialscompaniessalesquotescustomerOperations.{}',
+    client_factory=cf_financialscompaniessalesquotescustomer,
+)
+
+
+financials_beta_financialscompaniessalesquotessalesquoteline = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesquotessalesquotelines_operations#financialscompaniessalesquotessalesquotelinesOperations.{}',
+    client_factory=cf_financialscompaniessalesquotessalesquoteline,
+)
+
+
+financials_beta_financialscompaniessalesquotessalesquotelinesitem = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniessalesquotessalesquotelinesitem_operations#financialscompaniessalesquotessalesquotelinesitemOperations.{}',
+    client_factory=cf_financialscompaniessalesquotessalesquotelinesitem,
+)
+
+
+financials_beta_financialscompaniesvendor = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financialscompaniesvendors_operations#financialscompaniesvendorsOperations.{}',
+    client_factory=cf_financialscompaniesvendor,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_financials_beta.generated._client_factory import cf_financial_financial
-    financials_beta_financial_financial = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_financial_operations#Fina'
-        'ncialFinancialOperations.{}',
-        client_factory=cf_financial_financial)
-    with self.command_group('financials', financials_beta_financial_financial,
-                            client_factory=cf_financial_financial) as g:
-        g.custom_command('get-financial', 'financials_get_financial')
-        g.custom_command('update-financial', 'financials_update_financial')
+    with self.command_group(
+        'financials financialsfinancial', financials_beta_financialsfinancial, client_factory=cf_financialsfinancial
+    ) as g:
+        g.custom_command('show-financial', 'financials_financialsfinancial_show_financial')
+        g.custom_command('update-financial', 'financials_financialsfinancial_update_financial')
 
-    from azext_financials_beta.generated._client_factory import cf_financial
-    financials_beta_financial = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_operations#FinancialOpera'
-        'tions.{}',
-        client_factory=cf_financial)
-    with self.command_group('financials', financials_beta_financial, client_factory=cf_financial) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-company', 'financials_create_company')
-        g.custom_command('get-company', 'financials_get_company')
-        g.custom_command('list-company', 'financials_list_company')
-        g.custom_command('update-company', 'financials_update_company')
+    with self.command_group('financials financial', financials_beta_financial, client_factory=cf_financial) as g:
+        g.custom_command('create-company', 'financials_financial_create_company')
+        g.custom_command('delete-company', 'financials_financial_delete_company')
+        g.custom_command('list-company', 'financials_financial_list_company')
+        g.custom_command('show-company', 'financials_financial_show_company')
+        g.custom_command('update-company', 'financials_financial_update_company')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company
-    financials_beta_financial_company = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_operations#Financ'
-        'ialCompanyOperations.{}',
-        client_factory=cf_financial_company)
-    with self.command_group('financials', financials_beta_financial_company,
-                            client_factory=cf_financial_company) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-account', 'financials_create_account')
-        g.custom_command('create-aged-account-payable', 'financials_create_aged_account_payable')
-        g.custom_command('create-aged-account-receivable', 'financials_create_aged_account_receivable')
-        g.custom_command('create-company-information', 'financials_create_company_information')
-        g.custom_command('create-country-region', 'financials_create_country_region')
-        g.custom_command('create-currency', 'financials_create_currency')
-        g.custom_command('create-customer', 'financials_create_customer')
-        g.custom_command('create-customer-payment', 'financials_create_customer_payment')
-        g.custom_command('create-customer-payment-journal', 'financials_create_customer_payment_journal')
-        g.custom_command('create-dimension', 'financials_create_dimension')
-        g.custom_command('create-dimension-value', 'financials_create_dimension_value')
-        g.custom_command('create-employee', 'financials_create_employee')
-        g.custom_command('create-general-ledger-entry', 'financials_create_general_ledger_entry')
-        g.custom_command('create-item', 'financials_create_item')
-        g.custom_command('create-item-category', 'financials_create_item_category')
-        g.custom_command('create-journal', 'financials_create_journal')
-        g.custom_command('create-journal-line', 'financials_create_journal_line')
-        g.custom_command('create-payment-method', 'financials_create_payment_method')
-        g.custom_command('create-payment-term', 'financials_create_payment_term')
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('create-purchase-invoice', 'financials_create_purchase_invoice')
-        g.custom_command('create-purchase-invoice-line', 'financials_create_purchase_invoice_line')
-        g.custom_command('create-sale-credit-memo', 'financials_create_sale_credit_memo')
-        g.custom_command('create-sale-credit-memo-line', 'financials_create_sale_credit_memo_line')
-        g.custom_command('create-sale-invoice', 'financials_create_sale_invoice')
-        g.custom_command('create-sale-invoice-line', 'financials_create_sale_invoice_line')
-        g.custom_command('create-sale-order', 'financials_create_sale_order')
-        g.custom_command('create-sale-order-line', 'financials_create_sale_order_line')
-        g.custom_command('create-sale-quote', 'financials_create_sale_quote')
-        g.custom_command('create-sale-quote-line', 'financials_create_sale_quote_line')
-        g.custom_command('create-shipment-method', 'financials_create_shipment_method')
-        g.custom_command('create-tax-area', 'financials_create_tax_area')
-        g.custom_command('create-tax-group', 'financials_create_tax_group')
-        g.custom_command('create-unit-of-measure', 'financials_create_unit_of_measure')
-        g.custom_command('create-vendor', 'financials_create_vendor')
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-aged-account-payable', 'financials_get_aged_account_payable')
-        g.custom_command('get-aged-account-receivable', 'financials_get_aged_account_receivable')
-        g.custom_command('get-company-information', 'financials_get_company_information')
-        g.custom_command('get-company-information-picture', 'financials_get_company_information_picture')
-        g.custom_command('get-country-region', 'financials_get_country_region')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-customer', 'financials_get_customer')
-        g.custom_command('get-customer-payment', 'financials_get_customer_payment')
-        g.custom_command('get-customer-payment-journal', 'financials_get_customer_payment_journal')
-        g.custom_command('get-dimension', 'financials_get_dimension')
-        g.custom_command('get-dimension-value', 'financials_get_dimension_value')
-        g.custom_command('get-employee', 'financials_get_employee')
-        g.custom_command('get-general-ledger-entry', 'financials_get_general_ledger_entry')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-journal', 'financials_get_journal')
-        g.custom_command('get-journal-line', 'financials_get_journal_line')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-purchase-invoice', 'financials_get_purchase_invoice')
-        g.custom_command('get-purchase-invoice-line', 'financials_get_purchase_invoice_line')
-        g.custom_command('get-sale-credit-memo', 'financials_get_sale_credit_memo')
-        g.custom_command('get-sale-credit-memo-line', 'financials_get_sale_credit_memo_line')
-        g.custom_command('get-sale-invoice', 'financials_get_sale_invoice')
-        g.custom_command('get-sale-invoice-line', 'financials_get_sale_invoice_line')
-        g.custom_command('get-sale-order', 'financials_get_sale_order')
-        g.custom_command('get-sale-order-line', 'financials_get_sale_order_line')
-        g.custom_command('get-sale-quote', 'financials_get_sale_quote')
-        g.custom_command('get-sale-quote-line', 'financials_get_sale_quote_line')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('get-tax-area', 'financials_get_tax_area')
-        g.custom_command('get-tax-group', 'financials_get_tax_group')
-        g.custom_command('get-unit-of-measure', 'financials_get_unit_of_measure')
-        g.custom_command('get-vendor', 'financials_get_vendor')
-        g.custom_command('list-account', 'financials_list_account')
-        g.custom_command('list-aged-account-payable', 'financials_list_aged_account_payable')
-        g.custom_command('list-aged-account-receivable', 'financials_list_aged_account_receivable')
-        g.custom_command('list-company-information', 'financials_list_company_information')
-        g.custom_command('list-country-region', 'financials_list_country_region')
-        g.custom_command('list-currency', 'financials_list_currency')
-        g.custom_command('list-customer', 'financials_list_customer')
-        g.custom_command('list-customer-payment', 'financials_list_customer_payment')
-        g.custom_command('list-customer-payment-journal', 'financials_list_customer_payment_journal')
-        g.custom_command('list-dimension', 'financials_list_dimension')
-        g.custom_command('list-dimension-value', 'financials_list_dimension_value')
-        g.custom_command('list-employee', 'financials_list_employee')
-        g.custom_command('list-general-ledger-entry', 'financials_list_general_ledger_entry')
-        g.custom_command('list-item', 'financials_list_item')
-        g.custom_command('list-item-category', 'financials_list_item_category')
-        g.custom_command('list-journal', 'financials_list_journal')
-        g.custom_command('list-journal-line', 'financials_list_journal_line')
-        g.custom_command('list-payment-method', 'financials_list_payment_method')
-        g.custom_command('list-payment-term', 'financials_list_payment_term')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('list-purchase-invoice', 'financials_list_purchase_invoice')
-        g.custom_command('list-purchase-invoice-line', 'financials_list_purchase_invoice_line')
-        g.custom_command('list-sale-credit-memo', 'financials_list_sale_credit_memo')
-        g.custom_command('list-sale-credit-memo-line', 'financials_list_sale_credit_memo_line')
-        g.custom_command('list-sale-invoice', 'financials_list_sale_invoice')
-        g.custom_command('list-sale-invoice-line', 'financials_list_sale_invoice_line')
-        g.custom_command('list-sale-order', 'financials_list_sale_order')
-        g.custom_command('list-sale-order-line', 'financials_list_sale_order_line')
-        g.custom_command('list-sale-quote', 'financials_list_sale_quote')
-        g.custom_command('list-sale-quote-line', 'financials_list_sale_quote_line')
-        g.custom_command('list-shipment-method', 'financials_list_shipment_method')
-        g.custom_command('list-tax-area', 'financials_list_tax_area')
-        g.custom_command('list-tax-group', 'financials_list_tax_group')
-        g.custom_command('list-unit-of-measure', 'financials_list_unit_of_measure')
-        g.custom_command('list-vendor', 'financials_list_vendor')
-        g.custom_command('set-company-information-picture', 'financials_set_company_information_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-aged-account-payable', 'financials_update_aged_account_payable')
-        g.custom_command('update-aged-account-receivable', 'financials_update_aged_account_receivable')
-        g.custom_command('update-company-information', 'financials_update_company_information')
-        g.custom_command('update-country-region', 'financials_update_country_region')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-customer', 'financials_update_customer')
-        g.custom_command('update-customer-payment', 'financials_update_customer_payment')
-        g.custom_command('update-customer-payment-journal', 'financials_update_customer_payment_journal')
-        g.custom_command('update-dimension', 'financials_update_dimension')
-        g.custom_command('update-dimension-value', 'financials_update_dimension_value')
-        g.custom_command('update-employee', 'financials_update_employee')
-        g.custom_command('update-general-ledger-entry', 'financials_update_general_ledger_entry')
-        g.custom_command('update-item', 'financials_update_item')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-journal', 'financials_update_journal')
-        g.custom_command('update-journal-line', 'financials_update_journal_line')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-purchase-invoice', 'financials_update_purchase_invoice')
-        g.custom_command('update-purchase-invoice-line', 'financials_update_purchase_invoice_line')
-        g.custom_command('update-sale-credit-memo', 'financials_update_sale_credit_memo')
-        g.custom_command('update-sale-credit-memo-line', 'financials_update_sale_credit_memo_line')
-        g.custom_command('update-sale-invoice', 'financials_update_sale_invoice')
-        g.custom_command('update-sale-invoice-line', 'financials_update_sale_invoice_line')
-        g.custom_command('update-sale-order', 'financials_update_sale_order')
-        g.custom_command('update-sale-order-line', 'financials_update_sale_order_line')
-        g.custom_command('update-sale-quote', 'financials_update_sale_quote')
-        g.custom_command('update-sale-quote-line', 'financials_update_sale_quote_line')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
-        g.custom_command('update-tax-area', 'financials_update_tax_area')
-        g.custom_command('update-tax-group', 'financials_update_tax_group')
-        g.custom_command('update-unit-of-measure', 'financials_update_unit_of_measure')
-        g.custom_command('update-vendor', 'financials_update_vendor')
+    with self.command_group(
+        'financials financialscompany', financials_beta_financialscompany, client_factory=cf_financialscompany
+    ) as g:
+        g.custom_command('create-account', 'financials_financialscompany_create_account')
+        g.custom_command('create-aged-account-payable', 'financials_financialscompany_create_aged_account_payable')
+        g.custom_command(
+            'create-aged-account-receivable', 'financials_financialscompany_create_aged_account_receivable'
+        )
+        g.custom_command('create-company-information', 'financials_financialscompany_create_company_information')
+        g.custom_command('create-country-region', 'financials_financialscompany_create_country_region')
+        g.custom_command('create-currency', 'financials_financialscompany_create_currency')
+        g.custom_command('create-customer', 'financials_financialscompany_create_customer')
+        g.custom_command('create-customer-payment', 'financials_financialscompany_create_customer_payment')
+        g.custom_command(
+            'create-customer-payment-journal', 'financials_financialscompany_create_customer_payment_journal'
+        )
+        g.custom_command('create-dimension', 'financials_financialscompany_create_dimension')
+        g.custom_command('create-dimension-value', 'financials_financialscompany_create_dimension_value')
+        g.custom_command('create-employee', 'financials_financialscompany_create_employee')
+        g.custom_command('create-general-ledger-entry', 'financials_financialscompany_create_general_ledger_entry')
+        g.custom_command('create-item', 'financials_financialscompany_create_item')
+        g.custom_command('create-item-category', 'financials_financialscompany_create_item_category')
+        g.custom_command('create-journal', 'financials_financialscompany_create_journal')
+        g.custom_command('create-journal-line', 'financials_financialscompany_create_journal_line')
+        g.custom_command('create-payment-method', 'financials_financialscompany_create_payment_method')
+        g.custom_command('create-payment-term', 'financials_financialscompany_create_payment_term')
+        g.custom_command('create-picture', 'financials_financialscompany_create_picture')
+        g.custom_command('create-purchase-invoice', 'financials_financialscompany_create_purchase_invoice')
+        g.custom_command('create-purchase-invoice-line', 'financials_financialscompany_create_purchase_invoice_line')
+        g.custom_command('create-sale-credit-memo', 'financials_financialscompany_create_sale_credit_memo')
+        g.custom_command('create-sale-credit-memo-line', 'financials_financialscompany_create_sale_credit_memo_line')
+        g.custom_command('create-sale-invoice', 'financials_financialscompany_create_sale_invoice')
+        g.custom_command('create-sale-invoice-line', 'financials_financialscompany_create_sale_invoice_line')
+        g.custom_command('create-sale-order', 'financials_financialscompany_create_sale_order')
+        g.custom_command('create-sale-order-line', 'financials_financialscompany_create_sale_order_line')
+        g.custom_command('create-sale-quote', 'financials_financialscompany_create_sale_quote')
+        g.custom_command('create-sale-quote-line', 'financials_financialscompany_create_sale_quote_line')
+        g.custom_command('create-shipment-method', 'financials_financialscompany_create_shipment_method')
+        g.custom_command('create-tax-area', 'financials_financialscompany_create_tax_area')
+        g.custom_command('create-tax-group', 'financials_financialscompany_create_tax_group')
+        g.custom_command('create-unit-of-measure', 'financials_financialscompany_create_unit_of_measure')
+        g.custom_command('create-vendor', 'financials_financialscompany_create_vendor')
+        g.custom_command('delete-account', 'financials_financialscompany_delete_account')
+        g.custom_command('delete-aged-account-payable', 'financials_financialscompany_delete_aged_account_payable')
+        g.custom_command(
+            'delete-aged-account-receivable', 'financials_financialscompany_delete_aged_account_receivable'
+        )
+        g.custom_command('delete-company-information', 'financials_financialscompany_delete_company_information')
+        g.custom_command('delete-country-region', 'financials_financialscompany_delete_country_region')
+        g.custom_command('delete-currency', 'financials_financialscompany_delete_currency')
+        g.custom_command('delete-customer', 'financials_financialscompany_delete_customer')
+        g.custom_command('delete-customer-payment', 'financials_financialscompany_delete_customer_payment')
+        g.custom_command(
+            'delete-customer-payment-journal', 'financials_financialscompany_delete_customer_payment_journal'
+        )
+        g.custom_command('delete-dimension', 'financials_financialscompany_delete_dimension')
+        g.custom_command('delete-dimension-value', 'financials_financialscompany_delete_dimension_value')
+        g.custom_command('delete-employee', 'financials_financialscompany_delete_employee')
+        g.custom_command('delete-general-ledger-entry', 'financials_financialscompany_delete_general_ledger_entry')
+        g.custom_command('delete-item', 'financials_financialscompany_delete_item')
+        g.custom_command('delete-item-category', 'financials_financialscompany_delete_item_category')
+        g.custom_command('delete-journal', 'financials_financialscompany_delete_journal')
+        g.custom_command('delete-journal-line', 'financials_financialscompany_delete_journal_line')
+        g.custom_command('delete-payment-method', 'financials_financialscompany_delete_payment_method')
+        g.custom_command('delete-payment-term', 'financials_financialscompany_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financialscompany_delete_picture')
+        g.custom_command('delete-purchase-invoice', 'financials_financialscompany_delete_purchase_invoice')
+        g.custom_command('delete-purchase-invoice-line', 'financials_financialscompany_delete_purchase_invoice_line')
+        g.custom_command('delete-sale-credit-memo', 'financials_financialscompany_delete_sale_credit_memo')
+        g.custom_command('delete-sale-credit-memo-line', 'financials_financialscompany_delete_sale_credit_memo_line')
+        g.custom_command('delete-sale-invoice', 'financials_financialscompany_delete_sale_invoice')
+        g.custom_command('delete-sale-invoice-line', 'financials_financialscompany_delete_sale_invoice_line')
+        g.custom_command('delete-sale-order', 'financials_financialscompany_delete_sale_order')
+        g.custom_command('delete-sale-order-line', 'financials_financialscompany_delete_sale_order_line')
+        g.custom_command('delete-sale-quote', 'financials_financialscompany_delete_sale_quote')
+        g.custom_command('delete-sale-quote-line', 'financials_financialscompany_delete_sale_quote_line')
+        g.custom_command('delete-shipment-method', 'financials_financialscompany_delete_shipment_method')
+        g.custom_command('delete-tax-area', 'financials_financialscompany_delete_tax_area')
+        g.custom_command('delete-tax-group', 'financials_financialscompany_delete_tax_group')
+        g.custom_command('delete-unit-of-measure', 'financials_financialscompany_delete_unit_of_measure')
+        g.custom_command('delete-vendor', 'financials_financialscompany_delete_vendor')
+        g.custom_command('list-account', 'financials_financialscompany_list_account')
+        g.custom_command('list-aged-account-payable', 'financials_financialscompany_list_aged_account_payable')
+        g.custom_command('list-aged-account-receivable', 'financials_financialscompany_list_aged_account_receivable')
+        g.custom_command('list-company-information', 'financials_financialscompany_list_company_information')
+        g.custom_command('list-country-region', 'financials_financialscompany_list_country_region')
+        g.custom_command('list-currency', 'financials_financialscompany_list_currency')
+        g.custom_command('list-customer', 'financials_financialscompany_list_customer')
+        g.custom_command('list-customer-payment', 'financials_financialscompany_list_customer_payment')
+        g.custom_command('list-customer-payment-journal', 'financials_financialscompany_list_customer_payment_journal')
+        g.custom_command('list-dimension', 'financials_financialscompany_list_dimension')
+        g.custom_command('list-dimension-value', 'financials_financialscompany_list_dimension_value')
+        g.custom_command('list-employee', 'financials_financialscompany_list_employee')
+        g.custom_command('list-general-ledger-entry', 'financials_financialscompany_list_general_ledger_entry')
+        g.custom_command('list-item', 'financials_financialscompany_list_item')
+        g.custom_command('list-item-category', 'financials_financialscompany_list_item_category')
+        g.custom_command('list-journal', 'financials_financialscompany_list_journal')
+        g.custom_command('list-journal-line', 'financials_financialscompany_list_journal_line')
+        g.custom_command('list-payment-method', 'financials_financialscompany_list_payment_method')
+        g.custom_command('list-payment-term', 'financials_financialscompany_list_payment_term')
+        g.custom_command('list-picture', 'financials_financialscompany_list_picture')
+        g.custom_command('list-purchase-invoice', 'financials_financialscompany_list_purchase_invoice')
+        g.custom_command('list-purchase-invoice-line', 'financials_financialscompany_list_purchase_invoice_line')
+        g.custom_command('list-sale-credit-memo', 'financials_financialscompany_list_sale_credit_memo')
+        g.custom_command('list-sale-credit-memo-line', 'financials_financialscompany_list_sale_credit_memo_line')
+        g.custom_command('list-sale-invoice', 'financials_financialscompany_list_sale_invoice')
+        g.custom_command('list-sale-invoice-line', 'financials_financialscompany_list_sale_invoice_line')
+        g.custom_command('list-sale-order', 'financials_financialscompany_list_sale_order')
+        g.custom_command('list-sale-order-line', 'financials_financialscompany_list_sale_order_line')
+        g.custom_command('list-sale-quote', 'financials_financialscompany_list_sale_quote')
+        g.custom_command('list-sale-quote-line', 'financials_financialscompany_list_sale_quote_line')
+        g.custom_command('list-shipment-method', 'financials_financialscompany_list_shipment_method')
+        g.custom_command('list-tax-area', 'financials_financialscompany_list_tax_area')
+        g.custom_command('list-tax-group', 'financials_financialscompany_list_tax_group')
+        g.custom_command('list-unit-of-measure', 'financials_financialscompany_list_unit_of_measure')
+        g.custom_command('list-vendor', 'financials_financialscompany_list_vendor')
+        g.custom_command(
+            'set-company-information-picture', 'financials_financialscompany_set_company_information_picture'
+        )
+        g.custom_command('set-picture-content', 'financials_financialscompany_set_picture_content')
+        g.custom_command('show-account', 'financials_financialscompany_show_account')
+        g.custom_command('show-aged-account-payable', 'financials_financialscompany_show_aged_account_payable')
+        g.custom_command('show-aged-account-receivable', 'financials_financialscompany_show_aged_account_receivable')
+        g.custom_command('show-company-information', 'financials_financialscompany_show_company_information')
+        g.custom_command(
+            'show-company-information-picture', 'financials_financialscompany_show_company_information_picture'
+        )
+        g.custom_command('show-country-region', 'financials_financialscompany_show_country_region')
+        g.custom_command('show-currency', 'financials_financialscompany_show_currency')
+        g.custom_command('show-customer', 'financials_financialscompany_show_customer')
+        g.custom_command('show-customer-payment', 'financials_financialscompany_show_customer_payment')
+        g.custom_command('show-customer-payment-journal', 'financials_financialscompany_show_customer_payment_journal')
+        g.custom_command('show-dimension', 'financials_financialscompany_show_dimension')
+        g.custom_command('show-dimension-value', 'financials_financialscompany_show_dimension_value')
+        g.custom_command('show-employee', 'financials_financialscompany_show_employee')
+        g.custom_command('show-general-ledger-entry', 'financials_financialscompany_show_general_ledger_entry')
+        g.custom_command('show-item', 'financials_financialscompany_show_item')
+        g.custom_command('show-item-category', 'financials_financialscompany_show_item_category')
+        g.custom_command('show-journal', 'financials_financialscompany_show_journal')
+        g.custom_command('show-journal-line', 'financials_financialscompany_show_journal_line')
+        g.custom_command('show-payment-method', 'financials_financialscompany_show_payment_method')
+        g.custom_command('show-payment-term', 'financials_financialscompany_show_payment_term')
+        g.custom_command('show-picture', 'financials_financialscompany_show_picture')
+        g.custom_command('show-picture-content', 'financials_financialscompany_show_picture_content')
+        g.custom_command('show-purchase-invoice', 'financials_financialscompany_show_purchase_invoice')
+        g.custom_command('show-purchase-invoice-line', 'financials_financialscompany_show_purchase_invoice_line')
+        g.custom_command('show-sale-credit-memo', 'financials_financialscompany_show_sale_credit_memo')
+        g.custom_command('show-sale-credit-memo-line', 'financials_financialscompany_show_sale_credit_memo_line')
+        g.custom_command('show-sale-invoice', 'financials_financialscompany_show_sale_invoice')
+        g.custom_command('show-sale-invoice-line', 'financials_financialscompany_show_sale_invoice_line')
+        g.custom_command('show-sale-order', 'financials_financialscompany_show_sale_order')
+        g.custom_command('show-sale-order-line', 'financials_financialscompany_show_sale_order_line')
+        g.custom_command('show-sale-quote', 'financials_financialscompany_show_sale_quote')
+        g.custom_command('show-sale-quote-line', 'financials_financialscompany_show_sale_quote_line')
+        g.custom_command('show-shipment-method', 'financials_financialscompany_show_shipment_method')
+        g.custom_command('show-tax-area', 'financials_financialscompany_show_tax_area')
+        g.custom_command('show-tax-group', 'financials_financialscompany_show_tax_group')
+        g.custom_command('show-unit-of-measure', 'financials_financialscompany_show_unit_of_measure')
+        g.custom_command('show-vendor', 'financials_financialscompany_show_vendor')
+        g.custom_command('update-account', 'financials_financialscompany_update_account')
+        g.custom_command('update-aged-account-payable', 'financials_financialscompany_update_aged_account_payable')
+        g.custom_command(
+            'update-aged-account-receivable', 'financials_financialscompany_update_aged_account_receivable'
+        )
+        g.custom_command('update-company-information', 'financials_financialscompany_update_company_information')
+        g.custom_command('update-country-region', 'financials_financialscompany_update_country_region')
+        g.custom_command('update-currency', 'financials_financialscompany_update_currency')
+        g.custom_command('update-customer', 'financials_financialscompany_update_customer')
+        g.custom_command('update-customer-payment', 'financials_financialscompany_update_customer_payment')
+        g.custom_command(
+            'update-customer-payment-journal', 'financials_financialscompany_update_customer_payment_journal'
+        )
+        g.custom_command('update-dimension', 'financials_financialscompany_update_dimension')
+        g.custom_command('update-dimension-value', 'financials_financialscompany_update_dimension_value')
+        g.custom_command('update-employee', 'financials_financialscompany_update_employee')
+        g.custom_command('update-general-ledger-entry', 'financials_financialscompany_update_general_ledger_entry')
+        g.custom_command('update-item', 'financials_financialscompany_update_item')
+        g.custom_command('update-item-category', 'financials_financialscompany_update_item_category')
+        g.custom_command('update-journal', 'financials_financialscompany_update_journal')
+        g.custom_command('update-journal-line', 'financials_financialscompany_update_journal_line')
+        g.custom_command('update-payment-method', 'financials_financialscompany_update_payment_method')
+        g.custom_command('update-payment-term', 'financials_financialscompany_update_payment_term')
+        g.custom_command('update-picture', 'financials_financialscompany_update_picture')
+        g.custom_command('update-purchase-invoice', 'financials_financialscompany_update_purchase_invoice')
+        g.custom_command('update-purchase-invoice-line', 'financials_financialscompany_update_purchase_invoice_line')
+        g.custom_command('update-sale-credit-memo', 'financials_financialscompany_update_sale_credit_memo')
+        g.custom_command('update-sale-credit-memo-line', 'financials_financialscompany_update_sale_credit_memo_line')
+        g.custom_command('update-sale-invoice', 'financials_financialscompany_update_sale_invoice')
+        g.custom_command('update-sale-invoice-line', 'financials_financialscompany_update_sale_invoice_line')
+        g.custom_command('update-sale-order', 'financials_financialscompany_update_sale_order')
+        g.custom_command('update-sale-order-line', 'financials_financialscompany_update_sale_order_line')
+        g.custom_command('update-sale-quote', 'financials_financialscompany_update_sale_quote')
+        g.custom_command('update-sale-quote-line', 'financials_financialscompany_update_sale_quote_line')
+        g.custom_command('update-shipment-method', 'financials_financialscompany_update_shipment_method')
+        g.custom_command('update-tax-area', 'financials_financialscompany_update_tax_area')
+        g.custom_command('update-tax-group', 'financials_financialscompany_update_tax_group')
+        g.custom_command('update-unit-of-measure', 'financials_financialscompany_update_unit_of_measure')
+        g.custom_command('update-vendor', 'financials_financialscompany_update_vendor')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment_journal
-    financials_beta_financial_company_customer_payment_journal = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_'
-        'journal_operations#FinancialCompanyCustomerPaymentJournalOperations.{}',
-        client_factory=cf_financial_company_customer_payment_journal)
-    with self.command_group('financials', financials_beta_financial_company_customer_payment_journal,
-                            client_factory=cf_financial_company_customer_payment_journal) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-customer-payment', 'financials_create_customer_payment')
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-customer-payment', 'financials_get_customer_payment')
-        g.custom_command('list-customer-payment', 'financials_list_customer_payment')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-customer-payment', 'financials_update_customer_payment')
+    with self.command_group(
+        'financials financialscompaniescustomerpaymentjournal',
+        financials_beta_financialscompaniescustomerpaymentjournal,
+        client_factory=cf_financialscompaniescustomerpaymentjournal,
+    ) as g:
+        g.custom_command(
+            'create-customer-payment', 'financials_financialscompaniescustomerpaymentjournal_create_customer_payment'
+        )
+        g.custom_command('delete-account', 'financials_financialscompaniescustomerpaymentjournal_delete_account')
+        g.custom_command(
+            'delete-customer-payment', 'financials_financialscompaniescustomerpaymentjournal_delete_customer_payment'
+        )
+        g.custom_command(
+            'list-customer-payment', 'financials_financialscompaniescustomerpaymentjournal_list_customer_payment'
+        )
+        g.custom_command('show-account', 'financials_financialscompaniescustomerpaymentjournal_show_account')
+        g.custom_command(
+            'show-customer-payment', 'financials_financialscompaniescustomerpaymentjournal_show_customer_payment'
+        )
+        g.custom_command('update-account', 'financials_financialscompaniescustomerpaymentjournal_update_account')
+        g.custom_command(
+            'update-customer-payment', 'financials_financialscompaniescustomerpaymentjournal_update_customer_payment'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment_journal_customer_payment
-    financials_beta_financial_company_customer_payment_journal_customer_payment = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_'
-        'journal_customer_payment_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations.{}',
-        client_factory=cf_financial_company_customer_payment_journal_customer_payment)
-    with self.command_group('financials', financials_beta_financial_company_customer_payment_journal_customer_payment,
-                            client_factory=cf_financial_company_customer_payment_journal_customer_payment) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-customer', 'financials_get_customer')
-        g.custom_command('update-customer', 'financials_update_customer')
+    with self.command_group(
+        'financials financialscompaniescustomerpaymentjournalscustomerpayment',
+        financials_beta_financialscompaniescustomerpaymentjournalscustomerpayment,
+        client_factory=cf_financialscompaniescustomerpaymentjournalscustomerpayment,
+    ) as g:
+        g.custom_command(
+            'delete-customer', 'financials_financialscompaniescustomerpaymentjournalscustomerpayment_delete_customer'
+        )
+        g.custom_command(
+            'show-customer', 'financials_financialscompaniescustomerpaymentjournalscustomerpayment_show_customer'
+        )
+        g.custom_command(
+            'update-customer', 'financials_financialscompaniescustomerpaymentjournalscustomerpayment_update_customer'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment_journal_customer_payment_customer
-    financials_beta_financial_company_customer_payment_journal_customer_payment_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_'
-        'journal_customer_payment_customer_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOper'
-        'ations.{}',
-        client_factory=cf_financial_company_customer_payment_journal_customer_payment_customer)
-    with self.command_group('financials',
-                            financials_beta_financial_company_customer_payment_journal_customer_payment_customer,
-                            client_factory=cf_financial_company_customer_payment_journal_customer_payment_customer) as \
-                            g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniescustomerpaymentjournalscustomerpaymentscustomer',
+        financials_beta_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer,
+        client_factory=cf_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer,
+    ) as g:
+        g.custom_command(
+            'create-picture',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_create_picture',
+        )
+        g.custom_command(
+            'delete-currency',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_delete_currency',
+        )
+        g.custom_command(
+            'delete-payment-method',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_delete_payment_method',
+        )
+        g.custom_command(
+            'delete-payment-term',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_delete_payment_term',
+        )
+        g.custom_command(
+            'delete-picture',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_delete_picture',
+        )
+        g.custom_command(
+            'delete-shipment-method',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_delete_shipment_method',
+        )
+        g.custom_command(
+            'list-picture', 'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_list_picture'
+        )
+        g.custom_command(
+            'set-picture-content',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_set_picture_content',
+        )
+        g.custom_command(
+            'show-currency',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_show_currency',
+        )
+        g.custom_command(
+            'show-payment-method',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_show_payment_method',
+        )
+        g.custom_command(
+            'show-payment-term',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_show_payment_term',
+        )
+        g.custom_command(
+            'show-picture', 'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_show_picture'
+        )
+        g.custom_command(
+            'show-picture-content',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_show_picture_content',
+        )
+        g.custom_command(
+            'show-shipment-method',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_show_shipment_method',
+        )
+        g.custom_command(
+            'update-currency',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_update_currency',
+        )
+        g.custom_command(
+            'update-payment-method',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_update_payment_method',
+        )
+        g.custom_command(
+            'update-payment-term',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_update_payment_term',
+        )
+        g.custom_command(
+            'update-picture',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_update_picture',
+        )
+        g.custom_command(
+            'update-shipment-method',
+            'financials_financialscompaniescustomerpaymentjournalscustomerpaymentscustomer_update_shipment_method',
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment
-    financials_beta_financial_company_customer_payment = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_'
-        'operations#FinancialCompanyCustomerPaymentOperations.{}',
-        client_factory=cf_financial_company_customer_payment)
-    with self.command_group('financials', financials_beta_financial_company_customer_payment,
-                            client_factory=cf_financial_company_customer_payment) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-customer', 'financials_get_customer')
-        g.custom_command('update-customer', 'financials_update_customer')
+    with self.command_group(
+        'financials financialscompaniescustomerpayment',
+        financials_beta_financialscompaniescustomerpayment,
+        client_factory=cf_financialscompaniescustomerpayment,
+    ) as g:
+        g.custom_command('delete-customer', 'financials_financialscompaniescustomerpayment_delete_customer')
+        g.custom_command('show-customer', 'financials_financialscompaniescustomerpayment_show_customer')
+        g.custom_command('update-customer', 'financials_financialscompaniescustomerpayment_update_customer')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment_customer
-    financials_beta_financial_company_customer_payment_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_'
-        'customer_operations#FinancialCompanyCustomerPaymentCustomerOperations.{}',
-        client_factory=cf_financial_company_customer_payment_customer)
-    with self.command_group('financials', financials_beta_financial_company_customer_payment_customer,
-                            client_factory=cf_financial_company_customer_payment_customer) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniescustomerpaymentscustomer',
+        financials_beta_financialscompaniescustomerpaymentscustomer,
+        client_factory=cf_financialscompaniescustomerpaymentscustomer,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniescustomerpaymentscustomer_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniescustomerpaymentscustomer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financialscompaniescustomerpaymentscustomer_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financialscompaniescustomerpaymentscustomer_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniescustomerpaymentscustomer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financialscompaniescustomerpaymentscustomer_delete_shipment_method'
+        )
+        g.custom_command('list-picture', 'financials_financialscompaniescustomerpaymentscustomer_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniescustomerpaymentscustomer_set_picture_content'
+        )
+        g.custom_command('show-currency', 'financials_financialscompaniescustomerpaymentscustomer_show_currency')
+        g.custom_command(
+            'show-payment-method', 'financials_financialscompaniescustomerpaymentscustomer_show_payment_method'
+        )
+        g.custom_command(
+            'show-payment-term', 'financials_financialscompaniescustomerpaymentscustomer_show_payment_term'
+        )
+        g.custom_command('show-picture', 'financials_financialscompaniescustomerpaymentscustomer_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniescustomerpaymentscustomer_show_picture_content'
+        )
+        g.custom_command(
+            'show-shipment-method', 'financials_financialscompaniescustomerpaymentscustomer_show_shipment_method'
+        )
+        g.custom_command('update-currency', 'financials_financialscompaniescustomerpaymentscustomer_update_currency')
+        g.custom_command(
+            'update-payment-method', 'financials_financialscompaniescustomerpaymentscustomer_update_payment_method'
+        )
+        g.custom_command(
+            'update-payment-term', 'financials_financialscompaniescustomerpaymentscustomer_update_payment_term'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniescustomerpaymentscustomer_update_picture')
+        g.custom_command(
+            'update-shipment-method', 'financials_financialscompaniescustomerpaymentscustomer_update_shipment_method'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer
-    financials_beta_financial_company_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_operatio'
-        'ns#FinancialCompanyCustomerOperations.{}',
-        client_factory=cf_financial_company_customer)
-    with self.command_group('financials', financials_beta_financial_company_customer,
-                            client_factory=cf_financial_company_customer) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniescustomer',
+        financials_beta_financialscompaniescustomer,
+        client_factory=cf_financialscompaniescustomer,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniescustomer_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniescustomer_delete_currency')
+        g.custom_command('delete-payment-method', 'financials_financialscompaniescustomer_delete_payment_method')
+        g.custom_command('delete-payment-term', 'financials_financialscompaniescustomer_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financialscompaniescustomer_delete_picture')
+        g.custom_command('delete-shipment-method', 'financials_financialscompaniescustomer_delete_shipment_method')
+        g.custom_command('list-picture', 'financials_financialscompaniescustomer_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniescustomer_set_picture_content')
+        g.custom_command('show-currency', 'financials_financialscompaniescustomer_show_currency')
+        g.custom_command('show-payment-method', 'financials_financialscompaniescustomer_show_payment_method')
+        g.custom_command('show-payment-term', 'financials_financialscompaniescustomer_show_payment_term')
+        g.custom_command('show-picture', 'financials_financialscompaniescustomer_show_picture')
+        g.custom_command('show-picture-content', 'financials_financialscompaniescustomer_show_picture_content')
+        g.custom_command('show-shipment-method', 'financials_financialscompaniescustomer_show_shipment_method')
+        g.custom_command('update-currency', 'financials_financialscompaniescustomer_update_currency')
+        g.custom_command('update-payment-method', 'financials_financialscompaniescustomer_update_payment_method')
+        g.custom_command('update-payment-term', 'financials_financialscompaniescustomer_update_payment_term')
+        g.custom_command('update-picture', 'financials_financialscompaniescustomer_update_picture')
+        g.custom_command('update-shipment-method', 'financials_financialscompaniescustomer_update_shipment_method')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_dimension
-    financials_beta_financial_company_dimension = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_dimension_operati'
-        'ons#FinancialCompanyDimensionOperations.{}',
-        client_factory=cf_financial_company_dimension)
-    with self.command_group('financials', financials_beta_financial_company_dimension,
-                            client_factory=cf_financial_company_dimension) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-dimension-value', 'financials_create_dimension_value')
-        g.custom_command('get-dimension-value', 'financials_get_dimension_value')
-        g.custom_command('list-dimension-value', 'financials_list_dimension_value')
-        g.custom_command('update-dimension-value', 'financials_update_dimension_value')
+    with self.command_group(
+        'financials financialscompaniesdimension',
+        financials_beta_financialscompaniesdimension,
+        client_factory=cf_financialscompaniesdimension,
+    ) as g:
+        g.custom_command('create-dimension-value', 'financials_financialscompaniesdimension_create_dimension_value')
+        g.custom_command('delete-dimension-value', 'financials_financialscompaniesdimension_delete_dimension_value')
+        g.custom_command('list-dimension-value', 'financials_financialscompaniesdimension_list_dimension_value')
+        g.custom_command('show-dimension-value', 'financials_financialscompaniesdimension_show_dimension_value')
+        g.custom_command('update-dimension-value', 'financials_financialscompaniesdimension_update_dimension_value')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_employee
-    financials_beta_financial_company_employee = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_employee_operatio'
-        'ns#FinancialCompanyEmployeeOperations.{}',
-        client_factory=cf_financial_company_employee)
-    with self.command_group('financials', financials_beta_financial_company_employee,
-                            client_factory=cf_financial_company_employee) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniesemployee',
+        financials_beta_financialscompaniesemployee,
+        client_factory=cf_financialscompaniesemployee,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniesemployee_create_picture')
+        g.custom_command('delete-picture', 'financials_financialscompaniesemployee_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniesemployee_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniesemployee_set_picture_content')
+        g.custom_command('show-picture', 'financials_financialscompaniesemployee_show_picture')
+        g.custom_command('show-picture-content', 'financials_financialscompaniesemployee_show_picture_content')
+        g.custom_command('update-picture', 'financials_financialscompaniesemployee_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_general_ledger_entry
-    financials_beta_financial_company_general_ledger_entry = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_general_ledger_en'
-        'try_operations#FinancialCompanyGeneralLedgerEntryOperations.{}',
-        client_factory=cf_financial_company_general_ledger_entry)
-    with self.command_group('financials', financials_beta_financial_company_general_ledger_entry,
-                            client_factory=cf_financial_company_general_ledger_entry) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('update-account', 'financials_update_account')
+    with self.command_group(
+        'financials financialscompaniesgeneralledgerentry',
+        financials_beta_financialscompaniesgeneralledgerentry,
+        client_factory=cf_financialscompaniesgeneralledgerentry,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniesgeneralledgerentry_delete_account')
+        g.custom_command('show-account', 'financials_financialscompaniesgeneralledgerentry_show_account')
+        g.custom_command('update-account', 'financials_financialscompaniesgeneralledgerentry_update_account')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_item
-    financials_beta_financial_company_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_item_operations#F'
-        'inancialCompanyItemOperations.{}',
-        client_factory=cf_financial_company_item)
-    with self.command_group('financials', financials_beta_financial_company_item,
-                            client_factory=cf_financial_company_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniesitem',
+        financials_beta_financialscompaniesitem,
+        client_factory=cf_financialscompaniesitem,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniesitem_create_picture')
+        g.custom_command('delete-item-category', 'financials_financialscompaniesitem_delete_item_category')
+        g.custom_command('delete-picture', 'financials_financialscompaniesitem_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniesitem_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniesitem_set_picture_content')
+        g.custom_command('show-item-category', 'financials_financialscompaniesitem_show_item_category')
+        g.custom_command('show-picture', 'financials_financialscompaniesitem_show_picture')
+        g.custom_command('show-picture-content', 'financials_financialscompaniesitem_show_picture_content')
+        g.custom_command('update-item-category', 'financials_financialscompaniesitem_update_item_category')
+        g.custom_command('update-picture', 'financials_financialscompaniesitem_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_journal_line
-    financials_beta_financial_company_journal_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_line_oper'
-        'ations#FinancialCompanyJournalLineOperations.{}',
-        client_factory=cf_financial_company_journal_line)
-    with self.command_group('financials', financials_beta_financial_company_journal_line,
-                            client_factory=cf_financial_company_journal_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('update-account', 'financials_update_account')
+    with self.command_group(
+        'financials financialscompaniesjournalline',
+        financials_beta_financialscompaniesjournalline,
+        client_factory=cf_financialscompaniesjournalline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniesjournalline_delete_account')
+        g.custom_command('show-account', 'financials_financialscompaniesjournalline_show_account')
+        g.custom_command('update-account', 'financials_financialscompaniesjournalline_update_account')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_journal
-    financials_beta_financial_company_journal = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_operation'
-        's#FinancialCompanyJournalOperations.{}',
-        client_factory=cf_financial_company_journal)
-    with self.command_group('financials', financials_beta_financial_company_journal,
-                            client_factory=cf_financial_company_journal) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-journal-line', 'financials_create_journal_line')
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-journal-line', 'financials_get_journal_line')
-        g.custom_command('list-journal-line', 'financials_list_journal_line')
-        g.custom_command('post', 'financials_post')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-journal-line', 'financials_update_journal_line')
+    with self.command_group(
+        'financials financialscompaniesjournal',
+        financials_beta_financialscompaniesjournal,
+        client_factory=cf_financialscompaniesjournal,
+    ) as g:
+        g.custom_command('create-journal-line', 'financials_financialscompaniesjournal_create_journal_line')
+        g.custom_command('delete-account', 'financials_financialscompaniesjournal_delete_account')
+        g.custom_command('delete-journal-line', 'financials_financialscompaniesjournal_delete_journal_line')
+        g.custom_command('list-journal-line', 'financials_financialscompaniesjournal_list_journal_line')
+        g.custom_command('post', 'financials_financialscompaniesjournal_post')
+        g.custom_command('show-account', 'financials_financialscompaniesjournal_show_account')
+        g.custom_command('show-journal-line', 'financials_financialscompaniesjournal_show_journal_line')
+        g.custom_command('update-account', 'financials_financialscompaniesjournal_update_account')
+        g.custom_command('update-journal-line', 'financials_financialscompaniesjournal_update_journal_line')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_journal_journal_line
-    financials_beta_financial_company_journal_journal_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_journal_l'
-        'ine_operations#FinancialCompanyJournalJournalLineOperations.{}',
-        client_factory=cf_financial_company_journal_journal_line)
-    with self.command_group('financials', financials_beta_financial_company_journal_journal_line,
-                            client_factory=cf_financial_company_journal_journal_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('update-account', 'financials_update_account')
+    with self.command_group(
+        'financials financialscompaniesjournalsjournalline',
+        financials_beta_financialscompaniesjournalsjournalline,
+        client_factory=cf_financialscompaniesjournalsjournalline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniesjournalsjournalline_delete_account')
+        g.custom_command('show-account', 'financials_financialscompaniesjournalsjournalline_show_account')
+        g.custom_command('update-account', 'financials_financialscompaniesjournalsjournalline_update_account')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_line
-    financials_beta_financial_company_purchase_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_'
-        'line_operations#FinancialCompanyPurchaseInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_line)
-    with self.command_group('financials', financials_beta_financial_company_purchase_invoice_line,
-                            client_factory=cf_financial_company_purchase_invoice_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniespurchaseinvoiceline',
+        financials_beta_financialscompaniespurchaseinvoiceline,
+        client_factory=cf_financialscompaniespurchaseinvoiceline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniespurchaseinvoiceline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniespurchaseinvoiceline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniespurchaseinvoiceline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniespurchaseinvoiceline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniespurchaseinvoiceline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniespurchaseinvoiceline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_line_item
-    financials_beta_financial_company_purchase_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_'
-        'line_item_operations#FinancialCompanyPurchaseInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_line_item)
-    with self.command_group('financials', financials_beta_financial_company_purchase_invoice_line_item,
-                            client_factory=cf_financial_company_purchase_invoice_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniespurchaseinvoicelinesitem',
+        financials_beta_financialscompaniespurchaseinvoicelinesitem,
+        client_factory=cf_financialscompaniespurchaseinvoicelinesitem,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniespurchaseinvoicelinesitem_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financialscompaniespurchaseinvoicelinesitem_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniespurchaseinvoicelinesitem_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniespurchaseinvoicelinesitem_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniespurchaseinvoicelinesitem_set_picture_content'
+        )
+        g.custom_command(
+            'show-item-category', 'financials_financialscompaniespurchaseinvoicelinesitem_show_item_category'
+        )
+        g.custom_command('show-picture', 'financials_financialscompaniespurchaseinvoicelinesitem_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniespurchaseinvoicelinesitem_show_picture_content'
+        )
+        g.custom_command(
+            'update-item-category', 'financials_financialscompaniespurchaseinvoicelinesitem_update_item_category'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniespurchaseinvoicelinesitem_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice
-    financials_beta_financial_company_purchase_invoice = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_'
-        'operations#FinancialCompanyPurchaseInvoiceOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice)
-    with self.command_group('financials', financials_beta_financial_company_purchase_invoice,
-                            client_factory=cf_financial_company_purchase_invoice) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-purchase-invoice-line', 'financials_create_purchase_invoice_line')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-purchase-invoice-line', 'financials_get_purchase_invoice_line')
-        g.custom_command('get-vendor', 'financials_get_vendor')
-        g.custom_command('list-purchase-invoice-line', 'financials_list_purchase_invoice_line')
-        g.custom_command('post', 'financials_post')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-purchase-invoice-line', 'financials_update_purchase_invoice_line')
-        g.custom_command('update-vendor', 'financials_update_vendor')
+    with self.command_group(
+        'financials financialscompaniespurchaseinvoice',
+        financials_beta_financialscompaniespurchaseinvoice,
+        client_factory=cf_financialscompaniespurchaseinvoice,
+    ) as g:
+        g.custom_command(
+            'create-purchase-invoice-line', 'financials_financialscompaniespurchaseinvoice_create_purchase_invoice_line'
+        )
+        g.custom_command('delete-currency', 'financials_financialscompaniespurchaseinvoice_delete_currency')
+        g.custom_command(
+            'delete-purchase-invoice-line', 'financials_financialscompaniespurchaseinvoice_delete_purchase_invoice_line'
+        )
+        g.custom_command('delete-vendor', 'financials_financialscompaniespurchaseinvoice_delete_vendor')
+        g.custom_command(
+            'list-purchase-invoice-line', 'financials_financialscompaniespurchaseinvoice_list_purchase_invoice_line'
+        )
+        g.custom_command('post', 'financials_financialscompaniespurchaseinvoice_post')
+        g.custom_command('show-currency', 'financials_financialscompaniespurchaseinvoice_show_currency')
+        g.custom_command(
+            'show-purchase-invoice-line', 'financials_financialscompaniespurchaseinvoice_show_purchase_invoice_line'
+        )
+        g.custom_command('show-vendor', 'financials_financialscompaniespurchaseinvoice_show_vendor')
+        g.custom_command('update-currency', 'financials_financialscompaniespurchaseinvoice_update_currency')
+        g.custom_command(
+            'update-purchase-invoice-line', 'financials_financialscompaniespurchaseinvoice_update_purchase_invoice_line'
+        )
+        g.custom_command('update-vendor', 'financials_financialscompaniespurchaseinvoice_update_vendor')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_purchase_invoice_line
-    financials_beta_financial_company_purchase_invoice_purchase_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_'
-        'purchase_invoice_line_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line)
-    with self.command_group('financials', financials_beta_financial_company_purchase_invoice_purchase_invoice_line,
-                            client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniespurchaseinvoicespurchaseinvoiceline',
+        financials_beta_financialscompaniespurchaseinvoicespurchaseinvoiceline,
+        client_factory=cf_financialscompaniespurchaseinvoicespurchaseinvoiceline,
+    ) as g:
+        g.custom_command(
+            'delete-account', 'financials_financialscompaniespurchaseinvoicespurchaseinvoiceline_delete_account'
+        )
+        g.custom_command('delete-item', 'financials_financialscompaniespurchaseinvoicespurchaseinvoiceline_delete_item')
+        g.custom_command(
+            'show-account', 'financials_financialscompaniespurchaseinvoicespurchaseinvoiceline_show_account'
+        )
+        g.custom_command('show-item', 'financials_financialscompaniespurchaseinvoicespurchaseinvoiceline_show_item')
+        g.custom_command(
+            'update-account', 'financials_financialscompaniespurchaseinvoicespurchaseinvoiceline_update_account'
+        )
+        g.custom_command('update-item', 'financials_financialscompaniespurchaseinvoicespurchaseinvoiceline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_purchase_invoice_line_item
-    financials_beta_financial_company_purchase_invoice_purchase_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_'
-        'purchase_invoice_line_item_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line_item)
-    with self.command_group('financials',
-                            financials_beta_financial_company_purchase_invoice_purchase_invoice_line_item,
-                            client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniespurchaseinvoicespurchaseinvoicelinesitem',
+        financials_beta_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem,
+        client_factory=cf_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem,
+    ) as g:
+        g.custom_command(
+            'create-picture', 'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_create_picture'
+        )
+        g.custom_command(
+            'delete-item-category',
+            'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_delete_item_category',
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_delete_picture'
+        )
+        g.custom_command(
+            'list-picture', 'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_list_picture'
+        )
+        g.custom_command(
+            'set-picture-content',
+            'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_set_picture_content',
+        )
+        g.custom_command(
+            'show-item-category',
+            'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_show_item_category',
+        )
+        g.custom_command(
+            'show-picture', 'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_show_picture'
+        )
+        g.custom_command(
+            'show-picture-content',
+            'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_show_picture_content',
+        )
+        g.custom_command(
+            'update-item-category',
+            'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_update_item_category',
+        )
+        g.custom_command(
+            'update-picture', 'financials_financialscompaniespurchaseinvoicespurchaseinvoicelinesitem_update_picture'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_vendor
-    financials_beta_financial_company_purchase_invoice_vendor = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_'
-        'vendor_operations#FinancialCompanyPurchaseInvoiceVendorOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_vendor)
-    with self.command_group('financials', financials_beta_financial_company_purchase_invoice_vendor,
-                            client_factory=cf_financial_company_purchase_invoice_vendor) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniespurchaseinvoicesvendor',
+        financials_beta_financialscompaniespurchaseinvoicesvendor,
+        client_factory=cf_financialscompaniespurchaseinvoicesvendor,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniespurchaseinvoicesvendor_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniespurchaseinvoicesvendor_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financialscompaniespurchaseinvoicesvendor_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financialscompaniespurchaseinvoicesvendor_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniespurchaseinvoicesvendor_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniespurchaseinvoicesvendor_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniespurchaseinvoicesvendor_set_picture_content'
+        )
+        g.custom_command('show-currency', 'financials_financialscompaniespurchaseinvoicesvendor_show_currency')
+        g.custom_command(
+            'show-payment-method', 'financials_financialscompaniespurchaseinvoicesvendor_show_payment_method'
+        )
+        g.custom_command('show-payment-term', 'financials_financialscompaniespurchaseinvoicesvendor_show_payment_term')
+        g.custom_command('show-picture', 'financials_financialscompaniespurchaseinvoicesvendor_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniespurchaseinvoicesvendor_show_picture_content'
+        )
+        g.custom_command('update-currency', 'financials_financialscompaniespurchaseinvoicesvendor_update_currency')
+        g.custom_command(
+            'update-payment-method', 'financials_financialscompaniespurchaseinvoicesvendor_update_payment_method'
+        )
+        g.custom_command(
+            'update-payment-term', 'financials_financialscompaniespurchaseinvoicesvendor_update_payment_term'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniespurchaseinvoicesvendor_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_line
-    financials_beta_financial_company_sale_credit_memo_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_'
-        'line_operations#FinancialCompanySaleCreditMemoLineOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_credit_memo_line,
-                            client_factory=cf_financial_company_sale_credit_memo_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalescreditmemoline',
+        financials_beta_financialscompaniessalescreditmemoline,
+        client_factory=cf_financialscompaniessalescreditmemoline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniessalescreditmemoline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniessalescreditmemoline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniessalescreditmemoline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniessalescreditmemoline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniessalescreditmemoline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniessalescreditmemoline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_line_item
-    financials_beta_financial_company_sale_credit_memo_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_'
-        'line_item_operations#FinancialCompanySaleCreditMemoLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_line_item)
-    with self.command_group('financials', financials_beta_financial_company_sale_credit_memo_line_item,
-                            client_factory=cf_financial_company_sale_credit_memo_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalescreditmemolinesitem',
+        financials_beta_financialscompaniessalescreditmemolinesitem,
+        client_factory=cf_financialscompaniessalescreditmemolinesitem,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalescreditmemolinesitem_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financialscompaniessalescreditmemolinesitem_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniessalescreditmemolinesitem_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniessalescreditmemolinesitem_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniessalescreditmemolinesitem_set_picture_content'
+        )
+        g.custom_command(
+            'show-item-category', 'financials_financialscompaniessalescreditmemolinesitem_show_item_category'
+        )
+        g.custom_command('show-picture', 'financials_financialscompaniessalescreditmemolinesitem_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalescreditmemolinesitem_show_picture_content'
+        )
+        g.custom_command(
+            'update-item-category', 'financials_financialscompaniessalescreditmemolinesitem_update_item_category'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniessalescreditmemolinesitem_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo
-    financials_beta_financial_company_sale_credit_memo = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_'
-        'operations#FinancialCompanySaleCreditMemoOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo)
-    with self.command_group('financials', financials_beta_financial_company_sale_credit_memo,
-                            client_factory=cf_financial_company_sale_credit_memo) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-sale-credit-memo-line', 'financials_create_sale_credit_memo_line')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-customer', 'financials_get_customer')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-sale-credit-memo-line', 'financials_get_sale_credit_memo_line')
-        g.custom_command('list-sale-credit-memo-line', 'financials_list_sale_credit_memo_line')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-customer', 'financials_update_customer')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-sale-credit-memo-line', 'financials_update_sale_credit_memo_line')
+    with self.command_group(
+        'financials financialscompaniessalescreditmemo',
+        financials_beta_financialscompaniessalescreditmemo,
+        client_factory=cf_financialscompaniessalescreditmemo,
+    ) as g:
+        g.custom_command(
+            'create-sale-credit-memo-line', 'financials_financialscompaniessalescreditmemo_create_sale_credit_memo_line'
+        )
+        g.custom_command('delete-currency', 'financials_financialscompaniessalescreditmemo_delete_currency')
+        g.custom_command('delete-customer', 'financials_financialscompaniessalescreditmemo_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financialscompaniessalescreditmemo_delete_payment_term')
+        g.custom_command(
+            'delete-sale-credit-memo-line', 'financials_financialscompaniessalescreditmemo_delete_sale_credit_memo_line'
+        )
+        g.custom_command(
+            'list-sale-credit-memo-line', 'financials_financialscompaniessalescreditmemo_list_sale_credit_memo_line'
+        )
+        g.custom_command('show-currency', 'financials_financialscompaniessalescreditmemo_show_currency')
+        g.custom_command('show-customer', 'financials_financialscompaniessalescreditmemo_show_customer')
+        g.custom_command('show-payment-term', 'financials_financialscompaniessalescreditmemo_show_payment_term')
+        g.custom_command(
+            'show-sale-credit-memo-line', 'financials_financialscompaniessalescreditmemo_show_sale_credit_memo_line'
+        )
+        g.custom_command('update-currency', 'financials_financialscompaniessalescreditmemo_update_currency')
+        g.custom_command('update-customer', 'financials_financialscompaniessalescreditmemo_update_customer')
+        g.custom_command('update-payment-term', 'financials_financialscompaniessalescreditmemo_update_payment_term')
+        g.custom_command(
+            'update-sale-credit-memo-line', 'financials_financialscompaniessalescreditmemo_update_sale_credit_memo_line'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_customer
-    financials_beta_financial_company_sale_credit_memo_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_'
-        'customer_operations#FinancialCompanySaleCreditMemoCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_customer)
-    with self.command_group('financials', financials_beta_financial_company_sale_credit_memo_customer,
-                            client_factory=cf_financial_company_sale_credit_memo_customer) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniessalescreditmemoscustomer',
+        financials_beta_financialscompaniessalescreditmemoscustomer,
+        client_factory=cf_financialscompaniessalescreditmemoscustomer,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalescreditmemoscustomer_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniessalescreditmemoscustomer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financialscompaniessalescreditmemoscustomer_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financialscompaniessalescreditmemoscustomer_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniessalescreditmemoscustomer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financialscompaniessalescreditmemoscustomer_delete_shipment_method'
+        )
+        g.custom_command('list-picture', 'financials_financialscompaniessalescreditmemoscustomer_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniessalescreditmemoscustomer_set_picture_content'
+        )
+        g.custom_command('show-currency', 'financials_financialscompaniessalescreditmemoscustomer_show_currency')
+        g.custom_command(
+            'show-payment-method', 'financials_financialscompaniessalescreditmemoscustomer_show_payment_method'
+        )
+        g.custom_command(
+            'show-payment-term', 'financials_financialscompaniessalescreditmemoscustomer_show_payment_term'
+        )
+        g.custom_command('show-picture', 'financials_financialscompaniessalescreditmemoscustomer_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalescreditmemoscustomer_show_picture_content'
+        )
+        g.custom_command(
+            'show-shipment-method', 'financials_financialscompaniessalescreditmemoscustomer_show_shipment_method'
+        )
+        g.custom_command('update-currency', 'financials_financialscompaniessalescreditmemoscustomer_update_currency')
+        g.custom_command(
+            'update-payment-method', 'financials_financialscompaniessalescreditmemoscustomer_update_payment_method'
+        )
+        g.custom_command(
+            'update-payment-term', 'financials_financialscompaniessalescreditmemoscustomer_update_payment_term'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniessalescreditmemoscustomer_update_picture')
+        g.custom_command(
+            'update-shipment-method', 'financials_financialscompaniessalescreditmemoscustomer_update_shipment_method'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_sale_credit_memo_line
-    financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_'
-        'sale_credit_memo_line_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line,
-                            client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalescreditmemossalescreditmemoline',
+        financials_beta_financialscompaniessalescreditmemossalescreditmemoline,
+        client_factory=cf_financialscompaniessalescreditmemossalescreditmemoline,
+    ) as g:
+        g.custom_command(
+            'delete-account', 'financials_financialscompaniessalescreditmemossalescreditmemoline_delete_account'
+        )
+        g.custom_command('delete-item', 'financials_financialscompaniessalescreditmemossalescreditmemoline_delete_item')
+        g.custom_command(
+            'show-account', 'financials_financialscompaniessalescreditmemossalescreditmemoline_show_account'
+        )
+        g.custom_command('show-item', 'financials_financialscompaniessalescreditmemossalescreditmemoline_show_item')
+        g.custom_command(
+            'update-account', 'financials_financialscompaniessalescreditmemossalescreditmemoline_update_account'
+        )
+        g.custom_command('update-item', 'financials_financialscompaniessalescreditmemossalescreditmemoline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_sale_credit_memo_line_item
-    financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_'
-        'sale_credit_memo_line_item_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line_item)
-    with self.command_group('financials',
-                            financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line_item,
-                            client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalescreditmemossalescreditmemolinesitem',
+        financials_beta_financialscompaniessalescreditmemossalescreditmemolinesitem,
+        client_factory=cf_financialscompaniessalescreditmemossalescreditmemolinesitem,
+    ) as g:
+        g.custom_command(
+            'create-picture', 'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_create_picture'
+        )
+        g.custom_command(
+            'delete-item-category',
+            'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_delete_item_category',
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_delete_picture'
+        )
+        g.custom_command(
+            'list-picture', 'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_list_picture'
+        )
+        g.custom_command(
+            'set-picture-content',
+            'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_set_picture_content',
+        )
+        g.custom_command(
+            'show-item-category',
+            'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_show_item_category',
+        )
+        g.custom_command(
+            'show-picture', 'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_show_picture'
+        )
+        g.custom_command(
+            'show-picture-content',
+            'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_show_picture_content',
+        )
+        g.custom_command(
+            'update-item-category',
+            'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_update_item_category',
+        )
+        g.custom_command(
+            'update-picture', 'financials_financialscompaniessalescreditmemossalescreditmemolinesitem_update_picture'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_line
-    financials_beta_financial_company_sale_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line'
-        '_operations#FinancialCompanySaleInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_invoice_line,
-                            client_factory=cf_financial_company_sale_invoice_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalesinvoiceline',
+        financials_beta_financialscompaniessalesinvoiceline,
+        client_factory=cf_financialscompaniessalesinvoiceline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniessalesinvoiceline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniessalesinvoiceline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniessalesinvoiceline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniessalesinvoiceline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniessalesinvoiceline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniessalesinvoiceline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_line_item
-    financials_beta_financial_company_sale_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line'
-        '_item_operations#FinancialCompanySaleInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_line_item)
-    with self.command_group('financials', financials_beta_financial_company_sale_invoice_line_item,
-                            client_factory=cf_financial_company_sale_invoice_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalesinvoicelinesitem',
+        financials_beta_financialscompaniessalesinvoicelinesitem,
+        client_factory=cf_financialscompaniessalesinvoicelinesitem,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalesinvoicelinesitem_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financialscompaniessalesinvoicelinesitem_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniessalesinvoicelinesitem_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniessalesinvoicelinesitem_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniessalesinvoicelinesitem_set_picture_content'
+        )
+        g.custom_command('show-item-category', 'financials_financialscompaniessalesinvoicelinesitem_show_item_category')
+        g.custom_command('show-picture', 'financials_financialscompaniessalesinvoicelinesitem_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesinvoicelinesitem_show_picture_content'
+        )
+        g.custom_command(
+            'update-item-category', 'financials_financialscompaniessalesinvoicelinesitem_update_item_category'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniessalesinvoicelinesitem_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice
-    financials_beta_financial_company_sale_invoice = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_oper'
-        'ations#FinancialCompanySaleInvoiceOperations.{}',
-        client_factory=cf_financial_company_sale_invoice)
-    with self.command_group('financials', financials_beta_financial_company_sale_invoice,
-                            client_factory=cf_financial_company_sale_invoice) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('cancel', 'financials_cancel')
-        g.custom_command('cancel-and-send', 'financials_cancel_and_send')
-        g.custom_command('create-sale-invoice-line', 'financials_create_sale_invoice_line')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-customer', 'financials_get_customer')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-sale-invoice-line', 'financials_get_sale_invoice_line')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-sale-invoice-line', 'financials_list_sale_invoice_line')
-        g.custom_command('post', 'financials_post')
-        g.custom_command('post-and-send', 'financials_post_and_send')
-        g.custom_command('send', 'financials_send')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-customer', 'financials_update_customer')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-sale-invoice-line', 'financials_update_sale_invoice_line')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniessalesinvoice',
+        financials_beta_financialscompaniessalesinvoice,
+        client_factory=cf_financialscompaniessalesinvoice,
+    ) as g:
+        g.custom_command('cancel', 'financials_financialscompaniessalesinvoice_cancel')
+        g.custom_command('cancel-and-send', 'financials_financialscompaniessalesinvoice_cancel_and_send')
+        g.custom_command(
+            'create-sale-invoice-line', 'financials_financialscompaniessalesinvoice_create_sale_invoice_line'
+        )
+        g.custom_command('delete-currency', 'financials_financialscompaniessalesinvoice_delete_currency')
+        g.custom_command('delete-customer', 'financials_financialscompaniessalesinvoice_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financialscompaniessalesinvoice_delete_payment_term')
+        g.custom_command(
+            'delete-sale-invoice-line', 'financials_financialscompaniessalesinvoice_delete_sale_invoice_line'
+        )
+        g.custom_command('delete-shipment-method', 'financials_financialscompaniessalesinvoice_delete_shipment_method')
+        g.custom_command('list-sale-invoice-line', 'financials_financialscompaniessalesinvoice_list_sale_invoice_line')
+        g.custom_command('post', 'financials_financialscompaniessalesinvoice_post')
+        g.custom_command('post-and-send', 'financials_financialscompaniessalesinvoice_post_and_send')
+        g.custom_command('send', 'financials_financialscompaniessalesinvoice_send')
+        g.custom_command('show-currency', 'financials_financialscompaniessalesinvoice_show_currency')
+        g.custom_command('show-customer', 'financials_financialscompaniessalesinvoice_show_customer')
+        g.custom_command('show-payment-term', 'financials_financialscompaniessalesinvoice_show_payment_term')
+        g.custom_command('show-sale-invoice-line', 'financials_financialscompaniessalesinvoice_show_sale_invoice_line')
+        g.custom_command('show-shipment-method', 'financials_financialscompaniessalesinvoice_show_shipment_method')
+        g.custom_command('update-currency', 'financials_financialscompaniessalesinvoice_update_currency')
+        g.custom_command('update-customer', 'financials_financialscompaniessalesinvoice_update_customer')
+        g.custom_command('update-payment-term', 'financials_financialscompaniessalesinvoice_update_payment_term')
+        g.custom_command(
+            'update-sale-invoice-line', 'financials_financialscompaniessalesinvoice_update_sale_invoice_line'
+        )
+        g.custom_command('update-shipment-method', 'financials_financialscompaniessalesinvoice_update_shipment_method')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_customer
-    financials_beta_financial_company_sale_invoice_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_cust'
-        'omer_operations#FinancialCompanySaleInvoiceCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_customer)
-    with self.command_group('financials', financials_beta_financial_company_sale_invoice_customer,
-                            client_factory=cf_financial_company_sale_invoice_customer) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniessalesinvoicescustomer',
+        financials_beta_financialscompaniessalesinvoicescustomer,
+        client_factory=cf_financialscompaniessalesinvoicescustomer,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalesinvoicescustomer_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniessalesinvoicescustomer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financialscompaniessalesinvoicescustomer_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financialscompaniessalesinvoicescustomer_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniessalesinvoicescustomer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financialscompaniessalesinvoicescustomer_delete_shipment_method'
+        )
+        g.custom_command('list-picture', 'financials_financialscompaniessalesinvoicescustomer_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniessalesinvoicescustomer_set_picture_content'
+        )
+        g.custom_command('show-currency', 'financials_financialscompaniessalesinvoicescustomer_show_currency')
+        g.custom_command(
+            'show-payment-method', 'financials_financialscompaniessalesinvoicescustomer_show_payment_method'
+        )
+        g.custom_command('show-payment-term', 'financials_financialscompaniessalesinvoicescustomer_show_payment_term')
+        g.custom_command('show-picture', 'financials_financialscompaniessalesinvoicescustomer_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesinvoicescustomer_show_picture_content'
+        )
+        g.custom_command(
+            'show-shipment-method', 'financials_financialscompaniessalesinvoicescustomer_show_shipment_method'
+        )
+        g.custom_command('update-currency', 'financials_financialscompaniessalesinvoicescustomer_update_currency')
+        g.custom_command(
+            'update-payment-method', 'financials_financialscompaniessalesinvoicescustomer_update_payment_method'
+        )
+        g.custom_command(
+            'update-payment-term', 'financials_financialscompaniessalesinvoicescustomer_update_payment_term'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniessalesinvoicescustomer_update_picture')
+        g.custom_command(
+            'update-shipment-method', 'financials_financialscompaniessalesinvoicescustomer_update_shipment_method'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_sale_invoice_line
-    financials_beta_financial_company_sale_invoice_sale_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale'
-        '_invoice_line_operations#FinancialCompanySaleInvoiceSaleInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_sale_invoice_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_invoice_sale_invoice_line,
-                            client_factory=cf_financial_company_sale_invoice_sale_invoice_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalesinvoicessalesinvoiceline',
+        financials_beta_financialscompaniessalesinvoicessalesinvoiceline,
+        client_factory=cf_financialscompaniessalesinvoicessalesinvoiceline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniessalesinvoicessalesinvoiceline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniessalesinvoicessalesinvoiceline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniessalesinvoicessalesinvoiceline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniessalesinvoicessalesinvoiceline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniessalesinvoicessalesinvoiceline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniessalesinvoicessalesinvoiceline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_sale_invoice_line_item
-    financials_beta_financial_company_sale_invoice_sale_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale'
-        '_invoice_line_item_operations#FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_sale_invoice_line_item)
-    with self.command_group('financials', financials_beta_financial_company_sale_invoice_sale_invoice_line_item,
-                            client_factory=cf_financial_company_sale_invoice_sale_invoice_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalesinvoicessalesinvoicelinesitem',
+        financials_beta_financialscompaniessalesinvoicessalesinvoicelinesitem,
+        client_factory=cf_financialscompaniessalesinvoicessalesinvoicelinesitem,
+    ) as g:
+        g.custom_command(
+            'create-picture', 'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_create_picture'
+        )
+        g.custom_command(
+            'delete-item-category',
+            'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_delete_item_category',
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_delete_picture'
+        )
+        g.custom_command(
+            'list-picture', 'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_list_picture'
+        )
+        g.custom_command(
+            'set-picture-content',
+            'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_set_picture_content',
+        )
+        g.custom_command(
+            'show-item-category', 'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_show_item_category'
+        )
+        g.custom_command(
+            'show-picture', 'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_show_picture'
+        )
+        g.custom_command(
+            'show-picture-content',
+            'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_show_picture_content',
+        )
+        g.custom_command(
+            'update-item-category',
+            'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_update_item_category',
+        )
+        g.custom_command(
+            'update-picture', 'financials_financialscompaniessalesinvoicessalesinvoicelinesitem_update_picture'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_line
-    financials_beta_financial_company_sale_order_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_o'
-        'perations#FinancialCompanySaleOrderLineOperations.{}',
-        client_factory=cf_financial_company_sale_order_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_order_line,
-                            client_factory=cf_financial_company_sale_order_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalesorderline',
+        financials_beta_financialscompaniessalesorderline,
+        client_factory=cf_financialscompaniessalesorderline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniessalesorderline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniessalesorderline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniessalesorderline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniessalesorderline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniessalesorderline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniessalesorderline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_line_item
-    financials_beta_financial_company_sale_order_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_i'
-        'tem_operations#FinancialCompanySaleOrderLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_order_line_item)
-    with self.command_group('financials', financials_beta_financial_company_sale_order_line_item,
-                            client_factory=cf_financial_company_sale_order_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalesorderlinesitem',
+        financials_beta_financialscompaniessalesorderlinesitem,
+        client_factory=cf_financialscompaniessalesorderlinesitem,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalesorderlinesitem_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financialscompaniessalesorderlinesitem_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniessalesorderlinesitem_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniessalesorderlinesitem_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniessalesorderlinesitem_set_picture_content')
+        g.custom_command('show-item-category', 'financials_financialscompaniessalesorderlinesitem_show_item_category')
+        g.custom_command('show-picture', 'financials_financialscompaniessalesorderlinesitem_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesorderlinesitem_show_picture_content'
+        )
+        g.custom_command(
+            'update-item-category', 'financials_financialscompaniessalesorderlinesitem_update_item_category'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniessalesorderlinesitem_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order
-    financials_beta_financial_company_sale_order = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_operat'
-        'ions#FinancialCompanySaleOrderOperations.{}',
-        client_factory=cf_financial_company_sale_order)
-    with self.command_group('financials', financials_beta_financial_company_sale_order,
-                            client_factory=cf_financial_company_sale_order) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-sale-order-line', 'financials_create_sale_order_line')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-customer', 'financials_get_customer')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-sale-order-line', 'financials_get_sale_order_line')
-        g.custom_command('list-sale-order-line', 'financials_list_sale_order_line')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-customer', 'financials_update_customer')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-sale-order-line', 'financials_update_sale_order_line')
+    with self.command_group(
+        'financials financialscompaniessalesorder',
+        financials_beta_financialscompaniessalesorder,
+        client_factory=cf_financialscompaniessalesorder,
+    ) as g:
+        g.custom_command('create-sale-order-line', 'financials_financialscompaniessalesorder_create_sale_order_line')
+        g.custom_command('delete-currency', 'financials_financialscompaniessalesorder_delete_currency')
+        g.custom_command('delete-customer', 'financials_financialscompaniessalesorder_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financialscompaniessalesorder_delete_payment_term')
+        g.custom_command('delete-sale-order-line', 'financials_financialscompaniessalesorder_delete_sale_order_line')
+        g.custom_command('list-sale-order-line', 'financials_financialscompaniessalesorder_list_sale_order_line')
+        g.custom_command('show-currency', 'financials_financialscompaniessalesorder_show_currency')
+        g.custom_command('show-customer', 'financials_financialscompaniessalesorder_show_customer')
+        g.custom_command('show-payment-term', 'financials_financialscompaniessalesorder_show_payment_term')
+        g.custom_command('show-sale-order-line', 'financials_financialscompaniessalesorder_show_sale_order_line')
+        g.custom_command('update-currency', 'financials_financialscompaniessalesorder_update_currency')
+        g.custom_command('update-customer', 'financials_financialscompaniessalesorder_update_customer')
+        g.custom_command('update-payment-term', 'financials_financialscompaniessalesorder_update_payment_term')
+        g.custom_command('update-sale-order-line', 'financials_financialscompaniessalesorder_update_sale_order_line')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_customer
-    financials_beta_financial_company_sale_order_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_custom'
-        'er_operations#FinancialCompanySaleOrderCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_order_customer)
-    with self.command_group('financials', financials_beta_financial_company_sale_order_customer,
-                            client_factory=cf_financial_company_sale_order_customer) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniessalesorderscustomer',
+        financials_beta_financialscompaniessalesorderscustomer,
+        client_factory=cf_financialscompaniessalesorderscustomer,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalesorderscustomer_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniessalesorderscustomer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financialscompaniessalesorderscustomer_delete_payment_method'
+        )
+        g.custom_command('delete-payment-term', 'financials_financialscompaniessalesorderscustomer_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financialscompaniessalesorderscustomer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financialscompaniessalesorderscustomer_delete_shipment_method'
+        )
+        g.custom_command('list-picture', 'financials_financialscompaniessalesorderscustomer_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniessalesorderscustomer_set_picture_content')
+        g.custom_command('show-currency', 'financials_financialscompaniessalesorderscustomer_show_currency')
+        g.custom_command('show-payment-method', 'financials_financialscompaniessalesorderscustomer_show_payment_method')
+        g.custom_command('show-payment-term', 'financials_financialscompaniessalesorderscustomer_show_payment_term')
+        g.custom_command('show-picture', 'financials_financialscompaniessalesorderscustomer_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesorderscustomer_show_picture_content'
+        )
+        g.custom_command(
+            'show-shipment-method', 'financials_financialscompaniessalesorderscustomer_show_shipment_method'
+        )
+        g.custom_command('update-currency', 'financials_financialscompaniessalesorderscustomer_update_currency')
+        g.custom_command(
+            'update-payment-method', 'financials_financialscompaniessalesorderscustomer_update_payment_method'
+        )
+        g.custom_command('update-payment-term', 'financials_financialscompaniessalesorderscustomer_update_payment_term')
+        g.custom_command('update-picture', 'financials_financialscompaniessalesorderscustomer_update_picture')
+        g.custom_command(
+            'update-shipment-method', 'financials_financialscompaniessalesorderscustomer_update_shipment_method'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_sale_order_line
-    financials_beta_financial_company_sale_order_sale_order_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_o'
-        'rder_line_operations#FinancialCompanySaleOrderSaleOrderLineOperations.{}',
-        client_factory=cf_financial_company_sale_order_sale_order_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_order_sale_order_line,
-                            client_factory=cf_financial_company_sale_order_sale_order_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalesorderssalesorderline',
+        financials_beta_financialscompaniessalesorderssalesorderline,
+        client_factory=cf_financialscompaniessalesorderssalesorderline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniessalesorderssalesorderline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniessalesorderssalesorderline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniessalesorderssalesorderline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniessalesorderssalesorderline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniessalesorderssalesorderline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniessalesorderssalesorderline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_sale_order_line_item
-    financials_beta_financial_company_sale_order_sale_order_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_o'
-        'rder_line_item_operations#FinancialCompanySaleOrderSaleOrderLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_order_sale_order_line_item)
-    with self.command_group('financials', financials_beta_financial_company_sale_order_sale_order_line_item,
-                            client_factory=cf_financial_company_sale_order_sale_order_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalesorderssalesorderlinesitem',
+        financials_beta_financialscompaniessalesorderssalesorderlinesitem,
+        client_factory=cf_financialscompaniessalesorderssalesorderlinesitem,
+    ) as g:
+        g.custom_command(
+            'create-picture', 'financials_financialscompaniessalesorderssalesorderlinesitem_create_picture'
+        )
+        g.custom_command(
+            'delete-item-category', 'financials_financialscompaniessalesorderssalesorderlinesitem_delete_item_category'
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financialscompaniessalesorderssalesorderlinesitem_delete_picture'
+        )
+        g.custom_command('list-picture', 'financials_financialscompaniessalesorderssalesorderlinesitem_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniessalesorderssalesorderlinesitem_set_picture_content'
+        )
+        g.custom_command(
+            'show-item-category', 'financials_financialscompaniessalesorderssalesorderlinesitem_show_item_category'
+        )
+        g.custom_command('show-picture', 'financials_financialscompaniessalesorderssalesorderlinesitem_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesorderssalesorderlinesitem_show_picture_content'
+        )
+        g.custom_command(
+            'update-item-category', 'financials_financialscompaniessalesorderssalesorderlinesitem_update_item_category'
+        )
+        g.custom_command(
+            'update-picture', 'financials_financialscompaniessalesorderssalesorderlinesitem_update_picture'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_line
-    financials_beta_financial_company_sale_quote_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_o'
-        'perations#FinancialCompanySaleQuoteLineOperations.{}',
-        client_factory=cf_financial_company_sale_quote_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_quote_line,
-                            client_factory=cf_financial_company_sale_quote_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalesquoteline',
+        financials_beta_financialscompaniessalesquoteline,
+        client_factory=cf_financialscompaniessalesquoteline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniessalesquoteline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniessalesquoteline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniessalesquoteline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniessalesquoteline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniessalesquoteline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniessalesquoteline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_line_item
-    financials_beta_financial_company_sale_quote_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_i'
-        'tem_operations#FinancialCompanySaleQuoteLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_quote_line_item)
-    with self.command_group('financials', financials_beta_financial_company_sale_quote_line_item,
-                            client_factory=cf_financial_company_sale_quote_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalesquotelinesitem',
+        financials_beta_financialscompaniessalesquotelinesitem,
+        client_factory=cf_financialscompaniessalesquotelinesitem,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalesquotelinesitem_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financialscompaniessalesquotelinesitem_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financialscompaniessalesquotelinesitem_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniessalesquotelinesitem_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniessalesquotelinesitem_set_picture_content')
+        g.custom_command('show-item-category', 'financials_financialscompaniessalesquotelinesitem_show_item_category')
+        g.custom_command('show-picture', 'financials_financialscompaniessalesquotelinesitem_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesquotelinesitem_show_picture_content'
+        )
+        g.custom_command(
+            'update-item-category', 'financials_financialscompaniessalesquotelinesitem_update_item_category'
+        )
+        g.custom_command('update-picture', 'financials_financialscompaniessalesquotelinesitem_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote
-    financials_beta_financial_company_sale_quote = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_operat'
-        'ions#FinancialCompanySaleQuoteOperations.{}',
-        client_factory=cf_financial_company_sale_quote)
-    with self.command_group('financials', financials_beta_financial_company_sale_quote,
-                            client_factory=cf_financial_company_sale_quote) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-sale-quote-line', 'financials_create_sale_quote_line')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-customer', 'financials_get_customer')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-sale-quote-line', 'financials_get_sale_quote_line')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-sale-quote-line', 'financials_list_sale_quote_line')
-        g.custom_command('make-invoice', 'financials_make_invoice')
-        g.custom_command('send', 'financials_send')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-customer', 'financials_update_customer')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-sale-quote-line', 'financials_update_sale_quote_line')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniessalesquote',
+        financials_beta_financialscompaniessalesquote,
+        client_factory=cf_financialscompaniessalesquote,
+    ) as g:
+        g.custom_command('create-sale-quote-line', 'financials_financialscompaniessalesquote_create_sale_quote_line')
+        g.custom_command('delete-currency', 'financials_financialscompaniessalesquote_delete_currency')
+        g.custom_command('delete-customer', 'financials_financialscompaniessalesquote_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financialscompaniessalesquote_delete_payment_term')
+        g.custom_command('delete-sale-quote-line', 'financials_financialscompaniessalesquote_delete_sale_quote_line')
+        g.custom_command('delete-shipment-method', 'financials_financialscompaniessalesquote_delete_shipment_method')
+        g.custom_command('list-sale-quote-line', 'financials_financialscompaniessalesquote_list_sale_quote_line')
+        g.custom_command('make-invoice', 'financials_financialscompaniessalesquote_make_invoice')
+        g.custom_command('send', 'financials_financialscompaniessalesquote_send')
+        g.custom_command('show-currency', 'financials_financialscompaniessalesquote_show_currency')
+        g.custom_command('show-customer', 'financials_financialscompaniessalesquote_show_customer')
+        g.custom_command('show-payment-term', 'financials_financialscompaniessalesquote_show_payment_term')
+        g.custom_command('show-sale-quote-line', 'financials_financialscompaniessalesquote_show_sale_quote_line')
+        g.custom_command('show-shipment-method', 'financials_financialscompaniessalesquote_show_shipment_method')
+        g.custom_command('update-currency', 'financials_financialscompaniessalesquote_update_currency')
+        g.custom_command('update-customer', 'financials_financialscompaniessalesquote_update_customer')
+        g.custom_command('update-payment-term', 'financials_financialscompaniessalesquote_update_payment_term')
+        g.custom_command('update-sale-quote-line', 'financials_financialscompaniessalesquote_update_sale_quote_line')
+        g.custom_command('update-shipment-method', 'financials_financialscompaniessalesquote_update_shipment_method')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_customer
-    financials_beta_financial_company_sale_quote_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_custom'
-        'er_operations#FinancialCompanySaleQuoteCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_quote_customer)
-    with self.command_group('financials', financials_beta_financial_company_sale_quote_customer,
-                            client_factory=cf_financial_company_sale_quote_customer) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('get-shipment-method', 'financials_get_shipment_method')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
-        g.custom_command('update-shipment-method', 'financials_update_shipment_method')
+    with self.command_group(
+        'financials financialscompaniessalesquotescustomer',
+        financials_beta_financialscompaniessalesquotescustomer,
+        client_factory=cf_financialscompaniessalesquotescustomer,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniessalesquotescustomer_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniessalesquotescustomer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financialscompaniessalesquotescustomer_delete_payment_method'
+        )
+        g.custom_command('delete-payment-term', 'financials_financialscompaniessalesquotescustomer_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financialscompaniessalesquotescustomer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financialscompaniessalesquotescustomer_delete_shipment_method'
+        )
+        g.custom_command('list-picture', 'financials_financialscompaniessalesquotescustomer_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniessalesquotescustomer_set_picture_content')
+        g.custom_command('show-currency', 'financials_financialscompaniessalesquotescustomer_show_currency')
+        g.custom_command('show-payment-method', 'financials_financialscompaniessalesquotescustomer_show_payment_method')
+        g.custom_command('show-payment-term', 'financials_financialscompaniessalesquotescustomer_show_payment_term')
+        g.custom_command('show-picture', 'financials_financialscompaniessalesquotescustomer_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesquotescustomer_show_picture_content'
+        )
+        g.custom_command(
+            'show-shipment-method', 'financials_financialscompaniessalesquotescustomer_show_shipment_method'
+        )
+        g.custom_command('update-currency', 'financials_financialscompaniessalesquotescustomer_update_currency')
+        g.custom_command(
+            'update-payment-method', 'financials_financialscompaniessalesquotescustomer_update_payment_method'
+        )
+        g.custom_command('update-payment-term', 'financials_financialscompaniessalesquotescustomer_update_payment_term')
+        g.custom_command('update-picture', 'financials_financialscompaniessalesquotescustomer_update_picture')
+        g.custom_command(
+            'update-shipment-method', 'financials_financialscompaniessalesquotescustomer_update_shipment_method'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_sale_quote_line
-    financials_beta_financial_company_sale_quote_sale_quote_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_q'
-        'uote_line_operations#FinancialCompanySaleQuoteSaleQuoteLineOperations.{}',
-        client_factory=cf_financial_company_sale_quote_sale_quote_line)
-    with self.command_group('financials', financials_beta_financial_company_sale_quote_sale_quote_line,
-                            client_factory=cf_financial_company_sale_quote_sale_quote_line) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('get-account', 'financials_get_account')
-        g.custom_command('get-item', 'financials_get_item')
-        g.custom_command('update-account', 'financials_update_account')
-        g.custom_command('update-item', 'financials_update_item')
+    with self.command_group(
+        'financials financialscompaniessalesquotessalesquoteline',
+        financials_beta_financialscompaniessalesquotessalesquoteline,
+        client_factory=cf_financialscompaniessalesquotessalesquoteline,
+    ) as g:
+        g.custom_command('delete-account', 'financials_financialscompaniessalesquotessalesquoteline_delete_account')
+        g.custom_command('delete-item', 'financials_financialscompaniessalesquotessalesquoteline_delete_item')
+        g.custom_command('show-account', 'financials_financialscompaniessalesquotessalesquoteline_show_account')
+        g.custom_command('show-item', 'financials_financialscompaniessalesquotessalesquoteline_show_item')
+        g.custom_command('update-account', 'financials_financialscompaniessalesquotessalesquoteline_update_account')
+        g.custom_command('update-item', 'financials_financialscompaniessalesquotessalesquoteline_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_sale_quote_line_item
-    financials_beta_financial_company_sale_quote_sale_quote_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_q'
-        'uote_line_item_operations#FinancialCompanySaleQuoteSaleQuoteLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_quote_sale_quote_line_item)
-    with self.command_group('financials', financials_beta_financial_company_sale_quote_sale_quote_line_item,
-                            client_factory=cf_financial_company_sale_quote_sale_quote_line_item) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-item-category', 'financials_get_item_category')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-item-category', 'financials_update_item_category')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniessalesquotessalesquotelinesitem',
+        financials_beta_financialscompaniessalesquotessalesquotelinesitem,
+        client_factory=cf_financialscompaniessalesquotessalesquotelinesitem,
+    ) as g:
+        g.custom_command(
+            'create-picture', 'financials_financialscompaniessalesquotessalesquotelinesitem_create_picture'
+        )
+        g.custom_command(
+            'delete-item-category', 'financials_financialscompaniessalesquotessalesquotelinesitem_delete_item_category'
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financialscompaniessalesquotessalesquotelinesitem_delete_picture'
+        )
+        g.custom_command('list-picture', 'financials_financialscompaniessalesquotessalesquotelinesitem_list_picture')
+        g.custom_command(
+            'set-picture-content', 'financials_financialscompaniessalesquotessalesquotelinesitem_set_picture_content'
+        )
+        g.custom_command(
+            'show-item-category', 'financials_financialscompaniessalesquotessalesquotelinesitem_show_item_category'
+        )
+        g.custom_command('show-picture', 'financials_financialscompaniessalesquotessalesquotelinesitem_show_picture')
+        g.custom_command(
+            'show-picture-content', 'financials_financialscompaniessalesquotessalesquotelinesitem_show_picture_content'
+        )
+        g.custom_command(
+            'update-item-category', 'financials_financialscompaniessalesquotessalesquotelinesitem_update_item_category'
+        )
+        g.custom_command(
+            'update-picture', 'financials_financialscompaniessalesquotessalesquotelinesitem_update_picture'
+        )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_vendor
-    financials_beta_financial_company_vendor = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_vendor_operations'
-        '#FinancialCompanyVendorOperations.{}',
-        client_factory=cf_financial_company_vendor)
-    with self.command_group('financials', financials_beta_financial_company_vendor,
-                            client_factory=cf_financial_company_vendor) as g:
-        g.custom_command('delete', 'financials_delete', confirmation=True)
-        g.custom_command('create-picture', 'financials_create_picture')
-        g.custom_command('get-currency', 'financials_get_currency')
-        g.custom_command('get-payment-method', 'financials_get_payment_method')
-        g.custom_command('get-payment-term', 'financials_get_payment_term')
-        g.custom_command('get-picture', 'financials_get_picture')
-        g.custom_command('get-picture-content', 'financials_get_picture_content')
-        g.custom_command('list-picture', 'financials_list_picture')
-        g.custom_command('set-picture-content', 'financials_set_picture_content')
-        g.custom_command('update-currency', 'financials_update_currency')
-        g.custom_command('update-payment-method', 'financials_update_payment_method')
-        g.custom_command('update-payment-term', 'financials_update_payment_term')
-        g.custom_command('update-picture', 'financials_update_picture')
+    with self.command_group(
+        'financials financialscompaniesvendor',
+        financials_beta_financialscompaniesvendor,
+        client_factory=cf_financialscompaniesvendor,
+    ) as g:
+        g.custom_command('create-picture', 'financials_financialscompaniesvendor_create_picture')
+        g.custom_command('delete-currency', 'financials_financialscompaniesvendor_delete_currency')
+        g.custom_command('delete-payment-method', 'financials_financialscompaniesvendor_delete_payment_method')
+        g.custom_command('delete-payment-term', 'financials_financialscompaniesvendor_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financialscompaniesvendor_delete_picture')
+        g.custom_command('list-picture', 'financials_financialscompaniesvendor_list_picture')
+        g.custom_command('set-picture-content', 'financials_financialscompaniesvendor_set_picture_content')
+        g.custom_command('show-currency', 'financials_financialscompaniesvendor_show_currency')
+        g.custom_command('show-payment-method', 'financials_financialscompaniesvendor_show_payment_method')
+        g.custom_command('show-payment-term', 'financials_financialscompaniesvendor_show_payment_term')
+        g.custom_command('show-picture', 'financials_financialscompaniesvendor_show_picture')
+        g.custom_command('show-picture-content', 'financials_financialscompaniesvendor_show_picture_content')
+        g.custom_command('update-currency', 'financials_financialscompaniesvendor_update_currency')
+        g.custom_command('update-payment-method', 'financials_financialscompaniesvendor_update_payment_method')
+        g.custom_command('update-payment-term', 'financials_financialscompaniesvendor_update_payment_term')
+        g.custom_command('update-picture', 'financials_financialscompaniesvendor_update_picture')
+
+    with self.command_group('financials_beta', is_experimental=True):
+        pass

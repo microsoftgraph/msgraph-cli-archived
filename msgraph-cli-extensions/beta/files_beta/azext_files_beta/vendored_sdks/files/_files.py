@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,108 +18,108 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import FilesConfiguration
-from .operations import DriveDriveOperations
-from .operations import DriveOperations
-from .operations import DriveActivityOperations
-from .operations import DriveActivityListItemOperations
-from .operations import DriveActivityListItemVersionOperations
-from .operations import DriveListOperations
-from .operations import DriveListActivityOperations
-from .operations import DriveListActivityListItemOperations
-from .operations import DriveListActivityListItemVersionOperations
-from .operations import DriveListContentTypeOperations
-from .operations import DriveListItemOperations
-from .operations import DriveListItemActivityOperations
-from .operations import DriveListItemActivityListItemOperations
-from .operations import DriveListItemVersionOperations
-from .operations import GroupOperations
-from .operations import ShareSharedDriveItemOperations
-from .operations import ShareOperations
-from .operations import ShareListOperations
-from .operations import ShareListActivityOperations
-from .operations import ShareListActivityListItemOperations
-from .operations import ShareListActivityListItemVersionOperations
-from .operations import ShareListContentTypeOperations
-from .operations import ShareListItemOperations
-from .operations import ShareListItemActivityOperations
-from .operations import ShareListItemActivityListItemOperations
-from .operations import ShareListItemVersionOperations
-from .operations import ShareListItemOperations
-from .operations import ShareListItemActivityOperations
-from .operations import ShareListItemActivityListItemOperations
-from .operations import ShareListItemVersionOperations
-from .operations import SharePermissionOperations
-from .operations import UserOperations
+from .operations import drivesdriveOperations
+from .operations import drivesOperations
+from .operations import drivesactivitiesOperations
+from .operations import drivesactivitieslistitemOperations
+from .operations import drivesactivitieslistitemversionsOperations
+from .operations import driveslistOperations
+from .operations import driveslistactivitiesOperations
+from .operations import driveslistactivitieslistitemOperations
+from .operations import driveslistactivitieslistitemversionsOperations
+from .operations import driveslistcontenttypesOperations
+from .operations import driveslistitemsOperations
+from .operations import driveslistitemsactivitiesOperations
+from .operations import driveslistitemsactivitieslistitemOperations
+from .operations import driveslistitemsversionsOperations
+from .operations import groupsOperations
+from .operations import sharesshareddriveitemOperations
+from .operations import sharesOperations
+from .operations import shareslistOperations
+from .operations import shareslistactivitiesOperations
+from .operations import shareslistactivitieslistitemOperations
+from .operations import shareslistactivitieslistitemversionsOperations
+from .operations import shareslistcontenttypesOperations
+from .operations import shareslistitemsOperations
+from .operations import shareslistitemsactivitiesOperations
+from .operations import shareslistitemsactivitieslistitemOperations
+from .operations import shareslistitemsversionsOperations
+from .operations import shareslistitemOperations
+from .operations import shareslistitemactivitiesOperations
+from .operations import shareslistitemactivitieslistitemOperations
+from .operations import shareslistitemversionsOperations
+from .operations import sharespermissionOperations
+from .operations import usersOperations
 from . import models
 
 
 class Files(object):
     """Files.
 
-    :ivar drive_drive: DriveDriveOperations operations
-    :vartype drive_drive: files.operations.DriveDriveOperations
-    :ivar drive: DriveOperations operations
-    :vartype drive: files.operations.DriveOperations
-    :ivar drive_activity: DriveActivityOperations operations
-    :vartype drive_activity: files.operations.DriveActivityOperations
-    :ivar drive_activity_list_item: DriveActivityListItemOperations operations
-    :vartype drive_activity_list_item: files.operations.DriveActivityListItemOperations
-    :ivar drive_activity_list_item_version: DriveActivityListItemVersionOperations operations
-    :vartype drive_activity_list_item_version: files.operations.DriveActivityListItemVersionOperations
-    :ivar drive_list: DriveListOperations operations
-    :vartype drive_list: files.operations.DriveListOperations
-    :ivar drive_list_activity: DriveListActivityOperations operations
-    :vartype drive_list_activity: files.operations.DriveListActivityOperations
-    :ivar drive_list_activity_list_item: DriveListActivityListItemOperations operations
-    :vartype drive_list_activity_list_item: files.operations.DriveListActivityListItemOperations
-    :ivar drive_list_activity_list_item_version: DriveListActivityListItemVersionOperations operations
-    :vartype drive_list_activity_list_item_version: files.operations.DriveListActivityListItemVersionOperations
-    :ivar drive_list_content_type: DriveListContentTypeOperations operations
-    :vartype drive_list_content_type: files.operations.DriveListContentTypeOperations
-    :ivar drive_list_item: DriveListItemOperations operations
-    :vartype drive_list_item: files.operations.DriveListItemOperations
-    :ivar drive_list_item_activity: DriveListItemActivityOperations operations
-    :vartype drive_list_item_activity: files.operations.DriveListItemActivityOperations
-    :ivar drive_list_item_activity_list_item: DriveListItemActivityListItemOperations operations
-    :vartype drive_list_item_activity_list_item: files.operations.DriveListItemActivityListItemOperations
-    :ivar drive_list_item_version: DriveListItemVersionOperations operations
-    :vartype drive_list_item_version: files.operations.DriveListItemVersionOperations
-    :ivar group: GroupOperations operations
-    :vartype group: files.operations.GroupOperations
-    :ivar share_shared_drive_item: ShareSharedDriveItemOperations operations
-    :vartype share_shared_drive_item: files.operations.ShareSharedDriveItemOperations
-    :ivar share: ShareOperations operations
-    :vartype share: files.operations.ShareOperations
-    :ivar share_list: ShareListOperations operations
-    :vartype share_list: files.operations.ShareListOperations
-    :ivar share_list_activity: ShareListActivityOperations operations
-    :vartype share_list_activity: files.operations.ShareListActivityOperations
-    :ivar share_list_activity_list_item: ShareListActivityListItemOperations operations
-    :vartype share_list_activity_list_item: files.operations.ShareListActivityListItemOperations
-    :ivar share_list_activity_list_item_version: ShareListActivityListItemVersionOperations operations
-    :vartype share_list_activity_list_item_version: files.operations.ShareListActivityListItemVersionOperations
-    :ivar share_list_content_type: ShareListContentTypeOperations operations
-    :vartype share_list_content_type: files.operations.ShareListContentTypeOperations
-    :ivar share_list_item: ShareListItemOperations operations
-    :vartype share_list_item: files.operations.ShareListItemOperations
-    :ivar share_list_item_activity: ShareListItemActivityOperations operations
-    :vartype share_list_item_activity: files.operations.ShareListItemActivityOperations
-    :ivar share_list_item_activity_list_item: ShareListItemActivityListItemOperations operations
-    :vartype share_list_item_activity_list_item: files.operations.ShareListItemActivityListItemOperations
-    :ivar share_list_item_version: ShareListItemVersionOperations operations
-    :vartype share_list_item_version: files.operations.ShareListItemVersionOperations
-    :ivar share_list_item: ShareListItemOperations operations
-    :vartype share_list_item: files.operations.ShareListItemOperations
-    :ivar share_list_item_activity: ShareListItemActivityOperations operations
-    :vartype share_list_item_activity: files.operations.ShareListItemActivityOperations
-    :ivar share_list_item_activity_list_item: ShareListItemActivityListItemOperations operations
-    :vartype share_list_item_activity_list_item: files.operations.ShareListItemActivityListItemOperations
-    :ivar share_list_item_version: ShareListItemVersionOperations operations
-    :vartype share_list_item_version: files.operations.ShareListItemVersionOperations
-    :ivar share_permission: SharePermissionOperations operations
-    :vartype share_permission: files.operations.SharePermissionOperations
-    :ivar user: UserOperations operations
-    :vartype user: files.operations.UserOperations
+    :ivar drivesdrive: drivesdriveOperations operations
+    :vartype drivesdrive: files.operations.drivesdriveOperations
+    :ivar drives: drivesOperations operations
+    :vartype drives: files.operations.drivesOperations
+    :ivar drivesactivities: drivesactivitiesOperations operations
+    :vartype drivesactivities: files.operations.drivesactivitiesOperations
+    :ivar drivesactivitieslistitem: drivesactivitieslistitemOperations operations
+    :vartype drivesactivitieslistitem: files.operations.drivesactivitieslistitemOperations
+    :ivar drivesactivitieslistitemversions: drivesactivitieslistitemversionsOperations operations
+    :vartype drivesactivitieslistitemversions: files.operations.drivesactivitieslistitemversionsOperations
+    :ivar driveslist: driveslistOperations operations
+    :vartype driveslist: files.operations.driveslistOperations
+    :ivar driveslistactivities: driveslistactivitiesOperations operations
+    :vartype driveslistactivities: files.operations.driveslistactivitiesOperations
+    :ivar driveslistactivitieslistitem: driveslistactivitieslistitemOperations operations
+    :vartype driveslistactivitieslistitem: files.operations.driveslistactivitieslistitemOperations
+    :ivar driveslistactivitieslistitemversions: driveslistactivitieslistitemversionsOperations operations
+    :vartype driveslistactivitieslistitemversions: files.operations.driveslistactivitieslistitemversionsOperations
+    :ivar driveslistcontenttypes: driveslistcontenttypesOperations operations
+    :vartype driveslistcontenttypes: files.operations.driveslistcontenttypesOperations
+    :ivar driveslistitems: driveslistitemsOperations operations
+    :vartype driveslistitems: files.operations.driveslistitemsOperations
+    :ivar driveslistitemsactivities: driveslistitemsactivitiesOperations operations
+    :vartype driveslistitemsactivities: files.operations.driveslistitemsactivitiesOperations
+    :ivar driveslistitemsactivitieslistitem: driveslistitemsactivitieslistitemOperations operations
+    :vartype driveslistitemsactivitieslistitem: files.operations.driveslistitemsactivitieslistitemOperations
+    :ivar driveslistitemsversions: driveslistitemsversionsOperations operations
+    :vartype driveslistitemsversions: files.operations.driveslistitemsversionsOperations
+    :ivar groups: groupsOperations operations
+    :vartype groups: files.operations.groupsOperations
+    :ivar sharesshareddriveitem: sharesshareddriveitemOperations operations
+    :vartype sharesshareddriveitem: files.operations.sharesshareddriveitemOperations
+    :ivar shares: sharesOperations operations
+    :vartype shares: files.operations.sharesOperations
+    :ivar shareslist: shareslistOperations operations
+    :vartype shareslist: files.operations.shareslistOperations
+    :ivar shareslistactivities: shareslistactivitiesOperations operations
+    :vartype shareslistactivities: files.operations.shareslistactivitiesOperations
+    :ivar shareslistactivitieslistitem: shareslistactivitieslistitemOperations operations
+    :vartype shareslistactivitieslistitem: files.operations.shareslistactivitieslistitemOperations
+    :ivar shareslistactivitieslistitemversions: shareslistactivitieslistitemversionsOperations operations
+    :vartype shareslistactivitieslistitemversions: files.operations.shareslistactivitieslistitemversionsOperations
+    :ivar shareslistcontenttypes: shareslistcontenttypesOperations operations
+    :vartype shareslistcontenttypes: files.operations.shareslistcontenttypesOperations
+    :ivar shareslistitems: shareslistitemsOperations operations
+    :vartype shareslistitems: files.operations.shareslistitemsOperations
+    :ivar shareslistitemsactivities: shareslistitemsactivitiesOperations operations
+    :vartype shareslistitemsactivities: files.operations.shareslistitemsactivitiesOperations
+    :ivar shareslistitemsactivitieslistitem: shareslistitemsactivitieslistitemOperations operations
+    :vartype shareslistitemsactivitieslistitem: files.operations.shareslistitemsactivitieslistitemOperations
+    :ivar shareslistitemsversions: shareslistitemsversionsOperations operations
+    :vartype shareslistitemsversions: files.operations.shareslistitemsversionsOperations
+    :ivar shareslistitem: shareslistitemOperations operations
+    :vartype shareslistitem: files.operations.shareslistitemOperations
+    :ivar shareslistitemactivities: shareslistitemactivitiesOperations operations
+    :vartype shareslistitemactivities: files.operations.shareslistitemactivitiesOperations
+    :ivar shareslistitemactivitieslistitem: shareslistitemactivitieslistitemOperations operations
+    :vartype shareslistitemactivitieslistitem: files.operations.shareslistitemactivitieslistitemOperations
+    :ivar shareslistitemversions: shareslistitemversionsOperations operations
+    :vartype shareslistitemversions: files.operations.shareslistitemversionsOperations
+    :ivar sharespermission: sharespermissionOperations operations
+    :vartype sharespermission: files.operations.sharespermissionOperations
+    :ivar users: usersOperations operations
+    :vartype users: files.operations.usersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -133,7 +133,6 @@ class Files(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -151,75 +150,76 @@ class Files(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = FilesConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.drive_drive = DriveDriveOperations(
+        self.drivesdrive = drivesdriveOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive = DriveOperations(
+        self.drives = drivesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_activity = DriveActivityOperations(
+        self.drivesactivities = drivesactivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_activity_list_item = DriveActivityListItemOperations(
+        self.drivesactivitieslistitem = drivesactivitieslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_activity_list_item_version = DriveActivityListItemVersionOperations(
+        self.drivesactivitieslistitemversions = drivesactivitieslistitemversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list = DriveListOperations(
+        self.driveslist = driveslistOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_activity = DriveListActivityOperations(
+        self.driveslistactivities = driveslistactivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_activity_list_item = DriveListActivityListItemOperations(
+        self.driveslistactivitieslistitem = driveslistactivitieslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_activity_list_item_version = DriveListActivityListItemVersionOperations(
+        self.driveslistactivitieslistitemversions = driveslistactivitieslistitemversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_content_type = DriveListContentTypeOperations(
+        self.driveslistcontenttypes = driveslistcontenttypesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_item = DriveListItemOperations(
+        self.driveslistitems = driveslistitemsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_item_activity = DriveListItemActivityOperations(
+        self.driveslistitemsactivities = driveslistitemsactivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_item_activity_list_item = DriveListItemActivityListItemOperations(
+        self.driveslistitemsactivitieslistitem = driveslistitemsactivitieslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.drive_list_item_version = DriveListItemVersionOperations(
+        self.driveslistitemsversions = driveslistitemsversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group = GroupOperations(
+        self.groups = groupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_shared_drive_item = ShareSharedDriveItemOperations(
+        self.sharesshareddriveitem = sharesshareddriveitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share = ShareOperations(
+        self.shares = sharesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list = ShareListOperations(
+        self.shareslist = shareslistOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_activity = ShareListActivityOperations(
+        self.shareslistactivities = shareslistactivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_activity_list_item = ShareListActivityListItemOperations(
+        self.shareslistactivitieslistitem = shareslistactivitieslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_activity_list_item_version = ShareListActivityListItemVersionOperations(
+        self.shareslistactivitieslistitemversions = shareslistactivitieslistitemversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_content_type = ShareListContentTypeOperations(
+        self.shareslistcontenttypes = shareslistcontenttypesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item = ShareListItemOperations(
+        self.shareslistitems = shareslistitemsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_activity = ShareListItemActivityOperations(
+        self.shareslistitemsactivities = shareslistitemsactivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_activity_list_item = ShareListItemActivityListItemOperations(
+        self.shareslistitemsactivitieslistitem = shareslistitemsactivitieslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_version = ShareListItemVersionOperations(
+        self.shareslistitemsversions = shareslistitemsversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item = ShareListItemOperations(
+        self.shareslistitem = shareslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_activity = ShareListItemActivityOperations(
+        self.shareslistitemactivities = shareslistitemactivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_activity_list_item = ShareListItemActivityListItemOperations(
+        self.shareslistitemactivitieslistitem = shareslistitemactivitieslistitemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_list_item_version = ShareListItemVersionOperations(
+        self.shareslistitemversions = shareslistitemversionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.share_permission = SharePermissionOperations(
+        self.sharespermission = sharespermissionOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

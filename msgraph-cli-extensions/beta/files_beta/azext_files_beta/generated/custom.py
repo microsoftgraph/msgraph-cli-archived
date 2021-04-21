@@ -11,6223 +11,6599 @@
 # pylint: disable=too-many-lines
 
 
-def files_delete(client,
-                 drive_id,
-                 if_match=None):
+def files_drivesdrive_create_drive(client,
+                                   id_=None,
+                                   created_date_time=None,
+                                   description=None,
+                                   e_tag=None,
+                                   last_modified_date_time=None,
+                                   name=None,
+                                   web_url=None,
+                                   created_by_user=None,
+                                   last_modified_by_user=None,
+                                   drive_id=None,
+                                   drive_type=None,
+                                   microsoft_graph_item_reference_id=None,
+                                   microsoft_graph_item_reference_name=None,
+                                   path=None,
+                                   share_id=None,
+                                   sharepoint_ids=None,
+                                   site_id=None,
+                                   application=None,
+                                   device=None,
+                                   user=None,
+                                   microsoft_graph_identity_application=None,
+                                   microsoft_graph_identity_device=None,
+                                   microsoft_graph_identity_user=None,
+                                   microsoft_graph_drive_type=None,
+                                   share_point_ids=None,
+                                   system=None,
+                                   activities=None,
+                                   bundles=None,
+                                   following=None,
+                                   items=None,
+                                   root=None,
+                                   special=None,
+                                   microsoft_graph_entity_id=None,
+                                   microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                   microsoft_graph_base_item_description=None,
+                                   microsoft_graph_base_item_e_tag=None,
+                                   microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                   microsoft_graph_base_item_name=None,
+                                   microsoft_graph_base_item_web_url=None,
+                                   microsoft_graph_user_created_by_user=None,
+                                   microsoft_graph_user_last_modified_by_user=None,
+                                   microsoft_graph_item_reference_drive_id=None,
+                                   microsoft_graph_item_reference_drive_type=None,
+                                   id1=None,
+                                   name1=None,
+                                   microsoft_graph_item_reference_path=None,
+                                   microsoft_graph_item_reference_share_id=None,
+                                   microsoft_graph_sharepoint_ids=None,
+                                   microsoft_graph_item_reference_site_id=None,
+                                   application1=None,
+                                   device1=None,
+                                   user1=None,
+                                   application2=None,
+                                   device2=None,
+                                   user2=None,
+                                   display_name=None,
+                                   list=None,
+                                   sharepoint_ids1=None,
+                                   microsoft_graph_system_facet_system=None,
+                                   microsoft_graph_list_activities=None,
+                                   columns=None,
+                                   content_types=None,
+                                   drive=None,
+                                   microsoft_graph_list_items=None,
+                                   subscriptions=None,
+                                   deleted=None,
+                                   remaining=None,
+                                   state=None,
+                                   storage_plan_information=None,
+                                   total=None,
+                                   used=None,
+                                   application3=None,
+                                   device3=None,
+                                   user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
+    return client.create_drive(body=body)
+
+
+def files_drivesdrive_delete_drive(client,
+                                   drive_id,
+                                   if_match=None):
     return client.delete_drive(drive_id=drive_id,
                                if_match=if_match)
 
 
-def files_create_drive(client,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
-    return client.create_drive(id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
-
-
-def files_get_drive(client,
-                    drive_id,
-                    select=None,
-                    expand=None):
-    return client.get_drive(drive_id=drive_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_list_drive(client,
-                     orderby=None,
-                     select=None,
-                     expand=None):
+def files_drivesdrive_list_drive(client,
+                                 orderby=None,
+                                 select=None,
+                                 expand=None):
     return client.list_drive(orderby=orderby,
                              select=select,
                              expand=expand)
 
 
-def files_update_drive(client,
-                       drive_id,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
+def files_drivesdrive_show_drive(client,
+                                 drive_id,
+                                 select=None,
+                                 expand=None):
+    return client.get_drive(drive_id=drive_id,
+                            select=select,
+                            expand=expand)
+
+
+def files_drivesdrive_update_drive(client,
+                                   drive_id,
+                                   id_=None,
+                                   created_date_time=None,
+                                   description=None,
+                                   e_tag=None,
+                                   last_modified_date_time=None,
+                                   name=None,
+                                   web_url=None,
+                                   created_by_user=None,
+                                   last_modified_by_user=None,
+                                   microsoft_graph_item_reference_drive_id=None,
+                                   drive_type=None,
+                                   microsoft_graph_item_reference_id=None,
+                                   microsoft_graph_item_reference_name=None,
+                                   path=None,
+                                   share_id=None,
+                                   sharepoint_ids=None,
+                                   site_id=None,
+                                   application=None,
+                                   device=None,
+                                   user=None,
+                                   microsoft_graph_identity_application=None,
+                                   microsoft_graph_identity_device=None,
+                                   microsoft_graph_identity_user=None,
+                                   microsoft_graph_drive_type=None,
+                                   share_point_ids=None,
+                                   system=None,
+                                   activities=None,
+                                   bundles=None,
+                                   following=None,
+                                   items=None,
+                                   root=None,
+                                   special=None,
+                                   microsoft_graph_entity_id=None,
+                                   microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                   microsoft_graph_base_item_description=None,
+                                   microsoft_graph_base_item_e_tag=None,
+                                   microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                   microsoft_graph_base_item_name=None,
+                                   microsoft_graph_base_item_web_url=None,
+                                   microsoft_graph_user_created_by_user=None,
+                                   microsoft_graph_user_last_modified_by_user=None,
+                                   drive_id1=None,
+                                   microsoft_graph_item_reference_drive_type=None,
+                                   id1=None,
+                                   name1=None,
+                                   microsoft_graph_item_reference_path=None,
+                                   microsoft_graph_item_reference_share_id=None,
+                                   microsoft_graph_sharepoint_ids=None,
+                                   microsoft_graph_item_reference_site_id=None,
+                                   application1=None,
+                                   device1=None,
+                                   user1=None,
+                                   application2=None,
+                                   device2=None,
+                                   user2=None,
+                                   display_name=None,
+                                   list=None,
+                                   sharepoint_ids1=None,
+                                   microsoft_graph_system_facet_system=None,
+                                   microsoft_graph_list_activities=None,
+                                   columns=None,
+                                   content_types=None,
+                                   drive=None,
+                                   microsoft_graph_list_items=None,
+                                   subscriptions=None,
+                                   deleted=None,
+                                   remaining=None,
+                                   state=None,
+                                   storage_plan_information=None,
+                                   total=None,
+                                   used=None,
+                                   application3=None,
+                                   device3=None,
+                                   user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = drive_id1
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
     return client.update_drive(drive_id=drive_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               drive_id1=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
+                               body=body)
 
 
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id=None,
-                 if_match=None,
-                 drive_item_id=None):
-    if drive_id is not None and item_activity_old_id is not None:
-        return client.delete_activity(drive_id=drive_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      if_match=if_match)
-    elif drive_id is not None and drive_item_id is not None:
-        return client.delete_bundle(drive_id=drive_id,
-                                    drive_item_id=drive_item_id,
-                                    if_match=if_match)
-    elif drive_id is not None and drive_item_id is not None:
-        return client.delete_following(drive_id=drive_id,
-                                       drive_item_id=drive_item_id,
-                                       if_match=if_match)
-    elif drive_id is not None and drive_item_id is not None:
-        return client.delete_item(drive_id=drive_id,
-                                  drive_item_id=drive_item_id,
-                                  if_match=if_match)
-    elif drive_id is not None and drive_item_id is not None:
-        return client.delete_special(drive_id=drive_id,
-                                     drive_item_id=drive_item_id,
-                                     if_match=if_match)
-    elif drive_id is not None:
-        return client.delete_list(drive_id=drive_id,
-                                  if_match=if_match)
-    return client.delete_root(drive_id=drive_id,
-                              if_match=if_match)
+def files_drive_create_activity(client,
+                                drive_id,
+                                body):
+    return client.create_activities(drive_id=drive_id,
+                                    body=body)
 
 
-def files_create_activity(client,
-                          drive_id,
-                          body):
-    return client.create_activity(drive_id=drive_id,
-                                  body=body)
+def files_drive_create_bundle(client,
+                              drive_id,
+                              body):
+    return client.create_bundles(drive_id=drive_id,
+                                 body=body)
 
 
-def files_create_bundle(client,
-                        drive_id,
-                        body):
-    return client.create_bundle(drive_id=drive_id,
-                                body=body)
-
-
-def files_create_following(client,
-                           drive_id,
-                           body):
+def files_drive_create_following(client,
+                                 drive_id,
+                                 body):
     return client.create_following(drive_id=drive_id,
                                    body=body)
 
 
-def files_create_item(client,
-                      drive_id,
-                      body):
-    return client.create_item(drive_id=drive_id,
-                              body=body)
+def files_drive_create_item(client,
+                            drive_id,
+                            body):
+    return client.create_items(drive_id=drive_id,
+                               body=body)
 
 
-def files_create_special(client,
-                         drive_id,
-                         body):
+def files_drive_create_special(client,
+                               drive_id,
+                               body):
     return client.create_special(drive_id=drive_id,
                                  body=body)
 
 
-def files_get_activity(client,
-                       drive_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_activity(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
+def files_drive_delete_activity(client,
+                                drive_id,
+                                item_activity_old_id,
+                                if_match=None):
+    return client.delete_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_drive_delete_bundle(client,
+                              drive_id,
+                              drive_item_id,
+                              if_match=None):
+    return client.delete_bundles(drive_id=drive_id,
+                                 drive_item_id=drive_item_id,
+                                 if_match=if_match)
+
+
+def files_drive_delete_following(client,
+                                 drive_id,
+                                 drive_item_id,
+                                 if_match=None):
+    return client.delete_following(drive_id=drive_id,
+                                   drive_item_id=drive_item_id,
+                                   if_match=if_match)
+
+
+def files_drive_delete_item(client,
+                            drive_id,
+                            drive_item_id,
+                            if_match=None):
+    return client.delete_items(drive_id=drive_id,
+                               drive_item_id=drive_item_id,
+                               if_match=if_match)
+
+
+def files_drive_delete_list(client,
+                            drive_id,
+                            if_match=None):
+    return client.delete_list(drive_id=drive_id,
+                              if_match=if_match)
+
+
+def files_drive_delete_root(client,
+                            drive_id,
+                            if_match=None):
+    return client.delete_root(drive_id=drive_id,
+                              if_match=if_match)
+
+
+def files_drive_delete_special(client,
+                               drive_id,
+                               drive_item_id,
+                               if_match=None):
+    return client.delete_special(drive_id=drive_id,
+                                 drive_item_id=drive_item_id,
+                                 if_match=if_match)
+
+
+def files_drive_list_activity(client,
+                              drive_id,
+                              orderby=None,
+                              select=None,
+                              expand=None):
+    return client.list_activities(drive_id=drive_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_drive_list_bundle(client,
+                            drive_id,
+                            orderby=None,
+                            select=None,
+                            expand=None):
+    return client.list_bundles(drive_id=drive_id,
+                               orderby=orderby,
                                select=select,
                                expand=expand)
 
 
-def files_get_bundle(client,
-                     drive_id,
-                     drive_item_id,
-                     select=None,
-                     expand=None):
-    return client.get_bundle(drive_id=drive_id,
-                             drive_item_id=drive_item_id,
-                             select=select,
-                             expand=expand)
-
-
-def files_get_bundle_content(client,
-                             drive_id,
-                             drive_item_id):
-    return client.get_bundle_content(drive_id=drive_id,
-                                     drive_item_id=drive_item_id)
-
-
-def files_get_following(client,
-                        drive_id,
-                        drive_item_id,
-                        select=None,
-                        expand=None):
-    return client.get_following(drive_id=drive_id,
-                                drive_item_id=drive_item_id,
-                                select=select,
-                                expand=expand)
-
-
-def files_get_following_content(client,
-                                drive_id,
-                                drive_item_id):
-    return client.get_following_content(drive_id=drive_id,
-                                        drive_item_id=drive_item_id)
-
-
-def files_get_item(client,
-                   drive_id,
-                   drive_item_id,
-                   select=None,
-                   expand=None):
-    return client.get_item(drive_id=drive_id,
-                           drive_item_id=drive_item_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_get_item_content(client,
-                           drive_id,
-                           drive_item_id):
-    return client.get_item_content(drive_id=drive_id,
-                                   drive_item_id=drive_item_id)
-
-
-def files_get_list(client,
-                   drive_id,
-                   select=None,
-                   expand=None):
-    return client.get_list(drive_id=drive_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_get_root(client,
-                   drive_id,
-                   select=None,
-                   expand=None):
-    return client.get_root(drive_id=drive_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_get_root_content(client,
-                           drive_id):
-    return client.get_root_content(drive_id=drive_id)
-
-
-def files_get_special(client,
-                      drive_id,
-                      drive_item_id,
-                      select=None,
-                      expand=None):
-    return client.get_special(drive_id=drive_id,
-                              drive_item_id=drive_item_id,
-                              select=select,
-                              expand=expand)
-
-
-def files_get_special_content(client,
-                              drive_id,
-                              drive_item_id):
-    return client.get_special_content(drive_id=drive_id,
-                                      drive_item_id=drive_item_id)
-
-
-def files_list_activity(client,
-                        drive_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(drive_id=drive_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def files_list_bundle(client,
-                      drive_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
-    return client.list_bundle(drive_id=drive_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_following(client,
-                         drive_id,
-                         orderby=None,
-                         select=None,
-                         expand=None):
+def files_drive_list_following(client,
+                               drive_id,
+                               orderby=None,
+                               select=None,
+                               expand=None):
     return client.list_following(drive_id=drive_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def files_list_item(client,
-                    drive_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
-    return client.list_item(drive_id=drive_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+def files_drive_list_item(client,
+                          drive_id,
+                          orderby=None,
+                          select=None,
+                          expand=None):
+    return client.list_items(drive_id=drive_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
-def files_list_special(client,
-                       drive_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
+def files_drive_list_special(client,
+                             drive_id,
+                             orderby=None,
+                             select=None,
+                             expand=None):
     return client.list_special(drive_id=drive_id,
                                orderby=orderby,
                                select=select,
                                expand=expand)
 
 
-def files_recent(client,
-                 drive_id):
+def files_drive_recent(client,
+                       drive_id):
     return client.recent(drive_id=drive_id)
 
 
-def files_search(client,
-                 drive_id,
-                 q):
+def files_drive_search(client,
+                       drive_id,
+                       q):
     return client.search(drive_id=drive_id,
                          q=q)
 
 
-def files_set_bundle_content(client,
-                             drive_id,
-                             drive_item_id,
-                             data):
-    return client.set_bundle_content(drive_id=drive_id,
-                                     drive_item_id=drive_item_id,
-                                     data=data)
+def files_drive_set_bundle_content(client,
+                                   drive_id,
+                                   drive_item_id,
+                                   data):
+    return client.set_bundles_content(drive_id=drive_id,
+                                      drive_item_id=drive_item_id,
+                                      data=data)
 
 
-def files_set_following_content(client,
-                                drive_id,
-                                drive_item_id,
-                                data):
+def files_drive_set_following_content(client,
+                                      drive_id,
+                                      drive_item_id,
+                                      data):
     return client.set_following_content(drive_id=drive_id,
                                         drive_item_id=drive_item_id,
                                         data=data)
 
 
-def files_set_item_content(client,
-                           drive_id,
-                           drive_item_id,
-                           data):
-    return client.set_item_content(drive_id=drive_id,
-                                   drive_item_id=drive_item_id,
-                                   data=data)
+def files_drive_set_item_content(client,
+                                 drive_id,
+                                 drive_item_id,
+                                 data):
+    return client.set_items_content(drive_id=drive_id,
+                                    drive_item_id=drive_item_id,
+                                    data=data)
 
 
-def files_set_root_content(client,
-                           drive_id,
-                           data):
+def files_drive_set_root_content(client,
+                                 drive_id,
+                                 data):
     return client.set_root_content(drive_id=drive_id,
                                    data=data)
 
 
-def files_set_special_content(client,
-                              drive_id,
-                              drive_item_id,
-                              data):
+def files_drive_set_special_content(client,
+                                    drive_id,
+                                    drive_item_id,
+                                    data):
     return client.set_special_content(drive_id=drive_id,
                                       drive_item_id=drive_item_id,
                                       data=data)
 
 
-def files_shared_with_me(client,
-                         drive_id):
+def files_drive_shared_with_me(client,
+                               drive_id):
     return client.shared_with_me(drive_id=drive_id)
 
 
-def files_update_activity(client,
-                          drive_id,
-                          item_activity_old_id,
-                          body):
-    return client.update_activity(drive_id=drive_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
+def files_drive_show_activity(client,
+                              drive_id,
+                              item_activity_old_id,
+                              select=None,
+                              expand=None):
+    return client.get_activities(drive_id=drive_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
 
 
-def files_update_bundle(client,
-                        drive_id,
-                        drive_item_id,
-                        body):
-    return client.update_bundle(drive_id=drive_id,
+def files_drive_show_bundle(client,
+                            drive_id,
+                            drive_item_id,
+                            select=None,
+                            expand=None):
+    return client.get_bundles(drive_id=drive_id,
+                              drive_item_id=drive_item_id,
+                              select=select,
+                              expand=expand)
+
+
+def files_drive_show_bundle_content(client,
+                                    drive_id,
+                                    drive_item_id):
+    return client.get_bundles_content(drive_id=drive_id,
+                                      drive_item_id=drive_item_id)
+
+
+def files_drive_show_following(client,
+                               drive_id,
+                               drive_item_id,
+                               select=None,
+                               expand=None):
+    return client.get_following(drive_id=drive_id,
                                 drive_item_id=drive_item_id,
-                                body=body)
+                                select=select,
+                                expand=expand)
 
 
-def files_update_following(client,
-                           drive_id,
-                           drive_item_id,
-                           body):
+def files_drive_show_following_content(client,
+                                       drive_id,
+                                       drive_item_id):
+    return client.get_following_content(drive_id=drive_id,
+                                        drive_item_id=drive_item_id)
+
+
+def files_drive_show_item(client,
+                          drive_id,
+                          drive_item_id,
+                          select=None,
+                          expand=None):
+    return client.get_items(drive_id=drive_id,
+                            drive_item_id=drive_item_id,
+                            select=select,
+                            expand=expand)
+
+
+def files_drive_show_item_content(client,
+                                  drive_id,
+                                  drive_item_id):
+    return client.get_items_content(drive_id=drive_id,
+                                    drive_item_id=drive_item_id)
+
+
+def files_drive_show_list(client,
+                          drive_id,
+                          select=None,
+                          expand=None):
+    return client.get_list(drive_id=drive_id,
+                           select=select,
+                           expand=expand)
+
+
+def files_drive_show_root(client,
+                          drive_id,
+                          select=None,
+                          expand=None):
+    return client.get_root(drive_id=drive_id,
+                           select=select,
+                           expand=expand)
+
+
+def files_drive_show_root_content(client,
+                                  drive_id):
+    return client.get_root_content(drive_id=drive_id)
+
+
+def files_drive_show_special(client,
+                             drive_id,
+                             drive_item_id,
+                             select=None,
+                             expand=None):
+    return client.get_special(drive_id=drive_id,
+                              drive_item_id=drive_item_id,
+                              select=select,
+                              expand=expand)
+
+
+def files_drive_show_special_content(client,
+                                     drive_id,
+                                     drive_item_id):
+    return client.get_special_content(drive_id=drive_id,
+                                      drive_item_id=drive_item_id)
+
+
+def files_drive_update_activity(client,
+                                drive_id,
+                                item_activity_old_id,
+                                body):
+    return client.update_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_drive_update_bundle(client,
+                              drive_id,
+                              drive_item_id,
+                              body):
+    return client.update_bundles(drive_id=drive_id,
+                                 drive_item_id=drive_item_id,
+                                 body=body)
+
+
+def files_drive_update_following(client,
+                                 drive_id,
+                                 drive_item_id,
+                                 body):
     return client.update_following(drive_id=drive_id,
                                    drive_item_id=drive_item_id,
                                    body=body)
 
 
-def files_update_item(client,
-                      drive_id,
-                      drive_item_id,
-                      body):
-    return client.update_item(drive_id=drive_id,
-                              drive_item_id=drive_item_id,
+def files_drive_update_item(client,
+                            drive_id,
+                            drive_item_id,
+                            body):
+    return client.update_items(drive_id=drive_id,
+                               drive_item_id=drive_item_id,
+                               body=body)
+
+
+def files_drive_update_list(client,
+                            drive_id,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            display_name=None,
+                            list=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            system=None,
+                            activities=None,
+                            columns=None,
+                            content_types=None,
+                            drive=None,
+                            items=None,
+                            subscriptions=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['list'] = list
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['columns'] = columns
+    body['content_types'] = content_types
+    body['drive'] = drive
+    body['items'] = items
+    body['subscriptions'] = subscriptions
+    return client.update_list(drive_id=drive_id,
                               body=body)
 
 
-def files_update_list(client,
-                      drive_id,
-                      id_=None,
-                      created_date_time=None,
-                      description=None,
-                      e_tag=None,
-                      last_modified_date_time=None,
-                      name=None,
-                      web_url=None,
-                      created_by_user=None,
-                      last_modified_by_user=None,
-                      parent_reference_drive_id=None,
-                      parent_reference_drive_type=None,
-                      parent_reference_id=None,
-                      parent_reference_name=None,
-                      parent_reference_path=None,
-                      parent_reference_share_id=None,
-                      parent_reference_sharepoint_ids=None,
-                      parent_reference_site_id=None,
-                      last_modified_by_application=None,
-                      last_modified_by_device=None,
-                      user=None,
-                      created_by_application=None,
-                      created_by_device=None,
-                      microsoft_graph_identity_user=None,
-                      display_name=None,
-                      list=None,
-                      microsoft_graph_sharepoint_ids=None,
-                      system=None,
-                      activities=None,
-                      columns=None,
-                      content_types=None,
-                      drive=None,
-                      items=None,
-                      subscriptions=None):
-    return client.update_list(drive_id=drive_id,
-                              id=id_,
-                              created_date_time=created_date_time,
-                              description=description,
-                              e_tag=e_tag,
-                              last_modified_date_time=last_modified_date_time,
-                              name=name,
-                              web_url=web_url,
-                              created_by_user=created_by_user,
-                              last_modified_by_user=last_modified_by_user,
-                              microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                              drive_type=parent_reference_drive_type,
-                              microsoft_graph_item_reference_id=parent_reference_id,
-                              microsoft_graph_item_reference_name=parent_reference_name,
-                              path=parent_reference_path,
-                              share_id=parent_reference_share_id,
-                              sharepoint_ids=parent_reference_sharepoint_ids,
-                              site_id=parent_reference_site_id,
-                              application=last_modified_by_application,
-                              device=last_modified_by_device,
-                              user=user,
-                              microsoft_graph_identity_application=created_by_application,
-                              microsoft_graph_identity_device=created_by_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              display_name=display_name,
-                              list=list,
-                              microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                              system=system,
-                              activities=activities,
-                              columns=columns,
-                              content_types=content_types,
-                              drive=drive,
-                              items=items,
-                              subscriptions=subscriptions)
-
-
-def files_update_root(client,
-                      drive_id,
-                      body):
+def files_drive_update_root(client,
+                            drive_id,
+                            body):
     return client.update_root(drive_id=drive_id,
                               body=body)
 
 
-def files_update_special(client,
-                         drive_id,
-                         drive_item_id,
-                         body):
+def files_drive_update_special(client,
+                               drive_id,
+                               drive_item_id,
+                               body):
     return client.update_special(drive_id=drive_id,
                                  drive_item_id=drive_item_id,
                                  body=body)
 
 
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id,
-                 if_match=None):
-    if drive_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(drive_id=drive_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
+def files_drivesactivity_delete_drive_item(client,
+                                           drive_id,
+                                           item_activity_old_id,
+                                           if_match=None):
+    return client.delete_drive_item(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_drivesactivity_delete_list_item(client,
+                                          drive_id,
+                                          item_activity_old_id,
+                                          if_match=None):
     return client.delete_list_item(drive_id=drive_id,
                                    item_activity_old_id=item_activity_old_id,
                                    if_match=if_match)
 
 
-def files_get_drive_item(client,
-                         drive_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
+def files_drivesactivity_set_drive_item_content(client,
+                                                drive_id,
+                                                item_activity_old_id,
+                                                data):
+    return client.set_drive_item_content(drive_id=drive_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_drivesactivity_show_drive_item(client,
+                                         drive_id,
+                                         item_activity_old_id,
+                                         select=None,
+                                         expand=None):
     return client.get_drive_item(drive_id=drive_id,
                                  item_activity_old_id=item_activity_old_id,
                                  select=select,
                                  expand=expand)
 
 
-def files_get_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id):
+def files_drivesactivity_show_drive_item_content(client,
+                                                 drive_id,
+                                                 item_activity_old_id):
     return client.get_drive_item_content(drive_id=drive_id,
                                          item_activity_old_id=item_activity_old_id)
 
 
-def files_get_list_item(client,
-                        drive_id,
-                        item_activity_old_id,
-                        select=None,
-                        expand=None):
+def files_drivesactivity_show_list_item(client,
+                                        drive_id,
+                                        item_activity_old_id,
+                                        select=None,
+                                        expand=None):
     return client.get_list_item(drive_id=drive_id,
                                 item_activity_old_id=item_activity_old_id,
                                 select=select,
                                 expand=expand)
 
 
-def files_set_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(drive_id=drive_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_update_drive_item(client,
-                            drive_id,
-                            item_activity_old_id,
-                            body):
+def files_drivesactivity_update_drive_item(client,
+                                           drive_id,
+                                           item_activity_old_id,
+                                           body):
     return client.update_drive_item(drive_id=drive_id,
                                     item_activity_old_id=item_activity_old_id,
                                     body=body)
 
 
-def files_update_list_item(client,
-                           drive_id,
-                           item_activity_old_id,
-                           content_type,
-                           id_=None,
-                           created_date_time=None,
-                           description=None,
-                           e_tag=None,
-                           last_modified_date_time=None,
-                           name=None,
-                           web_url=None,
-                           created_by_user=None,
-                           last_modified_by_user=None,
-                           parent_reference_drive_id=None,
-                           parent_reference_drive_type=None,
-                           parent_reference_id=None,
-                           parent_reference_name=None,
-                           parent_reference_path=None,
-                           parent_reference_share_id=None,
-                           parent_reference_sharepoint_ids=None,
-                           parent_reference_site_id=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           user=None,
-                           created_by_application=None,
-                           created_by_device=None,
-                           microsoft_graph_identity_user=None,
-                           microsoft_graph_sharepoint_ids=None,
-                           activities=None,
-                           analytics=None,
-                           drive_item=None,
-                           versions=None,
-                           fields_id=None):
+def files_drivesactivity_update_list_item(client,
+                                          drive_id,
+                                          item_activity_old_id,
+                                          content_type,
+                                          id_=None,
+                                          created_date_time=None,
+                                          description=None,
+                                          e_tag=None,
+                                          last_modified_date_time=None,
+                                          name=None,
+                                          web_url=None,
+                                          created_by_user=None,
+                                          last_modified_by_user=None,
+                                          microsoft_graph_item_reference_drive_id=None,
+                                          drive_type=None,
+                                          microsoft_graph_item_reference_id=None,
+                                          microsoft_graph_item_reference_name=None,
+                                          path=None,
+                                          share_id=None,
+                                          sharepoint_ids=None,
+                                          site_id=None,
+                                          application=None,
+                                          device=None,
+                                          user=None,
+                                          microsoft_graph_identity_application=None,
+                                          microsoft_graph_identity_device=None,
+                                          microsoft_graph_identity_user=None,
+                                          microsoft_graph_sharepoint_ids=None,
+                                          activities=None,
+                                          analytics=None,
+                                          drive_item=None,
+                                          versions=None,
+                                          microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
     return client.update_list_item(drive_id=drive_id,
                                    item_activity_old_id=item_activity_old_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   content_type_parameter=content_type,
-                                   microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                   activities=activities,
-                                   analytics=analytics,
-                                   drive_item=drive_item,
-                                   versions=versions,
-                                   microsoft_graph_entity_id=fields_id)
+                                   body=body)
 
 
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id,
-                 item_activity_old_id1=None,
-                 if_match=None,
-                 list_item_version_id=None):
-    if drive_id is not None and item_activity_old_id is not None and item_activity_old_id1 is not None:
-        return client.delete_activity(drive_id=drive_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      item_activity_old_id1=item_activity_old_id1,
-                                      if_match=if_match)
-    elif drive_id is not None and item_activity_old_id is not None and list_item_version_id is not None:
-        return client.delete_version(drive_id=drive_id,
-                                     item_activity_old_id=item_activity_old_id,
-                                     list_item_version_id=list_item_version_id,
-                                     if_match=if_match)
-    elif drive_id is not None and item_activity_old_id is not None:
-        return client.delete_ref_analytic(drive_id=drive_id,
-                                          item_activity_old_id=item_activity_old_id,
-                                          if_match=if_match)
-    elif drive_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(drive_id=drive_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               if_match=if_match)
+def files_drivesactivitieslistitem_create_activity(client,
+                                                   drive_id,
+                                                   item_activity_old_id,
+                                                   body):
+    return client.create_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
 
 
-def files_create_activity(client,
-                          drive_id,
-                          item_activity_old_id,
-                          body):
-    return client.create_activity(drive_id=drive_id,
+def files_drivesactivitieslistitem_create_link(client,
+                                               drive_id,
+                                               item_activity_old_id,
+                                               type_=None,
+                                               scope=None,
+                                               expiration_date_time=None,
+                                               password=None,
+                                               recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(drive_id=drive_id,
+                              item_activity_old_id=item_activity_old_id,
+                              body=body)
+
+
+def files_drivesactivitieslistitem_create_version(client,
+                                                  drive_id,
+                                                  item_activity_old_id,
+                                                  id_=None,
+                                                  last_modified_date_time=None,
+                                                  publication=None,
+                                                  application=None,
+                                                  device=None,
+                                                  user=None,
+                                                  microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_versions(drive_id=drive_id,
                                   item_activity_old_id=item_activity_old_id,
                                   body=body)
 
 
-def files_create_link(client,
-                      drive_id,
-                      item_activity_old_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(drive_id=drive_id,
-                              item_activity_old_id=item_activity_old_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
+def files_drivesactivitieslistitem_delete_activity(client,
+                                                   drive_id,
+                                                   item_activity_old_id,
+                                                   item_activity_old_id1,
+                                                   if_match=None):
+    return client.delete_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    item_activity_old_id1=item_activity_old_id1,
+                                    if_match=if_match)
 
 
-def files_create_version(client,
-                         drive_id,
-                         item_activity_old_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.create_version(drive_id=drive_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
+def files_drivesactivitieslistitem_delete_drive_item(client,
+                                                     drive_id,
+                                                     item_activity_old_id,
+                                                     if_match=None):
+    return client.delete_drive_item(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
 
 
-def files_get_activity(client,
-                       drive_id,
-                       item_activity_old_id,
-                       item_activity_old_id1,
-                       select=None,
-                       expand=None):
-    return client.get_activity(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               item_activity_old_id1=item_activity_old_id1,
-                               select=select,
-                               expand=expand)
+def files_drivesactivitieslistitem_delete_field(client,
+                                                drive_id,
+                                                item_activity_old_id,
+                                                if_match=None):
+    return client.delete_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                if_match=if_match)
 
 
-def files_get_activity_by_interval(client,
-                                   drive_id,
-                                   item_activity_old_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(drive_id=drive_id,
-                                           item_activity_old_id=item_activity_old_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
+def files_drivesactivitieslistitem_delete_ref_analytic(client,
+                                                       drive_id,
+                                                       item_activity_old_id,
+                                                       if_match=None):
+    return client.delete_ref_analytics(drive_id=drive_id,
+                                       item_activity_old_id=item_activity_old_id,
+                                       if_match=if_match)
 
 
-def files_get_analytic(client,
-                       drive_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_analytic(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
+def files_drivesactivitieslistitem_delete_version(client,
+                                                  drive_id,
+                                                  item_activity_old_id,
+                                                  list_item_version_id,
+                                                  if_match=None):
+    return client.delete_versions(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id,
+                                  if_match=if_match)
 
 
-def files_get_drive_item(client,
-                         drive_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(drive_id=drive_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
+def files_drivesactivitieslistitem_list_activity(client,
+                                                 drive_id,
+                                                 item_activity_old_id,
+                                                 orderby=None,
+                                                 select=None,
+                                                 expand=None):
+    return client.list_activities(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
-def files_get_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(drive_id=drive_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_field(client,
-                    drive_id,
-                    item_activity_old_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(drive_id=drive_id,
-                            item_activity_old_id=item_activity_old_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_get_ref_analytic(client,
-                           drive_id,
-                           item_activity_old_id):
-    return client.get_ref_analytic(drive_id=drive_id,
-                                   item_activity_old_id=item_activity_old_id)
-
-
-def files_get_version(client,
-                      drive_id,
-                      item_activity_old_id,
-                      list_item_version_id,
-                      select=None,
-                      expand=None):
-    return client.get_version(drive_id=drive_id,
-                              item_activity_old_id=item_activity_old_id,
-                              list_item_version_id=list_item_version_id,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_activity(client,
-                        drive_id,
-                        item_activity_old_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(drive_id=drive_id,
+def files_drivesactivitieslistitem_list_version(client,
+                                                drive_id,
+                                                item_activity_old_id,
+                                                orderby=None,
+                                                select=None,
+                                                expand=None):
+    return client.list_versions(drive_id=drive_id,
                                 item_activity_old_id=item_activity_old_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def files_list_version(client,
-                       drive_id,
-                       item_activity_old_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
-    return client.list_version(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id,
-                                 data):
+def files_drivesactivitieslistitem_set_drive_item_content(client,
+                                                          drive_id,
+                                                          item_activity_old_id,
+                                                          data):
     return client.set_drive_item_content(drive_id=drive_id,
                                          item_activity_old_id=item_activity_old_id,
                                          data=data)
 
 
-def files_set_ref_analytic(client,
-                           drive_id,
-                           item_activity_old_id,
-                           body):
-    return client.set_ref_analytic(drive_id=drive_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   body=body)
+def files_drivesactivitieslistitem_set_ref_analytic(client,
+                                                    drive_id,
+                                                    item_activity_old_id,
+                                                    body):
+    return client.set_ref_analytics(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
 
 
-def files_update_activity(client,
-                          drive_id,
-                          item_activity_old_id,
-                          item_activity_old_id1,
-                          body):
-    return client.update_activity(drive_id=drive_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  item_activity_old_id1=item_activity_old_id1,
-                                  body=body)
+def files_drivesactivitieslistitem_show_activity(client,
+                                                 drive_id,
+                                                 item_activity_old_id,
+                                                 start_date_time=None,
+                                                 end_date_time=None,
+                                                 interval=None,
+                                                 item_activity_old_id1=None,
+                                                 select=None,
+                                                 expand=None):
+    if drive_id is not None and item_activity_old_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
+        return client.get_activities_by_interval(drive_id=drive_id,
+                                                 item_activity_old_id=item_activity_old_id,
+                                                 start_date_time=start_date_time,
+                                                 end_date_time=end_date_time,
+                                                 interval=interval)
+    return client.get_activities(drive_id=drive_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 item_activity_old_id1=item_activity_old_id1,
+                                 select=select,
+                                 expand=expand)
 
 
-def files_update_drive_item(client,
-                            drive_id,
-                            item_activity_old_id,
-                            body):
+def files_drivesactivitieslistitem_show_analytic(client,
+                                                 drive_id,
+                                                 item_activity_old_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_analytics(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_drivesactivitieslistitem_show_drive_item(client,
+                                                   drive_id,
+                                                   item_activity_old_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_drive_item(drive_id=drive_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_drivesactivitieslistitem_show_drive_item_content(client,
+                                                           drive_id,
+                                                           item_activity_old_id):
+    return client.get_drive_item_content(drive_id=drive_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_drivesactivitieslistitem_show_field(client,
+                                              drive_id,
+                                              item_activity_old_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_fields(drive_id=drive_id,
+                             item_activity_old_id=item_activity_old_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_drivesactivitieslistitem_show_ref_analytic(client,
+                                                     drive_id,
+                                                     item_activity_old_id):
+    return client.get_ref_analytics(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id)
+
+
+def files_drivesactivitieslistitem_show_version(client,
+                                                drive_id,
+                                                item_activity_old_id,
+                                                list_item_version_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_versions(drive_id=drive_id,
+                               item_activity_old_id=item_activity_old_id,
+                               list_item_version_id=list_item_version_id,
+                               select=select,
+                               expand=expand)
+
+
+def files_drivesactivitieslistitem_update_activity(client,
+                                                   drive_id,
+                                                   item_activity_old_id,
+                                                   item_activity_old_id1,
+                                                   body):
+    return client.update_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    item_activity_old_id1=item_activity_old_id1,
+                                    body=body)
+
+
+def files_drivesactivitieslistitem_update_drive_item(client,
+                                                     drive_id,
+                                                     item_activity_old_id,
+                                                     body):
     return client.update_drive_item(drive_id=drive_id,
                                     item_activity_old_id=item_activity_old_id,
                                     body=body)
 
 
-def files_update_field(client,
-                       drive_id,
-                       item_activity_old_id,
-                       id_=None):
-    return client.update_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               id=id_)
+def files_drivesactivitieslistitem_update_field(client,
+                                                drive_id,
+                                                item_activity_old_id,
+                                                id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                body=body)
 
 
-def files_update_version(client,
-                         drive_id,
-                         item_activity_old_id,
-                         list_item_version_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.update_version(drive_id=drive_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 list_item_version_id=list_item_version_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
+def files_drivesactivitieslistitem_update_version(client,
+                                                  drive_id,
+                                                  item_activity_old_id,
+                                                  list_item_version_id,
+                                                  id_=None,
+                                                  last_modified_date_time=None,
+                                                  publication=None,
+                                                  application=None,
+                                                  device=None,
+                                                  user=None,
+                                                  microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_versions(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id,
+                                  body=body)
 
 
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id,
-                 list_item_version_id,
-                 if_match=None):
-    return client.delete_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               list_item_version_id=list_item_version_id,
-                               if_match=if_match)
+def files_drivesactivitieslistitemversion_delete_field(client,
+                                                       drive_id,
+                                                       item_activity_old_id,
+                                                       list_item_version_id,
+                                                       if_match=None):
+    return client.delete_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                list_item_version_id=list_item_version_id,
+                                if_match=if_match)
 
 
-def files_get_field(client,
-                    drive_id,
-                    item_activity_old_id,
-                    list_item_version_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(drive_id=drive_id,
-                            item_activity_old_id=item_activity_old_id,
-                            list_item_version_id=list_item_version_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_restore_version(client,
-                          drive_id,
-                          item_activity_old_id,
-                          list_item_version_id):
+def files_drivesactivitieslistitemversion_restore_version(client,
+                                                          drive_id,
+                                                          item_activity_old_id,
+                                                          list_item_version_id):
     return client.restore_version(drive_id=drive_id,
                                   item_activity_old_id=item_activity_old_id,
                                   list_item_version_id=list_item_version_id)
 
 
-def files_update_field(client,
-                       drive_id,
-                       item_activity_old_id,
-                       list_item_version_id,
-                       id_=None):
-    return client.update_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               list_item_version_id=list_item_version_id,
-                               id=id_)
-
-
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id=None,
-                 if_match=None,
-                 column_definition_id=None,
-                 content_type_id=None,
-                 list_item_id=None,
-                 subscription_id=None):
-    if drive_id is not None and item_activity_old_id is not None:
-        return client.delete_activity(drive_id=drive_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      if_match=if_match)
-    elif drive_id is not None and column_definition_id is not None:
-        return client.delete_column(drive_id=drive_id,
-                                    column_definition_id=column_definition_id,
-                                    if_match=if_match)
-    elif drive_id is not None and content_type_id is not None:
-        return client.delete_content_type(drive_id=drive_id,
-                                          content_type_id=content_type_id,
-                                          if_match=if_match)
-    elif drive_id is not None and list_item_id is not None:
-        return client.delete_item(drive_id=drive_id,
-                                  list_item_id=list_item_id,
-                                  if_match=if_match)
-    elif drive_id is not None and subscription_id is not None:
-        return client.delete_subscription(drive_id=drive_id,
-                                          subscription_id=subscription_id,
-                                          if_match=if_match)
-    return client.delete_drive(drive_id=drive_id,
-                               if_match=if_match)
-
-
-def files_create_activity(client,
-                          drive_id,
-                          body):
-    return client.create_activity(drive_id=drive_id,
-                                  body=body)
-
-
-def files_create_column(client,
-                        drive_id,
-                        id_=None,
-                        boolean=None,
-                        calculated=None,
-                        choice=None,
-                        column_group=None,
-                        date_time=None,
-                        default_value=None,
-                        description=None,
-                        display_name=None,
-                        enforce_unique_values=None,
-                        geolocation=None,
-                        hidden=None,
-                        indexed=None,
-                        lookup=None,
-                        name=None,
-                        number=None,
-                        person_or_group=None,
-                        read_only=None,
-                        required=None,
-                        text=None,
-                        currency_locale=None):
-    return client.create_column(drive_id=drive_id,
-                                id=id_,
-                                boolean=boolean,
-                                calculated=calculated,
-                                choice=choice,
-                                column_group=column_group,
-                                date_time=date_time,
-                                default_value=default_value,
-                                description=description,
-                                display_name=display_name,
-                                enforce_unique_values=enforce_unique_values,
-                                geolocation=geolocation,
-                                hidden=hidden,
-                                indexed=indexed,
-                                lookup=lookup,
-                                name=name,
-                                number=number,
-                                person_or_group=person_or_group,
-                                read_only=read_only,
-                                required=required,
-                                text=text,
-                                locale=currency_locale)
-
-
-def files_create_content_type(client,
-                              drive_id,
-                              id_=None,
-                              description=None,
-                              group=None,
-                              hidden=None,
-                              name=None,
-                              order=None,
-                              parent_id=None,
-                              read_only=None,
-                              sealed=None,
-                              column_links=None,
-                              inherited_from_drive_id=None,
-                              inherited_from_drive_type=None,
-                              inherited_from_id=None,
-                              inherited_from_name=None,
-                              inherited_from_path=None,
-                              inherited_from_share_id=None,
-                              inherited_from_sharepoint_ids=None,
-                              inherited_from_site_id=None):
-    return client.create_content_type(drive_id=drive_id,
-                                      id=id_,
-                                      description=description,
-                                      group=group,
-                                      hidden=hidden,
-                                      name=name,
-                                      order=order,
-                                      parent_id=parent_id,
-                                      read_only=read_only,
-                                      sealed=sealed,
-                                      column_links=column_links,
-                                      microsoft_graph_item_reference_drive_id=inherited_from_drive_id,
-                                      drive_type=inherited_from_drive_type,
-                                      microsoft_graph_item_reference_id=inherited_from_id,
-                                      microsoft_graph_item_reference_name=inherited_from_name,
-                                      path=inherited_from_path,
-                                      share_id=inherited_from_share_id,
-                                      sharepoint_ids=inherited_from_sharepoint_ids,
-                                      site_id=inherited_from_site_id)
-
-
-def files_create_item(client,
-                      drive_id,
-                      content_type,
-                      id_=None,
-                      created_date_time=None,
-                      description=None,
-                      e_tag=None,
-                      last_modified_date_time=None,
-                      name=None,
-                      web_url=None,
-                      created_by_user=None,
-                      last_modified_by_user=None,
-                      parent_reference_drive_id=None,
-                      parent_reference_drive_type=None,
-                      parent_reference_id=None,
-                      parent_reference_name=None,
-                      parent_reference_path=None,
-                      parent_reference_share_id=None,
-                      parent_reference_sharepoint_ids=None,
-                      parent_reference_site_id=None,
-                      last_modified_by_application=None,
-                      last_modified_by_device=None,
-                      user=None,
-                      created_by_application=None,
-                      created_by_device=None,
-                      microsoft_graph_identity_user=None,
-                      microsoft_graph_sharepoint_ids=None,
-                      activities=None,
-                      analytics=None,
-                      drive_item=None,
-                      versions=None,
-                      fields_id=None):
-    return client.create_item(drive_id=drive_id,
-                              id=id_,
-                              created_date_time=created_date_time,
-                              description=description,
-                              e_tag=e_tag,
-                              last_modified_date_time=last_modified_date_time,
-                              name=name,
-                              web_url=web_url,
-                              created_by_user=created_by_user,
-                              last_modified_by_user=last_modified_by_user,
-                              microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                              drive_type=parent_reference_drive_type,
-                              microsoft_graph_item_reference_id=parent_reference_id,
-                              microsoft_graph_item_reference_name=parent_reference_name,
-                              path=parent_reference_path,
-                              share_id=parent_reference_share_id,
-                              sharepoint_ids=parent_reference_sharepoint_ids,
-                              site_id=parent_reference_site_id,
-                              application=last_modified_by_application,
-                              device=last_modified_by_device,
-                              user=user,
-                              microsoft_graph_identity_application=created_by_application,
-                              microsoft_graph_identity_device=created_by_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              content_type_parameter=content_type,
-                              microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                              activities=activities,
-                              analytics=analytics,
-                              drive_item=drive_item,
-                              versions=versions,
-                              microsoft_graph_entity_id=fields_id)
-
-
-def files_create_subscription(client,
-                              drive_id,
-                              id_=None,
-                              application_id=None,
-                              change_type=None,
-                              client_state=None,
-                              creator_id=None,
-                              encryption_certificate=None,
-                              encryption_certificate_id=None,
-                              expiration_date_time=None,
-                              include_properties=None,
-                              include_resource_data=None,
-                              latest_supported_tls_version=None,
-                              lifecycle_notification_url=None,
-                              notification_url=None,
-                              resource=None):
-    return client.create_subscription(drive_id=drive_id,
-                                      id=id_,
-                                      application_id=application_id,
-                                      change_type=change_type,
-                                      client_state=client_state,
-                                      creator_id=creator_id,
-                                      encryption_certificate=encryption_certificate,
-                                      encryption_certificate_id=encryption_certificate_id,
-                                      expiration_date_time=expiration_date_time,
-                                      include_properties=include_properties,
-                                      include_resource_data=include_resource_data,
-                                      latest_supported_tls_version=latest_supported_tls_version,
-                                      lifecycle_notification_url=lifecycle_notification_url,
-                                      notification_url=notification_url,
-                                      resource=resource)
-
-
-def files_get_activity(client,
-                       drive_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_activity(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_column(client,
-                     drive_id,
-                     column_definition_id,
-                     select=None,
-                     expand=None):
-    return client.get_column(drive_id=drive_id,
-                             column_definition_id=column_definition_id,
+def files_drivesactivitieslistitemversion_show_field(client,
+                                                     drive_id,
+                                                     item_activity_old_id,
+                                                     list_item_version_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_fields(drive_id=drive_id,
+                             item_activity_old_id=item_activity_old_id,
+                             list_item_version_id=list_item_version_id,
                              select=select,
                              expand=expand)
 
 
-def files_get_content_type(client,
-                           drive_id,
-                           content_type_id,
-                           select=None,
-                           expand=None):
-    return client.get_content_type(drive_id=drive_id,
-                                   content_type_id=content_type_id,
-                                   select=select,
-                                   expand=expand)
+def files_drivesactivitieslistitemversion_update_field(client,
+                                                       drive_id,
+                                                       item_activity_old_id,
+                                                       list_item_version_id,
+                                                       id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                list_item_version_id=list_item_version_id,
+                                body=body)
 
 
-def files_get_drive(client,
-                    drive_id,
-                    select=None,
-                    expand=None):
+def files_driveslist_create_activity(client,
+                                     drive_id,
+                                     body):
+    return client.create_activities(drive_id=drive_id,
+                                    body=body)
+
+
+def files_driveslist_create_column(client,
+                                   drive_id,
+                                   id_=None,
+                                   boolean=None,
+                                   calculated=None,
+                                   choice=None,
+                                   column_group=None,
+                                   date_time=None,
+                                   default_value=None,
+                                   description=None,
+                                   display_name=None,
+                                   enforce_unique_values=None,
+                                   geolocation=None,
+                                   hidden=None,
+                                   indexed=None,
+                                   lookup=None,
+                                   name=None,
+                                   number=None,
+                                   person_or_group=None,
+                                   read_only=None,
+                                   required=None,
+                                   text=None,
+                                   locale=None):
+    body = {}
+    body['id'] = id_
+    body['boolean'] = boolean
+    body['calculated'] = calculated
+    body['choice'] = choice
+    body['column_group'] = column_group
+    body['date_time'] = date_time
+    body['default_value'] = default_value
+    body['description'] = description
+    body['display_name'] = display_name
+    body['enforce_unique_values'] = enforce_unique_values
+    body['geolocation'] = geolocation
+    body['hidden'] = hidden
+    body['indexed'] = indexed
+    body['lookup'] = lookup
+    body['name'] = name
+    body['number'] = number
+    body['person_or_group'] = person_or_group
+    body['read_only'] = read_only
+    body['required'] = required
+    body['text'] = text
+    body['currency'] = {}
+    body['currency']['locale'] = locale
+    return client.create_columns(drive_id=drive_id,
+                                 body=body)
+
+
+def files_driveslist_create_content_type(client,
+                                         drive_id,
+                                         id_=None,
+                                         description=None,
+                                         group=None,
+                                         hidden=None,
+                                         name=None,
+                                         order=None,
+                                         parent_id=None,
+                                         read_only=None,
+                                         sealed=None,
+                                         column_links=None,
+                                         microsoft_graph_item_reference_drive_id=None,
+                                         drive_type=None,
+                                         microsoft_graph_item_reference_id=None,
+                                         microsoft_graph_item_reference_name=None,
+                                         path=None,
+                                         share_id=None,
+                                         sharepoint_ids=None,
+                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['group'] = group
+    body['hidden'] = hidden
+    body['name'] = name
+    body['order'] = order
+    body['parent_id'] = parent_id
+    body['read_only'] = read_only
+    body['sealed'] = sealed
+    body['column_links'] = column_links
+    body['inherited_from'] = {}
+    body['inherited_from']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['inherited_from']['drive_type'] = drive_type
+    body['inherited_from']['id'] = microsoft_graph_item_reference_id
+    body['inherited_from']['name'] = microsoft_graph_item_reference_name
+    body['inherited_from']['path'] = path
+    body['inherited_from']['share_id'] = share_id
+    body['inherited_from']['sharepoint_ids'] = sharepoint_ids
+    body['inherited_from']['site_id'] = site_id
+    return client.create_content_types(drive_id=drive_id,
+                                       body=body)
+
+
+def files_driveslist_create_item(client,
+                                 drive_id,
+                                 content_type,
+                                 id_=None,
+                                 created_date_time=None,
+                                 description=None,
+                                 e_tag=None,
+                                 last_modified_date_time=None,
+                                 name=None,
+                                 web_url=None,
+                                 created_by_user=None,
+                                 last_modified_by_user=None,
+                                 microsoft_graph_item_reference_drive_id=None,
+                                 drive_type=None,
+                                 microsoft_graph_item_reference_id=None,
+                                 microsoft_graph_item_reference_name=None,
+                                 path=None,
+                                 share_id=None,
+                                 sharepoint_ids=None,
+                                 site_id=None,
+                                 application=None,
+                                 device=None,
+                                 user=None,
+                                 microsoft_graph_identity_application=None,
+                                 microsoft_graph_identity_device=None,
+                                 microsoft_graph_identity_user=None,
+                                 microsoft_graph_sharepoint_ids=None,
+                                 activities=None,
+                                 analytics=None,
+                                 drive_item=None,
+                                 versions=None,
+                                 microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_items(drive_id=drive_id,
+                               body=body)
+
+
+def files_driveslist_create_subscription(client,
+                                         drive_id,
+                                         id_=None,
+                                         application_id=None,
+                                         change_type=None,
+                                         client_state=None,
+                                         creator_id=None,
+                                         encryption_certificate=None,
+                                         encryption_certificate_id=None,
+                                         expiration_date_time=None,
+                                         include_properties=None,
+                                         include_resource_data=None,
+                                         latest_supported_tls_version=None,
+                                         lifecycle_notification_url=None,
+                                         notification_url=None,
+                                         resource=None):
+    body = {}
+    body['id'] = id_
+    body['application_id'] = application_id
+    body['change_type'] = change_type
+    body['client_state'] = client_state
+    body['creator_id'] = creator_id
+    body['encryption_certificate'] = encryption_certificate
+    body['encryption_certificate_id'] = encryption_certificate_id
+    body['expiration_date_time'] = expiration_date_time
+    body['include_properties'] = include_properties
+    body['include_resource_data'] = include_resource_data
+    body['latest_supported_tls_version'] = latest_supported_tls_version
+    body['lifecycle_notification_url'] = lifecycle_notification_url
+    body['notification_url'] = notification_url
+    body['resource'] = resource
+    return client.create_subscriptions(drive_id=drive_id,
+                                       body=body)
+
+
+def files_driveslist_delete_activity(client,
+                                     drive_id,
+                                     item_activity_old_id,
+                                     if_match=None):
+    return client.delete_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_driveslist_delete_column(client,
+                                   drive_id,
+                                   column_definition_id,
+                                   if_match=None):
+    return client.delete_columns(drive_id=drive_id,
+                                 column_definition_id=column_definition_id,
+                                 if_match=if_match)
+
+
+def files_driveslist_delete_content_type(client,
+                                         drive_id,
+                                         content_type_id,
+                                         if_match=None):
+    return client.delete_content_types(drive_id=drive_id,
+                                       content_type_id=content_type_id,
+                                       if_match=if_match)
+
+
+def files_driveslist_delete_drive(client,
+                                  drive_id,
+                                  if_match=None):
+    return client.delete_drive(drive_id=drive_id,
+                               if_match=if_match)
+
+
+def files_driveslist_delete_item(client,
+                                 drive_id,
+                                 list_item_id,
+                                 if_match=None):
+    return client.delete_items(drive_id=drive_id,
+                               list_item_id=list_item_id,
+                               if_match=if_match)
+
+
+def files_driveslist_delete_subscription(client,
+                                         drive_id,
+                                         subscription_id,
+                                         if_match=None):
+    return client.delete_subscriptions(drive_id=drive_id,
+                                       subscription_id=subscription_id,
+                                       if_match=if_match)
+
+
+def files_driveslist_list_activity(client,
+                                   drive_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
+    return client.list_activities(drive_id=drive_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_driveslist_list_column(client,
+                                 drive_id,
+                                 orderby=None,
+                                 select=None,
+                                 expand=None):
+    return client.list_columns(drive_id=drive_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def files_driveslist_list_content_type(client,
+                                       drive_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_content_types(drive_id=drive_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
+
+
+def files_driveslist_list_item(client,
+                               drive_id,
+                               orderby=None,
+                               select=None,
+                               expand=None):
+    return client.list_items(drive_id=drive_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
+
+
+def files_driveslist_list_subscription(client,
+                                       drive_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_subscriptions(drive_id=drive_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
+
+
+def files_driveslist_show_activity(client,
+                                   drive_id,
+                                   item_activity_old_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_activities(drive_id=drive_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_driveslist_show_column(client,
+                                 drive_id,
+                                 column_definition_id,
+                                 select=None,
+                                 expand=None):
+    return client.get_columns(drive_id=drive_id,
+                              column_definition_id=column_definition_id,
+                              select=select,
+                              expand=expand)
+
+
+def files_driveslist_show_content_type(client,
+                                       drive_id,
+                                       content_type_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_content_types(drive_id=drive_id,
+                                    content_type_id=content_type_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def files_driveslist_show_drive(client,
+                                drive_id,
+                                select=None,
+                                expand=None):
     return client.get_drive(drive_id=drive_id,
                             select=select,
                             expand=expand)
 
 
-def files_get_item(client,
-                   drive_id,
-                   list_item_id,
-                   select=None,
-                   expand=None):
-    return client.get_item(drive_id=drive_id,
-                           list_item_id=list_item_id,
-                           select=select,
-                           expand=expand)
+def files_driveslist_show_item(client,
+                               drive_id,
+                               list_item_id,
+                               select=None,
+                               expand=None):
+    return client.get_items(drive_id=drive_id,
+                            list_item_id=list_item_id,
+                            select=select,
+                            expand=expand)
 
 
-def files_get_subscription(client,
-                           drive_id,
-                           subscription_id,
-                           select=None,
-                           expand=None):
-    return client.get_subscription(drive_id=drive_id,
-                                   subscription_id=subscription_id,
-                                   select=select,
-                                   expand=expand)
+def files_driveslist_show_subscription(client,
+                                       drive_id,
+                                       subscription_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_subscriptions(drive_id=drive_id,
+                                    subscription_id=subscription_id,
+                                    select=select,
+                                    expand=expand)
 
 
-def files_list_activity(client,
-                        drive_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(drive_id=drive_id,
+def files_driveslist_update_activity(client,
+                                     drive_id,
+                                     item_activity_old_id,
+                                     body):
+    return client.update_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_driveslist_update_column(client,
+                                   drive_id,
+                                   column_definition_id,
+                                   id_=None,
+                                   boolean=None,
+                                   calculated=None,
+                                   choice=None,
+                                   column_group=None,
+                                   date_time=None,
+                                   default_value=None,
+                                   description=None,
+                                   display_name=None,
+                                   enforce_unique_values=None,
+                                   geolocation=None,
+                                   hidden=None,
+                                   indexed=None,
+                                   lookup=None,
+                                   name=None,
+                                   number=None,
+                                   person_or_group=None,
+                                   read_only=None,
+                                   required=None,
+                                   text=None,
+                                   locale=None):
+    body = {}
+    body['id'] = id_
+    body['boolean'] = boolean
+    body['calculated'] = calculated
+    body['choice'] = choice
+    body['column_group'] = column_group
+    body['date_time'] = date_time
+    body['default_value'] = default_value
+    body['description'] = description
+    body['display_name'] = display_name
+    body['enforce_unique_values'] = enforce_unique_values
+    body['geolocation'] = geolocation
+    body['hidden'] = hidden
+    body['indexed'] = indexed
+    body['lookup'] = lookup
+    body['name'] = name
+    body['number'] = number
+    body['person_or_group'] = person_or_group
+    body['read_only'] = read_only
+    body['required'] = required
+    body['text'] = text
+    body['currency'] = {}
+    body['currency']['locale'] = locale
+    return client.update_columns(drive_id=drive_id,
+                                 column_definition_id=column_definition_id,
+                                 body=body)
+
+
+def files_driveslist_update_content_type(client,
+                                         drive_id,
+                                         content_type_id,
+                                         id_=None,
+                                         description=None,
+                                         group=None,
+                                         hidden=None,
+                                         name=None,
+                                         order=None,
+                                         parent_id=None,
+                                         read_only=None,
+                                         sealed=None,
+                                         column_links=None,
+                                         microsoft_graph_item_reference_drive_id=None,
+                                         drive_type=None,
+                                         microsoft_graph_item_reference_id=None,
+                                         microsoft_graph_item_reference_name=None,
+                                         path=None,
+                                         share_id=None,
+                                         sharepoint_ids=None,
+                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['group'] = group
+    body['hidden'] = hidden
+    body['name'] = name
+    body['order'] = order
+    body['parent_id'] = parent_id
+    body['read_only'] = read_only
+    body['sealed'] = sealed
+    body['column_links'] = column_links
+    body['inherited_from'] = {}
+    body['inherited_from']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['inherited_from']['drive_type'] = drive_type
+    body['inherited_from']['id'] = microsoft_graph_item_reference_id
+    body['inherited_from']['name'] = microsoft_graph_item_reference_name
+    body['inherited_from']['path'] = path
+    body['inherited_from']['share_id'] = share_id
+    body['inherited_from']['sharepoint_ids'] = sharepoint_ids
+    body['inherited_from']['site_id'] = site_id
+    return client.update_content_types(drive_id=drive_id,
+                                       content_type_id=content_type_id,
+                                       body=body)
+
+
+def files_driveslist_update_drive(client,
+                                  drive_id,
+                                  id_=None,
+                                  created_date_time=None,
+                                  description=None,
+                                  e_tag=None,
+                                  last_modified_date_time=None,
+                                  name=None,
+                                  web_url=None,
+                                  created_by_user=None,
+                                  last_modified_by_user=None,
+                                  microsoft_graph_item_reference_drive_id=None,
+                                  drive_type=None,
+                                  microsoft_graph_item_reference_id=None,
+                                  microsoft_graph_item_reference_name=None,
+                                  path=None,
+                                  share_id=None,
+                                  sharepoint_ids=None,
+                                  site_id=None,
+                                  application=None,
+                                  device=None,
+                                  user=None,
+                                  microsoft_graph_identity_application=None,
+                                  microsoft_graph_identity_device=None,
+                                  microsoft_graph_identity_user=None,
+                                  microsoft_graph_drive_type=None,
+                                  share_point_ids=None,
+                                  system=None,
+                                  activities=None,
+                                  bundles=None,
+                                  following=None,
+                                  items=None,
+                                  root=None,
+                                  special=None,
+                                  microsoft_graph_entity_id=None,
+                                  microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                  microsoft_graph_base_item_description=None,
+                                  microsoft_graph_base_item_e_tag=None,
+                                  microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                  microsoft_graph_base_item_name=None,
+                                  microsoft_graph_base_item_web_url=None,
+                                  microsoft_graph_user_created_by_user=None,
+                                  microsoft_graph_user_last_modified_by_user=None,
+                                  drive_id1=None,
+                                  microsoft_graph_item_reference_drive_type=None,
+                                  id1=None,
+                                  name1=None,
+                                  microsoft_graph_item_reference_path=None,
+                                  microsoft_graph_item_reference_share_id=None,
+                                  microsoft_graph_sharepoint_ids=None,
+                                  microsoft_graph_item_reference_site_id=None,
+                                  application1=None,
+                                  device1=None,
+                                  user1=None,
+                                  application2=None,
+                                  device2=None,
+                                  user2=None,
+                                  display_name=None,
+                                  list=None,
+                                  sharepoint_ids1=None,
+                                  microsoft_graph_system_facet_system=None,
+                                  microsoft_graph_list_activities=None,
+                                  columns=None,
+                                  content_types=None,
+                                  drive=None,
+                                  microsoft_graph_list_items=None,
+                                  subscriptions=None,
+                                  deleted=None,
+                                  remaining=None,
+                                  state=None,
+                                  storage_plan_information=None,
+                                  total=None,
+                                  used=None,
+                                  application3=None,
+                                  device3=None,
+                                  user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = drive_id1
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
+    return client.update_drive(drive_id=drive_id,
+                               body=body)
+
+
+def files_driveslist_update_item(client,
+                                 drive_id,
+                                 list_item_id,
+                                 content_type,
+                                 id_=None,
+                                 created_date_time=None,
+                                 description=None,
+                                 e_tag=None,
+                                 last_modified_date_time=None,
+                                 name=None,
+                                 web_url=None,
+                                 created_by_user=None,
+                                 last_modified_by_user=None,
+                                 microsoft_graph_item_reference_drive_id=None,
+                                 drive_type=None,
+                                 microsoft_graph_item_reference_id=None,
+                                 microsoft_graph_item_reference_name=None,
+                                 path=None,
+                                 share_id=None,
+                                 sharepoint_ids=None,
+                                 site_id=None,
+                                 application=None,
+                                 device=None,
+                                 user=None,
+                                 microsoft_graph_identity_application=None,
+                                 microsoft_graph_identity_device=None,
+                                 microsoft_graph_identity_user=None,
+                                 microsoft_graph_sharepoint_ids=None,
+                                 activities=None,
+                                 analytics=None,
+                                 drive_item=None,
+                                 versions=None,
+                                 microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_items(drive_id=drive_id,
+                               list_item_id=list_item_id,
+                               body=body)
+
+
+def files_driveslist_update_subscription(client,
+                                         drive_id,
+                                         subscription_id,
+                                         id_=None,
+                                         application_id=None,
+                                         change_type=None,
+                                         client_state=None,
+                                         creator_id=None,
+                                         encryption_certificate=None,
+                                         encryption_certificate_id=None,
+                                         expiration_date_time=None,
+                                         include_properties=None,
+                                         include_resource_data=None,
+                                         latest_supported_tls_version=None,
+                                         lifecycle_notification_url=None,
+                                         notification_url=None,
+                                         resource=None):
+    body = {}
+    body['id'] = id_
+    body['application_id'] = application_id
+    body['change_type'] = change_type
+    body['client_state'] = client_state
+    body['creator_id'] = creator_id
+    body['encryption_certificate'] = encryption_certificate
+    body['encryption_certificate_id'] = encryption_certificate_id
+    body['expiration_date_time'] = expiration_date_time
+    body['include_properties'] = include_properties
+    body['include_resource_data'] = include_resource_data
+    body['latest_supported_tls_version'] = latest_supported_tls_version
+    body['lifecycle_notification_url'] = lifecycle_notification_url
+    body['notification_url'] = notification_url
+    body['resource'] = resource
+    return client.update_subscriptions(drive_id=drive_id,
+                                       subscription_id=subscription_id,
+                                       body=body)
+
+
+def files_driveslistactivity_delete_drive_item(client,
+                                               drive_id,
+                                               item_activity_old_id,
+                                               if_match=None):
+    return client.delete_drive_item(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_driveslistactivity_delete_list_item(client,
+                                              drive_id,
+                                              item_activity_old_id,
+                                              if_match=None):
+    return client.delete_list_item(drive_id=drive_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   if_match=if_match)
+
+
+def files_driveslistactivity_set_drive_item_content(client,
+                                                    drive_id,
+                                                    item_activity_old_id,
+                                                    data):
+    return client.set_drive_item_content(drive_id=drive_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_driveslistactivity_show_drive_item(client,
+                                             drive_id,
+                                             item_activity_old_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_drive_item(drive_id=drive_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_driveslistactivity_show_drive_item_content(client,
+                                                     drive_id,
+                                                     item_activity_old_id):
+    return client.get_drive_item_content(drive_id=drive_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_driveslistactivity_show_list_item(client,
+                                            drive_id,
+                                            item_activity_old_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_list_item(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_driveslistactivity_update_drive_item(client,
+                                               drive_id,
+                                               item_activity_old_id,
+                                               body):
+    return client.update_drive_item(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_driveslistactivity_update_list_item(client,
+                                              drive_id,
+                                              item_activity_old_id,
+                                              content_type,
+                                              id_=None,
+                                              created_date_time=None,
+                                              description=None,
+                                              e_tag=None,
+                                              last_modified_date_time=None,
+                                              name=None,
+                                              web_url=None,
+                                              created_by_user=None,
+                                              last_modified_by_user=None,
+                                              microsoft_graph_item_reference_drive_id=None,
+                                              drive_type=None,
+                                              microsoft_graph_item_reference_id=None,
+                                              microsoft_graph_item_reference_name=None,
+                                              path=None,
+                                              share_id=None,
+                                              sharepoint_ids=None,
+                                              site_id=None,
+                                              application=None,
+                                              device=None,
+                                              user=None,
+                                              microsoft_graph_identity_application=None,
+                                              microsoft_graph_identity_device=None,
+                                              microsoft_graph_identity_user=None,
+                                              microsoft_graph_sharepoint_ids=None,
+                                              activities=None,
+                                              analytics=None,
+                                              drive_item=None,
+                                              versions=None,
+                                              microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_list_item(drive_id=drive_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   body=body)
+
+
+def files_driveslistactivitieslistitem_create_activity(client,
+                                                       drive_id,
+                                                       item_activity_old_id,
+                                                       body):
+    return client.create_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_driveslistactivitieslistitem_create_link(client,
+                                                   drive_id,
+                                                   item_activity_old_id,
+                                                   type_=None,
+                                                   scope=None,
+                                                   expiration_date_time=None,
+                                                   password=None,
+                                                   recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(drive_id=drive_id,
+                              item_activity_old_id=item_activity_old_id,
+                              body=body)
+
+
+def files_driveslistactivitieslistitem_create_version(client,
+                                                      drive_id,
+                                                      item_activity_old_id,
+                                                      id_=None,
+                                                      last_modified_date_time=None,
+                                                      publication=None,
+                                                      application=None,
+                                                      device=None,
+                                                      user=None,
+                                                      microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_versions(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  body=body)
+
+
+def files_driveslistactivitieslistitem_delete_activity(client,
+                                                       drive_id,
+                                                       item_activity_old_id,
+                                                       item_activity_old_id1,
+                                                       if_match=None):
+    return client.delete_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    item_activity_old_id1=item_activity_old_id1,
+                                    if_match=if_match)
+
+
+def files_driveslistactivitieslistitem_delete_drive_item(client,
+                                                         drive_id,
+                                                         item_activity_old_id,
+                                                         if_match=None):
+    return client.delete_drive_item(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_driveslistactivitieslistitem_delete_field(client,
+                                                    drive_id,
+                                                    item_activity_old_id,
+                                                    if_match=None):
+    return client.delete_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                if_match=if_match)
+
+
+def files_driveslistactivitieslistitem_delete_ref_analytic(client,
+                                                           drive_id,
+                                                           item_activity_old_id,
+                                                           if_match=None):
+    return client.delete_ref_analytics(drive_id=drive_id,
+                                       item_activity_old_id=item_activity_old_id,
+                                       if_match=if_match)
+
+
+def files_driveslistactivitieslistitem_delete_version(client,
+                                                      drive_id,
+                                                      item_activity_old_id,
+                                                      list_item_version_id,
+                                                      if_match=None):
+    return client.delete_versions(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id,
+                                  if_match=if_match)
+
+
+def files_driveslistactivitieslistitem_list_activity(client,
+                                                     drive_id,
+                                                     item_activity_old_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
+    return client.list_activities(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_driveslistactivitieslistitem_list_version(client,
+                                                    drive_id,
+                                                    item_activity_old_id,
+                                                    orderby=None,
+                                                    select=None,
+                                                    expand=None):
+    return client.list_versions(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def files_list_column(client,
-                      drive_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
-    return client.list_column(drive_id=drive_id,
+def files_driveslistactivitieslistitem_set_drive_item_content(client,
+                                                              drive_id,
+                                                              item_activity_old_id,
+                                                              data):
+    return client.set_drive_item_content(drive_id=drive_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_driveslistactivitieslistitem_set_ref_analytic(client,
+                                                        drive_id,
+                                                        item_activity_old_id,
+                                                        body):
+    return client.set_ref_analytics(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_driveslistactivitieslistitem_show_activity(client,
+                                                     drive_id,
+                                                     item_activity_old_id,
+                                                     start_date_time=None,
+                                                     end_date_time=None,
+                                                     interval=None,
+                                                     item_activity_old_id1=None,
+                                                     select=None,
+                                                     expand=None):
+    if drive_id is not None and item_activity_old_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
+        return client.get_activities_by_interval(drive_id=drive_id,
+                                                 item_activity_old_id=item_activity_old_id,
+                                                 start_date_time=start_date_time,
+                                                 end_date_time=end_date_time,
+                                                 interval=interval)
+    return client.get_activities(drive_id=drive_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 item_activity_old_id1=item_activity_old_id1,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_driveslistactivitieslistitem_show_analytic(client,
+                                                     drive_id,
+                                                     item_activity_old_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_analytics(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_driveslistactivitieslistitem_show_drive_item(client,
+                                                       drive_id,
+                                                       item_activity_old_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_drive_item(drive_id=drive_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_driveslistactivitieslistitem_show_drive_item_content(client,
+                                                               drive_id,
+                                                               item_activity_old_id):
+    return client.get_drive_item_content(drive_id=drive_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_driveslistactivitieslistitem_show_field(client,
+                                                  drive_id,
+                                                  item_activity_old_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_fields(drive_id=drive_id,
+                             item_activity_old_id=item_activity_old_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_driveslistactivitieslistitem_show_ref_analytic(client,
+                                                         drive_id,
+                                                         item_activity_old_id):
+    return client.get_ref_analytics(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id)
+
+
+def files_driveslistactivitieslistitem_show_version(client,
+                                                    drive_id,
+                                                    item_activity_old_id,
+                                                    list_item_version_id,
+                                                    select=None,
+                                                    expand=None):
+    return client.get_versions(drive_id=drive_id,
+                               item_activity_old_id=item_activity_old_id,
+                               list_item_version_id=list_item_version_id,
+                               select=select,
+                               expand=expand)
+
+
+def files_driveslistactivitieslistitem_update_activity(client,
+                                                       drive_id,
+                                                       item_activity_old_id,
+                                                       item_activity_old_id1,
+                                                       body):
+    return client.update_activities(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    item_activity_old_id1=item_activity_old_id1,
+                                    body=body)
+
+
+def files_driveslistactivitieslistitem_update_drive_item(client,
+                                                         drive_id,
+                                                         item_activity_old_id,
+                                                         body):
+    return client.update_drive_item(drive_id=drive_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_driveslistactivitieslistitem_update_field(client,
+                                                    drive_id,
+                                                    item_activity_old_id,
+                                                    id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                body=body)
+
+
+def files_driveslistactivitieslistitem_update_version(client,
+                                                      drive_id,
+                                                      item_activity_old_id,
+                                                      list_item_version_id,
+                                                      id_=None,
+                                                      last_modified_date_time=None,
+                                                      publication=None,
+                                                      application=None,
+                                                      device=None,
+                                                      user=None,
+                                                      microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_versions(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id,
+                                  body=body)
+
+
+def files_driveslistactivitieslistitemversion_delete_field(client,
+                                                           drive_id,
+                                                           item_activity_old_id,
+                                                           list_item_version_id,
+                                                           if_match=None):
+    return client.delete_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                list_item_version_id=list_item_version_id,
+                                if_match=if_match)
+
+
+def files_driveslistactivitieslistitemversion_restore_version(client,
+                                                              drive_id,
+                                                              item_activity_old_id,
+                                                              list_item_version_id):
+    return client.restore_version(drive_id=drive_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id)
+
+
+def files_driveslistactivitieslistitemversion_show_field(client,
+                                                         drive_id,
+                                                         item_activity_old_id,
+                                                         list_item_version_id,
+                                                         select=None,
+                                                         expand=None):
+    return client.get_fields(drive_id=drive_id,
+                             item_activity_old_id=item_activity_old_id,
+                             list_item_version_id=list_item_version_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_driveslistactivitieslistitemversion_update_field(client,
+                                                           drive_id,
+                                                           item_activity_old_id,
+                                                           list_item_version_id,
+                                                           id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(drive_id=drive_id,
+                                item_activity_old_id=item_activity_old_id,
+                                list_item_version_id=list_item_version_id,
+                                body=body)
+
+
+def files_driveslistcontenttype_create_column_link(client,
+                                                   drive_id,
+                                                   content_type_id,
+                                                   id_=None,
+                                                   name=None):
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    return client.create_column_links(drive_id=drive_id,
+                                      content_type_id=content_type_id,
+                                      body=body)
+
+
+def files_driveslistcontenttype_delete_column_link(client,
+                                                   drive_id,
+                                                   content_type_id,
+                                                   column_link_id,
+                                                   if_match=None):
+    return client.delete_column_links(drive_id=drive_id,
+                                      content_type_id=content_type_id,
+                                      column_link_id=column_link_id,
+                                      if_match=if_match)
+
+
+def files_driveslistcontenttype_list_column_link(client,
+                                                 drive_id,
+                                                 content_type_id,
+                                                 orderby=None,
+                                                 select=None,
+                                                 expand=None):
+    return client.list_column_links(drive_id=drive_id,
+                                    content_type_id=content_type_id,
+                                    orderby=orderby,
+                                    select=select,
+                                    expand=expand)
+
+
+def files_driveslistcontenttype_show_column_link(client,
+                                                 drive_id,
+                                                 content_type_id,
+                                                 column_link_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_column_links(drive_id=drive_id,
+                                   content_type_id=content_type_id,
+                                   column_link_id=column_link_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def files_driveslistcontenttype_update_column_link(client,
+                                                   drive_id,
+                                                   content_type_id,
+                                                   column_link_id,
+                                                   id_=None,
+                                                   name=None):
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    return client.update_column_links(drive_id=drive_id,
+                                      content_type_id=content_type_id,
+                                      column_link_id=column_link_id,
+                                      body=body)
+
+
+def files_driveslistitem_create_activity(client,
+                                         drive_id,
+                                         list_item_id,
+                                         body):
+    return client.create_activities(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    body=body)
+
+
+def files_driveslistitem_create_link(client,
+                                     drive_id,
+                                     list_item_id,
+                                     type_=None,
+                                     scope=None,
+                                     expiration_date_time=None,
+                                     password=None,
+                                     recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(drive_id=drive_id,
+                              list_item_id=list_item_id,
+                              body=body)
+
+
+def files_driveslistitem_create_version(client,
+                                        drive_id,
+                                        list_item_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        publication=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_versions(drive_id=drive_id,
+                                  list_item_id=list_item_id,
+                                  body=body)
+
+
+def files_driveslistitem_delete_activity(client,
+                                         drive_id,
+                                         list_item_id,
+                                         item_activity_old_id,
+                                         if_match=None):
+    return client.delete_activities(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_driveslistitem_delete_drive_item(client,
+                                           drive_id,
+                                           list_item_id,
+                                           if_match=None):
+    return client.delete_drive_item(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    if_match=if_match)
+
+
+def files_driveslistitem_delete_field(client,
+                                      drive_id,
+                                      list_item_id,
+                                      if_match=None):
+    return client.delete_fields(drive_id=drive_id,
+                                list_item_id=list_item_id,
+                                if_match=if_match)
+
+
+def files_driveslistitem_delete_ref_analytic(client,
+                                             drive_id,
+                                             list_item_id,
+                                             if_match=None):
+    return client.delete_ref_analytics(drive_id=drive_id,
+                                       list_item_id=list_item_id,
+                                       if_match=if_match)
+
+
+def files_driveslistitem_delete_version(client,
+                                        drive_id,
+                                        list_item_id,
+                                        list_item_version_id,
+                                        if_match=None):
+    return client.delete_versions(drive_id=drive_id,
+                                  list_item_id=list_item_id,
+                                  list_item_version_id=list_item_version_id,
+                                  if_match=if_match)
+
+
+def files_driveslistitem_list_activity(client,
+                                       drive_id,
+                                       list_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_activities(drive_id=drive_id,
+                                  list_item_id=list_item_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_driveslistitem_list_version(client,
+                                      drive_id,
+                                      list_item_id,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
+    return client.list_versions(drive_id=drive_id,
+                                list_item_id=list_item_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
+
+
+def files_driveslistitem_set_drive_item_content(client,
+                                                drive_id,
+                                                list_item_id,
+                                                data):
+    return client.set_drive_item_content(drive_id=drive_id,
+                                         list_item_id=list_item_id,
+                                         data=data)
+
+
+def files_driveslistitem_set_ref_analytic(client,
+                                          drive_id,
+                                          list_item_id,
+                                          body):
+    return client.set_ref_analytics(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    body=body)
+
+
+def files_driveslistitem_show_activity(client,
+                                       drive_id,
+                                       list_item_id,
+                                       start_date_time=None,
+                                       end_date_time=None,
+                                       interval=None,
+                                       item_activity_old_id=None,
+                                       select=None,
+                                       expand=None):
+    if drive_id is not None and list_item_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
+        return client.get_activities_by_interval(drive_id=drive_id,
+                                                 list_item_id=list_item_id,
+                                                 start_date_time=start_date_time,
+                                                 end_date_time=end_date_time,
+                                                 interval=interval)
+    return client.get_activities(drive_id=drive_id,
+                                 list_item_id=list_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_driveslistitem_show_analytic(client,
+                                       drive_id,
+                                       list_item_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_analytics(drive_id=drive_id,
+                                list_item_id=list_item_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_driveslistitem_show_drive_item(client,
+                                         drive_id,
+                                         list_item_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_drive_item(drive_id=drive_id,
+                                 list_item_id=list_item_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_driveslistitem_show_drive_item_content(client,
+                                                 drive_id,
+                                                 list_item_id):
+    return client.get_drive_item_content(drive_id=drive_id,
+                                         list_item_id=list_item_id)
+
+
+def files_driveslistitem_show_field(client,
+                                    drive_id,
+                                    list_item_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_fields(drive_id=drive_id,
+                             list_item_id=list_item_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_driveslistitem_show_ref_analytic(client,
+                                           drive_id,
+                                           list_item_id):
+    return client.get_ref_analytics(drive_id=drive_id,
+                                    list_item_id=list_item_id)
+
+
+def files_driveslistitem_show_version(client,
+                                      drive_id,
+                                      list_item_id,
+                                      list_item_version_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_versions(drive_id=drive_id,
+                               list_item_id=list_item_id,
+                               list_item_version_id=list_item_version_id,
+                               select=select,
+                               expand=expand)
+
+
+def files_driveslistitem_update_activity(client,
+                                         drive_id,
+                                         list_item_id,
+                                         item_activity_old_id,
+                                         body):
+    return client.update_activities(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_driveslistitem_update_drive_item(client,
+                                           drive_id,
+                                           list_item_id,
+                                           body):
+    return client.update_drive_item(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    body=body)
+
+
+def files_driveslistitem_update_field(client,
+                                      drive_id,
+                                      list_item_id,
+                                      id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(drive_id=drive_id,
+                                list_item_id=list_item_id,
+                                body=body)
+
+
+def files_driveslistitem_update_version(client,
+                                        drive_id,
+                                        list_item_id,
+                                        list_item_version_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        publication=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_versions(drive_id=drive_id,
+                                  list_item_id=list_item_id,
+                                  list_item_version_id=list_item_version_id,
+                                  body=body)
+
+
+def files_driveslistitemsactivity_delete_drive_item(client,
+                                                    drive_id,
+                                                    list_item_id,
+                                                    item_activity_old_id,
+                                                    if_match=None):
+    return client.delete_drive_item(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_driveslistitemsactivity_delete_list_item(client,
+                                                   drive_id,
+                                                   list_item_id,
+                                                   item_activity_old_id,
+                                                   if_match=None):
+    return client.delete_list_item(drive_id=drive_id,
+                                   list_item_id=list_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   if_match=if_match)
+
+
+def files_driveslistitemsactivity_set_drive_item_content(client,
+                                                         drive_id,
+                                                         list_item_id,
+                                                         item_activity_old_id,
+                                                         data):
+    return client.set_drive_item_content(drive_id=drive_id,
+                                         list_item_id=list_item_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_driveslistitemsactivity_show_drive_item(client,
+                                                  drive_id,
+                                                  list_item_id,
+                                                  item_activity_old_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_drive_item(drive_id=drive_id,
+                                 list_item_id=list_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_driveslistitemsactivity_show_drive_item_content(client,
+                                                          drive_id,
+                                                          list_item_id,
+                                                          item_activity_old_id):
+    return client.get_drive_item_content(drive_id=drive_id,
+                                         list_item_id=list_item_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_driveslistitemsactivity_show_list_item(client,
+                                                 drive_id,
+                                                 list_item_id,
+                                                 item_activity_old_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_list_item(drive_id=drive_id,
+                                list_item_id=list_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_driveslistitemsactivity_update_drive_item(client,
+                                                    drive_id,
+                                                    list_item_id,
+                                                    item_activity_old_id,
+                                                    body):
+    return client.update_drive_item(drive_id=drive_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_driveslistitemsactivity_update_list_item(client,
+                                                   drive_id,
+                                                   list_item_id,
+                                                   item_activity_old_id,
+                                                   content_type,
+                                                   id_=None,
+                                                   created_date_time=None,
+                                                   description=None,
+                                                   e_tag=None,
+                                                   last_modified_date_time=None,
+                                                   name=None,
+                                                   web_url=None,
+                                                   created_by_user=None,
+                                                   last_modified_by_user=None,
+                                                   microsoft_graph_item_reference_drive_id=None,
+                                                   drive_type=None,
+                                                   microsoft_graph_item_reference_id=None,
+                                                   microsoft_graph_item_reference_name=None,
+                                                   path=None,
+                                                   share_id=None,
+                                                   sharepoint_ids=None,
+                                                   site_id=None,
+                                                   application=None,
+                                                   device=None,
+                                                   user=None,
+                                                   microsoft_graph_identity_application=None,
+                                                   microsoft_graph_identity_device=None,
+                                                   microsoft_graph_identity_user=None,
+                                                   microsoft_graph_sharepoint_ids=None,
+                                                   activities=None,
+                                                   analytics=None,
+                                                   drive_item=None,
+                                                   versions=None,
+                                                   microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_list_item(drive_id=drive_id,
+                                   list_item_id=list_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   body=body)
+
+
+def files_driveslistitemsactivitieslistitem_create_link(client,
+                                                        drive_id,
+                                                        list_item_id,
+                                                        item_activity_old_id,
+                                                        type_=None,
+                                                        scope=None,
+                                                        expiration_date_time=None,
+                                                        password=None,
+                                                        recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(drive_id=drive_id,
+                              list_item_id=list_item_id,
+                              item_activity_old_id=item_activity_old_id,
+                              body=body)
+
+
+def files_driveslistitemsactivitieslistitem_show_activity(client,
+                                                          drive_id,
+                                                          list_item_id,
+                                                          item_activity_old_id,
+                                                          start_date_time,
+                                                          end_date_time,
+                                                          interval):
+    return client.get_activities_by_interval(drive_id=drive_id,
+                                             list_item_id=list_item_id,
+                                             item_activity_old_id=item_activity_old_id,
+                                             start_date_time=start_date_time,
+                                             end_date_time=end_date_time,
+                                             interval=interval)
+
+
+def files_driveslistitemsversion_delete_field(client,
+                                              drive_id,
+                                              list_item_id,
+                                              list_item_version_id,
+                                              if_match=None):
+    return client.delete_fields(drive_id=drive_id,
+                                list_item_id=list_item_id,
+                                list_item_version_id=list_item_version_id,
+                                if_match=if_match)
+
+
+def files_driveslistitemsversion_restore_version(client,
+                                                 drive_id,
+                                                 list_item_id,
+                                                 list_item_version_id):
+    return client.restore_version(drive_id=drive_id,
+                                  list_item_id=list_item_id,
+                                  list_item_version_id=list_item_version_id)
+
+
+def files_driveslistitemsversion_show_field(client,
+                                            drive_id,
+                                            list_item_id,
+                                            list_item_version_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_fields(drive_id=drive_id,
+                             list_item_id=list_item_id,
+                             list_item_version_id=list_item_version_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_driveslistitemsversion_update_field(client,
+                                              drive_id,
+                                              list_item_id,
+                                              list_item_version_id,
+                                              id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(drive_id=drive_id,
+                                list_item_id=list_item_id,
+                                list_item_version_id=list_item_version_id,
+                                body=body)
+
+
+def files_group_create_drive(client,
+                             group_id,
+                             id_=None,
+                             created_date_time=None,
+                             description=None,
+                             e_tag=None,
+                             last_modified_date_time=None,
+                             name=None,
+                             web_url=None,
+                             created_by_user=None,
+                             last_modified_by_user=None,
+                             drive_id=None,
+                             drive_type=None,
+                             microsoft_graph_item_reference_id=None,
+                             microsoft_graph_item_reference_name=None,
+                             path=None,
+                             share_id=None,
+                             sharepoint_ids=None,
+                             site_id=None,
+                             application=None,
+                             device=None,
+                             user=None,
+                             microsoft_graph_identity_application=None,
+                             microsoft_graph_identity_device=None,
+                             microsoft_graph_identity_user=None,
+                             microsoft_graph_drive_type=None,
+                             share_point_ids=None,
+                             system=None,
+                             activities=None,
+                             bundles=None,
+                             following=None,
+                             items=None,
+                             root=None,
+                             special=None,
+                             microsoft_graph_entity_id=None,
+                             microsoft_graph_base_item_created_date_time_created_date_time=None,
+                             microsoft_graph_base_item_description=None,
+                             microsoft_graph_base_item_e_tag=None,
+                             microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                             microsoft_graph_base_item_name=None,
+                             microsoft_graph_base_item_web_url=None,
+                             microsoft_graph_user_created_by_user=None,
+                             microsoft_graph_user_last_modified_by_user=None,
+                             microsoft_graph_item_reference_drive_id=None,
+                             microsoft_graph_item_reference_drive_type=None,
+                             id1=None,
+                             name1=None,
+                             microsoft_graph_item_reference_path=None,
+                             microsoft_graph_item_reference_share_id=None,
+                             microsoft_graph_sharepoint_ids=None,
+                             microsoft_graph_item_reference_site_id=None,
+                             application1=None,
+                             device1=None,
+                             user1=None,
+                             application2=None,
+                             device2=None,
+                             user2=None,
+                             display_name=None,
+                             list=None,
+                             sharepoint_ids1=None,
+                             microsoft_graph_system_facet_system=None,
+                             microsoft_graph_list_activities=None,
+                             columns=None,
+                             content_types=None,
+                             drive=None,
+                             microsoft_graph_list_items=None,
+                             subscriptions=None,
+                             deleted=None,
+                             remaining=None,
+                             state=None,
+                             storage_plan_information=None,
+                             total=None,
+                             used=None,
+                             application3=None,
+                             device3=None,
+                             user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
+    return client.create_drives(group_id=group_id,
+                                body=body)
+
+
+def files_group_delete_drive(client,
+                             group_id,
+                             drive_id=None,
+                             if_match=None):
+    if group_id is not None and drive_id is not None:
+        return client.delete_drives(group_id=group_id,
+                                    drive_id=drive_id,
+                                    if_match=if_match)
+    return client.delete_drive(group_id=group_id,
+                               if_match=if_match)
+
+
+def files_group_list_drive(client,
+                           group_id,
+                           orderby=None,
+                           select=None,
+                           expand=None):
+    return client.list_drives(group_id=group_id,
                               orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def files_list_content_type(client,
-                            drive_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_content_type(drive_id=drive_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
-
-
-def files_list_item(client,
-                    drive_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
-    return client.list_item(drive_id=drive_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
-
-
-def files_list_subscription(client,
-                            drive_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_subscription(drive_id=drive_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
-
-
-def files_update_activity(client,
-                          drive_id,
-                          item_activity_old_id,
-                          body):
-    return client.update_activity(drive_id=drive_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
-
-
-def files_update_column(client,
-                        drive_id,
-                        column_definition_id,
-                        id_=None,
-                        boolean=None,
-                        calculated=None,
-                        choice=None,
-                        column_group=None,
-                        date_time=None,
-                        default_value=None,
-                        description=None,
-                        display_name=None,
-                        enforce_unique_values=None,
-                        geolocation=None,
-                        hidden=None,
-                        indexed=None,
-                        lookup=None,
-                        name=None,
-                        number=None,
-                        person_or_group=None,
-                        read_only=None,
-                        required=None,
-                        text=None,
-                        currency_locale=None):
-    return client.update_column(drive_id=drive_id,
-                                column_definition_id=column_definition_id,
-                                id=id_,
-                                boolean=boolean,
-                                calculated=calculated,
-                                choice=choice,
-                                column_group=column_group,
-                                date_time=date_time,
-                                default_value=default_value,
-                                description=description,
-                                display_name=display_name,
-                                enforce_unique_values=enforce_unique_values,
-                                geolocation=geolocation,
-                                hidden=hidden,
-                                indexed=indexed,
-                                lookup=lookup,
-                                name=name,
-                                number=number,
-                                person_or_group=person_or_group,
-                                read_only=read_only,
-                                required=required,
-                                text=text,
-                                locale=currency_locale)
-
-
-def files_update_content_type(client,
-                              drive_id,
-                              content_type_id,
-                              id_=None,
-                              description=None,
-                              group=None,
-                              hidden=None,
-                              name=None,
-                              order=None,
-                              parent_id=None,
-                              read_only=None,
-                              sealed=None,
-                              column_links=None,
-                              inherited_from_drive_id=None,
-                              inherited_from_drive_type=None,
-                              inherited_from_id=None,
-                              inherited_from_name=None,
-                              inherited_from_path=None,
-                              inherited_from_share_id=None,
-                              inherited_from_sharepoint_ids=None,
-                              inherited_from_site_id=None):
-    return client.update_content_type(drive_id=drive_id,
-                                      content_type_id=content_type_id,
-                                      id=id_,
-                                      description=description,
-                                      group=group,
-                                      hidden=hidden,
-                                      name=name,
-                                      order=order,
-                                      parent_id=parent_id,
-                                      read_only=read_only,
-                                      sealed=sealed,
-                                      column_links=column_links,
-                                      microsoft_graph_item_reference_drive_id=inherited_from_drive_id,
-                                      drive_type=inherited_from_drive_type,
-                                      microsoft_graph_item_reference_id=inherited_from_id,
-                                      microsoft_graph_item_reference_name=inherited_from_name,
-                                      path=inherited_from_path,
-                                      share_id=inherited_from_share_id,
-                                      sharepoint_ids=inherited_from_sharepoint_ids,
-                                      site_id=inherited_from_site_id)
-
-
-def files_update_drive(client,
-                       drive_id,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
-    return client.update_drive(drive_id=drive_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               drive_id1=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
-
-
-def files_update_item(client,
-                      drive_id,
-                      list_item_id,
-                      content_type,
-                      id_=None,
-                      created_date_time=None,
-                      description=None,
-                      e_tag=None,
-                      last_modified_date_time=None,
-                      name=None,
-                      web_url=None,
-                      created_by_user=None,
-                      last_modified_by_user=None,
-                      parent_reference_drive_id=None,
-                      parent_reference_drive_type=None,
-                      parent_reference_id=None,
-                      parent_reference_name=None,
-                      parent_reference_path=None,
-                      parent_reference_share_id=None,
-                      parent_reference_sharepoint_ids=None,
-                      parent_reference_site_id=None,
-                      last_modified_by_application=None,
-                      last_modified_by_device=None,
-                      user=None,
-                      created_by_application=None,
-                      created_by_device=None,
-                      microsoft_graph_identity_user=None,
-                      microsoft_graph_sharepoint_ids=None,
-                      activities=None,
-                      analytics=None,
-                      drive_item=None,
-                      versions=None,
-                      fields_id=None):
-    return client.update_item(drive_id=drive_id,
-                              list_item_id=list_item_id,
-                              id=id_,
-                              created_date_time=created_date_time,
-                              description=description,
-                              e_tag=e_tag,
-                              last_modified_date_time=last_modified_date_time,
-                              name=name,
-                              web_url=web_url,
-                              created_by_user=created_by_user,
-                              last_modified_by_user=last_modified_by_user,
-                              microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                              drive_type=parent_reference_drive_type,
-                              microsoft_graph_item_reference_id=parent_reference_id,
-                              microsoft_graph_item_reference_name=parent_reference_name,
-                              path=parent_reference_path,
-                              share_id=parent_reference_share_id,
-                              sharepoint_ids=parent_reference_sharepoint_ids,
-                              site_id=parent_reference_site_id,
-                              application=last_modified_by_application,
-                              device=last_modified_by_device,
-                              user=user,
-                              microsoft_graph_identity_application=created_by_application,
-                              microsoft_graph_identity_device=created_by_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              content_type_parameter=content_type,
-                              microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                              activities=activities,
-                              analytics=analytics,
-                              drive_item=drive_item,
-                              versions=versions,
-                              microsoft_graph_entity_id=fields_id)
-
-
-def files_update_subscription(client,
-                              drive_id,
-                              subscription_id,
-                              id_=None,
-                              application_id=None,
-                              change_type=None,
-                              client_state=None,
-                              creator_id=None,
-                              encryption_certificate=None,
-                              encryption_certificate_id=None,
-                              expiration_date_time=None,
-                              include_properties=None,
-                              include_resource_data=None,
-                              latest_supported_tls_version=None,
-                              lifecycle_notification_url=None,
-                              notification_url=None,
-                              resource=None):
-    return client.update_subscription(drive_id=drive_id,
-                                      subscription_id=subscription_id,
-                                      id=id_,
-                                      application_id=application_id,
-                                      change_type=change_type,
-                                      client_state=client_state,
-                                      creator_id=creator_id,
-                                      encryption_certificate=encryption_certificate,
-                                      encryption_certificate_id=encryption_certificate_id,
-                                      expiration_date_time=expiration_date_time,
-                                      include_properties=include_properties,
-                                      include_resource_data=include_resource_data,
-                                      latest_supported_tls_version=latest_supported_tls_version,
-                                      lifecycle_notification_url=lifecycle_notification_url,
-                                      notification_url=notification_url,
-                                      resource=resource)
-
-
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id,
-                 if_match=None):
-    if drive_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(drive_id=drive_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_list_item(drive_id=drive_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   if_match=if_match)
-
-
-def files_get_drive_item(client,
-                         drive_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(drive_id=drive_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(drive_id=drive_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_list_item(client,
-                        drive_id,
-                        item_activity_old_id,
-                        select=None,
-                        expand=None):
-    return client.get_list_item(drive_id=drive_id,
-                                item_activity_old_id=item_activity_old_id,
-                                select=select,
-                                expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(drive_id=drive_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_update_drive_item(client,
-                            drive_id,
-                            item_activity_old_id,
-                            body):
-    return client.update_drive_item(drive_id=drive_id,
-                                    item_activity_old_id=item_activity_old_id,
-                                    body=body)
-
-
-def files_update_list_item(client,
-                           drive_id,
-                           item_activity_old_id,
-                           content_type,
-                           id_=None,
-                           created_date_time=None,
-                           description=None,
-                           e_tag=None,
-                           last_modified_date_time=None,
-                           name=None,
-                           web_url=None,
-                           created_by_user=None,
-                           last_modified_by_user=None,
-                           parent_reference_drive_id=None,
-                           parent_reference_drive_type=None,
-                           parent_reference_id=None,
-                           parent_reference_name=None,
-                           parent_reference_path=None,
-                           parent_reference_share_id=None,
-                           parent_reference_sharepoint_ids=None,
-                           parent_reference_site_id=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           user=None,
-                           created_by_application=None,
-                           created_by_device=None,
-                           microsoft_graph_identity_user=None,
-                           microsoft_graph_sharepoint_ids=None,
-                           activities=None,
-                           analytics=None,
-                           drive_item=None,
-                           versions=None,
-                           fields_id=None):
-    return client.update_list_item(drive_id=drive_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   content_type_parameter=content_type,
-                                   microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                   activities=activities,
-                                   analytics=analytics,
-                                   drive_item=drive_item,
-                                   versions=versions,
-                                   microsoft_graph_entity_id=fields_id)
-
-
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id,
-                 item_activity_old_id1=None,
-                 if_match=None,
-                 list_item_version_id=None):
-    if drive_id is not None and item_activity_old_id is not None and item_activity_old_id1 is not None:
-        return client.delete_activity(drive_id=drive_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      item_activity_old_id1=item_activity_old_id1,
-                                      if_match=if_match)
-    elif drive_id is not None and item_activity_old_id is not None and list_item_version_id is not None:
-        return client.delete_version(drive_id=drive_id,
-                                     item_activity_old_id=item_activity_old_id,
-                                     list_item_version_id=list_item_version_id,
-                                     if_match=if_match)
-    elif drive_id is not None and item_activity_old_id is not None:
-        return client.delete_ref_analytic(drive_id=drive_id,
-                                          item_activity_old_id=item_activity_old_id,
-                                          if_match=if_match)
-    elif drive_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(drive_id=drive_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               if_match=if_match)
-
-
-def files_create_activity(client,
-                          drive_id,
-                          item_activity_old_id,
-                          body):
-    return client.create_activity(drive_id=drive_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
-
-
-def files_create_link(client,
-                      drive_id,
-                      item_activity_old_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(drive_id=drive_id,
-                              item_activity_old_id=item_activity_old_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_create_version(client,
-                         drive_id,
-                         item_activity_old_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.create_version(drive_id=drive_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_get_activity(client,
-                       drive_id,
-                       item_activity_old_id,
-                       item_activity_old_id1,
-                       select=None,
-                       expand=None):
-    return client.get_activity(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               item_activity_old_id1=item_activity_old_id1,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_activity_by_interval(client,
-                                   drive_id,
-                                   item_activity_old_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(drive_id=drive_id,
-                                           item_activity_old_id=item_activity_old_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_get_analytic(client,
-                       drive_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_analytic(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_drive_item(client,
-                         drive_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(drive_id=drive_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(drive_id=drive_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_field(client,
-                    drive_id,
-                    item_activity_old_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(drive_id=drive_id,
-                            item_activity_old_id=item_activity_old_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_get_ref_analytic(client,
-                           drive_id,
-                           item_activity_old_id):
-    return client.get_ref_analytic(drive_id=drive_id,
-                                   item_activity_old_id=item_activity_old_id)
-
-
-def files_get_version(client,
-                      drive_id,
-                      item_activity_old_id,
-                      list_item_version_id,
-                      select=None,
-                      expand=None):
-    return client.get_version(drive_id=drive_id,
-                              item_activity_old_id=item_activity_old_id,
-                              list_item_version_id=list_item_version_id,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_activity(client,
-                        drive_id,
-                        item_activity_old_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(drive_id=drive_id,
-                                item_activity_old_id=item_activity_old_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def files_list_version(client,
-                       drive_id,
-                       item_activity_old_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
-    return client.list_version(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 drive_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(drive_id=drive_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_set_ref_analytic(client,
-                           drive_id,
-                           item_activity_old_id,
-                           body):
-    return client.set_ref_analytic(drive_id=drive_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   body=body)
-
-
-def files_update_activity(client,
-                          drive_id,
-                          item_activity_old_id,
-                          item_activity_old_id1,
-                          body):
-    return client.update_activity(drive_id=drive_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  item_activity_old_id1=item_activity_old_id1,
-                                  body=body)
-
-
-def files_update_drive_item(client,
-                            drive_id,
-                            item_activity_old_id,
-                            body):
-    return client.update_drive_item(drive_id=drive_id,
-                                    item_activity_old_id=item_activity_old_id,
-                                    body=body)
-
-
-def files_update_field(client,
-                       drive_id,
-                       item_activity_old_id,
-                       id_=None):
-    return client.update_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               id=id_)
-
-
-def files_update_version(client,
-                         drive_id,
-                         item_activity_old_id,
-                         list_item_version_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.update_version(drive_id=drive_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 list_item_version_id=list_item_version_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_delete(client,
-                 drive_id,
-                 item_activity_old_id,
-                 list_item_version_id,
-                 if_match=None):
-    return client.delete_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               list_item_version_id=list_item_version_id,
-                               if_match=if_match)
-
-
-def files_get_field(client,
-                    drive_id,
-                    item_activity_old_id,
-                    list_item_version_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(drive_id=drive_id,
-                            item_activity_old_id=item_activity_old_id,
-                            list_item_version_id=list_item_version_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_restore_version(client,
-                          drive_id,
-                          item_activity_old_id,
-                          list_item_version_id):
-    return client.restore_version(drive_id=drive_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  list_item_version_id=list_item_version_id)
-
-
-def files_update_field(client,
-                       drive_id,
-                       item_activity_old_id,
-                       list_item_version_id,
-                       id_=None):
-    return client.update_field(drive_id=drive_id,
-                               item_activity_old_id=item_activity_old_id,
-                               list_item_version_id=list_item_version_id,
-                               id=id_)
-
-
-def files_delete(client,
-                 drive_id,
-                 content_type_id,
-                 column_link_id,
-                 if_match=None):
-    return client.delete_column_link(drive_id=drive_id,
-                                     content_type_id=content_type_id,
-                                     column_link_id=column_link_id,
-                                     if_match=if_match)
-
-
-def files_create_column_link(client,
-                             drive_id,
-                             content_type_id,
-                             id_=None,
-                             name=None):
-    return client.create_column_link(drive_id=drive_id,
-                                     content_type_id=content_type_id,
-                                     id=id_,
-                                     name=name)
-
-
-def files_get_column_link(client,
-                          drive_id,
-                          content_type_id,
-                          column_link_id,
-                          select=None,
-                          expand=None):
-    return client.get_column_link(drive_id=drive_id,
-                                  content_type_id=content_type_id,
-                                  column_link_id=column_link_id,
-                                  select=select,
-                                  expand=expand)
-
-
-def files_list_column_link(client,
-                           drive_id,
-                           content_type_id,
-                           orderby=None,
+def files_group_show_drive(client,
+                           group_id,
+                           drive_id=None,
                            select=None,
                            expand=None):
-    return client.list_column_link(drive_id=drive_id,
-                                   content_type_id=content_type_id,
-                                   orderby=orderby,
-                                   select=select,
-                                   expand=expand)
-
-
-def files_update_column_link(client,
-                             drive_id,
-                             content_type_id,
-                             column_link_id,
-                             id_=None,
-                             name=None):
-    return client.update_column_link(drive_id=drive_id,
-                                     content_type_id=content_type_id,
-                                     column_link_id=column_link_id,
-                                     id=id_,
-                                     name=name)
-
-
-def files_delete(client,
-                 drive_id,
-                 list_item_id,
-                 item_activity_old_id=None,
-                 if_match=None,
-                 list_item_version_id=None):
-    if drive_id is not None and list_item_id is not None and item_activity_old_id is not None:
-        return client.delete_activity(drive_id=drive_id,
-                                      list_item_id=list_item_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      if_match=if_match)
-    elif drive_id is not None and list_item_id is not None and list_item_version_id is not None:
-        return client.delete_version(drive_id=drive_id,
-                                     list_item_id=list_item_id,
-                                     list_item_version_id=list_item_version_id,
-                                     if_match=if_match)
-    elif drive_id is not None and list_item_id is not None:
-        return client.delete_ref_analytic(drive_id=drive_id,
-                                          list_item_id=list_item_id,
-                                          if_match=if_match)
-    elif drive_id is not None and list_item_id is not None:
-        return client.delete_drive_item(drive_id=drive_id,
-                                        list_item_id=list_item_id,
-                                        if_match=if_match)
-    return client.delete_field(drive_id=drive_id,
-                               list_item_id=list_item_id,
-                               if_match=if_match)
-
-
-def files_create_activity(client,
-                          drive_id,
-                          list_item_id,
-                          body):
-    return client.create_activity(drive_id=drive_id,
-                                  list_item_id=list_item_id,
-                                  body=body)
-
-
-def files_create_link(client,
-                      drive_id,
-                      list_item_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(drive_id=drive_id,
-                              list_item_id=list_item_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_create_version(client,
-                         drive_id,
-                         list_item_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.create_version(drive_id=drive_id,
-                                 list_item_id=list_item_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_get_activity(client,
-                       drive_id,
-                       list_item_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_activity(drive_id=drive_id,
-                               list_item_id=list_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_activity_by_interval(client,
-                                   drive_id,
-                                   list_item_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(drive_id=drive_id,
-                                           list_item_id=list_item_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_get_analytic(client,
-                       drive_id,
-                       list_item_id,
-                       select=None,
-                       expand=None):
-    return client.get_analytic(drive_id=drive_id,
-                               list_item_id=list_item_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_drive_item(client,
-                         drive_id,
-                         list_item_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(drive_id=drive_id,
-                                 list_item_id=list_item_id,
+    if group_id is not None and drive_id is not None:
+        return client.get_drives(group_id=group_id,
+                                 drive_id=drive_id,
                                  select=select,
                                  expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 drive_id,
-                                 list_item_id):
-    return client.get_drive_item_content(drive_id=drive_id,
-                                         list_item_id=list_item_id)
-
-
-def files_get_field(client,
-                    drive_id,
-                    list_item_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(drive_id=drive_id,
-                            list_item_id=list_item_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_get_ref_analytic(client,
-                           drive_id,
-                           list_item_id):
-    return client.get_ref_analytic(drive_id=drive_id,
-                                   list_item_id=list_item_id)
-
-
-def files_get_version(client,
-                      drive_id,
-                      list_item_id,
-                      list_item_version_id,
-                      select=None,
-                      expand=None):
-    return client.get_version(drive_id=drive_id,
-                              list_item_id=list_item_id,
-                              list_item_version_id=list_item_version_id,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_activity(client,
-                        drive_id,
-                        list_item_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(drive_id=drive_id,
-                                list_item_id=list_item_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def files_list_version(client,
-                       drive_id,
-                       list_item_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
-    return client.list_version(drive_id=drive_id,
-                               list_item_id=list_item_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 drive_id,
-                                 list_item_id,
-                                 data):
-    return client.set_drive_item_content(drive_id=drive_id,
-                                         list_item_id=list_item_id,
-                                         data=data)
-
-
-def files_set_ref_analytic(client,
-                           drive_id,
-                           list_item_id,
-                           body):
-    return client.set_ref_analytic(drive_id=drive_id,
-                                   list_item_id=list_item_id,
-                                   body=body)
-
-
-def files_update_activity(client,
-                          drive_id,
-                          list_item_id,
-                          item_activity_old_id,
-                          body):
-    return client.update_activity(drive_id=drive_id,
-                                  list_item_id=list_item_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
-
-
-def files_update_drive_item(client,
-                            drive_id,
-                            list_item_id,
-                            body):
-    return client.update_drive_item(drive_id=drive_id,
-                                    list_item_id=list_item_id,
-                                    body=body)
-
-
-def files_update_field(client,
-                       drive_id,
-                       list_item_id,
-                       id_=None):
-    return client.update_field(drive_id=drive_id,
-                               list_item_id=list_item_id,
-                               id=id_)
-
-
-def files_update_version(client,
-                         drive_id,
-                         list_item_id,
-                         list_item_version_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.update_version(drive_id=drive_id,
-                                 list_item_id=list_item_id,
-                                 list_item_version_id=list_item_version_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_delete(client,
-                 drive_id,
-                 list_item_id,
-                 item_activity_old_id,
-                 if_match=None):
-    if drive_id is not None and list_item_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(drive_id=drive_id,
-                                        list_item_id=list_item_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_list_item(drive_id=drive_id,
-                                   list_item_id=list_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   if_match=if_match)
-
-
-def files_get_drive_item(client,
-                         drive_id,
-                         list_item_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(drive_id=drive_id,
-                                 list_item_id=list_item_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 drive_id,
-                                 list_item_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(drive_id=drive_id,
-                                         list_item_id=list_item_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_list_item(client,
-                        drive_id,
-                        list_item_id,
-                        item_activity_old_id,
-                        select=None,
-                        expand=None):
-    return client.get_list_item(drive_id=drive_id,
-                                list_item_id=list_item_id,
-                                item_activity_old_id=item_activity_old_id,
-                                select=select,
-                                expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 drive_id,
-                                 list_item_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(drive_id=drive_id,
-                                         list_item_id=list_item_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_update_drive_item(client,
-                            drive_id,
-                            list_item_id,
-                            item_activity_old_id,
-                            body):
-    return client.update_drive_item(drive_id=drive_id,
-                                    list_item_id=list_item_id,
-                                    item_activity_old_id=item_activity_old_id,
-                                    body=body)
-
-
-def files_update_list_item(client,
-                           drive_id,
-                           list_item_id,
-                           item_activity_old_id,
-                           content_type,
-                           id_=None,
-                           created_date_time=None,
-                           description=None,
-                           e_tag=None,
-                           last_modified_date_time=None,
-                           name=None,
-                           web_url=None,
-                           created_by_user=None,
-                           last_modified_by_user=None,
-                           parent_reference_drive_id=None,
-                           parent_reference_drive_type=None,
-                           parent_reference_id=None,
-                           parent_reference_name=None,
-                           parent_reference_path=None,
-                           parent_reference_share_id=None,
-                           parent_reference_sharepoint_ids=None,
-                           parent_reference_site_id=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           user=None,
-                           created_by_application=None,
-                           created_by_device=None,
-                           microsoft_graph_identity_user=None,
-                           microsoft_graph_sharepoint_ids=None,
-                           activities=None,
-                           analytics=None,
-                           drive_item=None,
-                           versions=None,
-                           fields_id=None):
-    return client.update_list_item(drive_id=drive_id,
-                                   list_item_id=list_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   content_type_parameter=content_type,
-                                   microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                   activities=activities,
-                                   analytics=analytics,
-                                   drive_item=drive_item,
-                                   versions=versions,
-                                   microsoft_graph_entity_id=fields_id)
-
-
-def files_create_link(client,
-                      drive_id,
-                      list_item_id,
-                      item_activity_old_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(drive_id=drive_id,
-                              list_item_id=list_item_id,
-                              item_activity_old_id=item_activity_old_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_get_activity_by_interval(client,
-                                   drive_id,
-                                   list_item_id,
-                                   item_activity_old_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(drive_id=drive_id,
-                                           list_item_id=list_item_id,
-                                           item_activity_old_id=item_activity_old_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_delete(client,
-                 drive_id,
-                 list_item_id,
-                 list_item_version_id,
-                 if_match=None):
-    return client.delete_field(drive_id=drive_id,
-                               list_item_id=list_item_id,
-                               list_item_version_id=list_item_version_id,
-                               if_match=if_match)
-
-
-def files_get_field(client,
-                    drive_id,
-                    list_item_id,
-                    list_item_version_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(drive_id=drive_id,
-                            list_item_id=list_item_id,
-                            list_item_version_id=list_item_version_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_restore_version(client,
-                          drive_id,
-                          list_item_id,
-                          list_item_version_id):
-    return client.restore_version(drive_id=drive_id,
-                                  list_item_id=list_item_id,
-                                  list_item_version_id=list_item_version_id)
-
-
-def files_update_field(client,
-                       drive_id,
-                       list_item_id,
-                       list_item_version_id,
-                       id_=None):
-    return client.update_field(drive_id=drive_id,
-                               list_item_id=list_item_id,
-                               list_item_version_id=list_item_version_id,
-                               id=id_)
-
-
-def files_delete(client,
-                 group_id,
-                 drive_id=None,
-                 if_match=None):
-    if group_id is not None and drive_id is not None:
-        return client.delete_drive(group_id=group_id,
-                                   drive_id=drive_id,
-                                   if_match=if_match)
-    return client.delete_drive(group_id=group_id,
-                               if_match=if_match)
-
-
-def files_create_drive(client,
-                       group_id,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
-    return client.create_drive(group_id=group_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
-
-
-def files_get_drive(client,
-                    group_id,
-                    drive_id=None,
-                    select=None,
-                    expand=None):
-    if group_id is not None and drive_id is not None:
-        return client.get_drive(group_id=group_id,
-                                drive_id=drive_id,
-                                select=select,
-                                expand=expand)
     return client.get_drive(group_id=group_id,
                             select=select,
                             expand=expand)
 
 
-def files_list_drive(client,
-                     group_id,
-                     orderby=None,
-                     select=None,
-                     expand=None):
-    return client.list_drive(group_id=group_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
-
-
-def files_update_drive(client,
-                       group_id,
-                       drive_id=None,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
+def files_group_update_drive(client,
+                             group_id,
+                             drive_id=None,
+                             id_=None,
+                             created_date_time=None,
+                             description=None,
+                             e_tag=None,
+                             last_modified_date_time=None,
+                             name=None,
+                             web_url=None,
+                             created_by_user=None,
+                             last_modified_by_user=None,
+                             microsoft_graph_item_reference_drive_id=None,
+                             drive_type=None,
+                             microsoft_graph_item_reference_id=None,
+                             microsoft_graph_item_reference_name=None,
+                             path=None,
+                             share_id=None,
+                             sharepoint_ids=None,
+                             site_id=None,
+                             application=None,
+                             device=None,
+                             user=None,
+                             microsoft_graph_identity_application=None,
+                             microsoft_graph_identity_device=None,
+                             microsoft_graph_identity_user=None,
+                             microsoft_graph_drive_type=None,
+                             share_point_ids=None,
+                             system=None,
+                             activities=None,
+                             bundles=None,
+                             following=None,
+                             items=None,
+                             root=None,
+                             special=None,
+                             microsoft_graph_entity_id=None,
+                             microsoft_graph_base_item_created_date_time_created_date_time=None,
+                             microsoft_graph_base_item_description=None,
+                             microsoft_graph_base_item_e_tag=None,
+                             microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                             microsoft_graph_base_item_name=None,
+                             microsoft_graph_base_item_web_url=None,
+                             microsoft_graph_user_created_by_user=None,
+                             microsoft_graph_user_last_modified_by_user=None,
+                             drive_id1=None,
+                             microsoft_graph_item_reference_drive_type=None,
+                             id1=None,
+                             name1=None,
+                             microsoft_graph_item_reference_path=None,
+                             microsoft_graph_item_reference_share_id=None,
+                             microsoft_graph_sharepoint_ids=None,
+                             microsoft_graph_item_reference_site_id=None,
+                             application1=None,
+                             device1=None,
+                             user1=None,
+                             application2=None,
+                             device2=None,
+                             user2=None,
+                             display_name=None,
+                             list=None,
+                             sharepoint_ids1=None,
+                             microsoft_graph_system_facet_system=None,
+                             microsoft_graph_list_activities=None,
+                             columns=None,
+                             content_types=None,
+                             drive=None,
+                             microsoft_graph_list_items=None,
+                             subscriptions=None,
+                             deleted=None,
+                             remaining=None,
+                             state=None,
+                             storage_plan_information=None,
+                             total=None,
+                             used=None,
+                             application3=None,
+                             device3=None,
+                             user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = drive_id1
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
     if group_id is not None and drive_id is not None:
-        return client.update_drive(group_id=group_id,
-                                   drive_id=drive_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   microsoft_graph_drive_type=microsoft_graph_drive_type,
-                                   share_point_ids=share_point_ids,
-                                   system=system,
-                                   activities=activities,
-                                   bundles=bundles,
-                                   following=following,
-                                   items=items,
-                                   root=root,
-                                   special=special,
-                                   microsoft_graph_entity_id=list_id,
-                                   microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                                   microsoft_graph_base_item_description=list_description,
-                                   microsoft_graph_base_item_e_tag=list_e_tag,
-                                   microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                                   microsoft_graph_base_item_name=list_name,
-                                   microsoft_graph_base_item_web_url=list_web_url,
-                                   microsoft_graph_user_created_by_user=list_created_by_user,
-                                   microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                                   drive_id1=list_parent_reference_drive_id,
-                                   microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                                   id1=list_parent_reference_id,
-                                   name1=list_parent_reference_name,
-                                   microsoft_graph_item_reference_path=list_parent_reference_path,
-                                   microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                                   microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                                   microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                                   application1=list_last_modified_by_application,
-                                   device1=list_last_modified_by_device,
-                                   user1=user1,
-                                   application2=list_created_by_application,
-                                   device2=list_created_by_device,
-                                   user2=user2,
-                                   display_name=list_display_name,
-                                   list=list_list,
-                                   sharepoint_ids1=list_sharepoint_ids,
-                                   microsoft_graph_system_facet_system=list_system,
-                                   microsoft_graph_list_activities=list_activities,
-                                   columns=list_columns,
-                                   content_types=list_content_types,
-                                   drive=list_drive,
-                                   microsoft_graph_list_items=list_items,
-                                   subscriptions=list_subscriptions,
-                                   deleted=quota_deleted,
-                                   remaining=quota_remaining,
-                                   state=quota_state,
-                                   storage_plan_information=quota_storage_plan_information,
-                                   total=quota_total,
-                                   used=quota_used,
-                                   application3=owner_application,
-                                   device3=owner_device,
-                                   user3=owner_user)
+        return client.update_drives(group_id=group_id,
+                                    drive_id=drive_id,
+                                    body=body)
     return client.update_drive(group_id=group_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
+                               body=body)
 
 
-def files_delete(client,
-                 shared_drive_item_id,
-                 if_match=None):
+def files_sharesshareddriveitem_create_shared_drive_item(client,
+                                                         body):
+    return client.create_shared_drive_item(body=body)
+
+
+def files_sharesshareddriveitem_delete_shared_drive_item(client,
+                                                         shared_drive_item_id,
+                                                         if_match=None):
     return client.delete_shared_drive_item(shared_drive_item_id=shared_drive_item_id,
                                            if_match=if_match)
 
 
-def files_create_shared_drive_item(client,
-                                   body):
-    return client.create_shared_drive_item(body=body)
-
-
-def files_get_shared_drive_item(client,
-                                shared_drive_item_id,
-                                select=None,
-                                expand=None):
-    return client.get_shared_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        select=select,
-                                        expand=expand)
-
-
-def files_list_shared_drive_item(client,
-                                 orderby=None,
-                                 select=None,
-                                 expand=None):
+def files_sharesshareddriveitem_list_shared_drive_item(client,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
     return client.list_shared_drive_item(orderby=orderby,
                                          select=select,
                                          expand=expand)
 
 
-def files_update_shared_drive_item(client,
-                                   shared_drive_item_id,
-                                   body):
+def files_sharesshareddriveitem_show_shared_drive_item(client,
+                                                       shared_drive_item_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_shared_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                        select=select,
+                                        expand=expand)
+
+
+def files_sharesshareddriveitem_update_shared_drive_item(client,
+                                                         shared_drive_item_id,
+                                                         body):
     return client.update_shared_drive_item(shared_drive_item_id=shared_drive_item_id,
                                            body=body)
 
 
-def files_delete(client,
-                 shared_drive_item_id,
-                 drive_item_id=None,
-                 if_match=None):
-    if shared_drive_item_id is not None and drive_item_id is not None:
-        return client.delete_item(shared_drive_item_id=shared_drive_item_id,
-                                  drive_item_id=drive_item_id,
-                                  if_match=if_match)
-    elif shared_drive_item_id is not None:
-        return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        if_match=if_match)
-    elif shared_drive_item_id is not None:
-        return client.delete_list(shared_drive_item_id=shared_drive_item_id,
-                                  if_match=if_match)
-    elif shared_drive_item_id is not None:
-        return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
-                                       if_match=if_match)
-    elif shared_drive_item_id is not None:
-        return client.delete_permission(shared_drive_item_id=shared_drive_item_id,
-                                        if_match=if_match)
-    elif shared_drive_item_id is not None:
-        return client.delete_root(shared_drive_item_id=shared_drive_item_id,
-                                  if_match=if_match)
+def files_share_create_item(client,
+                            shared_drive_item_id,
+                            body):
+    return client.create_items(shared_drive_item_id=shared_drive_item_id,
+                               body=body)
+
+
+def files_share_delete_drive_item(client,
+                                  shared_drive_item_id,
+                                  if_match=None):
+    return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    if_match=if_match)
+
+
+def files_share_delete_item(client,
+                            shared_drive_item_id,
+                            drive_item_id,
+                            if_match=None):
+    return client.delete_items(shared_drive_item_id=shared_drive_item_id,
+                               drive_item_id=drive_item_id,
+                               if_match=if_match)
+
+
+def files_share_delete_list(client,
+                            shared_drive_item_id,
+                            if_match=None):
+    return client.delete_list(shared_drive_item_id=shared_drive_item_id,
+                              if_match=if_match)
+
+
+def files_share_delete_list_item(client,
+                                 shared_drive_item_id,
+                                 if_match=None):
+    return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   if_match=if_match)
+
+
+def files_share_delete_permission(client,
+                                  shared_drive_item_id,
+                                  if_match=None):
+    return client.delete_permission(shared_drive_item_id=shared_drive_item_id,
+                                    if_match=if_match)
+
+
+def files_share_delete_root(client,
+                            shared_drive_item_id,
+                            if_match=None):
+    return client.delete_root(shared_drive_item_id=shared_drive_item_id,
+                              if_match=if_match)
+
+
+def files_share_delete_site(client,
+                            shared_drive_item_id,
+                            if_match=None):
     return client.delete_site(shared_drive_item_id=shared_drive_item_id,
                               if_match=if_match)
 
 
-def files_create_item(client,
-                      shared_drive_item_id,
-                      body):
-    return client.create_item(shared_drive_item_id=shared_drive_item_id,
-                              body=body)
-
-
-def files_get_drive_item(client,
-                         shared_drive_item_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 shared_drive_item_id):
-    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id)
-
-
-def files_get_item(client,
-                   shared_drive_item_id,
-                   drive_item_id,
-                   select=None,
-                   expand=None):
-    return client.get_item(shared_drive_item_id=shared_drive_item_id,
-                           drive_item_id=drive_item_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_get_item_content(client,
-                           shared_drive_item_id,
-                           drive_item_id):
-    return client.get_item_content(shared_drive_item_id=shared_drive_item_id,
-                                   drive_item_id=drive_item_id)
-
-
-def files_get_list(client,
-                   shared_drive_item_id,
-                   select=None,
-                   expand=None):
-    return client.get_list(shared_drive_item_id=shared_drive_item_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_get_list_item(client,
-                        shared_drive_item_id,
-                        select=None,
-                        expand=None):
-    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
-                                select=select,
-                                expand=expand)
-
-
-def files_get_permission(client,
-                         shared_drive_item_id,
-                         select=None,
-                         expand=None):
-    return client.get_permission(shared_drive_item_id=shared_drive_item_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_root(client,
-                   shared_drive_item_id,
-                   select=None,
-                   expand=None):
-    return client.get_root(shared_drive_item_id=shared_drive_item_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_get_root_content(client,
-                           shared_drive_item_id):
-    return client.get_root_content(shared_drive_item_id=shared_drive_item_id)
-
-
-def files_get_site(client,
-                   shared_drive_item_id,
-                   select=None,
-                   expand=None):
-    return client.get_site(shared_drive_item_id=shared_drive_item_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_list_item(client,
-                    shared_drive_item_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
-    return client.list_item(shared_drive_item_id=shared_drive_item_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 data):
-    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         data=data)
-
-
-def files_set_item_content(client,
-                           shared_drive_item_id,
-                           drive_item_id,
-                           data):
-    return client.set_item_content(shared_drive_item_id=shared_drive_item_id,
-                                   drive_item_id=drive_item_id,
-                                   data=data)
-
-
-def files_set_root_content(client,
-                           shared_drive_item_id,
-                           data):
-    return client.set_root_content(shared_drive_item_id=shared_drive_item_id,
-                                   data=data)
-
-
-def files_update_drive_item(client,
-                            shared_drive_item_id,
-                            body):
-    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                    body=body)
-
-
-def files_update_item(client,
-                      shared_drive_item_id,
-                      drive_item_id,
-                      body):
-    return client.update_item(shared_drive_item_id=shared_drive_item_id,
-                              drive_item_id=drive_item_id,
-                              body=body)
-
-
-def files_update_list(client,
-                      shared_drive_item_id,
-                      id_=None,
-                      created_date_time=None,
-                      description=None,
-                      e_tag=None,
-                      last_modified_date_time=None,
-                      name=None,
-                      web_url=None,
-                      created_by_user=None,
-                      last_modified_by_user=None,
-                      parent_reference_drive_id=None,
-                      parent_reference_drive_type=None,
-                      parent_reference_id=None,
-                      parent_reference_name=None,
-                      parent_reference_path=None,
-                      parent_reference_share_id=None,
-                      parent_reference_sharepoint_ids=None,
-                      parent_reference_site_id=None,
-                      last_modified_by_application=None,
-                      last_modified_by_device=None,
-                      user=None,
-                      created_by_application=None,
-                      created_by_device=None,
-                      microsoft_graph_identity_user=None,
-                      display_name=None,
-                      list=None,
-                      microsoft_graph_sharepoint_ids=None,
-                      system=None,
-                      activities=None,
-                      columns=None,
-                      content_types=None,
-                      drive=None,
-                      items=None,
-                      subscriptions=None):
-    return client.update_list(shared_drive_item_id=shared_drive_item_id,
-                              id=id_,
-                              created_date_time=created_date_time,
-                              description=description,
-                              e_tag=e_tag,
-                              last_modified_date_time=last_modified_date_time,
-                              name=name,
-                              web_url=web_url,
-                              created_by_user=created_by_user,
-                              last_modified_by_user=last_modified_by_user,
-                              drive_id=parent_reference_drive_id,
-                              drive_type=parent_reference_drive_type,
-                              microsoft_graph_item_reference_id=parent_reference_id,
-                              microsoft_graph_item_reference_name=parent_reference_name,
-                              path=parent_reference_path,
-                              share_id=parent_reference_share_id,
-                              sharepoint_ids=parent_reference_sharepoint_ids,
-                              site_id=parent_reference_site_id,
-                              application=last_modified_by_application,
-                              device=last_modified_by_device,
-                              user=user,
-                              microsoft_graph_identity_application=created_by_application,
-                              microsoft_graph_identity_device=created_by_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              display_name=display_name,
-                              list=list,
-                              microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                              system=system,
-                              activities=activities,
-                              columns=columns,
-                              content_types=content_types,
-                              drive=drive,
-                              items=items,
-                              subscriptions=subscriptions)
-
-
-def files_update_list_item(client,
-                           shared_drive_item_id,
-                           content_type,
-                           id_=None,
-                           created_date_time=None,
-                           description=None,
-                           e_tag=None,
-                           last_modified_date_time=None,
-                           name=None,
-                           web_url=None,
-                           created_by_user=None,
-                           last_modified_by_user=None,
-                           parent_reference_drive_id=None,
-                           parent_reference_drive_type=None,
-                           parent_reference_id=None,
-                           parent_reference_name=None,
-                           parent_reference_path=None,
-                           parent_reference_share_id=None,
-                           parent_reference_sharepoint_ids=None,
-                           parent_reference_site_id=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           user=None,
-                           created_by_application=None,
-                           created_by_device=None,
-                           microsoft_graph_identity_user=None,
-                           microsoft_graph_sharepoint_ids=None,
-                           activities=None,
-                           analytics=None,
-                           drive_item=None,
-                           versions=None,
-                           fields_id=None):
-    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   content_type_parameter=content_type,
-                                   microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                   activities=activities,
-                                   analytics=analytics,
-                                   drive_item=drive_item,
-                                   versions=versions,
-                                   microsoft_graph_entity_id=fields_id)
-
-
-def files_update_permission(client,
-                            shared_drive_item_id,
-                            body):
-    return client.update_permission(shared_drive_item_id=shared_drive_item_id,
-                                    body=body)
-
-
-def files_update_root(client,
-                      shared_drive_item_id,
-                      body):
-    return client.update_root(shared_drive_item_id=shared_drive_item_id,
-                              body=body)
-
-
-def files_update_site(client,
-                      shared_drive_item_id,
-                      id_=None,
-                      created_date_time=None,
-                      description=None,
-                      e_tag=None,
-                      last_modified_date_time=None,
-                      name=None,
-                      web_url=None,
-                      created_by_user=None,
-                      last_modified_by_user=None,
-                      parent_reference_drive_id=None,
-                      parent_reference_drive_type=None,
-                      parent_reference_id=None,
-                      parent_reference_name=None,
-                      parent_reference_path=None,
-                      parent_reference_share_id=None,
-                      parent_reference_sharepoint_ids=None,
-                      parent_reference_site_id=None,
-                      last_modified_by_application=None,
-                      last_modified_by_device=None,
-                      user=None,
-                      created_by_application=None,
-                      created_by_device=None,
-                      microsoft_graph_identity_user=None,
-                      display_name=None,
-                      root=None,
-                      microsoft_graph_sharepoint_ids=None,
-                      analytics=None,
-                      columns=None,
-                      content_types=None,
-                      drive=None,
-                      drives=None,
-                      items=None,
-                      lists=None,
-                      pages=None,
-                      sites=None,
-                      onenote_id=None,
-                      onenote_notebooks=None,
-                      onenote_operations=None,
-                      onenote_pages=None,
-                      onenote_resources=None,
-                      onenote_section_groups=None,
-                      onenote_sections=None,
-                      site_collection_data_location_code=None,
-                      site_collection_hostname=None,
-                      site_collection_root=None,
-                      deleted_state=None):
-    return client.update_site(shared_drive_item_id=shared_drive_item_id,
-                              id=id_,
-                              created_date_time=created_date_time,
-                              description=description,
-                              e_tag=e_tag,
-                              last_modified_date_time=last_modified_date_time,
-                              name=name,
-                              web_url=web_url,
-                              created_by_user=created_by_user,
-                              last_modified_by_user=last_modified_by_user,
-                              drive_id=parent_reference_drive_id,
-                              drive_type=parent_reference_drive_type,
-                              microsoft_graph_item_reference_id=parent_reference_id,
-                              microsoft_graph_item_reference_name=parent_reference_name,
-                              path=parent_reference_path,
-                              share_id=parent_reference_share_id,
-                              sharepoint_ids=parent_reference_sharepoint_ids,
-                              site_id=parent_reference_site_id,
-                              application=last_modified_by_application,
-                              device=last_modified_by_device,
-                              user=user,
-                              microsoft_graph_identity_application=created_by_application,
-                              microsoft_graph_identity_device=created_by_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              display_name=display_name,
-                              root=root,
-                              microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                              analytics=analytics,
-                              columns=columns,
-                              content_types=content_types,
-                              drive=drive,
-                              drives=drives,
-                              items=items,
-                              lists=lists,
-                              pages=pages,
-                              sites=sites,
-                              microsoft_graph_entity_id=onenote_id,
-                              notebooks=onenote_notebooks,
-                              operations=onenote_operations,
-                              microsoft_graph_onenote_pages=onenote_pages,
-                              resources=onenote_resources,
-                              section_groups=onenote_section_groups,
-                              sections=onenote_sections,
-                              data_location_code=site_collection_data_location_code,
-                              hostname=site_collection_hostname,
-                              microsoft_graph_root=site_collection_root,
-                              state=deleted_state)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 item_activity_old_id=None,
-                 if_match=None,
-                 column_definition_id=None,
-                 content_type_id=None,
-                 list_item_id=None,
-                 subscription_id=None):
-    if shared_drive_item_id is not None and item_activity_old_id is not None:
-        return client.delete_activity(shared_drive_item_id=shared_drive_item_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      if_match=if_match)
-    elif shared_drive_item_id is not None and column_definition_id is not None:
-        return client.delete_column(shared_drive_item_id=shared_drive_item_id,
-                                    column_definition_id=column_definition_id,
-                                    if_match=if_match)
-    elif shared_drive_item_id is not None and content_type_id is not None:
-        return client.delete_content_type(shared_drive_item_id=shared_drive_item_id,
-                                          content_type_id=content_type_id,
-                                          if_match=if_match)
-    elif shared_drive_item_id is not None and list_item_id is not None:
-        return client.delete_item(shared_drive_item_id=shared_drive_item_id,
-                                  list_item_id=list_item_id,
-                                  if_match=if_match)
-    elif shared_drive_item_id is not None and subscription_id is not None:
-        return client.delete_subscription(shared_drive_item_id=shared_drive_item_id,
-                                          subscription_id=subscription_id,
-                                          if_match=if_match)
-    return client.delete_drive(shared_drive_item_id=shared_drive_item_id,
-                               if_match=if_match)
-
-
-def files_create_activity(client,
+def files_share_list_item(client,
                           shared_drive_item_id,
-                          body):
-    return client.create_activity(shared_drive_item_id=shared_drive_item_id,
-                                  body=body)
-
-
-def files_create_column(client,
-                        shared_drive_item_id,
-                        id_=None,
-                        boolean=None,
-                        calculated=None,
-                        choice=None,
-                        column_group=None,
-                        date_time=None,
-                        default_value=None,
-                        description=None,
-                        display_name=None,
-                        enforce_unique_values=None,
-                        geolocation=None,
-                        hidden=None,
-                        indexed=None,
-                        lookup=None,
-                        name=None,
-                        number=None,
-                        person_or_group=None,
-                        read_only=None,
-                        required=None,
-                        text=None,
-                        currency_locale=None):
-    return client.create_column(shared_drive_item_id=shared_drive_item_id,
-                                id=id_,
-                                boolean=boolean,
-                                calculated=calculated,
-                                choice=choice,
-                                column_group=column_group,
-                                date_time=date_time,
-                                default_value=default_value,
-                                description=description,
-                                display_name=display_name,
-                                enforce_unique_values=enforce_unique_values,
-                                geolocation=geolocation,
-                                hidden=hidden,
-                                indexed=indexed,
-                                lookup=lookup,
-                                name=name,
-                                number=number,
-                                person_or_group=person_or_group,
-                                read_only=read_only,
-                                required=required,
-                                text=text,
-                                locale=currency_locale)
-
-
-def files_create_content_type(client,
-                              shared_drive_item_id,
-                              id_=None,
-                              description=None,
-                              group=None,
-                              hidden=None,
-                              name=None,
-                              order=None,
-                              parent_id=None,
-                              read_only=None,
-                              sealed=None,
-                              column_links=None,
-                              inherited_from_drive_id=None,
-                              inherited_from_drive_type=None,
-                              inherited_from_id=None,
-                              inherited_from_name=None,
-                              inherited_from_path=None,
-                              inherited_from_share_id=None,
-                              inherited_from_sharepoint_ids=None,
-                              inherited_from_site_id=None):
-    return client.create_content_type(shared_drive_item_id=shared_drive_item_id,
-                                      id=id_,
-                                      description=description,
-                                      group=group,
-                                      hidden=hidden,
-                                      name=name,
-                                      order=order,
-                                      parent_id=parent_id,
-                                      read_only=read_only,
-                                      sealed=sealed,
-                                      column_links=column_links,
-                                      drive_id=inherited_from_drive_id,
-                                      drive_type=inherited_from_drive_type,
-                                      microsoft_graph_item_reference_id=inherited_from_id,
-                                      microsoft_graph_item_reference_name=inherited_from_name,
-                                      path=inherited_from_path,
-                                      share_id=inherited_from_share_id,
-                                      sharepoint_ids=inherited_from_sharepoint_ids,
-                                      site_id=inherited_from_site_id)
-
-
-def files_create_item(client,
-                      shared_drive_item_id,
-                      content_type,
-                      id_=None,
-                      created_date_time=None,
-                      description=None,
-                      e_tag=None,
-                      last_modified_date_time=None,
-                      name=None,
-                      web_url=None,
-                      created_by_user=None,
-                      last_modified_by_user=None,
-                      parent_reference_drive_id=None,
-                      parent_reference_drive_type=None,
-                      parent_reference_id=None,
-                      parent_reference_name=None,
-                      parent_reference_path=None,
-                      parent_reference_share_id=None,
-                      parent_reference_sharepoint_ids=None,
-                      parent_reference_site_id=None,
-                      last_modified_by_application=None,
-                      last_modified_by_device=None,
-                      user=None,
-                      created_by_application=None,
-                      created_by_device=None,
-                      microsoft_graph_identity_user=None,
-                      microsoft_graph_sharepoint_ids=None,
-                      activities=None,
-                      analytics=None,
-                      drive_item=None,
-                      versions=None,
-                      fields_id=None):
-    return client.create_item(shared_drive_item_id=shared_drive_item_id,
-                              id=id_,
-                              created_date_time=created_date_time,
-                              description=description,
-                              e_tag=e_tag,
-                              last_modified_date_time=last_modified_date_time,
-                              name=name,
-                              web_url=web_url,
-                              created_by_user=created_by_user,
-                              last_modified_by_user=last_modified_by_user,
-                              drive_id=parent_reference_drive_id,
-                              drive_type=parent_reference_drive_type,
-                              microsoft_graph_item_reference_id=parent_reference_id,
-                              microsoft_graph_item_reference_name=parent_reference_name,
-                              path=parent_reference_path,
-                              share_id=parent_reference_share_id,
-                              sharepoint_ids=parent_reference_sharepoint_ids,
-                              site_id=parent_reference_site_id,
-                              application=last_modified_by_application,
-                              device=last_modified_by_device,
-                              user=user,
-                              microsoft_graph_identity_application=created_by_application,
-                              microsoft_graph_identity_device=created_by_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              content_type_parameter=content_type,
-                              microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                              activities=activities,
-                              analytics=analytics,
-                              drive_item=drive_item,
-                              versions=versions,
-                              microsoft_graph_entity_id=fields_id)
-
-
-def files_create_subscription(client,
-                              shared_drive_item_id,
-                              id_=None,
-                              application_id=None,
-                              change_type=None,
-                              client_state=None,
-                              creator_id=None,
-                              encryption_certificate=None,
-                              encryption_certificate_id=None,
-                              expiration_date_time=None,
-                              include_properties=None,
-                              include_resource_data=None,
-                              latest_supported_tls_version=None,
-                              lifecycle_notification_url=None,
-                              notification_url=None,
-                              resource=None):
-    return client.create_subscription(shared_drive_item_id=shared_drive_item_id,
-                                      id=id_,
-                                      application_id=application_id,
-                                      change_type=change_type,
-                                      client_state=client_state,
-                                      creator_id=creator_id,
-                                      encryption_certificate=encryption_certificate,
-                                      encryption_certificate_id=encryption_certificate_id,
-                                      expiration_date_time=expiration_date_time,
-                                      include_properties=include_properties,
-                                      include_resource_data=include_resource_data,
-                                      latest_supported_tls_version=latest_supported_tls_version,
-                                      lifecycle_notification_url=lifecycle_notification_url,
-                                      notification_url=notification_url,
-                                      resource=resource)
-
-
-def files_get_activity(client,
-                       shared_drive_item_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_activity(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_column(client,
-                     shared_drive_item_id,
-                     column_definition_id,
-                     select=None,
-                     expand=None):
-    return client.get_column(shared_drive_item_id=shared_drive_item_id,
-                             column_definition_id=column_definition_id,
-                             select=select,
-                             expand=expand)
-
-
-def files_get_content_type(client,
-                           shared_drive_item_id,
-                           content_type_id,
-                           select=None,
-                           expand=None):
-    return client.get_content_type(shared_drive_item_id=shared_drive_item_id,
-                                   content_type_id=content_type_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def files_get_drive(client,
-                    shared_drive_item_id,
-                    select=None,
-                    expand=None):
-    return client.get_drive(shared_drive_item_id=shared_drive_item_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_get_item(client,
-                   shared_drive_item_id,
-                   list_item_id,
-                   select=None,
-                   expand=None):
-    return client.get_item(shared_drive_item_id=shared_drive_item_id,
-                           list_item_id=list_item_id,
-                           select=select,
-                           expand=expand)
-
-
-def files_get_subscription(client,
-                           shared_drive_item_id,
-                           subscription_id,
-                           select=None,
-                           expand=None):
-    return client.get_subscription(shared_drive_item_id=shared_drive_item_id,
-                                   subscription_id=subscription_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def files_list_activity(client,
-                        shared_drive_item_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(shared_drive_item_id=shared_drive_item_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def files_list_column(client,
-                      shared_drive_item_id,
-                      orderby=None,
-                      select=None,
-                      expand=None):
-    return client.list_column(shared_drive_item_id=shared_drive_item_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_content_type(client,
-                            shared_drive_item_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_content_type(shared_drive_item_id=shared_drive_item_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
-
-
-def files_list_item(client,
-                    shared_drive_item_id,
-                    orderby=None,
-                    select=None,
-                    expand=None):
-    return client.list_item(shared_drive_item_id=shared_drive_item_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
-
-
-def files_list_subscription(client,
-                            shared_drive_item_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
-    return client.list_subscription(shared_drive_item_id=shared_drive_item_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
-
-
-def files_update_activity(client,
-                          shared_drive_item_id,
-                          item_activity_old_id,
-                          body):
-    return client.update_activity(shared_drive_item_id=shared_drive_item_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
-
-
-def files_update_column(client,
-                        shared_drive_item_id,
-                        column_definition_id,
-                        id_=None,
-                        boolean=None,
-                        calculated=None,
-                        choice=None,
-                        column_group=None,
-                        date_time=None,
-                        default_value=None,
-                        description=None,
-                        display_name=None,
-                        enforce_unique_values=None,
-                        geolocation=None,
-                        hidden=None,
-                        indexed=None,
-                        lookup=None,
-                        name=None,
-                        number=None,
-                        person_or_group=None,
-                        read_only=None,
-                        required=None,
-                        text=None,
-                        currency_locale=None):
-    return client.update_column(shared_drive_item_id=shared_drive_item_id,
-                                column_definition_id=column_definition_id,
-                                id=id_,
-                                boolean=boolean,
-                                calculated=calculated,
-                                choice=choice,
-                                column_group=column_group,
-                                date_time=date_time,
-                                default_value=default_value,
-                                description=description,
-                                display_name=display_name,
-                                enforce_unique_values=enforce_unique_values,
-                                geolocation=geolocation,
-                                hidden=hidden,
-                                indexed=indexed,
-                                lookup=lookup,
-                                name=name,
-                                number=number,
-                                person_or_group=person_or_group,
-                                read_only=read_only,
-                                required=required,
-                                text=text,
-                                locale=currency_locale)
-
-
-def files_update_content_type(client,
-                              shared_drive_item_id,
-                              content_type_id,
-                              id_=None,
-                              description=None,
-                              group=None,
-                              hidden=None,
-                              name=None,
-                              order=None,
-                              parent_id=None,
-                              read_only=None,
-                              sealed=None,
-                              column_links=None,
-                              inherited_from_drive_id=None,
-                              inherited_from_drive_type=None,
-                              inherited_from_id=None,
-                              inherited_from_name=None,
-                              inherited_from_path=None,
-                              inherited_from_share_id=None,
-                              inherited_from_sharepoint_ids=None,
-                              inherited_from_site_id=None):
-    return client.update_content_type(shared_drive_item_id=shared_drive_item_id,
-                                      content_type_id=content_type_id,
-                                      id=id_,
-                                      description=description,
-                                      group=group,
-                                      hidden=hidden,
-                                      name=name,
-                                      order=order,
-                                      parent_id=parent_id,
-                                      read_only=read_only,
-                                      sealed=sealed,
-                                      column_links=column_links,
-                                      drive_id=inherited_from_drive_id,
-                                      drive_type=inherited_from_drive_type,
-                                      microsoft_graph_item_reference_id=inherited_from_id,
-                                      microsoft_graph_item_reference_name=inherited_from_name,
-                                      path=inherited_from_path,
-                                      share_id=inherited_from_share_id,
-                                      sharepoint_ids=inherited_from_sharepoint_ids,
-                                      site_id=inherited_from_site_id)
-
-
-def files_update_drive(client,
-                       shared_drive_item_id,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
-    return client.update_drive(shared_drive_item_id=shared_drive_item_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
-
-
-def files_update_item(client,
-                      shared_drive_item_id,
-                      list_item_id,
-                      content_type,
-                      id_=None,
-                      created_date_time=None,
-                      description=None,
-                      e_tag=None,
-                      last_modified_date_time=None,
-                      name=None,
-                      web_url=None,
-                      created_by_user=None,
-                      last_modified_by_user=None,
-                      parent_reference_drive_id=None,
-                      parent_reference_drive_type=None,
-                      parent_reference_id=None,
-                      parent_reference_name=None,
-                      parent_reference_path=None,
-                      parent_reference_share_id=None,
-                      parent_reference_sharepoint_ids=None,
-                      parent_reference_site_id=None,
-                      last_modified_by_application=None,
-                      last_modified_by_device=None,
-                      user=None,
-                      created_by_application=None,
-                      created_by_device=None,
-                      microsoft_graph_identity_user=None,
-                      microsoft_graph_sharepoint_ids=None,
-                      activities=None,
-                      analytics=None,
-                      drive_item=None,
-                      versions=None,
-                      fields_id=None):
-    return client.update_item(shared_drive_item_id=shared_drive_item_id,
-                              list_item_id=list_item_id,
-                              id=id_,
-                              created_date_time=created_date_time,
-                              description=description,
-                              e_tag=e_tag,
-                              last_modified_date_time=last_modified_date_time,
-                              name=name,
-                              web_url=web_url,
-                              created_by_user=created_by_user,
-                              last_modified_by_user=last_modified_by_user,
-                              drive_id=parent_reference_drive_id,
-                              drive_type=parent_reference_drive_type,
-                              microsoft_graph_item_reference_id=parent_reference_id,
-                              microsoft_graph_item_reference_name=parent_reference_name,
-                              path=parent_reference_path,
-                              share_id=parent_reference_share_id,
-                              sharepoint_ids=parent_reference_sharepoint_ids,
-                              site_id=parent_reference_site_id,
-                              application=last_modified_by_application,
-                              device=last_modified_by_device,
-                              user=user,
-                              microsoft_graph_identity_application=created_by_application,
-                              microsoft_graph_identity_device=created_by_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              content_type_parameter=content_type,
-                              microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                              activities=activities,
-                              analytics=analytics,
-                              drive_item=drive_item,
-                              versions=versions,
-                              microsoft_graph_entity_id=fields_id)
-
-
-def files_update_subscription(client,
-                              shared_drive_item_id,
-                              subscription_id,
-                              id_=None,
-                              application_id=None,
-                              change_type=None,
-                              client_state=None,
-                              creator_id=None,
-                              encryption_certificate=None,
-                              encryption_certificate_id=None,
-                              expiration_date_time=None,
-                              include_properties=None,
-                              include_resource_data=None,
-                              latest_supported_tls_version=None,
-                              lifecycle_notification_url=None,
-                              notification_url=None,
-                              resource=None):
-    return client.update_subscription(shared_drive_item_id=shared_drive_item_id,
-                                      subscription_id=subscription_id,
-                                      id=id_,
-                                      application_id=application_id,
-                                      change_type=change_type,
-                                      client_state=client_state,
-                                      creator_id=creator_id,
-                                      encryption_certificate=encryption_certificate,
-                                      encryption_certificate_id=encryption_certificate_id,
-                                      expiration_date_time=expiration_date_time,
-                                      include_properties=include_properties,
-                                      include_resource_data=include_resource_data,
-                                      latest_supported_tls_version=latest_supported_tls_version,
-                                      lifecycle_notification_url=lifecycle_notification_url,
-                                      notification_url=notification_url,
-                                      resource=resource)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 item_activity_old_id,
-                 if_match=None):
-    if shared_drive_item_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   if_match=if_match)
-
-
-def files_get_drive_item(client,
-                         shared_drive_item_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_list_item(client,
-                        shared_drive_item_id,
-                        item_activity_old_id,
-                        select=None,
-                        expand=None):
-    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
-                                item_activity_old_id=item_activity_old_id,
-                                select=select,
-                                expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_update_drive_item(client,
-                            shared_drive_item_id,
-                            item_activity_old_id,
-                            body):
-    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                    item_activity_old_id=item_activity_old_id,
-                                    body=body)
-
-
-def files_update_list_item(client,
-                           shared_drive_item_id,
-                           item_activity_old_id,
-                           content_type,
-                           id_=None,
-                           created_date_time=None,
-                           description=None,
-                           e_tag=None,
-                           last_modified_date_time=None,
-                           name=None,
-                           web_url=None,
-                           created_by_user=None,
-                           last_modified_by_user=None,
-                           parent_reference_drive_id=None,
-                           parent_reference_drive_type=None,
-                           parent_reference_id=None,
-                           parent_reference_name=None,
-                           parent_reference_path=None,
-                           parent_reference_share_id=None,
-                           parent_reference_sharepoint_ids=None,
-                           parent_reference_site_id=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           user=None,
-                           created_by_application=None,
-                           created_by_device=None,
-                           microsoft_graph_identity_user=None,
-                           microsoft_graph_sharepoint_ids=None,
-                           activities=None,
-                           analytics=None,
-                           drive_item=None,
-                           versions=None,
-                           fields_id=None):
-    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   content_type_parameter=content_type,
-                                   microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                   activities=activities,
-                                   analytics=analytics,
-                                   drive_item=drive_item,
-                                   versions=versions,
-                                   microsoft_graph_entity_id=fields_id)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 item_activity_old_id,
-                 item_activity_old_id1=None,
-                 if_match=None,
-                 list_item_version_id=None):
-    if shared_drive_item_id is not None and item_activity_old_id is not None and item_activity_old_id1 is not None:
-        return client.delete_activity(shared_drive_item_id=shared_drive_item_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      item_activity_old_id1=item_activity_old_id1,
-                                      if_match=if_match)
-    elif shared_drive_item_id is not None and item_activity_old_id is not None and list_item_version_id is not None:
-        return client.delete_version(shared_drive_item_id=shared_drive_item_id,
-                                     item_activity_old_id=item_activity_old_id,
-                                     list_item_version_id=list_item_version_id,
-                                     if_match=if_match)
-    elif shared_drive_item_id is not None and item_activity_old_id is not None:
-        return client.delete_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                          item_activity_old_id=item_activity_old_id,
-                                          if_match=if_match)
-    elif shared_drive_item_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_field(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               if_match=if_match)
-
-
-def files_create_activity(client,
-                          shared_drive_item_id,
-                          item_activity_old_id,
-                          body):
-    return client.create_activity(shared_drive_item_id=shared_drive_item_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
-
-
-def files_create_link(client,
-                      shared_drive_item_id,
-                      item_activity_old_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(shared_drive_item_id=shared_drive_item_id,
-                              item_activity_old_id=item_activity_old_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_create_version(client,
-                         shared_drive_item_id,
-                         item_activity_old_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.create_version(shared_drive_item_id=shared_drive_item_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_get_activity(client,
-                       shared_drive_item_id,
-                       item_activity_old_id,
-                       item_activity_old_id1,
-                       select=None,
-                       expand=None):
-    return client.get_activity(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               item_activity_old_id1=item_activity_old_id1,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_activity_by_interval(client,
-                                   shared_drive_item_id,
-                                   item_activity_old_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(shared_drive_item_id=shared_drive_item_id,
-                                           item_activity_old_id=item_activity_old_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_get_analytic(client,
-                       shared_drive_item_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_analytic(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_drive_item(client,
-                         shared_drive_item_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_field(client,
-                    shared_drive_item_id,
-                    item_activity_old_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(shared_drive_item_id=shared_drive_item_id,
-                            item_activity_old_id=item_activity_old_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_get_ref_analytic(client,
-                           shared_drive_item_id,
-                           item_activity_old_id):
-    return client.get_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                   item_activity_old_id=item_activity_old_id)
-
-
-def files_get_version(client,
-                      shared_drive_item_id,
-                      item_activity_old_id,
-                      list_item_version_id,
-                      select=None,
-                      expand=None):
-    return client.get_version(shared_drive_item_id=shared_drive_item_id,
-                              item_activity_old_id=item_activity_old_id,
-                              list_item_version_id=list_item_version_id,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_activity(client,
-                        shared_drive_item_id,
-                        item_activity_old_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(shared_drive_item_id=shared_drive_item_id,
-                                item_activity_old_id=item_activity_old_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def files_list_version(client,
-                       shared_drive_item_id,
-                       item_activity_old_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
-    return client.list_version(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_set_ref_analytic(client,
-                           shared_drive_item_id,
-                           item_activity_old_id,
-                           body):
-    return client.set_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   body=body)
-
-
-def files_update_activity(client,
-                          shared_drive_item_id,
-                          item_activity_old_id,
-                          item_activity_old_id1,
-                          body):
-    return client.update_activity(shared_drive_item_id=shared_drive_item_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  item_activity_old_id1=item_activity_old_id1,
-                                  body=body)
-
-
-def files_update_drive_item(client,
-                            shared_drive_item_id,
-                            item_activity_old_id,
-                            body):
-    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                    item_activity_old_id=item_activity_old_id,
-                                    body=body)
-
-
-def files_update_field(client,
-                       shared_drive_item_id,
-                       item_activity_old_id,
-                       id_=None):
-    return client.update_field(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               id=id_)
-
-
-def files_update_version(client,
-                         shared_drive_item_id,
-                         item_activity_old_id,
-                         list_item_version_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.update_version(shared_drive_item_id=shared_drive_item_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 list_item_version_id=list_item_version_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 item_activity_old_id,
-                 list_item_version_id,
-                 if_match=None):
-    return client.delete_field(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               list_item_version_id=list_item_version_id,
-                               if_match=if_match)
-
-
-def files_get_field(client,
-                    shared_drive_item_id,
-                    item_activity_old_id,
-                    list_item_version_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(shared_drive_item_id=shared_drive_item_id,
-                            item_activity_old_id=item_activity_old_id,
-                            list_item_version_id=list_item_version_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_restore_version(client,
-                          shared_drive_item_id,
-                          item_activity_old_id,
-                          list_item_version_id):
-    return client.restore_version(shared_drive_item_id=shared_drive_item_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  list_item_version_id=list_item_version_id)
-
-
-def files_update_field(client,
-                       shared_drive_item_id,
-                       item_activity_old_id,
-                       list_item_version_id,
-                       id_=None):
-    return client.update_field(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               list_item_version_id=list_item_version_id,
-                               id=id_)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 content_type_id,
-                 column_link_id,
-                 if_match=None):
-    return client.delete_column_link(shared_drive_item_id=shared_drive_item_id,
-                                     content_type_id=content_type_id,
-                                     column_link_id=column_link_id,
-                                     if_match=if_match)
-
-
-def files_create_column_link(client,
-                             shared_drive_item_id,
-                             content_type_id,
-                             id_=None,
-                             name=None):
-    return client.create_column_link(shared_drive_item_id=shared_drive_item_id,
-                                     content_type_id=content_type_id,
-                                     id=id_,
-                                     name=name)
-
-
-def files_get_column_link(client,
-                          shared_drive_item_id,
-                          content_type_id,
-                          column_link_id,
+                          orderby=None,
                           select=None,
                           expand=None):
-    return client.get_column_link(shared_drive_item_id=shared_drive_item_id,
-                                  content_type_id=content_type_id,
-                                  column_link_id=column_link_id,
-                                  select=select,
-                                  expand=expand)
-
-
-def files_list_column_link(client,
-                           shared_drive_item_id,
-                           content_type_id,
-                           orderby=None,
-                           select=None,
-                           expand=None):
-    return client.list_column_link(shared_drive_item_id=shared_drive_item_id,
-                                   content_type_id=content_type_id,
-                                   orderby=orderby,
-                                   select=select,
-                                   expand=expand)
-
-
-def files_update_column_link(client,
-                             shared_drive_item_id,
-                             content_type_id,
-                             column_link_id,
-                             id_=None,
-                             name=None):
-    return client.update_column_link(shared_drive_item_id=shared_drive_item_id,
-                                     content_type_id=content_type_id,
-                                     column_link_id=column_link_id,
-                                     id=id_,
-                                     name=name)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 list_item_id,
-                 item_activity_old_id=None,
-                 if_match=None,
-                 list_item_version_id=None):
-    if shared_drive_item_id is not None and list_item_id is not None and item_activity_old_id is not None:
-        return client.delete_activity(shared_drive_item_id=shared_drive_item_id,
-                                      list_item_id=list_item_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      if_match=if_match)
-    elif shared_drive_item_id is not None and list_item_id is not None and list_item_version_id is not None:
-        return client.delete_version(shared_drive_item_id=shared_drive_item_id,
-                                     list_item_id=list_item_id,
-                                     list_item_version_id=list_item_version_id,
-                                     if_match=if_match)
-    elif shared_drive_item_id is not None and list_item_id is not None:
-        return client.delete_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                          list_item_id=list_item_id,
-                                          if_match=if_match)
-    elif shared_drive_item_id is not None and list_item_id is not None:
-        return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        list_item_id=list_item_id,
-                                        if_match=if_match)
-    return client.delete_field(shared_drive_item_id=shared_drive_item_id,
-                               list_item_id=list_item_id,
-                               if_match=if_match)
-
-
-def files_create_activity(client,
-                          shared_drive_item_id,
-                          list_item_id,
-                          body):
-    return client.create_activity(shared_drive_item_id=shared_drive_item_id,
-                                  list_item_id=list_item_id,
-                                  body=body)
-
-
-def files_create_link(client,
-                      shared_drive_item_id,
-                      list_item_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(shared_drive_item_id=shared_drive_item_id,
-                              list_item_id=list_item_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_create_version(client,
-                         shared_drive_item_id,
-                         list_item_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.create_version(shared_drive_item_id=shared_drive_item_id,
-                                 list_item_id=list_item_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_get_activity(client,
-                       shared_drive_item_id,
-                       list_item_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_activity(shared_drive_item_id=shared_drive_item_id,
-                               list_item_id=list_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_activity_by_interval(client,
-                                   shared_drive_item_id,
-                                   list_item_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(shared_drive_item_id=shared_drive_item_id,
-                                           list_item_id=list_item_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_get_analytic(client,
-                       shared_drive_item_id,
-                       list_item_id,
-                       select=None,
-                       expand=None):
-    return client.get_analytic(shared_drive_item_id=shared_drive_item_id,
-                               list_item_id=list_item_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_drive_item(client,
-                         shared_drive_item_id,
-                         list_item_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                 list_item_id=list_item_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 list_item_id):
-    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         list_item_id=list_item_id)
-
-
-def files_get_field(client,
-                    shared_drive_item_id,
-                    list_item_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(shared_drive_item_id=shared_drive_item_id,
-                            list_item_id=list_item_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_get_ref_analytic(client,
-                           shared_drive_item_id,
-                           list_item_id):
-    return client.get_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                   list_item_id=list_item_id)
-
-
-def files_get_version(client,
-                      shared_drive_item_id,
-                      list_item_id,
-                      list_item_version_id,
-                      select=None,
-                      expand=None):
-    return client.get_version(shared_drive_item_id=shared_drive_item_id,
-                              list_item_id=list_item_id,
-                              list_item_version_id=list_item_version_id,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_activity(client,
-                        shared_drive_item_id,
-                        list_item_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(shared_drive_item_id=shared_drive_item_id,
-                                list_item_id=list_item_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def files_list_version(client,
-                       shared_drive_item_id,
-                       list_item_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
-    return client.list_version(shared_drive_item_id=shared_drive_item_id,
-                               list_item_id=list_item_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 list_item_id,
-                                 data):
-    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         list_item_id=list_item_id,
-                                         data=data)
-
-
-def files_set_ref_analytic(client,
-                           shared_drive_item_id,
-                           list_item_id,
-                           body):
-    return client.set_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                   list_item_id=list_item_id,
-                                   body=body)
-
-
-def files_update_activity(client,
-                          shared_drive_item_id,
-                          list_item_id,
-                          item_activity_old_id,
-                          body):
-    return client.update_activity(shared_drive_item_id=shared_drive_item_id,
-                                  list_item_id=list_item_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
-
-
-def files_update_drive_item(client,
-                            shared_drive_item_id,
-                            list_item_id,
-                            body):
-    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                    list_item_id=list_item_id,
-                                    body=body)
-
-
-def files_update_field(client,
-                       shared_drive_item_id,
-                       list_item_id,
-                       id_=None):
-    return client.update_field(shared_drive_item_id=shared_drive_item_id,
-                               list_item_id=list_item_id,
-                               id=id_)
-
-
-def files_update_version(client,
-                         shared_drive_item_id,
-                         list_item_id,
-                         list_item_version_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.update_version(shared_drive_item_id=shared_drive_item_id,
-                                 list_item_id=list_item_id,
-                                 list_item_version_id=list_item_version_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 list_item_id,
-                 item_activity_old_id,
-                 if_match=None):
-    if shared_drive_item_id is not None and list_item_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        list_item_id=list_item_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
-                                   list_item_id=list_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   if_match=if_match)
-
-
-def files_get_drive_item(client,
-                         shared_drive_item_id,
-                         list_item_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                 list_item_id=list_item_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 list_item_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         list_item_id=list_item_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_list_item(client,
-                        shared_drive_item_id,
-                        list_item_id,
-                        item_activity_old_id,
-                        select=None,
-                        expand=None):
-    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
-                                list_item_id=list_item_id,
-                                item_activity_old_id=item_activity_old_id,
-                                select=select,
-                                expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 list_item_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         list_item_id=list_item_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_update_drive_item(client,
-                            shared_drive_item_id,
-                            list_item_id,
-                            item_activity_old_id,
-                            body):
-    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                    list_item_id=list_item_id,
-                                    item_activity_old_id=item_activity_old_id,
-                                    body=body)
-
-
-def files_update_list_item(client,
-                           shared_drive_item_id,
-                           list_item_id,
-                           item_activity_old_id,
-                           content_type,
-                           id_=None,
-                           created_date_time=None,
-                           description=None,
-                           e_tag=None,
-                           last_modified_date_time=None,
-                           name=None,
-                           web_url=None,
-                           created_by_user=None,
-                           last_modified_by_user=None,
-                           parent_reference_drive_id=None,
-                           parent_reference_drive_type=None,
-                           parent_reference_id=None,
-                           parent_reference_name=None,
-                           parent_reference_path=None,
-                           parent_reference_share_id=None,
-                           parent_reference_sharepoint_ids=None,
-                           parent_reference_site_id=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           user=None,
-                           created_by_application=None,
-                           created_by_device=None,
-                           microsoft_graph_identity_user=None,
-                           microsoft_graph_sharepoint_ids=None,
-                           activities=None,
-                           analytics=None,
-                           drive_item=None,
-                           versions=None,
-                           fields_id=None):
-    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
-                                   list_item_id=list_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   content_type_parameter=content_type,
-                                   microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                   activities=activities,
-                                   analytics=analytics,
-                                   drive_item=drive_item,
-                                   versions=versions,
-                                   microsoft_graph_entity_id=fields_id)
-
-
-def files_create_link(client,
-                      shared_drive_item_id,
-                      list_item_id,
-                      item_activity_old_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(shared_drive_item_id=shared_drive_item_id,
-                              list_item_id=list_item_id,
-                              item_activity_old_id=item_activity_old_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_get_activity_by_interval(client,
-                                   shared_drive_item_id,
-                                   list_item_id,
-                                   item_activity_old_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(shared_drive_item_id=shared_drive_item_id,
-                                           list_item_id=list_item_id,
-                                           item_activity_old_id=item_activity_old_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 list_item_id,
-                 list_item_version_id,
-                 if_match=None):
-    return client.delete_field(shared_drive_item_id=shared_drive_item_id,
-                               list_item_id=list_item_id,
-                               list_item_version_id=list_item_version_id,
-                               if_match=if_match)
-
-
-def files_get_field(client,
-                    shared_drive_item_id,
-                    list_item_id,
-                    list_item_version_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(shared_drive_item_id=shared_drive_item_id,
-                            list_item_id=list_item_id,
-                            list_item_version_id=list_item_version_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_restore_version(client,
-                          shared_drive_item_id,
-                          list_item_id,
-                          list_item_version_id):
-    return client.restore_version(shared_drive_item_id=shared_drive_item_id,
-                                  list_item_id=list_item_id,
-                                  list_item_version_id=list_item_version_id)
-
-
-def files_update_field(client,
-                       shared_drive_item_id,
-                       list_item_id,
-                       list_item_version_id,
-                       id_=None):
-    return client.update_field(shared_drive_item_id=shared_drive_item_id,
-                               list_item_id=list_item_id,
-                               list_item_version_id=list_item_version_id,
-                               id=id_)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 item_activity_old_id=None,
-                 if_match=None,
-                 list_item_version_id=None):
-    if shared_drive_item_id is not None and item_activity_old_id is not None:
-        return client.delete_activity(shared_drive_item_id=shared_drive_item_id,
-                                      item_activity_old_id=item_activity_old_id,
-                                      if_match=if_match)
-    elif shared_drive_item_id is not None and list_item_version_id is not None:
-        return client.delete_version(shared_drive_item_id=shared_drive_item_id,
-                                     list_item_version_id=list_item_version_id,
-                                     if_match=if_match)
-    elif shared_drive_item_id is not None:
-        return client.delete_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                          if_match=if_match)
-    elif shared_drive_item_id is not None:
-        return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        if_match=if_match)
-    return client.delete_field(shared_drive_item_id=shared_drive_item_id,
-                               if_match=if_match)
-
-
-def files_create_activity(client,
-                          shared_drive_item_id,
-                          body):
-    return client.create_activity(shared_drive_item_id=shared_drive_item_id,
-                                  body=body)
-
-
-def files_create_link(client,
-                      shared_drive_item_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(shared_drive_item_id=shared_drive_item_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_create_version(client,
-                         shared_drive_item_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.create_version(shared_drive_item_id=shared_drive_item_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_get_activity(client,
-                       shared_drive_item_id,
-                       item_activity_old_id,
-                       select=None,
-                       expand=None):
-    return client.get_activity(shared_drive_item_id=shared_drive_item_id,
-                               item_activity_old_id=item_activity_old_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_activity_by_interval(client,
-                                   shared_drive_item_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(shared_drive_item_id=shared_drive_item_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_get_analytic(client,
-                       shared_drive_item_id,
-                       select=None,
-                       expand=None):
-    return client.get_analytic(shared_drive_item_id=shared_drive_item_id,
-                               select=select,
-                               expand=expand)
-
-
-def files_get_drive_item(client,
-                         shared_drive_item_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 shared_drive_item_id):
-    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id)
-
-
-def files_get_field(client,
-                    shared_drive_item_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(shared_drive_item_id=shared_drive_item_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_get_ref_analytic(client,
-                           shared_drive_item_id):
-    return client.get_ref_analytic(shared_drive_item_id=shared_drive_item_id)
-
-
-def files_get_version(client,
-                      shared_drive_item_id,
-                      list_item_version_id,
-                      select=None,
-                      expand=None):
-    return client.get_version(shared_drive_item_id=shared_drive_item_id,
-                              list_item_version_id=list_item_version_id,
-                              select=select,
-                              expand=expand)
-
-
-def files_list_activity(client,
-                        shared_drive_item_id,
-                        orderby=None,
-                        select=None,
-                        expand=None):
-    return client.list_activity(shared_drive_item_id=shared_drive_item_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def files_list_version(client,
-                       shared_drive_item_id,
-                       orderby=None,
-                       select=None,
-                       expand=None):
-    return client.list_version(shared_drive_item_id=shared_drive_item_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 data):
-    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         data=data)
-
-
-def files_set_ref_analytic(client,
-                           shared_drive_item_id,
-                           body):
-    return client.set_ref_analytic(shared_drive_item_id=shared_drive_item_id,
-                                   body=body)
-
-
-def files_update_activity(client,
-                          shared_drive_item_id,
-                          item_activity_old_id,
-                          body):
-    return client.update_activity(shared_drive_item_id=shared_drive_item_id,
-                                  item_activity_old_id=item_activity_old_id,
-                                  body=body)
-
-
-def files_update_drive_item(client,
-                            shared_drive_item_id,
-                            body):
-    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                    body=body)
-
-
-def files_update_field(client,
-                       shared_drive_item_id,
-                       id_=None):
-    return client.update_field(shared_drive_item_id=shared_drive_item_id,
-                               id=id_)
-
-
-def files_update_version(client,
-                         shared_drive_item_id,
-                         list_item_version_id,
-                         id_=None,
-                         last_modified_date_time=None,
-                         publication=None,
-                         last_modified_by_application=None,
-                         last_modified_by_device=None,
-                         last_modified_by_user=None,
-                         fields_id=None):
-    return client.update_version(shared_drive_item_id=shared_drive_item_id,
-                                 list_item_version_id=list_item_version_id,
-                                 id=id_,
-                                 last_modified_date_time=last_modified_date_time,
-                                 publication=publication,
-                                 application=last_modified_by_application,
-                                 device=last_modified_by_device,
-                                 user=last_modified_by_user,
-                                 microsoft_graph_entity_id=fields_id)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 item_activity_old_id,
-                 if_match=None):
-    if shared_drive_item_id is not None and item_activity_old_id is not None:
-        return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                        item_activity_old_id=item_activity_old_id,
-                                        if_match=if_match)
-    return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   if_match=if_match)
-
-
-def files_get_drive_item(client,
-                         shared_drive_item_id,
-                         item_activity_old_id,
-                         select=None,
-                         expand=None):
-    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                 item_activity_old_id=item_activity_old_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def files_get_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 item_activity_old_id):
-    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         item_activity_old_id=item_activity_old_id)
-
-
-def files_get_list_item(client,
-                        shared_drive_item_id,
-                        item_activity_old_id,
-                        select=None,
-                        expand=None):
-    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
-                                item_activity_old_id=item_activity_old_id,
-                                select=select,
-                                expand=expand)
-
-
-def files_set_drive_item_content(client,
-                                 shared_drive_item_id,
-                                 item_activity_old_id,
-                                 data):
-    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
-                                         item_activity_old_id=item_activity_old_id,
-                                         data=data)
-
-
-def files_update_drive_item(client,
-                            shared_drive_item_id,
-                            item_activity_old_id,
-                            body):
-    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
-                                    item_activity_old_id=item_activity_old_id,
-                                    body=body)
-
-
-def files_update_list_item(client,
-                           shared_drive_item_id,
-                           item_activity_old_id,
-                           content_type,
-                           id_=None,
-                           created_date_time=None,
-                           description=None,
-                           e_tag=None,
-                           last_modified_date_time=None,
-                           name=None,
-                           web_url=None,
-                           created_by_user=None,
-                           last_modified_by_user=None,
-                           parent_reference_drive_id=None,
-                           parent_reference_drive_type=None,
-                           parent_reference_id=None,
-                           parent_reference_name=None,
-                           parent_reference_path=None,
-                           parent_reference_share_id=None,
-                           parent_reference_sharepoint_ids=None,
-                           parent_reference_site_id=None,
-                           last_modified_by_application=None,
-                           last_modified_by_device=None,
-                           user=None,
-                           created_by_application=None,
-                           created_by_device=None,
-                           microsoft_graph_identity_user=None,
-                           microsoft_graph_sharepoint_ids=None,
-                           activities=None,
-                           analytics=None,
-                           drive_item=None,
-                           versions=None,
-                           fields_id=None):
-    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
-                                   item_activity_old_id=item_activity_old_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   content_type_parameter=content_type,
-                                   microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                   activities=activities,
-                                   analytics=analytics,
-                                   drive_item=drive_item,
-                                   versions=versions,
-                                   microsoft_graph_entity_id=fields_id)
-
-
-def files_create_link(client,
-                      shared_drive_item_id,
-                      item_activity_old_id,
-                      type_=None,
-                      scope=None,
-                      expiration_date_time=None,
-                      password=None,
-                      recipients=None):
-    return client.create_link(shared_drive_item_id=shared_drive_item_id,
-                              item_activity_old_id=item_activity_old_id,
-                              type=type_,
-                              scope=scope,
-                              expiration_date_time=expiration_date_time,
-                              password=password,
-                              recipients=recipients)
-
-
-def files_get_activity_by_interval(client,
-                                   shared_drive_item_id,
-                                   item_activity_old_id,
-                                   start_date_time,
-                                   end_date_time,
-                                   interval):
-    return client.get_activity_by_interval(shared_drive_item_id=shared_drive_item_id,
-                                           item_activity_old_id=item_activity_old_id,
-                                           start_date_time=start_date_time,
-                                           end_date_time=end_date_time,
-                                           interval=interval)
-
-
-def files_delete(client,
-                 shared_drive_item_id,
-                 list_item_version_id,
-                 if_match=None):
-    return client.delete_field(shared_drive_item_id=shared_drive_item_id,
-                               list_item_version_id=list_item_version_id,
-                               if_match=if_match)
-
-
-def files_get_field(client,
-                    shared_drive_item_id,
-                    list_item_version_id,
-                    select=None,
-                    expand=None):
-    return client.get_field(shared_drive_item_id=shared_drive_item_id,
-                            list_item_version_id=list_item_version_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_restore_version(client,
-                          shared_drive_item_id,
-                          list_item_version_id):
-    return client.restore_version(shared_drive_item_id=shared_drive_item_id,
-                                  list_item_version_id=list_item_version_id)
-
-
-def files_update_field(client,
-                       shared_drive_item_id,
-                       list_item_version_id,
-                       id_=None):
-    return client.update_field(shared_drive_item_id=shared_drive_item_id,
-                               list_item_version_id=list_item_version_id,
-                               id=id_)
-
-
-def files_grant(client,
-                shared_drive_item_id,
-                roles=None,
-                recipients=None):
-    return client.grant(shared_drive_item_id=shared_drive_item_id,
-                        roles=roles,
-                        recipients=recipients)
-
-
-def files_revoke_grant(client,
-                       shared_drive_item_id,
-                       grantees=None):
-    return client.revoke_grant(shared_drive_item_id=shared_drive_item_id,
-                               grantees=grantees)
-
-
-def files_delete(client,
-                 user_id,
-                 drive_id=None,
-                 if_match=None):
-    if user_id is not None and drive_id is not None:
-        return client.delete_drive(user_id=user_id,
-                                   drive_id=drive_id,
-                                   if_match=if_match)
-    return client.delete_drive(user_id=user_id,
-                               if_match=if_match)
-
-
-def files_create_drive(client,
-                       user_id,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
-    return client.create_drive(user_id=user_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
-
-
-def files_get_drive(client,
-                    user_id,
-                    drive_id=None,
-                    select=None,
-                    expand=None):
-    if user_id is not None and drive_id is not None:
-        return client.get_drive(user_id=user_id,
-                                drive_id=drive_id,
-                                select=select,
-                                expand=expand)
-    return client.get_drive(user_id=user_id,
-                            select=select,
-                            expand=expand)
-
-
-def files_list_drive(client,
-                     user_id,
-                     orderby=None,
-                     select=None,
-                     expand=None):
-    return client.list_drive(user_id=user_id,
+    return client.list_items(shared_drive_item_id=shared_drive_item_id,
                              orderby=orderby,
                              select=select,
                              expand=expand)
 
 
-def files_update_drive(client,
-                       user_id,
-                       drive_id=None,
-                       id_=None,
-                       created_date_time=None,
-                       description=None,
-                       e_tag=None,
-                       last_modified_date_time=None,
-                       name=None,
-                       web_url=None,
-                       created_by_user=None,
-                       last_modified_by_user=None,
-                       parent_reference_drive_id=None,
-                       parent_reference_drive_type=None,
-                       parent_reference_id=None,
-                       parent_reference_name=None,
-                       parent_reference_path=None,
-                       parent_reference_share_id=None,
-                       parent_reference_sharepoint_ids=None,
-                       parent_reference_site_id=None,
-                       last_modified_by_application=None,
-                       last_modified_by_device=None,
-                       user=None,
-                       created_by_application=None,
-                       created_by_device=None,
-                       microsoft_graph_identity_user=None,
-                       microsoft_graph_drive_type=None,
-                       share_point_ids=None,
-                       system=None,
-                       activities=None,
-                       bundles=None,
-                       following=None,
-                       items=None,
-                       root=None,
-                       special=None,
-                       list_id=None,
-                       list_created_date_time=None,
-                       list_description=None,
-                       list_e_tag=None,
-                       list_last_modified_date_time=None,
-                       list_name=None,
-                       list_web_url=None,
-                       list_created_by_user=None,
-                       list_last_modified_by_user=None,
-                       list_parent_reference_drive_id=None,
-                       list_parent_reference_drive_type=None,
-                       list_parent_reference_id=None,
-                       list_parent_reference_name=None,
-                       list_parent_reference_path=None,
-                       list_parent_reference_share_id=None,
-                       list_parent_reference_sharepoint_ids=None,
-                       list_parent_reference_site_id=None,
-                       list_last_modified_by_application=None,
-                       list_last_modified_by_device=None,
-                       user1=None,
-                       list_created_by_application=None,
-                       list_created_by_device=None,
-                       user2=None,
-                       list_display_name=None,
-                       list_list=None,
-                       list_sharepoint_ids=None,
-                       list_system=None,
-                       list_activities=None,
-                       list_columns=None,
-                       list_content_types=None,
-                       list_drive=None,
-                       list_items=None,
-                       list_subscriptions=None,
-                       quota_deleted=None,
-                       quota_remaining=None,
-                       quota_state=None,
-                       quota_storage_plan_information=None,
-                       quota_total=None,
-                       quota_used=None,
-                       owner_application=None,
-                       owner_device=None,
-                       owner_user=None):
+def files_share_set_drive_item_content(client,
+                                       shared_drive_item_id,
+                                       data):
+    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         data=data)
+
+
+def files_share_set_item_content(client,
+                                 shared_drive_item_id,
+                                 drive_item_id,
+                                 data):
+    return client.set_items_content(shared_drive_item_id=shared_drive_item_id,
+                                    drive_item_id=drive_item_id,
+                                    data=data)
+
+
+def files_share_set_root_content(client,
+                                 shared_drive_item_id,
+                                 data):
+    return client.set_root_content(shared_drive_item_id=shared_drive_item_id,
+                                   data=data)
+
+
+def files_share_show_drive_item(client,
+                                shared_drive_item_id,
+                                select=None,
+                                expand=None):
+    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_share_show_drive_item_content(client,
+                                        shared_drive_item_id):
+    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id)
+
+
+def files_share_show_item(client,
+                          shared_drive_item_id,
+                          drive_item_id,
+                          select=None,
+                          expand=None):
+    return client.get_items(shared_drive_item_id=shared_drive_item_id,
+                            drive_item_id=drive_item_id,
+                            select=select,
+                            expand=expand)
+
+
+def files_share_show_item_content(client,
+                                  shared_drive_item_id,
+                                  drive_item_id):
+    return client.get_items_content(shared_drive_item_id=shared_drive_item_id,
+                                    drive_item_id=drive_item_id)
+
+
+def files_share_show_list(client,
+                          shared_drive_item_id,
+                          select=None,
+                          expand=None):
+    return client.get_list(shared_drive_item_id=shared_drive_item_id,
+                           select=select,
+                           expand=expand)
+
+
+def files_share_show_list_item(client,
+                               shared_drive_item_id,
+                               select=None,
+                               expand=None):
+    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_share_show_permission(client,
+                                shared_drive_item_id,
+                                select=None,
+                                expand=None):
+    return client.get_permission(shared_drive_item_id=shared_drive_item_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_share_show_root(client,
+                          shared_drive_item_id,
+                          select=None,
+                          expand=None):
+    return client.get_root(shared_drive_item_id=shared_drive_item_id,
+                           select=select,
+                           expand=expand)
+
+
+def files_share_show_root_content(client,
+                                  shared_drive_item_id):
+    return client.get_root_content(shared_drive_item_id=shared_drive_item_id)
+
+
+def files_share_show_site(client,
+                          shared_drive_item_id,
+                          select=None,
+                          expand=None):
+    return client.get_site(shared_drive_item_id=shared_drive_item_id,
+                           select=select,
+                           expand=expand)
+
+
+def files_share_update_drive_item(client,
+                                  shared_drive_item_id,
+                                  body):
+    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    body=body)
+
+
+def files_share_update_item(client,
+                            shared_drive_item_id,
+                            drive_item_id,
+                            body):
+    return client.update_items(shared_drive_item_id=shared_drive_item_id,
+                               drive_item_id=drive_item_id,
+                               body=body)
+
+
+def files_share_update_list(client,
+                            shared_drive_item_id,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            display_name=None,
+                            list=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            system=None,
+                            activities=None,
+                            columns=None,
+                            content_types=None,
+                            drive=None,
+                            items=None,
+                            subscriptions=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['list'] = list
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['columns'] = columns
+    body['content_types'] = content_types
+    body['drive'] = drive
+    body['items'] = items
+    body['subscriptions'] = subscriptions
+    return client.update_list(shared_drive_item_id=shared_drive_item_id,
+                              body=body)
+
+
+def files_share_update_list_item(client,
+                                 shared_drive_item_id,
+                                 content_type,
+                                 id_=None,
+                                 created_date_time=None,
+                                 description=None,
+                                 e_tag=None,
+                                 last_modified_date_time=None,
+                                 name=None,
+                                 web_url=None,
+                                 created_by_user=None,
+                                 last_modified_by_user=None,
+                                 drive_id=None,
+                                 drive_type=None,
+                                 microsoft_graph_item_reference_id=None,
+                                 microsoft_graph_item_reference_name=None,
+                                 path=None,
+                                 share_id=None,
+                                 sharepoint_ids=None,
+                                 site_id=None,
+                                 application=None,
+                                 device=None,
+                                 user=None,
+                                 microsoft_graph_identity_application=None,
+                                 microsoft_graph_identity_device=None,
+                                 microsoft_graph_identity_user=None,
+                                 microsoft_graph_sharepoint_ids=None,
+                                 activities=None,
+                                 analytics=None,
+                                 drive_item=None,
+                                 versions=None,
+                                 microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   body=body)
+
+
+def files_share_update_permission(client,
+                                  shared_drive_item_id,
+                                  body):
+    return client.update_permission(shared_drive_item_id=shared_drive_item_id,
+                                    body=body)
+
+
+def files_share_update_root(client,
+                            shared_drive_item_id,
+                            body):
+    return client.update_root(shared_drive_item_id=shared_drive_item_id,
+                              body=body)
+
+
+def files_share_update_site(client,
+                            shared_drive_item_id,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            display_name=None,
+                            root=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            analytics=None,
+                            columns=None,
+                            content_types=None,
+                            drive=None,
+                            drives=None,
+                            items=None,
+                            lists=None,
+                            pages=None,
+                            sites=None,
+                            microsoft_graph_entity_id=None,
+                            notebooks=None,
+                            operations=None,
+                            microsoft_graph_onenote_pages=None,
+                            resources=None,
+                            section_groups=None,
+                            sections=None,
+                            data_location_code=None,
+                            hostname=None,
+                            microsoft_graph_root=None,
+                            state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['analytics'] = analytics
+    body['columns'] = columns
+    body['content_types'] = content_types
+    body['drive'] = drive
+    body['drives'] = drives
+    body['items'] = items
+    body['lists'] = lists
+    body['pages'] = pages
+    body['sites'] = sites
+    body['onenote'] = {}
+    body['onenote']['id'] = microsoft_graph_entity_id
+    body['onenote']['notebooks'] = notebooks
+    body['onenote']['operations'] = operations
+    body['onenote']['pages'] = microsoft_graph_onenote_pages
+    body['onenote']['resources'] = resources
+    body['onenote']['section_groups'] = section_groups
+    body['onenote']['sections'] = sections
+    body['site_collection'] = {}
+    body['site_collection']['data_location_code'] = data_location_code
+    body['site_collection']['hostname'] = hostname
+    body['site_collection']['root'] = microsoft_graph_root
+    body['deleted'] = {}
+    body['deleted']['state'] = state
+    return client.update_site(shared_drive_item_id=shared_drive_item_id,
+                              body=body)
+
+
+def files_shareslist_create_activity(client,
+                                     shared_drive_item_id,
+                                     body):
+    return client.create_activities(shared_drive_item_id=shared_drive_item_id,
+                                    body=body)
+
+
+def files_shareslist_create_column(client,
+                                   shared_drive_item_id,
+                                   id_=None,
+                                   boolean=None,
+                                   calculated=None,
+                                   choice=None,
+                                   column_group=None,
+                                   date_time=None,
+                                   default_value=None,
+                                   description=None,
+                                   display_name=None,
+                                   enforce_unique_values=None,
+                                   geolocation=None,
+                                   hidden=None,
+                                   indexed=None,
+                                   lookup=None,
+                                   name=None,
+                                   number=None,
+                                   person_or_group=None,
+                                   read_only=None,
+                                   required=None,
+                                   text=None,
+                                   locale=None):
+    body = {}
+    body['id'] = id_
+    body['boolean'] = boolean
+    body['calculated'] = calculated
+    body['choice'] = choice
+    body['column_group'] = column_group
+    body['date_time'] = date_time
+    body['default_value'] = default_value
+    body['description'] = description
+    body['display_name'] = display_name
+    body['enforce_unique_values'] = enforce_unique_values
+    body['geolocation'] = geolocation
+    body['hidden'] = hidden
+    body['indexed'] = indexed
+    body['lookup'] = lookup
+    body['name'] = name
+    body['number'] = number
+    body['person_or_group'] = person_or_group
+    body['read_only'] = read_only
+    body['required'] = required
+    body['text'] = text
+    body['currency'] = {}
+    body['currency']['locale'] = locale
+    return client.create_columns(shared_drive_item_id=shared_drive_item_id,
+                                 body=body)
+
+
+def files_shareslist_create_content_type(client,
+                                         shared_drive_item_id,
+                                         id_=None,
+                                         description=None,
+                                         group=None,
+                                         hidden=None,
+                                         name=None,
+                                         order=None,
+                                         parent_id=None,
+                                         read_only=None,
+                                         sealed=None,
+                                         column_links=None,
+                                         drive_id=None,
+                                         drive_type=None,
+                                         microsoft_graph_item_reference_id=None,
+                                         microsoft_graph_item_reference_name=None,
+                                         path=None,
+                                         share_id=None,
+                                         sharepoint_ids=None,
+                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['group'] = group
+    body['hidden'] = hidden
+    body['name'] = name
+    body['order'] = order
+    body['parent_id'] = parent_id
+    body['read_only'] = read_only
+    body['sealed'] = sealed
+    body['column_links'] = column_links
+    body['inherited_from'] = {}
+    body['inherited_from']['drive_id'] = drive_id
+    body['inherited_from']['drive_type'] = drive_type
+    body['inherited_from']['id'] = microsoft_graph_item_reference_id
+    body['inherited_from']['name'] = microsoft_graph_item_reference_name
+    body['inherited_from']['path'] = path
+    body['inherited_from']['share_id'] = share_id
+    body['inherited_from']['sharepoint_ids'] = sharepoint_ids
+    body['inherited_from']['site_id'] = site_id
+    return client.create_content_types(shared_drive_item_id=shared_drive_item_id,
+                                       body=body)
+
+
+def files_shareslist_create_item(client,
+                                 shared_drive_item_id,
+                                 content_type,
+                                 id_=None,
+                                 created_date_time=None,
+                                 description=None,
+                                 e_tag=None,
+                                 last_modified_date_time=None,
+                                 name=None,
+                                 web_url=None,
+                                 created_by_user=None,
+                                 last_modified_by_user=None,
+                                 drive_id=None,
+                                 drive_type=None,
+                                 microsoft_graph_item_reference_id=None,
+                                 microsoft_graph_item_reference_name=None,
+                                 path=None,
+                                 share_id=None,
+                                 sharepoint_ids=None,
+                                 site_id=None,
+                                 application=None,
+                                 device=None,
+                                 user=None,
+                                 microsoft_graph_identity_application=None,
+                                 microsoft_graph_identity_device=None,
+                                 microsoft_graph_identity_user=None,
+                                 microsoft_graph_sharepoint_ids=None,
+                                 activities=None,
+                                 analytics=None,
+                                 drive_item=None,
+                                 versions=None,
+                                 microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_items(shared_drive_item_id=shared_drive_item_id,
+                               body=body)
+
+
+def files_shareslist_create_subscription(client,
+                                         shared_drive_item_id,
+                                         id_=None,
+                                         application_id=None,
+                                         change_type=None,
+                                         client_state=None,
+                                         creator_id=None,
+                                         encryption_certificate=None,
+                                         encryption_certificate_id=None,
+                                         expiration_date_time=None,
+                                         include_properties=None,
+                                         include_resource_data=None,
+                                         latest_supported_tls_version=None,
+                                         lifecycle_notification_url=None,
+                                         notification_url=None,
+                                         resource=None):
+    body = {}
+    body['id'] = id_
+    body['application_id'] = application_id
+    body['change_type'] = change_type
+    body['client_state'] = client_state
+    body['creator_id'] = creator_id
+    body['encryption_certificate'] = encryption_certificate
+    body['encryption_certificate_id'] = encryption_certificate_id
+    body['expiration_date_time'] = expiration_date_time
+    body['include_properties'] = include_properties
+    body['include_resource_data'] = include_resource_data
+    body['latest_supported_tls_version'] = latest_supported_tls_version
+    body['lifecycle_notification_url'] = lifecycle_notification_url
+    body['notification_url'] = notification_url
+    body['resource'] = resource
+    return client.create_subscriptions(shared_drive_item_id=shared_drive_item_id,
+                                       body=body)
+
+
+def files_shareslist_delete_activity(client,
+                                     shared_drive_item_id,
+                                     item_activity_old_id,
+                                     if_match=None):
+    return client.delete_activities(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_shareslist_delete_column(client,
+                                   shared_drive_item_id,
+                                   column_definition_id,
+                                   if_match=None):
+    return client.delete_columns(shared_drive_item_id=shared_drive_item_id,
+                                 column_definition_id=column_definition_id,
+                                 if_match=if_match)
+
+
+def files_shareslist_delete_content_type(client,
+                                         shared_drive_item_id,
+                                         content_type_id,
+                                         if_match=None):
+    return client.delete_content_types(shared_drive_item_id=shared_drive_item_id,
+                                       content_type_id=content_type_id,
+                                       if_match=if_match)
+
+
+def files_shareslist_delete_drive(client,
+                                  shared_drive_item_id,
+                                  if_match=None):
+    return client.delete_drive(shared_drive_item_id=shared_drive_item_id,
+                               if_match=if_match)
+
+
+def files_shareslist_delete_item(client,
+                                 shared_drive_item_id,
+                                 list_item_id,
+                                 if_match=None):
+    return client.delete_items(shared_drive_item_id=shared_drive_item_id,
+                               list_item_id=list_item_id,
+                               if_match=if_match)
+
+
+def files_shareslist_delete_subscription(client,
+                                         shared_drive_item_id,
+                                         subscription_id,
+                                         if_match=None):
+    return client.delete_subscriptions(shared_drive_item_id=shared_drive_item_id,
+                                       subscription_id=subscription_id,
+                                       if_match=if_match)
+
+
+def files_shareslist_list_activity(client,
+                                   shared_drive_item_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
+    return client.list_activities(shared_drive_item_id=shared_drive_item_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_shareslist_list_column(client,
+                                 shared_drive_item_id,
+                                 orderby=None,
+                                 select=None,
+                                 expand=None):
+    return client.list_columns(shared_drive_item_id=shared_drive_item_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def files_shareslist_list_content_type(client,
+                                       shared_drive_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_content_types(shared_drive_item_id=shared_drive_item_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
+
+
+def files_shareslist_list_item(client,
+                               shared_drive_item_id,
+                               orderby=None,
+                               select=None,
+                               expand=None):
+    return client.list_items(shared_drive_item_id=shared_drive_item_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
+
+
+def files_shareslist_list_subscription(client,
+                                       shared_drive_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_subscriptions(shared_drive_item_id=shared_drive_item_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
+
+
+def files_shareslist_show_activity(client,
+                                   shared_drive_item_id,
+                                   item_activity_old_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_activities(shared_drive_item_id=shared_drive_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslist_show_column(client,
+                                 shared_drive_item_id,
+                                 column_definition_id,
+                                 select=None,
+                                 expand=None):
+    return client.get_columns(shared_drive_item_id=shared_drive_item_id,
+                              column_definition_id=column_definition_id,
+                              select=select,
+                              expand=expand)
+
+
+def files_shareslist_show_content_type(client,
+                                       shared_drive_item_id,
+                                       content_type_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_content_types(shared_drive_item_id=shared_drive_item_id,
+                                    content_type_id=content_type_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def files_shareslist_show_drive(client,
+                                shared_drive_item_id,
+                                select=None,
+                                expand=None):
+    return client.get_drive(shared_drive_item_id=shared_drive_item_id,
+                            select=select,
+                            expand=expand)
+
+
+def files_shareslist_show_item(client,
+                               shared_drive_item_id,
+                               list_item_id,
+                               select=None,
+                               expand=None):
+    return client.get_items(shared_drive_item_id=shared_drive_item_id,
+                            list_item_id=list_item_id,
+                            select=select,
+                            expand=expand)
+
+
+def files_shareslist_show_subscription(client,
+                                       shared_drive_item_id,
+                                       subscription_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_subscriptions(shared_drive_item_id=shared_drive_item_id,
+                                    subscription_id=subscription_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def files_shareslist_update_activity(client,
+                                     shared_drive_item_id,
+                                     item_activity_old_id,
+                                     body):
+    return client.update_activities(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslist_update_column(client,
+                                   shared_drive_item_id,
+                                   column_definition_id,
+                                   id_=None,
+                                   boolean=None,
+                                   calculated=None,
+                                   choice=None,
+                                   column_group=None,
+                                   date_time=None,
+                                   default_value=None,
+                                   description=None,
+                                   display_name=None,
+                                   enforce_unique_values=None,
+                                   geolocation=None,
+                                   hidden=None,
+                                   indexed=None,
+                                   lookup=None,
+                                   name=None,
+                                   number=None,
+                                   person_or_group=None,
+                                   read_only=None,
+                                   required=None,
+                                   text=None,
+                                   locale=None):
+    body = {}
+    body['id'] = id_
+    body['boolean'] = boolean
+    body['calculated'] = calculated
+    body['choice'] = choice
+    body['column_group'] = column_group
+    body['date_time'] = date_time
+    body['default_value'] = default_value
+    body['description'] = description
+    body['display_name'] = display_name
+    body['enforce_unique_values'] = enforce_unique_values
+    body['geolocation'] = geolocation
+    body['hidden'] = hidden
+    body['indexed'] = indexed
+    body['lookup'] = lookup
+    body['name'] = name
+    body['number'] = number
+    body['person_or_group'] = person_or_group
+    body['read_only'] = read_only
+    body['required'] = required
+    body['text'] = text
+    body['currency'] = {}
+    body['currency']['locale'] = locale
+    return client.update_columns(shared_drive_item_id=shared_drive_item_id,
+                                 column_definition_id=column_definition_id,
+                                 body=body)
+
+
+def files_shareslist_update_content_type(client,
+                                         shared_drive_item_id,
+                                         content_type_id,
+                                         id_=None,
+                                         description=None,
+                                         group=None,
+                                         hidden=None,
+                                         name=None,
+                                         order=None,
+                                         parent_id=None,
+                                         read_only=None,
+                                         sealed=None,
+                                         column_links=None,
+                                         drive_id=None,
+                                         drive_type=None,
+                                         microsoft_graph_item_reference_id=None,
+                                         microsoft_graph_item_reference_name=None,
+                                         path=None,
+                                         share_id=None,
+                                         sharepoint_ids=None,
+                                         site_id=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['group'] = group
+    body['hidden'] = hidden
+    body['name'] = name
+    body['order'] = order
+    body['parent_id'] = parent_id
+    body['read_only'] = read_only
+    body['sealed'] = sealed
+    body['column_links'] = column_links
+    body['inherited_from'] = {}
+    body['inherited_from']['drive_id'] = drive_id
+    body['inherited_from']['drive_type'] = drive_type
+    body['inherited_from']['id'] = microsoft_graph_item_reference_id
+    body['inherited_from']['name'] = microsoft_graph_item_reference_name
+    body['inherited_from']['path'] = path
+    body['inherited_from']['share_id'] = share_id
+    body['inherited_from']['sharepoint_ids'] = sharepoint_ids
+    body['inherited_from']['site_id'] = site_id
+    return client.update_content_types(shared_drive_item_id=shared_drive_item_id,
+                                       content_type_id=content_type_id,
+                                       body=body)
+
+
+def files_shareslist_update_drive(client,
+                                  shared_drive_item_id,
+                                  id_=None,
+                                  created_date_time=None,
+                                  description=None,
+                                  e_tag=None,
+                                  last_modified_date_time=None,
+                                  name=None,
+                                  web_url=None,
+                                  created_by_user=None,
+                                  last_modified_by_user=None,
+                                  drive_id=None,
+                                  drive_type=None,
+                                  microsoft_graph_item_reference_id=None,
+                                  microsoft_graph_item_reference_name=None,
+                                  path=None,
+                                  share_id=None,
+                                  sharepoint_ids=None,
+                                  site_id=None,
+                                  application=None,
+                                  device=None,
+                                  user=None,
+                                  microsoft_graph_identity_application=None,
+                                  microsoft_graph_identity_device=None,
+                                  microsoft_graph_identity_user=None,
+                                  microsoft_graph_drive_type=None,
+                                  share_point_ids=None,
+                                  system=None,
+                                  activities=None,
+                                  bundles=None,
+                                  following=None,
+                                  items=None,
+                                  root=None,
+                                  special=None,
+                                  microsoft_graph_entity_id=None,
+                                  microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                  microsoft_graph_base_item_description=None,
+                                  microsoft_graph_base_item_e_tag=None,
+                                  microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                  microsoft_graph_base_item_name=None,
+                                  microsoft_graph_base_item_web_url=None,
+                                  microsoft_graph_user_created_by_user=None,
+                                  microsoft_graph_user_last_modified_by_user=None,
+                                  microsoft_graph_item_reference_drive_id=None,
+                                  microsoft_graph_item_reference_drive_type=None,
+                                  id1=None,
+                                  name1=None,
+                                  microsoft_graph_item_reference_path=None,
+                                  microsoft_graph_item_reference_share_id=None,
+                                  microsoft_graph_sharepoint_ids=None,
+                                  microsoft_graph_item_reference_site_id=None,
+                                  application1=None,
+                                  device1=None,
+                                  user1=None,
+                                  application2=None,
+                                  device2=None,
+                                  user2=None,
+                                  display_name=None,
+                                  list=None,
+                                  sharepoint_ids1=None,
+                                  microsoft_graph_system_facet_system=None,
+                                  microsoft_graph_list_activities=None,
+                                  columns=None,
+                                  content_types=None,
+                                  drive=None,
+                                  microsoft_graph_list_items=None,
+                                  subscriptions=None,
+                                  deleted=None,
+                                  remaining=None,
+                                  state=None,
+                                  storage_plan_information=None,
+                                  total=None,
+                                  used=None,
+                                  application3=None,
+                                  device3=None,
+                                  user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
+    return client.update_drive(shared_drive_item_id=shared_drive_item_id,
+                               body=body)
+
+
+def files_shareslist_update_item(client,
+                                 shared_drive_item_id,
+                                 list_item_id,
+                                 content_type,
+                                 id_=None,
+                                 created_date_time=None,
+                                 description=None,
+                                 e_tag=None,
+                                 last_modified_date_time=None,
+                                 name=None,
+                                 web_url=None,
+                                 created_by_user=None,
+                                 last_modified_by_user=None,
+                                 drive_id=None,
+                                 drive_type=None,
+                                 microsoft_graph_item_reference_id=None,
+                                 microsoft_graph_item_reference_name=None,
+                                 path=None,
+                                 share_id=None,
+                                 sharepoint_ids=None,
+                                 site_id=None,
+                                 application=None,
+                                 device=None,
+                                 user=None,
+                                 microsoft_graph_identity_application=None,
+                                 microsoft_graph_identity_device=None,
+                                 microsoft_graph_identity_user=None,
+                                 microsoft_graph_sharepoint_ids=None,
+                                 activities=None,
+                                 analytics=None,
+                                 drive_item=None,
+                                 versions=None,
+                                 microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_items(shared_drive_item_id=shared_drive_item_id,
+                               list_item_id=list_item_id,
+                               body=body)
+
+
+def files_shareslist_update_subscription(client,
+                                         shared_drive_item_id,
+                                         subscription_id,
+                                         id_=None,
+                                         application_id=None,
+                                         change_type=None,
+                                         client_state=None,
+                                         creator_id=None,
+                                         encryption_certificate=None,
+                                         encryption_certificate_id=None,
+                                         expiration_date_time=None,
+                                         include_properties=None,
+                                         include_resource_data=None,
+                                         latest_supported_tls_version=None,
+                                         lifecycle_notification_url=None,
+                                         notification_url=None,
+                                         resource=None):
+    body = {}
+    body['id'] = id_
+    body['application_id'] = application_id
+    body['change_type'] = change_type
+    body['client_state'] = client_state
+    body['creator_id'] = creator_id
+    body['encryption_certificate'] = encryption_certificate
+    body['encryption_certificate_id'] = encryption_certificate_id
+    body['expiration_date_time'] = expiration_date_time
+    body['include_properties'] = include_properties
+    body['include_resource_data'] = include_resource_data
+    body['latest_supported_tls_version'] = latest_supported_tls_version
+    body['lifecycle_notification_url'] = lifecycle_notification_url
+    body['notification_url'] = notification_url
+    body['resource'] = resource
+    return client.update_subscriptions(shared_drive_item_id=shared_drive_item_id,
+                                       subscription_id=subscription_id,
+                                       body=body)
+
+
+def files_shareslistactivity_delete_drive_item(client,
+                                               shared_drive_item_id,
+                                               item_activity_old_id,
+                                               if_match=None):
+    return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_shareslistactivity_delete_list_item(client,
+                                              shared_drive_item_id,
+                                              item_activity_old_id,
+                                              if_match=None):
+    return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   if_match=if_match)
+
+
+def files_shareslistactivity_set_drive_item_content(client,
+                                                    shared_drive_item_id,
+                                                    item_activity_old_id,
+                                                    data):
+    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_shareslistactivity_show_drive_item(client,
+                                             shared_drive_item_id,
+                                             item_activity_old_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistactivity_show_drive_item_content(client,
+                                                     shared_drive_item_id,
+                                                     item_activity_old_id):
+    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_shareslistactivity_show_list_item(client,
+                                            shared_drive_item_id,
+                                            item_activity_old_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistactivity_update_drive_item(client,
+                                               shared_drive_item_id,
+                                               item_activity_old_id,
+                                               body):
+    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistactivity_update_list_item(client,
+                                              shared_drive_item_id,
+                                              item_activity_old_id,
+                                              content_type,
+                                              id_=None,
+                                              created_date_time=None,
+                                              description=None,
+                                              e_tag=None,
+                                              last_modified_date_time=None,
+                                              name=None,
+                                              web_url=None,
+                                              created_by_user=None,
+                                              last_modified_by_user=None,
+                                              drive_id=None,
+                                              drive_type=None,
+                                              microsoft_graph_item_reference_id=None,
+                                              microsoft_graph_item_reference_name=None,
+                                              path=None,
+                                              share_id=None,
+                                              sharepoint_ids=None,
+                                              site_id=None,
+                                              application=None,
+                                              device=None,
+                                              user=None,
+                                              microsoft_graph_identity_application=None,
+                                              microsoft_graph_identity_device=None,
+                                              microsoft_graph_identity_user=None,
+                                              microsoft_graph_sharepoint_ids=None,
+                                              activities=None,
+                                              analytics=None,
+                                              drive_item=None,
+                                              versions=None,
+                                              microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   body=body)
+
+
+def files_shareslistactivitieslistitem_create_activity(client,
+                                                       shared_drive_item_id,
+                                                       item_activity_old_id,
+                                                       body):
+    return client.create_activities(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistactivitieslistitem_create_link(client,
+                                                   shared_drive_item_id,
+                                                   item_activity_old_id,
+                                                   type_=None,
+                                                   scope=None,
+                                                   expiration_date_time=None,
+                                                   password=None,
+                                                   recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(shared_drive_item_id=shared_drive_item_id,
+                              item_activity_old_id=item_activity_old_id,
+                              body=body)
+
+
+def files_shareslistactivitieslistitem_create_version(client,
+                                                      shared_drive_item_id,
+                                                      item_activity_old_id,
+                                                      id_=None,
+                                                      last_modified_date_time=None,
+                                                      publication=None,
+                                                      application=None,
+                                                      device=None,
+                                                      user=None,
+                                                      microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_versions(shared_drive_item_id=shared_drive_item_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  body=body)
+
+
+def files_shareslistactivitieslistitem_delete_activity(client,
+                                                       shared_drive_item_id,
+                                                       item_activity_old_id,
+                                                       item_activity_old_id1,
+                                                       if_match=None):
+    return client.delete_activities(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    item_activity_old_id1=item_activity_old_id1,
+                                    if_match=if_match)
+
+
+def files_shareslistactivitieslistitem_delete_drive_item(client,
+                                                         shared_drive_item_id,
+                                                         item_activity_old_id,
+                                                         if_match=None):
+    return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_shareslistactivitieslistitem_delete_field(client,
+                                                    shared_drive_item_id,
+                                                    item_activity_old_id,
+                                                    if_match=None):
+    return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                if_match=if_match)
+
+
+def files_shareslistactivitieslistitem_delete_ref_analytic(client,
+                                                           shared_drive_item_id,
+                                                           item_activity_old_id,
+                                                           if_match=None):
+    return client.delete_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                       item_activity_old_id=item_activity_old_id,
+                                       if_match=if_match)
+
+
+def files_shareslistactivitieslistitem_delete_version(client,
+                                                      shared_drive_item_id,
+                                                      item_activity_old_id,
+                                                      list_item_version_id,
+                                                      if_match=None):
+    return client.delete_versions(shared_drive_item_id=shared_drive_item_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id,
+                                  if_match=if_match)
+
+
+def files_shareslistactivitieslistitem_list_activity(client,
+                                                     shared_drive_item_id,
+                                                     item_activity_old_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
+    return client.list_activities(shared_drive_item_id=shared_drive_item_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_shareslistactivitieslistitem_list_version(client,
+                                                    shared_drive_item_id,
+                                                    item_activity_old_id,
+                                                    orderby=None,
+                                                    select=None,
+                                                    expand=None):
+    return client.list_versions(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistactivitieslistitem_set_drive_item_content(client,
+                                                              shared_drive_item_id,
+                                                              item_activity_old_id,
+                                                              data):
+    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_shareslistactivitieslistitem_set_ref_analytic(client,
+                                                        shared_drive_item_id,
+                                                        item_activity_old_id,
+                                                        body):
+    return client.set_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistactivitieslistitem_show_activity(client,
+                                                     shared_drive_item_id,
+                                                     item_activity_old_id,
+                                                     start_date_time=None,
+                                                     end_date_time=None,
+                                                     interval=None,
+                                                     item_activity_old_id1=None,
+                                                     select=None,
+                                                     expand=None):
+    if shared_drive_item_id is not None and item_activity_old_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
+        return client.get_activities_by_interval(shared_drive_item_id=shared_drive_item_id,
+                                                 item_activity_old_id=item_activity_old_id,
+                                                 start_date_time=start_date_time,
+                                                 end_date_time=end_date_time,
+                                                 interval=interval)
+    return client.get_activities(shared_drive_item_id=shared_drive_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 item_activity_old_id1=item_activity_old_id1,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistactivitieslistitem_show_analytic(client,
+                                                     shared_drive_item_id,
+                                                     item_activity_old_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_analytics(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistactivitieslistitem_show_drive_item(client,
+                                                       shared_drive_item_id,
+                                                       item_activity_old_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistactivitieslistitem_show_drive_item_content(client,
+                                                               shared_drive_item_id,
+                                                               item_activity_old_id):
+    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_shareslistactivitieslistitem_show_field(client,
+                                                  shared_drive_item_id,
+                                                  item_activity_old_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_fields(shared_drive_item_id=shared_drive_item_id,
+                             item_activity_old_id=item_activity_old_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_shareslistactivitieslistitem_show_ref_analytic(client,
+                                                         shared_drive_item_id,
+                                                         item_activity_old_id):
+    return client.get_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id)
+
+
+def files_shareslistactivitieslistitem_show_version(client,
+                                                    shared_drive_item_id,
+                                                    item_activity_old_id,
+                                                    list_item_version_id,
+                                                    select=None,
+                                                    expand=None):
+    return client.get_versions(shared_drive_item_id=shared_drive_item_id,
+                               item_activity_old_id=item_activity_old_id,
+                               list_item_version_id=list_item_version_id,
+                               select=select,
+                               expand=expand)
+
+
+def files_shareslistactivitieslistitem_update_activity(client,
+                                                       shared_drive_item_id,
+                                                       item_activity_old_id,
+                                                       item_activity_old_id1,
+                                                       body):
+    return client.update_activities(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    item_activity_old_id1=item_activity_old_id1,
+                                    body=body)
+
+
+def files_shareslistactivitieslistitem_update_drive_item(client,
+                                                         shared_drive_item_id,
+                                                         item_activity_old_id,
+                                                         body):
+    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistactivitieslistitem_update_field(client,
+                                                    shared_drive_item_id,
+                                                    item_activity_old_id,
+                                                    id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                body=body)
+
+
+def files_shareslistactivitieslistitem_update_version(client,
+                                                      shared_drive_item_id,
+                                                      item_activity_old_id,
+                                                      list_item_version_id,
+                                                      id_=None,
+                                                      last_modified_date_time=None,
+                                                      publication=None,
+                                                      application=None,
+                                                      device=None,
+                                                      user=None,
+                                                      microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_versions(shared_drive_item_id=shared_drive_item_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id,
+                                  body=body)
+
+
+def files_shareslistactivitieslistitemversion_delete_field(client,
+                                                           shared_drive_item_id,
+                                                           item_activity_old_id,
+                                                           list_item_version_id,
+                                                           if_match=None):
+    return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                list_item_version_id=list_item_version_id,
+                                if_match=if_match)
+
+
+def files_shareslistactivitieslistitemversion_restore_version(client,
+                                                              shared_drive_item_id,
+                                                              item_activity_old_id,
+                                                              list_item_version_id):
+    return client.restore_version(shared_drive_item_id=shared_drive_item_id,
+                                  item_activity_old_id=item_activity_old_id,
+                                  list_item_version_id=list_item_version_id)
+
+
+def files_shareslistactivitieslistitemversion_show_field(client,
+                                                         shared_drive_item_id,
+                                                         item_activity_old_id,
+                                                         list_item_version_id,
+                                                         select=None,
+                                                         expand=None):
+    return client.get_fields(shared_drive_item_id=shared_drive_item_id,
+                             item_activity_old_id=item_activity_old_id,
+                             list_item_version_id=list_item_version_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_shareslistactivitieslistitemversion_update_field(client,
+                                                           shared_drive_item_id,
+                                                           item_activity_old_id,
+                                                           list_item_version_id,
+                                                           id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                list_item_version_id=list_item_version_id,
+                                body=body)
+
+
+def files_shareslistcontenttype_create_column_link(client,
+                                                   shared_drive_item_id,
+                                                   content_type_id,
+                                                   id_=None,
+                                                   name=None):
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    return client.create_column_links(shared_drive_item_id=shared_drive_item_id,
+                                      content_type_id=content_type_id,
+                                      body=body)
+
+
+def files_shareslistcontenttype_delete_column_link(client,
+                                                   shared_drive_item_id,
+                                                   content_type_id,
+                                                   column_link_id,
+                                                   if_match=None):
+    return client.delete_column_links(shared_drive_item_id=shared_drive_item_id,
+                                      content_type_id=content_type_id,
+                                      column_link_id=column_link_id,
+                                      if_match=if_match)
+
+
+def files_shareslistcontenttype_list_column_link(client,
+                                                 shared_drive_item_id,
+                                                 content_type_id,
+                                                 orderby=None,
+                                                 select=None,
+                                                 expand=None):
+    return client.list_column_links(shared_drive_item_id=shared_drive_item_id,
+                                    content_type_id=content_type_id,
+                                    orderby=orderby,
+                                    select=select,
+                                    expand=expand)
+
+
+def files_shareslistcontenttype_show_column_link(client,
+                                                 shared_drive_item_id,
+                                                 content_type_id,
+                                                 column_link_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_column_links(shared_drive_item_id=shared_drive_item_id,
+                                   content_type_id=content_type_id,
+                                   column_link_id=column_link_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def files_shareslistcontenttype_update_column_link(client,
+                                                   shared_drive_item_id,
+                                                   content_type_id,
+                                                   column_link_id,
+                                                   id_=None,
+                                                   name=None):
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    return client.update_column_links(shared_drive_item_id=shared_drive_item_id,
+                                      content_type_id=content_type_id,
+                                      column_link_id=column_link_id,
+                                      body=body)
+
+
+def files_shareslistitem_create_activity(client,
+                                         shared_drive_item_id,
+                                         list_item_id,
+                                         body):
+    return client.create_activities(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    body=body)
+
+
+def files_shareslistitem_create_link(client,
+                                     shared_drive_item_id,
+                                     list_item_id,
+                                     type_=None,
+                                     scope=None,
+                                     expiration_date_time=None,
+                                     password=None,
+                                     recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(shared_drive_item_id=shared_drive_item_id,
+                              list_item_id=list_item_id,
+                              body=body)
+
+
+def files_shareslistitem_create_version(client,
+                                        shared_drive_item_id,
+                                        list_item_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        publication=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_versions(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_id=list_item_id,
+                                  body=body)
+
+
+def files_shareslistitem_delete_activity(client,
+                                         shared_drive_item_id,
+                                         list_item_id,
+                                         item_activity_old_id,
+                                         if_match=None):
+    return client.delete_activities(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_shareslistitem_delete_drive_item(client,
+                                           shared_drive_item_id,
+                                           list_item_id,
+                                           if_match=None):
+    return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    if_match=if_match)
+
+
+def files_shareslistitem_delete_field(client,
+                                      shared_drive_item_id,
+                                      list_item_id,
+                                      if_match=None):
+    return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
+                                list_item_id=list_item_id,
+                                if_match=if_match)
+
+
+def files_shareslistitem_delete_ref_analytic(client,
+                                             shared_drive_item_id,
+                                             list_item_id,
+                                             if_match=None):
+    return client.delete_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                       list_item_id=list_item_id,
+                                       if_match=if_match)
+
+
+def files_shareslistitem_delete_version(client,
+                                        shared_drive_item_id,
+                                        list_item_id,
+                                        list_item_version_id,
+                                        if_match=None):
+    return client.delete_versions(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_id=list_item_id,
+                                  list_item_version_id=list_item_version_id,
+                                  if_match=if_match)
+
+
+def files_shareslistitem_list_activity(client,
+                                       shared_drive_item_id,
+                                       list_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_activities(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_id=list_item_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_shareslistitem_list_version(client,
+                                      shared_drive_item_id,
+                                      list_item_id,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
+    return client.list_versions(shared_drive_item_id=shared_drive_item_id,
+                                list_item_id=list_item_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistitem_set_drive_item_content(client,
+                                                shared_drive_item_id,
+                                                list_item_id,
+                                                data):
+    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         list_item_id=list_item_id,
+                                         data=data)
+
+
+def files_shareslistitem_set_ref_analytic(client,
+                                          shared_drive_item_id,
+                                          list_item_id,
+                                          body):
+    return client.set_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    body=body)
+
+
+def files_shareslistitem_show_activity(client,
+                                       shared_drive_item_id,
+                                       list_item_id,
+                                       start_date_time=None,
+                                       end_date_time=None,
+                                       interval=None,
+                                       item_activity_old_id=None,
+                                       select=None,
+                                       expand=None):
+    if shared_drive_item_id is not None and list_item_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
+        return client.get_activities_by_interval(shared_drive_item_id=shared_drive_item_id,
+                                                 list_item_id=list_item_id,
+                                                 start_date_time=start_date_time,
+                                                 end_date_time=end_date_time,
+                                                 interval=interval)
+    return client.get_activities(shared_drive_item_id=shared_drive_item_id,
+                                 list_item_id=list_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistitem_show_analytic(client,
+                                       shared_drive_item_id,
+                                       list_item_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_analytics(shared_drive_item_id=shared_drive_item_id,
+                                list_item_id=list_item_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistitem_show_drive_item(client,
+                                         shared_drive_item_id,
+                                         list_item_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                 list_item_id=list_item_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistitem_show_drive_item_content(client,
+                                                 shared_drive_item_id,
+                                                 list_item_id):
+    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         list_item_id=list_item_id)
+
+
+def files_shareslistitem_show_field(client,
+                                    shared_drive_item_id,
+                                    list_item_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_fields(shared_drive_item_id=shared_drive_item_id,
+                             list_item_id=list_item_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_shareslistitem_show_ref_analytic(client,
+                                           shared_drive_item_id,
+                                           list_item_id):
+    return client.get_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id)
+
+
+def files_shareslistitem_show_version(client,
+                                      shared_drive_item_id,
+                                      list_item_id,
+                                      list_item_version_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_versions(shared_drive_item_id=shared_drive_item_id,
+                               list_item_id=list_item_id,
+                               list_item_version_id=list_item_version_id,
+                               select=select,
+                               expand=expand)
+
+
+def files_shareslistitem_update_activity(client,
+                                         shared_drive_item_id,
+                                         list_item_id,
+                                         item_activity_old_id,
+                                         body):
+    return client.update_activities(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistitem_update_drive_item(client,
+                                           shared_drive_item_id,
+                                           list_item_id,
+                                           body):
+    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    body=body)
+
+
+def files_shareslistitem_update_field(client,
+                                      shared_drive_item_id,
+                                      list_item_id,
+                                      id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(shared_drive_item_id=shared_drive_item_id,
+                                list_item_id=list_item_id,
+                                body=body)
+
+
+def files_shareslistitem_update_version(client,
+                                        shared_drive_item_id,
+                                        list_item_id,
+                                        list_item_version_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        publication=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_versions(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_id=list_item_id,
+                                  list_item_version_id=list_item_version_id,
+                                  body=body)
+
+
+def files_shareslistitemsactivity_delete_drive_item(client,
+                                                    shared_drive_item_id,
+                                                    list_item_id,
+                                                    item_activity_old_id,
+                                                    if_match=None):
+    return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_shareslistitemsactivity_delete_list_item(client,
+                                                   shared_drive_item_id,
+                                                   list_item_id,
+                                                   item_activity_old_id,
+                                                   if_match=None):
+    return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   list_item_id=list_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   if_match=if_match)
+
+
+def files_shareslistitemsactivity_set_drive_item_content(client,
+                                                         shared_drive_item_id,
+                                                         list_item_id,
+                                                         item_activity_old_id,
+                                                         data):
+    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         list_item_id=list_item_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_shareslistitemsactivity_show_drive_item(client,
+                                                  shared_drive_item_id,
+                                                  list_item_id,
+                                                  item_activity_old_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                 list_item_id=list_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistitemsactivity_show_drive_item_content(client,
+                                                          shared_drive_item_id,
+                                                          list_item_id,
+                                                          item_activity_old_id):
+    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         list_item_id=list_item_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_shareslistitemsactivity_show_list_item(client,
+                                                 shared_drive_item_id,
+                                                 list_item_id,
+                                                 item_activity_old_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
+                                list_item_id=list_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistitemsactivity_update_drive_item(client,
+                                                    shared_drive_item_id,
+                                                    list_item_id,
+                                                    item_activity_old_id,
+                                                    body):
+    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    list_item_id=list_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistitemsactivity_update_list_item(client,
+                                                   shared_drive_item_id,
+                                                   list_item_id,
+                                                   item_activity_old_id,
+                                                   content_type,
+                                                   id_=None,
+                                                   created_date_time=None,
+                                                   description=None,
+                                                   e_tag=None,
+                                                   last_modified_date_time=None,
+                                                   name=None,
+                                                   web_url=None,
+                                                   created_by_user=None,
+                                                   last_modified_by_user=None,
+                                                   drive_id=None,
+                                                   drive_type=None,
+                                                   microsoft_graph_item_reference_id=None,
+                                                   microsoft_graph_item_reference_name=None,
+                                                   path=None,
+                                                   share_id=None,
+                                                   sharepoint_ids=None,
+                                                   site_id=None,
+                                                   application=None,
+                                                   device=None,
+                                                   user=None,
+                                                   microsoft_graph_identity_application=None,
+                                                   microsoft_graph_identity_device=None,
+                                                   microsoft_graph_identity_user=None,
+                                                   microsoft_graph_sharepoint_ids=None,
+                                                   activities=None,
+                                                   analytics=None,
+                                                   drive_item=None,
+                                                   versions=None,
+                                                   microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   list_item_id=list_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   body=body)
+
+
+def files_shareslistitemsactivitieslistitem_create_link(client,
+                                                        shared_drive_item_id,
+                                                        list_item_id,
+                                                        item_activity_old_id,
+                                                        type_=None,
+                                                        scope=None,
+                                                        expiration_date_time=None,
+                                                        password=None,
+                                                        recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(shared_drive_item_id=shared_drive_item_id,
+                              list_item_id=list_item_id,
+                              item_activity_old_id=item_activity_old_id,
+                              body=body)
+
+
+def files_shareslistitemsactivitieslistitem_show_activity(client,
+                                                          shared_drive_item_id,
+                                                          list_item_id,
+                                                          item_activity_old_id,
+                                                          start_date_time,
+                                                          end_date_time,
+                                                          interval):
+    return client.get_activities_by_interval(shared_drive_item_id=shared_drive_item_id,
+                                             list_item_id=list_item_id,
+                                             item_activity_old_id=item_activity_old_id,
+                                             start_date_time=start_date_time,
+                                             end_date_time=end_date_time,
+                                             interval=interval)
+
+
+def files_shareslistitemsversion_delete_field(client,
+                                              shared_drive_item_id,
+                                              list_item_id,
+                                              list_item_version_id,
+                                              if_match=None):
+    return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
+                                list_item_id=list_item_id,
+                                list_item_version_id=list_item_version_id,
+                                if_match=if_match)
+
+
+def files_shareslistitemsversion_restore_version(client,
+                                                 shared_drive_item_id,
+                                                 list_item_id,
+                                                 list_item_version_id):
+    return client.restore_version(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_id=list_item_id,
+                                  list_item_version_id=list_item_version_id)
+
+
+def files_shareslistitemsversion_show_field(client,
+                                            shared_drive_item_id,
+                                            list_item_id,
+                                            list_item_version_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_fields(shared_drive_item_id=shared_drive_item_id,
+                             list_item_id=list_item_id,
+                             list_item_version_id=list_item_version_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_shareslistitemsversion_update_field(client,
+                                              shared_drive_item_id,
+                                              list_item_id,
+                                              list_item_version_id,
+                                              id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(shared_drive_item_id=shared_drive_item_id,
+                                list_item_id=list_item_id,
+                                list_item_version_id=list_item_version_id,
+                                body=body)
+
+
+def files_shareslistitem_create_activity(client,
+                                         shared_drive_item_id,
+                                         body):
+    return client.create_activities(shared_drive_item_id=shared_drive_item_id,
+                                    body=body)
+
+
+def files_shareslistitem_create_link(client,
+                                     shared_drive_item_id,
+                                     type_=None,
+                                     scope=None,
+                                     expiration_date_time=None,
+                                     password=None,
+                                     recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(shared_drive_item_id=shared_drive_item_id,
+                              body=body)
+
+
+def files_shareslistitem_create_version(client,
+                                        shared_drive_item_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        publication=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.create_versions(shared_drive_item_id=shared_drive_item_id,
+                                  body=body)
+
+
+def files_shareslistitem_delete_activity(client,
+                                         shared_drive_item_id,
+                                         item_activity_old_id,
+                                         if_match=None):
+    return client.delete_activities(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_shareslistitem_delete_drive_item(client,
+                                           shared_drive_item_id,
+                                           if_match=None):
+    return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    if_match=if_match)
+
+
+def files_shareslistitem_delete_field(client,
+                                      shared_drive_item_id,
+                                      if_match=None):
+    return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
+                                if_match=if_match)
+
+
+def files_shareslistitem_delete_ref_analytic(client,
+                                             shared_drive_item_id,
+                                             if_match=None):
+    return client.delete_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                       if_match=if_match)
+
+
+def files_shareslistitem_delete_version(client,
+                                        shared_drive_item_id,
+                                        list_item_version_id,
+                                        if_match=None):
+    return client.delete_versions(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_version_id=list_item_version_id,
+                                  if_match=if_match)
+
+
+def files_shareslistitem_list_activity(client,
+                                       shared_drive_item_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_activities(shared_drive_item_id=shared_drive_item_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
+
+
+def files_shareslistitem_list_version(client,
+                                      shared_drive_item_id,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
+    return client.list_versions(shared_drive_item_id=shared_drive_item_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistitem_set_drive_item_content(client,
+                                                shared_drive_item_id,
+                                                data):
+    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         data=data)
+
+
+def files_shareslistitem_set_ref_analytic(client,
+                                          shared_drive_item_id,
+                                          body):
+    return client.set_ref_analytics(shared_drive_item_id=shared_drive_item_id,
+                                    body=body)
+
+
+def files_shareslistitem_show_activity(client,
+                                       shared_drive_item_id,
+                                       start_date_time=None,
+                                       end_date_time=None,
+                                       interval=None,
+                                       item_activity_old_id=None,
+                                       select=None,
+                                       expand=None):
+    if shared_drive_item_id is not None and start_date_time is not None and end_date_time is not None and interval is not None:
+        return client.get_activities_by_interval(shared_drive_item_id=shared_drive_item_id,
+                                                 start_date_time=start_date_time,
+                                                 end_date_time=end_date_time,
+                                                 interval=interval)
+    return client.get_activities(shared_drive_item_id=shared_drive_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistitem_show_analytic(client,
+                                       shared_drive_item_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_analytics(shared_drive_item_id=shared_drive_item_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistitem_show_drive_item(client,
+                                         shared_drive_item_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistitem_show_drive_item_content(client,
+                                                 shared_drive_item_id):
+    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id)
+
+
+def files_shareslistitem_show_field(client,
+                                    shared_drive_item_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_fields(shared_drive_item_id=shared_drive_item_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_shareslistitem_show_ref_analytic(client,
+                                           shared_drive_item_id):
+    return client.get_ref_analytics(shared_drive_item_id=shared_drive_item_id)
+
+
+def files_shareslistitem_show_version(client,
+                                      shared_drive_item_id,
+                                      list_item_version_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_versions(shared_drive_item_id=shared_drive_item_id,
+                               list_item_version_id=list_item_version_id,
+                               select=select,
+                               expand=expand)
+
+
+def files_shareslistitem_update_activity(client,
+                                         shared_drive_item_id,
+                                         item_activity_old_id,
+                                         body):
+    return client.update_activities(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistitem_update_drive_item(client,
+                                           shared_drive_item_id,
+                                           body):
+    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    body=body)
+
+
+def files_shareslistitem_update_field(client,
+                                      shared_drive_item_id,
+                                      id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(shared_drive_item_id=shared_drive_item_id,
+                                body=body)
+
+
+def files_shareslistitem_update_version(client,
+                                        shared_drive_item_id,
+                                        list_item_version_id,
+                                        id_=None,
+                                        last_modified_date_time=None,
+                                        publication=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
+                                        microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['last_modified_date_time'] = last_modified_date_time
+    body['publication'] = publication
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_versions(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_version_id=list_item_version_id,
+                                  body=body)
+
+
+def files_shareslistitemactivity_delete_drive_item(client,
+                                                   shared_drive_item_id,
+                                                   item_activity_old_id,
+                                                   if_match=None):
+    return client.delete_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    if_match=if_match)
+
+
+def files_shareslistitemactivity_delete_list_item(client,
+                                                  shared_drive_item_id,
+                                                  item_activity_old_id,
+                                                  if_match=None):
+    return client.delete_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   if_match=if_match)
+
+
+def files_shareslistitemactivity_set_drive_item_content(client,
+                                                        shared_drive_item_id,
+                                                        item_activity_old_id,
+                                                        data):
+    return client.set_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         item_activity_old_id=item_activity_old_id,
+                                         data=data)
+
+
+def files_shareslistitemactivity_show_drive_item(client,
+                                                 shared_drive_item_id,
+                                                 item_activity_old_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                 item_activity_old_id=item_activity_old_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def files_shareslistitemactivity_show_drive_item_content(client,
+                                                         shared_drive_item_id,
+                                                         item_activity_old_id):
+    return client.get_drive_item_content(shared_drive_item_id=shared_drive_item_id,
+                                         item_activity_old_id=item_activity_old_id)
+
+
+def files_shareslistitemactivity_show_list_item(client,
+                                                shared_drive_item_id,
+                                                item_activity_old_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_list_item(shared_drive_item_id=shared_drive_item_id,
+                                item_activity_old_id=item_activity_old_id,
+                                select=select,
+                                expand=expand)
+
+
+def files_shareslistitemactivity_update_drive_item(client,
+                                                   shared_drive_item_id,
+                                                   item_activity_old_id,
+                                                   body):
+    return client.update_drive_item(shared_drive_item_id=shared_drive_item_id,
+                                    item_activity_old_id=item_activity_old_id,
+                                    body=body)
+
+
+def files_shareslistitemactivity_update_list_item(client,
+                                                  shared_drive_item_id,
+                                                  item_activity_old_id,
+                                                  content_type,
+                                                  id_=None,
+                                                  created_date_time=None,
+                                                  description=None,
+                                                  e_tag=None,
+                                                  last_modified_date_time=None,
+                                                  name=None,
+                                                  web_url=None,
+                                                  created_by_user=None,
+                                                  last_modified_by_user=None,
+                                                  drive_id=None,
+                                                  drive_type=None,
+                                                  microsoft_graph_item_reference_id=None,
+                                                  microsoft_graph_item_reference_name=None,
+                                                  path=None,
+                                                  share_id=None,
+                                                  sharepoint_ids=None,
+                                                  site_id=None,
+                                                  application=None,
+                                                  device=None,
+                                                  user=None,
+                                                  microsoft_graph_identity_application=None,
+                                                  microsoft_graph_identity_device=None,
+                                                  microsoft_graph_identity_user=None,
+                                                  microsoft_graph_sharepoint_ids=None,
+                                                  activities=None,
+                                                  analytics=None,
+                                                  drive_item=None,
+                                                  versions=None,
+                                                  microsoft_graph_entity_id=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['content_type'] = content_type
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['activities'] = activities
+    body['analytics'] = analytics
+    body['drive_item'] = drive_item
+    body['versions'] = versions
+    body['fields'] = {}
+    body['fields']['id'] = microsoft_graph_entity_id
+    return client.update_list_item(shared_drive_item_id=shared_drive_item_id,
+                                   item_activity_old_id=item_activity_old_id,
+                                   body=body)
+
+
+def files_shareslistitemactivitieslistitem_create_link(client,
+                                                       shared_drive_item_id,
+                                                       item_activity_old_id,
+                                                       type_=None,
+                                                       scope=None,
+                                                       expiration_date_time=None,
+                                                       password=None,
+                                                       recipients=None):
+    body = {}
+    body['type'] = type_
+    body['scope'] = scope
+    body['expiration_date_time'] = expiration_date_time
+    body['password'] = password
+    body['recipients'] = recipients
+    return client.create_link(shared_drive_item_id=shared_drive_item_id,
+                              item_activity_old_id=item_activity_old_id,
+                              body=body)
+
+
+def files_shareslistitemactivitieslistitem_show_activity(client,
+                                                         shared_drive_item_id,
+                                                         item_activity_old_id,
+                                                         start_date_time,
+                                                         end_date_time,
+                                                         interval):
+    return client.get_activities_by_interval(shared_drive_item_id=shared_drive_item_id,
+                                             item_activity_old_id=item_activity_old_id,
+                                             start_date_time=start_date_time,
+                                             end_date_time=end_date_time,
+                                             interval=interval)
+
+
+def files_shareslistitemversion_delete_field(client,
+                                             shared_drive_item_id,
+                                             list_item_version_id,
+                                             if_match=None):
+    return client.delete_fields(shared_drive_item_id=shared_drive_item_id,
+                                list_item_version_id=list_item_version_id,
+                                if_match=if_match)
+
+
+def files_shareslistitemversion_restore_version(client,
+                                                shared_drive_item_id,
+                                                list_item_version_id):
+    return client.restore_version(shared_drive_item_id=shared_drive_item_id,
+                                  list_item_version_id=list_item_version_id)
+
+
+def files_shareslistitemversion_show_field(client,
+                                           shared_drive_item_id,
+                                           list_item_version_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_fields(shared_drive_item_id=shared_drive_item_id,
+                             list_item_version_id=list_item_version_id,
+                             select=select,
+                             expand=expand)
+
+
+def files_shareslistitemversion_update_field(client,
+                                             shared_drive_item_id,
+                                             list_item_version_id,
+                                             id_=None):
+    body = {}
+    body['id'] = id_
+    return client.update_fields(shared_drive_item_id=shared_drive_item_id,
+                                list_item_version_id=list_item_version_id,
+                                body=body)
+
+
+def files_sharespermission_grant(client,
+                                 shared_drive_item_id,
+                                 roles=None,
+                                 recipients=None):
+    body = {}
+    body['roles'] = roles
+    body['recipients'] = recipients
+    return client.grant(shared_drive_item_id=shared_drive_item_id,
+                        body=body)
+
+
+def files_sharespermission_revoke_grant(client,
+                                        shared_drive_item_id,
+                                        grantees=None):
+    body = {}
+    body['grantees'] = grantees
+    return client.revoke_grants(shared_drive_item_id=shared_drive_item_id,
+                                body=body)
+
+
+def files_user_create_drive(client,
+                            user_id,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            microsoft_graph_drive_type=None,
+                            share_point_ids=None,
+                            system=None,
+                            activities=None,
+                            bundles=None,
+                            following=None,
+                            items=None,
+                            root=None,
+                            special=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            display_name=None,
+                            list=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_system_facet_system=None,
+                            microsoft_graph_list_activities=None,
+                            columns=None,
+                            content_types=None,
+                            drive=None,
+                            microsoft_graph_list_items=None,
+                            subscriptions=None,
+                            deleted=None,
+                            remaining=None,
+                            state=None,
+                            storage_plan_information=None,
+                            total=None,
+                            used=None,
+                            application3=None,
+                            device3=None,
+                            user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
+    return client.create_drives(user_id=user_id,
+                                body=body)
+
+
+def files_user_delete_drive(client,
+                            user_id,
+                            drive_id=None,
+                            if_match=None):
     if user_id is not None and drive_id is not None:
-        return client.update_drive(user_id=user_id,
-                                   drive_id=drive_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   description=description,
-                                   e_tag=e_tag,
-                                   last_modified_date_time=last_modified_date_time,
-                                   name=name,
-                                   web_url=web_url,
-                                   created_by_user=created_by_user,
-                                   last_modified_by_user=last_modified_by_user,
-                                   microsoft_graph_item_reference_drive_id=parent_reference_drive_id,
-                                   drive_type=parent_reference_drive_type,
-                                   microsoft_graph_item_reference_id=parent_reference_id,
-                                   microsoft_graph_item_reference_name=parent_reference_name,
-                                   path=parent_reference_path,
-                                   share_id=parent_reference_share_id,
-                                   sharepoint_ids=parent_reference_sharepoint_ids,
-                                   site_id=parent_reference_site_id,
-                                   application=last_modified_by_application,
-                                   device=last_modified_by_device,
-                                   user=user,
-                                   microsoft_graph_identity_application=created_by_application,
-                                   microsoft_graph_identity_device=created_by_device,
-                                   microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                   microsoft_graph_drive_type=microsoft_graph_drive_type,
-                                   share_point_ids=share_point_ids,
-                                   system=system,
-                                   activities=activities,
-                                   bundles=bundles,
-                                   following=following,
-                                   items=items,
-                                   root=root,
-                                   special=special,
-                                   microsoft_graph_entity_id=list_id,
-                                   microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                                   microsoft_graph_base_item_description=list_description,
-                                   microsoft_graph_base_item_e_tag=list_e_tag,
-                                   microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                                   microsoft_graph_base_item_name=list_name,
-                                   microsoft_graph_base_item_web_url=list_web_url,
-                                   microsoft_graph_user_created_by_user=list_created_by_user,
-                                   microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                                   drive_id1=list_parent_reference_drive_id,
-                                   microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                                   id1=list_parent_reference_id,
-                                   name1=list_parent_reference_name,
-                                   microsoft_graph_item_reference_path=list_parent_reference_path,
-                                   microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                                   microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                                   microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                                   application1=list_last_modified_by_application,
-                                   device1=list_last_modified_by_device,
-                                   user1=user1,
-                                   application2=list_created_by_application,
-                                   device2=list_created_by_device,
-                                   user2=user2,
-                                   display_name=list_display_name,
-                                   list=list_list,
-                                   sharepoint_ids1=list_sharepoint_ids,
-                                   microsoft_graph_system_facet_system=list_system,
-                                   microsoft_graph_list_activities=list_activities,
-                                   columns=list_columns,
-                                   content_types=list_content_types,
-                                   drive=list_drive,
-                                   microsoft_graph_list_items=list_items,
-                                   subscriptions=list_subscriptions,
-                                   deleted=quota_deleted,
-                                   remaining=quota_remaining,
-                                   state=quota_state,
-                                   storage_plan_information=quota_storage_plan_information,
-                                   total=quota_total,
-                                   used=quota_used,
-                                   application3=owner_application,
-                                   device3=owner_device,
-                                   user3=owner_user)
+        return client.delete_drives(user_id=user_id,
+                                    drive_id=drive_id,
+                                    if_match=if_match)
+    return client.delete_drive(user_id=user_id,
+                               if_match=if_match)
+
+
+def files_user_list_drive(client,
+                          user_id,
+                          orderby=None,
+                          select=None,
+                          expand=None):
+    return client.list_drives(user_id=user_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
+
+
+def files_user_show_drive(client,
+                          user_id,
+                          drive_id=None,
+                          select=None,
+                          expand=None):
+    if user_id is not None and drive_id is not None:
+        return client.get_drives(user_id=user_id,
+                                 drive_id=drive_id,
+                                 select=select,
+                                 expand=expand)
+    return client.get_drive(user_id=user_id,
+                            select=select,
+                            expand=expand)
+
+
+def files_user_update_drive(client,
+                            user_id,
+                            drive_id=None,
+                            id_=None,
+                            created_date_time=None,
+                            description=None,
+                            e_tag=None,
+                            last_modified_date_time=None,
+                            name=None,
+                            web_url=None,
+                            created_by_user=None,
+                            last_modified_by_user=None,
+                            microsoft_graph_item_reference_drive_id=None,
+                            drive_type=None,
+                            microsoft_graph_item_reference_id=None,
+                            microsoft_graph_item_reference_name=None,
+                            path=None,
+                            share_id=None,
+                            sharepoint_ids=None,
+                            site_id=None,
+                            application=None,
+                            device=None,
+                            user=None,
+                            microsoft_graph_identity_application=None,
+                            microsoft_graph_identity_device=None,
+                            microsoft_graph_identity_user=None,
+                            microsoft_graph_drive_type=None,
+                            share_point_ids=None,
+                            system=None,
+                            activities=None,
+                            bundles=None,
+                            following=None,
+                            items=None,
+                            root=None,
+                            special=None,
+                            microsoft_graph_entity_id=None,
+                            microsoft_graph_base_item_created_date_time_created_date_time=None,
+                            microsoft_graph_base_item_description=None,
+                            microsoft_graph_base_item_e_tag=None,
+                            microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                            microsoft_graph_base_item_name=None,
+                            microsoft_graph_base_item_web_url=None,
+                            microsoft_graph_user_created_by_user=None,
+                            microsoft_graph_user_last_modified_by_user=None,
+                            drive_id1=None,
+                            microsoft_graph_item_reference_drive_type=None,
+                            id1=None,
+                            name1=None,
+                            microsoft_graph_item_reference_path=None,
+                            microsoft_graph_item_reference_share_id=None,
+                            microsoft_graph_sharepoint_ids=None,
+                            microsoft_graph_item_reference_site_id=None,
+                            application1=None,
+                            device1=None,
+                            user1=None,
+                            application2=None,
+                            device2=None,
+                            user2=None,
+                            display_name=None,
+                            list=None,
+                            sharepoint_ids1=None,
+                            microsoft_graph_system_facet_system=None,
+                            microsoft_graph_list_activities=None,
+                            columns=None,
+                            content_types=None,
+                            drive=None,
+                            microsoft_graph_list_items=None,
+                            subscriptions=None,
+                            deleted=None,
+                            remaining=None,
+                            state=None,
+                            storage_plan_information=None,
+                            total=None,
+                            used=None,
+                            application3=None,
+                            device3=None,
+                            user3=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['drive_type'] = microsoft_graph_drive_type
+    body['share_point_ids'] = share_point_ids
+    body['system'] = system
+    body['activities'] = activities
+    body['bundles'] = bundles
+    body['following'] = following
+    body['items'] = items
+    body['root'] = root
+    body['special'] = special
+    body['list'] = {}
+    body['list']['id'] = microsoft_graph_entity_id
+    body['list']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list']['description'] = microsoft_graph_base_item_description
+    body['list']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list']['name'] = microsoft_graph_base_item_name
+    body['list']['web_url'] = microsoft_graph_base_item_web_url
+    body['list']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list']['parent_reference'] = {}
+    body['list']['parent_reference']['drive_id'] = drive_id1
+    body['list']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list']['parent_reference']['id'] = id1
+    body['list']['parent_reference']['name'] = name1
+    body['list']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list']['parent_reference']['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['list']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list']['last_modified_by'] = {}
+    body['list']['last_modified_by']['application'] = application1
+    body['list']['last_modified_by']['device'] = device1
+    body['list']['last_modified_by']['user'] = user1
+    body['list']['created_by'] = {}
+    body['list']['created_by']['application'] = application2
+    body['list']['created_by']['device'] = device2
+    body['list']['created_by']['user'] = user2
+    body['list']['display_name'] = display_name
+    body['list']['list'] = list
+    body['list']['sharepoint_ids'] = sharepoint_ids1
+    body['list']['system'] = microsoft_graph_system_facet_system
+    body['list']['activities'] = microsoft_graph_list_activities
+    body['list']['columns'] = columns
+    body['list']['content_types'] = content_types
+    body['list']['drive'] = drive
+    body['list']['items'] = microsoft_graph_list_items
+    body['list']['subscriptions'] = subscriptions
+    body['quota'] = {}
+    body['quota']['deleted'] = deleted
+    body['quota']['remaining'] = remaining
+    body['quota']['state'] = state
+    body['quota']['storage_plan_information'] = storage_plan_information
+    body['quota']['total'] = total
+    body['quota']['used'] = used
+    body['owner'] = {}
+    body['owner']['application'] = application3
+    body['owner']['device'] = device3
+    body['owner']['user'] = user3
+    if user_id is not None and drive_id is not None:
+        return client.update_drives(user_id=user_id,
+                                    drive_id=drive_id,
+                                    body=body)
     return client.update_drive(user_id=user_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               description=description,
-                               e_tag=e_tag,
-                               last_modified_date_time=last_modified_date_time,
-                               name=name,
-                               web_url=web_url,
-                               created_by_user=created_by_user,
-                               last_modified_by_user=last_modified_by_user,
-                               drive_id=parent_reference_drive_id,
-                               drive_type=parent_reference_drive_type,
-                               microsoft_graph_item_reference_id=parent_reference_id,
-                               microsoft_graph_item_reference_name=parent_reference_name,
-                               path=parent_reference_path,
-                               share_id=parent_reference_share_id,
-                               sharepoint_ids=parent_reference_sharepoint_ids,
-                               site_id=parent_reference_site_id,
-                               application=last_modified_by_application,
-                               device=last_modified_by_device,
-                               user=user,
-                               microsoft_graph_identity_application=created_by_application,
-                               microsoft_graph_identity_device=created_by_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               microsoft_graph_drive_type=microsoft_graph_drive_type,
-                               share_point_ids=share_point_ids,
-                               system=system,
-                               activities=activities,
-                               bundles=bundles,
-                               following=following,
-                               items=items,
-                               root=root,
-                               special=special,
-                               microsoft_graph_entity_id=list_id,
-                               microsoft_graph_base_item_created_date_time_created_date_time=list_created_date_time,
-                               microsoft_graph_base_item_description=list_description,
-                               microsoft_graph_base_item_e_tag=list_e_tag,
-                               microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_last_modified_date_time,
-                               microsoft_graph_base_item_name=list_name,
-                               microsoft_graph_base_item_web_url=list_web_url,
-                               microsoft_graph_user_created_by_user=list_created_by_user,
-                               microsoft_graph_user_last_modified_by_user=list_last_modified_by_user,
-                               microsoft_graph_item_reference_drive_id=list_parent_reference_drive_id,
-                               microsoft_graph_item_reference_drive_type=list_parent_reference_drive_type,
-                               id1=list_parent_reference_id,
-                               name1=list_parent_reference_name,
-                               microsoft_graph_item_reference_path=list_parent_reference_path,
-                               microsoft_graph_item_reference_share_id=list_parent_reference_share_id,
-                               microsoft_graph_sharepoint_ids=list_parent_reference_sharepoint_ids,
-                               microsoft_graph_item_reference_site_id=list_parent_reference_site_id,
-                               application1=list_last_modified_by_application,
-                               device1=list_last_modified_by_device,
-                               user1=user1,
-                               application2=list_created_by_application,
-                               device2=list_created_by_device,
-                               user2=user2,
-                               display_name=list_display_name,
-                               list=list_list,
-                               sharepoint_ids1=list_sharepoint_ids,
-                               microsoft_graph_system_facet_system=list_system,
-                               microsoft_graph_list_activities=list_activities,
-                               columns=list_columns,
-                               content_types=list_content_types,
-                               drive=list_drive,
-                               microsoft_graph_list_items=list_items,
-                               subscriptions=list_subscriptions,
-                               deleted=quota_deleted,
-                               remaining=quota_remaining,
-                               state=quota_state,
-                               storage_plan_information=quota_storage_plan_information,
-                               total=quota_total,
-                               used=quota_used,
-                               application3=owner_application,
-                               device3=owner_device,
-                               user3=owner_user)
+                               body=body)

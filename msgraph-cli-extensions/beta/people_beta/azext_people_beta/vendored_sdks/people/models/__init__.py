@@ -7,149 +7,149 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfActivityStatistics
-    from ._models_py3 import CollectionOfEducationalActivity
-    from ._models_py3 import CollectionOfItemAddress
-    from ._models_py3 import CollectionOfItemEmail
-    from ._models_py3 import CollectionOfItemPatent
-    from ._models_py3 import CollectionOfItemPhone
-    from ._models_py3 import CollectionOfItemPublication
-    from ._models_py3 import CollectionOfLanguageProficiency
-    from ._models_py3 import CollectionOfPerson
-    from ._models_py3 import CollectionOfPersonAnniversary
-    from ._models_py3 import CollectionOfPersonAnnotation
-    from ._models_py3 import CollectionOfPersonAward
-    from ._models_py3 import CollectionOfPersonCertification
-    from ._models_py3 import CollectionOfPersonInterest
-    from ._models_py3 import CollectionOfPersonName
-    from ._models_py3 import CollectionOfPersonWebsite
-    from ._models_py3 import CollectionOfProjectParticipation
-    from ._models_py3 import CollectionOfSkillProficiency
-    from ._models_py3 import CollectionOfUserAccountInformation
-    from ._models_py3 import CollectionOfWebAccount
-    from ._models_py3 import CollectionOfWorkPosition
-    from ._models_py3 import MicrosoftGraphActivityStatistics
-    from ._models_py3 import MicrosoftGraphCompanyDetail
-    from ._models_py3 import MicrosoftGraphEducationalActivity
-    from ._models_py3 import MicrosoftGraphEducationalActivityDetail
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphGeoCoordinates
-    from ._models_py3 import MicrosoftGraphIdentity
-    from ._models_py3 import MicrosoftGraphIdentitySet
-    from ._models_py3 import MicrosoftGraphInferenceData
-    from ._models_py3 import MicrosoftGraphInstitutionData
-    from ._models_py3 import MicrosoftGraphItemAddress
-    from ._models_py3 import MicrosoftGraphItemBody
-    from ._models_py3 import MicrosoftGraphItemEmail
-    from ._models_py3 import MicrosoftGraphItemFacet
-    from ._models_py3 import MicrosoftGraphItemPatent
-    from ._models_py3 import MicrosoftGraphItemPhone
-    from ._models_py3 import MicrosoftGraphItemPublication
-    from ._models_py3 import MicrosoftGraphLanguageProficiency
-    from ._models_py3 import MicrosoftGraphLocaleInfo
-    from ._models_py3 import MicrosoftGraphLocation
-    from ._models_py3 import MicrosoftGraphOutlookGeoCoordinates
-    from ._models_py3 import MicrosoftGraphPerson
-    from ._models_py3 import MicrosoftGraphPersonAnniversary
-    from ._models_py3 import MicrosoftGraphPersonAnnotation
-    from ._models_py3 import MicrosoftGraphPersonAward
-    from ._models_py3 import MicrosoftGraphPersonCertification
-    from ._models_py3 import MicrosoftGraphPersonDataSource
-    from ._models_py3 import MicrosoftGraphPersonDataSources
-    from ._models_py3 import MicrosoftGraphPersonInterest
-    from ._models_py3 import MicrosoftGraphPersonName
-    from ._models_py3 import MicrosoftGraphPersonWebsite
-    from ._models_py3 import MicrosoftGraphPhone
-    from ._models_py3 import MicrosoftGraphPhysicalAddress
-    from ._models_py3 import MicrosoftGraphPositionDetail
-    from ._models_py3 import MicrosoftGraphProfile
-    from ._models_py3 import MicrosoftGraphProjectParticipation
-    from ._models_py3 import MicrosoftGraphRankedEmailAddress
-    from ._models_py3 import MicrosoftGraphRelatedPerson
-    from ._models_py3 import MicrosoftGraphServiceInformation
-    from ._models_py3 import MicrosoftGraphSettings
-    from ._models_py3 import MicrosoftGraphSkillProficiency
-    from ._models_py3 import MicrosoftGraphUserAccountInformation
-    from ._models_py3 import MicrosoftGraphUserAnalytics
-    from ._models_py3 import MicrosoftGraphWebAccount
-    from ._models_py3 import MicrosoftGraphWebsite
-    from ._models_py3 import MicrosoftGraphWorkPosition
-    from ._models_py3 import MicrosoftGraphYomiPersonName
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionofactivitystatistics
+    from ._models_py3 import collectionofeducationalactivity
+    from ._models_py3 import collectionofitemaddress
+    from ._models_py3 import collectionofitememail
+    from ._models_py3 import collectionofitempatent
+    from ._models_py3 import collectionofitemphone
+    from ._models_py3 import collectionofitempublication
+    from ._models_py3 import collectionoflanguageproficiency
+    from ._models_py3 import collectionofperson
+    from ._models_py3 import collectionofpersonanniversary
+    from ._models_py3 import collectionofpersonannotation
+    from ._models_py3 import collectionofpersonaward
+    from ._models_py3 import collectionofpersoncertification
+    from ._models_py3 import collectionofpersoninterest
+    from ._models_py3 import collectionofpersonname
+    from ._models_py3 import collectionofpersonwebsite
+    from ._models_py3 import collectionofprojectparticipation
+    from ._models_py3 import collectionofskillproficiency
+    from ._models_py3 import collectionofuseraccountinformation
+    from ._models_py3 import collectionofwebaccount
+    from ._models_py3 import collectionofworkposition
+    from ._models_py3 import microsoftgraphactivitystatistics
+    from ._models_py3 import microsoftgraphcompanydetail
+    from ._models_py3 import microsoftgrapheducationalactivity
+    from ._models_py3 import microsoftgrapheducationalactivitydetail
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphgeocoordinates
+    from ._models_py3 import microsoftgraphidentity
+    from ._models_py3 import microsoftgraphidentityset
+    from ._models_py3 import microsoftgraphinferencedata
+    from ._models_py3 import microsoftgraphinstitutiondata
+    from ._models_py3 import microsoftgraphitemaddress
+    from ._models_py3 import microsoftgraphitembody
+    from ._models_py3 import microsoftgraphitememail
+    from ._models_py3 import microsoftgraphitemfacet
+    from ._models_py3 import microsoftgraphitempatent
+    from ._models_py3 import microsoftgraphitemphone
+    from ._models_py3 import microsoftgraphitempublication
+    from ._models_py3 import microsoftgraphlanguageproficiency
+    from ._models_py3 import microsoftgraphlocaleinfo
+    from ._models_py3 import microsoftgraphlocation
+    from ._models_py3 import microsoftgraphoutlookgeocoordinates
+    from ._models_py3 import microsoftgraphperson
+    from ._models_py3 import microsoftgraphpersonanniversary
+    from ._models_py3 import microsoftgraphpersonannotation
+    from ._models_py3 import microsoftgraphpersonaward
+    from ._models_py3 import microsoftgraphpersoncertification
+    from ._models_py3 import microsoftgraphpersondatasource
+    from ._models_py3 import microsoftgraphpersondatasources
+    from ._models_py3 import microsoftgraphpersoninterest
+    from ._models_py3 import microsoftgraphpersonname
+    from ._models_py3 import microsoftgraphpersonwebsite
+    from ._models_py3 import microsoftgraphphone
+    from ._models_py3 import microsoftgraphphysicaladdress
+    from ._models_py3 import microsoftgraphpositiondetail
+    from ._models_py3 import microsoftgraphprofile
+    from ._models_py3 import microsoftgraphprojectparticipation
+    from ._models_py3 import microsoftgraphrankedemailaddress
+    from ._models_py3 import microsoftgraphrelatedperson
+    from ._models_py3 import microsoftgraphserviceinformation
+    from ._models_py3 import microsoftgraphsettings
+    from ._models_py3 import microsoftgraphskillproficiency
+    from ._models_py3 import microsoftgraphuseraccountinformation
+    from ._models_py3 import microsoftgraphuseranalytics
+    from ._models_py3 import microsoftgraphwebaccount
+    from ._models_py3 import microsoftgraphwebsite
+    from ._models_py3 import microsoftgraphworkposition
+    from ._models_py3 import microsoftgraphyomipersonname
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfActivityStatistics  # type: ignore
-    from ._models import CollectionOfEducationalActivity  # type: ignore
-    from ._models import CollectionOfItemAddress  # type: ignore
-    from ._models import CollectionOfItemEmail  # type: ignore
-    from ._models import CollectionOfItemPatent  # type: ignore
-    from ._models import CollectionOfItemPhone  # type: ignore
-    from ._models import CollectionOfItemPublication  # type: ignore
-    from ._models import CollectionOfLanguageProficiency  # type: ignore
-    from ._models import CollectionOfPerson  # type: ignore
-    from ._models import CollectionOfPersonAnniversary  # type: ignore
-    from ._models import CollectionOfPersonAnnotation  # type: ignore
-    from ._models import CollectionOfPersonAward  # type: ignore
-    from ._models import CollectionOfPersonCertification  # type: ignore
-    from ._models import CollectionOfPersonInterest  # type: ignore
-    from ._models import CollectionOfPersonName  # type: ignore
-    from ._models import CollectionOfPersonWebsite  # type: ignore
-    from ._models import CollectionOfProjectParticipation  # type: ignore
-    from ._models import CollectionOfSkillProficiency  # type: ignore
-    from ._models import CollectionOfUserAccountInformation  # type: ignore
-    from ._models import CollectionOfWebAccount  # type: ignore
-    from ._models import CollectionOfWorkPosition  # type: ignore
-    from ._models import MicrosoftGraphActivityStatistics  # type: ignore
-    from ._models import MicrosoftGraphCompanyDetail  # type: ignore
-    from ._models import MicrosoftGraphEducationalActivity  # type: ignore
-    from ._models import MicrosoftGraphEducationalActivityDetail  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphGeoCoordinates  # type: ignore
-    from ._models import MicrosoftGraphIdentity  # type: ignore
-    from ._models import MicrosoftGraphIdentitySet  # type: ignore
-    from ._models import MicrosoftGraphInferenceData  # type: ignore
-    from ._models import MicrosoftGraphInstitutionData  # type: ignore
-    from ._models import MicrosoftGraphItemAddress  # type: ignore
-    from ._models import MicrosoftGraphItemBody  # type: ignore
-    from ._models import MicrosoftGraphItemEmail  # type: ignore
-    from ._models import MicrosoftGraphItemFacet  # type: ignore
-    from ._models import MicrosoftGraphItemPatent  # type: ignore
-    from ._models import MicrosoftGraphItemPhone  # type: ignore
-    from ._models import MicrosoftGraphItemPublication  # type: ignore
-    from ._models import MicrosoftGraphLanguageProficiency  # type: ignore
-    from ._models import MicrosoftGraphLocaleInfo  # type: ignore
-    from ._models import MicrosoftGraphLocation  # type: ignore
-    from ._models import MicrosoftGraphOutlookGeoCoordinates  # type: ignore
-    from ._models import MicrosoftGraphPerson  # type: ignore
-    from ._models import MicrosoftGraphPersonAnniversary  # type: ignore
-    from ._models import MicrosoftGraphPersonAnnotation  # type: ignore
-    from ._models import MicrosoftGraphPersonAward  # type: ignore
-    from ._models import MicrosoftGraphPersonCertification  # type: ignore
-    from ._models import MicrosoftGraphPersonDataSource  # type: ignore
-    from ._models import MicrosoftGraphPersonDataSources  # type: ignore
-    from ._models import MicrosoftGraphPersonInterest  # type: ignore
-    from ._models import MicrosoftGraphPersonName  # type: ignore
-    from ._models import MicrosoftGraphPersonWebsite  # type: ignore
-    from ._models import MicrosoftGraphPhone  # type: ignore
-    from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
-    from ._models import MicrosoftGraphPositionDetail  # type: ignore
-    from ._models import MicrosoftGraphProfile  # type: ignore
-    from ._models import MicrosoftGraphProjectParticipation  # type: ignore
-    from ._models import MicrosoftGraphRankedEmailAddress  # type: ignore
-    from ._models import MicrosoftGraphRelatedPerson  # type: ignore
-    from ._models import MicrosoftGraphServiceInformation  # type: ignore
-    from ._models import MicrosoftGraphSettings  # type: ignore
-    from ._models import MicrosoftGraphSkillProficiency  # type: ignore
-    from ._models import MicrosoftGraphUserAccountInformation  # type: ignore
-    from ._models import MicrosoftGraphUserAnalytics  # type: ignore
-    from ._models import MicrosoftGraphWebAccount  # type: ignore
-    from ._models import MicrosoftGraphWebsite  # type: ignore
-    from ._models import MicrosoftGraphWorkPosition  # type: ignore
-    from ._models import MicrosoftGraphYomiPersonName  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionofactivitystatistics  # type: ignore
+    from ._models import collectionofeducationalactivity  # type: ignore
+    from ._models import collectionofitemaddress  # type: ignore
+    from ._models import collectionofitememail  # type: ignore
+    from ._models import collectionofitempatent  # type: ignore
+    from ._models import collectionofitemphone  # type: ignore
+    from ._models import collectionofitempublication  # type: ignore
+    from ._models import collectionoflanguageproficiency  # type: ignore
+    from ._models import collectionofperson  # type: ignore
+    from ._models import collectionofpersonanniversary  # type: ignore
+    from ._models import collectionofpersonannotation  # type: ignore
+    from ._models import collectionofpersonaward  # type: ignore
+    from ._models import collectionofpersoncertification  # type: ignore
+    from ._models import collectionofpersoninterest  # type: ignore
+    from ._models import collectionofpersonname  # type: ignore
+    from ._models import collectionofpersonwebsite  # type: ignore
+    from ._models import collectionofprojectparticipation  # type: ignore
+    from ._models import collectionofskillproficiency  # type: ignore
+    from ._models import collectionofuseraccountinformation  # type: ignore
+    from ._models import collectionofwebaccount  # type: ignore
+    from ._models import collectionofworkposition  # type: ignore
+    from ._models import microsoftgraphactivitystatistics  # type: ignore
+    from ._models import microsoftgraphcompanydetail  # type: ignore
+    from ._models import microsoftgrapheducationalactivity  # type: ignore
+    from ._models import microsoftgrapheducationalactivitydetail  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphgeocoordinates  # type: ignore
+    from ._models import microsoftgraphidentity  # type: ignore
+    from ._models import microsoftgraphidentityset  # type: ignore
+    from ._models import microsoftgraphinferencedata  # type: ignore
+    from ._models import microsoftgraphinstitutiondata  # type: ignore
+    from ._models import microsoftgraphitemaddress  # type: ignore
+    from ._models import microsoftgraphitembody  # type: ignore
+    from ._models import microsoftgraphitememail  # type: ignore
+    from ._models import microsoftgraphitemfacet  # type: ignore
+    from ._models import microsoftgraphitempatent  # type: ignore
+    from ._models import microsoftgraphitemphone  # type: ignore
+    from ._models import microsoftgraphitempublication  # type: ignore
+    from ._models import microsoftgraphlanguageproficiency  # type: ignore
+    from ._models import microsoftgraphlocaleinfo  # type: ignore
+    from ._models import microsoftgraphlocation  # type: ignore
+    from ._models import microsoftgraphoutlookgeocoordinates  # type: ignore
+    from ._models import microsoftgraphperson  # type: ignore
+    from ._models import microsoftgraphpersonanniversary  # type: ignore
+    from ._models import microsoftgraphpersonannotation  # type: ignore
+    from ._models import microsoftgraphpersonaward  # type: ignore
+    from ._models import microsoftgraphpersoncertification  # type: ignore
+    from ._models import microsoftgraphpersondatasource  # type: ignore
+    from ._models import microsoftgraphpersondatasources  # type: ignore
+    from ._models import microsoftgraphpersoninterest  # type: ignore
+    from ._models import microsoftgraphpersonname  # type: ignore
+    from ._models import microsoftgraphpersonwebsite  # type: ignore
+    from ._models import microsoftgraphphone  # type: ignore
+    from ._models import microsoftgraphphysicaladdress  # type: ignore
+    from ._models import microsoftgraphpositiondetail  # type: ignore
+    from ._models import microsoftgraphprofile  # type: ignore
+    from ._models import microsoftgraphprojectparticipation  # type: ignore
+    from ._models import microsoftgraphrankedemailaddress  # type: ignore
+    from ._models import microsoftgraphrelatedperson  # type: ignore
+    from ._models import microsoftgraphserviceinformation  # type: ignore
+    from ._models import microsoftgraphsettings  # type: ignore
+    from ._models import microsoftgraphskillproficiency  # type: ignore
+    from ._models import microsoftgraphuseraccountinformation  # type: ignore
+    from ._models import microsoftgraphuseranalytics  # type: ignore
+    from ._models import microsoftgraphwebaccount  # type: ignore
+    from ._models import microsoftgraphwebsite  # type: ignore
+    from ._models import microsoftgraphworkposition  # type: ignore
+    from ._models import microsoftgraphyomipersonname  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._people_enums import (
     Enum13,
@@ -215,97 +215,97 @@ from ._people_enums import (
     Enum77,
     Enum78,
     Enum79,
-    Get1ItemsItem,
-    Get2ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    MicrosoftGraphAllowedAudiences,
-    MicrosoftGraphAnalyticsActivityType,
-    MicrosoftGraphAnniversaryType,
-    MicrosoftGraphBodyType,
-    MicrosoftGraphEmailType,
-    MicrosoftGraphLanguageProficiencyLevel,
-    MicrosoftGraphLocationType,
-    MicrosoftGraphLocationUniqueIdType,
-    MicrosoftGraphPersonRelationship,
-    MicrosoftGraphPhoneType,
-    MicrosoftGraphPhysicalAddressType,
-    MicrosoftGraphSkillProficiencyLevel,
-    MicrosoftGraphWebsiteType,
+    Get1itemsitem,
+    Get2itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Microsoftgraphallowedaudiences,
+    Microsoftgraphanalyticsactivitytype,
+    Microsoftgraphanniversarytype,
+    Microsoftgraphbodytype,
+    Microsoftgraphemailtype,
+    Microsoftgraphlanguageproficiencylevel,
+    Microsoftgraphlocationtype,
+    Microsoftgraphlocationuniqueidtype,
+    Microsoftgraphpersonrelationship,
+    Microsoftgraphphonetype,
+    Microsoftgraphphysicaladdresstype,
+    Microsoftgraphskillproficiencylevel,
+    Microsoftgraphwebsitetype,
 )
 
 __all__ = [
-    'CollectionOfActivityStatistics',
-    'CollectionOfEducationalActivity',
-    'CollectionOfItemAddress',
-    'CollectionOfItemEmail',
-    'CollectionOfItemPatent',
-    'CollectionOfItemPhone',
-    'CollectionOfItemPublication',
-    'CollectionOfLanguageProficiency',
-    'CollectionOfPerson',
-    'CollectionOfPersonAnniversary',
-    'CollectionOfPersonAnnotation',
-    'CollectionOfPersonAward',
-    'CollectionOfPersonCertification',
-    'CollectionOfPersonInterest',
-    'CollectionOfPersonName',
-    'CollectionOfPersonWebsite',
-    'CollectionOfProjectParticipation',
-    'CollectionOfSkillProficiency',
-    'CollectionOfUserAccountInformation',
-    'CollectionOfWebAccount',
-    'CollectionOfWorkPosition',
-    'MicrosoftGraphActivityStatistics',
-    'MicrosoftGraphCompanyDetail',
-    'MicrosoftGraphEducationalActivity',
-    'MicrosoftGraphEducationalActivityDetail',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphGeoCoordinates',
-    'MicrosoftGraphIdentity',
-    'MicrosoftGraphIdentitySet',
-    'MicrosoftGraphInferenceData',
-    'MicrosoftGraphInstitutionData',
-    'MicrosoftGraphItemAddress',
-    'MicrosoftGraphItemBody',
-    'MicrosoftGraphItemEmail',
-    'MicrosoftGraphItemFacet',
-    'MicrosoftGraphItemPatent',
-    'MicrosoftGraphItemPhone',
-    'MicrosoftGraphItemPublication',
-    'MicrosoftGraphLanguageProficiency',
-    'MicrosoftGraphLocaleInfo',
-    'MicrosoftGraphLocation',
-    'MicrosoftGraphOutlookGeoCoordinates',
-    'MicrosoftGraphPerson',
-    'MicrosoftGraphPersonAnniversary',
-    'MicrosoftGraphPersonAnnotation',
-    'MicrosoftGraphPersonAward',
-    'MicrosoftGraphPersonCertification',
-    'MicrosoftGraphPersonDataSource',
-    'MicrosoftGraphPersonDataSources',
-    'MicrosoftGraphPersonInterest',
-    'MicrosoftGraphPersonName',
-    'MicrosoftGraphPersonWebsite',
-    'MicrosoftGraphPhone',
-    'MicrosoftGraphPhysicalAddress',
-    'MicrosoftGraphPositionDetail',
-    'MicrosoftGraphProfile',
-    'MicrosoftGraphProjectParticipation',
-    'MicrosoftGraphRankedEmailAddress',
-    'MicrosoftGraphRelatedPerson',
-    'MicrosoftGraphServiceInformation',
-    'MicrosoftGraphSettings',
-    'MicrosoftGraphSkillProficiency',
-    'MicrosoftGraphUserAccountInformation',
-    'MicrosoftGraphUserAnalytics',
-    'MicrosoftGraphWebAccount',
-    'MicrosoftGraphWebsite',
-    'MicrosoftGraphWorkPosition',
-    'MicrosoftGraphYomiPersonName',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
+    'collectionofactivitystatistics',
+    'collectionofeducationalactivity',
+    'collectionofitemaddress',
+    'collectionofitememail',
+    'collectionofitempatent',
+    'collectionofitemphone',
+    'collectionofitempublication',
+    'collectionoflanguageproficiency',
+    'collectionofperson',
+    'collectionofpersonanniversary',
+    'collectionofpersonannotation',
+    'collectionofpersonaward',
+    'collectionofpersoncertification',
+    'collectionofpersoninterest',
+    'collectionofpersonname',
+    'collectionofpersonwebsite',
+    'collectionofprojectparticipation',
+    'collectionofskillproficiency',
+    'collectionofuseraccountinformation',
+    'collectionofwebaccount',
+    'collectionofworkposition',
+    'microsoftgraphactivitystatistics',
+    'microsoftgraphcompanydetail',
+    'microsoftgrapheducationalactivity',
+    'microsoftgrapheducationalactivitydetail',
+    'microsoftgraphentity',
+    'microsoftgraphgeocoordinates',
+    'microsoftgraphidentity',
+    'microsoftgraphidentityset',
+    'microsoftgraphinferencedata',
+    'microsoftgraphinstitutiondata',
+    'microsoftgraphitemaddress',
+    'microsoftgraphitembody',
+    'microsoftgraphitememail',
+    'microsoftgraphitemfacet',
+    'microsoftgraphitempatent',
+    'microsoftgraphitemphone',
+    'microsoftgraphitempublication',
+    'microsoftgraphlanguageproficiency',
+    'microsoftgraphlocaleinfo',
+    'microsoftgraphlocation',
+    'microsoftgraphoutlookgeocoordinates',
+    'microsoftgraphperson',
+    'microsoftgraphpersonanniversary',
+    'microsoftgraphpersonannotation',
+    'microsoftgraphpersonaward',
+    'microsoftgraphpersoncertification',
+    'microsoftgraphpersondatasource',
+    'microsoftgraphpersondatasources',
+    'microsoftgraphpersoninterest',
+    'microsoftgraphpersonname',
+    'microsoftgraphpersonwebsite',
+    'microsoftgraphphone',
+    'microsoftgraphphysicaladdress',
+    'microsoftgraphpositiondetail',
+    'microsoftgraphprofile',
+    'microsoftgraphprojectparticipation',
+    'microsoftgraphrankedemailaddress',
+    'microsoftgraphrelatedperson',
+    'microsoftgraphserviceinformation',
+    'microsoftgraphsettings',
+    'microsoftgraphskillproficiency',
+    'microsoftgraphuseraccountinformation',
+    'microsoftgraphuseranalytics',
+    'microsoftgraphwebaccount',
+    'microsoftgraphwebsite',
+    'microsoftgraphworkposition',
+    'microsoftgraphyomipersonname',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
     'Enum13',
     'Enum14',
     'Enum15',
@@ -369,21 +369,21 @@ __all__ = [
     'Enum77',
     'Enum78',
     'Enum79',
-    'Get1ItemsItem',
-    'Get2ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'MicrosoftGraphAllowedAudiences',
-    'MicrosoftGraphAnalyticsActivityType',
-    'MicrosoftGraphAnniversaryType',
-    'MicrosoftGraphBodyType',
-    'MicrosoftGraphEmailType',
-    'MicrosoftGraphLanguageProficiencyLevel',
-    'MicrosoftGraphLocationType',
-    'MicrosoftGraphLocationUniqueIdType',
-    'MicrosoftGraphPersonRelationship',
-    'MicrosoftGraphPhoneType',
-    'MicrosoftGraphPhysicalAddressType',
-    'MicrosoftGraphSkillProficiencyLevel',
-    'MicrosoftGraphWebsiteType',
+    'Get1itemsitem',
+    'Get2itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Microsoftgraphallowedaudiences',
+    'Microsoftgraphanalyticsactivitytype',
+    'Microsoftgraphanniversarytype',
+    'Microsoftgraphbodytype',
+    'Microsoftgraphemailtype',
+    'Microsoftgraphlanguageproficiencylevel',
+    'Microsoftgraphlocationtype',
+    'Microsoftgraphlocationuniqueidtype',
+    'Microsoftgraphpersonrelationship',
+    'Microsoftgraphphonetype',
+    'Microsoftgraphphysicaladdresstype',
+    'Microsoftgraphskillproficiencylevel',
+    'Microsoftgraphwebsitetype',
 ]

@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class CollectionOfActivityHistoryItem(msrest.serialization.Model):
+class collectionofactivityhistoryitem(msrest.serialization.Model):
     """Collection of activityHistoryItem.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cross_device_experiences.models.MicrosoftGraphActivityHistoryItem]
+    :type value: list[~cross_device_experiences.models.microsoftgraphactivityhistoryitem]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphActivityHistoryItem]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphactivityhistoryitem]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class CollectionOfActivityHistoryItem(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfActivityHistoryItem, self).__init__(**kwargs)
+        super(collectionofactivityhistoryitem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfDevice(msrest.serialization.Model):
+class collectionofdevice(msrest.serialization.Model):
     """Collection of device.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cross_device_experiences.models.MicrosoftGraphDevice]
+    :type value: list[~cross_device_experiences.models.microsoftgraphdevice]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphDevice]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphdevice]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class CollectionOfDevice(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfDevice, self).__init__(**kwargs)
+        super(collectionofdevice, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfUserActivity(msrest.serialization.Model):
+class collectionofuseractivity(msrest.serialization.Model):
     """Collection of userActivity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~cross_device_experiences.models.MicrosoftGraphUserActivity]
+    :type value: list[~cross_device_experiences.models.microsoftgraphuseractivity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphUserActivity]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphuseractivity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,13 +88,13 @@ class CollectionOfUserActivity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfUserActivity, self).__init__(**kwargs)
+        super(collectionofuseractivity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
+class microsoftgraphentity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -113,12 +113,12 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(microsoftgraphentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class MicrosoftGraphActivityHistoryItem(MicrosoftGraphEntity):
+class microsoftgraphactivityhistoryitem(microsoftgraphentity):
     """activityHistoryItem.
 
     :param id: Read-only.
@@ -146,13 +146,13 @@ class MicrosoftGraphActivityHistoryItem(MicrosoftGraphEntity):
     :type started_date_time: ~datetime.datetime
     :param status:  Possible values include: "active", "updated", "deleted", "ignored",
      "unknownFutureValue".
-    :type status: str or ~cross_device_experiences.models.MicrosoftGraphStatus
+    :type status: str or ~cross_device_experiences.models.Microsoftgraphstatus
     :param user_timezone: Optional. The timezone in which the user's device used to generate the
      activity was located at activity creation time. Values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
     :param activity: userActivity.
-    :type activity: ~cross_device_experiences.models.MicrosoftGraphUserActivity
+    :type activity: ~cross_device_experiences.models.microsoftgraphuseractivity
     """
 
     _validation = {
@@ -170,14 +170,14 @@ class MicrosoftGraphActivityHistoryItem(MicrosoftGraphEntity):
         'started_date_time': {'key': 'startedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
-        'activity': {'key': 'activity', 'type': 'MicrosoftGraphUserActivity'},
+        'activity': {'key': 'activity', 'type': 'microsoftgraphuseractivity'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphActivityHistoryItem, self).__init__(**kwargs)
+        super(microsoftgraphactivityhistoryitem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.active_duration_seconds = kwargs.get('active_duration_seconds', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -190,7 +190,7 @@ class MicrosoftGraphActivityHistoryItem(MicrosoftGraphEntity):
         self.activity = kwargs.get('activity', None)
 
 
-class MicrosoftGraphAlternativeSecurityId(msrest.serialization.Model):
+class microsoftgraphalternativesecurityid(msrest.serialization.Model):
     """alternativeSecurityId.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -219,14 +219,14 @@ class MicrosoftGraphAlternativeSecurityId(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphAlternativeSecurityId, self).__init__(**kwargs)
+        super(microsoftgraphalternativesecurityid, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.identity_provider = kwargs.get('identity_provider', None)
         self.key = kwargs.get('key', None)
         self.type = kwargs.get('type', None)
 
 
-class MicrosoftGraphCommand(MicrosoftGraphEntity):
+class microsoftgraphcommand(microsoftgraphentity):
     """command.
 
     :param id: Read-only.
@@ -251,7 +251,7 @@ class MicrosoftGraphCommand(MicrosoftGraphEntity):
     :param type:
     :type type: str
     :param responsepayload: payloadResponse.
-    :type responsepayload: ~cross_device_experiences.models.MicrosoftGraphPayloadResponse
+    :type responsepayload: ~cross_device_experiences.models.microsoftgraphpayloadresponse
     """
 
     _attribute_map = {
@@ -265,14 +265,14 @@ class MicrosoftGraphCommand(MicrosoftGraphEntity):
         'post_back_uri': {'key': 'postBackUri', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
         'type': {'key': 'type', 'type': 'str'},
-        'responsepayload': {'key': 'responsepayload', 'type': 'MicrosoftGraphPayloadResponse'},
+        'responsepayload': {'key': 'responsepayload', 'type': 'microsoftgraphpayloadresponse'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphCommand, self).__init__(**kwargs)
+        super(microsoftgraphcommand, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_service_name = kwargs.get('app_service_name', None)
         self.error = kwargs.get('error', None)
@@ -285,7 +285,7 @@ class MicrosoftGraphCommand(MicrosoftGraphEntity):
         self.responsepayload = kwargs.get('responsepayload', None)
 
 
-class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
+class microsoftgraphdirectoryobject(microsoftgraphentity):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -307,17 +307,14 @@ class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphDirectoryObject, self).__init__(**kwargs)
+        super(microsoftgraphdirectoryobject, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.deleted_date_time = kwargs.get('deleted_date_time', None)
 
 
-class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
+class microsoftgraphdevice(microsoftgraphdirectoryobject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -329,7 +326,7 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     :type account_enabled: bool
     :param alternative_security_ids: For internal use only. Not nullable.
     :type alternative_security_ids:
-     list[~cross_device_experiences.models.MicrosoftGraphAlternativeSecurityId]
+     list[~cross_device_experiences.models.microsoftgraphalternativesecurityid]
     :param approximate_last_sign_in_date_time: The timestamp type represents date and time
      information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan
      1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -360,7 +357,7 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     :type enrollment_type: str
     :param extension_attributes: onPremisesExtensionAttributes.
     :type extension_attributes:
-     ~cross_device_experiences.models.MicrosoftGraphOnPremisesExtensionAttributes
+     ~cross_device_experiences.models.microsoftgraphonpremisesextensionattributes
     :param is_compliant: true if the device complies with Mobile Device Management (MDM) policies;
      otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an
      approved MDM app for Windows OS devices.
@@ -415,23 +412,23 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     :type status: str
     :param member_of: Groups that this group is a member of. HTTP Methods: GET (supported for all
      groups). Read-only. Nullable.
-    :type member_of: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+    :type member_of: list[~cross_device_experiences.models.microsoftgraphdirectoryobject]
     :param registered_owners: The user that cloud joined the device or registered their personal
      device. The registered owner is set at the time of registration. Currently, there can be only
      one owner. Read-only. Nullable.
-    :type registered_owners: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+    :type registered_owners: list[~cross_device_experiences.models.microsoftgraphdirectoryobject]
     :param registered_users: Collection of registered users of the device. For cloud joined devices
      and registered personal devices, registered users are set to the same value as registered
      owners at the time of registration. Read-only. Nullable.
-    :type registered_users: list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+    :type registered_users: list[~cross_device_experiences.models.microsoftgraphdirectoryobject]
     :param transitive_member_of:
     :type transitive_member_of:
-     list[~cross_device_experiences.models.MicrosoftGraphDirectoryObject]
+     list[~cross_device_experiences.models.microsoftgraphdirectoryobject]
     :param extensions: The collection of open extensions defined for the device. Read-only.
      Nullable.
-    :type extensions: list[~cross_device_experiences.models.MicrosoftGraphExtension]
+    :type extensions: list[~cross_device_experiences.models.microsoftgraphextension]
     :param commands:
-    :type commands: list[~cross_device_experiences.models.MicrosoftGraphCommand]
+    :type commands: list[~cross_device_experiences.models.microsoftgraphcommand]
     """
 
     _validation = {
@@ -439,12 +436,11 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'account_enabled': {'key': 'accountEnabled', 'type': 'bool'},
-        'alternative_security_ids': {'key': 'alternativeSecurityIds', 'type': '[MicrosoftGraphAlternativeSecurityId]'},
+        'alternative_security_ids': {'key': 'alternativeSecurityIds', 'type': '[microsoftgraphalternativesecurityid]'},
         'approximate_last_sign_in_date_time': {'key': 'approximateLastSignInDateTime', 'type': 'iso-8601'},
         'compliance_expiration_date_time': {'key': 'complianceExpirationDateTime', 'type': 'iso-8601'},
         'device_category': {'key': 'deviceCategory', 'type': 'str'},
@@ -456,7 +452,7 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
         'domain_name': {'key': 'domainName', 'type': 'str'},
         'enrollment_profile_name': {'key': 'enrollmentProfileName', 'type': 'str'},
         'enrollment_type': {'key': 'enrollmentType', 'type': 'str'},
-        'extension_attributes': {'key': 'extensionAttributes', 'type': 'MicrosoftGraphOnPremisesExtensionAttributes'},
+        'extension_attributes': {'key': 'extensionAttributes', 'type': 'microsoftgraphonpremisesextensionattributes'},
         'is_compliant': {'key': 'isCompliant', 'type': 'bool'},
         'is_managed': {'key': 'isManaged', 'type': 'bool'},
         'is_rooted': {'key': 'isRooted', 'type': 'bool'},
@@ -476,20 +472,19 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
         'name': {'key': 'name', 'type': 'str'},
         'platform': {'key': 'platform', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
-        'member_of': {'key': 'memberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'registered_owners': {'key': 'registeredOwners', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'registered_users': {'key': 'registeredUsers', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
-        'commands': {'key': 'commands', 'type': '[MicrosoftGraphCommand]'},
+        'member_of': {'key': 'memberOf', 'type': '[microsoftgraphdirectoryobject]'},
+        'registered_owners': {'key': 'registeredOwners', 'type': '[microsoftgraphdirectoryobject]'},
+        'registered_users': {'key': 'registeredUsers', 'type': '[microsoftgraphdirectoryobject]'},
+        'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[microsoftgraphdirectoryobject]'},
+        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
+        'commands': {'key': 'commands', 'type': '[microsoftgraphcommand]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphDevice, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        super(microsoftgraphdevice, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.alternative_security_ids = kwargs.get('alternative_security_ids', None)
@@ -532,7 +527,7 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
         self.commands = kwargs.get('commands', None)
 
 
-class MicrosoftGraphExtension(MicrosoftGraphEntity):
+class microsoftgraphextension(microsoftgraphentity):
     """extension.
 
     :param id: Read-only.
@@ -551,11 +546,11 @@ class MicrosoftGraphExtension(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphExtension, self).__init__(**kwargs)
+        super(microsoftgraphextension, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class MicrosoftGraphImageInfo(msrest.serialization.Model):
+class microsoftgraphimageinfo(msrest.serialization.Model):
     """imageInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -585,7 +580,7 @@ class MicrosoftGraphImageInfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphImageInfo, self).__init__(**kwargs)
+        super(microsoftgraphimageinfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.add_image_query = kwargs.get('add_image_query', None)
         self.alternate_text = kwargs.get('alternate_text', None)
@@ -593,7 +588,7 @@ class MicrosoftGraphImageInfo(msrest.serialization.Model):
         self.icon_url = kwargs.get('icon_url', None)
 
 
-class MicrosoftGraphOnPremisesExtensionAttributes(msrest.serialization.Model):
+class microsoftgraphonpremisesextensionattributes(msrest.serialization.Model):
     """onPremisesExtensionAttributes.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -654,7 +649,7 @@ class MicrosoftGraphOnPremisesExtensionAttributes(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOnPremisesExtensionAttributes, self).__init__(**kwargs)
+        super(microsoftgraphonpremisesextensionattributes, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.extension_attribute1 = kwargs.get('extension_attribute1', None)
         self.extension_attribute10 = kwargs.get('extension_attribute10', None)
@@ -673,7 +668,7 @@ class MicrosoftGraphOnPremisesExtensionAttributes(msrest.serialization.Model):
         self.extension_attribute9 = kwargs.get('extension_attribute9', None)
 
 
-class MicrosoftGraphPayloadResponse(MicrosoftGraphEntity):
+class microsoftgraphpayloadresponse(microsoftgraphentity):
     """payloadResponse.
 
     :param id: Read-only.
@@ -692,11 +687,11 @@ class MicrosoftGraphPayloadResponse(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphPayloadResponse, self).__init__(**kwargs)
+        super(microsoftgraphpayloadresponse, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
+class microsoftgraphuseractivity(microsoftgraphentity):
     """userActivity.
 
     :param id: Read-only.
@@ -741,27 +736,16 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
     :type last_modified_date_time: ~datetime.datetime
     :param status:  Possible values include: "active", "updated", "deleted", "ignored",
      "unknownFutureValue".
-    :type status: str or ~cross_device_experiences.models.MicrosoftGraphStatus
+    :type status: str or ~cross_device_experiences.models.Microsoftgraphstatus
     :param user_timezone: Optional. The timezone in which the user's device used to generate the
      activity was located at activity creation time; values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
+    :param visual_elements: visualInfo.
+    :type visual_elements: ~cross_device_experiences.models.microsoftgraphvisualinfo
     :param history_items: Optional. NavigationProperty/Containment; navigation property to the
      activity's historyItems.
-    :type history_items: list[~cross_device_experiences.models.MicrosoftGraphActivityHistoryItem]
-    :param attribution: imageInfo.
-    :type attribution: ~cross_device_experiences.models.MicrosoftGraphImageInfo
-    :param background_color: Optional. Background color used to render the activity in the UI -
-     brand color for the application source of the activity. Must be a valid hex color.
-    :type background_color: str
-    :param content: Json.
-    :type content: dict[str, object]
-    :param description: Optional. Longer text description of the user's unique activity (example:
-     document name, first sentence, and/or metadata).
-    :type description: str
-    :param display_text: Required. Short text description of the user's unique activity (for
-     example, document name in cases where an activity refers to document creation).
-    :type display_text: str
+    :type history_items: list[~cross_device_experiences.models.microsoftgraphactivityhistoryitem]
     """
 
     _attribute_map = {
@@ -779,19 +763,15 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
-        'history_items': {'key': 'historyItems', 'type': '[MicrosoftGraphActivityHistoryItem]'},
-        'attribution': {'key': 'visualElements.attribution', 'type': 'MicrosoftGraphImageInfo'},
-        'background_color': {'key': 'visualElements.backgroundColor', 'type': 'str'},
-        'content': {'key': 'visualElements.content', 'type': '{object}'},
-        'description': {'key': 'visualElements.description', 'type': 'str'},
-        'display_text': {'key': 'visualElements.displayText', 'type': 'str'},
+        'visual_elements': {'key': 'visualElements', 'type': 'microsoftgraphvisualinfo'},
+        'history_items': {'key': 'historyItems', 'type': '[microsoftgraphactivityhistoryitem]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphUserActivity, self).__init__(**kwargs)
+        super(microsoftgraphuseractivity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.activation_url = kwargs.get('activation_url', None)
         self.activity_source_host = kwargs.get('activity_source_host', None)
@@ -805,22 +785,18 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.status = kwargs.get('status', None)
         self.user_timezone = kwargs.get('user_timezone', None)
+        self.visual_elements = kwargs.get('visual_elements', None)
         self.history_items = kwargs.get('history_items', None)
-        self.attribution = kwargs.get('attribution', None)
-        self.background_color = kwargs.get('background_color', None)
-        self.content = kwargs.get('content', None)
-        self.description = kwargs.get('description', None)
-        self.display_text = kwargs.get('display_text', None)
 
 
-class MicrosoftGraphVisualInfo(msrest.serialization.Model):
+class microsoftgraphvisualinfo(msrest.serialization.Model):
     """visualInfo.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param attribution: imageInfo.
-    :type attribution: ~cross_device_experiences.models.MicrosoftGraphImageInfo
+    :type attribution: ~cross_device_experiences.models.microsoftgraphimageinfo
     :param background_color: Optional. Background color used to render the activity in the UI -
      brand color for the application source of the activity. Must be a valid hex color.
     :type background_color: str
@@ -836,7 +812,7 @@ class MicrosoftGraphVisualInfo(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'attribution': {'key': 'attribution', 'type': 'MicrosoftGraphImageInfo'},
+        'attribution': {'key': 'attribution', 'type': 'microsoftgraphimageinfo'},
         'background_color': {'key': 'backgroundColor', 'type': 'str'},
         'content': {'key': 'content', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
@@ -847,7 +823,7 @@ class MicrosoftGraphVisualInfo(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphVisualInfo, self).__init__(**kwargs)
+        super(microsoftgraphvisualinfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.attribution = kwargs.get('attribution', None)
         self.background_color = kwargs.get('background_color', None)
@@ -856,8 +832,8 @@ class MicrosoftGraphVisualInfo(msrest.serialization.Model):
         self.display_text = kwargs.get('display_text', None)
 
 
-class OdataError(msrest.serialization.Model):
-    """OdataError.
+class odataerror(msrest.serialization.Model):
+    """odataerror.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -865,7 +841,7 @@ class OdataError(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~cross_device_experiences.models.OdataErrorMain
+    :type error: ~cross_device_experiences.models.odataerrormain
     """
 
     _validation = {
@@ -874,20 +850,20 @@ class OdataError(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'OdataErrorMain'},
+        'error': {'key': 'error', 'type': 'odataerrormain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(OdataError, self).__init__(**kwargs)
+        super(odataerror, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class OdataErrorDetail(msrest.serialization.Model):
-    """OdataErrorDetail.
+class odataerrordetail(msrest.serialization.Model):
+    """odataerrordetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -918,15 +894,15 @@ class OdataErrorDetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorDetail, self).__init__(**kwargs)
+        super(odataerrordetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class OdataErrorMain(msrest.serialization.Model):
-    """OdataErrorMain.
+class odataerrormain(msrest.serialization.Model):
+    """odataerrormain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -940,7 +916,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~cross_device_experiences.models.OdataErrorDetail]
+    :type details: list[~cross_device_experiences.models.odataerrordetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -955,7 +931,7 @@ class OdataErrorMain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
+        'details': {'key': 'details', 'type': '[odataerrordetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -963,7 +939,7 @@ class OdataErrorMain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorMain, self).__init__(**kwargs)
+        super(odataerrormain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']

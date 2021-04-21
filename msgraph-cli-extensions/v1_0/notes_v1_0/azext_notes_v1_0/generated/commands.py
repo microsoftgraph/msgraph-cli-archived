@@ -7,1913 +7,3635 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
-# pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_notes_v1_0.generated._client_factory import (
+    cf_group,
+    cf_groupsonenote,
+    cf_groupsonenotenotebook,
+    cf_groupsonenotenotebookssectiongroup,
+    cf_groupsonenotenotebookssectiongroupssection,
+    cf_groupsonenotenotebookssectiongroupssectionspage,
+    cf_groupsonenotenotebookssection,
+    cf_groupsonenotenotebookssectionspage,
+    cf_groupsonenotenotebookssectionsparentsectiongroup,
+    cf_groupsonenotepage,
+    cf_groupsonenotepagesparentnotebook,
+    cf_groupsonenotepagesparentnotebooksectiongroup,
+    cf_groupsonenotepagesparentnotebooksectiongroupssection,
+    cf_groupsonenotepagesparentnotebooksection,
+    cf_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
+    cf_groupsonenotepagesparentsection,
+    cf_groupsonenotepagesparentsectionparentnotebook,
+    cf_groupsonenotepagesparentsectionparentnotebooksectiongroup,
+    cf_groupsonenotepagesparentsectiongroup,
+    cf_groupsonenotepagesparentsectiongroupparentnotebook,
+    cf_groupsonenotesectiongroup,
+    cf_groupsonenotesectiongroupsparentnotebook,
+    cf_groupsonenotesectiongroupsparentnotebooksection,
+    cf_groupsonenotesectiongroupsparentnotebooksectionspage,
+    cf_groupsonenotesectiongroupssection,
+    cf_groupsonenotesectiongroupssectionspage,
+    cf_groupsonenotesectiongroupssectionspagesparentnotebook,
+    cf_groupsonenotesectiongroupssectionsparentnotebook,
+    cf_groupsonenotesection,
+    cf_groupsonenotesectionspage,
+    cf_groupsonenotesectionspagesparentnotebook,
+    cf_groupsonenotesectionspagesparentnotebooksectiongroup,
+    cf_groupsonenotesectionsparentnotebook,
+    cf_groupsonenotesectionsparentnotebooksectiongroup,
+    cf_groupsonenotesectionsparentsectiongroup,
+    cf_groupsonenotesectionsparentsectiongroupparentnotebook,
+    cf_site,
+    cf_sitesonenote,
+    cf_sitesonenotenotebook,
+    cf_sitesonenotenotebookssectiongroup,
+    cf_sitesonenotenotebookssectiongroupssection,
+    cf_sitesonenotenotebookssectiongroupssectionspage,
+    cf_sitesonenotenotebookssection,
+    cf_sitesonenotenotebookssectionspage,
+    cf_sitesonenotenotebookssectionsparentsectiongroup,
+    cf_sitesonenotepage,
+    cf_sitesonenotepagesparentnotebook,
+    cf_sitesonenotepagesparentnotebooksectiongroup,
+    cf_sitesonenotepagesparentnotebooksectiongroupssection,
+    cf_sitesonenotepagesparentnotebooksection,
+    cf_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
+    cf_sitesonenotepagesparentsection,
+    cf_sitesonenotepagesparentsectionparentnotebook,
+    cf_sitesonenotepagesparentsectionparentnotebooksectiongroup,
+    cf_sitesonenotepagesparentsectiongroup,
+    cf_sitesonenotepagesparentsectiongroupparentnotebook,
+    cf_sitesonenotesectiongroup,
+    cf_sitesonenotesectiongroupsparentnotebook,
+    cf_sitesonenotesectiongroupsparentnotebooksection,
+    cf_sitesonenotesectiongroupsparentnotebooksectionspage,
+    cf_sitesonenotesectiongroupssection,
+    cf_sitesonenotesectiongroupssectionspage,
+    cf_sitesonenotesectiongroupssectionspagesparentnotebook,
+    cf_sitesonenotesectiongroupssectionsparentnotebook,
+    cf_sitesonenotesection,
+    cf_sitesonenotesectionspage,
+    cf_sitesonenotesectionspagesparentnotebook,
+    cf_sitesonenotesectionspagesparentnotebooksectiongroup,
+    cf_sitesonenotesectionsparentnotebook,
+    cf_sitesonenotesectionsparentnotebooksectiongroup,
+    cf_sitesonenotesectionsparentsectiongroup,
+    cf_sitesonenotesectionsparentsectiongroupparentnotebook,
+    cf_user,
+    cf_usersonenote,
+    cf_usersonenotenotebook,
+    cf_usersonenotenotebookssectiongroup,
+    cf_usersonenotenotebookssectiongroupssection,
+    cf_usersonenotenotebookssectiongroupssectionspage,
+    cf_usersonenotenotebookssection,
+    cf_usersonenotenotebookssectionspage,
+    cf_usersonenotenotebookssectionsparentsectiongroup,
+    cf_usersonenotepage,
+    cf_usersonenotepagesparentnotebook,
+    cf_usersonenotepagesparentnotebooksectiongroup,
+    cf_usersonenotepagesparentnotebooksectiongroupssection,
+    cf_usersonenotepagesparentnotebooksection,
+    cf_usersonenotepagesparentnotebooksectionsparentsectiongroup,
+    cf_usersonenotepagesparentsection,
+    cf_usersonenotepagesparentsectionparentnotebook,
+    cf_usersonenotepagesparentsectionparentnotebooksectiongroup,
+    cf_usersonenotepagesparentsectiongroup,
+    cf_usersonenotepagesparentsectiongroupparentnotebook,
+    cf_usersonenotesectiongroup,
+    cf_usersonenotesectiongroupsparentnotebook,
+    cf_usersonenotesectiongroupsparentnotebooksection,
+    cf_usersonenotesectiongroupsparentnotebooksectionspage,
+    cf_usersonenotesectiongroupssection,
+    cf_usersonenotesectiongroupssectionspage,
+    cf_usersonenotesectiongroupssectionspagesparentnotebook,
+    cf_usersonenotesectiongroupssectionsparentnotebook,
+    cf_usersonenotesection,
+    cf_usersonenotesectionspage,
+    cf_usersonenotesectionspagesparentnotebook,
+    cf_usersonenotesectionspagesparentnotebooksectiongroup,
+    cf_usersonenotesectionsparentnotebook,
+    cf_usersonenotesectionsparentnotebooksectiongroup,
+    cf_usersonenotesectionsparentsectiongroup,
+    cf_usersonenotesectionsparentsectiongroupparentnotebook,
+)
+
+
+notes_v1_0_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_operations#groupsOperations.{}',
+    client_factory=cf_group,
+)
+
+
+notes_v1_0_groupsonenote = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenote_operations#groupsonenoteOperations.{}'
+    ),
+    client_factory=cf_groupsonenote,
+)
+
+
+notes_v1_0_groupsonenotenotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotenotebooks_operations#groupsonenotenotebooksOperations.{}',
+    client_factory=cf_groupsonenotenotebook,
+)
+
+
+notes_v1_0_groupsonenotenotebookssectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotenotebookssectiongroups_operations#groupsonenotenotebookssectiongroupsOperations.{}',
+    client_factory=cf_groupsonenotenotebookssectiongroup,
+)
+
+
+notes_v1_0_groupsonenotenotebookssectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotenotebookssectiongroupssections_operations#groupsonenotenotebookssectiongroupssectionsOperations.{}',
+    client_factory=cf_groupsonenotenotebookssectiongroupssection,
+)
+
+
+notes_v1_0_groupsonenotenotebookssectiongroupssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotenotebookssectiongroupssectionspages_operations#groupsonenotenotebookssectiongroupssectionspagesOperations.{}',
+    client_factory=cf_groupsonenotenotebookssectiongroupssectionspage,
+)
+
+
+notes_v1_0_groupsonenotenotebookssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotenotebookssections_operations#groupsonenotenotebookssectionsOperations.{}',
+    client_factory=cf_groupsonenotenotebookssection,
+)
+
+
+notes_v1_0_groupsonenotenotebookssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotenotebookssectionspages_operations#groupsonenotenotebookssectionspagesOperations.{}',
+    client_factory=cf_groupsonenotenotebookssectionspage,
+)
+
+
+notes_v1_0_groupsonenotenotebookssectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotenotebookssectionsparentsectiongroup_operations#groupsonenotenotebookssectionsparentsectiongroupOperations.{}',
+    client_factory=cf_groupsonenotenotebookssectionsparentsectiongroup,
+)
+
+
+notes_v1_0_groupsonenotepage = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepages_operations#groupsonenotepagesOperations.{}'
+    ),
+    client_factory=cf_groupsonenotepage,
+)
+
+
+notes_v1_0_groupsonenotepagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentnotebook_operations#groupsonenotepagesparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotepagesparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotepagesparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksectiongroups_operations#groupsonenotepagesparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_groupsonenotepagesparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_groupsonenotepagesparentnotebooksectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksectiongroupssections_operations#groupsonenotepagesparentnotebooksectiongroupssectionsOperations.{}',
+    client_factory=cf_groupsonenotepagesparentnotebooksectiongroupssection,
+)
+
+
+notes_v1_0_groupsonenotepagesparentnotebooksection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksections_operations#groupsonenotepagesparentnotebooksectionsOperations.{}',
+    client_factory=cf_groupsonenotepagesparentnotebooksection,
+)
+
+
+notes_v1_0_groupsonenotepagesparentnotebooksectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentnotebooksectionsparentsectiongroup_operations#groupsonenotepagesparentnotebooksectionsparentsectiongroupOperations.{}',
+    client_factory=cf_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
+)
+
+
+notes_v1_0_groupsonenotepagesparentsection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentsection_operations#groupsonenotepagesparentsectionOperations.{}',
+    client_factory=cf_groupsonenotepagesparentsection,
+)
+
+
+notes_v1_0_groupsonenotepagesparentsectionparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentnotebook_operations#groupsonenotepagesparentsectionparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotepagesparentsectionparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotepagesparentsectionparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentnotebooksectiongroups_operations#groupsonenotepagesparentsectionparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_groupsonenotepagesparentsectionparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_groupsonenotepagesparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentsectiongroup_operations#groupsonenotepagesparentsectionparentsectiongroupOperations.{}',
+    client_factory=cf_groupsonenotepagesparentsectiongroup,
+)
+
+
+notes_v1_0_groupsonenotepagesparentsectiongroupparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotepagesparentsectionparentsectiongroupparentnotebook_operations#groupsonenotepagesparentsectionparentsectiongroupparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotepagesparentsectiongroupparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotesectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroups_operations#groupsonenotesectiongroupsOperations.{}',
+    client_factory=cf_groupsonenotesectiongroup,
+)
+
+
+notes_v1_0_groupsonenotesectiongroupsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroupsparentnotebook_operations#groupsonenotesectiongroupsparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotesectiongroupsparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotesectiongroupsparentnotebooksection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroupsparentnotebooksections_operations#groupsonenotesectiongroupsparentnotebooksectionsOperations.{}',
+    client_factory=cf_groupsonenotesectiongroupsparentnotebooksection,
+)
+
+
+notes_v1_0_groupsonenotesectiongroupsparentnotebooksectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroupsparentnotebooksectionspages_operations#groupsonenotesectiongroupsparentnotebooksectionspagesOperations.{}',
+    client_factory=cf_groupsonenotesectiongroupsparentnotebooksectionspage,
+)
+
+
+notes_v1_0_groupsonenotesectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroupssections_operations#groupsonenotesectiongroupssectionsOperations.{}',
+    client_factory=cf_groupsonenotesectiongroupssection,
+)
+
+
+notes_v1_0_groupsonenotesectiongroupssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroupssectionspages_operations#groupsonenotesectiongroupssectionspagesOperations.{}',
+    client_factory=cf_groupsonenotesectiongroupssectionspage,
+)
+
+
+notes_v1_0_groupsonenotesectiongroupssectionspagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroupssectionspagesparentnotebook_operations#groupsonenotesectiongroupssectionspagesparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotesectiongroupssectionspagesparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotesectiongroupssectionsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectiongroupssectionsparentnotebook_operations#groupsonenotesectiongroupssectionsparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotesectiongroupssectionsparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotesection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesections_operations#groupsonenotesectionsOperations.{}',
+    client_factory=cf_groupsonenotesection,
+)
+
+
+notes_v1_0_groupsonenotesectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectionspages_operations#groupsonenotesectionspagesOperations.{}',
+    client_factory=cf_groupsonenotesectionspage,
+)
+
+
+notes_v1_0_groupsonenotesectionspagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectionspagesparentnotebook_operations#groupsonenotesectionspagesparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotesectionspagesparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotesectionspagesparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectionspagesparentnotebooksectiongroups_operations#groupsonenotesectionspagesparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_groupsonenotesectionspagesparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_groupsonenotesectionsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectionsparentnotebook_operations#groupsonenotesectionsparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotesectionsparentnotebook,
+)
+
+
+notes_v1_0_groupsonenotesectionsparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectionsparentnotebooksectiongroups_operations#groupsonenotesectionsparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_groupsonenotesectionsparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_groupsonenotesectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectionsparentsectiongroup_operations#groupsonenotesectionsparentsectiongroupOperations.{}',
+    client_factory=cf_groupsonenotesectionsparentsectiongroup,
+)
+
+
+notes_v1_0_groupsonenotesectionsparentsectiongroupparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groupsonenotesectionsparentsectiongroupparentnotebook_operations#groupsonenotesectionsparentsectiongroupparentnotebookOperations.{}',
+    client_factory=cf_groupsonenotesectionsparentsectiongroupparentnotebook,
+)
+
+
+notes_v1_0_site = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_operations#sitesOperations.{}',
+    client_factory=cf_site,
+)
+
+
+notes_v1_0_sitesonenote = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenote_operations#sitesonenoteOperations.{}'
+    ),
+    client_factory=cf_sitesonenote,
+)
+
+
+notes_v1_0_sitesonenotenotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotenotebooks_operations#sitesonenotenotebooksOperations.{}',
+    client_factory=cf_sitesonenotenotebook,
+)
+
+
+notes_v1_0_sitesonenotenotebookssectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotenotebookssectiongroups_operations#sitesonenotenotebookssectiongroupsOperations.{}',
+    client_factory=cf_sitesonenotenotebookssectiongroup,
+)
+
+
+notes_v1_0_sitesonenotenotebookssectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotenotebookssectiongroupssections_operations#sitesonenotenotebookssectiongroupssectionsOperations.{}',
+    client_factory=cf_sitesonenotenotebookssectiongroupssection,
+)
+
+
+notes_v1_0_sitesonenotenotebookssectiongroupssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotenotebookssectiongroupssectionspages_operations#sitesonenotenotebookssectiongroupssectionspagesOperations.{}',
+    client_factory=cf_sitesonenotenotebookssectiongroupssectionspage,
+)
+
+
+notes_v1_0_sitesonenotenotebookssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotenotebookssections_operations#sitesonenotenotebookssectionsOperations.{}',
+    client_factory=cf_sitesonenotenotebookssection,
+)
+
+
+notes_v1_0_sitesonenotenotebookssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotenotebookssectionspages_operations#sitesonenotenotebookssectionspagesOperations.{}',
+    client_factory=cf_sitesonenotenotebookssectionspage,
+)
+
+
+notes_v1_0_sitesonenotenotebookssectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotenotebookssectionsparentsectiongroup_operations#sitesonenotenotebookssectionsparentsectiongroupOperations.{}',
+    client_factory=cf_sitesonenotenotebookssectionsparentsectiongroup,
+)
+
+
+notes_v1_0_sitesonenotepage = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepages_operations#sitesonenotepagesOperations.{}'
+    ),
+    client_factory=cf_sitesonenotepage,
+)
+
+
+notes_v1_0_sitesonenotepagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentnotebook_operations#sitesonenotepagesparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotepagesparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotepagesparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksectiongroups_operations#sitesonenotepagesparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_sitesonenotepagesparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_sitesonenotepagesparentnotebooksectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksectiongroupssections_operations#sitesonenotepagesparentnotebooksectiongroupssectionsOperations.{}',
+    client_factory=cf_sitesonenotepagesparentnotebooksectiongroupssection,
+)
+
+
+notes_v1_0_sitesonenotepagesparentnotebooksection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksections_operations#sitesonenotepagesparentnotebooksectionsOperations.{}',
+    client_factory=cf_sitesonenotepagesparentnotebooksection,
+)
+
+
+notes_v1_0_sitesonenotepagesparentnotebooksectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentnotebooksectionsparentsectiongroup_operations#sitesonenotepagesparentnotebooksectionsparentsectiongroupOperations.{}',
+    client_factory=cf_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
+)
+
+
+notes_v1_0_sitesonenotepagesparentsection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentsection_operations#sitesonenotepagesparentsectionOperations.{}',
+    client_factory=cf_sitesonenotepagesparentsection,
+)
+
+
+notes_v1_0_sitesonenotepagesparentsectionparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentnotebook_operations#sitesonenotepagesparentsectionparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotepagesparentsectionparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotepagesparentsectionparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentnotebooksectiongroups_operations#sitesonenotepagesparentsectionparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_sitesonenotepagesparentsectionparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_sitesonenotepagesparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentsectiongroup_operations#sitesonenotepagesparentsectionparentsectiongroupOperations.{}',
+    client_factory=cf_sitesonenotepagesparentsectiongroup,
+)
+
+
+notes_v1_0_sitesonenotepagesparentsectiongroupparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotepagesparentsectionparentsectiongroupparentnotebook_operations#sitesonenotepagesparentsectionparentsectiongroupparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotepagesparentsectiongroupparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotesectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroups_operations#sitesonenotesectiongroupsOperations.{}',
+    client_factory=cf_sitesonenotesectiongroup,
+)
+
+
+notes_v1_0_sitesonenotesectiongroupsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroupsparentnotebook_operations#sitesonenotesectiongroupsparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotesectiongroupsparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotesectiongroupsparentnotebooksection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroupsparentnotebooksections_operations#sitesonenotesectiongroupsparentnotebooksectionsOperations.{}',
+    client_factory=cf_sitesonenotesectiongroupsparentnotebooksection,
+)
+
+
+notes_v1_0_sitesonenotesectiongroupsparentnotebooksectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroupsparentnotebooksectionspages_operations#sitesonenotesectiongroupsparentnotebooksectionspagesOperations.{}',
+    client_factory=cf_sitesonenotesectiongroupsparentnotebooksectionspage,
+)
+
+
+notes_v1_0_sitesonenotesectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroupssections_operations#sitesonenotesectiongroupssectionsOperations.{}',
+    client_factory=cf_sitesonenotesectiongroupssection,
+)
+
+
+notes_v1_0_sitesonenotesectiongroupssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroupssectionspages_operations#sitesonenotesectiongroupssectionspagesOperations.{}',
+    client_factory=cf_sitesonenotesectiongroupssectionspage,
+)
+
+
+notes_v1_0_sitesonenotesectiongroupssectionspagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroupssectionspagesparentnotebook_operations#sitesonenotesectiongroupssectionspagesparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotesectiongroupssectionspagesparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotesectiongroupssectionsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectiongroupssectionsparentnotebook_operations#sitesonenotesectiongroupssectionsparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotesectiongroupssectionsparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotesection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesections_operations#sitesonenotesectionsOperations.{}',
+    client_factory=cf_sitesonenotesection,
+)
+
+
+notes_v1_0_sitesonenotesectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectionspages_operations#sitesonenotesectionspagesOperations.{}',
+    client_factory=cf_sitesonenotesectionspage,
+)
+
+
+notes_v1_0_sitesonenotesectionspagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectionspagesparentnotebook_operations#sitesonenotesectionspagesparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotesectionspagesparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotesectionspagesparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectionspagesparentnotebooksectiongroups_operations#sitesonenotesectionspagesparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_sitesonenotesectionspagesparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_sitesonenotesectionsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectionsparentnotebook_operations#sitesonenotesectionsparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotesectionsparentnotebook,
+)
+
+
+notes_v1_0_sitesonenotesectionsparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectionsparentnotebooksectiongroups_operations#sitesonenotesectionsparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_sitesonenotesectionsparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_sitesonenotesectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectionsparentsectiongroup_operations#sitesonenotesectionsparentsectiongroupOperations.{}',
+    client_factory=cf_sitesonenotesectionsparentsectiongroup,
+)
+
+
+notes_v1_0_sitesonenotesectionsparentsectiongroupparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sitesonenotesectionsparentsectiongroupparentnotebook_operations#sitesonenotesectionsparentsectiongroupparentnotebookOperations.{}',
+    client_factory=cf_sitesonenotesectionsparentsectiongroupparentnotebook,
+)
+
+
+notes_v1_0_user = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_operations#usersOperations.{}',
+    client_factory=cf_user,
+)
+
+
+notes_v1_0_usersonenote = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._usersonenote_operations#usersonenoteOperations.{}'
+    ),
+    client_factory=cf_usersonenote,
+)
+
+
+notes_v1_0_usersonenotenotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotenotebooks_operations#usersonenotenotebooksOperations.{}',
+    client_factory=cf_usersonenotenotebook,
+)
+
+
+notes_v1_0_usersonenotenotebookssectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotenotebookssectiongroups_operations#usersonenotenotebookssectiongroupsOperations.{}',
+    client_factory=cf_usersonenotenotebookssectiongroup,
+)
+
+
+notes_v1_0_usersonenotenotebookssectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotenotebookssectiongroupssections_operations#usersonenotenotebookssectiongroupssectionsOperations.{}',
+    client_factory=cf_usersonenotenotebookssectiongroupssection,
+)
+
+
+notes_v1_0_usersonenotenotebookssectiongroupssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotenotebookssectiongroupssectionspages_operations#usersonenotenotebookssectiongroupssectionspagesOperations.{}',
+    client_factory=cf_usersonenotenotebookssectiongroupssectionspage,
+)
+
+
+notes_v1_0_usersonenotenotebookssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotenotebookssections_operations#usersonenotenotebookssectionsOperations.{}',
+    client_factory=cf_usersonenotenotebookssection,
+)
+
+
+notes_v1_0_usersonenotenotebookssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotenotebookssectionspages_operations#usersonenotenotebookssectionspagesOperations.{}',
+    client_factory=cf_usersonenotenotebookssectionspage,
+)
+
+
+notes_v1_0_usersonenotenotebookssectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotenotebookssectionsparentsectiongroup_operations#usersonenotenotebookssectionsparentsectiongroupOperations.{}',
+    client_factory=cf_usersonenotenotebookssectionsparentsectiongroup,
+)
+
+
+notes_v1_0_usersonenotepage = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepages_operations#usersonenotepagesOperations.{}'
+    ),
+    client_factory=cf_usersonenotepage,
+)
+
+
+notes_v1_0_usersonenotepagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentnotebook_operations#usersonenotepagesparentnotebookOperations.{}',
+    client_factory=cf_usersonenotepagesparentnotebook,
+)
+
+
+notes_v1_0_usersonenotepagesparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksectiongroups_operations#usersonenotepagesparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_usersonenotepagesparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_usersonenotepagesparentnotebooksectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksectiongroupssections_operations#usersonenotepagesparentnotebooksectiongroupssectionsOperations.{}',
+    client_factory=cf_usersonenotepagesparentnotebooksectiongroupssection,
+)
+
+
+notes_v1_0_usersonenotepagesparentnotebooksection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksections_operations#usersonenotepagesparentnotebooksectionsOperations.{}',
+    client_factory=cf_usersonenotepagesparentnotebooksection,
+)
+
+
+notes_v1_0_usersonenotepagesparentnotebooksectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentnotebooksectionsparentsectiongroup_operations#usersonenotepagesparentnotebooksectionsparentsectiongroupOperations.{}',
+    client_factory=cf_usersonenotepagesparentnotebooksectionsparentsectiongroup,
+)
+
+
+notes_v1_0_usersonenotepagesparentsection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentsection_operations#usersonenotepagesparentsectionOperations.{}',
+    client_factory=cf_usersonenotepagesparentsection,
+)
+
+
+notes_v1_0_usersonenotepagesparentsectionparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentnotebook_operations#usersonenotepagesparentsectionparentnotebookOperations.{}',
+    client_factory=cf_usersonenotepagesparentsectionparentnotebook,
+)
+
+
+notes_v1_0_usersonenotepagesparentsectionparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentnotebooksectiongroups_operations#usersonenotepagesparentsectionparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_usersonenotepagesparentsectionparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_usersonenotepagesparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentsectiongroup_operations#usersonenotepagesparentsectionparentsectiongroupOperations.{}',
+    client_factory=cf_usersonenotepagesparentsectiongroup,
+)
+
+
+notes_v1_0_usersonenotepagesparentsectiongroupparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotepagesparentsectionparentsectiongroupparentnotebook_operations#usersonenotepagesparentsectionparentsectiongroupparentnotebookOperations.{}',
+    client_factory=cf_usersonenotepagesparentsectiongroupparentnotebook,
+)
+
+
+notes_v1_0_usersonenotesectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroups_operations#usersonenotesectiongroupsOperations.{}',
+    client_factory=cf_usersonenotesectiongroup,
+)
+
+
+notes_v1_0_usersonenotesectiongroupsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroupsparentnotebook_operations#usersonenotesectiongroupsparentnotebookOperations.{}',
+    client_factory=cf_usersonenotesectiongroupsparentnotebook,
+)
+
+
+notes_v1_0_usersonenotesectiongroupsparentnotebooksection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroupsparentnotebooksections_operations#usersonenotesectiongroupsparentnotebooksectionsOperations.{}',
+    client_factory=cf_usersonenotesectiongroupsparentnotebooksection,
+)
+
+
+notes_v1_0_usersonenotesectiongroupsparentnotebooksectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroupsparentnotebooksectionspages_operations#usersonenotesectiongroupsparentnotebooksectionspagesOperations.{}',
+    client_factory=cf_usersonenotesectiongroupsparentnotebooksectionspage,
+)
+
+
+notes_v1_0_usersonenotesectiongroupssection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroupssections_operations#usersonenotesectiongroupssectionsOperations.{}',
+    client_factory=cf_usersonenotesectiongroupssection,
+)
+
+
+notes_v1_0_usersonenotesectiongroupssectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroupssectionspages_operations#usersonenotesectiongroupssectionspagesOperations.{}',
+    client_factory=cf_usersonenotesectiongroupssectionspage,
+)
+
+
+notes_v1_0_usersonenotesectiongroupssectionspagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroupssectionspagesparentnotebook_operations#usersonenotesectiongroupssectionspagesparentnotebookOperations.{}',
+    client_factory=cf_usersonenotesectiongroupssectionspagesparentnotebook,
+)
+
+
+notes_v1_0_usersonenotesectiongroupssectionsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectiongroupssectionsparentnotebook_operations#usersonenotesectiongroupssectionsparentnotebookOperations.{}',
+    client_factory=cf_usersonenotesectiongroupssectionsparentnotebook,
+)
+
+
+notes_v1_0_usersonenotesection = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesections_operations#usersonenotesectionsOperations.{}',
+    client_factory=cf_usersonenotesection,
+)
+
+
+notes_v1_0_usersonenotesectionspage = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectionspages_operations#usersonenotesectionspagesOperations.{}',
+    client_factory=cf_usersonenotesectionspage,
+)
+
+
+notes_v1_0_usersonenotesectionspagesparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectionspagesparentnotebook_operations#usersonenotesectionspagesparentnotebookOperations.{}',
+    client_factory=cf_usersonenotesectionspagesparentnotebook,
+)
+
+
+notes_v1_0_usersonenotesectionspagesparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectionspagesparentnotebooksectiongroups_operations#usersonenotesectionspagesparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_usersonenotesectionspagesparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_usersonenotesectionsparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectionsparentnotebook_operations#usersonenotesectionsparentnotebookOperations.{}',
+    client_factory=cf_usersonenotesectionsparentnotebook,
+)
+
+
+notes_v1_0_usersonenotesectionsparentnotebooksectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectionsparentnotebooksectiongroups_operations#usersonenotesectionsparentnotebooksectiongroupsOperations.{}',
+    client_factory=cf_usersonenotesectionsparentnotebooksectiongroup,
+)
+
+
+notes_v1_0_usersonenotesectionsparentsectiongroup = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectionsparentsectiongroup_operations#usersonenotesectionsparentsectiongroupOperations.{}',
+    client_factory=cf_usersonenotesectionsparentsectiongroup,
+)
+
+
+notes_v1_0_usersonenotesectionsparentsectiongroupparentnotebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._usersonenotesectionsparentsectiongroupparentnotebook_operations#usersonenotesectionsparentsectiongroupparentnotebookOperations.{}',
+    client_factory=cf_usersonenotesectionsparentsectiongroupparentnotebook,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_notes_v1_0.generated._client_factory import cf_group
-    notes_v1_0_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group)
-    with self.command_group('notes', notes_v1_0_group, client_factory=cf_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-onenote', 'notes_get_onenote')
-        g.custom_command('update-onenote', 'notes_update_onenote')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote
-    notes_v1_0_group_onenote = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_operations#GroupOnenoteOperatio'
-        'ns.{}',
-        client_factory=cf_group_onenote)
-    with self.command_group('notes', notes_v1_0_group_onenote, client_factory=cf_group_onenote) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-notebook', 'notes_create_notebook')
-        g.custom_command('create-operation', 'notes_create_operation')
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('create-resource', 'notes_create_resource')
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-notebook', 'notes_get_notebook')
-        g.custom_command('get-operation', 'notes_get_operation')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-resource', 'notes_get_resource')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-notebook', 'notes_list_notebook')
-        g.custom_command('list-operation', 'notes_list_operation')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('list-resource', 'notes_list_resource')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-notebook', 'notes_update_notebook')
-        g.custom_command('update-operation', 'notes_update_operation')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-resource', 'notes_update_resource')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook
-    notes_v1_0_group_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_operations#GroupOnenot'
-        'eNotebookOperations.{}',
-        client_factory=cf_group_onenote_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_notebook,
-                            client_factory=cf_group_onenote_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_group
-    notes_v1_0_group_onenote_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_operatio'
-        'ns#GroupOnenoteNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_notebook_section_group,
-                            client_factory=cf_group_onenote_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_group_section
-    notes_v1_0_group_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_'
-        'operations#GroupOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_group_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_notebook_section_group_section,
-                            client_factory=cf_group_onenote_notebook_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_group_section_page
-    notes_v1_0_group_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_'
-        'page_operations#GroupOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_group_section_page)
-    with self.command_group('notes', notes_v1_0_group_onenote_notebook_section_group_section_page,
-                            client_factory=cf_group_onenote_notebook_section_group_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section
-    notes_v1_0_group_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_operations#Gro'
-        'upOnenoteNotebookSectionOperations.{}',
-        client_factory=cf_group_onenote_notebook_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_notebook_section,
-                            client_factory=cf_group_onenote_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_page
-    notes_v1_0_group_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_page_operation'
-        's#GroupOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_page)
-    with self.command_group('notes', notes_v1_0_group_onenote_notebook_section_page,
-                            client_factory=cf_group_onenote_notebook_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_parent_section_group
-    notes_v1_0_group_onenote_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_parent_section'
-        '_group_operations#GroupOnenoteNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_notebook_section_parent_section_group,
-                            client_factory=cf_group_onenote_notebook_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page
-    notes_v1_0_group_onenote_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_operations#GroupOnenotePag'
-        'eOperations.{}',
-        client_factory=cf_group_onenote_page)
-    with self.command_group('notes', notes_v1_0_group_onenote_page, client_factory=cf_group_onenote_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook
-    notes_v1_0_group_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_operations'
-        '#GroupOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_notebook,
-                            client_factory=cf_group_onenote_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook_section_group
-    notes_v1_0_group_onenote_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_gr'
-        'oup_operations#GroupOnenotePageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_notebook_section_group,
-                            client_factory=cf_group_onenote_page_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook_section_group_section
-    notes_v1_0_group_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_gr'
-        'oup_section_operations#GroupOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section_group_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_notebook_section_group_section,
-                            client_factory=cf_group_onenote_page_parent_notebook_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook_section
-    notes_v1_0_group_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_op'
-        'erations#GroupOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_notebook_section,
-                            client_factory=cf_group_onenote_page_parent_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook_section_parent_section_group
-    notes_v1_0_group_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_pa'
-        'rent_section_group_operations#GroupOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_notebook_section_parent_section_group,
-                            client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section
-    notes_v1_0_group_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_operations#'
-        'GroupOnenotePageParentSectionOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_section,
-                            client_factory=cf_group_onenote_page_parent_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section_parent_notebook
-    notes_v1_0_group_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_note'
-        'book_operations#GroupOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_section_parent_notebook,
-                            client_factory=cf_group_onenote_page_parent_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section_parent_notebook_section_group
-    notes_v1_0_group_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_note'
-        'book_section_group_operations#GroupOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_section_parent_notebook_section_group,
-                            client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section_parent_section_group
-    notes_v1_0_group_onenote_page_parent_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_sect'
-        'ion_group_operations#GroupOnenotePageParentSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_section_parent_section_group,
-                            client_factory=cf_group_onenote_page_parent_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section_parent_section_group_parent_notebook
-    notes_v1_0_group_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_sect'
-        'ion_group_parent_notebook_operations#GroupOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{'
-        '}',
-        client_factory=cf_group_onenote_page_parent_section_parent_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_page_parent_section_parent_section_group_parent_notebook,
-                            client_factory=cf_group_onenote_page_parent_section_parent_section_group_parent_notebook) \
-                            as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group
-    notes_v1_0_group_onenote_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_operations#GroupO'
-        'nenoteSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group,
-                            client_factory=cf_group_onenote_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_parent_notebook
-    notes_v1_0_group_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_o'
-        'perations#GroupOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group_parent_notebook,
-                            client_factory=cf_group_onenote_section_group_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_parent_notebook_section
-    notes_v1_0_group_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_s'
-        'ection_operations#GroupOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_group_onenote_section_group_parent_notebook_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group_parent_notebook_section,
-                            client_factory=cf_group_onenote_section_group_parent_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_parent_notebook_section_page
-    notes_v1_0_group_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_s'
-        'ection_page_operations#GroupOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_group_onenote_section_group_parent_notebook_section_page)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group_parent_notebook_section_page,
-                            client_factory=cf_group_onenote_section_group_parent_notebook_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section
-    notes_v1_0_group_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_operation'
-        's#GroupOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_group_onenote_section_group_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group_section,
-                            client_factory=cf_group_onenote_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section_page
-    notes_v1_0_group_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_oper'
-        'ations#GroupOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_group_onenote_section_group_section_page)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group_section_page,
-                            client_factory=cf_group_onenote_section_group_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section_page_parent_notebook
-    notes_v1_0_group_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_pare'
-        'nt_notebook_operations#GroupOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_group_section_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group_section_page_parent_notebook,
-                            client_factory=cf_group_onenote_section_group_section_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section_parent_notebook
-    notes_v1_0_group_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_parent_no'
-        'tebook_operations#GroupOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_group_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_group_section_parent_notebook,
-                            client_factory=cf_group_onenote_section_group_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section
-    notes_v1_0_group_onenote_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_operations#GroupOnenote'
-        'SectionOperations.{}',
-        client_factory=cf_group_onenote_section)
-    with self.command_group('notes', notes_v1_0_group_onenote_section, client_factory=cf_group_onenote_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_page
-    notes_v1_0_group_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_operations#GroupOn'
-        'enoteSectionPageOperations.{}',
-        client_factory=cf_group_onenote_section_page)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_page,
-                            client_factory=cf_group_onenote_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_page_parent_notebook
-    notes_v1_0_group_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_op'
-        'erations#GroupOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_page_parent_notebook,
-                            client_factory=cf_group_onenote_section_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_page_parent_notebook_section_group
-    notes_v1_0_group_onenote_section_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_se'
-        'ction_group_operations#GroupOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_page_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_page_parent_notebook_section_group,
-                            client_factory=cf_group_onenote_section_page_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_notebook
-    notes_v1_0_group_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_operati'
-        'ons#GroupOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_parent_notebook,
-                            client_factory=cf_group_onenote_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_notebook_section_group
-    notes_v1_0_group_onenote_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_section'
-        '_group_operations#GroupOnenoteSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_parent_notebook_section_group,
-                            client_factory=cf_group_onenote_section_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_section_group
-    notes_v1_0_group_onenote_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_op'
-        'erations#GroupOnenoteSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_parent_section_group,
-                            client_factory=cf_group_onenote_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_section_group_parent_notebook
-    notes_v1_0_group_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_pa'
-        'rent_notebook_operations#GroupOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_parent_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_group_onenote_section_parent_section_group_parent_notebook,
-                            client_factory=cf_group_onenote_section_parent_section_group_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site
-    notes_v1_0_site = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_operations#SiteOperations.{}',
-        client_factory=cf_site)
-    with self.command_group('notes', notes_v1_0_site, client_factory=cf_site) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-onenote', 'notes_get_onenote')
-        g.custom_command('update-onenote', 'notes_update_onenote')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote
-    notes_v1_0_site_onenote = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_operations#SiteOnenoteOperations'
-        '.{}',
-        client_factory=cf_site_onenote)
-    with self.command_group('notes', notes_v1_0_site_onenote, client_factory=cf_site_onenote) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-notebook', 'notes_create_notebook')
-        g.custom_command('create-operation', 'notes_create_operation')
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('create-resource', 'notes_create_resource')
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-notebook', 'notes_get_notebook')
-        g.custom_command('get-operation', 'notes_get_operation')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-resource', 'notes_get_resource')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-notebook', 'notes_list_notebook')
-        g.custom_command('list-operation', 'notes_list_operation')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('list-resource', 'notes_list_resource')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-notebook', 'notes_update_notebook')
-        g.custom_command('update-operation', 'notes_update_operation')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-resource', 'notes_update_resource')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook
-    notes_v1_0_site_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_operations#SiteOnenoteN'
-        'otebookOperations.{}',
-        client_factory=cf_site_onenote_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_notebook, client_factory=cf_site_onenote_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group
-    notes_v1_0_site_onenote_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_operation'
-        's#SiteOnenoteNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_notebook_section_group,
-                            client_factory=cf_site_onenote_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section
-    notes_v1_0_site_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_o'
-        'perations#SiteOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_notebook_section_group_section,
-                            client_factory=cf_site_onenote_notebook_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section_page
-    notes_v1_0_site_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_p'
-        'age_operations#SiteOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section_page)
-    with self.command_group('notes', notes_v1_0_site_onenote_notebook_section_group_section_page,
-                            client_factory=cf_site_onenote_notebook_section_group_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section
-    notes_v1_0_site_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_operations#Site'
-        'OnenoteNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_notebook_section,
-                            client_factory=cf_site_onenote_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_page
-    notes_v1_0_site_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_page_operations'
-        '#SiteOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_page)
-    with self.command_group('notes', notes_v1_0_site_onenote_notebook_section_page,
-                            client_factory=cf_site_onenote_notebook_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_parent_section_group
-    notes_v1_0_site_onenote_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_parent_section_'
-        'group_operations#SiteOnenoteNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_notebook_section_parent_section_group,
-                            client_factory=cf_site_onenote_notebook_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page
-    notes_v1_0_site_onenote_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_operations#SiteOnenotePageO'
-        'perations.{}',
-        client_factory=cf_site_onenote_page)
-    with self.command_group('notes', notes_v1_0_site_onenote_page, client_factory=cf_site_onenote_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook
-    notes_v1_0_site_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_operations#'
-        'SiteOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group
-    notes_v1_0_site_onenote_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_gro'
-        'up_operations#SiteOnenotePageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_notebook_section_group,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group_section
-    notes_v1_0_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_gro'
-        'up_section_operations#SiteOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_notebook_section_group_section,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section
-    notes_v1_0_site_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_ope'
-        'rations#SiteOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_notebook_section,
-                            client_factory=cf_site_onenote_page_parent_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_parent_section_group
-    notes_v1_0_site_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_par'
-        'ent_section_group_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_notebook_section_parent_section_group,
-                            client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section
-    notes_v1_0_site_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_operations#S'
-        'iteOnenotePageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_section,
-                            client_factory=cf_site_onenote_page_parent_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook
-    notes_v1_0_site_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_noteb'
-        'ook_operations#SiteOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_section_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook_section_group
-    notes_v1_0_site_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_noteb'
-        'ook_section_group_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_section_parent_notebook_section_group,
-                            client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_section_group
-    notes_v1_0_site_onenote_page_parent_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_secti'
-        'on_group_operations#SiteOnenotePageParentSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_section_parent_section_group,
-                            client_factory=cf_site_onenote_page_parent_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_section_group_parent_notebook
-    notes_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_secti'
-        'on_group_parent_notebook_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook) \
-                            as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group
-    notes_v1_0_site_onenote_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_operations#SiteOne'
-        'noteSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group,
-                            client_factory=cf_site_onenote_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook
-    notes_v1_0_site_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_op'
-        'erations#SiteOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section
-    notes_v1_0_site_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_se'
-        'ction_operations#SiteOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group_parent_notebook_section,
-                            client_factory=cf_site_onenote_section_group_parent_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section_page
-    notes_v1_0_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_se'
-        'ction_page_operations#SiteOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section_page)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group_parent_notebook_section_page,
-                            client_factory=cf_site_onenote_section_group_parent_notebook_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section
-    notes_v1_0_site_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_operations'
-        '#SiteOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group_section,
-                            client_factory=cf_site_onenote_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page
-    notes_v1_0_site_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_opera'
-        'tions#SiteOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group_section_page,
-                            client_factory=cf_site_onenote_section_group_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page_parent_notebook
-    notes_v1_0_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_paren'
-        't_notebook_operations#SiteOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group_section_page_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_section_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section_parent_notebook
-    notes_v1_0_site_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_parent_not'
-        'ebook_operations#SiteOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_group_section_parent_notebook,
-                            client_factory=cf_site_onenote_section_group_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section
-    notes_v1_0_site_onenote_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_operations#SiteOnenoteSe'
-        'ctionOperations.{}',
-        client_factory=cf_site_onenote_section)
-    with self.command_group('notes', notes_v1_0_site_onenote_section, client_factory=cf_site_onenote_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_page
-    notes_v1_0_site_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_operations#SiteOnen'
-        'oteSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_page)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_page,
-                            client_factory=cf_site_onenote_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook
-    notes_v1_0_site_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_ope'
-        'rations#SiteOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_page_parent_notebook,
-                            client_factory=cf_site_onenote_section_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook_section_group
-    notes_v1_0_site_onenote_section_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_sec'
-        'tion_group_operations#SiteOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_page_parent_notebook_section_group,
-                            client_factory=cf_site_onenote_section_page_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook
-    notes_v1_0_site_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_operatio'
-        'ns#SiteOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_parent_notebook,
-                            client_factory=cf_site_onenote_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook_section_group
-    notes_v1_0_site_onenote_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_section_'
-        'group_operations#SiteOnenoteSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_parent_notebook_section_group,
-                            client_factory=cf_site_onenote_section_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_section_group
-    notes_v1_0_site_onenote_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_ope'
-        'rations#SiteOnenoteSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_parent_section_group,
-                            client_factory=cf_site_onenote_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_section_group_parent_notebook
-    notes_v1_0_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_par'
-        'ent_notebook_operations#SiteOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_parent_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_site_onenote_section_parent_section_group_parent_notebook,
-                            client_factory=cf_site_onenote_section_parent_section_group_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user
-    notes_v1_0_user = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('notes', notes_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-onenote', 'notes_get_onenote')
-        g.custom_command('update-onenote', 'notes_update_onenote')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote
-    notes_v1_0_user_onenote = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_operations#UserOnenoteOperations'
-        '.{}',
-        client_factory=cf_user_onenote)
-    with self.command_group('notes', notes_v1_0_user_onenote, client_factory=cf_user_onenote) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-notebook', 'notes_create_notebook')
-        g.custom_command('create-operation', 'notes_create_operation')
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('create-resource', 'notes_create_resource')
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-notebook', 'notes_get_notebook')
-        g.custom_command('get-operation', 'notes_get_operation')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-resource', 'notes_get_resource')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-notebook', 'notes_list_notebook')
-        g.custom_command('list-operation', 'notes_list_operation')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('list-resource', 'notes_list_resource')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-notebook', 'notes_update_notebook')
-        g.custom_command('update-operation', 'notes_update_operation')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-resource', 'notes_update_resource')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook
-    notes_v1_0_user_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_operations#UserOnenoteN'
-        'otebookOperations.{}',
-        client_factory=cf_user_onenote_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_notebook, client_factory=cf_user_onenote_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group
-    notes_v1_0_user_onenote_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_operation'
-        's#UserOnenoteNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_notebook_section_group,
-                            client_factory=cf_user_onenote_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section
-    notes_v1_0_user_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_o'
-        'perations#UserOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_notebook_section_group_section,
-                            client_factory=cf_user_onenote_notebook_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section_page
-    notes_v1_0_user_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_p'
-        'age_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page)
-    with self.command_group('notes', notes_v1_0_user_onenote_notebook_section_group_section_page,
-                            client_factory=cf_user_onenote_notebook_section_group_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section
-    notes_v1_0_user_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_operations#User'
-        'OnenoteNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_notebook_section,
-                            client_factory=cf_user_onenote_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_page
-    notes_v1_0_user_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_page_operations'
-        '#UserOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page)
-    with self.command_group('notes', notes_v1_0_user_onenote_notebook_section_page,
-                            client_factory=cf_user_onenote_notebook_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_parent_section_group
-    notes_v1_0_user_onenote_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_parent_section_'
-        'group_operations#UserOnenoteNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_notebook_section_parent_section_group,
-                            client_factory=cf_user_onenote_notebook_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page
-    notes_v1_0_user_onenote_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_operations#UserOnenotePageO'
-        'perations.{}',
-        client_factory=cf_user_onenote_page)
-    with self.command_group('notes', notes_v1_0_user_onenote_page, client_factory=cf_user_onenote_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook
-    notes_v1_0_user_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_operations#'
-        'UserOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group
-    notes_v1_0_user_onenote_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_gro'
-        'up_operations#UserOnenotePageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_notebook_section_group,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group_section
-    notes_v1_0_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_gro'
-        'up_section_operations#UserOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_notebook_section_group_section,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section
-    notes_v1_0_user_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_ope'
-        'rations#UserOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_notebook_section,
-                            client_factory=cf_user_onenote_page_parent_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_parent_section_group
-    notes_v1_0_user_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_par'
-        'ent_section_group_operations#UserOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_notebook_section_parent_section_group,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section
-    notes_v1_0_user_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_operations#U'
-        'serOnenotePageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_section,
-                            client_factory=cf_user_onenote_page_parent_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook
-    notes_v1_0_user_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_noteb'
-        'ook_operations#UserOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_section_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook_section_group
-    notes_v1_0_user_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_noteb'
-        'ook_section_group_operations#UserOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_section_parent_notebook_section_group,
-                            client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_section_group
-    notes_v1_0_user_onenote_page_parent_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_secti'
-        'on_group_operations#UserOnenotePageParentSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_section_parent_section_group,
-                            client_factory=cf_user_onenote_page_parent_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_section_group_parent_notebook
-    notes_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_secti'
-        'on_group_parent_notebook_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook) \
-                            as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group
-    notes_v1_0_user_onenote_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_operations#UserOne'
-        'noteSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group,
-                            client_factory=cf_user_onenote_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook
-    notes_v1_0_user_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_op'
-        'erations#UserOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section
-    notes_v1_0_user_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_se'
-        'ction_operations#UserOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group_parent_notebook_section,
-                            client_factory=cf_user_onenote_section_group_parent_notebook_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section_page
-    notes_v1_0_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_se'
-        'ction_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group_parent_notebook_section_page,
-                            client_factory=cf_user_onenote_section_group_parent_notebook_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section
-    notes_v1_0_user_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_operations'
-        '#UserOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group_section,
-                            client_factory=cf_user_onenote_section_group_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page
-    notes_v1_0_user_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_opera'
-        'tions#UserOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group_section_page,
-                            client_factory=cf_user_onenote_section_group_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page_parent_notebook
-    notes_v1_0_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_paren'
-        't_notebook_operations#UserOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group_section_page_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_section_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section_parent_notebook
-    notes_v1_0_user_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_parent_not'
-        'ebook_operations#UserOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_group_section_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section
-    notes_v1_0_user_onenote_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_operations#UserOnenoteSe'
-        'ctionOperations.{}',
-        client_factory=cf_user_onenote_section)
-    with self.command_group('notes', notes_v1_0_user_onenote_section, client_factory=cf_user_onenote_section) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-page', 'notes_create_page')
-        g.custom_command('get-page', 'notes_get_page')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('list-page', 'notes_list_page')
-        g.custom_command('update-page', 'notes_update_page')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_page
-    notes_v1_0_user_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_operations#UserOnen'
-        'oteSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_page)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_page,
-                            client_factory=cf_user_onenote_section_page) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section', 'notes_get_parent_section')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section', 'notes_update_parent_section')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook
-    notes_v1_0_user_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_ope'
-        'rations#UserOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_page_parent_notebook,
-                            client_factory=cf_user_onenote_section_page_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook_section_group
-    notes_v1_0_user_onenote_section_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_sec'
-        'tion_group_operations#UserOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_page_parent_notebook_section_group,
-                            client_factory=cf_user_onenote_section_page_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook
-    notes_v1_0_user_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_operatio'
-        'ns#UserOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_parent_notebook,
-                            client_factory=cf_user_onenote_section_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook_section_group
-    notes_v1_0_user_onenote_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_section_'
-        'group_operations#UserOnenoteSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_parent_notebook_section_group,
-                            client_factory=cf_user_onenote_section_parent_notebook_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_section_group
-    notes_v1_0_user_onenote_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_ope'
-        'rations#UserOnenoteSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_parent_section_group,
-                            client_factory=cf_user_onenote_section_parent_section_group) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
-        g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
-        g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
-
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_section_group_parent_notebook
-    notes_v1_0_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_par'
-        'ent_notebook_operations#UserOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook)
-    with self.command_group('notes', notes_v1_0_user_onenote_section_parent_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_section_parent_section_group_parent_notebook) as g:
-        g.custom_command('delete', 'notes_delete', confirmation=True)
-        g.custom_command('create-section', 'notes_create_section')
-        g.custom_command('create-section-group', 'notes_create_section_group')
-        g.custom_command('get-section', 'notes_get_section')
-        g.custom_command('get-section-group', 'notes_get_section_group')
-        g.custom_command('list-section', 'notes_list_section')
-        g.custom_command('list-section-group', 'notes_list_section_group')
-        g.custom_command('update-section', 'notes_update_section')
-        g.custom_command('update-section-group', 'notes_update_section_group')
+    with self.command_group('notes group', notes_v1_0_group, client_factory=cf_group) as g:
+        g.custom_command('delete-onenote', 'notes_group_delete_onenote')
+        g.custom_command('show-onenote', 'notes_group_show_onenote')
+        g.custom_command('update-onenote', 'notes_group_update_onenote')
+
+    with self.command_group('notes groupsonenote', notes_v1_0_groupsonenote, client_factory=cf_groupsonenote) as g:
+        g.custom_command('create-notebook', 'notes_groupsonenote_create_notebook')
+        g.custom_command('create-operation', 'notes_groupsonenote_create_operation')
+        g.custom_command('create-page', 'notes_groupsonenote_create_page')
+        g.custom_command('create-resource', 'notes_groupsonenote_create_resource')
+        g.custom_command('create-section', 'notes_groupsonenote_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenote_create_section_group')
+        g.custom_command('delete-notebook', 'notes_groupsonenote_delete_notebook')
+        g.custom_command('delete-operation', 'notes_groupsonenote_delete_operation')
+        g.custom_command('delete-page', 'notes_groupsonenote_delete_page')
+        g.custom_command('delete-resource', 'notes_groupsonenote_delete_resource')
+        g.custom_command('delete-section', 'notes_groupsonenote_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenote_delete_section_group')
+        g.custom_command('list-notebook', 'notes_groupsonenote_list_notebook')
+        g.custom_command('list-operation', 'notes_groupsonenote_list_operation')
+        g.custom_command('list-page', 'notes_groupsonenote_list_page')
+        g.custom_command('list-resource', 'notes_groupsonenote_list_resource')
+        g.custom_command('list-section', 'notes_groupsonenote_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenote_list_section_group')
+        g.custom_command('show-notebook', 'notes_groupsonenote_show_notebook')
+        g.custom_command('show-operation', 'notes_groupsonenote_show_operation')
+        g.custom_command('show-page', 'notes_groupsonenote_show_page')
+        g.custom_command('show-resource', 'notes_groupsonenote_show_resource')
+        g.custom_command('show-section', 'notes_groupsonenote_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenote_show_section_group')
+        g.custom_command('update-notebook', 'notes_groupsonenote_update_notebook')
+        g.custom_command('update-operation', 'notes_groupsonenote_update_operation')
+        g.custom_command('update-page', 'notes_groupsonenote_update_page')
+        g.custom_command('update-resource', 'notes_groupsonenote_update_resource')
+        g.custom_command('update-section', 'notes_groupsonenote_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenote_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotenotebook', notes_v1_0_groupsonenotenotebook, client_factory=cf_groupsonenotenotebook
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotenotebook_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotenotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_groupsonenotenotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotenotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotenotebook_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotenotebook_list_section_group')
+        g.custom_command('show-section', 'notes_groupsonenotenotebook_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotenotebook_show_section_group')
+        g.custom_command('update-section', 'notes_groupsonenotenotebook_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotenotebook_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotenotebookssectiongroup',
+        notes_v1_0_groupsonenotenotebookssectiongroup,
+        client_factory=cf_groupsonenotenotebookssectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotenotebookssectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotenotebookssectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotenotebookssectiongroup_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_groupsonenotenotebookssectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotenotebookssectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotenotebookssectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotenotebookssectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotenotebookssectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotenotebookssectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_groupsonenotenotebookssectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotenotebookssectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotenotebookssectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotenotebookssectiongroup_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_groupsonenotenotebookssectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_groupsonenotenotebookssectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotenotebookssectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotenotebookssectiongroupssection',
+        notes_v1_0_groupsonenotenotebookssectiongroupssection,
+        client_factory=cf_groupsonenotenotebookssectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotenotebookssectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotenotebookssectiongroupssection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotenotebookssectiongroupssection_delete_parent_section_group',
+        )
+        g.custom_command('list-page', 'notes_groupsonenotenotebookssectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotenotebookssectiongroupssection_show_page')
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssection_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group', 'notes_groupsonenotenotebookssectiongroupssection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_groupsonenotenotebookssectiongroupssection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotenotebookssectiongroupssection_update_parent_section_group',
+        )
+
+    with self.command_group(
+        'notes groupsonenotenotebookssectiongroupssectionspage',
+        notes_v1_0_groupsonenotenotebookssectiongroupssectionspage,
+        client_factory=cf_groupsonenotenotebookssectiongroupssectionspage,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssectionspage_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section', 'notes_groupsonenotenotebookssectiongroupssectionspage_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssectionspage_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_groupsonenotenotebookssectiongroupssectionspage_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotenotebookssectiongroupssectionspage_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_groupsonenotenotebookssectiongroupssectionspage_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes groupsonenotenotebookssection',
+        notes_v1_0_groupsonenotenotebookssection,
+        client_factory=cf_groupsonenotenotebookssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotenotebookssection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotenotebookssection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotenotebookssection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_groupsonenotenotebookssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_groupsonenotenotebookssection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotenotebookssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotenotebookssection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_groupsonenotenotebookssection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_groupsonenotenotebookssection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotenotebookssection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_groupsonenotenotebookssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotenotebookssectionspage',
+        notes_v1_0_groupsonenotenotebookssectionspage,
+        client_factory=cf_groupsonenotenotebookssectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotenotebookssectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_groupsonenotenotebookssectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotenotebookssectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_groupsonenotenotebookssectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotenotebookssectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_groupsonenotenotebookssectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes groupsonenotenotebookssectionsparentsectiongroup',
+        notes_v1_0_groupsonenotenotebookssectionsparentsectiongroup,
+        client_factory=cf_groupsonenotenotebookssectionsparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotenotebookssectionsparentsectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_groupsonenotenotebookssectionsparentsectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotenotebookssectionsparentsectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotenotebookssectionsparentsectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_groupsonenotenotebookssectionsparentsectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotenotebookssectionsparentsectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotepage', notes_v1_0_groupsonenotepage, client_factory=cf_groupsonenotepage
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotepage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_groupsonenotepage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotepage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_groupsonenotepage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotepage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_groupsonenotepage_update_parent_section')
+
+    with self.command_group(
+        'notes groupsonenotepagesparentnotebook',
+        notes_v1_0_groupsonenotepagesparentnotebook,
+        client_factory=cf_groupsonenotepagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotepagesparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotepagesparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_groupsonenotepagesparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotepagesparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotepagesparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_groupsonenotepagesparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_groupsonenotepagesparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotepagesparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotepagesparentnotebooksectiongroup',
+        notes_v1_0_groupsonenotepagesparentnotebooksectiongroup,
+        client_factory=cf_groupsonenotepagesparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_list_section_group')
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_groupsonenotepagesparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotepagesparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotepagesparentnotebooksectiongroupssection',
+        notes_v1_0_groupsonenotepagesparentnotebooksectiongroupssection,
+        client_factory=cf_groupsonenotepagesparentnotebooksectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_groupsonenotepagesparentnotebooksectiongroupssection_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectiongroupssection_delete_parent_section_group',
+        )
+        g.custom_command('list-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_show_page')
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectiongroupssection_show_parent_section_group',
+        )
+        g.custom_command('update-page', 'notes_groupsonenotepagesparentnotebooksectiongroupssection_update_page')
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_groupsonenotepagesparentnotebooksectiongroupssection_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectiongroupssection_update_parent_section_group',
+        )
+
+    with self.command_group(
+        'notes groupsonenotepagesparentnotebooksection',
+        notes_v1_0_groupsonenotepagesparentnotebooksection,
+        client_factory=cf_groupsonenotepagesparentnotebooksection,
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotepagesparentnotebooksection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotepagesparentnotebooksection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotepagesparentnotebooksection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_groupsonenotepagesparentnotebooksection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_groupsonenotepagesparentnotebooksection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotepagesparentnotebooksection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotepagesparentnotebooksection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_groupsonenotepagesparentnotebooksection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_groupsonenotepagesparentnotebooksection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotepagesparentnotebooksection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_groupsonenotepagesparentnotebooksection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotepagesparentnotebooksectionsparentsectiongroup',
+        notes_v1_0_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
+        client_factory=cf_groupsonenotepagesparentnotebooksectionsparentsectiongroup,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_create_section_group',
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_delete_section_group',
+        )
+        g.custom_command(
+            'list-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_list_section'
+        )
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_notebook',
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_section_group',
+        )
+        g.custom_command(
+            'show-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_section'
+        )
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_section_group',
+        )
+        g.custom_command(
+            'update-section', 'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_groupsonenotepagesparentnotebooksectionsparentsectiongroup_update_section_group',
+        )
+
+    with self.command_group(
+        'notes groupsonenotepagesparentsection',
+        notes_v1_0_groupsonenotepagesparentsection,
+        client_factory=cf_groupsonenotepagesparentsection,
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotepagesparentsection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotepagesparentsection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotepagesparentsection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_groupsonenotepagesparentsection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_groupsonenotepagesparentsection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotepagesparentsection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotepagesparentsection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_groupsonenotepagesparentsection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_groupsonenotepagesparentsection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotepagesparentsection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_groupsonenotepagesparentsection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotepagesparentsectionparentnotebook',
+        notes_v1_0_groupsonenotepagesparentsectionparentnotebook,
+        client_factory=cf_groupsonenotepagesparentsectionparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotepagesparentsectionparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotepagesparentsectionparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectionparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectionparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_groupsonenotepagesparentsectionparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotepagesparentsectionparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotepagesparentsectionparentnotebooksectiongroup',
+        notes_v1_0_groupsonenotepagesparentsectionparentnotebooksectiongroup,
+        client_factory=cf_groupsonenotepagesparentsectionparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_create_section_group',
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_parent_notebook',
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command(
+            'update-section', 'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_groupsonenotepagesparentsectionparentnotebooksectiongroup_update_section_group',
+        )
+
+    with self.command_group(
+        'notes groupsonenotepagesparentsectiongroup',
+        notes_v1_0_groupsonenotepagesparentsectiongroup,
+        client_factory=cf_groupsonenotepagesparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotepagesparentsectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotepagesparentsectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotepagesparentsectiongroup_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_groupsonenotepagesparentsectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotepagesparentsectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotepagesparentsectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotepagesparentsectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotepagesparentsectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_groupsonenotepagesparentsectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotepagesparentsectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotepagesparentsectiongroup_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_groupsonenotepagesparentsectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_groupsonenotepagesparentsectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotepagesparentsectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotepagesparentsectiongroupparentnotebook',
+        notes_v1_0_groupsonenotepagesparentsectiongroupparentnotebook,
+        client_factory=cf_groupsonenotepagesparentsectiongroupparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotepagesparentsectiongroupparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotesectiongroup',
+        notes_v1_0_groupsonenotesectiongroup,
+        client_factory=cf_groupsonenotesectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotesectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesectiongroup_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_groupsonenotesectiongroup_delete_parent_section_group')
+        g.custom_command('delete-section', 'notes_groupsonenotesectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotesectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotesectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotesectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectiongroup_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_groupsonenotesectiongroup_show_parent_section_group')
+        g.custom_command('show-section', 'notes_groupsonenotesectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotesectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotesectiongroup_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_groupsonenotesectiongroup_update_parent_section_group')
+        g.custom_command('update-section', 'notes_groupsonenotesectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotesectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotesectiongroupsparentnotebook',
+        notes_v1_0_groupsonenotesectiongroupsparentnotebook,
+        client_factory=cf_groupsonenotesectiongroupsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectiongroupsparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_groupsonenotesectiongroupsparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotesectiongroupsparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_groupsonenotesectiongroupsparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_groupsonenotesectiongroupsparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotesectiongroupsparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotesectiongroupsparentnotebooksection',
+        notes_v1_0_groupsonenotesectiongroupsparentnotebooksection,
+        client_factory=cf_groupsonenotesectiongroupsparentnotebooksection,
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotesectiongroupsparentnotebooksection_delete_parent_section_group',
+        )
+        g.custom_command('list-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_show_page')
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksection_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_groupsonenotesectiongroupsparentnotebooksection_show_parent_section_group',
+        )
+        g.custom_command('update-page', 'notes_groupsonenotesectiongroupsparentnotebooksection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotesectiongroupsparentnotebooksection_update_parent_section_group',
+        )
+
+    with self.command_group(
+        'notes groupsonenotesectiongroupsparentnotebooksectionspage',
+        notes_v1_0_groupsonenotesectiongroupsparentnotebooksectionspage,
+        client_factory=cf_groupsonenotesectiongroupsparentnotebooksectionspage,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_groupsonenotesectiongroupsparentnotebooksectionspage_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_groupsonenotesectiongroupsparentnotebooksectionspage_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_groupsonenotesectiongroupsparentnotebooksectionspage_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes groupsonenotesectiongroupssection',
+        notes_v1_0_groupsonenotesectiongroupssection,
+        client_factory=cf_groupsonenotesectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotesectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotesectiongroupssection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesectiongroupssection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_groupsonenotesectiongroupssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_groupsonenotesectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotesectiongroupssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectiongroupssection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_groupsonenotesectiongroupssection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_groupsonenotesectiongroupssection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotesectiongroupssection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_groupsonenotesectiongroupssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotesectiongroupssectionspage',
+        notes_v1_0_groupsonenotesectiongroupssectionspage,
+        client_factory=cf_groupsonenotesectiongroupssectionspage,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotesectiongroupssectionspage_delete_parent_notebook'
+        )
+        g.custom_command('delete-parent-section', 'notes_groupsonenotesectiongroupssectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectiongroupssectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_groupsonenotesectiongroupssectionspage_show_parent_section')
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotesectiongroupssectionspage_update_parent_notebook'
+        )
+        g.custom_command('update-parent-section', 'notes_groupsonenotesectiongroupssectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes groupsonenotesectiongroupssectionspagesparentnotebook',
+        notes_v1_0_groupsonenotesectiongroupssectionspagesparentnotebook,
+        client_factory=cf_groupsonenotesectiongroupssectionspagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotesectiongroupssectionspagesparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotesectiongroupssectionsparentnotebook',
+        notes_v1_0_groupsonenotesectiongroupssectionsparentnotebook,
+        client_factory=cf_groupsonenotesectiongroupssectionsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_groupsonenotesectiongroupssectionsparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotesectiongroupssectionsparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotesection', notes_v1_0_groupsonenotesection, client_factory=cf_groupsonenotesection
+    ) as g:
+        g.custom_command('create-page', 'notes_groupsonenotesection_create_page')
+        g.custom_command('delete-page', 'notes_groupsonenotesection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesection_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_groupsonenotesection_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_groupsonenotesection_list_page')
+        g.custom_command('show-page', 'notes_groupsonenotesection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotesection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_groupsonenotesection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_groupsonenotesection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotesection_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_groupsonenotesection_update_parent_section_group')
+
+    with self.command_group(
+        'notes groupsonenotesectionspage',
+        notes_v1_0_groupsonenotesectionspage,
+        client_factory=cf_groupsonenotesectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_groupsonenotesectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_groupsonenotesectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_groupsonenotesectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_groupsonenotesectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_groupsonenotesectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes groupsonenotesectionspagesparentnotebook',
+        notes_v1_0_groupsonenotesectionspagesparentnotebook,
+        client_factory=cf_groupsonenotesectionspagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectionspagesparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotesectionspagesparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_groupsonenotesectionspagesparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotesectionspagesparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotesectionspagesparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotesectionspagesparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_groupsonenotesectionspagesparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotesectionspagesparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_groupsonenotesectionspagesparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotesectionspagesparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotesectionspagesparentnotebooksectiongroup',
+        notes_v1_0_groupsonenotesectionspagesparentnotebooksectiongroup,
+        client_factory=cf_groupsonenotesectionspagesparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotesectionspagesparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotesectionsparentnotebook',
+        notes_v1_0_groupsonenotesectionsparentnotebook,
+        client_factory=cf_groupsonenotesectionsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectionsparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotesectionsparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotesectionsparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotesectionsparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotesectionsparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_groupsonenotesectionsparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotesectionsparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_groupsonenotesectionsparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotesectionsparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotesectionsparentnotebooksectiongroup',
+        notes_v1_0_groupsonenotesectionsparentnotebooksectiongroup,
+        client_factory=cf_groupsonenotesectionsparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_groupsonenotesectionsparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_groupsonenotesectionsparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotesectionsparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_groupsonenotesectionsparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_groupsonenotesectionsparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotesectionsparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes groupsonenotesectionsparentsectiongroup',
+        notes_v1_0_groupsonenotesectionsparentsectiongroup,
+        client_factory=cf_groupsonenotesectionsparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectionsparentsectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_groupsonenotesectionsparentsectiongroup_create_section_group')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_groupsonenotesectionsparentsectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_groupsonenotesectionsparentsectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentsectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_groupsonenotesectionsparentsectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_groupsonenotesectionsparentsectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_groupsonenotesectionsparentsectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_groupsonenotesectionsparentsectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_groupsonenotesectionsparentsectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotesectionsparentsectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_groupsonenotesectionsparentsectiongroup_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_groupsonenotesectionsparentsectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_groupsonenotesectionsparentsectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_groupsonenotesectionsparentsectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_groupsonenotesectionsparentsectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes groupsonenotesectionsparentsectiongroupparentnotebook',
+        notes_v1_0_groupsonenotesectionsparentsectiongroupparentnotebook,
+        client_factory=cf_groupsonenotesectionsparentsectiongroupparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_groupsonenotesectionsparentsectiongroupparentnotebook_update_section_group'
+        )
+
+    with self.command_group('notes site', notes_v1_0_site, client_factory=cf_site) as g:
+        g.custom_command('delete-onenote', 'notes_site_delete_onenote')
+        g.custom_command('show-onenote', 'notes_site_show_onenote')
+        g.custom_command('update-onenote', 'notes_site_update_onenote')
+
+    with self.command_group('notes sitesonenote', notes_v1_0_sitesonenote, client_factory=cf_sitesonenote) as g:
+        g.custom_command('create-notebook', 'notes_sitesonenote_create_notebook')
+        g.custom_command('create-operation', 'notes_sitesonenote_create_operation')
+        g.custom_command('create-page', 'notes_sitesonenote_create_page')
+        g.custom_command('create-resource', 'notes_sitesonenote_create_resource')
+        g.custom_command('create-section', 'notes_sitesonenote_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenote_create_section_group')
+        g.custom_command('delete-notebook', 'notes_sitesonenote_delete_notebook')
+        g.custom_command('delete-operation', 'notes_sitesonenote_delete_operation')
+        g.custom_command('delete-page', 'notes_sitesonenote_delete_page')
+        g.custom_command('delete-resource', 'notes_sitesonenote_delete_resource')
+        g.custom_command('delete-section', 'notes_sitesonenote_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenote_delete_section_group')
+        g.custom_command('list-notebook', 'notes_sitesonenote_list_notebook')
+        g.custom_command('list-operation', 'notes_sitesonenote_list_operation')
+        g.custom_command('list-page', 'notes_sitesonenote_list_page')
+        g.custom_command('list-resource', 'notes_sitesonenote_list_resource')
+        g.custom_command('list-section', 'notes_sitesonenote_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenote_list_section_group')
+        g.custom_command('show-notebook', 'notes_sitesonenote_show_notebook')
+        g.custom_command('show-operation', 'notes_sitesonenote_show_operation')
+        g.custom_command('show-page', 'notes_sitesonenote_show_page')
+        g.custom_command('show-resource', 'notes_sitesonenote_show_resource')
+        g.custom_command('show-section', 'notes_sitesonenote_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenote_show_section_group')
+        g.custom_command('update-notebook', 'notes_sitesonenote_update_notebook')
+        g.custom_command('update-operation', 'notes_sitesonenote_update_operation')
+        g.custom_command('update-page', 'notes_sitesonenote_update_page')
+        g.custom_command('update-resource', 'notes_sitesonenote_update_resource')
+        g.custom_command('update-section', 'notes_sitesonenote_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenote_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotenotebook', notes_v1_0_sitesonenotenotebook, client_factory=cf_sitesonenotenotebook
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotenotebook_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotenotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_sitesonenotenotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotenotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotenotebook_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotenotebook_list_section_group')
+        g.custom_command('show-section', 'notes_sitesonenotenotebook_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotenotebook_show_section_group')
+        g.custom_command('update-section', 'notes_sitesonenotenotebook_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotenotebook_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotenotebookssectiongroup',
+        notes_v1_0_sitesonenotenotebookssectiongroup,
+        client_factory=cf_sitesonenotenotebookssectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotenotebookssectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotenotebookssectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotenotebookssectiongroup_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotenotebookssectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotenotebookssectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotenotebookssectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotenotebookssectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotenotebookssectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_sitesonenotenotebookssectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotenotebookssectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotenotebookssectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotenotebookssectiongroup_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotenotebookssectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_sitesonenotenotebookssectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotenotebookssectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotenotebookssectiongroupssection',
+        notes_v1_0_sitesonenotenotebookssectiongroupssection,
+        client_factory=cf_sitesonenotenotebookssectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotenotebookssectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotenotebookssectiongroupssection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotenotebookssectiongroupssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_sitesonenotenotebookssectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotenotebookssectiongroupssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_sitesonenotenotebookssectiongroupssection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_sitesonenotenotebookssectiongroupssection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotenotebookssectiongroupssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotenotebookssectiongroupssectionspage',
+        notes_v1_0_sitesonenotenotebookssectiongroupssectionspage,
+        client_factory=cf_sitesonenotenotebookssectiongroupssectionspage,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssectionspage_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section', 'notes_sitesonenotenotebookssectiongroupssectionspage_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssectionspage_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_sitesonenotenotebookssectiongroupssectionspage_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotenotebookssectiongroupssectionspage_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_sitesonenotenotebookssectiongroupssectionspage_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes sitesonenotenotebookssection',
+        notes_v1_0_sitesonenotenotebookssection,
+        client_factory=cf_sitesonenotenotebookssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotenotebookssection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotenotebookssection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotenotebookssection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotenotebookssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_sitesonenotenotebookssection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotenotebookssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_sitesonenotenotebookssection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_sitesonenotenotebookssection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotenotebookssection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotenotebookssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotenotebookssectionspage',
+        notes_v1_0_sitesonenotenotebookssectionspage,
+        client_factory=cf_sitesonenotenotebookssectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotenotebookssectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_sitesonenotenotebookssectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotenotebookssectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_sitesonenotenotebookssectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotenotebookssectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_sitesonenotenotebookssectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes sitesonenotenotebookssectionsparentsectiongroup',
+        notes_v1_0_sitesonenotenotebookssectionsparentsectiongroup,
+        client_factory=cf_sitesonenotenotebookssectionsparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotenotebookssectionsparentsectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_sitesonenotenotebookssectionsparentsectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotenotebookssectionsparentsectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotenotebookssectionsparentsectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_sitesonenotenotebookssectionsparentsectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotenotebookssectionsparentsectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotepage', notes_v1_0_sitesonenotepage, client_factory=cf_sitesonenotepage
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotepage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_sitesonenotepage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotepage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_sitesonenotepage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotepage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_sitesonenotepage_update_parent_section')
+
+    with self.command_group(
+        'notes sitesonenotepagesparentnotebook',
+        notes_v1_0_sitesonenotepagesparentnotebook,
+        client_factory=cf_sitesonenotepagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotepagesparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotepagesparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_sitesonenotepagesparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotepagesparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotepagesparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_sitesonenotepagesparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_sitesonenotepagesparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotepagesparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotepagesparentnotebooksectiongroup',
+        notes_v1_0_sitesonenotepagesparentnotebooksectiongroup,
+        client_factory=cf_sitesonenotepagesparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_list_section_group')
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_sitesonenotepagesparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotepagesparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotepagesparentnotebooksectiongroupssection',
+        notes_v1_0_sitesonenotepagesparentnotebooksectiongroupssection,
+        client_factory=cf_sitesonenotepagesparentnotebooksectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectiongroupssection_delete_parent_section_group',
+        )
+        g.custom_command('list-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_show_page')
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectiongroupssection_show_parent_section_group',
+        )
+        g.custom_command('update-page', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotepagesparentnotebooksectiongroupssection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectiongroupssection_update_parent_section_group',
+        )
+
+    with self.command_group(
+        'notes sitesonenotepagesparentnotebooksection',
+        notes_v1_0_sitesonenotepagesparentnotebooksection,
+        client_factory=cf_sitesonenotepagesparentnotebooksection,
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotepagesparentnotebooksection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotepagesparentnotebooksection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotepagesparentnotebooksection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotepagesparentnotebooksection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_sitesonenotepagesparentnotebooksection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotepagesparentnotebooksection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotepagesparentnotebooksection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_sitesonenotepagesparentnotebooksection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_sitesonenotepagesparentnotebooksection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotepagesparentnotebooksection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotepagesparentnotebooksection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotepagesparentnotebooksectionsparentsectiongroup',
+        notes_v1_0_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
+        client_factory=cf_sitesonenotepagesparentnotebooksectionsparentsectiongroup,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_create_section_group',
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_notebook',
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_section_group',
+        )
+        g.custom_command(
+            'update-section', 'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_sitesonenotepagesparentnotebooksectionsparentsectiongroup_update_section_group',
+        )
+
+    with self.command_group(
+        'notes sitesonenotepagesparentsection',
+        notes_v1_0_sitesonenotepagesparentsection,
+        client_factory=cf_sitesonenotepagesparentsection,
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotepagesparentsection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotepagesparentsection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotepagesparentsection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotepagesparentsection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_sitesonenotepagesparentsection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotepagesparentsection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotepagesparentsection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_sitesonenotepagesparentsection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_sitesonenotepagesparentsection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotepagesparentsection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotepagesparentsection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotepagesparentsectionparentnotebook',
+        notes_v1_0_sitesonenotepagesparentsectionparentnotebook,
+        client_factory=cf_sitesonenotepagesparentsectionparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotepagesparentsectionparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotepagesparentsectionparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectionparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectionparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_sitesonenotepagesparentsectionparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotepagesparentsectionparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotepagesparentsectionparentnotebooksectiongroup',
+        notes_v1_0_sitesonenotepagesparentsectionparentnotebooksectiongroup,
+        client_factory=cf_sitesonenotepagesparentsectionparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_create_section_group',
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_parent_notebook',
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command(
+            'update-section', 'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_sitesonenotepagesparentsectionparentnotebooksectiongroup_update_section_group',
+        )
+
+    with self.command_group(
+        'notes sitesonenotepagesparentsectiongroup',
+        notes_v1_0_sitesonenotepagesparentsectiongroup,
+        client_factory=cf_sitesonenotepagesparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotepagesparentsectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotepagesparentsectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotepagesparentsectiongroup_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotepagesparentsectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotepagesparentsectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotepagesparentsectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotepagesparentsectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotepagesparentsectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_sitesonenotepagesparentsectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotepagesparentsectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotepagesparentsectiongroup_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotepagesparentsectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_sitesonenotepagesparentsectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotepagesparentsectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotepagesparentsectiongroupparentnotebook',
+        notes_v1_0_sitesonenotepagesparentsectiongroupparentnotebook,
+        client_factory=cf_sitesonenotepagesparentsectiongroupparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotepagesparentsectiongroupparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotesectiongroup',
+        notes_v1_0_sitesonenotesectiongroup,
+        client_factory=cf_sitesonenotesectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotesectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectiongroup_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_sitesonenotesectiongroup_delete_parent_section_group')
+        g.custom_command('delete-section', 'notes_sitesonenotesectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotesectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotesectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotesectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectiongroup_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_sitesonenotesectiongroup_show_parent_section_group')
+        g.custom_command('show-section', 'notes_sitesonenotesectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotesectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectiongroup_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_sitesonenotesectiongroup_update_parent_section_group')
+        g.custom_command('update-section', 'notes_sitesonenotesectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotesectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotesectiongroupsparentnotebook',
+        notes_v1_0_sitesonenotesectiongroupsparentnotebook,
+        client_factory=cf_sitesonenotesectiongroupsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectiongroupsparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_sitesonenotesectiongroupsparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotesectiongroupsparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_sitesonenotesectiongroupsparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_sitesonenotesectiongroupsparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotesectiongroupsparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotesectiongroupsparentnotebooksection',
+        notes_v1_0_sitesonenotesectiongroupsparentnotebooksection,
+        client_factory=cf_sitesonenotesectiongroupsparentnotebooksection,
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotesectiongroupsparentnotebooksection_delete_parent_section_group',
+        )
+        g.custom_command('list-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_show_page')
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksection_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_sitesonenotesectiongroupsparentnotebooksection_show_parent_section_group',
+        )
+        g.custom_command('update-page', 'notes_sitesonenotesectiongroupsparentnotebooksection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotesectiongroupsparentnotebooksection_update_parent_section_group',
+        )
+
+    with self.command_group(
+        'notes sitesonenotesectiongroupsparentnotebooksectionspage',
+        notes_v1_0_sitesonenotesectiongroupsparentnotebooksectionspage,
+        client_factory=cf_sitesonenotesectiongroupsparentnotebooksectionspage,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_sitesonenotesectiongroupsparentnotebooksectionspage_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes sitesonenotesectiongroupssection',
+        notes_v1_0_sitesonenotesectiongroupssection,
+        client_factory=cf_sitesonenotesectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotesectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotesectiongroupssection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectiongroupssection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotesectiongroupssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_sitesonenotesectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotesectiongroupssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectiongroupssection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_sitesonenotesectiongroupssection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_sitesonenotesectiongroupssection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectiongroupssection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotesectiongroupssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotesectiongroupssectionspage',
+        notes_v1_0_sitesonenotesectiongroupssectionspage,
+        client_factory=cf_sitesonenotesectiongroupssectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectiongroupssectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_sitesonenotesectiongroupssectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectiongroupssectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_sitesonenotesectiongroupssectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectiongroupssectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_sitesonenotesectiongroupssectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes sitesonenotesectiongroupssectionspagesparentnotebook',
+        notes_v1_0_sitesonenotesectiongroupssectionspagesparentnotebook,
+        client_factory=cf_sitesonenotesectiongroupssectionspagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotesectiongroupssectionspagesparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotesectiongroupssectionsparentnotebook',
+        notes_v1_0_sitesonenotesectiongroupssectionsparentnotebook,
+        client_factory=cf_sitesonenotesectiongroupssectionsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_sitesonenotesectiongroupssectionsparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotesectiongroupssectionsparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotesection', notes_v1_0_sitesonenotesection, client_factory=cf_sitesonenotesection
+    ) as g:
+        g.custom_command('create-page', 'notes_sitesonenotesection_create_page')
+        g.custom_command('delete-page', 'notes_sitesonenotesection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesection_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_sitesonenotesection_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_sitesonenotesection_list_page')
+        g.custom_command('show-page', 'notes_sitesonenotesection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotesection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_sitesonenotesection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_sitesonenotesection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotesection_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_sitesonenotesection_update_parent_section_group')
+
+    with self.command_group(
+        'notes sitesonenotesectionspage',
+        notes_v1_0_sitesonenotesectionspage,
+        client_factory=cf_sitesonenotesectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_sitesonenotesectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_sitesonenotesectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_sitesonenotesectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_sitesonenotesectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_sitesonenotesectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes sitesonenotesectionspagesparentnotebook',
+        notes_v1_0_sitesonenotesectionspagesparentnotebook,
+        client_factory=cf_sitesonenotesectionspagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectionspagesparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotesectionspagesparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_sitesonenotesectionspagesparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotesectionspagesparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotesectionspagesparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotesectionspagesparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_sitesonenotesectionspagesparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotesectionspagesparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_sitesonenotesectionspagesparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotesectionspagesparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotesectionspagesparentnotebooksectiongroup',
+        notes_v1_0_sitesonenotesectionspagesparentnotebooksectiongroup,
+        client_factory=cf_sitesonenotesectionspagesparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotesectionspagesparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotesectionsparentnotebook',
+        notes_v1_0_sitesonenotesectionsparentnotebook,
+        client_factory=cf_sitesonenotesectionsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectionsparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotesectionsparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotesectionsparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotesectionsparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotesectionsparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_sitesonenotesectionsparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotesectionsparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_sitesonenotesectionsparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotesectionsparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotesectionsparentnotebooksectiongroup',
+        notes_v1_0_sitesonenotesectionsparentnotebooksectiongroup,
+        client_factory=cf_sitesonenotesectionsparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_sitesonenotesectionsparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_sitesonenotesectionsparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotesectionsparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_sitesonenotesectionsparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_sitesonenotesectionsparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotesectionsparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes sitesonenotesectionsparentsectiongroup',
+        notes_v1_0_sitesonenotesectionsparentsectiongroup,
+        client_factory=cf_sitesonenotesectionsparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectionsparentsectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_sitesonenotesectionsparentsectiongroup_create_section_group')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_sitesonenotesectionsparentsectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_sitesonenotesectionsparentsectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentsectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_sitesonenotesectionsparentsectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_sitesonenotesectionsparentsectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_sitesonenotesectionsparentsectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_sitesonenotesectionsparentsectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_sitesonenotesectionsparentsectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotesectionsparentsectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_sitesonenotesectionsparentsectiongroup_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_sitesonenotesectionsparentsectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_sitesonenotesectionsparentsectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_sitesonenotesectionsparentsectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_sitesonenotesectionsparentsectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes sitesonenotesectionsparentsectiongroupparentnotebook',
+        notes_v1_0_sitesonenotesectionsparentsectiongroupparentnotebook,
+        client_factory=cf_sitesonenotesectionsparentsectiongroupparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_sitesonenotesectionsparentsectiongroupparentnotebook_update_section_group'
+        )
+
+    with self.command_group('notes user', notes_v1_0_user, client_factory=cf_user) as g:
+        g.custom_command('delete-onenote', 'notes_user_delete_onenote')
+        g.custom_command('show-onenote', 'notes_user_show_onenote')
+        g.custom_command('update-onenote', 'notes_user_update_onenote')
+
+    with self.command_group('notes usersonenote', notes_v1_0_usersonenote, client_factory=cf_usersonenote) as g:
+        g.custom_command('create-notebook', 'notes_usersonenote_create_notebook')
+        g.custom_command('create-operation', 'notes_usersonenote_create_operation')
+        g.custom_command('create-page', 'notes_usersonenote_create_page')
+        g.custom_command('create-resource', 'notes_usersonenote_create_resource')
+        g.custom_command('create-section', 'notes_usersonenote_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenote_create_section_group')
+        g.custom_command('delete-notebook', 'notes_usersonenote_delete_notebook')
+        g.custom_command('delete-operation', 'notes_usersonenote_delete_operation')
+        g.custom_command('delete-page', 'notes_usersonenote_delete_page')
+        g.custom_command('delete-resource', 'notes_usersonenote_delete_resource')
+        g.custom_command('delete-section', 'notes_usersonenote_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenote_delete_section_group')
+        g.custom_command('list-notebook', 'notes_usersonenote_list_notebook')
+        g.custom_command('list-operation', 'notes_usersonenote_list_operation')
+        g.custom_command('list-page', 'notes_usersonenote_list_page')
+        g.custom_command('list-resource', 'notes_usersonenote_list_resource')
+        g.custom_command('list-section', 'notes_usersonenote_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenote_list_section_group')
+        g.custom_command('show-notebook', 'notes_usersonenote_show_notebook')
+        g.custom_command('show-operation', 'notes_usersonenote_show_operation')
+        g.custom_command('show-page', 'notes_usersonenote_show_page')
+        g.custom_command('show-resource', 'notes_usersonenote_show_resource')
+        g.custom_command('show-section', 'notes_usersonenote_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenote_show_section_group')
+        g.custom_command('update-notebook', 'notes_usersonenote_update_notebook')
+        g.custom_command('update-operation', 'notes_usersonenote_update_operation')
+        g.custom_command('update-page', 'notes_usersonenote_update_page')
+        g.custom_command('update-resource', 'notes_usersonenote_update_resource')
+        g.custom_command('update-section', 'notes_usersonenote_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenote_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotenotebook', notes_v1_0_usersonenotenotebook, client_factory=cf_usersonenotenotebook
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotenotebook_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotenotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_usersonenotenotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotenotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotenotebook_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotenotebook_list_section_group')
+        g.custom_command('show-section', 'notes_usersonenotenotebook_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotenotebook_show_section_group')
+        g.custom_command('update-section', 'notes_usersonenotenotebook_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotenotebook_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotenotebookssectiongroup',
+        notes_v1_0_usersonenotenotebookssectiongroup,
+        client_factory=cf_usersonenotenotebookssectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotenotebookssectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotenotebookssectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotenotebookssectiongroup_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotenotebookssectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotenotebookssectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotenotebookssectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotenotebookssectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotenotebookssectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_usersonenotenotebookssectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotenotebookssectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotenotebookssectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotenotebookssectiongroup_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotenotebookssectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_usersonenotenotebookssectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotenotebookssectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotenotebookssectiongroupssection',
+        notes_v1_0_usersonenotenotebookssectiongroupssection,
+        client_factory=cf_usersonenotenotebookssectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotenotebookssectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotenotebookssectiongroupssection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotenotebookssectiongroupssection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotenotebookssectiongroupssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_usersonenotenotebookssectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotenotebookssectiongroupssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssectiongroupssection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_usersonenotenotebookssectiongroupssection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_usersonenotenotebookssectiongroupssection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotenotebookssectiongroupssection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotenotebookssectiongroupssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotenotebookssectiongroupssectionspage',
+        notes_v1_0_usersonenotenotebookssectiongroupssectionspage,
+        client_factory=cf_usersonenotenotebookssectiongroupssectionspage,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotenotebookssectiongroupssectionspage_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section', 'notes_usersonenotenotebookssectiongroupssectionspage_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotenotebookssectiongroupssectionspage_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_usersonenotenotebookssectiongroupssectionspage_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotenotebookssectiongroupssectionspage_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_usersonenotenotebookssectiongroupssectionspage_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes usersonenotenotebookssection',
+        notes_v1_0_usersonenotenotebookssection,
+        client_factory=cf_usersonenotenotebookssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotenotebookssection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotenotebookssection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotenotebookssection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotenotebookssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_usersonenotenotebookssection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotenotebookssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_usersonenotenotebookssection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_usersonenotenotebookssection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotenotebookssection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotenotebookssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotenotebookssectionspage',
+        notes_v1_0_usersonenotenotebookssectionspage,
+        client_factory=cf_usersonenotenotebookssectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotenotebookssectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_usersonenotenotebookssectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotenotebookssectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_usersonenotenotebookssectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotenotebookssectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_usersonenotenotebookssectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes usersonenotenotebookssectionsparentsectiongroup',
+        notes_v1_0_usersonenotenotebookssectionsparentsectiongroup,
+        client_factory=cf_usersonenotenotebookssectionsparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotenotebookssectionsparentsectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotenotebookssectionsparentsectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotenotebookssectionsparentsectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_usersonenotenotebookssectionsparentsectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotenotebookssectionsparentsectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotenotebookssectionsparentsectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_usersonenotenotebookssectionsparentsectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotenotebookssectionsparentsectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotepage', notes_v1_0_usersonenotepage, client_factory=cf_usersonenotepage
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotepage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_usersonenotepage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotepage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_usersonenotepage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotepage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_usersonenotepage_update_parent_section')
+
+    with self.command_group(
+        'notes usersonenotepagesparentnotebook',
+        notes_v1_0_usersonenotepagesparentnotebook,
+        client_factory=cf_usersonenotepagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotepagesparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotepagesparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_usersonenotepagesparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotepagesparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotepagesparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotepagesparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_usersonenotepagesparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotepagesparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_usersonenotepagesparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotepagesparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotepagesparentnotebooksectiongroup',
+        notes_v1_0_usersonenotepagesparentnotebooksectiongroup,
+        client_factory=cf_usersonenotepagesparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotepagesparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_usersonenotepagesparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotepagesparentnotebooksectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_list_section_group')
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotepagesparentnotebooksectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_usersonenotepagesparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotepagesparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotepagesparentnotebooksectiongroupssection',
+        notes_v1_0_usersonenotepagesparentnotebooksectiongroupssection,
+        client_factory=cf_usersonenotepagesparentnotebooksectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroupssection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectiongroupssection_delete_parent_section_group',
+        )
+        g.custom_command('list-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_show_page')
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroupssection_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectiongroupssection_show_parent_section_group',
+        )
+        g.custom_command('update-page', 'notes_usersonenotepagesparentnotebooksectiongroupssection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotepagesparentnotebooksectiongroupssection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectiongroupssection_update_parent_section_group',
+        )
+
+    with self.command_group(
+        'notes usersonenotepagesparentnotebooksection',
+        notes_v1_0_usersonenotepagesparentnotebooksection,
+        client_factory=cf_usersonenotepagesparentnotebooksection,
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotepagesparentnotebooksection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotepagesparentnotebooksection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotepagesparentnotebooksection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotepagesparentnotebooksection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_usersonenotepagesparentnotebooksection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotepagesparentnotebooksection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotepagesparentnotebooksection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_usersonenotepagesparentnotebooksection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_usersonenotepagesparentnotebooksection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotepagesparentnotebooksection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotepagesparentnotebooksection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotepagesparentnotebooksectionsparentsectiongroup',
+        notes_v1_0_usersonenotepagesparentnotebooksectionsparentsectiongroup,
+        client_factory=cf_usersonenotepagesparentnotebooksectionsparentsectiongroup,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_create_section_group',
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_parent_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_notebook',
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_parent_section_group',
+        )
+        g.custom_command(
+            'update-section', 'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_usersonenotepagesparentnotebooksectionsparentsectiongroup_update_section_group',
+        )
+
+    with self.command_group(
+        'notes usersonenotepagesparentsection',
+        notes_v1_0_usersonenotepagesparentsection,
+        client_factory=cf_usersonenotepagesparentsection,
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotepagesparentsection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotepagesparentsection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotepagesparentsection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotepagesparentsection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_usersonenotepagesparentsection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotepagesparentsection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotepagesparentsection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_usersonenotepagesparentsection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_usersonenotepagesparentsection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotepagesparentsection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotepagesparentsection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotepagesparentsectionparentnotebook',
+        notes_v1_0_usersonenotepagesparentsectionparentnotebook,
+        client_factory=cf_usersonenotepagesparentsectionparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotepagesparentsectionparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotepagesparentsectionparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotepagesparentsectionparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_usersonenotepagesparentsectionparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_usersonenotepagesparentsectionparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotepagesparentsectionparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotepagesparentsectionparentnotebooksectiongroup',
+        notes_v1_0_usersonenotepagesparentsectionparentnotebooksectiongroup,
+        client_factory=cf_usersonenotepagesparentsectionparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command(
+            'create-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_create_section'
+        )
+        g.custom_command(
+            'create-section-group',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_create_section_group',
+        )
+        g.custom_command(
+            'delete-parent-notebook',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_notebook',
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command(
+            'delete-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_section'
+        )
+        g.custom_command(
+            'delete-section-group',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_delete_section_group',
+        )
+        g.custom_command('list-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_parent_notebook',
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_parent_notebook',
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command(
+            'update-section', 'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_section'
+        )
+        g.custom_command(
+            'update-section-group',
+            'notes_usersonenotepagesparentsectionparentnotebooksectiongroup_update_section_group',
+        )
+
+    with self.command_group(
+        'notes usersonenotepagesparentsectiongroup',
+        notes_v1_0_usersonenotepagesparentsectiongroup,
+        client_factory=cf_usersonenotepagesparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotepagesparentsectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotepagesparentsectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotepagesparentsectiongroup_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotepagesparentsectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotepagesparentsectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotepagesparentsectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotepagesparentsectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotepagesparentsectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotepagesparentsectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_usersonenotepagesparentsectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotepagesparentsectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotepagesparentsectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotepagesparentsectiongroup_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotepagesparentsectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_usersonenotepagesparentsectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotepagesparentsectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotepagesparentsectiongroupparentnotebook',
+        notes_v1_0_usersonenotepagesparentsectiongroupparentnotebook,
+        client_factory=cf_usersonenotepagesparentsectiongroupparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_usersonenotepagesparentsectiongroupparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotepagesparentsectiongroupparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotesectiongroup',
+        notes_v1_0_usersonenotesectiongroup,
+        client_factory=cf_usersonenotesectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotesectiongroup_create_section_group')
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectiongroup_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_usersonenotesectiongroup_delete_parent_section_group')
+        g.custom_command('delete-section', 'notes_usersonenotesectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotesectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotesectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotesectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotesectiongroup_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_usersonenotesectiongroup_show_parent_section_group')
+        g.custom_command('show-section', 'notes_usersonenotesectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotesectiongroup_show_section_group')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotesectiongroup_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_usersonenotesectiongroup_update_parent_section_group')
+        g.custom_command('update-section', 'notes_usersonenotesectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotesectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotesectiongroupsparentnotebook',
+        notes_v1_0_usersonenotesectiongroupsparentnotebook,
+        client_factory=cf_usersonenotesectiongroupsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectiongroupsparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotesectiongroupsparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_usersonenotesectiongroupsparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotesectiongroupsparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotesectiongroupsparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotesectiongroupsparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_usersonenotesectiongroupsparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotesectiongroupsparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_usersonenotesectiongroupsparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotesectiongroupsparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotesectiongroupsparentnotebooksection',
+        notes_v1_0_usersonenotesectiongroupsparentnotebooksection,
+        client_factory=cf_usersonenotesectiongroupsparentnotebooksection,
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotesectiongroupsparentnotebooksection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotesectiongroupsparentnotebooksection_delete_page')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksection_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotesectiongroupsparentnotebooksection_delete_parent_section_group',
+        )
+        g.custom_command('list-page', 'notes_usersonenotesectiongroupsparentnotebooksection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotesectiongroupsparentnotebooksection_show_page')
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksection_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_usersonenotesectiongroupsparentnotebooksection_show_parent_section_group',
+        )
+        g.custom_command('update-page', 'notes_usersonenotesectiongroupsparentnotebooksection_update_page')
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksection_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotesectiongroupsparentnotebooksection_update_parent_section_group',
+        )
+
+    with self.command_group(
+        'notes usersonenotesectiongroupsparentnotebooksectionspage',
+        notes_v1_0_usersonenotesectiongroupsparentnotebooksectionspage,
+        client_factory=cf_usersonenotesectiongroupsparentnotebooksectionspage,
+    ) as g:
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_delete_parent_section'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_show_parent_section'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section', 'notes_usersonenotesectiongroupsparentnotebooksectionspage_update_parent_section'
+        )
+
+    with self.command_group(
+        'notes usersonenotesectiongroupssection',
+        notes_v1_0_usersonenotesectiongroupssection,
+        client_factory=cf_usersonenotesectiongroupssection,
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotesectiongroupssection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotesectiongroupssection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectiongroupssection_delete_parent_notebook')
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotesectiongroupssection_delete_parent_section_group'
+        )
+        g.custom_command('list-page', 'notes_usersonenotesectiongroupssection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotesectiongroupssection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotesectiongroupssection_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_usersonenotesectiongroupssection_show_parent_section_group'
+        )
+        g.custom_command('update-page', 'notes_usersonenotesectiongroupssection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotesectiongroupssection_update_parent_notebook')
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotesectiongroupssection_update_parent_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotesectiongroupssectionspage',
+        notes_v1_0_usersonenotesectiongroupssectionspage,
+        client_factory=cf_usersonenotesectiongroupssectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectiongroupssectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_usersonenotesectiongroupssectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotesectiongroupssectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_usersonenotesectiongroupssectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotesectiongroupssectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_usersonenotesectiongroupssectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes usersonenotesectiongroupssectionspagesparentnotebook',
+        notes_v1_0_usersonenotesectiongroupssectionspagesparentnotebook,
+        client_factory=cf_usersonenotesectiongroupssectionspagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotesectiongroupssectionspagesparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotesectiongroupssectionsparentnotebook',
+        notes_v1_0_usersonenotesectiongroupssectionsparentnotebook,
+        client_factory=cf_usersonenotesectiongroupssectionsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_usersonenotesectiongroupssectionsparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotesectiongroupssectionsparentnotebook_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotesection', notes_v1_0_usersonenotesection, client_factory=cf_usersonenotesection
+    ) as g:
+        g.custom_command('create-page', 'notes_usersonenotesection_create_page')
+        g.custom_command('delete-page', 'notes_usersonenotesection_delete_page')
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotesection_delete_parent_notebook')
+        g.custom_command('delete-parent-section-group', 'notes_usersonenotesection_delete_parent_section_group')
+        g.custom_command('list-page', 'notes_usersonenotesection_list_page')
+        g.custom_command('show-page', 'notes_usersonenotesection_show_page')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotesection_show_parent_notebook')
+        g.custom_command('show-parent-section-group', 'notes_usersonenotesection_show_parent_section_group')
+        g.custom_command('update-page', 'notes_usersonenotesection_update_page')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotesection_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'notes_usersonenotesection_update_parent_section_group')
+
+    with self.command_group(
+        'notes usersonenotesectionspage',
+        notes_v1_0_usersonenotesectionspage,
+        client_factory=cf_usersonenotesectionspage,
+    ) as g:
+        g.custom_command('delete-parent-notebook', 'notes_usersonenotesectionspage_delete_parent_notebook')
+        g.custom_command('delete-parent-section', 'notes_usersonenotesectionspage_delete_parent_section')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotesectionspage_show_parent_notebook')
+        g.custom_command('show-parent-section', 'notes_usersonenotesectionspage_show_parent_section')
+        g.custom_command('update-parent-notebook', 'notes_usersonenotesectionspage_update_parent_notebook')
+        g.custom_command('update-parent-section', 'notes_usersonenotesectionspage_update_parent_section')
+
+    with self.command_group(
+        'notes usersonenotesectionspagesparentnotebook',
+        notes_v1_0_usersonenotesectionspagesparentnotebook,
+        client_factory=cf_usersonenotesectionspagesparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectionspagesparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotesectionspagesparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_usersonenotesectionspagesparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotesectionspagesparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotesectionspagesparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotesectionspagesparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_usersonenotesectionspagesparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotesectionspagesparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_usersonenotesectionspagesparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotesectionspagesparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotesectionspagesparentnotebooksectiongroup',
+        notes_v1_0_usersonenotesectionspagesparentnotebooksectiongroup,
+        client_factory=cf_usersonenotesectionspagesparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotesectionspagesparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotesectionsparentnotebook',
+        notes_v1_0_usersonenotesectionsparentnotebook,
+        client_factory=cf_usersonenotesectionsparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectionsparentnotebook_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotesectionsparentnotebook_create_section_group')
+        g.custom_command('delete-section', 'notes_usersonenotesectionsparentnotebook_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotesectionsparentnotebook_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotesectionsparentnotebook_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotesectionsparentnotebook_list_section_group')
+        g.custom_command('show-section', 'notes_usersonenotesectionsparentnotebook_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotesectionsparentnotebook_show_section_group')
+        g.custom_command('update-section', 'notes_usersonenotesectionsparentnotebook_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotesectionsparentnotebook_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotesectionsparentnotebooksectiongroup',
+        notes_v1_0_usersonenotesectionsparentnotebooksectiongroup,
+        client_factory=cf_usersonenotesectionsparentnotebooksectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_create_section_group'
+        )
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotesectionsparentnotebooksectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group',
+            'notes_usersonenotesectionsparentnotebooksectiongroup_delete_parent_section_group',
+        )
+        g.custom_command('delete-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_list_section_group'
+        )
+        g.custom_command(
+            'show-parent-notebook', 'notes_usersonenotesectionsparentnotebooksectiongroup_show_parent_notebook'
+        )
+        g.custom_command(
+            'show-parent-section-group',
+            'notes_usersonenotesectionsparentnotebooksectiongroup_show_parent_section_group',
+        )
+        g.custom_command('show-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_show_section_group'
+        )
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotesectionsparentnotebooksectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group',
+            'notes_usersonenotesectionsparentnotebooksectiongroup_update_parent_section_group',
+        )
+        g.custom_command('update-section', 'notes_usersonenotesectionsparentnotebooksectiongroup_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotesectionsparentnotebooksectiongroup_update_section_group'
+        )
+
+    with self.command_group(
+        'notes usersonenotesectionsparentsectiongroup',
+        notes_v1_0_usersonenotesectionsparentsectiongroup,
+        client_factory=cf_usersonenotesectionsparentsectiongroup,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectionsparentsectiongroup_create_section')
+        g.custom_command('create-section-group', 'notes_usersonenotesectionsparentsectiongroup_create_section_group')
+        g.custom_command(
+            'delete-parent-notebook', 'notes_usersonenotesectionsparentsectiongroup_delete_parent_notebook'
+        )
+        g.custom_command(
+            'delete-parent-section-group', 'notes_usersonenotesectionsparentsectiongroup_delete_parent_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotesectionsparentsectiongroup_delete_section')
+        g.custom_command('delete-section-group', 'notes_usersonenotesectionsparentsectiongroup_delete_section_group')
+        g.custom_command('list-section', 'notes_usersonenotesectionsparentsectiongroup_list_section')
+        g.custom_command('list-section-group', 'notes_usersonenotesectionsparentsectiongroup_list_section_group')
+        g.custom_command('show-parent-notebook', 'notes_usersonenotesectionsparentsectiongroup_show_parent_notebook')
+        g.custom_command(
+            'show-parent-section-group', 'notes_usersonenotesectionsparentsectiongroup_show_parent_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotesectionsparentsectiongroup_show_section')
+        g.custom_command('show-section-group', 'notes_usersonenotesectionsparentsectiongroup_show_section_group')
+        g.custom_command(
+            'update-parent-notebook', 'notes_usersonenotesectionsparentsectiongroup_update_parent_notebook'
+        )
+        g.custom_command(
+            'update-parent-section-group', 'notes_usersonenotesectionsparentsectiongroup_update_parent_section_group'
+        )
+        g.custom_command('update-section', 'notes_usersonenotesectionsparentsectiongroup_update_section')
+        g.custom_command('update-section-group', 'notes_usersonenotesectionsparentsectiongroup_update_section_group')
+
+    with self.command_group(
+        'notes usersonenotesectionsparentsectiongroupparentnotebook',
+        notes_v1_0_usersonenotesectionsparentsectiongroupparentnotebook,
+        client_factory=cf_usersonenotesectionsparentsectiongroupparentnotebook,
+    ) as g:
+        g.custom_command('create-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_create_section')
+        g.custom_command(
+            'create-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_create_section_group'
+        )
+        g.custom_command('delete-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_delete_section')
+        g.custom_command(
+            'delete-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_delete_section_group'
+        )
+        g.custom_command('list-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_list_section')
+        g.custom_command(
+            'list-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_list_section_group'
+        )
+        g.custom_command('show-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_show_section')
+        g.custom_command(
+            'show-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_show_section_group'
+        )
+        g.custom_command('update-section', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_update_section')
+        g.custom_command(
+            'update-section-group', 'notes_usersonenotesectionsparentsectiongroupparentnotebook_update_section_group'
+        )
+
+    with self.command_group('notes_v1_0', is_experimental=True):
+        pass

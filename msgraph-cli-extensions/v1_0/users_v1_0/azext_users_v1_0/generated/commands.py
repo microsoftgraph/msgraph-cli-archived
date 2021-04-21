@@ -9,91 +9,112 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_users_v1_0.generated._client_factory import cf_usersuser, cf_user, cf_usersoutlook, cf_userssetting
+
+
+users_v1_0_usersuser = CliCommandType(
+    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._usersuser_operations#usersuserOperations.{}',
+    client_factory=cf_usersuser,
+)
+
+
+users_v1_0_user = CliCommandType(
+    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._users_operations#usersOperations.{}',
+    client_factory=cf_user,
+)
+
+
+users_v1_0_usersoutlook = CliCommandType(
+    operations_tmpl=(
+        'azext_users_v1_0.vendored_sdks.users.operations._usersoutlook_operations#usersoutlookOperations.{}'
+    ),
+    client_factory=cf_usersoutlook,
+)
+
+
+users_v1_0_userssetting = CliCommandType(
+    operations_tmpl=(
+        'azext_users_v1_0.vendored_sdks.users.operations._userssettings_operations#userssettingsOperations.{}'
+    ),
+    client_factory=cf_userssetting,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_users_v1_0.generated._client_factory import cf_user_user
-    users_v1_0_user_user = CliCommandType(
-        operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_user_operations#UserUserOperations.{}',
-        client_factory=cf_user_user)
-    with self.command_group('users', users_v1_0_user_user, client_factory=cf_user_user) as g:
-        g.custom_command('delete', 'users_delete', confirmation=True)
-        g.custom_command('create-user', 'users_create_user')
-        g.custom_command('get-user', 'users_get_user')
-        g.custom_command('list-user', 'users_list_user')
-        g.custom_command('update-user', 'users_update_user')
+    with self.command_group('users usersuser', users_v1_0_usersuser, client_factory=cf_usersuser) as g:
+        g.custom_command('create-user', 'users_usersuser_create_user')
+        g.custom_command('delete-user', 'users_usersuser_delete_user')
+        g.custom_command('list-user', 'users_usersuser_list_user')
+        g.custom_command('show-user', 'users_usersuser_show_user')
+        g.custom_command('update-user', 'users_usersuser_update_user')
 
-    from azext_users_v1_0.generated._client_factory import cf_user
-    users_v1_0_user = CliCommandType(
-        operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('users', users_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'users_delete', confirmation=True)
-        g.custom_command('create-extension', 'users_create_extension')
-        g.custom_command('create-license-detail', 'users_create_license_detail')
-        g.custom_command('create-photo', 'users_create_photo')
-        g.custom_command('create-ref-created-object', 'users_create_ref_created_object')
-        g.custom_command('create-ref-direct-report', 'users_create_ref_direct_report')
-        g.custom_command('create-ref-member-of', 'users_create_ref_member_of')
-        g.custom_command('create-ref-oauth2-permission-grant', 'users_create_ref_oauth2_permission_grant')
-        g.custom_command('create-ref-owned-device', 'users_create_ref_owned_device')
-        g.custom_command('create-ref-owned-object', 'users_create_ref_owned_object')
-        g.custom_command('create-ref-registered-device', 'users_create_ref_registered_device')
-        g.custom_command('create-ref-transitive-member-of', 'users_create_ref_transitive_member_of')
-        g.custom_command('get-extension', 'users_get_extension')
-        g.custom_command('get-license-detail', 'users_get_license_detail')
-        g.custom_command('get-manager', 'users_get_manager')
-        g.custom_command('get-outlook', 'users_get_outlook')
-        g.custom_command('get-photo', 'users_get_photo')
-        g.custom_command('get-ref-manager', 'users_get_ref_manager')
-        g.custom_command('get-setting', 'users_get_setting')
-        g.custom_command('list-created-object', 'users_list_created_object')
-        g.custom_command('list-direct-report', 'users_list_direct_report')
-        g.custom_command('list-extension', 'users_list_extension')
-        g.custom_command('list-license-detail', 'users_list_license_detail')
-        g.custom_command('list-member-of', 'users_list_member_of')
-        g.custom_command('list-oauth2-permission-grant', 'users_list_oauth2_permission_grant')
-        g.custom_command('list-owned-device', 'users_list_owned_device')
-        g.custom_command('list-owned-object', 'users_list_owned_object')
-        g.custom_command('list-photo', 'users_list_photo')
-        g.custom_command('list-ref-created-object', 'users_list_ref_created_object')
-        g.custom_command('list-ref-direct-report', 'users_list_ref_direct_report')
-        g.custom_command('list-ref-member-of', 'users_list_ref_member_of')
-        g.custom_command('list-ref-oauth2-permission-grant', 'users_list_ref_oauth2_permission_grant')
-        g.custom_command('list-ref-owned-device', 'users_list_ref_owned_device')
-        g.custom_command('list-ref-owned-object', 'users_list_ref_owned_object')
-        g.custom_command('list-ref-registered-device', 'users_list_ref_registered_device')
-        g.custom_command('list-ref-transitive-member-of', 'users_list_ref_transitive_member_of')
-        g.custom_command('list-registered-device', 'users_list_registered_device')
-        g.custom_command('list-transitive-member-of', 'users_list_transitive_member_of')
-        g.custom_command('set-ref-manager', 'users_set_ref_manager')
-        g.custom_command('update-extension', 'users_update_extension')
-        g.custom_command('update-license-detail', 'users_update_license_detail')
-        g.custom_command('update-outlook', 'users_update_outlook')
-        g.custom_command('update-photo', 'users_update_photo')
-        g.custom_command('update-setting', 'users_update_setting')
+    with self.command_group('users user', users_v1_0_user, client_factory=cf_user) as g:
+        g.custom_command('create-extension', 'users_user_create_extension')
+        g.custom_command('create-license-detail', 'users_user_create_license_detail')
+        g.custom_command('create-photo', 'users_user_create_photo')
+        g.custom_command('create-ref-created-object', 'users_user_create_ref_created_object')
+        g.custom_command('create-ref-direct-report', 'users_user_create_ref_direct_report')
+        g.custom_command('create-ref-member-of', 'users_user_create_ref_member_of')
+        g.custom_command('create-ref-oauth2-permission-grant', 'users_user_create_ref_oauth2_permission_grant')
+        g.custom_command('create-ref-owned-device', 'users_user_create_ref_owned_device')
+        g.custom_command('create-ref-owned-object', 'users_user_create_ref_owned_object')
+        g.custom_command('create-ref-registered-device', 'users_user_create_ref_registered_device')
+        g.custom_command('create-ref-transitive-member-of', 'users_user_create_ref_transitive_member_of')
+        g.custom_command('delete-extension', 'users_user_delete_extension')
+        g.custom_command('delete-license-detail', 'users_user_delete_license_detail')
+        g.custom_command('delete-outlook', 'users_user_delete_outlook')
+        g.custom_command('delete-photo', 'users_user_delete_photo')
+        g.custom_command('delete-ref-manager', 'users_user_delete_ref_manager')
+        g.custom_command('delete-setting', 'users_user_delete_setting')
+        g.custom_command('list-created-object', 'users_user_list_created_object')
+        g.custom_command('list-direct-report', 'users_user_list_direct_report')
+        g.custom_command('list-extension', 'users_user_list_extension')
+        g.custom_command('list-license-detail', 'users_user_list_license_detail')
+        g.custom_command('list-member-of', 'users_user_list_member_of')
+        g.custom_command('list-oauth2-permission-grant', 'users_user_list_oauth2_permission_grant')
+        g.custom_command('list-owned-device', 'users_user_list_owned_device')
+        g.custom_command('list-owned-object', 'users_user_list_owned_object')
+        g.custom_command('list-photo', 'users_user_list_photo')
+        g.custom_command('list-ref-created-object', 'users_user_list_ref_created_object')
+        g.custom_command('list-ref-direct-report', 'users_user_list_ref_direct_report')
+        g.custom_command('list-ref-member-of', 'users_user_list_ref_member_of')
+        g.custom_command('list-ref-oauth2-permission-grant', 'users_user_list_ref_oauth2_permission_grant')
+        g.custom_command('list-ref-owned-device', 'users_user_list_ref_owned_device')
+        g.custom_command('list-ref-owned-object', 'users_user_list_ref_owned_object')
+        g.custom_command('list-ref-registered-device', 'users_user_list_ref_registered_device')
+        g.custom_command('list-ref-transitive-member-of', 'users_user_list_ref_transitive_member_of')
+        g.custom_command('list-registered-device', 'users_user_list_registered_device')
+        g.custom_command('list-transitive-member-of', 'users_user_list_transitive_member_of')
+        g.custom_command('set-ref-manager', 'users_user_set_ref_manager')
+        g.custom_command('show-extension', 'users_user_show_extension')
+        g.custom_command('show-license-detail', 'users_user_show_license_detail')
+        g.custom_command('show-manager', 'users_user_show_manager')
+        g.custom_command('show-outlook', 'users_user_show_outlook')
+        g.custom_command('show-photo', 'users_user_show_photo')
+        g.custom_command('show-ref-manager', 'users_user_show_ref_manager')
+        g.custom_command('show-setting', 'users_user_show_setting')
+        g.custom_command('update-extension', 'users_user_update_extension')
+        g.custom_command('update-license-detail', 'users_user_update_license_detail')
+        g.custom_command('update-outlook', 'users_user_update_outlook')
+        g.custom_command('update-photo', 'users_user_update_photo')
+        g.custom_command('update-setting', 'users_user_update_setting')
 
-    from azext_users_v1_0.generated._client_factory import cf_user_outlook
-    users_v1_0_user_outlook = CliCommandType(
-        operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_outlook_operations#UserOutlookOperations'
-        '.{}',
-        client_factory=cf_user_outlook)
-    with self.command_group('users', users_v1_0_user_outlook, client_factory=cf_user_outlook) as g:
-        g.custom_command('delete', 'users_delete', confirmation=True)
-        g.custom_command('create-master-category', 'users_create_master_category')
-        g.custom_command('get-master-category', 'users_get_master_category')
-        g.custom_command('list-master-category', 'users_list_master_category')
-        g.custom_command('update-master-category', 'users_update_master_category')
+    with self.command_group('users usersoutlook', users_v1_0_usersoutlook, client_factory=cf_usersoutlook) as g:
+        g.custom_command('create-master-category', 'users_usersoutlook_create_master_category')
+        g.custom_command('delete-master-category', 'users_usersoutlook_delete_master_category')
+        g.custom_command('list-master-category', 'users_usersoutlook_list_master_category')
+        g.custom_command('show-master-category', 'users_usersoutlook_show_master_category')
+        g.custom_command('update-master-category', 'users_usersoutlook_update_master_category')
 
-    from azext_users_v1_0.generated._client_factory import cf_user_setting
-    users_v1_0_user_setting = CliCommandType(
-        operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_setting_operations#UserSettingOperations'
-        '.{}',
-        client_factory=cf_user_setting)
-    with self.command_group('users', users_v1_0_user_setting, client_factory=cf_user_setting) as g:
-        g.custom_command('delete', 'users_delete', confirmation=True)
-        g.custom_command('get-shift-preference', 'users_get_shift_preference')
-        g.custom_command('update-shift-preference', 'users_update_shift_preference')
+    with self.command_group('users userssetting', users_v1_0_userssetting, client_factory=cf_userssetting) as g:
+        g.custom_command('delete-shift-preference', 'users_userssetting_delete_shift_preference')
+        g.custom_command('show-shift-preference', 'users_userssetting_show_shift_preference')
+        g.custom_command('update-shift-preference', 'users_userssetting_update_shift_preference')
+
+    with self.command_group('users_v1_0', is_experimental=True):
+        pass
