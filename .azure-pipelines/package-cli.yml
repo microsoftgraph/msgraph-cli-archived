@@ -153,9 +153,9 @@ stages:
             source: current
 
         - bash: |
-          export CLI_VERSION=$(cat msgraph/cli/core/__init__.py | grep __version__ | awk -F'=' '{print $2}')
-          
-         displayName: 'Create CLI_VERSION variable'
+            export CLI_VERSION=$(cat msgraph/cli/core/__init__.py | grep __version__ | awk -F'=' '{print $2}')
+          displayName: 'Create CLI_VERSION variable'
+
 
         - task: GitHubRelease@0
           inputs:
