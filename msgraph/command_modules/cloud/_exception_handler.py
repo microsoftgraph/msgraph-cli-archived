@@ -7,5 +7,5 @@
 from knack.cli import CLIError
 
 
-def profile_exception_handler(exception):
+def cloud_exception_handler(exception):
     raise CLIError(exception)

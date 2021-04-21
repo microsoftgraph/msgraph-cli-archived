@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------------------
 from knack.help_files import helps
 
-helps['profile set-version'] = """
+helps['cloud set-version'] = """
 type: command
 short-summary: Set version of graph to use.
 parameters:
@@ -15,12 +15,12 @@ parameters:
 examples:
   - name: Set Graph Version
     text: >
-      mg profile set-version --graph-version beta
+      mg cloud set-version --graph-version beta
 """
 
-helps['profile set-cloud'] = """
+helps['cloud set'] = """
 type: command
-short-summary: Set a cloud.
+short-summary: Set the active cloud.
 parameters:
   - name: --name
     type: string
@@ -28,35 +28,35 @@ parameters:
 examples:
   - name: Set cloud
     text: >
-      mg set-cloud --name PUBLIC
+      mg cloud set --name PUBLIC
 """
 
-helps['profile show-profile'] = """
+helps['cloud show'] = """
 type: command
 short-summary: Show profile information
 """
 
-helps['profile show-clouds'] = """
+helps['cloud list'] = """
 type: command
 short-summary: Show list of supported clouds
 """
 
-helps['profile delete-cloud'] = """
+helps['cloud unregister'] = """
 type: command
-short-summary: Deletes a user defined cloud
+short-summary: Unregisters a user defined cloud
 parameters:
   - name: --name
     type: string
-    short-summary: Cloud to delete
+    short-summary: Cloud to unregister
 examples:
   - name: Delete cloud
     text: >
-      mg cloud delete --name CUSTOM_CLOUD
+      mg cloud unregister --name CUSTOM_CLOUD
 """
 
-helps['profile add-cloud'] = """
+helps['cloud register'] = """
 type: command
-short-summary: Add a custom cloud
+short-summary: Register a custom cloud
 parameters:
   - name: --name
     type: string
@@ -68,14 +68,14 @@ parameters:
   - name: --azure-ad-endpoint
     short-summary: Cloud's authentication endpoint
 examples:
-  - name: Add a new cloud
+  - name: Register a new cloud
     text: >
       mg cloud add --name CUSTOM_CLOUD --endpoint https://graph.microsoft.com --authority https://graph.microsoftonline.com
 """
 
-helps['profile update-cloud'] = """
+helps['cloud update'] = """
 type: command
-short-summary: update a user defined cloud
+short-summary: Update the configuration of a user defined cloud.
 parameters:
   - name: --cloud
     type: string

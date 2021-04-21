@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 from os import path, remove
 
-from msgraph.command_modules.profile._cloud_manager import CloudManager
+from msgraph.command_modules.cloud._cloud_manager import CloudManager
 from msgraph.cli.core.profile import ProfileProvider
 from msgraph.cli.core.constants import DEFAULT_CLOUDS, DEFAULT_PROFILE
 from msgraph.cli.core.exceptions import CLIError
